@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Luyện SQL — Bài tập thực hành có chấm điểm</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐘</text></svg>">
+<link rel="stylesheet" href="vendor/codemirror/codemirror.min.css">
+<link rel="stylesheet" href="vendor/codemirror/eclipse.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="boot-overlay" style="position:fixed;inset:0;background:#0f2b46;color:#fff;display:flex;align-items:center;justify-content:center;font-family:sans-serif;z-index:999;">
+  <div style="text-align:center;">
+    <div style="font-size:34px;margin-bottom:10px;">⏳</div>
+    <div>Đang tải công cụ chạy SQL trong trình duyệt...</div>
+  </div>
+</div>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <span class="logo-dot"></span>
+      <h1>Luyện SQL cùng Vinh</h1>
+    </div>
+    <p class="sidebar-sub">Chấm điểm tự động · Chạy trực tiếp trong trình duyệt</p>
+
+    <div class="progress-card">
+      <div class="p-label"><span>Tiến độ tổng</span><span id="progress-label-num">0/0</span></div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%;"></div></div>
+    </div>
+
+    <div id="sidebar-nav"></div>
+  </aside>
+
+  <main class="main">
+    <div id="main-content"></div>
+  </main>
+</div>
+
+<script src="vendor/sqljs/sql-wasm.js"></script>
+<script src="vendor/codemirror/codemirror.min.js"></script>
+<script src="vendor/codemirror/sql.min.js"></script>
+<script src="js/schemas.js"></script>
+<script src="js/app.js"></script>
+<style>#boot-overlay.hidden{display:none;}</style>
+</body>
+</html>

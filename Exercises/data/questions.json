@@ -1,0 +1,3559 @@
+[
+  {
+    "id": "cm01",
+    "db": "classicmodels",
+    "difficulty": 1,
+    "type": "select",
+    "topic": "WHERE cơ bản",
+    "title": "Nhân viên phòng Sales có họ bắt đầu bằng P",
+    "prompt": "Lấy employeeNumber, firstName, lastName, jobTitle của các nhân viên có jobTitle chứa từ 'Sales' và lastName bắt đầu bằng chữ 'P'. Sắp xếp theo lastName tăng dần.",
+    "hint": "Dùng LIKE '%Sales%' cho jobTitle và LIKE 'P%' cho lastName.",
+    "solutionSql": "SELECT employeeNumber, firstName, lastName, jobTitle FROM employees WHERE jobTitle LIKE '%Sales%' AND lastName LIKE 'P%' ORDER BY lastName ASC;",
+    "expected": {
+      "columns": [
+        "employeeNumber",
+        "firstName",
+        "lastName",
+        "jobTitle"
+      ],
+      "rows": [
+        [
+          1056,
+          "Mary",
+          "Patterson",
+          "VP Sales"
+        ],
+        [
+          1088,
+          "William",
+          "Patterson",
+          "Sales Manager (APAC)"
+        ],
+        [
+          1216,
+          "Steve",
+          "Patterson",
+          "Sales Rep"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cm02",
+    "db": "classicmodels",
+    "difficulty": 1,
+    "type": "select",
+    "topic": "WHERE + BETWEEN/IN",
+    "title": "Đơn hàng đặt trong quý 4 năm 2004",
+    "prompt": "Lấy orderNumber, orderDate, status của các đơn hàng có orderDate trong khoảng từ '2004-10-01' đến '2004-12-31'. Sắp xếp theo orderDate tăng dần.",
+    "hint": "Dùng WHERE orderDate BETWEEN '2004-10-01' AND '2004-12-31'.",
+    "solutionSql": "SELECT orderNumber, orderDate, status FROM orders WHERE orderDate BETWEEN '2004-10-01' AND '2004-12-31' ORDER BY orderDate ASC;",
+    "expected": {
+      "columns": [
+        "orderNumber",
+        "orderDate",
+        "status"
+      ],
+      "rows": [
+        [
+          10303,
+          "2004-10-06",
+          "Shipped"
+        ],
+        [
+          10304,
+          "2004-10-11",
+          "Shipped"
+        ],
+        [
+          10305,
+          "2004-10-13",
+          "Shipped"
+        ],
+        [
+          10306,
+          "2004-10-14",
+          "Shipped"
+        ],
+        [
+          10307,
+          "2004-10-14",
+          "Shipped"
+        ],
+        [
+          10308,
+          "2004-10-15",
+          "Shipped"
+        ],
+        [
+          10309,
+          "2004-10-15",
+          "Shipped"
+        ],
+        [
+          10310,
+          "2004-10-16",
+          "Shipped"
+        ],
+        [
+          10311,
+          "2004-10-16",
+          "Shipped"
+        ],
+        [
+          10312,
+          "2004-10-21",
+          "Shipped"
+        ],
+        [
+          10313,
+          "2004-10-22",
+          "Shipped"
+        ],
+        [
+          10314,
+          "2004-10-22",
+          "Shipped"
+        ],
+        [
+          10315,
+          "2004-10-29",
+          "Shipped"
+        ],
+        [
+          10316,
+          "2004-11-01",
+          "Shipped"
+        ],
+        [
+          10348,
+          "2004-11-01",
+          "Shipped"
+        ],
+        [
+          10317,
+          "2004-11-02",
+          "Shipped"
+        ],
+        [
+          10318,
+          "2004-11-02",
+          "Shipped"
+        ],
+        [
+          10319,
+          "2004-11-03",
+          "Shipped"
+        ],
+        [
+          10320,
+          "2004-11-03",
+          "Shipped"
+        ],
+        [
+          10321,
+          "2004-11-04",
+          "Shipped"
+        ],
+        [
+          10322,
+          "2004-11-04",
+          "Shipped"
+        ],
+        [
+          10323,
+          "2004-11-05",
+          "Shipped"
+        ],
+        [
+          10324,
+          "2004-11-05",
+          "Shipped"
+        ],
+        [
+          10325,
+          "2004-11-05",
+          "Shipped"
+        ],
+        [
+          10326,
+          "2004-11-09",
+          "Shipped"
+        ],
+        [
+          10327,
+          "2004-11-10",
+          "Resolved"
+        ],
+        [
+          10328,
+          "2004-11-12",
+          "Shipped"
+        ],
+        [
+          10329,
+          "2004-11-15",
+          "Shipped"
+        ],
+        [
+          10330,
+          "2004-11-16",
+          "Shipped"
+        ],
+        [
+          10331,
+          "2004-11-17",
+          "Shipped"
+        ],
+        [
+          10332,
+          "2004-11-17",
+          "Shipped"
+        ],
+        [
+          10333,
+          "2004-11-18",
+          "Shipped"
+        ],
+        [
+          10334,
+          "2004-11-19",
+          "On Hold"
+        ],
+        [
+          10335,
+          "2004-11-19",
+          "Shipped"
+        ],
+        [
+          10336,
+          "2004-11-20",
+          "Shipped"
+        ],
+        [
+          10337,
+          "2004-11-21",
+          "Shipped"
+        ],
+        [
+          10338,
+          "2004-11-22",
+          "Shipped"
+        ],
+        [
+          10339,
+          "2004-11-23",
+          "Shipped"
+        ],
+        [
+          10340,
+          "2004-11-24",
+          "Shipped"
+        ],
+        [
+          10341,
+          "2004-11-24",
+          "Shipped"
+        ],
+        [
+          10342,
+          "2004-11-24",
+          "Shipped"
+        ],
+        [
+          10343,
+          "2004-11-24",
+          "Shipped"
+        ],
+        [
+          10344,
+          "2004-11-25",
+          "Shipped"
+        ],
+        [
+          10345,
+          "2004-11-25",
+          "Shipped"
+        ],
+        [
+          10346,
+          "2004-11-29",
+          "Shipped"
+        ],
+        [
+          10347,
+          "2004-11-29",
+          "Shipped"
+        ],
+        [
+          10349,
+          "2004-12-01",
+          "Shipped"
+        ],
+        [
+          10350,
+          "2004-12-02",
+          "Shipped"
+        ],
+        [
+          10351,
+          "2004-12-03",
+          "Shipped"
+        ],
+        [
+          10352,
+          "2004-12-03",
+          "Shipped"
+        ],
+        [
+          10353,
+          "2004-12-04",
+          "Shipped"
+        ],
+        [
+          10354,
+          "2004-12-04",
+          "Shipped"
+        ],
+        [
+          10355,
+          "2004-12-07",
+          "Shipped"
+        ],
+        [
+          10356,
+          "2004-12-09",
+          "Shipped"
+        ],
+        [
+          10357,
+          "2004-12-10",
+          "Shipped"
+        ],
+        [
+          10358,
+          "2004-12-10",
+          "Shipped"
+        ],
+        [
+          10359,
+          "2004-12-15",
+          "Shipped"
+        ],
+        [
+          10360,
+          "2004-12-16",
+          "Shipped"
+        ],
+        [
+          10361,
+          "2004-12-17",
+          "Shipped"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cm03",
+    "db": "classicmodels",
+    "difficulty": 1,
+    "type": "select",
+    "topic": "ORDER BY + LIMIT",
+    "title": "5 sản phẩm có giá bán lẻ (MSRP) cao nhất",
+    "prompt": "Lấy productCode, productName, MSRP của 5 sản phẩm có MSRP cao nhất, sắp xếp giảm dần theo MSRP.",
+    "hint": "ORDER BY MSRP DESC rồi LIMIT 5.",
+    "solutionSql": "SELECT productCode, productName, MSRP FROM products ORDER BY MSRP DESC LIMIT 5;",
+    "expected": {
+      "columns": [
+        "productCode",
+        "productName",
+        "MSRP"
+      ],
+      "rows": [
+        [
+          "S10_1949",
+          "1952 Alpine Renault 1300",
+          214.3
+        ],
+        [
+          "S12_1108",
+          "2001 Ferrari Enzo",
+          207.8
+        ],
+        [
+          "S12_1099",
+          "1968 Ford Mustang",
+          194.57
+        ],
+        [
+          "S10_4698",
+          "2003 Harley-Davidson Eagle Drag Bike",
+          193.66
+        ],
+        [
+          "S12_3891",
+          "1969 Ford Falcon",
+          173.02
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cm04",
+    "db": "classicmodels",
+    "difficulty": 2,
+    "type": "select",
+    "topic": "INNER JOIN",
+    "title": "Danh sách khách hàng cùng nhân viên phụ trách",
+    "prompt": "Lấy customerName, city, country của khách hàng cùng với firstName, lastName của nhân viên (employees) phụ trách khách hàng đó (salesRepEmployeeNumber = employeeNumber). Sắp xếp theo customerName tăng dần.",
+    "hint": "INNER JOIN customers với employees qua salesRepEmployeeNumber = employeeNumber.",
+    "solutionSql": "SELECT c.customerName, c.city, c.country, e.firstName, e.lastName FROM customers c INNER JOIN employees e ON c.salesRepEmployeeNumber = e.employeeNumber ORDER BY c.customerName ASC;",
+    "expected": {
+      "columns": [
+        "customerName",
+        "city",
+        "country",
+        "firstName",
+        "lastName"
+      ],
+      "rows": [
+        [
+          "AV Stores, Co.",
+          "Manchester",
+          "UK",
+          "Larry",
+          "Bott"
+        ],
+        [
+          "Alpha Cognac",
+          "Toulouse",
+          "France",
+          "Gerard",
+          "Hernandez"
+        ],
+        [
+          "American Souvenirs Inc",
+          "New Haven",
+          "USA",
+          "Foon Yue",
+          "Tseng"
+        ],
+        [
+          "Amica Models & Co.",
+          "Torino",
+          "Italy",
+          "Pamela",
+          "Castillo"
+        ],
+        [
+          "Anna's Decorations, Ltd",
+          "North Sydney",
+          "Australia",
+          "Andy",
+          "Fixter"
+        ],
+        [
+          "Atelier graphique",
+          "Nantes",
+          "France",
+          "Gerard",
+          "Hernandez"
+        ],
+        [
+          "Australian Collectables, Ltd",
+          "Glen Waverly",
+          "Australia",
+          "Andy",
+          "Fixter"
+        ],
+        [
+          "Australian Collectors, Co.",
+          "Melbourne",
+          "Australia",
+          "Andy",
+          "Fixter"
+        ],
+        [
+          "Australian Gift Network, Co",
+          "South Brisbane",
+          "Australia",
+          "Andy",
+          "Fixter"
+        ],
+        [
+          "Auto Associés & Cie.",
+          "Versailles",
+          "France",
+          "Gerard",
+          "Hernandez"
+        ],
+        [
+          "Auto Canal+ Petit",
+          "Paris",
+          "France",
+          "Loui",
+          "Bondur"
+        ],
+        [
+          "Auto-Moto Classics Inc.",
+          "Brickhaven",
+          "USA",
+          "Steve",
+          "Patterson"
+        ],
+        [
+          "Baane Mini Imports",
+          "Stavern",
+          "Norway",
+          "Barry",
+          "Jones"
+        ],
+        [
+          "Bavarian Collectables Imports, Co.",
+          "Munich",
+          "Germany",
+          "Barry",
+          "Jones"
+        ],
+        [
+          "Blauer See Auto, Co.",
+          "Frankfurt",
+          "Germany",
+          "Barry",
+          "Jones"
+        ],
+        [
+          "Boards & Toys Co.",
+          "Glendale",
+          "USA",
+          "Leslie",
+          "Thompson"
+        ],
+        [
+          "CAF Imports",
+          "Madrid",
+          "Spain",
+          "Martin",
+          "Gerard"
+        ],
+        [
+          "Cambridge Collectables Co.",
+          "Cambridge",
+          "USA",
+          "Julie",
+          "Firrelli"
+        ],
+        [
+          "Canadian Gift Exchange Network",
+          "Vancouver",
+          "Canada",
+          "George",
+          "Vanauf"
+        ],
+        [
+          "Classic Gift Ideas, Inc",
+          "Philadelphia",
+          "USA",
+          "Julie",
+          "Firrelli"
+        ],
+        [
+          "Classic Legends Inc.",
+          "NYC",
+          "USA",
+          "Foon Yue",
+          "Tseng"
+        ],
+        [
+          "Clover Collections, Co.",
+          "Dublin",
+          "Ireland",
+          "Barry",
+          "Jones"
+        ],
+        [
+          "Collectable Mini Designs Co.",
+          "San Diego",
+          "USA",
+          "Leslie",
+          "Thompson"
+        ],
+        [
+          "Collectables For Less Inc.",
+          "Brickhaven",
+          "USA",
+          "Julie",
+          "Firrelli"
+        ],
+        [
+          "Corporate Gift Ideas Co.",
+          "San Francisco",
+          "USA",
+          "Leslie",
+          "Jennings"
+        ],
+        [
+          "Corrida Auto Replicas, Ltd",
+          "Madrid",
+          "Spain",
+          "Martin",
+          "Gerard"
+        ],
+        [
+          "Cruz & Sons Co.",
+          "Makati City",
+          "Philippines",
+          "Mami",
+          "Nishi"
+        ],
+        [
+          "Daedalus Designs Imports",
+          "Lille",
+          "France",
+          "Gerard",
+          "Hernandez"
+        ],
+        [
+          "Danish Wholesale Imports",
+          "Kobenhavn",
+          "Denmark",
+          "Pamela",
+          "Castillo"
+        ],
+        [
+          "Diecast Classics Inc.",
+          "Allentown",
+          "USA",
+          "Steve",
+          "Patterson"
+        ],
+        [
+          "Diecast Collectables",
+          "Boston",
+          "USA",
+          "Julie",
+          "Firrelli"
+        ],
+        [
+          "Double Decker Gift Stores, Ltd",
+          "London",
+          "UK",
+          "Larry",
+          "Bott"
+        ],
+        [
+          "Down Under Souveniers, Inc",
+          "Auckland  ",
+          "New Zealand",
+          "Peter",
+          "Marsh"
+        ],
+        [
+          "Dragon Souveniers, Ltd.",
+          "Singapore",
+          "Singapore",
+          "Mami",
+          "Nishi"
+        ],
+        [
+          "Enaco Distributors",
+          "Barcelona",
+          "Spain",
+          "Martin",
+          "Gerard"
+        ],
+        [
+          "Euro+ Shopping Channel",
+          "Madrid",
+          "Spain",
+          "Gerard",
+          "Hernandez"
+        ],
+        [
+          "Extreme Desk Decorations, Ltd",
+          "Wellington",
+          "New Zealand",
+          "Peter",
+          "Marsh"
+        ],
+        [
+          "Frau da Collezione",
+          "Milan",
+          "Italy",
+          "Pamela",
+          "Castillo"
+        ],
+        [
+          "FunGiftIdeas.com",
+          "New Bedford",
+          "USA",
+          "Steve",
+          "Patterson"
+        ],
+        [
+          "Gift Depot Inc.",
+          "Bridgewater",
+          "USA",
+          "George",
+          "Vanauf"
+        ],
+        [
+          "Gift Ideas Corp.",
+          "Glendale",
+          "USA",
+          "George",
+          "Vanauf"
+        ],
+        [
+          "Gifts4AllAges.com",
+          "Boston",
+          "USA",
+          "Steve",
+          "Patterson"
+        ],
+        [
+          "GiftsForHim.com",
+          "Auckland",
+          "New Zealand",
+          "Peter",
+          "Marsh"
+        ],
+        [
+          "Handji Gifts& Co",
+          "Singapore",
+          "Singapore",
+          "Peter",
+          "Marsh"
+        ],
+        [
+          "Heintze Collectables",
+          "Århus",
+          "Denmark",
+          "Pamela",
+          "Castillo"
+        ],
+        [
+          "Herkku Gifts",
+          "Bergen",
+          "Norway  ",
+          "Barry",
+          "Jones"
+        ],
+        [
+          "Iberia Gift Imports, Corp.",
+          "Sevilla",
+          "Spain",
+          "Martin",
+          "Gerard"
+        ],
+        [
+          "Kelly's Gift Shop",
+          "Auckland  ",
+          "New Zealand",
+          "Peter",
+          "Marsh"
+        ],
+        [
+          "King Kong Collectables, Co.",
+          "Central Hong Kong",
+          "Hong Kong",
+          "Mami",
+          "Nishi"
+        ],
+        [
+          "L'ordine Souveniers",
+          "Reggio Emilia",
+          "Italy",
+          "Pamela",
+          "Castillo"
+        ],
+        [
+          "La Corne D'abondance, Co.",
+          "Paris",
+          "France",
+          "Loui",
+          "Bondur"
+        ],
+        [
+          "La Rochelle Gifts",
+          "Nantes",
+          "France",
+          "Gerard",
+          "Hernandez"
+        ],
+        [
+          "Land of Toys Inc.",
+          "NYC",
+          "USA",
+          "George",
+          "Vanauf"
+        ],
+        [
+          "Lyon Souveniers",
+          "Paris",
+          "France",
+          "Loui",
+          "Bondur"
+        ],
+        [
+          "Marseille Mini Autos",
+          "Marseille",
+          "France",
+          "Loui",
+          "Bondur"
+        ],
+        [
+          "Marta's Replicas Co.",
+          "Cambridge",
+          "USA",
+          "Steve",
+          "Patterson"
+        ],
+        [
+          "Men 'R' US Retailers, Ltd.",
+          "Los Angeles",
+          "USA",
+          "Leslie",
+          "Thompson"
+        ],
+        [
+          "Microscale Inc.",
+          "NYC",
+          "USA",
+          "Foon Yue",
+          "Tseng"
+        ],
+        [
+          "Mini Auto Werke",
+          "Graz",
+          "Austria",
+          "Pamela",
+          "Castillo"
+        ],
+        [
+          "Mini Caravy",
+          "Strasbourg",
+          "France",
+          "Gerard",
+          "Hernandez"
+        ],
+        [
+          "Mini Classics",
+          "White Plains",
+          "USA",
+          "George",
+          "Vanauf"
+        ],
+        [
+          "Mini Creations Ltd.",
+          "New Bedford",
+          "USA",
+          "Julie",
+          "Firrelli"
+        ],
+        [
+          "Mini Gifts Distributors Ltd.",
+          "San Rafael",
+          "USA",
+          "Leslie",
+          "Jennings"
+        ],
+        [
+          "Mini Wheels Co.",
+          "San Francisco",
+          "USA",
+          "Leslie",
+          "Jennings"
+        ],
+        [
+          "Motor Mint Distributors Inc.",
+          "Philadelphia",
+          "USA",
+          "George",
+          "Vanauf"
+        ],
+        [
+          "Muscle Machine Inc",
+          "NYC",
+          "USA",
+          "Foon Yue",
+          "Tseng"
+        ],
+        [
+          "Norway Gifts By Mail, Co.",
+          "Oslo",
+          "Norway  ",
+          "Barry",
+          "Jones"
+        ],
+        [
+          "Online Diecast Creations Co.",
+          "Nashua",
+          "USA",
+          "Steve",
+          "Patterson"
+        ],
+        [
+          "Online Mini Collectables",
+          "Brickhaven",
+          "USA",
+          "Julie",
+          "Firrelli"
+        ],
+        [
+          "Osaka Souveniers Co.",
+          "Kita-ku",
+          "Japan",
+          "Mami",
+          "Nishi"
+        ],
+        [
+          "Oulu Toy Supplies, Inc.",
+          "Oulu",
+          "Finland",
+          "Larry",
+          "Bott"
+        ],
+        [
+          "Petit Auto",
+          "Bruxelles",
+          "Belgium",
+          "Pamela",
+          "Castillo"
+        ],
+        [
+          "Precious Collectables",
+          "Bern",
+          "Switzerland",
+          "Martin",
+          "Gerard"
+        ],
+        [
+          "Québec Home Shopping Network",
+          "Montréal",
+          "Canada",
+          "Foon Yue",
+          "Tseng"
+        ],
+        [
+          "Reims Collectables",
+          "Reims",
+          "France",
+          "Loui",
+          "Bondur"
+        ],
+        [
+          "Rovelli Gifts",
+          "Bergamo",
+          "Italy",
+          "Pamela",
+          "Castillo"
+        ],
+        [
+          "Royal Canadian Collectables, Ltd.",
+          "Tsawassen",
+          "Canada",
+          "George",
+          "Vanauf"
+        ],
+        [
+          "Royale Belge",
+          "Charleroi",
+          "Belgium",
+          "Pamela",
+          "Castillo"
+        ],
+        [
+          "Salzburg Collectables",
+          "Salzburg",
+          "Austria",
+          "Pamela",
+          "Castillo"
+        ],
+        [
+          "Saveley & Henriot, Co.",
+          "Lyon",
+          "France",
+          "Loui",
+          "Bondur"
+        ],
+        [
+          "Scandinavian Gift Ideas",
+          "Bräcke",
+          "Sweden",
+          "Barry",
+          "Jones"
+        ],
+        [
+          "Signal Collectibles Ltd.",
+          "Brisbane",
+          "USA",
+          "Leslie",
+          "Jennings"
+        ],
+        [
+          "Signal Gift Stores",
+          "Las Vegas",
+          "USA",
+          "Leslie",
+          "Thompson"
+        ],
+        [
+          "Souveniers And Things Co.",
+          "Chatswood",
+          "Australia",
+          "Andy",
+          "Fixter"
+        ],
+        [
+          "Stylish Desk Decors, Co.",
+          "London",
+          "UK",
+          "Larry",
+          "Bott"
+        ],
+        [
+          "Suominen Souveniers",
+          "Espoo",
+          "Finland",
+          "Larry",
+          "Bott"
+        ],
+        [
+          "Super Scale Inc.",
+          "New Haven",
+          "USA",
+          "Foon Yue",
+          "Tseng"
+        ],
+        [
+          "Technics Stores Inc.",
+          "Burlingame",
+          "USA",
+          "Leslie",
+          "Jennings"
+        ],
+        [
+          "Tekni Collectables Inc.",
+          "Newark",
+          "USA",
+          "George",
+          "Vanauf"
+        ],
+        [
+          "The Sharp Gifts Warehouse",
+          "San Jose",
+          "USA",
+          "Leslie",
+          "Jennings"
+        ],
+        [
+          "Tokyo Collectables, Ltd",
+          "Minato-ku",
+          "Japan",
+          "Mami",
+          "Nishi"
+        ],
+        [
+          "Toms Spezialitäten, Ltd",
+          "Köln",
+          "Germany",
+          "Barry",
+          "Jones"
+        ],
+        [
+          "Toys of Finland, Co.",
+          "Helsinki",
+          "Finland",
+          "Larry",
+          "Bott"
+        ],
+        [
+          "Toys4GrownUps.com",
+          "Pasadena",
+          "USA",
+          "Leslie",
+          "Thompson"
+        ],
+        [
+          "UK Collectables, Ltd.",
+          "Liverpool",
+          "UK",
+          "Larry",
+          "Bott"
+        ],
+        [
+          "Vida Sport, Ltd",
+          "Genève",
+          "Switzerland",
+          "Martin",
+          "Gerard"
+        ],
+        [
+          "Vitachrome Inc.",
+          "NYC",
+          "USA",
+          "Foon Yue",
+          "Tseng"
+        ],
+        [
+          "Volvo Model Replicas, Co",
+          "Luleå",
+          "Sweden",
+          "Barry",
+          "Jones"
+        ],
+        [
+          "West Coast Collectables Co.",
+          "Burbank",
+          "USA",
+          "Leslie",
+          "Thompson"
+        ],
+        [
+          "giftsbymail.co.uk",
+          "Cowes",
+          "UK",
+          "Larry",
+          "Bott"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cm05",
+    "db": "classicmodels",
+    "difficulty": 2,
+    "type": "select",
+    "topic": "LEFT JOIN + IS NULL",
+    "title": "Sản phẩm chưa từng được đặt hàng",
+    "prompt": "Liệt kê productCode, productName của các sản phẩm chưa từng xuất hiện trong bảng orderdetails.",
+    "hint": "LEFT JOIN products với orderdetails, lọc WHERE orderdetails.productCode IS NULL.",
+    "solutionSql": "SELECT p.productCode, p.productName FROM products p LEFT JOIN orderdetails od ON p.productCode = od.productCode WHERE od.productCode IS NULL ORDER BY p.productCode ASC;",
+    "expected": {
+      "columns": [
+        "productCode",
+        "productName"
+      ],
+      "rows": [
+        [
+          "S18_3233",
+          "1985 Toyota Supra"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cm06",
+    "db": "classicmodels",
+    "difficulty": 2,
+    "type": "select",
+    "topic": "SELF JOIN",
+    "title": "Nhân viên và người quản lý trực tiếp",
+    "prompt": "Lấy employeeNumber, firstName + lastName của nhân viên (đặt tên cột NhanVien), và firstName + lastName của người quản lý trực tiếp (đặt tên cột QuanLy). Nhân viên không có quản lý (reportsTo NULL) vẫn phải xuất hiện, cột QuanLy để trống (NULL).",
+    "hint": "LEFT JOIN employees với chính nó qua e.reportsTo = m.employeeNumber. Dùng CONCAT hoặc || để nối họ tên.",
+    "solutionSql": "SELECT e.employeeNumber, e.firstName || ' ' || e.lastName AS NhanVien, m.firstName || ' ' || m.lastName AS QuanLy FROM employees e LEFT JOIN employees m ON e.reportsTo = m.employeeNumber ORDER BY e.employeeNumber ASC;",
+    "expected": {
+      "columns": [
+        "employeeNumber",
+        "NhanVien",
+        "QuanLy"
+      ],
+      "rows": [
+        [
+          1002,
+          "Diane Murphy",
+          null
+        ],
+        [
+          1056,
+          "Mary Patterson",
+          "Diane Murphy"
+        ],
+        [
+          1076,
+          "Jeff Firrelli",
+          "Diane Murphy"
+        ],
+        [
+          1088,
+          "William Patterson",
+          "Mary Patterson"
+        ],
+        [
+          1102,
+          "Gerard Bondur",
+          "Mary Patterson"
+        ],
+        [
+          1143,
+          "Anthony Bow",
+          "Mary Patterson"
+        ],
+        [
+          1165,
+          "Leslie Jennings",
+          "Anthony Bow"
+        ],
+        [
+          1166,
+          "Leslie Thompson",
+          "Anthony Bow"
+        ],
+        [
+          1188,
+          "Julie Firrelli",
+          "Anthony Bow"
+        ],
+        [
+          1216,
+          "Steve Patterson",
+          "Anthony Bow"
+        ],
+        [
+          1286,
+          "Foon Yue Tseng",
+          "Anthony Bow"
+        ],
+        [
+          1323,
+          "George Vanauf",
+          "Anthony Bow"
+        ],
+        [
+          1337,
+          "Loui Bondur",
+          "Gerard Bondur"
+        ],
+        [
+          1370,
+          "Gerard Hernandez",
+          "Gerard Bondur"
+        ],
+        [
+          1401,
+          "Pamela Castillo",
+          "Gerard Bondur"
+        ],
+        [
+          1501,
+          "Larry Bott",
+          "Gerard Bondur"
+        ],
+        [
+          1504,
+          "Barry Jones",
+          "Gerard Bondur"
+        ],
+        [
+          1611,
+          "Andy Fixter",
+          "William Patterson"
+        ],
+        [
+          1612,
+          "Peter Marsh",
+          "William Patterson"
+        ],
+        [
+          1619,
+          "Tom King",
+          "William Patterson"
+        ],
+        [
+          1621,
+          "Mami Nishi",
+          "Mary Patterson"
+        ],
+        [
+          1625,
+          "Yoshimi Kato",
+          "Mami Nishi"
+        ],
+        [
+          1702,
+          "Martin Gerard",
+          "Gerard Bondur"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cm07",
+    "db": "classicmodels",
+    "difficulty": 2,
+    "type": "select",
+    "topic": "GROUP BY + COUNT/SUM",
+    "title": "Số đơn hàng và tổng số mặt hàng theo từng trạng thái",
+    "prompt": "Với mỗi status trong bảng orders, tính số lượng đơn hàng (COUNT) và tổng số lượng sản phẩm đã đặt trong các đơn đó (SUM quantityOrdered từ orderdetails, nối qua orderNumber). Sắp xếp giảm dần theo số đơn hàng.",
+    "hint": "JOIN orders với orderdetails, GROUP BY status.",
+    "solutionSql": "SELECT o.status, COUNT(DISTINCT o.orderNumber) AS SoDonHang, SUM(od.quantityOrdered) AS TongSoLuong FROM orders o JOIN orderdetails od ON o.orderNumber = od.orderNumber GROUP BY o.status ORDER BY SoDonHang DESC;",
+    "expected": {
+      "columns": [
+        "status",
+        "SoDonHang",
+        "TongSoLuong"
+      ],
+      "rows": [
+        [
+          "Shipped",
+          303,
+          97141
+        ],
+        [
+          "In Process",
+          6,
+          1490
+        ],
+        [
+          "Cancelled",
+          6,
+          2634
+        ],
+        [
+          "Resolved",
+          4,
+          1660
+        ],
+        [
+          "On Hold",
+          4,
+          1994
+        ],
+        [
+          "Disputed",
+          3,
+          597
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cm08",
+    "db": "classicmodels",
+    "difficulty": 3,
+    "type": "select",
+    "topic": "GROUP BY + HAVING",
+    "title": "Khách hàng có từ 5 đơn hàng trở lên",
+    "prompt": "Lấy customerNumber, customerName và số lượng đơn hàng (SoDonHang) của các khách hàng có từ 5 đơn hàng trở lên. Sắp xếp giảm dần theo số đơn hàng.",
+    "hint": "JOIN customers với orders, GROUP BY khách hàng, HAVING COUNT(orderNumber) >= 5.",
+    "solutionSql": "SELECT c.customerNumber, c.customerName, COUNT(o.orderNumber) AS SoDonHang FROM customers c JOIN orders o ON c.customerNumber = o.customerNumber GROUP BY c.customerNumber, c.customerName HAVING COUNT(o.orderNumber) >= 5 ORDER BY SoDonHang DESC;",
+    "expected": {
+      "columns": [
+        "customerNumber",
+        "customerName",
+        "SoDonHang"
+      ],
+      "rows": [
+        [
+          141,
+          "Euro+ Shopping Channel",
+          26
+        ],
+        [
+          124,
+          "Mini Gifts Distributors Ltd.",
+          17
+        ],
+        [
+          114,
+          "Australian Collectors, Co.",
+          5
+        ],
+        [
+          145,
+          "Danish Wholesale Imports",
+          5
+        ],
+        [
+          148,
+          "Dragon Souveniers, Ltd.",
+          5
+        ],
+        [
+          323,
+          "Down Under Souveniers, Inc",
+          5
+        ],
+        [
+          353,
+          "Reims Collectables",
+          5
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cm09",
+    "db": "classicmodels",
+    "difficulty": 3,
+    "type": "select",
+    "topic": "Subquery so sánh trung bình",
+    "title": "Sản phẩm đắt hơn giá bán lẻ trung bình toàn hệ thống",
+    "prompt": "Lấy productCode, productName, MSRP của các sản phẩm có MSRP lớn hơn MSRP trung bình của toàn bộ bảng products. Sắp xếp giảm dần theo MSRP.",
+    "hint": "WHERE MSRP > (SELECT AVG(MSRP) FROM products).",
+    "solutionSql": "SELECT productCode, productName, MSRP FROM products WHERE MSRP > (SELECT AVG(MSRP) FROM products) ORDER BY MSRP DESC;",
+    "expected": {
+      "columns": [
+        "productCode",
+        "productName",
+        "MSRP"
+      ],
+      "rows": [
+        [
+          "S10_1949",
+          "1952 Alpine Renault 1300",
+          214.3
+        ],
+        [
+          "S12_1108",
+          "2001 Ferrari Enzo",
+          207.8
+        ],
+        [
+          "S12_1099",
+          "1968 Ford Mustang",
+          194.57
+        ],
+        [
+          "S10_4698",
+          "2003 Harley-Davidson Eagle Drag Bike",
+          193.66
+        ],
+        [
+          "S12_3891",
+          "1969 Ford Falcon",
+          173.02
+        ],
+        [
+          "S18_1749",
+          "1917 Grand Touring Sedan",
+          170.0
+        ],
+        [
+          "S18_3232",
+          "1992 Ferrari 360 Spider red",
+          169.34
+        ],
+        [
+          "S18_2795",
+          "1928 Mercedes-Benz SSK",
+          168.75
+        ],
+        [
+          "S18_2238",
+          "1998 Chrysler Plymouth Prowler",
+          163.73
+        ],
+        [
+          "S18_1662",
+          "1980s Black Hawk Helicopter",
+          157.69
+        ],
+        [
+          "S12_3148",
+          "1969 Corvair Monza",
+          151.08
+        ],
+        [
+          "S12_2823",
+          "2002 Suzuki XREO",
+          150.62
+        ],
+        [
+          "S18_4721",
+          "1957 Corvette Convertible",
+          148.8
+        ],
+        [
+          "S10_4962",
+          "1962 LanciaA Delta 16V",
+          147.74
+        ],
+        [
+          "S18_3482",
+          "1976 Ford Gran Torino",
+          146.99
+        ],
+        [
+          "S18_4027",
+          "1970 Triumph Spitfire",
+          143.62
+        ],
+        [
+          "S18_1984",
+          "1995 Honda Civic",
+          142.25
+        ],
+        [
+          "S18_1129",
+          "1993 Mazda RX-7",
+          141.54
+        ],
+        [
+          "S18_3685",
+          "1948 Porsche Type 356 Roadster",
+          141.28
+        ],
+        [
+          "S24_3856",
+          "1956 Porsche 356A Coupe",
+          140.43
+        ],
+        [
+          "S12_1666",
+          "1958 Setra Bus",
+          136.67
+        ],
+        [
+          "S18_3140",
+          "1903 Ford Model A",
+          136.59
+        ],
+        [
+          "S10_4757",
+          "1972 Alfa Romeo GTA",
+          136.0
+        ],
+        [
+          "S18_2870",
+          "1999 Indy 500 Monte Carlo SS",
+          132.0
+        ],
+        [
+          "S24_2300",
+          "1962 Volkswagen Microbus",
+          127.79
+        ],
+        [
+          "S18_2325",
+          "1932 Model A Ford J-Coupe",
+          127.13
+        ],
+        [
+          "S18_1589",
+          "1965 Aston Martin DB5",
+          124.44
+        ],
+        [
+          "S24_2011",
+          "18th century schooner",
+          122.89
+        ],
+        [
+          "S18_2319",
+          "1964 Mercedes Tour Bus",
+          122.73
+        ],
+        [
+          "S18_4600",
+          "1940s Ford truck",
+          121.08
+        ],
+        [
+          "S10_2016",
+          "1996 Moto Guzzi 1100i",
+          118.94
+        ],
+        [
+          "S700_2834",
+          "ATA: B757-300",
+          118.65
+        ],
+        [
+          "S12_4473",
+          "1957 Chevy Pickup",
+          118.5
+        ],
+        [
+          "S24_4048",
+          "1992 Porsche Cayenne Turbo Silver",
+          118.28
+        ],
+        [
+          "S12_3380",
+          "1968 Dodge Charger",
+          117.44
+        ],
+        [
+          "S24_2887",
+          "1952 Citroen-15CV",
+          117.44
+        ],
+        [
+          "S18_1097",
+          "1940 Ford Pickup Truck",
+          116.67
+        ],
+        [
+          "S50_1392",
+          "Diamond T620 Semi-Skirted Tanker",
+          115.75
+        ],
+        [
+          "S12_4675",
+          "1969 Dodge Charger",
+          115.16
+        ],
+        [
+          "S24_1578",
+          "1997 BMW R 1100 S",
+          112.7
+        ],
+        [
+          "S24_1785",
+          "1928 British Royal Navy Airplane",
+          109.42
+        ],
+        [
+          "S18_3233",
+          "1985 Toyota Supra",
+          107.57
+        ],
+        [
+          "S24_3432",
+          "2002 Chevy Corvette",
+          107.08
+        ],
+        [
+          "S18_3856",
+          "1941 Chevrolet Special Deluxe Cabriolet",
+          105.87
+        ],
+        [
+          "S18_3136",
+          "18th Century Vintage Horse Carriage",
+          104.72
+        ],
+        [
+          "S18_1342",
+          "1937 Lincoln Berline",
+          102.74
+        ],
+        [
+          "S32_4485",
+          "1974 Ducati 350 Mk3 Desmo",
+          102.05
+        ],
+        [
+          "S18_2949",
+          "1913 Ford Model T Speedster",
+          101.31
+        ],
+        [
+          "S700_2824",
+          "1982 Camaro Z28",
+          101.15
+        ],
+        [
+          "S18_3259",
+          "Collectable Wooden Train",
+          100.84
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cm10",
+    "db": "classicmodels",
+    "difficulty": 3,
+    "type": "select",
+    "topic": "Subquery NOT EXISTS",
+    "title": "Khách hàng chưa từng thanh toán",
+    "prompt": "Liệt kê customerNumber, customerName của các khách hàng chưa từng có bản ghi nào trong bảng payments.",
+    "hint": "Dùng NOT EXISTS (SELECT 1 FROM payments WHERE ...) hoặc NOT IN.",
+    "solutionSql": "SELECT customerNumber, customerName FROM customers c WHERE NOT EXISTS (SELECT 1 FROM payments p WHERE p.customerNumber = c.customerNumber) ORDER BY customerNumber ASC;",
+    "expected": {
+      "columns": [
+        "customerNumber",
+        "customerName"
+      ],
+      "rows": [
+        [
+          125,
+          "Havel & Zbyszek Co"
+        ],
+        [
+          168,
+          "American Souvenirs Inc"
+        ],
+        [
+          169,
+          "Porto Imports Co."
+        ],
+        [
+          206,
+          "Asian Shopping Network, Co"
+        ],
+        [
+          223,
+          "Natürlich Autos"
+        ],
+        [
+          237,
+          "ANG Resellers"
+        ],
+        [
+          247,
+          "Messner Shopping Network"
+        ],
+        [
+          273,
+          "Franken Gifts, Co"
+        ],
+        [
+          293,
+          "BG&E Collectables"
+        ],
+        [
+          303,
+          "Schuyler Imports"
+        ],
+        [
+          307,
+          "Der Hund Imports"
+        ],
+        [
+          335,
+          "Cramer Spezialitäten, Ltd"
+        ],
+        [
+          348,
+          "Asian Treasures, Inc."
+        ],
+        [
+          356,
+          "SAR Distributors, Co"
+        ],
+        [
+          361,
+          "Kommission Auto"
+        ],
+        [
+          369,
+          "Lisboa Souveniers, Inc"
+        ],
+        [
+          376,
+          "Precious Collectables"
+        ],
+        [
+          409,
+          "Stuttgart Collectable Exchange"
+        ],
+        [
+          443,
+          "Feuer Online Stores, Inc"
+        ],
+        [
+          459,
+          "Warburg Exchange"
+        ],
+        [
+          465,
+          "Anton Designs, Ltd."
+        ],
+        [
+          477,
+          "Mit Vergnügen & Co."
+        ],
+        [
+          480,
+          "Kremlin Collectables, Co."
+        ],
+        [
+          481,
+          "Raanan Stores, Inc"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cm11",
+    "db": "classicmodels",
+    "difficulty": 3,
+    "type": "select",
+    "topic": "Tính toán nhiều cột + ROUND",
+    "title": "Doanh thu và lợi nhuận theo từng dòng sản phẩm",
+    "prompt": "Với mỗi productLine, tính tổng doanh thu (SUM quantityOrdered*priceEach từ orderdetails nối với products) và làm tròn đến 2 chữ số thập phân, đặt tên cột TongDoanhThu. Sắp xếp giảm dần theo TongDoanhThu.",
+    "hint": "JOIN products với orderdetails qua productCode, GROUP BY productLine, dùng ROUND().",
+    "solutionSql": "SELECT p.productLine, ROUND(SUM(od.quantityOrdered * od.priceEach), 2) AS TongDoanhThu FROM products p JOIN orderdetails od ON p.productCode = od.productCode GROUP BY p.productLine ORDER BY TongDoanhThu DESC;",
+    "expected": {
+      "columns": [
+        "productLine",
+        "TongDoanhThu"
+      ],
+      "rows": [
+        [
+          "Classic Cars",
+          3853922.49
+        ],
+        [
+          "Vintage Cars",
+          1797559.63
+        ],
+        [
+          "Motorcycles",
+          1121426.12
+        ],
+        [
+          "Trucks and Buses",
+          1024113.57
+        ],
+        [
+          "Planes",
+          954637.54
+        ],
+        [
+          "Ships",
+          663998.34
+        ],
+        [
+          "Trains",
+          188532.92
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cm12",
+    "db": "classicmodels",
+    "difficulty": 2,
+    "type": "dml",
+    "topic": "DML - INSERT",
+    "title": "Thêm một văn phòng mới tại Việt Nam",
+    "prompt": "Thêm một dòng mới vào bảng offices với officeCode = '8', city = 'Ha Noi', phone = '+84 24 3999 9999', addressLine1 = 'Phenikaa University', country = 'Vietnam', postalCode = '100000', territory = 'SEASIA' (các cột còn lại để NULL).",
+    "hint": "INSERT INTO offices (officeCode, city, phone, addressLine1, country, postalCode, territory) VALUES (...);",
+    "solutionSql": "INSERT INTO offices (officeCode, city, phone, addressLine1, country, postalCode, territory) VALUES ('8', 'Ha Noi', '+84 24 3999 9999', 'Phenikaa University', 'Vietnam', '100000', 'SEASIA');",
+    "verifySql": "SELECT officeCode, city, country, territory FROM offices WHERE officeCode = '8';",
+    "expected": {
+      "columns": [
+        "officeCode",
+        "city",
+        "country",
+        "territory"
+      ],
+      "rows": [
+        [
+          "8",
+          "Ha Noi",
+          "Vietnam",
+          "SEASIA"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cm13",
+    "db": "classicmodels",
+    "difficulty": 2,
+    "type": "dml",
+    "topic": "DML - UPDATE",
+    "title": "Tăng hạn mức tín dụng cho khách hàng Mỹ chi tiêu nhiều",
+    "prompt": "Tăng creditLimit thêm 15% cho các khách hàng ở country = 'USA' và đã có tổng amount trong payments lớn hơn 100000.",
+    "hint": "UPDATE customers SET creditLimit = creditLimit * 1.15 WHERE country='USA' AND customerNumber IN (SELECT ... GROUP BY ... HAVING SUM(amount) > 100000);",
+    "solutionSql": "UPDATE customers SET creditLimit = creditLimit * 1.15 WHERE country = 'USA' AND customerNumber IN (SELECT customerNumber FROM payments GROUP BY customerNumber HAVING SUM(amount) > 100000);",
+    "verifySql": "SELECT customerNumber, ROUND(creditLimit,2) AS creditLimit FROM customers WHERE country='USA' ORDER BY customerNumber;",
+    "expected": {
+      "columns": [
+        "customerNumber",
+        "creditLimit"
+      ],
+      "rows": [
+        [
+          112,
+          71800.0
+        ],
+        [
+          124,
+          242075.0
+        ],
+        [
+          129,
+          64600.0
+        ],
+        [
+          131,
+          132135.0
+        ],
+        [
+          151,
+          159275.0
+        ],
+        [
+          157,
+          100600.0
+        ],
+        [
+          161,
+          97290.0
+        ],
+        [
+          168,
+          0.0
+        ],
+        [
+          173,
+          43400.0
+        ],
+        [
+          175,
+          84300.0
+        ],
+        [
+          181,
+          76400.0
+        ],
+        [
+          198,
+          23000.0
+        ],
+        [
+          204,
+          68700.0
+        ],
+        [
+          205,
+          90700.0
+        ],
+        [
+          219,
+          11000.0
+        ],
+        [
+          239,
+          105000.0
+        ],
+        [
+          286,
+          123700.0
+        ],
+        [
+          319,
+          102700.0
+        ],
+        [
+          320,
+          108675.0
+        ],
+        [
+          321,
+          120750.0
+        ],
+        [
+          328,
+          43000.0
+        ],
+        [
+          339,
+          81100.0
+        ],
+        [
+          347,
+          57700.0
+        ],
+        [
+          362,
+          41900.0
+        ],
+        [
+          363,
+          131330.0
+        ],
+        [
+          379,
+          70700.0
+        ],
+        [
+          424,
+          67500.0
+        ],
+        [
+          447,
+          49700.0
+        ],
+        [
+          450,
+          77600.0
+        ],
+        [
+          455,
+          95400.0
+        ],
+        [
+          456,
+          39800.0
+        ],
+        [
+          462,
+          85800.0
+        ],
+        [
+          475,
+          55400.0
+        ],
+        [
+          486,
+          72600.0
+        ],
+        [
+          487,
+          60300.0
+        ],
+        [
+          495,
+          85100.0
+        ]
+      ]
+    }
+  },
+  {
+    "id": "th01",
+    "db": "truong_hoc",
+    "difficulty": 1,
+    "type": "select",
+    "topic": "WHERE cơ bản",
+    "title": "Học sinh nữ của lớp 11A1",
+    "prompt": "Lấy MaHS, HoTen, GioiTinh của các học sinh thuộc lớp '11A1' và có GioiTinh = 'Nữ'. Sắp xếp theo HoTen tăng dần.",
+    "hint": "WHERE MaLop = '11A1' AND GioiTinh = 'Nữ'.",
+    "solutionSql": "SELECT MaHS, HoTen, GioiTinh FROM HocSinh WHERE MaLop = '11A1' AND GioiTinh = 'Nữ' ORDER BY HoTen ASC;",
+    "expected": {
+      "columns": [
+        "MaHS",
+        "HoTen",
+        "GioiTinh"
+      ],
+      "rows": [
+        [
+          24,
+          "Hoàng Diệp D",
+          "Nữ"
+        ],
+        [
+          27,
+          "Nguyễn Chi B",
+          "Nữ"
+        ],
+        [
+          30,
+          "Nguyễn Mai E",
+          "Nữ"
+        ],
+        [
+          25,
+          "Ngô Phương E",
+          "Nữ"
+        ],
+        [
+          26,
+          "Phạm Hoa A",
+          "Nữ"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "th02",
+    "db": "truong_hoc",
+    "difficulty": 1,
+    "type": "select",
+    "topic": "LIKE",
+    "title": "Học sinh có họ Nguyễn",
+    "prompt": "Lấy MaHS, HoTen, MaLop của các học sinh có HoTen bắt đầu bằng 'Nguyễn'. Sắp xếp theo MaHS tăng dần.",
+    "hint": "WHERE HoTen LIKE 'Nguyễn%'.",
+    "solutionSql": "SELECT MaHS, HoTen, MaLop FROM HocSinh WHERE HoTen LIKE 'Nguyễn%' ORDER BY MaHS ASC;",
+    "expected": {
+      "columns": [
+        "MaHS",
+        "HoTen",
+        "MaLop"
+      ],
+      "rows": [
+        [
+          27,
+          "Nguyễn Chi B",
+          "11A1"
+        ],
+        [
+          30,
+          "Nguyễn Mai E",
+          "11A1"
+        ],
+        [
+          60,
+          "Nguyễn Huy E",
+          "12A2"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "th03",
+    "db": "truong_hoc",
+    "difficulty": 2,
+    "type": "select",
+    "topic": "JOIN + AVG + ORDER/LIMIT",
+    "title": "Top 5 học sinh có điểm Cuối kỳ môn Toán học kỳ 1 cao nhất",
+    "prompt": "Lấy HoTen của học sinh cùng Diem, chỉ xét DiemSo có MaMon = 'TOAN', HocKy = 1, LoaiDiem = 'Cuoi ky'. Lấy 5 học sinh có điểm cao nhất, sắp giảm dần theo Diem.",
+    "hint": "JOIN HocSinh với DiemSo qua MaHS, WHERE MaMon='TOAN' AND HocKy=1 AND LoaiDiem='Cuoi ky', ORDER BY Diem DESC LIMIT 5.",
+    "solutionSql": "SELECT hs.HoTen, ds.Diem FROM HocSinh hs JOIN DiemSo ds ON hs.MaHS = ds.MaHS WHERE ds.MaMon = 'TOAN' AND ds.HocKy = 1 AND ds.LoaiDiem = 'Cuoi ky' ORDER BY ds.Diem DESC LIMIT 5;",
+    "expected": {
+      "columns": [
+        "HoTen",
+        "Diem"
+      ],
+      "rows": [
+        [
+          "Lý Anh A",
+          10.0
+        ],
+        [
+          "Phạm Minh A",
+          9.9
+        ],
+        [
+          "Đỗ Chi C",
+          9.9
+        ],
+        [
+          "Đỗ Chi B",
+          9.8
+        ],
+        [
+          "Phạm Dũng D",
+          9.7
+        ]
+      ]
+    }
+  },
+  {
+    "id": "th04",
+    "db": "truong_hoc",
+    "difficulty": 2,
+    "type": "select",
+    "topic": "GROUP BY + COUNT",
+    "title": "Số lượng học sinh theo từng lớp",
+    "prompt": "Với mỗi MaLop, tính số lượng học sinh (SoHocSinh). Sắp xếp theo MaLop tăng dần.",
+    "hint": "GROUP BY MaLop, dùng COUNT(*).",
+    "solutionSql": "SELECT MaLop, COUNT(*) AS SoHocSinh FROM HocSinh GROUP BY MaLop ORDER BY MaLop ASC;",
+    "expected": {
+      "columns": [
+        "MaLop",
+        "SoHocSinh"
+      ],
+      "rows": [
+        [
+          "10A1",
+          10
+        ],
+        [
+          "10A2",
+          10
+        ],
+        [
+          "11A1",
+          10
+        ],
+        [
+          "11A2",
+          10
+        ],
+        [
+          "12A1",
+          10
+        ],
+        [
+          "12A2",
+          10
+        ]
+      ]
+    }
+  },
+  {
+    "id": "th05",
+    "db": "truong_hoc",
+    "difficulty": 2,
+    "type": "select",
+    "topic": "GROUP BY + AVG + ROUND",
+    "title": "Điểm trung bình mỗi môn học ở học kỳ 2 (loại Cuối kỳ)",
+    "prompt": "Với mỗi MaMon, tính điểm trung bình (ROUND 2 chữ số thập phân, đặt tên DiemTrungBinh) của các điểm có HocKy = 2 và LoaiDiem = 'Cuoi ky'. Sắp xếp giảm dần theo DiemTrungBinh.",
+    "hint": "WHERE HocKy=2 AND LoaiDiem='Cuoi ky', GROUP BY MaMon, dùng AVG() và ROUND().",
+    "solutionSql": "SELECT MaMon, ROUND(AVG(Diem), 2) AS DiemTrungBinh FROM DiemSo WHERE HocKy = 2 AND LoaiDiem = 'Cuoi ky' GROUP BY MaMon ORDER BY DiemTrungBinh DESC;",
+    "expected": {
+      "columns": [
+        "MaMon",
+        "DiemTrungBinh"
+      ],
+      "rows": [
+        [
+          "TOAN",
+          7.93
+        ],
+        [
+          "VAN",
+          7.63
+        ],
+        [
+          "SINH",
+          7.63
+        ],
+        [
+          "HOA",
+          7.61
+        ],
+        [
+          "LY",
+          7.58
+        ],
+        [
+          "ANH",
+          7.51
+        ]
+      ]
+    }
+  },
+  {
+    "id": "th06",
+    "db": "truong_hoc",
+    "difficulty": 3,
+    "type": "select",
+    "topic": "GROUP BY + HAVING",
+    "title": "Học sinh có điểm trung bình Cuối kỳ (cả năm) trên 8.5",
+    "prompt": "Với mỗi học sinh (MaHS, HoTen), tính điểm trung bình của tất cả các điểm có LoaiDiem = 'Cuoi ky' (cả 2 học kỳ, cả 6 môn), đặt tên DiemTrungBinh, làm tròn 2 chữ số. Chỉ giữ học sinh có DiemTrungBinh > 8.5. Sắp xếp giảm dần theo DiemTrungBinh.",
+    "hint": "JOIN HocSinh với DiemSo, WHERE LoaiDiem='Cuoi ky', GROUP BY học sinh, HAVING AVG(Diem) > 8.5.",
+    "solutionSql": "SELECT hs.MaHS, hs.HoTen, ROUND(AVG(ds.Diem), 2) AS DiemTrungBinh FROM HocSinh hs JOIN DiemSo ds ON hs.MaHS = ds.MaHS WHERE ds.LoaiDiem = 'Cuoi ky' GROUP BY hs.MaHS, hs.HoTen HAVING AVG(ds.Diem) > 8.5 ORDER BY DiemTrungBinh DESC;",
+    "expected": {
+      "columns": [
+        "MaHS",
+        "HoTen",
+        "DiemTrungBinh"
+      ],
+      "rows": [
+        [
+          42,
+          "Đỗ Tuấn B",
+          8.6
+        ],
+        [
+          15,
+          "Trần Sơn E",
+          8.56
+        ]
+      ]
+    }
+  },
+  {
+    "id": "th07",
+    "db": "truong_hoc",
+    "difficulty": 3,
+    "type": "select",
+    "topic": "SELF JOIN",
+    "title": "Giáo viên và người quản lý trực tiếp",
+    "prompt": "Lấy MaGV, HoTen của giáo viên (đặt tên cột GiaoVien) và HoTen của người quản lý trực tiếp (MaQuanLy, đặt tên cột NguoiQuanLy). Hiệu trưởng không có quản lý vẫn phải xuất hiện với NguoiQuanLy để trống. Sắp xếp theo MaGV tăng dần.",
+    "hint": "LEFT JOIN GiaoVien với chính nó qua g.MaQuanLy = m.MaGV.",
+    "solutionSql": "SELECT g.MaGV, g.HoTen AS GiaoVien, m.HoTen AS NguoiQuanLy FROM GiaoVien g LEFT JOIN GiaoVien m ON g.MaQuanLy = m.MaGV ORDER BY g.MaGV ASC;",
+    "expected": {
+      "columns": [
+        "MaGV",
+        "GiaoVien",
+        "NguoiQuanLy"
+      ],
+      "rows": [
+        [
+          "GV00",
+          "Nguyễn Văn Hùng",
+          null
+        ],
+        [
+          "GV01",
+          "Trần Thị Lan",
+          "Nguyễn Văn Hùng"
+        ],
+        [
+          "GV02",
+          "Lê Văn Minh",
+          "Nguyễn Văn Hùng"
+        ],
+        [
+          "GV03",
+          "Phạm Thị Hoa",
+          "Trần Thị Lan"
+        ],
+        [
+          "GV04",
+          "Hoàng Văn Nam",
+          "Lê Văn Minh"
+        ],
+        [
+          "GV05",
+          "Đỗ Thị Mai",
+          "Nguyễn Văn Hùng"
+        ],
+        [
+          "GV06",
+          "Vũ Văn Tùng",
+          "Nguyễn Văn Hùng"
+        ],
+        [
+          "GV07",
+          "Bùi Thị Ngọc",
+          "Nguyễn Văn Hùng"
+        ],
+        [
+          "GV08",
+          "Ngô Văn Sơn",
+          "Nguyễn Văn Hùng"
+        ],
+        [
+          "GV09",
+          "Đặng Thị Thu",
+          "Trần Thị Lan"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "th08",
+    "db": "truong_hoc",
+    "difficulty": 3,
+    "type": "select",
+    "topic": "LEFT JOIN + IS NULL",
+    "title": "Giáo viên chưa làm chủ nhiệm lớp nào",
+    "prompt": "Liệt kê MaGV, HoTen của các giáo viên chưa từng làm giáo viên chủ nhiệm (MaGVCN) của bất kỳ lớp nào trong bảng LopHoc.",
+    "hint": "LEFT JOIN GiaoVien với LopHoc qua MaGV = MaGVCN, lọc WHERE LopHoc.MaLop IS NULL.",
+    "solutionSql": "SELECT g.MaGV, g.HoTen FROM GiaoVien g LEFT JOIN LopHoc l ON g.MaGV = l.MaGVCN WHERE l.MaLop IS NULL ORDER BY g.MaGV ASC;",
+    "expected": {
+      "columns": [
+        "MaGV",
+        "HoTen"
+      ],
+      "rows": [
+        [
+          "GV00",
+          "Nguyễn Văn Hùng"
+        ],
+        [
+          "GV01",
+          "Trần Thị Lan"
+        ],
+        [
+          "GV02",
+          "Lê Văn Minh"
+        ],
+        [
+          "GV08",
+          "Ngô Văn Sơn"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "th09",
+    "db": "truong_hoc",
+    "difficulty": 3,
+    "type": "select",
+    "topic": "Subquery so sánh trung bình",
+    "title": "Học sinh có điểm Toán học kỳ 1 (Cuối kỳ) cao hơn trung bình khối 10",
+    "prompt": "Lấy HoTen, MaLop, Diem của các học sinh thuộc khối 10 (Khoi=10 trong LopHoc) có điểm môn Toán, học kỳ 1, loại 'Cuoi ky' cao hơn điểm trung bình môn Toán học kỳ 1 loại 'Cuoi ky' của toàn bộ học sinh khối 10.",
+    "hint": "Subquery tính AVG trong đúng phạm vi khối 10 rồi so sánh WHERE Diem > (...).",
+    "solutionSql": "SELECT hs.HoTen, hs.MaLop, ds.Diem FROM HocSinh hs JOIN LopHoc l ON hs.MaLop = l.MaLop JOIN DiemSo ds ON hs.MaHS = ds.MaHS WHERE l.Khoi = 10 AND ds.MaMon = 'TOAN' AND ds.HocKy = 1 AND ds.LoaiDiem = 'Cuoi ky' AND ds.Diem > (SELECT AVG(ds2.Diem) FROM DiemSo ds2 JOIN HocSinh hs2 ON ds2.MaHS = hs2.MaHS JOIN LopHoc l2 ON hs2.MaLop = l2.MaLop WHERE l2.Khoi = 10 AND ds2.MaMon = 'TOAN' AND ds2.HocKy = 1 AND ds2.LoaiDiem = 'Cuoi ky') ORDER BY ds.Diem DESC;",
+    "expected": {
+      "columns": [
+        "HoTen",
+        "MaLop",
+        "Diem"
+      ],
+      "rows": [
+        [
+          "Lý Anh A",
+          "10A1",
+          10.0
+        ],
+        [
+          "Đỗ Chi B",
+          "10A2",
+          9.8
+        ],
+        [
+          "Phạm Dũng D",
+          "10A1",
+          9.7
+        ],
+        [
+          "Phạm Long E",
+          "10A1",
+          9.1
+        ],
+        [
+          "Vũ Nhi A",
+          "10A2",
+          8.7
+        ],
+        [
+          "Đặng Minh C",
+          "10A1",
+          8.6
+        ],
+        [
+          "Bùi Giang A",
+          "10A1",
+          8.5
+        ],
+        [
+          "Trần Sơn E",
+          "10A2",
+          8.5
+        ],
+        [
+          "Trần Chi D",
+          "10A1",
+          8.3
+        ],
+        [
+          "Phạm Ngọc C",
+          "10A2",
+          8.3
+        ],
+        [
+          "Vũ Trang E",
+          "10A1",
+          8.1
+        ],
+        [
+          "Phạm Nam D",
+          "10A2",
+          8.1
+        ]
+      ]
+    }
+  },
+  {
+    "id": "th10",
+    "db": "truong_hoc",
+    "difficulty": 2,
+    "type": "select",
+    "topic": "JOIN nhiều bảng",
+    "title": "Danh sách lớp cùng tên giáo viên chủ nhiệm",
+    "prompt": "Lấy MaLop, TenLop, Khoi của LopHoc cùng với HoTen giáo viên chủ nhiệm (đặt tên cột TenGVCN). Sắp xếp theo Khoi tăng dần, sau đó MaLop tăng dần.",
+    "hint": "JOIN LopHoc với GiaoVien qua MaGVCN = MaGV.",
+    "solutionSql": "SELECT l.MaLop, l.TenLop, l.Khoi, g.HoTen AS TenGVCN FROM LopHoc l JOIN GiaoVien g ON l.MaGVCN = g.MaGV ORDER BY l.Khoi ASC, l.MaLop ASC;",
+    "expected": {
+      "columns": [
+        "MaLop",
+        "TenLop",
+        "Khoi",
+        "TenGVCN"
+      ],
+      "rows": [
+        [
+          "10A1",
+          "10A1",
+          10,
+          "Phạm Thị Hoa"
+        ],
+        [
+          "10A2",
+          "10A2",
+          10,
+          "Hoàng Văn Nam"
+        ],
+        [
+          "11A1",
+          "11A1",
+          11,
+          "Đỗ Thị Mai"
+        ],
+        [
+          "11A2",
+          "11A2",
+          11,
+          "Vũ Văn Tùng"
+        ],
+        [
+          "12A1",
+          "12A1",
+          12,
+          "Bùi Thị Ngọc"
+        ],
+        [
+          "12A2",
+          "12A2",
+          12,
+          "Đặng Thị Thu"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "th11",
+    "db": "truong_hoc",
+    "difficulty": 3,
+    "type": "select",
+    "topic": "GROUP BY nhiều cột",
+    "title": "Điểm trung bình Cuối kỳ mỗi môn theo từng khối lớp",
+    "prompt": "Với mỗi cặp (Khoi, MaMon), tính điểm trung bình (ROUND 2 chữ số, đặt tên DiemTrungBinh) của các điểm LoaiDiem = 'Cuoi ky', HocKy = 1. Sắp xếp theo Khoi tăng dần, rồi MaMon tăng dần.",
+    "hint": "JOIN HocSinh-LopHoc-DiemSo, GROUP BY Khoi, MaMon.",
+    "solutionSql": "SELECT l.Khoi, ds.MaMon, ROUND(AVG(ds.Diem), 2) AS DiemTrungBinh FROM LopHoc l JOIN HocSinh hs ON l.MaLop = hs.MaLop JOIN DiemSo ds ON hs.MaHS = ds.MaHS WHERE ds.LoaiDiem = 'Cuoi ky' AND ds.HocKy = 1 GROUP BY l.Khoi, ds.MaMon ORDER BY l.Khoi ASC, ds.MaMon ASC;",
+    "expected": {
+      "columns": [
+        "Khoi",
+        "MaMon",
+        "DiemTrungBinh"
+      ],
+      "rows": [
+        [
+          10,
+          "ANH",
+          7.51
+        ],
+        [
+          10,
+          "HOA",
+          7.82
+        ],
+        [
+          10,
+          "LY",
+          7.87
+        ],
+        [
+          10,
+          "SINH",
+          7.36
+        ],
+        [
+          10,
+          "TOAN",
+          7.92
+        ],
+        [
+          10,
+          "VAN",
+          7.39
+        ],
+        [
+          11,
+          "ANH",
+          7.47
+        ],
+        [
+          11,
+          "HOA",
+          7.15
+        ],
+        [
+          11,
+          "LY",
+          7.16
+        ],
+        [
+          11,
+          "SINH",
+          7.57
+        ],
+        [
+          11,
+          "TOAN",
+          7.36
+        ],
+        [
+          11,
+          "VAN",
+          7.75
+        ],
+        [
+          12,
+          "ANH",
+          7.53
+        ],
+        [
+          12,
+          "HOA",
+          7.46
+        ],
+        [
+          12,
+          "LY",
+          7.85
+        ],
+        [
+          12,
+          "SINH",
+          7.53
+        ],
+        [
+          12,
+          "TOAN",
+          7.85
+        ],
+        [
+          12,
+          "VAN",
+          7.7
+        ]
+      ]
+    }
+  },
+  {
+    "id": "th12",
+    "db": "truong_hoc",
+    "difficulty": 2,
+    "type": "dml",
+    "topic": "DML - INSERT",
+    "title": "Thêm học sinh mới vào lớp 10A1",
+    "prompt": "Thêm một học sinh mới vào bảng HocSinh với MaHS = 999, HoTen = 'Phạm Triệu Vinh', NgaySinh = '2009-05-20', GioiTinh = 'Nam', MaLop = '10A1'.",
+    "hint": "INSERT INTO HocSinh (MaHS, HoTen, NgaySinh, GioiTinh, MaLop) VALUES (...);",
+    "solutionSql": "INSERT INTO HocSinh (MaHS, HoTen, NgaySinh, GioiTinh, MaLop) VALUES (999, 'Phạm Triệu Vinh', '2009-05-20', 'Nam', '10A1');",
+    "verifySql": "SELECT MaHS, HoTen, MaLop FROM HocSinh WHERE MaHS = 999;",
+    "expected": {
+      "columns": [
+        "MaHS",
+        "HoTen",
+        "MaLop"
+      ],
+      "rows": [
+        [
+          999,
+          "Phạm Triệu Vinh",
+          "10A1"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "th13",
+    "db": "truong_hoc",
+    "difficulty": 2,
+    "type": "dml",
+    "topic": "DML - UPDATE",
+    "title": "Cộng 0.5 điểm khuyến khích cho một học sinh ở một môn",
+    "prompt": "Cộng thêm 0.5 điểm vào Diem của học sinh có MaHS = 1, ở môn MaMon = 'VAN', HocKy = 1, LoaiDiem = 'Cuoi ky' (không cần giới hạn điểm tối đa 10 trong bài này).",
+    "hint": "UPDATE DiemSo SET Diem = Diem + 0.5 WHERE MaHS=1 AND MaMon='VAN' AND HocKy=1 AND LoaiDiem='Cuoi ky';",
+    "solutionSql": "UPDATE DiemSo SET Diem = Diem + 0.5 WHERE MaHS = 1 AND MaMon = 'VAN' AND HocKy = 1 AND LoaiDiem = 'Cuoi ky';",
+    "verifySql": "SELECT MaHS, MaMon, HocKy, LoaiDiem, Diem FROM DiemSo WHERE MaHS = 1 AND MaMon = 'VAN' AND HocKy = 1 AND LoaiDiem = 'Cuoi ky';",
+    "expected": {
+      "columns": [
+        "MaHS",
+        "MaMon",
+        "HocKy",
+        "LoaiDiem",
+        "Diem"
+      ],
+      "rows": [
+        [
+          1,
+          "VAN",
+          1,
+          "Cuoi ky",
+          6.6
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cs01",
+    "db": "cua_hang_sach",
+    "difficulty": 1,
+    "type": "select",
+    "topic": "WHERE cơ bản",
+    "title": "Sách thể loại Trinh thám có giá dưới 100.000",
+    "prompt": "Lấy MaSach, TenSach, GiaBan của các sách có TheLoai = 'Trinh thám' và GiaBan < 100000. Sắp xếp theo GiaBan tăng dần.",
+    "hint": "WHERE TheLoai = 'Trinh thám' AND GiaBan < 100000.",
+    "solutionSql": "SELECT MaSach, TenSach, GiaBan FROM Sach WHERE TheLoai = 'Trinh thám' AND GiaBan < 100000 ORDER BY GiaBan ASC;",
+    "expected": {
+      "columns": [
+        "MaSach",
+        "TenSach",
+        "GiaBan"
+      ],
+      "rows": [
+        [
+          "S037",
+          "Tác phẩm số 3 của Agatha Christie",
+          51000.0
+        ],
+        [
+          "S035",
+          "Tác phẩm số 1 của Agatha Christie",
+          91000.0
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cs02",
+    "db": "cua_hang_sach",
+    "difficulty": 1,
+    "type": "select",
+    "topic": "WHERE + IN",
+    "title": "Khách hàng ở Hà Nội hoặc Đà Nẵng",
+    "prompt": "Lấy MaKH, HoTen, ThanhPho của khách hàng có ThanhPho là 'Hà Nội' hoặc 'Đà Nẵng'. Sắp xếp theo ThanhPho, rồi theo HoTen.",
+    "hint": "WHERE ThanhPho IN ('Hà Nội', 'Đà Nẵng').",
+    "solutionSql": "SELECT MaKH, HoTen, ThanhPho FROM KhachHang WHERE ThanhPho IN ('Hà Nội', 'Đà Nẵng') ORDER BY ThanhPho ASC, HoTen ASC;",
+    "expected": {
+      "columns": [
+        "MaKH",
+        "HoTen",
+        "ThanhPho"
+      ],
+      "rows": [
+        [
+          "KH003",
+          "Bùi Khánh",
+          "Hà Nội"
+        ],
+        [
+          "KH024",
+          "Hoàng Diệp",
+          "Hà Nội"
+        ],
+        [
+          "KH022",
+          "Lê Nam",
+          "Hà Nội"
+        ],
+        [
+          "KH017",
+          "Lê Phương",
+          "Hà Nội"
+        ],
+        [
+          "KH015",
+          "Ngô Nhi",
+          "Đà Nẵng"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cs03",
+    "db": "cua_hang_sach",
+    "difficulty": 1,
+    "type": "select",
+    "topic": "ORDER BY + LIMIT",
+    "title": "5 sách tồn kho nhiều nhất",
+    "prompt": "Lấy MaSach, TenSach, SoLuongTon của 5 sách có SoLuongTon cao nhất, sắp giảm dần.",
+    "hint": "ORDER BY SoLuongTon DESC LIMIT 5.",
+    "solutionSql": "SELECT MaSach, TenSach, SoLuongTon FROM Sach ORDER BY SoLuongTon DESC LIMIT 5;",
+    "expected": {
+      "columns": [
+        "MaSach",
+        "TenSach",
+        "SoLuongTon"
+      ],
+      "rows": [
+        [
+          "S019",
+          "Tác phẩm số 1 của Dale Carnegie",
+          248
+        ],
+        [
+          "S027",
+          "Tác phẩm số 4 của Paulo Coelho",
+          246
+        ],
+        [
+          "S016",
+          "Tác phẩm số 2 của Haruki Murakami",
+          239
+        ],
+        [
+          "S040",
+          "Tác phẩm số 3 của Nguyễn Ngọc Tư",
+          238
+        ],
+        [
+          "S002",
+          "Tác phẩm số 2 của Nguyễn Nhật Ánh",
+          233
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cs04",
+    "db": "cua_hang_sach",
+    "difficulty": 2,
+    "type": "select",
+    "topic": "INNER JOIN",
+    "title": "Danh sách sách cùng tên tác giả",
+    "prompt": "Lấy TenSach, GiaBan của Sach cùng với HoTen của tác giả (đặt tên cột TenTacGia). Sắp xếp theo TenTacGia tăng dần, rồi TenSach tăng dần.",
+    "hint": "JOIN Sach với TacGia qua MaTG.",
+    "solutionSql": "SELECT s.TenSach, s.GiaBan, t.HoTen AS TenTacGia FROM Sach s JOIN TacGia t ON s.MaTG = t.MaTG ORDER BY t.HoTen ASC, s.TenSach ASC;",
+    "expected": {
+      "columns": [
+        "TenSach",
+        "GiaBan",
+        "TenTacGia"
+      ],
+      "rows": [
+        [
+          "Tác phẩm số 1 của Agatha Christie",
+          91000.0,
+          "Agatha Christie"
+        ],
+        [
+          "Tác phẩm số 2 của Agatha Christie",
+          119000.0,
+          "Agatha Christie"
+        ],
+        [
+          "Tác phẩm số 3 của Agatha Christie",
+          51000.0,
+          "Agatha Christie"
+        ],
+        [
+          "Tác phẩm số 1 của Dale Carnegie",
+          78000.0,
+          "Dale Carnegie"
+        ],
+        [
+          "Tác phẩm số 2 của Dale Carnegie",
+          52000.0,
+          "Dale Carnegie"
+        ],
+        [
+          "Tác phẩm số 3 của Dale Carnegie",
+          132000.0,
+          "Dale Carnegie"
+        ],
+        [
+          "Tác phẩm số 4 của Dale Carnegie",
+          56000.0,
+          "Dale Carnegie"
+        ],
+        [
+          "Tác phẩm số 5 của Dale Carnegie",
+          105000.0,
+          "Dale Carnegie"
+        ],
+        [
+          "Tác phẩm số 1 của Haruki Murakami",
+          158000.0,
+          "Haruki Murakami"
+        ],
+        [
+          "Tác phẩm số 2 của Haruki Murakami",
+          47000.0,
+          "Haruki Murakami"
+        ],
+        [
+          "Tác phẩm số 3 của Haruki Murakami",
+          113000.0,
+          "Haruki Murakami"
+        ],
+        [
+          "Tác phẩm số 4 của Haruki Murakami",
+          162000.0,
+          "Haruki Murakami"
+        ],
+        [
+          "Tác phẩm số 1 của J.K. Rowling",
+          177000.0,
+          "J.K. Rowling"
+        ],
+        [
+          "Tác phẩm số 2 của J.K. Rowling",
+          115000.0,
+          "J.K. Rowling"
+        ],
+        [
+          "Tác phẩm số 3 của J.K. Rowling",
+          103000.0,
+          "J.K. Rowling"
+        ],
+        [
+          "Tác phẩm số 4 của J.K. Rowling",
+          110000.0,
+          "J.K. Rowling"
+        ],
+        [
+          "Tác phẩm số 1 của Nam Cao",
+          80000.0,
+          "Nam Cao"
+        ],
+        [
+          "Tác phẩm số 2 của Nam Cao",
+          140000.0,
+          "Nam Cao"
+        ],
+        [
+          "Tác phẩm số 3 của Nam Cao",
+          149000.0,
+          "Nam Cao"
+        ],
+        [
+          "Tác phẩm số 1 của Nguyễn Ngọc Tư",
+          156000.0,
+          "Nguyễn Ngọc Tư"
+        ],
+        [
+          "Tác phẩm số 2 của Nguyễn Ngọc Tư",
+          59000.0,
+          "Nguyễn Ngọc Tư"
+        ],
+        [
+          "Tác phẩm số 3 của Nguyễn Ngọc Tư",
+          70000.0,
+          "Nguyễn Ngọc Tư"
+        ],
+        [
+          "Tác phẩm số 4 của Nguyễn Ngọc Tư",
+          74000.0,
+          "Nguyễn Ngọc Tư"
+        ],
+        [
+          "Tác phẩm số 1 của Nguyễn Nhật Ánh",
+          178000.0,
+          "Nguyễn Nhật Ánh"
+        ],
+        [
+          "Tác phẩm số 2 của Nguyễn Nhật Ánh",
+          59000.0,
+          "Nguyễn Nhật Ánh"
+        ],
+        [
+          "Tác phẩm số 3 của Nguyễn Nhật Ánh",
+          110000.0,
+          "Nguyễn Nhật Ánh"
+        ],
+        [
+          "Tác phẩm số 1 của Paulo Coelho",
+          88000.0,
+          "Paulo Coelho"
+        ],
+        [
+          "Tác phẩm số 2 của Paulo Coelho",
+          59000.0,
+          "Paulo Coelho"
+        ],
+        [
+          "Tác phẩm số 3 của Paulo Coelho",
+          120000.0,
+          "Paulo Coelho"
+        ],
+        [
+          "Tác phẩm số 4 của Paulo Coelho",
+          152000.0,
+          "Paulo Coelho"
+        ],
+        [
+          "Tác phẩm số 5 của Paulo Coelho",
+          165000.0,
+          "Paulo Coelho"
+        ],
+        [
+          "Tác phẩm số 6 của Paulo Coelho",
+          133000.0,
+          "Paulo Coelho"
+        ],
+        [
+          "Tác phẩm số 1 của Tô Hoài",
+          128000.0,
+          "Tô Hoài"
+        ],
+        [
+          "Tác phẩm số 2 của Tô Hoài",
+          128000.0,
+          "Tô Hoài"
+        ],
+        [
+          "Tác phẩm số 3 của Tô Hoài",
+          110000.0,
+          "Tô Hoài"
+        ],
+        [
+          "Tác phẩm số 4 của Tô Hoài",
+          165000.0,
+          "Tô Hoài"
+        ],
+        [
+          "Tác phẩm số 1 của Yuval Noah Harari",
+          156000.0,
+          "Yuval Noah Harari"
+        ],
+        [
+          "Tác phẩm số 2 của Yuval Noah Harari",
+          159000.0,
+          "Yuval Noah Harari"
+        ],
+        [
+          "Tác phẩm số 3 của Yuval Noah Harari",
+          149000.0,
+          "Yuval Noah Harari"
+        ],
+        [
+          "Tác phẩm số 4 của Yuval Noah Harari",
+          142000.0,
+          "Yuval Noah Harari"
+        ],
+        [
+          "Tác phẩm số 5 của Yuval Noah Harari",
+          60000.0,
+          "Yuval Noah Harari"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cs05",
+    "db": "cua_hang_sach",
+    "difficulty": 2,
+    "type": "select",
+    "topic": "LEFT JOIN + IS NULL",
+    "title": "Khách hàng chưa từng đặt hàng",
+    "prompt": "Liệt kê MaKH, HoTen, ThanhPho của các khách hàng chưa từng có đơn hàng nào trong bảng DonHang.",
+    "hint": "LEFT JOIN KhachHang với DonHang, lọc WHERE DonHang.MaDH IS NULL.",
+    "solutionSql": "SELECT kh.MaKH, kh.HoTen, kh.ThanhPho FROM KhachHang kh LEFT JOIN DonHang dh ON kh.MaKH = dh.MaKH WHERE dh.MaDH IS NULL ORDER BY kh.MaKH ASC;",
+    "expected": {
+      "columns": [
+        "MaKH",
+        "HoTen",
+        "ThanhPho"
+      ],
+      "rows": [
+        [
+          "KH003",
+          "Bùi Khánh",
+          "Hà Nội"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cs06",
+    "db": "cua_hang_sach",
+    "difficulty": 2,
+    "type": "select",
+    "topic": "GROUP BY + COUNT",
+    "title": "Số lượng sách của mỗi tác giả",
+    "prompt": "Với mỗi tác giả (HoTen), tính số lượng sách (SoSach) mà tác giả đó đã viết. Sắp xếp giảm dần theo SoSach.",
+    "hint": "JOIN TacGia với Sach qua MaTG, GROUP BY tác giả.",
+    "solutionSql": "SELECT t.MaTG, t.HoTen, COUNT(s.MaSach) AS SoSach FROM TacGia t JOIN Sach s ON t.MaTG = s.MaTG GROUP BY t.MaTG, t.HoTen ORDER BY SoSach DESC;",
+    "expected": {
+      "columns": [
+        "MaTG",
+        "HoTen",
+        "SoSach"
+      ],
+      "rows": [
+        [
+          "TG07",
+          "Paulo Coelho",
+          6
+        ],
+        [
+          "TG06",
+          "Dale Carnegie",
+          5
+        ],
+        [
+          "TG08",
+          "Yuval Noah Harari",
+          5
+        ],
+        [
+          "TG02",
+          "Tô Hoài",
+          4
+        ],
+        [
+          "TG04",
+          "J.K. Rowling",
+          4
+        ],
+        [
+          "TG05",
+          "Haruki Murakami",
+          4
+        ],
+        [
+          "TG10",
+          "Nguyễn Ngọc Tư",
+          4
+        ],
+        [
+          "TG01",
+          "Nguyễn Nhật Ánh",
+          3
+        ],
+        [
+          "TG03",
+          "Nam Cao",
+          3
+        ],
+        [
+          "TG09",
+          "Agatha Christie",
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cs07",
+    "db": "cua_hang_sach",
+    "difficulty": 3,
+    "type": "select",
+    "topic": "GROUP BY + HAVING",
+    "title": "Khách hàng đã chi tiêu tổng cộng trên 300.000",
+    "prompt": "Với mỗi khách hàng (MaKH, HoTen), tính tổng chi tiêu (SUM SoLuong*DonGia từ ChiTietDonHang, nối qua DonHang), đặt tên TongChiTieu. Chỉ giữ khách hàng có TongChiTieu > 300000. Sắp xếp giảm dần theo TongChiTieu.",
+    "hint": "JOIN KhachHang-DonHang-ChiTietDonHang, GROUP BY khách hàng, HAVING SUM(SoLuong*DonGia) > 300000.",
+    "solutionSql": "SELECT kh.MaKH, kh.HoTen, SUM(ct.SoLuong * ct.DonGia) AS TongChiTieu FROM KhachHang kh JOIN DonHang dh ON kh.MaKH = dh.MaKH JOIN ChiTietDonHang ct ON dh.MaDH = ct.MaDH GROUP BY kh.MaKH, kh.HoTen HAVING SUM(ct.SoLuong * ct.DonGia) > 300000 ORDER BY TongChiTieu DESC;",
+    "expected": {
+      "columns": [
+        "MaKH",
+        "HoTen",
+        "TongChiTieu"
+      ],
+      "rows": [
+        [
+          "KH013",
+          "Đỗ Phương",
+          6705000.0
+        ],
+        [
+          "KH011",
+          "Lê Ngọc",
+          4977000.0
+        ],
+        [
+          "KH009",
+          "Đặng Đức",
+          4101000.0
+        ],
+        [
+          "KH010",
+          "Vũ Linh",
+          4093000.0
+        ],
+        [
+          "KH016",
+          "Dương Phúc",
+          4055000.0
+        ],
+        [
+          "KH020",
+          "Đỗ Vy",
+          3990000.0
+        ],
+        [
+          "KH006",
+          "Lê Phúc",
+          3880000.0
+        ],
+        [
+          "KH022",
+          "Lê Nam",
+          3459000.0
+        ],
+        [
+          "KH015",
+          "Ngô Nhi",
+          3313000.0
+        ],
+        [
+          "KH008",
+          "Ngô Mai",
+          3127000.0
+        ],
+        [
+          "KH014",
+          "Đỗ Dũng",
+          2788000.0
+        ],
+        [
+          "KH025",
+          "Lý Giang",
+          2554000.0
+        ],
+        [
+          "KH023",
+          "Phạm Thảo",
+          2419000.0
+        ],
+        [
+          "KH017",
+          "Lê Phương",
+          2403000.0
+        ],
+        [
+          "KH002",
+          "Nguyễn Quang",
+          1942000.0
+        ],
+        [
+          "KH018",
+          "Vũ Ngọc",
+          1816000.0
+        ],
+        [
+          "KH021",
+          "Nguyễn Anh",
+          1743000.0
+        ],
+        [
+          "KH001",
+          "Lý Chi",
+          1691000.0
+        ],
+        [
+          "KH024",
+          "Hoàng Diệp",
+          1673000.0
+        ],
+        [
+          "KH012",
+          "Lý Trang",
+          1291000.0
+        ],
+        [
+          "KH007",
+          "Trần Nhi",
+          1144000.0
+        ],
+        [
+          "KH004",
+          "Đỗ Long",
+          668000.0
+        ],
+        [
+          "KH019",
+          "Dương Nhi",
+          510000.0
+        ],
+        [
+          "KH005",
+          "Ngô Vy",
+          390000.0
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cs08",
+    "db": "cua_hang_sach",
+    "difficulty": 3,
+    "type": "select",
+    "topic": "Subquery so sánh trung bình",
+    "title": "Sách có giá cao hơn giá trung bình của cùng thể loại",
+    "prompt": "Lấy MaSach, TenSach, TheLoai, GiaBan của các sách có GiaBan lớn hơn giá trung bình của TẤT CẢ sách cùng TheLoai với nó. Sắp xếp theo TheLoai tăng dần, rồi GiaBan giảm dần.",
+    "hint": "Dùng subquery tương quan: WHERE GiaBan > (SELECT AVG(GiaBan) FROM Sach s2 WHERE s2.TheLoai = s.TheLoai).",
+    "solutionSql": "SELECT s.MaSach, s.TenSach, s.TheLoai, s.GiaBan FROM Sach s WHERE s.GiaBan > (SELECT AVG(s2.GiaBan) FROM Sach s2 WHERE s2.TheLoai = s.TheLoai) ORDER BY s.TheLoai ASC, s.GiaBan DESC;",
+    "expected": {
+      "columns": [
+        "MaSach",
+        "TenSach",
+        "TheLoai",
+        "GiaBan"
+      ],
+      "rows": [
+        [
+          "S011",
+          "Tác phẩm số 1 của J.K. Rowling",
+          "Giả tưởng",
+          177000.0
+        ],
+        [
+          "S031",
+          "Tác phẩm số 2 của Yuval Noah Harari",
+          "Khoa học xã hội",
+          159000.0
+        ],
+        [
+          "S030",
+          "Tác phẩm số 1 của Yuval Noah Harari",
+          "Khoa học xã hội",
+          156000.0
+        ],
+        [
+          "S032",
+          "Tác phẩm số 3 của Yuval Noah Harari",
+          "Khoa học xã hội",
+          149000.0
+        ],
+        [
+          "S033",
+          "Tác phẩm số 4 của Yuval Noah Harari",
+          "Khoa học xã hội",
+          142000.0
+        ],
+        [
+          "S021",
+          "Tác phẩm số 3 của Dale Carnegie",
+          "Kỹ năng sống",
+          132000.0
+        ],
+        [
+          "S023",
+          "Tác phẩm số 5 của Dale Carnegie",
+          "Kỹ năng sống",
+          105000.0
+        ],
+        [
+          "S036",
+          "Tác phẩm số 2 của Agatha Christie",
+          "Trinh thám",
+          119000.0
+        ],
+        [
+          "S035",
+          "Tác phẩm số 1 của Agatha Christie",
+          "Trinh thám",
+          91000.0
+        ],
+        [
+          "S007",
+          "Tác phẩm số 4 của Tô Hoài",
+          "Văn học hiện thực",
+          165000.0
+        ],
+        [
+          "S010",
+          "Tác phẩm số 3 của Nam Cao",
+          "Văn học hiện thực",
+          149000.0
+        ],
+        [
+          "S009",
+          "Tác phẩm số 2 của Nam Cao",
+          "Văn học hiện thực",
+          140000.0
+        ],
+        [
+          "S038",
+          "Tác phẩm số 1 của Nguyễn Ngọc Tư",
+          "Văn học hiện đại",
+          156000.0
+        ],
+        [
+          "S001",
+          "Tác phẩm số 1 của Nguyễn Nhật Ánh",
+          "Văn học thiếu nhi",
+          178000.0
+        ],
+        [
+          "S028",
+          "Tác phẩm số 5 của Paulo Coelho",
+          "Văn học đương đại",
+          165000.0
+        ],
+        [
+          "S018",
+          "Tác phẩm số 4 của Haruki Murakami",
+          "Văn học đương đại",
+          162000.0
+        ],
+        [
+          "S015",
+          "Tác phẩm số 1 của Haruki Murakami",
+          "Văn học đương đại",
+          158000.0
+        ],
+        [
+          "S027",
+          "Tác phẩm số 4 của Paulo Coelho",
+          "Văn học đương đại",
+          152000.0
+        ],
+        [
+          "S029",
+          "Tác phẩm số 6 của Paulo Coelho",
+          "Văn học đương đại",
+          133000.0
+        ],
+        [
+          "S026",
+          "Tác phẩm số 3 của Paulo Coelho",
+          "Văn học đương đại",
+          120000.0
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cs09",
+    "db": "cua_hang_sach",
+    "difficulty": 3,
+    "type": "select",
+    "topic": "Subquery NOT EXISTS",
+    "title": "Sách chưa từng được đặt trong bất kỳ đơn hàng nào",
+    "prompt": "Liệt kê MaSach, TenSach của các sách chưa từng xuất hiện trong bảng ChiTietDonHang.",
+    "hint": "Dùng NOT EXISTS (SELECT 1 FROM ChiTietDonHang WHERE ...) hoặc NOT IN.",
+    "solutionSql": "SELECT s.MaSach, s.TenSach FROM Sach s WHERE NOT EXISTS (SELECT 1 FROM ChiTietDonHang ct WHERE ct.MaSach = s.MaSach) ORDER BY s.MaSach ASC;",
+    "expected": {
+      "columns": [
+        "MaSach",
+        "TenSach"
+      ],
+      "rows": [
+        [
+          "S036",
+          "Tác phẩm số 2 của Agatha Christie"
+        ],
+        [
+          "S037",
+          "Tác phẩm số 3 của Agatha Christie"
+        ],
+        [
+          "S038",
+          "Tác phẩm số 1 của Nguyễn Ngọc Tư"
+        ],
+        [
+          "S039",
+          "Tác phẩm số 2 của Nguyễn Ngọc Tư"
+        ],
+        [
+          "S040",
+          "Tác phẩm số 3 của Nguyễn Ngọc Tư"
+        ],
+        [
+          "S041",
+          "Tác phẩm số 4 của Nguyễn Ngọc Tư"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cs10",
+    "db": "cua_hang_sach",
+    "difficulty": 2,
+    "type": "select",
+    "topic": "GROUP BY + đếm phân loại",
+    "title": "Số đơn hàng theo từng trạng thái",
+    "prompt": "Với mỗi TrangThai trong bảng DonHang, tính số lượng đơn hàng (SoDonHang). Sắp xếp giảm dần theo SoDonHang.",
+    "hint": "GROUP BY TrangThai.",
+    "solutionSql": "SELECT TrangThai, COUNT(*) AS SoDonHang FROM DonHang GROUP BY TrangThai ORDER BY SoDonHang DESC;",
+    "expected": {
+      "columns": [
+        "TrangThai",
+        "SoDonHang"
+      ],
+      "rows": [
+        [
+          "Đã giao",
+          56
+        ],
+        [
+          "Đã hủy",
+          9
+        ],
+        [
+          "Đang xử lý",
+          5
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cs11",
+    "db": "cua_hang_sach",
+    "difficulty": 3,
+    "type": "select",
+    "topic": "JOIN 3 bảng + GROUP BY",
+    "title": "Doanh thu theo từng thể loại sách (chỉ đơn Đã giao)",
+    "prompt": "Với mỗi TheLoai, tính tổng doanh thu (SUM SoLuong*DonGia) chỉ tính trên các đơn hàng có TrangThai = 'Đã giao', đặt tên DoanhThu. Sắp xếp giảm dần theo DoanhThu.",
+    "hint": "JOIN Sach-ChiTietDonHang-DonHang, WHERE TrangThai='Đã giao', GROUP BY TheLoai.",
+    "solutionSql": "SELECT s.TheLoai, SUM(ct.SoLuong * ct.DonGia) AS DoanhThu FROM Sach s JOIN ChiTietDonHang ct ON s.MaSach = ct.MaSach JOIN DonHang dh ON ct.MaDH = dh.MaDH WHERE dh.TrangThai = 'Đã giao' GROUP BY s.TheLoai ORDER BY DoanhThu DESC;",
+    "expected": {
+      "columns": [
+        "TheLoai",
+        "DoanhThu"
+      ],
+      "rows": [
+        [
+          "Văn học đương đại",
+          14798000.0
+        ],
+        [
+          "Văn học hiện thực",
+          11652000.0
+        ],
+        [
+          "Khoa học xã hội",
+          8846000.0
+        ],
+        [
+          "Kỹ năng sống",
+          6750000.0
+        ],
+        [
+          "Giả tưởng",
+          6418000.0
+        ],
+        [
+          "Văn học thiếu nhi",
+          5628000.0
+        ],
+        [
+          "Trinh thám",
+          819000.0
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cs12",
+    "db": "cua_hang_sach",
+    "difficulty": 2,
+    "type": "dml",
+    "topic": "DML - INSERT",
+    "title": "Thêm một sách mới",
+    "prompt": "Thêm một sách mới vào bảng Sach với MaSach = 'S999', TenSach = 'Cuốn sách của Vinh', MaTG = 'TG01', TheLoai = 'Văn học thiếu nhi', GiaBan = 79000, SoLuongTon = 50, NamXuatBan = 2026.",
+    "hint": "INSERT INTO Sach (...) VALUES (...);",
+    "solutionSql": "INSERT INTO Sach (MaSach, TenSach, MaTG, TheLoai, GiaBan, SoLuongTon, NamXuatBan) VALUES ('S999', 'Cuốn sách của Vinh', 'TG01', 'Văn học thiếu nhi', 79000, 50, 2026);",
+    "verifySql": "SELECT MaSach, TenSach, GiaBan, SoLuongTon FROM Sach WHERE MaSach = 'S999';",
+    "expected": {
+      "columns": [
+        "MaSach",
+        "TenSach",
+        "GiaBan",
+        "SoLuongTon"
+      ],
+      "rows": [
+        [
+          "S999",
+          "Cuốn sách của Vinh",
+          79000.0,
+          50
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cs13",
+    "db": "cua_hang_sach",
+    "difficulty": 2,
+    "type": "dml",
+    "topic": "DML - UPDATE",
+    "title": "Giảm giá 10% cho toàn bộ sách thể loại Trinh thám",
+    "prompt": "Giảm GiaBan 10% cho tất cả sách có TheLoai = 'Trinh thám'.",
+    "hint": "UPDATE Sach SET GiaBan = GiaBan * 0.9 WHERE TheLoai = 'Trinh thám';",
+    "solutionSql": "UPDATE Sach SET GiaBan = GiaBan * 0.9 WHERE TheLoai = 'Trinh thám';",
+    "verifySql": "SELECT MaSach, TenSach, GiaBan FROM Sach WHERE TheLoai = 'Trinh thám' ORDER BY MaSach;",
+    "expected": {
+      "columns": [
+        "MaSach",
+        "TenSach",
+        "GiaBan"
+      ],
+      "rows": [
+        [
+          "S035",
+          "Tác phẩm số 1 của Agatha Christie",
+          81900.0
+        ],
+        [
+          "S036",
+          "Tác phẩm số 2 của Agatha Christie",
+          107100.0
+        ],
+        [
+          "S037",
+          "Tác phẩm số 3 của Agatha Christie",
+          45900.0
+        ]
+      ]
+    }
+  }
+]
