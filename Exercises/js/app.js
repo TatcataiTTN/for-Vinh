@@ -29,30 +29,155 @@ function markDone(id, ok) {
   saveProgress(p);
 }
 
-async function boot() {
-  // 1. Khởi tạo sql.js
-  state.SQL = await initSqlJs({ locateFile: f => `vendor/sqljs/${f}` });
+const CACHE_NAME = "sqlpractice-assets-v1";
+const BOOT_TIMEOUT_MS = 45000;
 
-  // 2. Tải 3 file .sqlite dưới dạng ArrayBuffer
-  const dbNames = Object.keys(SCHEMAS);
-  await Promise.all(dbNames.map(async (name) => {
-    const res = await fetch(`data/${name}.sqlite`);
+// Tải một URL thành Uint8Array, có báo tiến độ (loaded, total) và lưu vào
+// Cache Storage của trình duyệt để lần mở sau không phải tải lại.
+async function fetchWithProgress(url, onProgress) {
+  let cache = null;
+  try { cache = await caches.open(CACHE_NAME); } catch (e) { /* Cache API không khả dụng, vẫn tải bình thường */ }
+
+  if (cache) {
+    const cached = await cache.match(url);
+    if (cached) {
+      const buf = await cached.arrayBuffer();
+      onProgress(buf.byteLength, buf.byteLength, true);
+      return new Uint8Array(buf);
+    }
+  }
+
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Không tải được "${url}" (mã lỗi HTTP ${res.status}).`);
+
+  const total = Number(res.headers.get("content-length")) || 0;
+
+  if (!res.body || !res.body.getReader) {
+    // Trình duyệt không hỗ trợ streaming - tải thẳng, không có tiến độ chi tiết
     const buf = await res.arrayBuffer();
-    state.dbBytes[name] = new Uint8Array(buf);
-  }));
+    onProgress(buf.byteLength, buf.byteLength || total, false);
+    if (cache) { try { await cache.put(url, new Response(buf.slice(0))); } catch (e) {} }
+    return new Uint8Array(buf);
+  }
 
-  // 3. Tải câu hỏi
-  const qres = await fetch("data/questions.json");
-  state.questions = await qres.json();
-  dbNames.forEach(name => {
-    state.byDb[name] = state.questions.filter(q => q.db === name).sort((a,b) => a.id.localeCompare(b.id));
-  });
-
-  renderSidebar();
-  window.addEventListener("hashchange", route);
-  route();
-  document.getElementById("boot-overlay").classList.add("hidden");
+  const reader = res.body.getReader();
+  const chunks = [];
+  let loaded = 0;
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    chunks.push(value);
+    loaded += value.length;
+    onProgress(loaded, total, false);
+  }
+  const blob = new Blob(chunks);
+  const buf = await blob.arrayBuffer();
+  if (cache) { try { await cache.put(url, new Response(blob)); } catch (e) {} }
+  return new Uint8Array(buf);
 }
+
+function fmtMB(bytes) { return (bytes / (1024 * 1024)).toFixed(2); }
+
+function setupBootUI(resources) {
+  const list = document.getElementById("boot-progress-list");
+  list.innerHTML = resources.map(r => `
+    <div class="boot-item" id="boot-item-${r.key}">
+      <div class="boot-item-row">
+        <span>${r.label}</span>
+        <span class="bi-size" id="boot-item-size-${r.key}">chờ tải...</span>
+      </div>
+      <div class="boot-item-track"><div class="boot-item-fill" id="boot-item-fill-${r.key}" style="width:0%;"></div></div>
+    </div>
+  `).join("");
+}
+
+function updateBootItem(key, loaded, total, fromCache) {
+  const fill = document.getElementById(`boot-item-fill-${key}`);
+  const sizeEl = document.getElementById(`boot-item-size-${key}`);
+  if (!fill || !sizeEl) return;
+  const pct = total ? Math.min(100, Math.round((loaded / total) * 100)) : 100;
+  fill.style.width = pct + "%";
+  if (fromCache) {
+    fill.classList.add("done");
+    sizeEl.textContent = "✔ đã có sẵn (trong bộ nhớ trình duyệt)";
+  } else if (pct >= 100) {
+    fill.classList.add("done");
+    sizeEl.textContent = `✔ ${fmtMB(loaded)} MB`;
+  } else {
+    sizeEl.textContent = `${fmtMB(loaded)} / ${total ? fmtMB(total) : "?"} MB`;
+  }
+}
+
+function updateBootTotal(totalLoaded, totalExpected) {
+  const pct = totalExpected ? Math.min(100, Math.round((totalLoaded / totalExpected) * 100)) : 0;
+  document.getElementById("boot-total-fill").style.width = pct + "%";
+  document.getElementById("boot-total-pct").textContent = pct + "%";
+  document.getElementById("boot-total-label").textContent = `${fmtMB(totalLoaded)} / ${fmtMB(totalExpected)} MB`;
+}
+
+function showBootError(message) {
+  document.getElementById("boot-icon").textContent = "⚠️";
+  document.getElementById("boot-title").textContent = "Không tải được trang";
+  document.getElementById("boot-error-text").textContent = message;
+  document.getElementById("boot-error-box").style.display = "block";
+}
+
+async function boot() {
+  const resources = [
+    { key: "engine", label: "⚙️ Công cụ chạy SQL (SQLite/WebAssembly)", url: "vendor/sqljs/sql-wasm.wasm", expected: 655300 },
+    { key: "classicmodels", label: "🚗 Cơ sở dữ liệu Classicmodels", url: "data/classicmodels.sqlite", expected: 311296 },
+    { key: "truong_hoc", label: "🏫 Cơ sở dữ liệu Trường Học", url: "data/truong_hoc.sqlite", expected: 212992 },
+    { key: "cua_hang_sach", label: "📚 Cơ sở dữ liệu Cửa Hàng Sách", url: "data/cua_hang_sach.sqlite", expected: 40960 },
+    { key: "questions", label: "📄 Ngân hàng câu hỏi", url: "data/questions.json", expected: 82542 },
+  ];
+  const totalExpected = resources.reduce((s, r) => s + r.expected, 0);
+  setupBootUI(resources);
+  updateBootTotal(0, totalExpected);
+
+  const loadedByKey = {};
+  resources.forEach(r => loadedByKey[r.key] = 0);
+  function reportTotal() {
+    const sum = Object.values(loadedByKey).reduce((a, b) => a + b, 0);
+    updateBootTotal(sum, totalExpected);
+  }
+
+  const timeoutId = setTimeout(() => {
+    showBootError("Quá trình tải mất nhiều thời gian hơn bình thường (quá 45 giây). Có thể do mạng chậm hoặc mất kết nối. Hãy kiểm tra Internet rồi thử lại.");
+  }, BOOT_TIMEOUT_MS);
+
+  try {
+    const bytesByKey = {};
+    for (const r of resources) {
+      bytesByKey[r.key] = await fetchWithProgress(r.url, (loaded, total, fromCache) => {
+        loadedByKey[r.key] = loaded;
+        updateBootItem(r.key, loaded, total || r.expected, fromCache);
+        reportTotal();
+      });
+    }
+
+    state.SQL = await initSqlJs({ wasmBinary: bytesByKey.engine });
+
+    const dbNames = Object.keys(SCHEMAS);
+    dbNames.forEach(name => { state.dbBytes[name] = bytesByKey[name]; });
+
+    state.questions = JSON.parse(new TextDecoder("utf-8").decode(bytesByKey.questions));
+    dbNames.forEach(name => {
+      state.byDb[name] = state.questions.filter(q => q.db === name).sort((a, b) => a.id.localeCompare(b.id));
+    });
+
+    clearTimeout(timeoutId);
+    renderSidebar();
+    window.addEventListener("hashchange", route);
+    route();
+    document.getElementById("boot-overlay").classList.add("hidden");
+  } catch (err) {
+    clearTimeout(timeoutId);
+    showBootError(err && err.message ? err.message : "Có lỗi không xác định xảy ra khi tải trang.");
+  }
+}
+
+const retryBtnEl = document.getElementById("boot-retry-btn");
+if (retryBtnEl) retryBtnEl.onclick = () => location.reload();
 
 function freshDb(dbName) {
   return new state.SQL.Database(state.dbBytes[dbName]);
@@ -144,7 +269,7 @@ function renderLanding() {
       </div>
     </div>
     <div class="db-card-grid">${cards}</div>
-    <p class="footer-note">Tiến trình học được lưu ngay trên trình duyệt này (localStorage). Mở lại trang bất kỳ lúc nào để tiếp tục.</p>
+    <p class="footer-note">💾 Tiến trình học được lưu ngay trên trình duyệt này — đóng tab, tắt máy, mở lại đúng đường link vẫn còn nguyên. Chỉ mất nếu bạn xoá dữ liệu trình duyệt (Clear browsing data) hoặc dùng chế độ ẩn danh.<br>Lần mở đầu tiên cần tải khoảng 1,5&nbsp;MB (3 CSDL + công cụ chạy SQL); từ lần thứ hai trở đi trình duyệt đã lưu sẵn nên mở gần như ngay lập tức.</p>
   `;
 }
 

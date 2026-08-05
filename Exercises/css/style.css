@@ -181,6 +181,45 @@ table.result-table tbody tr:nth-child(even) { background: #fafcfd; }
 .db-card p { margin: 0; font-size: 13px; color: var(--text-soft); }
 .db-card .go { font-size: 12.5px; color: var(--teal-dark); font-weight: 700; margin-top: 10px; display:block; }
 
+/* ---------- Boot / thiết lập lần đầu ---------- */
+.boot-overlay {
+  position: fixed; inset: 0; z-index: 999;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 60%, var(--teal-dark) 130%);
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  padding: 24px; transition: opacity .25s ease;
+}
+.boot-overlay.hidden { opacity: 0; pointer-events: none; }
+.boot-card { max-width: 460px; width: 100%; text-align: center; }
+.boot-icon { font-size: 40px; margin-bottom: 6px; }
+.boot-card h2 { margin: 0 0 8px; font-size: 20px; }
+.boot-sub { font-size: 13.5px; color: #cfe0ec; margin: 0 0 22px; line-height: 1.5; }
+
+.boot-progress-list { text-align: left; margin-bottom: 18px; }
+.boot-item { margin-bottom: 12px; }
+.boot-item-row { display: flex; justify-content: space-between; font-size: 12.5px; color: #dbe7f0; margin-bottom: 4px; }
+.boot-item-row .bi-size { color: #9fb4c7; }
+.boot-item-track { height: 6px; border-radius: 4px; background: rgba(255,255,255,.12); overflow: hidden; }
+.boot-item-fill { height: 100%; background: var(--teal); border-radius: 4px; transition: width .15s ease; }
+.boot-item-fill.done { background: #34d1c4; }
+.boot-item.ok .bi-check { color: #34d1c4; }
+
+.boot-total-row { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.boot-total-track { height: 10px; }
+.boot-total-track .progress-bar-fill { background: linear-gradient(90deg, var(--teal), #34d1c4); }
+
+.boot-error-box {
+  margin-top: 18px; background: rgba(220,38,38,.15); border: 1px solid rgba(220,38,38,.4);
+  border-radius: 10px; padding: 14px; text-align: center;
+}
+.boot-error-box p { font-size: 13.5px; margin: 0 0 10px; color: #ffe4e2; }
+
+.save-note {
+  display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: #9fb4c7;
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px; padding: 10px 12px; margin-top: 10px;
+}
+.save-note .save-icon { flex-shrink: 0; }
+
 @media (max-width: 860px) {
   .app-shell { flex-direction: column; }
   .sidebar { width: 100%; height: auto; position: relative; }
