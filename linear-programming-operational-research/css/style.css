@@ -207,6 +207,31 @@ footer{
   padding:24px 12px 40px;
 }
 .loading{text-align:center;padding:60px 20px;color:var(--muted)}
+
+.update-banner{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  background:linear-gradient(90deg,#fff4e0,#ffe9c7);
+  border:1px solid #f0b84a;
+  border-radius:10px;
+  padding:14px 16px;
+  margin-bottom:16px;
+  animation:banner-in .35s ease-out;
+}
+.update-banner-text{flex:1;font-size:0.92rem;color:#5a3d0a}
+.banner-close{
+  background:none;border:none;font-size:1.3rem;line-height:1;cursor:pointer;
+  color:#8a6a2a;padding:2px 8px;border-radius:4px;
+}
+.banner-close:hover{background:rgba(0,0,0,0.06)}
+@keyframes banner-in{
+  from{opacity:0;transform:translateY(-8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@media (max-width:600px){
+  .update-banner{flex-direction:column;align-items:flex-start}
+}
 .err-box{
   background:#fbe9e7;border:1px solid var(--bad);border-radius:8px;
   padding:16px;color:var(--bad);text-align:center;

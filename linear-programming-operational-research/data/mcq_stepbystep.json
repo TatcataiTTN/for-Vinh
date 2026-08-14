@@ -1,0 +1,1402 @@
+[
+ {
+  "id": 1,
+  "group": "BÀI TOÁN 1 — ĐƠN HÌNH GỐC (BẢNG ĐƠN HÌNH GỘP, 6 BIẾN)",
+  "image": null,
+  "question": "Ba phương trình ràng buộc đã có sẵn cột đơn vị (mỗi phương trình có đúng 1 biến hệ số $1$ xuất hiện duy nhất ở đó). Cơ sở ban đầu $J_0$ hợp lý nhất, không cần thêm ẩn giả, là:",
+  "options": {
+   "A": "$\\{x_1,x_2,x_3\\}$.",
+   "B": "$\\{x_4,x_5,x_6\\}$.",
+   "C": "$\\{x_1,x_5,x_6\\}$.",
+   "D": "Không tồn tại cơ sở nào có sẵn."
+  },
+  "correct": "B",
+  "explanation": "Biến $x_4$ xuất hiện đúng 1 lần (hệ số 1) ở phương trình (1), $x_5$ ở (2), $x_6$ ở (3) — đúng 1 cột đơn vị mỗi phương trình, dùng ngay làm cơ sở, không cần đơn hình hai pha/M."
+ },
+ {
+  "id": 2,
+  "group": "BÀI TOÁN 1 — ĐƠN HÌNH GỐC (BẢNG ĐƠN HÌNH GỘP, 6 BIẾN)",
+  "image": null,
+  "question": "Với cơ sở $J_0=\\{x_4,x_5,x_6\\}$, phương án cực biên ban đầu (PACB) $x^{(0)}$ là:",
+  "options": {
+   "A": "$(46,38,21,0,0,0)$.",
+   "B": "$(0,0,0,46,38,21)$.",
+   "C": "$(0,0,0,0,0,0)$.",
+   "D": "$(7,5,0,12,0,0)$."
+  },
+  "correct": "B",
+  "explanation": "Biến phi cơ sở $x_1=x_2=x_3=0$; biến cơ sở lấy đúng giá trị vế phải: $x_4=46,x_5=38,x_6=21$."
+ },
+ {
+  "id": 3,
+  "group": "BÀI TOÁN 1 — ĐƠN HÌNH GỐC (BẢNG ĐƠN HÌNH GỘP, 6 BIẾN)",
+  "image": null,
+  "question": "Giá trị hàm mục tiêu tại PACB ban đầu $f(x^{(0)})$ bằng:",
+  "options": {
+   "A": "$79$.",
+   "B": "$105$.",
+   "C": "$193$.",
+   "D": "$0$."
+  },
+  "correct": "C",
+  "explanation": "$f(x^{(0)})=2(46)+1(38)+3(21)=92+38+63=193$ (hệ số của $x_4,x_5,x_6$ trong $f$ lần lượt là $2,1,3$)."
+ },
+ {
+  "id": 4,
+  "group": "BÀI TOÁN 1 — ĐƠN HÌNH GỐC (BẢNG ĐƠN HÌNH GỘP, 6 BIẾN)",
+  "image": null,
+  "question": "Ước lượng $\\Delta_1$ (ứng với $x_1$) tại bảng đầu tiên bằng $12$ — đây là giá trị **lớn nhất** trong 3 ước lượng $\\Delta_1=12,\\Delta_2=6,\\Delta_3=7$ của các biến phi cơ sở. Theo quy tắc chọn biến vào của đơn hình gốc (bài toán min), biến vào cơ sở vòng 1 là:",
+  "options": {
+   "A": "$x_1$.",
+   "B": "$x_2$.",
+   "C": "$x_3$.",
+   "D": "Bất kỳ biến nào."
+  },
+  "correct": "A",
+  "explanation": "Quy tắc: chọn biến phi cơ sở có $\\Delta_j>0$ **lớn nhất**; $\\Delta_1=12$ lớn nhất trong $\\{12,6,7\\}$."
+ },
+ {
+  "id": 5,
+  "group": "BÀI TOÁN 1 — ĐƠN HÌNH GỐC (BẢNG ĐƠN HÌNH GỘP, 6 BIẾN)",
+  "image": null,
+  "question": "Tỷ số $\\theta=\\min\\{x_{i0}/z_{i1}: z_{i1}>0\\}$ để xác định biến ra vòng 1 — với cột $x_1$ có hệ số $(2,4,3)$ ở 3 hàng và PACB $(46,38,21)$ — bằng:",
+  "options": {
+   "A": "$\\theta=\\min\\{23, 9.5, 7\\}=7$, hàng $x_6$ ra.",
+   "B": "$\\theta=23$, hàng $x_4$ ra.",
+   "C": "$\\theta=9.5$, hàng $x_5$ ra.",
+   "D": "Không tính được."
+  },
+  "correct": "A",
+  "explanation": "$46/2=23,\\ 38/4=9.5,\\ 21/3=7$ — nhỏ nhất là $7$ tại hàng $x_6\\Rightarrow x_6$ ra."
+ },
+ {
+  "id": 6,
+  "group": "BÀI TOÁN 1 — ĐƠN HÌNH GỐC (BẢNG ĐƠN HÌNH GỘP, 6 BIẾN)",
+  "image": "sb01_02.png",
+  "question": "Sau vòng 1 (cơ sở mới $\\{x_4,x_5,x_1\\}$), giá trị hàm mục tiêu và ước lượng $\\Delta_2$ lớn nhất (xem hình) là:",
+  "options": {
+   "A": "$f=193,\\ \\Delta_2=6$.",
+   "B": "$f=109,\\ \\Delta_2=6$.",
+   "C": "$f=79,\\ \\Delta_2=0$.",
+   "D": "$f=150,\\ \\Delta_2=12$."
+  },
+  "correct": "B",
+  "explanation": "$f=f^{(0)}-\\Delta_1\\cdot\\theta=193-12(7)=109$; bảng vòng 2 có $\\Delta_2=6$ lớn nhất (các $\\Delta$ khác $\\le0$) $\\Rightarrow x_2$ vào cơ sở vòng 2."
+ },
+ {
+  "id": 7,
+  "group": "BÀI TOÁN 1 — ĐƠN HÌNH GỐC (BẢNG ĐƠN HÌNH GỘP, 6 BIẾN)",
+  "image": "sb01_01.png",
+  "question": "Biểu đồ minh họa các ước lượng $\\Delta_j$ ở **vòng lặp 1**. Cột nào quyết định biến vào cơ sở, và vì sao?",
+  "options": {
+   "A": "$x_1$, vì $\\Delta_1=12$ là giá trị dương lớn nhất trong biểu đồ.",
+   "B": "$x_2$, vì cột này cao thứ nhì.",
+   "C": "$x_3$, vì luôn ưu tiên chỉ số nhỏ nhất.",
+   "D": "Không cột nào, vì tất cả đều dương."
+  },
+  "correct": "A",
+  "explanation": "Đúng quy tắc chọn biến vào — chọn $\\Delta_j>0$ lớn nhất, khớp Câu 4."
+ },
+ {
+  "id": 8,
+  "group": "BÀI TOÁN 1 — ĐƠN HÌNH GỐC (BẢNG ĐƠN HÌNH GỘP, 6 BIẾN)",
+  "image": "sb01_03.png",
+  "question": "Với cơ sở $\\{x_4,x_2,x_1\\}$ (sau vòng 2, $x_5$ đã ra ở tỷ số $\\theta=\\min\\{32/4,10/2\\}=5$), bảng vòng 3 cho $f=79$ và toàn bộ $\\Delta_j\\le0$.  Kết luận đúng ở bước này là:",
+  "options": {
+   "A": "Tiếp tục đổi cơ sở vì còn cải thiện được.",
+   "B": "Đạt phương án tối ưu, dừng thuật toán.",
+   "C": "Bài toán không bị chặn.",
+   "D": "Bài toán vô nghiệm."
+  },
+  "correct": "B",
+  "explanation": "Dấu hiệu tối ưu bài toán min: mọi $\\Delta_j\\le0\\Rightarrow$ dừng, PACB hiện tại là tối ưu."
+ },
+ {
+  "id": 9,
+  "group": "BÀI TOÁN 1 — ĐƠN HÌNH GỐC (BẢNG ĐƠN HÌNH GỘP, 6 BIẾN)",
+  "image": null,
+  "question": "Phương án tối ưu $x^*=(x_1,x_2,x_3,x_4,x_5,x_6)$ đọc từ bảng cuối (cơ sở $\\{x_4,x_2,x_1\\}$ với giá trị lần lượt $12,5,7$; các biến phi cơ sở $x_3=x_5=x_6=0$) là:",
+  "options": {
+   "A": "$(7,5,0,12,0,0)$.",
+   "B": "$(12,5,7,0,0,0)$.",
+   "C": "$(0,0,0,46,38,21)$.",
+   "D": "$(5,7,12,0,0,0)$."
+  },
+  "correct": "A",
+  "explanation": "Đọc đúng thứ tự biến: $x_1=7,x_2=5,x_3=0,x_4=12,x_5=0,x_6=0$."
+ },
+ {
+  "id": 10,
+  "group": "BÀI TOÁN 1 — ĐƠN HÌNH GỐC (BẢNG ĐƠN HÌNH GỘP, 6 BIẾN)",
+  "image": null,
+  "question": "Kiểm tra lại trực tiếp bằng cách thế $x^*$ vào hàm mục tiêu gốc: $f(x^*)=5(7)+4(5)+5(0) +2(12)+1(0)+3(0)=$?",
+  "options": {
+   "A": "$35+20+24=79$.",
+   "B": "$79$.",
+   "C": "Cả A và B đều đúng (cùng 1 phép tính).",
+   "D": "$105$."
+  },
+  "correct": "C",
+  "explanation": "$5(7)=35,4(5)=20,2(12)=24$, tổng $35+20+24=79=f^*$ — khớp đáp số đã công bố, xác nhận toàn bộ 9 câu trên tự hợp nhất thành 1 lời giải tự luận đúng."
+ },
+ {
+  "id": 11,
+  "group": "BÀI TOÁN 2 — ĐƠN HÌNH HAI PHA (VÍ DỤ 1: RÀNG BUỘC ĐẲNG THỨC THUẦN TÚY)",
+  "image": null,
+  "question": "Trong 3 phương trình, phương trình nào **đã có sẵn** cột đơn vị (không cần ẩn giả)?",
+  "options": {
+   "A": "Phương trình (1), nhờ hệ số $+1$ của $x_1$.",
+   "B": "Phương trình (2).",
+   "C": "Phương trình (3).",
+   "D": "Không phương trình nào."
+  },
+  "correct": "A",
+  "explanation": "Cột $A^1=(1,0,0)^T$ — đúng vectơ đơn vị, dùng $x_1$ làm biến cơ sở của phương trình (1)."
+ },
+ {
+  "id": 12,
+  "group": "BÀI TOÁN 2 — ĐƠN HÌNH HAI PHA (VÍ DỤ 1: RÀNG BUỘC ĐẲNG THỨC THUẦN TÚY)",
+  "image": null,
+  "question": "Vậy cần thêm bao nhiêu ẩn giả, cho phương trình nào?",
+  "options": {
+   "A": "3 ẩn giả cho cả 3 phương trình.",
+   "B": "2 ẩn giả ($x_6,x_7$) cho phương trình (2) và (3).",
+   "C": "1 ẩn giả.",
+   "D": "Không cần ẩn giả nào."
+  },
+  "correct": "B",
+  "explanation": "Chỉ 2 phương trình còn thiếu cột đơn vị."
+ },
+ {
+  "id": 13,
+  "group": "BÀI TOÁN 2 — ĐƠN HÌNH HAI PHA (VÍ DỤ 1: RÀNG BUỘC ĐẲNG THỨC THUẦN TÚY)",
+  "image": null,
+  "question": "Hàm mục tiêu bài toán phụ (Pha 1) là:",
+  "options": {
+   "A": "$F(x,w)=x_6+x_7\\to\\min$.",
+   "B": "$F(x,w)=2x_1+6x_2-5x_3+x_4+4x_5\\to\\min$.",
+   "C": "$F=x_1+x_6+x_7\\to\\max$.",
+   "D": "Không cần hàm mục tiêu phụ."
+  },
+  "correct": "A",
+  "explanation": "Định nghĩa chuẩn Pha 1: tối thiểu hóa tổng các ẩn giả."
+ },
+ {
+  "id": 14,
+  "group": "BÀI TOÁN 2 — ĐƠN HÌNH HAI PHA (VÍ DỤ 1: RÀNG BUỘC ĐẲNG THỨC THUẦN TÚY)",
+  "image": "sb02_01.png",
+  "question": "Ở bảng 1 (cơ sở $\\{A^1,A^6,A^7\\}$), ước lượng $\\Delta_F$ lớn nhất là $5$ tại cột $x_4$. Biến vào và biến ra vòng 1 (Pha 1) lần lượt là:",
+  "options": {
+   "A": "$x_4$ vào, $x_7$ ra (vì $\\theta=\\min\\{6/4,1/1\\}=1$).",
+   "B": "$x_4$ vào, $x_6$ ra.",
+   "C": "$x_1$ vào, $x_7$ ra.",
+   "D": "$x_4$ vào, không biến nào ra."
+  },
+  "correct": "A",
+  "explanation": "$\\theta_6=6/4=1.5,\\ \\theta_7=1/1=1$ — nhỏ nhất là $1$ tại hàng $x_7\\Rightarrow x_7$ ra."
+ },
+ {
+  "id": 15,
+  "group": "BÀI TOÁN 2 — ĐƠN HÌNH HAI PHA (VÍ DỤ 1: RÀNG BUỘC ĐẲNG THỨC THUẦN TÚY)",
+  "image": null,
+  "question": "Ở bảng 2 (cơ sở $\\{A^1,A^6,A^4\\}$), ước lượng $\\Delta_F$ lớn nhất là $1$ tại cột $x_3$. Biến vào và biến ra vòng 2 là:",
+  "options": {
+   "A": "$x_3$ vào, $x_6$ ra (vì $\\theta=2/1=2$).",
+   "B": "$x_3$ vào, $x_4$ ra.",
+   "C": "$x_2$ vào, $x_6$ ra.",
+   "D": "Không đổi cơ sở nữa."
+  },
+  "correct": "A",
+  "explanation": "Cột $x_3$ tại hàng $x_6$ có hệ số pivot $=1$, $x_6^{(0)}=2\\Rightarrow\\theta=2$, là hàng duy nhất có hệ số dương ở cột $x_3$ trong bảng đó $\\Rightarrow x_6$ ra."
+ },
+ {
+  "id": 16,
+  "group": "BÀI TOÁN 2 — ĐƠN HÌNH HAI PHA (VÍ DỤ 1: RÀNG BUỘC ĐẲNG THỨC THUẦN TÚY)",
+  "image": "sb02_02.png",
+  "question": "Sau vòng 2, cơ sở là $\\{A^1,A^3,A^4\\}$, $F=0$, và **không còn ẩn giả nào trong cơ sở**. Bước tiếp theo bắt buộc phải làm là:",
+  "options": {
+   "A": "Kết luận ngay bài toán chính vô nghiệm.",
+   "B": "Xóa các cột ẩn giả, chuyển sang Pha 2 với hàm mục tiêu thật $f(x)$, giữ nguyên cơ sở và bảng số vừa có.",
+   "C": "Quay lại bảng 1, làm lại từ đầu.",
+   "D": "Đổi dấu toàn bộ bảng."
+  },
+  "correct": "B",
+  "explanation": "Đúng quy trình chuyển tiếp Pha 1 → Pha 2 khi $F^*=0$ và hết ẩn giả trong cơ sở."
+ },
+ {
+  "id": 17,
+  "group": "BÀI TOÁN 2 — ĐƠN HÌNH HAI PHA (VÍ DỤ 1: RÀNG BUỘC ĐẲNG THỨC THUẦN TÚY)",
+  "image": null,
+  "question": "Ở bảng Pha 2 đầu tiên (cơ sở $\\{A^1,A^3,A^4\\}$, hệ số thật $c=(2,-5,1)$), ước lượng $\\Delta_f$ chỉ dương duy nhất tại cột $x_5$ với $\\Delta_5=1$. Biến vào cơ sở Pha 2 là:",
+  "options": {
+   "A": "$x_5$.",
+   "B": "$x_2$.",
+   "C": "$x_1$.",
+   "D": "Không biến nào (đã tối ưu)."
+  },
+  "correct": "A",
+  "explanation": "Chỉ $\\Delta_5=1>0$, các cột khác $\\le0$."
+ },
+ {
+  "id": 18,
+  "group": "BÀI TOÁN 2 — ĐƠN HÌNH HAI PHA (VÍ DỤ 1: RÀNG BUỘC ĐẲNG THỨC THUẦN TÚY)",
+  "image": null,
+  "question": "Tỷ số $\\theta$ Pha 2 (cột $x_5$ có hệ số $(1,-1,-2)$ ở 3 hàng, PACB $(14,2,3)$; chỉ hàng có hệ số dương mới tính) bằng:",
+  "options": {
+   "A": "$\\theta=14/1=14$, hàng $x_1$ ra.",
+   "B": "$\\theta=2$, hàng $x_3$ ra.",
+   "C": "$\\theta=3$, hàng $x_4$ ra.",
+   "D": "Không tính được vì mọi hệ số âm."
+  },
+  "correct": "A",
+  "explanation": "Chỉ hàng $x_1$ (hệ số cột $x_5$ bằng $+1>0$) đủ điều kiện tính $\\theta$; 2 hàng còn lại có hệ số âm nên bị loại khỏi phép tính tỷ số min."
+ },
+ {
+  "id": 19,
+  "group": "BÀI TOÁN 2 — ĐƠN HÌNH HAI PHA (VÍ DỤ 1: RÀNG BUỘC ĐẲNG THỨC THUẦN TÚY)",
+  "image": null,
+  "question": "Bảng cuối cùng (cơ sở $\\{A^5,A^3,A^4\\}$) có mọi $\\Delta_f\\le0$. Nghiệm tối ưu theo 5 biến gốc $(x_1,x_2,x_3,x_4,x_5)$ là:",
+  "options": {
+   "A": "$(0,0,16,31,14)$.",
+   "B": "$(14,0,16,31,0)$.",
+   "C": "$(0,0,0,0,0)$.",
+   "D": "$(16,31,14,0,0)$."
+  },
+  "correct": "A",
+  "explanation": "Đọc đúng cơ sở: $x_5=14,x_3=16,x_4=31$; $x_1=x_2=0$ (phi cơ sở)."
+ },
+ {
+  "id": 20,
+  "group": "BÀI TOÁN 2 — ĐƠN HÌNH HAI PHA (VÍ DỤ 1: RÀNG BUỘC ĐẲNG THỨC THUẦN TÚY)",
+  "image": null,
+  "question": "Giá trị tối ưu $f^*=2(0)+6(0)-5(16)+1(31)+4(14)=$?",
+  "options": {
+   "A": "$-80+31+56=7$.",
+   "B": "$7$.",
+   "C": "Cả A và B (cùng phép tính).",
+   "D": "$-7$."
+  },
+  "correct": "C",
+  "explanation": "$-5(16)=-80,\\ 1(31)=31,\\ 4(14)=56$; tổng $-80+31+56=7$ — khớp đáp số đã công bố."
+ },
+ {
+  "id": 21,
+  "group": "BÀI TOÁN 3 — ĐƠN HÌNH HAI PHA (VÍ DỤ 2: RÀNG BUỘC HỖN HỢP DẤU)",
+  "image": null,
+  "question": "Để đưa ràng buộc (1) ($-6x_1+4x_2+5x_3\\ge-20$) về dạng chính tắc với vế phải $\\ge0$, bước đúng là:",
+  "options": {
+   "A": "Nhân 2 vế với $-1$ thành $6x_1-4x_2-5x_3\\le20$, rồi cộng biến bù $x_4\\ge0$.",
+   "B": "Giữ nguyên, trừ biến bù.",
+   "C": "Không cần biến đổi.",
+   "D": "Chia 2 vế cho $-20$."
+  },
+  "correct": "A",
+  "explanation": "Vế phải gốc âm ($-20$) nên phải nhân $-1$ trước để đưa về vế phải dương, sau đó xử lý dấu bất đẳng thức bằng biến bù cộng."
+ },
+ {
+  "id": 22,
+  "group": "BÀI TOÁN 3 — ĐƠN HÌNH HAI PHA (VÍ DỤ 2: RÀNG BUỘC HỖN HỢP DẤU)",
+  "image": null,
+  "question": "Tương tự, ràng buộc (3) ($3x_1-2x_2-x_3\\le-8$) được xử lý bằng cách:",
+  "options": {
+   "A": "Nhân $-1$ thành $-3x_1+2x_2+x_3\\ge8$, rồi trừ biến bù $x_5\\ge0$.",
+   "B": "Cộng biến bù trực tiếp.",
+   "C": "Bỏ qua ràng buộc này.",
+   "D": "Nhân với $2$."
+  },
+  "correct": "A",
+  "explanation": "Vế phải âm $\\Rightarrow$ nhân $-1$ trước; ràng buộc $\\ge$ dùng biến bù trừ (surplus)."
+ },
+ {
+  "id": 23,
+  "group": "BÀI TOÁN 3 — ĐƠN HÌNH HAI PHA (VÍ DỤ 2: RÀNG BUỘC HỖN HỢP DẤU)",
+  "image": null,
+  "question": "Hệ chính tắc thu được là $6x_1-4x_2-5x_3+x_4=20,\\ x_1+2x_2+x_3=8,\\ -3x_1+2x_2+x_3-x_5=8$. Cần thêm bao nhiêu ẩn giả?",
+  "options": {
+   "A": "2 (cho phương trình 2 và 3, vì phương trình 1 đã có cột đơn vị nhờ $x_4$).",
+   "B": "3.",
+   "C": "1.",
+   "D": "0."
+  },
+  "correct": "A",
+  "explanation": "Đúng như lập luận ở Bài toán 2, Câu 11-12 — chỉ thiếu cột đơn vị ở 2 phương trình sau."
+ },
+ {
+  "id": 24,
+  "group": "BÀI TOÁN 3 — ĐƠN HÌNH HAI PHA (VÍ DỤ 2: RÀNG BUỘC HỖN HỢP DẤU)",
+  "image": null,
+  "question": "Ở bảng 1 Pha 1 (cơ sở $\\{A^4,A^6,A^7\\}$), $\\Delta_F$ lớn nhất $=4$ tại $x_2$. Biến vào, biến ra vòng 1 là:",
+  "options": {
+   "A": "$x_2$ vào, $x_6$ ra (vì $\\theta=8/2=4$, là tỷ số nhỏ nhất).",
+   "B": "$x_2$ vào, $x_7$ ra.",
+   "C": "$x_2$ vào, $x_4$ ra.",
+   "D": "$x_1$ vào, $x_6$ ra."
+  },
+  "correct": "A",
+  "explanation": "So $\\theta_6=8/2=4$ với các hàng khác, nhỏ nhất tại $x_6$."
+ },
+ {
+  "id": 25,
+  "group": "BÀI TOÁN 3 — ĐƠN HÌNH HAI PHA (VÍ DỤ 2: RÀNG BUỘC HỖN HỢP DẤU)",
+  "image": null,
+  "question": "Sau vòng 1, $F^*=0$ nhưng cơ sở $\\{A^4,A^2,A^7\\}$ **vẫn còn ẩn giả** $A^7$ ở giá trị $x_7=0$ (suy biến). Cách xử lý đúng là:",
+  "options": {
+   "A": "Kết luận vô nghiệm ngay.",
+   "B": "Giữ tạm cột $A^7$ (giá trị 0) sang Pha 2, loại nó khỏi cơ sở ngay khi có cơ hội đổi cơ sở (không cần tính $\\Delta$ liên quan đến nó nữa).",
+   "C": "Xóa hẳn ràng buộc (3).",
+   "D": "Nhân đôi giá trị $F$."
+  },
+  "correct": "B",
+  "explanation": "Đúng kỹ thuật xử lý trường hợp suy biến trong Pha 1 (khác Bài toán 2, nơi mọi ẩn giả ra khỏi cơ sở hẳn — đây là biến thể quan trọng cần phân biệt)."
+ },
+ {
+  "id": 26,
+  "group": "BÀI TOÁN 3 — ĐƠN HÌNH HAI PHA (VÍ DỤ 2: RÀNG BUỘC HỖN HỢP DẤU)",
+  "image": null,
+  "question": "Ở Pha 2 (cơ sở rút gọn $\\{A^4,A^2\\}$ sau khi loại $A^7$), hệ số hàm mục tiêu thật gán cho $A^4,A^2$ lần lượt là:",
+  "options": {
+   "A": "$(0,1)$.",
+   "B": "$(7,1)$.",
+   "C": "$(0,-4)$.",
+   "D": "$(1,0)$."
+  },
+  "correct": "A",
+  "explanation": "$c_4=0$ (biến bù không xuất hiện trong $f$ gốc), $c_2=1$ (hệ số $x_2$ trong $f$)."
+ },
+ {
+  "id": 27,
+  "group": "BÀI TOÁN 3 — ĐƠN HÌNH HAI PHA (VÍ DỤ 2: RÀNG BUỘC HỖN HỢP DẤU)",
+  "image": "sb03_02.png",
+  "question": "Bảng Pha 2 cuối cùng (cơ sở $\\{A^4,A^3\\}$, giá trị $x_4=60,\\ x_3=8$) có mọi $\\Delta_f\\le0$. Theo 3 biến gốc $(x_1,x_2,x_3)$, nghiệm tối ưu là:",
+  "options": {
+   "A": "$(0,0,8)$.",
+   "B": "$(0,8,0)$.",
+   "C": "$(8,0,0)$.",
+   "D": "$(60,0,8)$."
+  },
+  "correct": "A",
+  "explanation": "$x_1=x_2=0$ (phi cơ sở), $x_3=8$ — khớp đáp số công bố."
+ },
+ {
+  "id": 28,
+  "group": "BÀI TOÁN 3 — ĐƠN HÌNH HAI PHA (VÍ DỤ 2: RÀNG BUỘC HỖN HỢP DẤU)",
+  "image": null,
+  "question": "Giá trị tối ưu $f^*=7(0)+1(0)-4(8)=$?",
+  "options": {
+   "A": "$-32$.",
+   "B": "$32$.",
+   "C": "$-28$.",
+   "D": "$0$."
+  },
+  "correct": "A",
+  "explanation": "$-4\\times8=-32$."
+ },
+ {
+  "id": 29,
+  "group": "BÀI TOÁN 3 — ĐƠN HÌNH HAI PHA (VÍ DỤ 2: RÀNG BUỘC HỖN HỢP DẤU)",
+  "image": null,
+  "question": "So sánh Bài toán 2 và Bài toán 3: điểm khác biệt cốt lõi trong quy trình Pha 1 là:",
+  "options": {
+   "A": "Bài toán 3 gặp trường hợp ẩn giả suy biến (bằng 0) còn sót trong cơ sở tối ưu Pha 1, cần xử lý đặc biệt; Bài toán 2 thì mọi ẩn giả ra khỏi cơ sở hẳn.",
+   "B": "Không có khác biệt gì.",
+   "C": "Bài toán 3 không cần Pha 2.",
+   "D": "Bài toán 2 không có ẩn giả."
+  },
+  "correct": "A",
+  "explanation": "Đúng điểm khác biệt sư phạm quan trọng giữa 2 ví dụ."
+ },
+ {
+  "id": 30,
+  "group": "BÀI TOÁN 3 — ĐƠN HÌNH HAI PHA (VÍ DỤ 2: RÀNG BUỘC HỖN HỢP DẤU)",
+  "image": null,
+  "question": "Kiểm tra nhanh bằng cách thế trực tiếp $x^*=(0,0,8)$ vào ràng buộc (2) gốc ($x_1+2x_2+x_3=8$): $0+0+8=8$ ✓. Việc kiểm tra này xác nhận điều gì?",
+  "options": {
+   "A": "$x^*$ thỏa mãn đúng ràng buộc đẳng thức gốc, tăng độ tin cậy của lời giải.",
+   "B": "Không có ý nghĩa gì.",
+   "C": "Chứng minh $x^*$ là điểm cực biên.",
+   "D": "Chứng minh bài toán đối ngẫu vô nghiệm."
+  },
+  "correct": "A",
+  "explanation": "Bước kiểm tra chéo cơ bản nhưng quan trọng để bắt lỗi tính toán trước khi kết luận."
+ },
+ {
+  "id": 31,
+  "group": "BÀI TOÁN 4 — ĐƠN HÌNH M (VÍ DỤ 1)",
+  "image": null,
+  "question": "Cả 3 phương trình đều **không có sẵn** cột đơn vị. Số ẩn giả cần thêm là:",
+  "options": {
+   "A": "3 ($x_5,x_6,x_7$).",
+   "B": "2.",
+   "C": "1.",
+   "D": "0, dùng luôn đơn hình gốc."
+  },
+  "correct": "A",
+  "explanation": "Không có cột nào là vectơ đơn vị sẵn có $\\Rightarrow$ cần đủ 3 ẩn giả."
+ },
+ {
+  "id": 32,
+  "group": "BÀI TOÁN 4 — ĐƠN HÌNH M (VÍ DỤ 1)",
+  "image": null,
+  "question": "Hàm mục tiêu bài toán $M$ là:",
+  "options": {
+   "A": "$F=-3x_1+x_2+3x_3-x_4+M(x_5+x_6+x_7)\\to\\min$.",
+   "B": "$F=-3x_1+x_2+3x_3-x_4\\to\\min$ (không cần $M$).",
+   "C": "$F=M(x_5+x_6+x_7)\\to\\max$.",
+   "D": "$F=-3x_1+x_2+3x_3-x_4-M(x_5+x_6+x_7)$."
+  },
+  "correct": "A",
+  "explanation": "Đúng định nghĩa: cộng thêm $M\\times$ tổng ẩn giả vào hàm mục tiêu gốc (min)."
+ },
+ {
+  "id": 33,
+  "group": "BÀI TOÁN 4 — ĐƠN HÌNH M (VÍ DỤ 1)",
+  "image": "sb04_01.png",
+  "question": "Ở bảng 1 (cơ sở $\\{A^5,A^6,A^7\\}$), $\\Delta_F$ có dạng $\\delta_jM+\\gamma_j$; hệ số $\\delta_1=4$ lớn nhất trong các cột. Biến vào cơ sở vòng 1 là:",
+  "options": {
+   "A": "$x_1$ (vì $\\delta_1$ lớn nhất, quyết định trước $\\gamma$).",
+   "B": "Biến có $\\gamma_j$ lớn nhất bất kể $\\delta_j$.",
+   "C": "Không xác định được nếu chưa biết $M$ cụ thể.",
+   "D": "$x_2$."
+  },
+  "correct": "A",
+  "explanation": "Quy tắc so sánh dạng $\\delta M+\\gamma$: so $\\delta$ trước (vì $M$ được coi lớn tùy ý), $\\gamma$ chỉ dùng khi $\\delta$ bằng nhau."
+ },
+ {
+  "id": 34,
+  "group": "BÀI TOÁN 4 — ĐƠN HÌNH M (VÍ DỤ 1)",
+  "image": null,
+  "question": "$\\theta=\\min\\{2/1,9/2,6/1\\}=2$ tại hàng $x_5$. Sau pivot, cơ sở mới là:",
+  "options": {
+   "A": "$\\{A^1,A^6,A^7\\}$.",
+   "B": "$\\{A^5,A^1,A^7\\}$.",
+   "C": "$\\{A^1,A^5,A^6\\}$.",
+   "D": "Không đổi."
+  },
+  "correct": "A",
+  "explanation": "$x_1$ vào thay $x_5$ (ra) — cơ sở mới gồm $x_1$ và 2 ẩn giả còn lại $x_6,x_7$."
+ },
+ {
+  "id": 35,
+  "group": "BÀI TOÁN 4 — ĐƠN HÌNH M (VÍ DỤ 1)",
+  "image": null,
+  "question": "Ở bảng 2, hệ số $\\delta_3=7$ là số dương duy nhất còn lại trong hàng $\\Delta_F$ (các cột khác có $\\delta<0$). Biến vào vòng 2 là:",
+  "options": {
+   "A": "$x_3$.",
+   "B": "$x_2$.",
+   "C": "$x_4$.",
+   "D": "Không biến nào."
+  },
+  "correct": "A",
+  "explanation": "Chỉ $\\delta_3>0$ trong số các cột còn lại — quy tắc chọn $\\delta$ dương lớn nhất (ở đây là dương duy nhất) áp dụng."
+ },
+ {
+  "id": 36,
+  "group": "BÀI TOÁN 4 — ĐƠN HÌNH M (VÍ DỤ 1)",
+  "image": "sb04_02.png",
+  "question": "$\\theta$ vòng 2 (cột $x_3$, hệ số dương chỉ tại hàng $x_6$ bằng $5$, $x_6^{(0)}=5$) $=1$. Biến ra vòng 2 là:",
+  "options": {
+   "A": "$x_6$ (ẩn giả).",
+   "B": "$x_1$.",
+   "C": "$x_7$.",
+   "D": "$x_5$ (đã ra ở vòng 1, không thể ra lần nữa)."
+  },
+  "correct": "A",
+  "explanation": "$x_6$ ra, thêm 1 ẩn giả rời khỏi cơ sở — chỉ còn $x_7$ là ẩn giả trong cơ sở."
+ },
+ {
+  "id": 37,
+  "group": "BÀI TOÁN 4 — ĐƠN HÌNH M (VÍ DỤ 1)",
+  "image": null,
+  "question": "Ở bảng 3 (cơ sở $\\{A^1,A^3,A^7\\}$), $\\delta_2=1>0$ duy nhất còn dương. Biến vào vòng 3 và $\\theta=2/1=2$ cho biến ra là:",
+  "options": {
+   "A": "$x_2$ vào, $x_7$ ra (ẩn giả cuối cùng rời cơ sở).",
+   "B": "$x_2$ vào, $x_1$ ra.",
+   "C": "$x_4$ vào, $x_3$ ra.",
+   "D": "Không đổi cơ sở nữa."
+  },
+  "correct": "A",
+  "explanation": "Đúng bước cuối cùng loại bỏ ẩn giả — sau bước này bảng không còn phụ thuộc $M$."
+ },
+ {
+  "id": 38,
+  "group": "BÀI TOÁN 4 — ĐƠN HÌNH M (VÍ DỤ 1)",
+  "image": "sb04_03.png",
+  "question": "Bảng 4 (cơ sở $\\{A^1,A^3,A^2\\}$) có mọi $\\Delta_f\\le0$ và **không còn hệ số $M$**. Điều này xác nhận:",
+  "options": {
+   "A": "Bài toán chính có phương án tối ưu hữu hạn (không phải trường hợp vô nghiệm).",
+   "B": "Bài toán vô nghiệm.",
+   "C": "Cần thêm 1 vòng lặp nữa.",
+   "D": "$M$ phải được chọn cụ thể để tiếp tục."
+  },
+  "correct": "A",
+  "explanation": "Nếu bảng tối ưu còn ẩn giả dương mới là vô nghiệm; ở đây mọi ẩn giả đã ra khỏi cơ sở nên phương án tối ưu $(x,w)$ có $w=0$, hợp lệ cho bài toán chính."
+ },
+ {
+  "id": 39,
+  "group": "BÀI TOÁN 4 — ĐƠN HÌNH M (VÍ DỤ 1)",
+  "image": null,
+  "question": "Nghiệm tối ưu đọc từ bảng 4 (cơ sở $\\{x_1,x_3,x_2\\}$ với giá trị $3,5,2$) là:",
+  "options": {
+   "A": "$x^*=(3,2,5,0)$.",
+   "B": "$x^*=(3,5,2,0)$.",
+   "C": "$x^*=(0,2,5,3)$.",
+   "D": "$x^*=(2,3,5,0)$."
+  },
+  "correct": "A",
+  "explanation": "Đúng thứ tự biến $x_1=3,x_2=2,x_3=5,x_4=0$."
+ },
+ {
+  "id": 40,
+  "group": "BÀI TOÁN 4 — ĐƠN HÌNH M (VÍ DỤ 1)",
+  "image": null,
+  "question": "$f^*=-3(3)+1(2)+3(5)-1(0)=$?",
+  "options": {
+   "A": "$-9+2+15=8$.",
+   "B": "$8$.",
+   "C": "Cả A và B.",
+   "D": "$-8$."
+  },
+  "correct": "C",
+  "explanation": "$-9+2+15=8$ — khớp đáp số công bố, hoàn tất chu trình 10 bước."
+ },
+ {
+  "id": 41,
+  "group": "BÀI TOÁN 5 — ĐỐI NGẪU: CHỨNG MINH TỐI ƯU & TÌM TẬP NGHIỆM (PHỤ LỤC A)",
+  "image": null,
+  "question": "Ràng buộc (1),(2) của bài toán gốc là $\\ge$, ràng buộc (3) là $=$. Dấu của các biến đối ngẫu $y_1,y_2,y_3$ tương ứng là:",
+  "options": {
+   "A": "$y_1\\ge0,\\ y_2\\ge0,\\ y_3\\in\\mathbb{R}$.",
+   "B": "Cả 3 đều $\\ge0$.",
+   "C": "Cả 3 tự do.",
+   "D": "$y_1\\le0,y_2\\le0,y_3\\ge0$."
+  },
+  "correct": "A",
+  "explanation": "Ràng buộc $\\ge$ (đúng chiều min) $\\Rightarrow y_i\\ge0$; ràng buộc $=$ $\\Rightarrow y_i$ tự do."
+ },
+ {
+  "id": 42,
+  "group": "BÀI TOÁN 5 — ĐỐI NGẪU: CHỨNG MINH TỐI ƯU & TÌM TẬP NGHIỆM (PHỤ LỤC A)",
+  "image": null,
+  "question": "Hàm mục tiêu đối ngẫu $g(y)$ (lấy hệ số từ vế phải 3 ràng buộc gốc $7,-8,-22$) là:",
+  "options": {
+   "A": "$g(y)=7y_1-8y_2-22y_3\\to\\max$.",
+   "B": "$g(y)=7y_1+8y_2+22y_3\\to\\min$.",
+   "C": "$g(y)=-7y_1+8y_2+22y_3$.",
+   "D": "$g(y)=y_1+y_2+y_3$."
+  },
+  "correct": "A",
+  "explanation": "$b=(7,-8,-22)^T$; đối ngẫu của bài toán min là bài toán max với $g(y)=b^Ty$."
+ },
+ {
+  "id": 43,
+  "group": "BÀI TOÁN 5 — ĐỐI NGẪU: CHỨNG MINH TỐI ƯU & TÌM TẬP NGHIỆM (PHỤ LỤC A)",
+  "image": null,
+  "question": "Thay trực tiếp $\\bar x$ vào $f$: $f(\\bar x)=6(0)+2(0)+7(9)+8(0)-5(8)-9(6)=$?",
+  "options": {
+   "A": "$63-40-54=-31$.",
+   "B": "$-31$.",
+   "C": "Cả A và B.",
+   "D": "$31$."
+  },
+  "correct": "C",
+  "explanation": "$7\\times9=63,\\ 5\\times8=40,\\ 9\\times6=54$; $63-40-54=-31$."
+ },
+ {
+  "id": 44,
+  "group": "BÀI TOÁN 5 — ĐỐI NGẪU: CHỨNG MINH TỐI ƯU & TÌM TẬP NGHIỆM (PHỤ LỤC A)",
+  "image": null,
+  "question": "Thay trực tiếp $\\bar y=(3,1,2)$ vào $g$: $g(\\bar y)=7(3)-8(1)-22(2)=$?",
+  "options": {
+   "A": "$21-8-44=-31$.",
+   "B": "$-31$.",
+   "C": "Cả A và B.",
+   "D": "$31$."
+  },
+  "correct": "C",
+  "explanation": "$21-8-44=-31$ — bằng đúng $f(\\bar x)$."
+ },
+ {
+  "id": 45,
+  "group": "BÀI TOÁN 5 — ĐỐI NGẪU: CHỨNG MINH TỐI ƯU & TÌM TẬP NGHIỆM (PHỤ LỤC A)",
+  "image": null,
+  "question": "Vì $f(\\bar x)=g(\\bar y)=-31$, theo **Hệ quả 1** (Chương IV), kết luận là:",
+  "options": {
+   "A": "Cả $\\bar x$ và $\\bar y$ đều là phương án tối ưu của bài toán tương ứng (gốc và đối ngẫu).",
+   "B": "Chỉ $\\bar x$ tối ưu.",
+   "C": "Không kết luận được gì thêm.",
+   "D": "Bài toán vô nghiệm."
+  },
+  "correct": "A",
+  "explanation": "Đúng nội dung Hệ quả 1 — điều kiện đủ để khẳng định tối ưu khi 2 giá trị hàm mục tiêu bằng nhau (đã ngầm giả thiết $\\bar x,\\bar y$ khả thi ở 2 bài toán, được xác minh riêng)."
+ },
+ {
+  "id": 46,
+  "group": "BÀI TOÁN 5 — ĐỐI NGẪU: CHỨNG MINH TỐI ƯU & TÌM TẬP NGHIỆM (PHỤ LỤC A)",
+  "image": "sb05_01.png",
+  "question": "Hình trên minh họa độ chênh $b_i-A_i\\bar y$ của cả 6 ràng buộc đối ngẫu tại $\\bar y=(3,1,2)$: ràng buộc (1),(2),(4) thỏa dấu $<$ (lỏng), còn (3),(5),(6) chặt (bằng 0). Theo độ lệch bù, kết luận về biến gốc từ 3 ràng buộc lỏng (1),(2),(4) là:",
+  "options": {
+   "A": "$x_1=x_2=x_4=0$ trong mọi phương án tối ưu của bài toán gốc.",
+   "B": "$x_1,x_2,x_4$ có thể nhận giá trị bất kỳ.",
+   "C": "$x_3=x_5=x_6=0$.",
+   "D": "Không kết luận được."
+  },
+  "correct": "A",
+  "explanation": "Ràng buộc đối ngẫu $j$ lỏng $\\Rightarrow x_j=0$ (độ lệch bù)."
+ },
+ {
+  "id": 47,
+  "group": "BÀI TOÁN 5 — ĐỐI NGẪU: CHỨNG MINH TỐI ƯU & TÌM TẬP NGHIỆM (PHỤ LỤC A)",
+  "image": null,
+  "question": "Vì $\\bar y_1=3>0,\\bar y_2=1>0$, ràng buộc gốc (1) và (2) phải thỏa dấu $=$ trong mọi phương án tối ưu. Kết hợp $x_1=x_2=x_4=0$, hệ phương trình còn lại (theo $x_3,x_5,x_6$) là:",
+  "options": {
+   "A": "$-x_3+2x_5=7,\\ 2x_3-x_5-3x_6=-8,\\ 4x_3-5x_5-3x_6=-22$.",
+   "B": "$x_3+x_5+x_6=7$.",
+   "C": "Chỉ còn 1 phương trình.",
+   "D": "Hệ vô nghiệm ngay từ bước này."
+  },
+  "correct": "A",
+  "explanation": "Thay $x_1=x_2=x_4=0$ vào 3 ràng buộc gốc (2 ràng buộc bất đẳng thức đã chuyển thành đẳng thức, cộng ràng buộc (3) gốc vốn đã là đẳng thức)."
+ },
+ {
+  "id": 48,
+  "group": "BÀI TOÁN 5 — ĐỐI NGẪU: CHỨNG MINH TỐI ƯU & TÌM TẬP NGHIỆM (PHỤ LỤC A)",
+  "image": null,
+  "question": "Giải hệ trên theo tham số $x_6$: từ phương trình 1, $x_3=2x_5-7$; thế vào phương trình 2 được $x_5=2+x_6$, suy ra $x_3=$?",
+  "options": {
+   "A": "$2x_6-3$.",
+   "B": "$x_6+5$.",
+   "C": "$2x_6+3$.",
+   "D": "$x_6-3$."
+  },
+  "correct": "A",
+  "explanation": "$x_3=2(2+x_6)-7=4+2x_6-7=2x_6-3$."
+ },
+ {
+  "id": 49,
+  "group": "BÀI TOÁN 5 — ĐỐI NGẪU: CHỨNG MINH TỐI ƯU & TÌM TẬP NGHIỆM (PHỤ LỤC A)",
+  "image": null,
+  "question": "Điều kiện để $x_3,x_5,x_6\\ge0$ đồng thời (chỉ $x_3\\ge0$ là ràng buộc chặt nhất) cho ra:",
+  "options": {
+   "A": "$x_6\\ge3/2$.",
+   "B": "$x_6\\ge0$.",
+   "C": "$x_6\\le3/2$.",
+   "D": "$x_6\\ge3$."
+  },
+  "correct": "A",
+  "explanation": "$2x_6-3\\ge0\\Leftrightarrow x_6\\ge3/2$; các điều kiện $x_5=2+x_6\\ge0$ và $x_6\\ge0$ tự động thỏa khi $x_6\\ge3/2$."
+ },
+ {
+  "id": 50,
+  "group": "BÀI TOÁN 5 — ĐỐI NGẪU: CHỨNG MINH TỐI ƯU & TÌM TẬP NGHIỆM (PHỤ LỤC A)",
+  "image": null,
+  "question": "Vậy tập phương án tối ưu của bài toán đã cho là:",
+  "options": {
+   "A": "$X^*=\\{(0,0,2x_6-3,0,x_6+2,x_6): x_6\\ge3/2\\}$.",
+   "B": "Chỉ có 1 phương án duy nhất $\\bar x$.",
+   "C": "$X^*=\\emptyset$.",
+   "D": "$X^*=\\{(0,0,9,0,8,6)\\}$ và không còn phương án nào khác."
+  },
+  "correct": "A",
+  "explanation": "Kết quả tổng quát; kiểm tra nhanh $x_6=6$: $(0,0,9,0,8,6)=\\bar x$ — đúng 1 phần tử của $X^*$, nhất quán với toàn bộ 10 câu trên."
+ },
+ {
+  "id": 51,
+  "group": "BÀI TOÁN 6 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (PHỤ LỤC B, $3\\times4$)",
+  "image": "p28.png",
+  "question": "Hình trên là sơ đồ mạng của phương án tối ưu sẽ tìm được ở cuối bài này (xem trước để hình dung mục tiêu). Trước tiên, kiểm tra điều kiện cân bằng thu-phát: $\\sum a_i=90+100+110=300$; $\\sum b_j=50+80+95+75= 300$. Kết luận:",
+  "options": {
+   "A": "Cân bằng, bài toán có phương án (điều kiện cần và đủ theo Chương V §1).",
+   "B": "Không cân bằng, cần thêm trạm giả.",
+   "C": "Không đủ thông tin.",
+   "D": "Bài toán vô nghiệm."
+  },
+  "correct": "A",
+  "explanation": "$\\sum a_i=\\sum b_j=300$ — thỏa điều kiện cân bằng thu phát."
+ },
+ {
+  "id": 52,
+  "group": "BÀI TOÁN 6 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (PHỤ LỤC B, $3\\times4$)",
+  "image": "sb06_01.png",
+  "question": "Dùng phương pháp góc Tây Bắc, PACB xuất phát (đọc từ hình) là:",
+  "options": {
+   "A": "$x_{11}=50,x_{12}=40,x_{22}=40,x_{23}=60,x_{33}=35,x_{34}=75$.",
+   "B": "$x_{11}=90,x_{22}=100,x_{33}= 110$.",
+   "C": "Mọi $x_{ij}=25$.",
+   "D": "$x_{14}=90$."
+  },
+  "correct": "A",
+  "explanation": "Đúng thứ tự lấp bậc thang từ góc trên-trái: $(1,1)\\to(1,2)\\to(2,2)\\to(2,3)\\to(3,3) \\to(3,4)$."
+ },
+ {
+  "id": 53,
+  "group": "BÀI TOÁN 6 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (PHỤ LỤC B, $3\\times4$)",
+  "image": null,
+  "question": "Số ô chọn ở PACB trên là $6=m+n-1=3+4-1$. Kết luận về tính suy biến:",
+  "options": {
+   "A": "Không suy biến, đủ điều kiện tính hệ thế vị ngay.",
+   "B": "Suy biến, cần bổ sung ô chọn.",
+   "C": "Thừa ô chọn, cần loại bớt.",
+   "D": "Không xác định được."
+  },
+  "correct": "A",
+  "explanation": "Đúng $m+n-1=6$ ô — không suy biến."
+ },
+ {
+  "id": 54,
+  "group": "BÀI TOÁN 6 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (PHỤ LỤC B, $3\\times4$)",
+  "image": null,
+  "question": "Với $r_1=0$ (quy ước chuẩn) và các ô chọn $(1,1)=11,(1,2)=2$: suy ra $s_1,s_2$ là:",
+  "options": {
+   "A": "$s_1=11,s_2=2$.",
+   "B": "$s_1=2,s_2=11$.",
+   "C": "$s_1=-11,s_2=-2$.",
+   "D": "Không tính được."
+  },
+  "correct": "A",
+  "explanation": "$c_{ij}=r_i+s_j\\Rightarrow s_1=c_{11}-r_1=11,\\ s_2=c_{12}-r_1=2$."
+ },
+ {
+  "id": 55,
+  "group": "BÀI TOÁN 6 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (PHỤ LỤC B, $3\\times4$)",
+  "image": null,
+  "question": "Tiếp tục hệ thế vị từ các ô chọn còn lại, ước lượng lớn nhất tại vòng 1 là $\\Delta_{21}= 14$ (đồng thời $\\Delta_{31}=14$). Theo quy tắc, ô vào cơ sở (chọn hàng nhỏ hơn khi hòa) là:",
+  "options": {
+   "A": "Ô $(2,1)$.",
+   "B": "Ô $(3,1)$.",
+   "C": "Ô $(1,3)$.",
+   "D": "Không có ô nào vào vì đã tối ưu."
+  },
+  "correct": "A",
+  "explanation": "$\\Delta_{21}=14=\\Delta_{31}$ — hòa, chọn theo quy ước hàng nhỏ hơn trước $\\Rightarrow$ ô $(2,1)$."
+ },
+ {
+  "id": 56,
+  "group": "BÀI TOÁN 6 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (PHỤ LỤC B, $3\\times4$)",
+  "image": null,
+  "question": "Lập chu trình qua ô $(2,1)$: chu trình $(2,1)^+,(1,1)^-,(1,2)^+,(2,2)^-$. Giá trị điều chỉnh $\\theta=\\min\\{x_{11},x_{22}\\}=\\min\\{50,40\\}=40$, ô ra là:",
+  "options": {
+   "A": "$(2,2)$.",
+   "B": "$(1,1)$.",
+   "C": "$(2,1)$.",
+   "D": "$(1,2)$."
+  },
+  "correct": "A",
+  "explanation": "$\\min\\{50,40\\}=40$ đạt tại ô $(2,2)\\Rightarrow(2,2)$ ra khỏi cơ sở."
+ },
+ {
+  "id": 57,
+  "group": "BÀI TOÁN 6 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (PHỤ LỤC B, $3\\times4$)",
+  "image": null,
+  "question": "Sau 3 vòng lặp tiếp theo (tính tương tự — xem lời giải đầy đủ trong `De_Thi_Mau_QHTT.md` Phụ lục B), vòng lặp cuối cùng đạt $\\max\\Delta_{ij}=0$ tại ô $(2,3)$. Ý nghĩa của $\\Delta=0$ (không âm nhưng cũng không dương) là:",
+  "options": {
+   "A": "Bài toán có **nhiều phương án tối ưu** (đa nghiệm) — có thể dừng ngay hoặc đổi cơ sở thêm mà giá trị hàm mục tiêu không đổi.",
+   "B": "Bài toán vô nghiệm.",
+   "C": "Cần tiếp tục bắt buộc.",
+   "D": "Có lỗi tính toán."
+  },
+  "correct": "A",
+  "explanation": "$\\Delta_{ij}=0$ ở ô không chọn tại bảng tối ưu là dấu hiệu chuẩn của đa nghiệm."
+ },
+ {
+  "id": 58,
+  "group": "BÀI TOÁN 6 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (PHỤ LỤC B, $3\\times4$)",
+  "image": "sb06_02.png",
+  "question": "PACB tối ưu cuối cùng (đọc từ hình) là:",
+  "options": {
+   "A": "$x_{12}=80,x_{14}=10,x_{21}=35,x_{24}=65,x_{31}=15,x_{33}=95$.",
+   "B": "$x_{11}=90,x_{22}=100,x_{33}= 110$.",
+   "C": "Giống hệt PACB xuất phát.",
+   "D": "$x_{14}=90,x_{24}=100,x_{34}=110$."
+  },
+  "correct": "A",
+  "explanation": "Đúng bảng tối ưu — kiểm tra nhanh tổng hàng $80+10=90=a_1$ ✓."
+ },
+ {
+  "id": 59,
+  "group": "BÀI TOÁN 6 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (PHỤ LỤC B, $3\\times4$)",
+  "image": null,
+  "question": "Giá trị tối ưu $f^*=2(80)+3(10)+5(35)+8(65)+4(15)+5(95)=$?",
+  "options": {
+   "A": "$160+30+175+520+60+475=1420$.",
+   "B": "$1420$.",
+   "C": "Cả A và B.",
+   "D": "$1500$."
+  },
+  "correct": "C",
+  "explanation": "Cộng theo cặp: $(160+30)=190,(175+520)=695,(60+475)=535$; tổng $190+695+535=1420$."
+ },
+ {
+  "id": 60,
+  "group": "BÀI TOÁN 6 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (PHỤ LỤC B, $3\\times4$)",
+  "image": null,
+  "question": "Kiểm tra chéo tổng theo cột: $x_{21}+x_{31}=35+15=50=b_1$ ✓; $x_{12}=80=b_2$ ✓; $x_{33}= 95=b_3$ ✓; $x_{14}+x_{24}=10+65=75=b_4$ ✓. Việc này xác nhận:",
+  "options": {
+   "A": "Phương án tối ưu thỏa mãn đúng toàn bộ ràng buộc cung-cầu gốc, tăng độ tin cậy lời giải.",
+   "B": "Không có ý nghĩa gì đặc biệt.",
+   "C": "Bài toán suy biến.",
+   "D": "Cần giải lại từ đầu."
+  },
+  "correct": "A",
+  "explanation": "Bước kiểm tra chéo bắt buộc trước khi kết luận, khớp đúng $b=(50,80,95,75)$."
+ },
+ {
+  "id": 61,
+  "group": "BÀI TOÁN 7 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (CHƯƠNG V §5, $3\\times4$ KHÁC)",
+  "image": "sb07_01.png",
+  "question": "PACB xuất phát bằng phương pháp góc Tây Bắc (đọc từ hình) có bao nhiêu ô chọn, và có suy biến hay không?",
+  "options": {
+   "A": "5 ô chọn — suy biến vì cần $m+n-1=6$.",
+   "B": "6 ô — không suy biến.",
+   "C": "4 ô.",
+   "D": "8 ô."
+  },
+  "correct": "A",
+  "explanation": "Hình cho thấy chỉ 5 ô có giá trị dương $(100,220,180,110,120)$ — thiếu 1 so với $6$ cần thiết $\\Rightarrow$ suy biến."
+ },
+ {
+  "id": 62,
+  "group": "BÀI TOÁN 7 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (CHƯƠNG V §5, $3\\times4$ KHÁC)",
+  "image": null,
+  "question": "Cách xử lý suy biến đúng ở đây là:",
+  "options": {
+   "A": "Bổ sung 1 ô chọn giá trị $0$ (cụ thể ô $(2,3)$), không tạo chu trình với 5 ô đã có.",
+   "B": "Bỏ bớt 1 trạm phát.",
+   "C": "Kết luận ngay vô nghiệm.",
+   "D": "Nhân đôi lượng phát."
+  },
+  "correct": "A",
+  "explanation": "Đúng kỹ thuật chuẩn xử lý PACB suy biến trong bài toán vận tải."
+ },
+ {
+  "id": 63,
+  "group": "BÀI TOÁN 7 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (CHƯƠNG V §5, $3\\times4$ KHÁC)",
+  "image": null,
+  "question": "Vòng lặp 1: $\\max\\Delta_{ij}=9=\\Delta_{31}$ $\\Rightarrow$ đưa ô $(3,1)$ vào cơ sở. Chu trình qua $(3,1)$: $\\theta=\\min\\{x_{21},x_{33}\\}=\\min\\{220,110\\}=110$. Ô ra là:",
+  "options": {
+   "A": "$(3,3)$.",
+   "B": "$(2,1)$.",
+   "C": "$(3,1)$.",
+   "D": "$(1,1)$."
+  },
+  "correct": "A",
+  "explanation": "$\\min\\{220,110\\}=110$ đạt tại ô $(3,3)\\Rightarrow(3,3)$ ra khỏi cơ sở; PACB mới có $x_{31}=110,x_{21}=110,x_{23}=110$."
+ },
+ {
+  "id": 64,
+  "group": "BÀI TOÁN 7 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (CHƯƠNG V §5, $3\\times4$ KHÁC)",
+  "image": null,
+  "question": "Vòng lặp 2 (tính lại hệ thế vị cho PACB mới): $\\max\\Delta_{ij}=6=\\Delta_{14} \\Rightarrow$ đưa ô $(1,4)$ vào cơ sở. Chu trình qua $(1,4)$ cho $\\theta=\\min\\{x_{11},x_{34}\\}= \\min\\{100,120\\}=100$. Ô ra là:",
+  "options": {
+   "A": "$(1,1)$.",
+   "B": "$(3,4)$.",
+   "C": "$(1,4)$.",
+   "D": "$(2,3)$."
+  },
+  "correct": "A",
+  "explanation": "$\\min\\{100,120\\}=100$ tại ô $(1,1)\\Rightarrow(1,1)$ ra."
+ },
+ {
+  "id": 65,
+  "group": "BÀI TOÁN 7 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (CHƯƠNG V §5, $3\\times4$ KHÁC)",
+  "image": null,
+  "question": "Vòng lặp 3: $\\max\\Delta_{ij}=6=\\Delta_{24}\\Rightarrow$ đưa ô $(2,4)$ vào cơ sở. Chu trình qua $(2,4)$ cho $\\theta=\\min\\{x_{14},x_{34}\\}=\\min\\{110,20\\}=20$. Ô ra là:",
+  "options": {
+   "A": "$(3,4)$.",
+   "B": "$(1,4)$.",
+   "C": "$(2,4)$.",
+   "D": "$(2,1)$."
+  },
+  "correct": "A",
+  "explanation": "$\\min\\{110,20\\}=20$ tại ô $(3,4)\\Rightarrow(3,4)$ ra."
+ },
+ {
+  "id": 66,
+  "group": "BÀI TOÁN 7 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (CHƯƠNG V §5, $3\\times4$ KHÁC)",
+  "image": null,
+  "question": "Vòng lặp 4: $\\max\\Delta_{ij}=1=\\Delta_{12}\\Rightarrow$ đưa ô $(1,2)$ vào cơ sở. Chu trình qua $(1,2)$ cho $\\theta=\\min\\{x_{22},x_{14}\\}=\\min\\{180,100\\}=100$. Ô ra là:",
+  "options": {
+   "A": "$(1,4)$.",
+   "B": "$(2,2)$.",
+   "C": "$(1,2)$.",
+   "D": "$(3,1)$."
+  },
+  "correct": "A",
+  "explanation": "$\\min\\{180,100\\}=100$ tại ô $(1,4)\\Rightarrow(1,4)$ ra — sau vòng này, ô $(1,4)$ trở về $0$, hoàn tất việc \"trả\" ô đã đưa vào ở vòng 2."
+ },
+ {
+  "id": 67,
+  "group": "BÀI TOÁN 7 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (CHƯƠNG V §5, $3\\times4$ KHÁC)",
+  "image": "sb07_02.png",
+  "question": "Vòng lặp 5 (kiểm tra tối ưu): tính lại hệ thế vị $r_1=0,r_2=-1,r_3=-1$; $s_1=1,s_2=1,s_3=1,s_4=1$, được $\\max\\Delta_{ij}=0$, mọi ô khác $\\Delta\\le0$. Kết luận:",
+  "options": {
+   "A": "Đạt phương án tối ưu ngay tại vòng 5 (không còn $\\Delta_{ij}>0$ nào).",
+   "B": "Chưa tối ưu, phải lặp tiếp bắt buộc.",
+   "C": "Bài toán vô nghiệm.",
+   "D": "Cần đổi bài toán thành max."
+  },
+  "correct": "A",
+  "explanation": "$\\max\\Delta_{ij}=0\\le0\\Rightarrow$ dừng thuật toán, đạt PATƯ."
+ },
+ {
+  "id": 68,
+  "group": "BÀI TOÁN 7 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (CHƯƠNG V §5, $3\\times4$ KHÁC)",
+  "image": null,
+  "question": "PACB tối ưu cuối cùng (đọc từ hình) là:",
+  "options": {
+   "A": "$x_{12}=100,x_{21}=90,x_{22}=80,x_{23}=110,x_{24}=120,x_{31}=230$.",
+   "B": "Giống hệt PACB ban đầu.",
+   "C": "$x_{11}=100$.",
+   "D": "$x_{44}=120$."
+  },
+  "correct": "A",
+  "explanation": "Đúng ma trận $x^*=\\begin{pmatrix}0&100&0&0\\\\90&80&110&120\\\\230&0&0&0\\end{pmatrix}$."
+ },
+ {
+  "id": 69,
+  "group": "BÀI TOÁN 7 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (CHƯƠNG V §5, $3\\times4$ KHÁC)",
+  "image": null,
+  "question": "Giá trị tối ưu $f^*=100(3)+90(5)+80(3)+110(7)+120(8)+230(1)=$?",
+  "options": {
+   "A": "$300+450+240+770+960+230=2950$.",
+   "B": "$2950$.",
+   "C": "Cả A và B.",
+   "D": "$1420$ (đây là đáp số của Bài toán 6, **ma trận cước phí khác nhau** giữa 2 bài — không được dùng lẫn)."
+  },
+  "correct": "C",
+  "explanation": "$300+450+240+770+960+230=2950$; đáp án D cố tình nêu đáp số của Bài toán 6 để nhắc nhở **luôn dùng đúng ma trận cước phí của từng bài toán**, tránh nhầm lẫn giữa 2 bài vận tải có cùng kích thước $3\\times4$ nhưng số liệu khác nhau."
+ },
+ {
+  "id": 70,
+  "group": "BÀI TOÁN 7 — VẬN TẢI: THUẬT TOÁN THẾ VỊ (CHƯƠNG V §5, $3\\times4$ KHÁC)",
+  "image": "p29.png",
+  "question": "Kiểm tra chéo PACB tối ưu $x_{12}=100,\\ x_{21}=90,x_{22}=80,x_{23}=110,x_{24}=120,\\ x_{31}=230$: tổng theo hàng 2 là $90+80+110+120=400=a_2$ ✓; tổng theo cột 1 là $x_{21}+x_{31}=90+230=320=b_1$ ✓. Kết luận:",
+  "options": {
+   "A": "Phương án tối ưu $x^*=\\begin{pmatrix}0&100&0&0\\\\90&80&110&120\\\\230&0&0&0\\end{pmatrix}$ thỏa đúng mọi ràng buộc cung-cầu.",
+   "B": "Có sai số.",
+   "C": "Cần giải lại.",
+   "D": "Không kiểm tra được."
+  },
+  "correct": "A",
+  "explanation": "Khớp đúng kết quả đã công bố trong `Chuong_V_S5_...md`, $f^*=2950$."
+ },
+ {
+  "id": 71,
+  "group": "BÀI TOÁN 8 — PHƯƠNG PHÁP ĐỒ THỊ & TỪ ĐIỂN (DICTIONARY) SONG SONG",
+  "image": null,
+  "question": "Thêm biến bù $x_3,x_4,x_5\\ge0$, dạng chính tắc là:",
+  "options": {
+   "A": "$x_1+x_2+x_3=100,\\ 2x_1+3x_2+x_4=240,\\ x_2+x_5=60$.",
+   "B": "Trừ biến bù thay vì cộng.",
+   "C": "Không cần biến bù vì đã là đẳng thức.",
+   "D": "Chỉ cần 1 biến bù chung."
+  },
+  "correct": "A",
+  "explanation": "Cả 3 ràng buộc đều dạng $\\le\\Rightarrow$ cộng biến bù không âm cho mỗi ràng buộc."
+ },
+ {
+  "id": 72,
+  "group": "BÀI TOÁN 8 — PHƯƠNG PHÁP ĐỒ THỊ & TỪ ĐIỂN (DICTIONARY) SONG SONG",
+  "image": null,
+  "question": "Từ điển ban đầu biểu diễn biến cơ sở $(x_3,x_4,x_5)$ theo biến phi cơ sở $(x_1,x_2)$: $x_3=100-x_1-x_2,\\ x_4=240-2x_1-3x_2,\\ x_5=60-x_2$, và $g=x_1+2x_2$. PACB ban đầu (cho $x_1=x_2=0$) là:",
+  "options": {
+   "A": "$(x_1,x_2,x_3,x_4,x_5)=(0,0,100,240,60)$, ứng đỉnh $A(0,0)$.",
+   "B": "$(100,240,60,0,0)$.",
+   "C": "$(30,60, \\ldots)$ — đã là tối ưu ngay từ đầu.",
+   "D": "Không xác định được PACB ban đầu."
+  },
+  "correct": "A",
+  "explanation": "Gán biến phi cơ sở $=0$, tính biến cơ sở từ từ điển."
+ },
+ {
+  "id": 73,
+  "group": "BÀI TOÁN 8 — PHƯƠNG PHÁP ĐỒ THỊ & TỪ ĐIỂN (DICTIONARY) SONG SONG",
+  "image": "sb08_01.png",
+  "question": "Để tăng $g=x_1+2x_2$, nên tăng biến nào trong 2 biến phi cơ sở, và vì sao?",
+  "options": {
+   "A": "Tăng $x_2$, vì hệ số $+2$ trong biểu thức $g$ lớn hơn hệ số $+1$ của $x_1$.",
+   "B": "Tăng $x_1$.",
+   "C": "Tăng cả 2 cùng lúc.",
+   "D": "Không tăng biến nào."
+  },
+  "correct": "A",
+  "explanation": "Nguyên lý bước 3 (đơn hình dạng từ điển): tăng biến phi cơ sở có hệ số dương trong $g$; ở đây chỉ có 1 lựa chọn hợp lý để tăng nhanh nhất là $x_2$."
+ },
+ {
+  "id": 74,
+  "group": "BÀI TOÁN 8 — PHƯƠNG PHÁP ĐỒ THỊ & TỪ ĐIỂN (DICTIONARY) SONG SONG",
+  "image": null,
+  "question": "Giới hạn tăng $x_2$ (giữ $x_1=0$) theo 3 ràng buộc không âm: $x_3=100-x_2\\ge0\\Rightarrow x_2\\le100$; $x_4=240-3x_2\\ge0\\Rightarrow x_2\\le80$; $x_5=60-x_2\\ge0\\Rightarrow x_2\\le60$. Giới hạn chặt nhất và biến ra là:",
+  "options": {
+   "A": "$x_2\\le60$, biến ra là $x_5$.",
+   "B": "$x_2\\le80$, biến ra $x_4$.",
+   "C": "$x_2\\le100$, biến ra $x_3$.",
+   "D": "Không giới hạn, $g\\to\\infty$."
+  },
+  "correct": "A",
+  "explanation": "$\\min\\{100,80,60\\}=60$ — ràng buộc (3) chặt nhất."
+ },
+ {
+  "id": 75,
+  "group": "BÀI TOÁN 8 — PHƯƠNG PHÁP ĐỒ THỊ & TỪ ĐIỂN (DICTIONARY) SONG SONG",
+  "image": "sb08_02.png",
+  "question": "Sau bước 1, PACB mới $B$ và giá trị $g$ tại đó là:",
+  "options": {
+   "A": "$(x_1,x_2,x_3,x_4,x_5)=(0,60,40,60,0)$, $g(B)=120$.",
+   "B": "$(30,60,\\ldots)$.",
+   "C": "$(0,80,\\ldots)$.",
+   "D": "$(60,0,\\ldots)$."
+  },
+  "correct": "A",
+  "explanation": "$x_3=100-60=40,\\ x_4=240-180=60,\\ x_5=0$; $g=0+2(60)=120$."
+ },
+ {
+  "id": 76,
+  "group": "BÀI TOÁN 8 — PHƯƠNG PHÁP ĐỒ THỊ & TỪ ĐIỂN (DICTIONARY) SONG SONG",
+  "image": null,
+  "question": "Từ điển mới (biến phi cơ sở $x_1,x_5$) cho $g=120+x_1-2x_5$. Vì hệ số $x_1$ dương ($+1$), tiếp tục tăng $x_1$. Giới hạn tăng $x_1$ (giữ $x_5=0$): $x_3=40-x_1\\ge0\\Rightarrow x_1\\le40$; $x_4=60-2x_1\\ge0\\Rightarrow x_1\\le30$. Biến ra bước 2 là:",
+  "options": {
+   "A": "$x_4$ (giới hạn chặt nhất $x_1\\le30$).",
+   "B": "$x_3$.",
+   "C": "$x_2$.",
+   "D": "$x_5$."
+  },
+  "correct": "A",
+  "explanation": "$\\min\\{40,30\\}=30$ tại ràng buộc của $x_4$."
+ },
+ {
+  "id": 77,
+  "group": "BÀI TOÁN 8 — PHƯƠNG PHÁP ĐỒ THỊ & TỪ ĐIỂN (DICTIONARY) SONG SONG",
+  "image": "sb08_03.png",
+  "question": "Sau bước 2, PACB $C$ và giá trị $g$ là:",
+  "options": {
+   "A": "$(x_1,x_2)=(30,60)$, $g(C)=150$.",
+   "B": "$(40,60)$, $g=140$.",
+   "C": "$(0,80)$, $g=160$.",
+   "D": "$(60,30)$, $g=120$."
+  },
+  "correct": "A",
+  "explanation": "$x_1=30$, $x_2$ vẫn $60$; $g=30+2(60)=150$."
+ },
+ {
+  "id": 78,
+  "group": "BÀI TOÁN 8 — PHƯƠNG PHÁP ĐỒ THỊ & TỪ ĐIỂN (DICTIONARY) SONG SONG",
+  "image": null,
+  "question": "Từ điển tại $C$ cho $g=150-\\tfrac12x_4-\\tfrac12x_5$ (cả 2 hệ số biến phi cơ sở đều **âm hoặc bằng 0**). Theo dấu hiệu tối ưu của đơn hình gốc, kết luận là:",
+  "options": {
+   "A": "Không thể tăng $g$ thêm bằng cách tăng bất kỳ biến phi cơ sở nào $\\Rightarrow C$ là phương án tối ưu.",
+   "B": "Cần tăng $x_4$ tiếp.",
+   "C": "Bài toán không bị chặn.",
+   "D": "Cần đổi biến cơ sở thêm 1 lần nữa."
+  },
+  "correct": "A",
+  "explanation": "Hệ số biến phi cơ sở trong biểu thức $g$ đều $\\le0\\Rightarrow$ tăng bất kỳ biến nào cũng không cải thiện được $g$ — đúng dấu hiệu dừng."
+ },
+ {
+  "id": 79,
+  "group": "BÀI TOÁN 8 — PHƯƠNG PHÁP ĐỒ THỊ & TỪ ĐIỂN (DICTIONARY) SONG SONG",
+  "image": null,
+  "question": "Đối chiếu với hình đa giác khả thi đầy đủ 5 đỉnh $O(0,0),(100,0),(60,40),(30,60),(0,60)$ — đường đi từ điển đã đi qua đúng những đỉnh nào?",
+  "options": {
+   "A": "$O(0,0)\\to(0,60)\\to(30,60)$ — bỏ qua 2 đỉnh $(100,0)$ và $(60,40)$ vì không thuộc đường cải thiện $g$ theo hướng đã chọn.",
+   "B": "Đi qua cả 5 đỉnh.",
+   "C": "Chỉ đi qua 1 đỉnh duy nhất.",
+   "D": "Đi theo chiều ngược kim đồng hồ toàn bộ."
+  },
+  "correct": "A",
+  "explanation": "Thuật toán đơn hình chỉ cần đi qua các đỉnh **kề nhau liên tiếp cải thiện** $g$, không nhất thiết duyệt hết mọi đỉnh của đa diện — đây là điểm mạnh cốt lõi so với duyệt toàn bộ (enumeration)."
+ },
+ {
+  "id": 80,
+  "group": "BÀI TOÁN 8 — PHƯƠNG PHÁP ĐỒ THỊ & TỪ ĐIỂN (DICTIONARY) SONG SONG",
+  "image": null,
+  "question": "Kết luận cuối: phương án tối ưu $(x_1^*,x_2^*)=(30,60)$, giá trị tối ưu $g^*=150$. So với phương pháp đồ thị (tính trực tiếp $g$ tại từng đỉnh: $g(O)=0,g(100,0)=100,g(60,40)=140, g(30,60)=150,g(0,60)=120$), 2 phương pháp có cho cùng 1 kết quả không?",
+  "options": {
+   "A": "Có — cả 2 đều xác nhận đỉnh $(30,60)$ cho $g$ lớn nhất $=150$.",
+   "B": "Không, kết quả khác nhau.",
+   "C": "Phương pháp đồ thị cho kết quả lớn hơn.",
+   "D": "Không thể so sánh 2 phương pháp."
+  },
+  "correct": "A",
+  "explanation": "Đây chính là mục đích của bài — xác nhận đơn hình (đại số) và đồ thị (hình học) là 2 cách nhìn của cùng 1 kết quả duy nhất."
+ },
+ {
+  "id": 81,
+  "group": "BÀI TOÁN 9 — ĐỐI NGẪU ÁP DỤNG: TỪ $\\bar y$ SUY RA $\\bar x$ (VÍ DỤ 1, CHƯƠNG IV)",
+  "image": null,
+  "question": "Bài toán đối ngẫu $Q$ (2 ràng buộc gốc $\\ge\\Rightarrow y_1,y_2\\ge0$; 4 biến gốc $\\ge0 \\Rightarrow$ 4 ràng buộc đối ngẫu dạng $\\le$) là:",
+  "options": {
+   "A": "$\\max\\ g(y)=y_1+2y_2$, s.t. $2y_1-y_2\\le3,\\ y_1+y_2\\le3,\\ -y_1+y_2\\le1,\\ -2y_1-y_2\\le-1$, $y_1, y_2\\ge0$.",
+   "B": "$\\min\\ g(y)=y_1+2y_2$.",
+   "C": "$\\max\\ g(y)=y_1+y_2$.",
+   "D": "Không xác định được ràng buộc."
+  },
+  "correct": "A",
+  "explanation": "Hệ số cột từng biến $x_1,x_2,x_3,x_4$ trong 2 ràng buộc gốc lần lượt cho 4 ràng buộc đối ngẫu; $b=(1,2)\\Rightarrow g(y)=y_1+2y_2$."
+ },
+ {
+  "id": 82,
+  "group": "BÀI TOÁN 9 — ĐỐI NGẪU ÁP DỤNG: TỪ $\\bar y$ SUY RA $\\bar x$ (VÍ DỤ 1, CHƯƠNG IV)",
+  "image": null,
+  "question": "Kiểm tra 4 ràng buộc đối ngẫu tại $\\bar y=(1,2)$: (1) $2(1)-2=0\\le3$; (2) $1+2=3\\le3$; (3) $-1+2=1\\le1$; (4) $-2-2=-4\\le-1$. Ràng buộc nào **chặt** (dấu $=$)?",
+  "options": {
+   "A": "(2) và (3).",
+   "B": "(1) và (4).",
+   "C": "Cả 4 ràng buộc.",
+   "D": "Không ràng buộc nào chặt."
+  },
+  "correct": "A",
+  "explanation": "$(2): 3=3$ chặt; $(3): 1=1$ chặt; $(1): 0<3$ lỏng; $(4): -4<-1$ lỏng."
+ },
+ {
+  "id": 83,
+  "group": "BÀI TOÁN 9 — ĐỐI NGẪU ÁP DỤNG: TỪ $\\bar y$ SUY RA $\\bar x$ (VÍ DỤ 1, CHƯƠNG IV)",
+  "image": "sb09_01.png",
+  "question": "Ràng buộc đối ngẫu (1) và (4) lỏng (tương ứng biến gốc $x_1,x_4$) — xem hình. Theo độ lệch bù, kết luận:",
+  "options": {
+   "A": "$x_1=0$ và $x_4=0$ trong mọi phương án tối ưu của bài toán gốc.",
+   "B": "$x_2=0,x_3=0$.",
+   "C": "Không kết luận được.",
+   "D": "$x_1,x_4$ có thể dương tùy ý."
+  },
+  "correct": "A",
+  "explanation": "Ràng buộc đối ngẫu lỏng $\\Rightarrow$ biến gốc tương ứng $=0$."
+ },
+ {
+  "id": 84,
+  "group": "BÀI TOÁN 9 — ĐỐI NGẪU ÁP DỤNG: TỪ $\\bar y$ SUY RA $\\bar x$ (VÍ DỤ 1, CHƯƠNG IV)",
+  "image": null,
+  "question": "Vì $\\bar y_1=1>0,\\bar y_2=2>0$ (cả 2 đều dương), theo độ lệch bù (chiều ngược lại), kết luận về 2 ràng buộc gốc là:",
+  "options": {
+   "A": "Cả 2 ràng buộc gốc phải thỏa dấu $=$ (chặt) trong mọi phương án tối ưu.",
+   "B": "Cả 2 ràng buộc gốc đều lỏng.",
+   "C": "Chỉ ràng buộc (1) chặt.",
+   "D": "Không liên quan đến $\\bar y$."
+  },
+  "correct": "A",
+  "explanation": "$\\bar y_i>0\\Rightarrow$ ràng buộc gốc $i$ phải chặt — điều kiện độ lệch bù chiều ngược."
+ },
+ {
+  "id": 85,
+  "group": "BÀI TOÁN 9 — ĐỐI NGẪU ÁP DỤNG: TỪ $\\bar y$ SUY RA $\\bar x$ (VÍ DỤ 1, CHƯƠNG IV)",
+  "image": null,
+  "question": "Thay $x_1=x_4=0$ vào 2 ràng buộc gốc (dạng đẳng thức): $x_2-x_3=1$ và $x_2+x_3=2$. Giải hệ 2 phương trình 2 ẩn này, $x_2$ bằng:",
+  "options": {
+   "A": "$3/2$.",
+   "B": "$1$.",
+   "C": "$2$.",
+   "D": "$1/2$."
+  },
+  "correct": "A",
+  "explanation": "Cộng 2 phương trình: $2x_2=3\\Rightarrow x_2=3/2$."
+ },
+ {
+  "id": 86,
+  "group": "BÀI TOÁN 9 — ĐỐI NGẪU ÁP DỤNG: TỪ $\\bar y$ SUY RA $\\bar x$ (VÍ DỤ 1, CHƯƠNG IV)",
+  "image": null,
+  "question": "Từ đó $x_3=$?",
+  "options": {
+   "A": "$1/2$ (từ $x_2+x_3=2\\Rightarrow x_3=2-3/2$).",
+   "B": "$3/2$.",
+   "C": "$1$.",
+   "D": "$2$."
+  },
+  "correct": "A",
+  "explanation": "$x_3=2-1.5=0.5$."
+ },
+ {
+  "id": 87,
+  "group": "BÀI TOÁN 9 — ĐỐI NGẪU ÁP DỤNG: TỪ $\\bar y$ SUY RA $\\bar x$ (VÍ DỤ 1, CHƯƠNG IV)",
+  "image": null,
+  "question": "Vậy phương án tối ưu của bài toán gốc là:",
+  "options": {
+   "A": "$\\bar x=(0,3/2,1/2,0)$.",
+   "B": "$\\bar x=(3/2,1/2,0,0)$.",
+   "C": "$\\bar x=(0,0,3/2,1/2)$.",
+   "D": "$\\bar x=(1,2,0,0)$."
+  },
+  "correct": "A",
+  "explanation": "Đúng thứ tự $x_1=0,x_2=3/2,x_3=1/2,x_4=0$."
+ },
+ {
+  "id": 88,
+  "group": "BÀI TOÁN 9 — ĐỐI NGẪU ÁP DỤNG: TỪ $\\bar y$ SUY RA $\\bar x$ (VÍ DỤ 1, CHƯƠNG IV)",
+  "image": null,
+  "question": "Tính $f(\\bar x)=3(0)+3(3/2)+1(1/2)-1(0)=$?",
+  "options": {
+   "A": "$4.5+0.5=5$.",
+   "B": "$5$.",
+   "C": "Cả A và B.",
+   "D": "$4$."
+  },
+  "correct": "C",
+  "explanation": "$3\\times1.5=4.5,\\ 1\\times0.5=0.5$; tổng $=5$."
+ },
+ {
+  "id": 89,
+  "group": "BÀI TOÁN 9 — ĐỐI NGẪU ÁP DỤNG: TỪ $\\bar y$ SUY RA $\\bar x$ (VÍ DỤ 1, CHƯƠNG IV)",
+  "image": null,
+  "question": "Tính $g(\\bar y)=y_1+2y_2=1+2(2)=$?",
+  "options": {
+   "A": "$5$.",
+   "B": "$3$.",
+   "C": "$1$.",
+   "D": "$4$."
+  },
+  "correct": "A",
+  "explanation": "$1+4=5$."
+ },
+ {
+  "id": 90,
+  "group": "BÀI TOÁN 9 — ĐỐI NGẪU ÁP DỤNG: TỪ $\\bar y$ SUY RA $\\bar x$ (VÍ DỤ 1, CHƯƠNG IV)",
+  "image": null,
+  "question": "Vì $f(\\bar x)=g(\\bar y)=5$, theo Hệ quả 1, kết luận:",
+  "options": {
+   "A": "$\\bar x$ và $\\bar y$ đều là phương án tối ưu của bài toán tương ứng — đây là cách tìm $\\bar x$ **không cần giải lại bằng đơn hình**, chỉ cần biết $\\bar y$ tối ưu của đối ngẫu.",
+   "B": "Cần giải thêm bằng đơn hình để xác nhận.",
+   "C": "Bài toán vô nghiệm.",
+   "D": "Không kết luận được."
+  },
+  "correct": "A",
+  "explanation": "Đúng tinh thần cốt lõi của Bài toán 9: minh họa sức mạnh lý thuyết đối ngẫu — \"suy ngược\" nghiệm tối ưu bài toán gốc từ nghiệm đối ngẫu đã biết, nhanh hơn nhiều so với giải lại từ đầu."
+ },
+ {
+  "id": 91,
+  "group": "BÀI TOÁN 10 — CHUYỂN DẠNG CHÍNH TẮC (BIẾN TỰ DO, BIẾN BỊ CHẶN 2 PHÍA)",
+  "image": null,
+  "question": "Biến $x_1\\ge-2$ (không phải $\\ge0$) cần đổi biến thế nào để đưa về không âm?",
+  "options": {
+   "A": "Đặt $\\bar x_1=x_1+2\\ge0$, thay $x_1=\\bar x_1-2$ vào mọi nơi.",
+   "B": "Đặt $\\bar x_1=-x_1$.",
+   "C": "Bỏ ràng buộc này.",
+   "D": "Nhân $x_1$ với $-1$."
+  },
+  "correct": "A",
+  "explanation": "Kỹ thuật tịnh tiến chuẩn cho biến bị chặn dưới bởi số âm."
+ },
+ {
+  "id": 92,
+  "group": "BÀI TOÁN 10 — CHUYỂN DẠNG CHÍNH TẮC (BIẾN TỰ DO, BIẾN BỊ CHẶN 2 PHÍA)",
+  "image": null,
+  "question": "Biến $x_3$ tự do (không ràng buộc dấu) cần đổi biến thế nào?",
+  "options": {
+   "A": "$x_3=\\bar x_3-\\bar{\\bar x}_3$ với $\\bar x_3,\\bar{\\bar x}_3\\ge0$ (hiệu 2 biến không âm).",
+   "B": "Đặt $x_3\\ge0$ trực tiếp, bỏ qua trường hợp âm.",
+   "C": "$x_3=\\bar x_3^2$.",
+   "D": "Không cần đổi biến."
+  },
+  "correct": "A",
+  "explanation": "Kỹ thuật chuẩn tách biến tự do (mục 6, tính chất bài toán QHTT, Chương I)."
+ },
+ {
+  "id": 93,
+  "group": "BÀI TOÁN 10 — CHUYỂN DẠNG CHÍNH TẮC (BIẾN TỰ DO, BIẾN BỊ CHẶN 2 PHÍA)",
+  "image": null,
+  "question": "Biến $x_2$ bị chặn 2 phía $0\\le x_2\\le4$. Để giữ ràng buộc trên thành 1 phương trình (phù hợp dạng chính tắc), ta thêm:",
+  "options": {
+   "A": "Ràng buộc mới $x_2+x_6=4$ với biến bù $x_6\\ge0$, giữ nguyên $x_2\\ge0$.",
+   "B": "Đổi biến $x_2$ hoàn toàn giống $x_1$.",
+   "C": "Bỏ ràng buộc trên của $x_2$.",
+   "D": "Nhân đôi $x_2$."
+  },
+  "correct": "A",
+  "explanation": "$x_2\\ge0$ đã đúng dạng chuẩn (không cần tịnh tiến); chặn trên $x_2\\le4$ chuyển thành đẳng thức bằng biến bù cộng thêm $x_6\\ge0$."
+ },
+ {
+  "id": 94,
+  "group": "BÀI TOÁN 10 — CHUYỂN DẠNG CHÍNH TẮC (BIẾN TỰ DO, BIẾN BỊ CHẶN 2 PHÍA)",
+  "image": null,
+  "question": "Với $x_1=\\bar x_1-2$, ràng buộc (1) gốc ($3x_1-5x_2+3x_3\\le5$) viết theo biến mới (dùng $x_3=\\bar x_3-\\bar{\\bar x}_3$, thêm biến bù $x_4\\ge0$) trở thành:",
+  "options": {
+   "A": "$3\\bar x_1-5x_2+3\\bar x_3-3\\bar{\\bar x}_3+x_4=11$.",
+   "B": "$3\\bar x_1-5x_2+3\\bar x_3-3\\bar{\\bar x}_3+x_4=5$.",
+   "C": "$3\\bar x_1-5x_2+3\\bar x_3-3\\bar{\\bar x}_3=5$.",
+   "D": "Không đổi so với ràng buộc gốc."
+  },
+  "correct": "A",
+  "explanation": "Thế $x_1=\\bar x_1-2$: $3(\\bar x_1-2)-5x_2+3x_3\\le5\\Leftrightarrow3\\bar x_1-5x_2+3x_3 \\le11\\Rightarrow$ cộng $x_4$: $=11$ (vế phải dịch từ $5$ thành $5+3\\times2=11$)."
+ },
+ {
+  "id": 95,
+  "group": "BÀI TOÁN 10 — CHUYỂN DẠNG CHÍNH TẮC (BIẾN TỰ DO, BIẾN BỊ CHẶN 2 PHÍA)",
+  "image": null,
+  "question": "Ràng buộc (2) gốc ($2x_1+4x_2+6x_3=8$, đã là đẳng thức) viết theo biến mới là:",
+  "options": {
+   "A": "$2\\bar x_1+4x_2+6\\bar x_3-6\\bar{\\bar x}_3=12$.",
+   "B": "$2\\bar x_1+4x_2+6\\bar x_3-6\\bar{\\bar x}_3=8$.",
+   "C": "Không đổi.",
+   "D": "$2\\bar x_1+4x_2=8$."
+  },
+  "correct": "A",
+  "explanation": "$2(\\bar x_1-2)+4x_2+6x_3=8\\Leftrightarrow2\\bar x_1+4x_2+6x_3=12$ (vế phải dịch thêm $2\\times2=4$, từ $8$ thành $12$)."
+ },
+ {
+  "id": 96,
+  "group": "BÀI TOÁN 10 — CHUYỂN DẠNG CHÍNH TẮC (BIẾN TỰ DO, BIẾN BỊ CHẶN 2 PHÍA)",
+  "image": null,
+  "question": "Ràng buộc (3) gốc ($-4x_1-9x_2+4x_3\\le-4$) viết theo biến mới, thêm biến bù trừ $x_5\\ge0$ (vì cần đổi hướng để vế phải dương — xem lại kỹ thuật ở Bài toán 3, Câu 21), trở thành:",
+  "options": {
+   "A": "$4\\bar x_1+9x_2-4\\bar x_3+4\\bar{\\bar x}_3-x_5=12$.",
+   "B": "$-4\\bar x_1-9x_2+4\\bar x_3-4\\bar{\\bar x}_3+x_5=-4$.",
+   "C": "$4\\bar x_1+9x_2-4\\bar x_3+4\\bar{\\bar x}_3+x_5=12$.",
+   "D": "Không đổi."
+  },
+  "correct": "A",
+  "explanation": "Thế $x_1=\\bar x_1-2$ vào ràng buộc gốc: $-4(\\bar x_1-2)-9x_2+4x_3\\le-4\\Leftrightarrow -4\\bar x_1-9x_2+4x_3\\le-12$; nhân $-1$: $4\\bar x_1+9x_2-4x_3\\ge12$; trừ biến bù $x_5$: $=12$."
+ },
+ {
+  "id": 97,
+  "group": "BÀI TOÁN 10 — CHUYỂN DẠNG CHÍNH TẮC (BIẾN TỰ DO, BIẾN BỊ CHẶN 2 PHÍA)",
+  "image": null,
+  "question": "Hàm mục tiêu viết theo biến mới ($x_1=\\bar x_1-2$, $x_3=\\bar x_3-\\bar{\\bar x}_3$): $f=3(\\bar x_1-2)+5x_2-4(\\bar x_3-\\bar{\\bar x}_3)=3\\bar x_1+5x_2-4\\bar x_3+4\\bar{\\bar x}_3-6$. Vì hằng số $-6$ không ảnh hưởng đến việc tìm biến tối ưu, hàm mục tiêu chính tắc thường viết là:",
+  "options": {
+   "A": "$g(x)=3\\bar x_1+5x_2-4\\bar x_3+4\\bar{\\bar x}_3\\to\\min$ (rồi cộng lại $-6$ vào $f^*$ ở bước cuối).",
+   "B": "$g(x)=3\\bar x_1+5x_2-4\\bar x_3+4\\bar{\\bar x}_3-6\\to\\min$, giữ nguyên hằng số trong ràng buộc.",
+   "C": "Bỏ hẳn hằng số, không cần nhớ lại.",
+   "D": "$g(x)=3x_1+5x_2-4x_3$ (không đổi biến)."
+  },
+  "correct": "A",
+  "explanation": "Kỹ thuật chuẩn: tối ưu hóa phần biến số trước, cộng lại hằng số dịch chuyển vào giá trị tối ưu cuối cùng khi suy ngược về biến gốc (khớp cách trình bày chính thức của slide gốc)."
+ },
+ {
+  "id": 98,
+  "group": "BÀI TOÁN 10 — CHUYỂN DẠNG CHÍNH TẮC (BIẾN TỰ DO, BIẾN BỊ CHẶN 2 PHÍA)",
+  "image": null,
+  "question": "Dạng chính tắc đầy đủ (theo 6 biến không âm $\\bar x_1,x_2,\\bar x_3,\\bar{\\bar x}_3,x_4, x_5,x_6$) gồm bao nhiêu ràng buộc đẳng thức?",
+  "options": {
+   "A": "4 (ứng 3 ràng buộc gốc + 1 ràng buộc chặn trên của $x_2$).",
+   "B": "3.",
+   "C": "5.",
+   "D": "6."
+  },
+  "correct": "A",
+  "explanation": "3 ràng buộc chính đã chuyển thành đẳng thức (Câu 94-96) cộng thêm ràng buộc phụ $x_2+x_6=4$ (Câu 93)."
+ },
+ {
+  "id": 99,
+  "group": "BÀI TOÁN 10 — CHUYỂN DẠNG CHÍNH TẮC (BIẾN TỰ DO, BIẾN BỊ CHẶN 2 PHÍA)",
+  "image": null,
+  "question": "Giả sử giải xong bài toán chính tắc, thu được nghiệm tối ưu $(\\bar x_1^{opt},x_2^{opt},\\bar x_3^{opt},\\bar{\\bar x}_3^{opt})$. Công thức suy ngược lại nghiệm $(x_1^{opt},x_2^{opt},x_3^{opt})$ của bài toán **gốc ban đầu** là:",
+  "options": {
+   "A": "$x_1^{opt}=\\bar x_1^{opt}-2,\\ x_2^{opt}=x_2^{opt},\\ x_3^{opt}=\\bar x_3^{opt}-\\bar{\\bar x}_3^{opt}$.",
+   "B": "$x_1^{opt}=\\bar x_1^{opt}+2$.",
+   "C": "$x_1^{opt}=\\bar x_1^{opt}$.",
+   "D": "Không thể suy ngược được."
+  },
+  "correct": "A",
+  "explanation": "Đúng công thức nghịch đảo của phép đổi biến đã thực hiện ở Câu 91, 92 — đây chính là bước cuối cùng bắt buộc, dễ bị quên nhất khi làm bài tự luận (nhiều sinh viên chỉ nộp nghiệm của bài toán chính tắc mà quên đổi ngược về biến gốc)."
+ },
+ {
+  "id": 100,
+  "group": "BÀI TOÁN 10 — CHUYỂN DẠNG CHÍNH TẮC (BIẾN TỰ DO, BIẾN BỊ CHẶN 2 PHÍA)",
+  "image": null,
+  "question": "Tổng kết: quy trình 10 câu trên (Bài toán 10) khác biệt gì so với 9 bài toán trước (1-9, đều là **giải** 1 bài toán QHTT cụ thể)?",
+  "options": {
+   "A": "Bài toán 10 không giải tìm nghiệm tối ưu, mà rèn kỹ năng **biến đổi mô hình** (tiền đề bắt buộc trước khi có thể áp dụng đơn hình gốc) — một bước dễ bị bỏ qua nhưng chiếm điểm riêng trong đề thi tự luận (xem Câu 1, Câu 2 mọi đề trong `De_Thi_Mau_QHTT.md`).",
+   "B": "Không có gì khác biệt.",
+   "C": "Bài toán 10 dễ hơn hẳn, không cần luyện.",
+   "D": "Bài toán 10 không có ứng dụng thực tế."
+  },
+  "correct": "A",
+  "explanation": "Đúng tổng kết sư phạm — hoàn thiện bộ 100 câu bao phủ đủ 2 kỹ năng cốt lõi: biến đổi mô hình (Bài toán 10) và giải thuật toán (Bài toán 1-9), khớp đúng cấu trúc đề thi thật (Câu 1 luôn có phần \"đưa về dạng chính tắc/chuẩn tắc\" trước khi giải)."
+ }
+]

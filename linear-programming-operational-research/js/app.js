@@ -5,19 +5,25 @@
 (function () {
   "use strict";
 
+  // Bo 100 cau "v1" (theo chu de) va bo 100 cau "v2" (giai tung buoc) dung
+  // 2 KHOA localStorage HOAN TOAN TACH BIET - lam 1 bo khong anh huong bo kia.
   var STORE_KEY = "qhtt_progress_v1";
+  var STORE_KEY2 = "qhtt_progress_v2_stepbystep";
+  var SEEN_V2_KEY = "qhtt_seen_v2_notice";
   var state = {
     mcq: null,
     numeric: null,
-    progress: loadProgress(),
+    mcq2: null,
+    progress: loadProgress(STORE_KEY, { mcq: {}, numeric: {} }),
+    progress2: loadProgress(STORE_KEY2, { mcq2: {} }),
   };
 
-  function loadProgress() {
+  function loadProgress(key, fallback) {
     try {
-      var raw = localStorage.getItem(STORE_KEY);
-      return raw ? JSON.parse(raw) : { mcq: {}, numeric: {} };
+      var raw = localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : fallback;
     } catch (e) {
-      return { mcq: {}, numeric: {} };
+      return fallback;
     }
   }
   function saveProgress() {
@@ -25,6 +31,13 @@
       localStorage.setItem(STORE_KEY, JSON.stringify(state.progress));
     } catch (e) {
       /* localStorage khong kha dung (che do an danh, v.v.) - bo qua im lang */
+    }
+  }
+  function saveProgress2() {
+    try {
+      localStorage.setItem(STORE_KEY2, JSON.stringify(state.progress2));
+    } catch (e) {
+      /* bo qua im lang */
     }
   }
 
@@ -83,10 +96,11 @@
     app.innerHTML = "";
     app.appendChild(el("div", { class: "loading" }, ["Đang tải dữ liệu bài tập…"]));
 
-    Promise.all([fetchJSON("data/mcq.json"), fetchJSON("data/numeric.json")])
+    Promise.all([fetchJSON("data/mcq.json"), fetchJSON("data/numeric.json"), fetchJSON("data/mcq_stepbystep.json")])
       .then(function (res) {
         state.mcq = res[0];
         state.numeric = res[1];
+        state.mcq2 = res[2];
         window.addEventListener("hashchange", route);
         route();
       })
@@ -117,15 +131,20 @@
     if (parts.length === 0) return renderHome();
     if (parts[0] === "mcq" && parts.length === 1) return renderMcqOverview();
     if (parts[0] === "mcq" && parts.length === 2) return renderMcqQuestion(parseInt(parts[1], 10));
+    if (parts[0] === "mcq2" && parts.length === 1) return renderMcq2Overview();
+    if (parts[0] === "mcq2" && parts.length === 2) return renderMcq2Question(parseInt(parts[1], 10));
     if (parts[0] === "numeric" && parts.length === 1) return renderNumericOverview();
     if (parts[0] === "numeric" && parts.length === 2) return renderNumericQuestion(parseInt(parts[1], 10));
     renderHome();
   }
 
   function updateNav(hash) {
+    // So khop CHINH XAC theo segment dau tien (khong dung prefix tho) de
+    // tranh "/mcq2" bi nham lam khop voi nav "/mcq".
+    var firstSeg = "/" + (hash.replace(/^\//, "").split("/")[0] || "");
     document.querySelectorAll("#topnav a").forEach(function (a) {
       var r = a.getAttribute("data-route");
-      var active = ("/" + hash.replace(/^\//, "")).indexOf(r) === 0 && (r !== "/" || hash === "/" || hash === "");
+      var active = r === "/" ? (hash === "/" || hash === "") : firstSeg === r;
       a.classList.toggle("active", active);
     });
   }
@@ -139,37 +158,72 @@
   }
 
   // ---------------------------- Trang chu ----------------------------
+  function dismissV2Notice() {
+    try { localStorage.setItem(SEEN_V2_KEY, "1"); } catch (e) { /* im lang */ }
+    var b = document.getElementById("v2-banner");
+    if (b) b.remove();
+  }
+
   function renderHome() {
     var mcqDone = Object.keys(state.progress.mcq).length;
     var mcqCorrect = Object.values(state.progress.mcq).filter(function (x) { return x.correct; }).length;
     var numDone = Object.keys(state.progress.numeric).length;
     var numCorrect = Object.values(state.progress.numeric).filter(function (x) { return x.correct; }).length;
+    var mcq2Done = Object.keys(state.progress2.mcq2).length;
+    var mcq2Correct = Object.values(state.progress2.mcq2).filter(function (x) { return x.correct; }).length;
 
-    var wrap = el("div", {}, [
+    var seenV2 = false;
+    try { seenV2 = localStorage.getItem(SEEN_V2_KEY) === "1"; } catch (e) { /* im lang */ }
+
+    var children = [];
+
+    if (!seenV2) {
+      var closeBtn = el("button", { class: "banner-close", "aria-label": "Đóng thông báo" }, ["×"]);
+      closeBtn.onclick = dismissV2Notice;
+      var banner = el("div", { class: "update-banner", id: "v2-banner" }, [
+        el("div", { class: "update-banner-text" }, [
+          el("b", {}, ["🆕 Bản cập nhật mới (v2): "]),
+          "100 câu trắc nghiệm “giải từng bước” — 10 bài toán lớn, mỗi bài 10 câu tái hiện " +
+          "đúng trình tự lời giải tự luận (đơn hình, hai pha, M, đối ngẫu, vận tải). Độc lập hoàn " +
+          "toàn với bộ 100 câu cũ — tiến độ lưu riêng.",
+        ]),
+        el("a", { class: "btn", href: "#/mcq2", style: "margin:0" }, ["Xem ngay"]).also(function (a) {
+          a.addEventListener("click", function () { dismissV2Notice(); });
+        }),
+        closeBtn,
+      ]);
+      children.push(banner);
+    }
+
+    children.push(
       el("div", { class: "card hero" }, [
         el("h2", {}, ["Luyện tập Quy hoạch tuyến tính & Vận trù học"]),
         el("p", {}, [
-          "100 câu trắc nghiệm (36 câu có đồ thị minh họa vẽ bằng Python) và 10 bài tập tính toán " +
-          "(đơn hình gốc / hai pha / M, đối ngẫu, bài toán vận tải – thuật toán thế vị). " +
+          "100 câu trắc nghiệm theo chủ đề, 100 câu trắc nghiệm “giải từng bước” (v2), và 10 bài " +
+          "tập tính toán (đơn hình gốc / hai pha / M, đối ngẫu, bài toán vận tải – thuật toán thế vị). " +
           "Chấm điểm ngay lập tức, không cần gửi lên server nào.",
         ]),
         el("div", { class: "stat-row" }, [
-          el("div", { class: "stat" }, [el("b", {}, [String(mcqCorrect) + "/" + String(mcqDone) + "/100"]), el("span", {}, ["Trắc nghiệm đúng/đã làm/tổng"])]),
+          el("div", { class: "stat" }, [el("b", {}, [String(mcqCorrect) + "/" + String(mcqDone) + "/100"]), el("span", {}, ["Trắc nghiệm v1 đúng/đã làm/tổng"])]),
+          el("div", { class: "stat" }, [el("b", {}, [String(mcq2Correct) + "/" + String(mcq2Done) + "/100"]), el("span", {}, ["Trắc nghiệm v2 (giải từng bước) đúng/đã làm/tổng"])]),
           el("div", { class: "stat" }, [el("b", {}, [String(numCorrect) + "/" + String(numDone) + "/10"]), el("span", {}, ["Tính toán đúng/đã làm/tổng"])]),
         ]),
-        el("a", { class: "btn", href: "#/mcq" }, ["Bắt đầu trắc nghiệm"]),
+        el("a", { class: "btn", href: "#/mcq" }, ["Trắc nghiệm v1"]),
+        el("a", { class: "btn", href: "#/mcq2" }, ["Trắc nghiệm v2 — giải từng bước 🆕"]),
         el("a", { class: "btn secondary", href: "#/numeric" }, ["Bài tập tính toán"]),
       ]),
       el("div", { class: "card" }, [
         el("h3", {}, ["Cách dùng"]),
         el("ul", {}, [
           el("li", {}, ["Trắc nghiệm: chọn 1 đáp án rồi bấm “Kiểm tra” — hiện ngay đúng/sai + giải thích."]),
+          el("li", {}, ["Trắc nghiệm v2: mỗi 10 câu liên tiếp = 1 bài toán lớn, trả lời đủ 10 câu tức là đã tự dựng lại được bài tự luận đầy đủ."]),
           el("li", {}, ["Bài tập tính toán: nhập số vào các ô (chấp nhận sai số nhỏ do làm tròn), bấm “Kiểm tra”."]),
-          el("li", {}, ["Tiến độ tự lưu ở trình duyệt này (localStorage) — quay lại vẫn thấy câu đã làm."]),
+          el("li", {}, ["Tiến độ 3 bộ (v1 / v2 / tính toán) lưu tách biệt ở trình duyệt này (localStorage) — quay lại vẫn thấy câu đã làm."]),
         ]),
-      ]),
-    ]);
-    mount(wrap);
+      ])
+    );
+
+    mount(el("div", {}, children));
   }
 
   // ---------------------------- MCQ: tong quan ----------------------------
@@ -278,6 +332,125 @@
       if (qq.id === id) cls += " current";
       var b = el("button", { class: cls.trim() }, [String(qq.id)]);
       b.onclick = function () { location.hash = "#/mcq/" + qq.id; };
+      return b;
+    });
+    var side = el("div", { class: "qgrid" }, [
+      el("h4", {}, ["Danh sách câu"]),
+      el("div", { class: "qgrid-cells" }, cells),
+    ]);
+
+    mount(el("div", { class: "quiz-layout" }, [main, side]));
+  }
+
+  // ---------------------------- MCQ v2 (giai tung buoc): tong quan ----------------------------
+  // Doc lap hoan toan voi MCQ v1: du lieu rieng (state.mcq2), tien do rieng
+  // (state.progress2, luu STORE_KEY2 khac STORE_KEY).
+  function renderMcq2Overview() {
+    var groups = {};
+    var groupOrder = [];
+    state.mcq2.forEach(function (q) {
+      if (!groups[q.group]) { groups[q.group] = []; groupOrder.push(q.group); }
+      groups[q.group].push(q);
+    });
+    var doneCount = Object.keys(state.progress2.mcq2).length;
+
+    var body = [
+      el("div", { class: "card" }, [
+        el("h2", {}, ["100 câu trắc nghiệm — Giải từng bước (v2)"]),
+        el("p", { class: "source-note" }, [
+          "Mỗi 10 câu liên tiếp = 1 bài toán lớn, tái hiện đúng trình tự các bước giải thật. Bộ này " +
+          "độc lập hoàn toàn với bộ trắc nghiệm v1 (theo chủ đề).",
+        ]),
+        el("div", { class: "progress-bar-outer" }, [
+          el("div", { class: "progress-bar-inner", style: "width:" + doneCount + "%" }),
+        ]),
+        el("p", {}, [doneCount + " / 100 câu đã làm."]),
+      ]),
+    ];
+
+    groupOrder.forEach(function (g) {
+      var cells = groups[g].map(function (q) {
+        var p = state.progress2.mcq2[q.id];
+        var cls = "q";
+        if (p) cls += p.correct ? " correct" : " wrong";
+        var b = el("button", { class: cls }, [String(q.id)]);
+        b.onclick = function () { location.hash = "#/mcq2/" + q.id; };
+        return b;
+      });
+      body.push(
+        el("div", { class: "card" }, [
+          el("h4", { style: "margin-top:0" }, [g]),
+          el("div", { class: "qgrid-cells", style: "grid-template-columns:repeat(10,1fr)" }, cells),
+        ])
+      );
+    });
+
+    mount(el("div", {}, body));
+  }
+
+  // ---------------------------- MCQ v2: 1 cau ----------------------------
+  function renderMcq2Question(id) {
+    var q = state.mcq2.find(function (x) { return x.id === id; });
+    if (!q) return renderMcq2Overview();
+    var prev = state.progress2.mcq2[id];
+
+    var optWrap = el("div", { class: "options" });
+    ["A", "B", "C", "D"].forEach(function (letter) {
+      var input = el("input", { type: "radio", name: "opt2", value: letter });
+      if (prev) input.disabled = true;
+      if (prev && prev.selected === letter) input.checked = true;
+      var label = el("label", {}, [input, letter + ". " + q.options[letter]]);
+      if (prev) {
+        if (letter === q.correct) label.classList.add("correct");
+        else if (letter === prev.selected) label.classList.add("wrong");
+      }
+      optWrap.appendChild(label);
+    });
+
+    var explain = el("div", { class: "explain" + (prev ? " show" : ""), html: q.explanation });
+    var checkBtn = el("button", { class: "btn" }, ["Kiểm tra"]);
+    var fbLine = el("p", { class: "result-line" }, []);
+
+    if (prev) {
+      checkBtn.disabled = true;
+      fbLine.textContent = prev.correct ? "✔ Bạn đã trả lời đúng." : "✘ Bạn đã chọn " + prev.selected + " (đáp án đúng: " + q.correct + ").";
+      fbLine.style.color = prev.correct ? "#1e7e34" : "#c0392b";
+    }
+
+    checkBtn.onclick = function () {
+      var chosen = optWrap.querySelector("input:checked");
+      if (!chosen) { fbLine.textContent = "Hãy chọn 1 đáp án trước."; return; }
+      var letter = chosen.value;
+      state.progress2.mcq2[id] = { selected: letter, correct: letter === q.correct };
+      saveProgress2();
+      renderMcq2Question(id);
+    };
+
+    var idx = state.mcq2.findIndex(function (x) { return x.id === id; });
+    var navRow = el("div", { class: "nav-row" }, [
+      el("a", { class: "btn secondary", href: idx > 0 ? "#/mcq2/" + state.mcq2[idx - 1].id : "#/mcq2" }, ["← Câu trước"]),
+      el("a", { class: "btn secondary", href: "#/mcq2" }, ["Danh sách"]),
+      el("a", { class: "btn", href: idx < state.mcq2.length - 1 ? "#/mcq2/" + state.mcq2[idx + 1].id : "#/mcq2" }, ["Câu sau →"]),
+    ]);
+
+    var main = el("div", { class: "card" }, [
+      el("div", { class: "qgroup-label" }, [q.group + " · Câu " + q.id + "/100"]),
+      el("div", { class: "qtext", html: q.question }),
+      q.image ? el("img", { class: "qimg", src: "img/" + q.image, alt: "hình minh họa câu " + q.id }) : null,
+      optWrap,
+      checkBtn,
+      fbLine,
+      explain,
+      navRow,
+    ]);
+
+    var cells = state.mcq2.map(function (qq) {
+      var p = state.progress2.mcq2[qq.id];
+      var cls = "";
+      if (p) cls = p.correct ? "correct" : "wrong";
+      if (qq.id === id) cls += " current";
+      var b = el("button", { class: cls.trim() }, [String(qq.id)]);
+      b.onclick = function () { location.hash = "#/mcq2/" + qq.id; };
       return b;
     });
     var side = el("div", { class: "qgrid" }, [
