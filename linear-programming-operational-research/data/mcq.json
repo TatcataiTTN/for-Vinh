@@ -137,7 +137,7 @@
    "D": "$\\min\\{1/f(x)\\}$."
   },
   "correct": "B",
-  "explanation": "$\\max f(x) = -\\min\\{-f(x)\\}$; 2 bài toán có cùng tập nghiệm tối ưu, giá trị tối ưu trái dấu. --- ## NHÓM 2 — CHƯƠNG I: PHƯƠNG PHÁP ĐỒ THỊ (10 câu có đồ thị)"
+  "explanation": "$\\max f(x) = -\\min\\{-f(x)\\}$; 2 bài toán có cùng tập nghiệm tối ưu, giá trị tối ưu trái dấu."
  },
  {
   "id": 11,
@@ -277,7 +277,7 @@
    "D": "$(0,0)$."
   },
   "correct": "C",
-  "explanation": "$f(0,20)=60$ lớn nhất ($f(10,0)=20,\\ f(5,15)=55$). --- ## NHÓM 3 — CHƯƠNG II: TẬP LỒI (8 câu có đồ thị)"
+  "explanation": "$f(0,20)=60$ lớn nhất ($f(10,0)=20,\\ f(5,15)=55$)."
  },
  {
   "id": 21,
@@ -389,7 +389,7 @@
    "D": "Không xác định."
   },
   "correct": "A",
-  "explanation": "Với ràng buộc dạng $\\ge$, vector pháp tuyến $a$ luôn chỉ về phía nửa không gian thỏa mãn (hướng tăng của $a^Tx$). --- ## NHÓM 4 — CHƯƠNG II: ĐIỂM CỰC BIÊN & SỰ TỒN TẠI NGHIỆM (4 câu có đồ thị + 6 lý thuyết)"
+  "explanation": "Với ràng buộc dạng $\\ge$, vector pháp tuyến $a$ luôn chỉ về phía nửa không gian thỏa mãn (hướng tăng của $a^Tx$)."
  },
  {
   "id": 29,
@@ -529,7 +529,7 @@
    "D": "$\\max\\{x_1,\\dots,x_k\\}$."
   },
   "correct": "A",
-  "explanation": "Định nghĩa chuẩn tổ hợp lồi (Chương II, mục \"Bao lồi\"). --- ## NHÓM 5 — CHƯƠNG III: ĐƠN HÌNH GỐC & TỪ ĐIỂN (7 câu có đồ thị + 3 lý thuyết)"
+  "explanation": "Định nghĩa chuẩn tổ hợp lồi (Chương II, mục \"Bao lồi\")."
  },
  {
   "id": 39,
@@ -669,7 +669,7 @@
    "D": "Không xác định."
   },
   "correct": "A",
-  "explanation": "Vì $\\Delta_s\\theta>0$ nên $f$ giảm sau mỗi bước — đúng hướng cải thiện cho bài toán min. --- ## NHÓM 6 — CHƯƠNG III: ĐƠN HÌNH HAI PHA & M (10 câu, không đồ thị)"
+  "explanation": "Vì $\\Delta_s\\theta>0$ nên $f$ giảm sau mỗi bước — đúng hướng cải thiện cho bài toán min."
  },
  {
   "id": 49,
@@ -809,7 +809,7 @@
    "D": "$f^*=0$."
   },
   "correct": "B",
-  "explanation": "Đúng theo TH1 lý thuyết hai pha, đã chứng minh trong tài liệu. --- ## NHÓM 7 — CHƯƠNG IV: BÀI TOÁN ĐỐI NGẪU (LÝ THUYẾT, 10 câu)"
+  "explanation": "Đúng theo TH1 lý thuyết hai pha, đã chứng minh trong tài liệu."
  },
  {
   "id": 59,
@@ -949,7 +949,7 @@
    "D": "Luôn bằng 0."
   },
   "correct": "A",
-  "explanation": "Đây là công cụ dùng để tìm toàn bộ tập nghiệm tối ưu $X^*,Y^*$ từ 1 cặp phương án đã biết (áp dụng trong Phụ lục A). --- ## NHÓM 8 — CHƯƠNG IV: ĐỐI NGẪU ÁP DỤNG (10 câu tính toán, không đồ thị)"
+  "explanation": "Đây là công cụ dùng để tìm toàn bộ tập nghiệm tối ưu $X^*,Y^*$ từ 1 cặp phương án đã biết (áp dụng trong Phụ lục A)."
  },
  {
   "id": 69,
@@ -1089,7 +1089,7 @@
    "D": "Luôn bằng 1."
   },
   "correct": "A",
-  "explanation": "Mỗi ràng buộc chính của $P$ sinh ra đúng 1 biến đối ngẫu $y_i$ tương ứng. --- ## NHÓM 9 — CHƯƠNG V: BÀI TOÁN VẬN TẢI CƠ BẢN (6 câu có đồ thị + 4 lý thuyết)"
+  "explanation": "Mỗi ràng buộc chính của $P$ sinh ra đúng 1 biến đối ngẫu $y_i$ tương ứng."
  },
  {
   "id": 79,
@@ -1229,7 +1229,7 @@
    "D": "Không có lý do đặc biệt."
   },
   "correct": "A",
-  "explanation": "Đúng lập luận chứng minh Chương V §1, mục \"Điều kiện tồn tại phương án tối ưu\". --- ## NHÓM 10 — CHƯƠNG V: THẾ VỊ & CÁC BÀI TOÁN MẠNG LIÊN QUAN (3 câu có đồ thị + 7 lý thuyết)"
+  "explanation": "Đúng lập luận chứng minh Chương V §1, mục \"Điều kiện tồn tại phương án tối ưu\"."
  },
  {
   "id": 89,
@@ -1397,6 +1397,6 @@
    "D": "Vận Trù Học không dùng thuật toán thế vị."
   },
   "correct": "A",
-  "explanation": "Đúng tổng kết đã phân tích ở phần so sánh 2 môn học (đầu phiên làm việc) — nhấn mạnh QHTT là nhánh lý thuyết nền tảng, Vận Trù Học là nhánh ứng dụng mở rộng. --- ## BẢNG ĐÁP ÁN TỔNG HỢP (dạng lưới, đối chiếu nhanh) | Câu | ĐA | Câu | ĐA | Câu | ĐA | Câu | ĐA | |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:| | 1 | A | 26 | A | 51 | B | 76 | A | | 2 | B | 27 | B | 52 | A | 77 | A | | 3 | B | 28 | A | 53 | A | 78 | A | | 4 | B | 29 | B | 54 | A | 79 | A | | 5 | B | 30 | A | 55 | B | 80 | B | | 6 | B | 31 | B | 56 | A | 81 | A | | 7 | A | 32 | A | 57 | B | 82 | A | | 8 | B | 33 | A | 58 | B | 83 | A | | 9 | B | 34 | A | 59 | A | 84 | A | | 10 | B | 35 | A | 60 | C | 85 | A | | 11 | C | 36 | B | 61 | C | 86 | A | | 12 | B | 37 | A | 62 | A | 87 | A | | 13 | C | 38 | A | 63 | A | 88 | A | | 14 | D | 39 | A | 64 | A | 89 | A | | 15 | B | 40 | C | 65 | A | 90 | A | | 16 | C | 41 | B | 66 | A | 91 | A | | 17 | C | 42 | A | 67 | A | 92 | A | | 18 | C | 43 | B | 68 | A | 93 | A | | 19 | C | 44 | B | 69 | A | 94 | A | | 20 | C | 45 | A | 70 | A | 95 | A | | 21 | A | 46 | A | 71 | A | 96 | A | | 22 | B | 47 | A | 72 | A | 97 | A | | 23 | C | 48 | A | 73 | A | 98 | A | | 24 | A | 49 | A | 74 | A | 99 | A | | 25 | B | 50 | A | 75 | A | 100 | A | --- ## GHI CHÚ \"SPOT-CHECK\" — TỰ KIỂM TRA LẠI 8 CÂU TÍNH TOÁN ĐỘC LẬP Để đảm bảo không có lỗi rải rác, các câu sau đã được **tính lại độc lập lần thứ 2** (ngoài lần tính khi soạn câu hỏi), kết quả khớp cả 2 lần: 1. **Câu 11-20** (10 câu đồ thị Nhóm 2): toàn bộ tọa độ đỉnh và giá trị hàm mục tiêu được máy tính    trực tiếp bằng code Python (`gen_plots.py`, hàm `feasible_vertices` + `obj_at`) — không gõ tay    — nên không có sai số làm tròn hay nhầm dấu. 2. **Câu 41 ($\\Delta$-values)**: $(-2,3,-1,0)$ — chỉ 1 giá trị dương $\\Rightarrow x_2$ vào, không    cần tính lại vì là so sánh trực tiếp. 3. **Câu 42 (tỷ số $\\theta$)**: $12/3=4$; $8/2=4$; hàng 3 loại vì $z_{3s}=-1<0$. Tính tay lại:    đúng $4=4$, xác nhận tie. 4. **Câu 70-71 (đối ngẫu $2x_1+3x_2$)**: $f(4,0)=2(4)+3(0)=8$; $g(y_1=2)=4(2)=8$ — khớp. 5. **Câu 72-73 (đối ngẫu $5x_1+4x_2$)**: $f(4,3)=5(4)+4(3)=20+12=32$; $g=4(5)+3(4)=20+12=32$ —    khớp. 6. **Câu 79 (Phụ lục B)**: $f(x^*)=2(80)+3(10)+5(35)+8(65)+4(15)+5(95)$. Tính lại: $160+30+175+    520+60+475$. Cộng theo cặp: $(160+30)=190$, $(175+520)=695$, $(60+475)=535$; tổng    $190+695+535=1420$ ✓ khớp đáp số đã công bố. 7. **Câu 80 (ví dụ Chương V §5)**: $f(x^*)=100(3)+90(5)+80(3)+110(7)+120(8)+230(1)$. Tính lại:    $300+450+240+770+960+230$. $(300+450)=750,\\ (240+770)=1010,\\ (960+230)=1190$; tổng    $750+1010+1190=2950$ ✓ khớp. 8. **Câu 90 (đường đi ngắn nhất)**: đường $1\\to3\\to4\\to5$: trọng số $2+1+3=6$; đường    $1\\to2\\to4\\to5$: $4+5+3=12$; đường $1\\to3\\to2\\to4\\to5$: $2+1+5+3=11$ — vẫn lớn hơn $6$. Xác    nhận $6$ là nhỏ nhất trong các đường khả dĩ đã liệt kê. **Lưu ý về Câu 40 và Câu 44** (2 câu có tình huống đa nghiệm/tie tại đỉnh cực biên): đây là các câu **có tính sư phạm đặc biệt** (dạy sinh viên nhận biết và xử lý tie), không phải lỗi — đáp án đã giải thích rõ quy tắc xử lý trong phần lời giải đi kèm mỗi câu."
+  "explanation": "Đúng tổng kết đã phân tích ở phần so sánh 2 môn học (đầu phiên làm việc) — nhấn mạnh QHTT là nhánh lý thuyết nền tảng, Vận Trù Học là nhánh ứng dụng mở rộng."
  }
 ]
