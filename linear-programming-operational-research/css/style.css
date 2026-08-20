@@ -236,3 +236,44 @@ footer{
   background:#fbe9e7;border:1px solid var(--bad);border-radius:8px;
   padding:16px;color:var(--bad);text-align:center;
 }
+
+.action-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.action-row .btn.secondary.disabled-look{opacity:0.55}
+
+/* Cau dung/sai */
+.tf-wrap{display:flex;flex-direction:column;gap:8px}
+.tf-row{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  border:1px solid var(--border);border-radius:8px;padding:10px 14px;
+}
+.tf-text{flex:1;min-width:200px}
+.tf-choice{display:inline-flex;align-items:center;gap:4px;cursor:pointer;white-space:nowrap}
+.tf-choice input{margin:0}
+.tf-row.tf-ok{background:#e5f5e6;border-color:var(--good)}
+.tf-row.tf-bad{background:#fbe9e7;border-color:var(--bad)}
+.tf-mark{font-weight:600;white-space:nowrap}
+
+/* Cau dien dap an */
+.fill-wrap{display:flex;align-items:center;flex-wrap:wrap;margin:10px 0}
+.fill-input{
+  border:1px solid var(--border);border-radius:6px;padding:9px 12px;
+  font-size:1rem;min-width:220px;
+}
+.fill-input:disabled{background:#f2f4f8}
+
+/* Cau sap xep thu tu */
+.order-list{display:flex;flex-direction:column;gap:8px;margin:10px 0}
+.order-row{
+  display:flex;align-items:center;gap:10px;
+  border:1px solid var(--border);border-radius:8px;padding:8px 12px;
+}
+.order-index{font-weight:700;color:var(--primary);min-width:22px}
+.order-text{flex:1}
+.order-btns{display:flex;gap:4px}
+.order-btn{
+  border:1px solid var(--border);background:#fff;border-radius:5px;
+  width:30px;height:30px;cursor:pointer;font-size:0.95rem;
+}
+.order-btn:disabled{opacity:0.35;cursor:not-allowed}
+.order-row.tf-ok{background:#e5f5e6;border-color:var(--good)}
+.order-row.tf-bad{background:#fbe9e7;border-color:var(--bad)}
