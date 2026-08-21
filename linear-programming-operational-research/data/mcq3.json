@@ -21,12 +21,12 @@
     "image": null,
     "question": "Trong bài toán phân bổ tài nguyên tổng quát (không phải vận tải), $x_{ij}$ thường được hiểu là:",
     "options": {
-      "A": "Lượng tài nguyên loại $i$ được phân bổ cho hoạt động/công việc $j$.",
-      "B": "Giá trị lợi nhuận thu được từ hoạt động $j$.",
-      "C": "Tổng số loại tài nguyên đang có.",
-      "D": "Hằng số vế phải của ràng buộc thứ $i$."
+      "A": "Giá trị lợi nhuận thu được từ hoạt động $j$.",
+      "B": "Hằng số vế phải của ràng buộc thứ $i$.",
+      "C": "Lượng tài nguyên loại $i$ được phân bổ cho hoạt động/công việc $j$.",
+      "D": "Tổng số loại tài nguyên đang có."
     },
-    "correct": "A",
+    "correct": "C",
     "explanation": "Ý nghĩa của $x_{ij}$ phụ thuộc ngữ cảnh bài toán, nhưng luôn là đại lượng \"phân bổ nguồn lực $i$ cho đối tượng $j$\" — chính là biến cần tìm giá trị tối ưu."
   },
   {
@@ -77,12 +77,12 @@
     "image": null,
     "question": "Phát biểu nào mô tả đúng nhất vai trò của cặp chỉ số $(i,j)$ trong $x_{ij}$?",
     "options": {
-      "A": "$i$ luôn chỉ chỉ số dòng của ma trận cước phí, không có ý nghĩa với nguồn lực.",
-      "B": "$i$ gắn với \"nguồn\" (trạm phát/loại tài nguyên/hàng dòng ràng buộc cung), $j$ gắn với \"đích\" (trạm thu/hoạt động/cột ràng buộc cầu).",
-      "C": "$i,j$ chỉ có ý nghĩa trong bài toán vận tải, không dùng được cho bài toán khác.",
-      "D": "$i$ và $j$ luôn phải bằng nhau khi bài toán cân bằng thu phát."
+      "A": "$i,j$ chỉ có ý nghĩa trong bài toán vận tải, không dùng được cho bài toán khác.",
+      "B": "$i$ luôn chỉ chỉ số dòng của ma trận cước phí, không có ý nghĩa với nguồn lực.",
+      "C": "$i$ và $j$ luôn phải bằng nhau khi bài toán cân bằng thu phát.",
+      "D": "$i$ gắn với \"nguồn\" (trạm phát/loại tài nguyên/hàng dòng ràng buộc cung), $j$ gắn với \"đích\" (trạm thu/hoạt động/cột ràng buộc cầu)."
     },
-    "correct": "B",
+    "correct": "D",
     "explanation": "Quy ước chung: chỉ số đầu $i$ ứng với ràng buộc \"nguồn/cung\" (dòng), chỉ số sau $j$ ứng với ràng buộc \"đích/cầu\" (cột) — áp dụng cho mọi bài toán dạng phân bổ hai chiều, không riêng bài toán vận tải."
   },
   {
@@ -92,12 +92,12 @@
     "image": null,
     "question": "Một xưởng có 3 loại máy $M_1,M_2,M_3$ dùng để sản xuất 4 loại sản phẩm $P_1,\\dots,P_4$. Đặt $x_{ij}$ là thời gian máy $M_i$ dùng để sản xuất sản phẩm $P_j$. Số biến quyết định của mô hình là:",
     "options": {
-      "A": "7",
-      "B": "12",
-      "C": "$3^4$",
-      "D": "Không xác định được nếu chưa biết công suất máy."
+      "A": "Không xác định được nếu chưa biết công suất máy.",
+      "B": "$3^4$",
+      "C": "12",
+      "D": "7"
     },
-    "correct": "B",
+    "correct": "C",
     "explanation": "$3$ loại máy $\\times$ $4$ loại sản phẩm $=12$ biến $x_{ij}$ ($i=1..3,\\,j=1..4$) — công suất máy chỉ ảnh hưởng tới hệ số ràng buộc, không ảnh hưởng số lượng biến."
   },
   {
@@ -107,12 +107,12 @@
     "image": null,
     "question": "Trong mô hình trên (3 máy, 4 sản phẩm), ràng buộc \"tổng thời gian máy $M_2$ sử dụng không vượt quá 40 giờ\" được viết bằng $x_{ij}$ như thế nào?",
     "options": {
-      "A": "$\\sum_{j=1}^4 x_{2j}\\le 40$.",
-      "B": "$\\sum_{i=1}^3 x_{i2}\\le 40$.",
+      "A": "$\\sum_{i=1}^3 x_{i2}\\le 40$.",
+      "B": "$\\sum_{j=1}^4 x_{2j}\\le 40$.",
       "C": "$x_{21}=40$.",
       "D": "$\\sum_{i=1}^3\\sum_{j=1}^4 x_{ij}\\le 40$."
     },
-    "correct": "A",
+    "correct": "B",
     "explanation": "Ràng buộc theo \"nguồn\" $M_2$ (dòng $i=2$) là tổng theo $j$: $\\sum_j x_{2j}\\le 40$ — cộng dồn thời gian $M_2$ dùng cho mọi sản phẩm."
   },
   {
@@ -161,12 +161,12 @@
     "image": null,
     "question": "Vì sao trong mô hình QHTT, người ta luôn phải định nghĩa rõ ý nghĩa của $x_{ij}$ trước khi viết hàm mục tiêu và ràng buộc?",
     "options": {
-      "A": "Vì máy tính yêu cầu bắt buộc phải có chú thích.",
-      "B": "Vì đơn vị và ý nghĩa của $x_{ij}$ quyết định cách viết đúng hàm mục tiêu (nhân với hệ số nào) và ràng buộc (cộng theo chỉ số nào) — sai ý nghĩa sẽ dẫn tới mô hình sai hoàn toàn dù công thức \"có vẻ đúng\".",
+      "A": "Vì đơn vị và ý nghĩa của $x_{ij}$ quyết định cách viết đúng hàm mục tiêu (nhân với hệ số nào) và ràng buộc (cộng theo chỉ số nào) — sai ý nghĩa sẽ dẫn tới mô hình sai hoàn toàn dù công thức \"có vẻ đúng\".",
+      "B": "Không cần thiết, chỉ là quy ước trình bày.",
       "C": "Vì $x_{ij}$ luôn phải là số nguyên nên cần định nghĩa loại dữ liệu.",
-      "D": "Không cần thiết, chỉ là quy ước trình bày."
+      "D": "Vì máy tính yêu cầu bắt buộc phải có chú thích."
     },
-    "correct": "B",
+    "correct": "A",
     "explanation": "Bước định nghĩa biến quyết định là bước nền tảng nhất khi mô hình hoá: toàn bộ hàm mục tiêu/ràng buộc chỉ đúng khi ý nghĩa và đơn vị của $x_{ij}$ được xác định chính xác trước."
   },
   {
@@ -176,13 +176,13 @@
     "image": null,
     "question": "Cho bài toán vận tải $2\\times 3$ ($m=2$ trạm phát, $n=3$ trạm thu) với cước phí $c_{ij}$. Hàm mục tiêu $f(x)=\\sum_{i=1}^2\\sum_{j=1}^3 c_{ij}x_{ij}$ khi khai triển tường minh là:",
     "options": {
-      "A": "$c_{11}x_{11}+c_{12}x_{12}+c_{13}x_{13}+c_{21}x_{21}+c_{22}x_{22}+c_{23}x_{23}$.",
+      "A": "$c_{11}x_{11}+c_{21}x_{21}+c_{12}x_{12}$ (chỉ 3 số hạng vì $m=2,n=3$ nên có 3 số hạng).",
       "B": "$c_{11}x_{11}+c_{22}x_{22}$.",
       "C": "$(c_{11}+c_{12}+c_{13})(x_{11}+x_{12}+x_{13})$.",
-      "D": "$c_{11}x_{11}+c_{21}x_{21}+c_{12}x_{12}$ (chỉ 3 số hạng vì $m=2,n=3$ nên có 3 số hạng)."
+      "D": "$c_{11}x_{11}+c_{12}x_{12}+c_{13}x_{13}+c_{21}x_{21}+c_{22}x_{22}+c_{23}x_{23}$."
     },
-    "correct": "A",
-    "explanation": "Khai triển $\\sum_i\\sum_j$ nghĩa là liệt kê đủ $m\\times n=6$ số hạng $c_{ij}x_{ij}$, mỗi cặp $(i,j)$ đúng một lần — không được gộp/nhân chéo như (C) hay bỏ sót như (D)."
+    "correct": "D",
+    "explanation": "Khai triển $\\sum_i\\sum_j$ nghĩa là liệt kê đủ $m\\times n=6$ số hạng $c_{ij}x_{ij}$, mỗi cặp $(i,j)$ đúng một lần — không được gộp/nhân chéo như (C) hay bỏ sót như (A)."
   },
   {
     "id": 12,
@@ -202,12 +202,12 @@
     "image": null,
     "question": "Với bài toán vận tải $2\\times 3$, ràng buộc cung tại trạm phát 1 ($\\sum_{j=1}^3 x_{1j}=a_1$) khai triển tường minh là:",
     "options": {
-      "A": "$x_{11}+x_{21}=a_1$.",
-      "B": "$x_{11}+x_{12}+x_{13}=a_1$.",
+      "A": "$x_{11}+x_{12}+x_{13}=a_1$.",
+      "B": "$x_{11}=a_1$.",
       "C": "$x_{11}+x_{12}=a_1$.",
-      "D": "$x_{11}=a_1$."
+      "D": "$x_{11}+x_{21}=a_1$."
     },
-    "correct": "B",
+    "correct": "A",
     "explanation": "Cố định $i=1$, cộng theo $j=1,2,3$: $x_{11}+x_{12}+x_{13}=a_1$ — đúng 3 số hạng vì $n=3$."
   },
   {
@@ -219,8 +219,8 @@
     "options": {
       "A": "$x_{12}+x_{22}=b_2$.",
       "B": "$x_{21}+x_{22}+x_{23}=b_2$.",
-      "C": "$x_{12}=b_2$.",
-      "D": "$x_{11}+x_{21}=b_2$."
+      "C": "$x_{11}+x_{21}=b_2$.",
+      "D": "$x_{12}=b_2$."
     },
     "correct": "A",
     "explanation": "Cố định $j=2$, cộng theo $i=1,2$: $x_{12}+x_{22}=b_2$ — đúng 2 số hạng vì $m=2$."
@@ -262,12 +262,12 @@
     "image": null,
     "question": "Cho bài toán QHTT tổng quát (không phải vận tải) với 2 loại tài nguyên ($i=1,2$) và 3 hoạt động ($j=1,2,3$), hệ số kỹ thuật $a_{ij}$, biến $x_j$ (không phải $x_{ij}$ — chỉ 1 chỉ số vì đây là số lượng hoạt động $j$, không phải phân bổ nguồn cụ thể). Ràng buộc \"tài nguyên 1 không vượt $b_1$\" là:",
     "options": {
-      "A": "$\\sum_{j=1}^3 a_{1j}x_j \\le b_1$.",
+      "A": "$\\sum_{j=1}^3 x_j\\le b_1$.",
       "B": "$\\sum_{i=1}^2 a_{i1}x_1\\le b_1$.",
-      "C": "$a_{11}x_1=b_1$.",
-      "D": "$\\sum_{j=1}^3 x_j\\le b_1$."
+      "C": "$\\sum_{j=1}^3 a_{1j}x_j \\le b_1$.",
+      "D": "$a_{11}x_1=b_1$."
     },
-    "correct": "A",
+    "correct": "C",
     "explanation": "Đây là dạng QHTT chuẩn (chương I–III, biến $x_j$ một chỉ số): ràng buộc dòng $i=1$ là $\\sum_j a_{1j}x_j\\le b_1$ — khác về bản chất với $x_{ij}$ hai chỉ số của bài toán vận tải (nhóm câu này để phân biệt hai kiểu mô hình hay bị nhầm)."
   },
   {
@@ -288,12 +288,12 @@
     "image": null,
     "question": "Khai triển đúng của $\\sum_{i=1}^{3}\\sum_{j=1}^{3} c_{ij}x_{ij}$ khi giới hạn chỉ lấy các số hạng có $i=j$ (đường chéo) là:",
     "options": {
-      "A": "$c_{11}x_{11}+c_{22}x_{22}+c_{33}x_{33}$.",
-      "B": "$c_{11}x_{11}+c_{12}x_{12}+c_{13}x_{13}$.",
-      "C": "$c_{11}x_{11}+c_{21}x_{21}+c_{31}x_{31}$.",
-      "D": "Tổng cả 9 số hạng như bình thường."
+      "A": "Tổng cả 9 số hạng như bình thường.",
+      "B": "$c_{11}x_{11}+c_{21}x_{21}+c_{31}x_{31}$.",
+      "C": "$c_{11}x_{11}+c_{12}x_{12}+c_{13}x_{13}$.",
+      "D": "$c_{11}x_{11}+c_{22}x_{22}+c_{33}x_{33}$."
     },
-    "correct": "A",
+    "correct": "D",
     "explanation": "\"$i=j$\" chỉ giữ 3 cặp $(1,1),(2,2),(3,3)$ trong số 9 cặp — chính là các số hạng đường chéo của ma trận $3\\times3$."
   },
   {
@@ -303,12 +303,12 @@
     "image": null,
     "question": "Một sinh viên khai triển hàm mục tiêu bài toán vận tải $3\\times 4$ và viết ra đúng $11$ số hạng thay vì $12$. Nhiều khả năng lỗi là:",
     "options": {
-      "A": "Quên 1 cặp $(i,j)$ khi liệt kê — cần rà lại đủ $i=1..3$, $j=1..4$.",
-      "B": "Đó là điều bình thường, không phải lỗi.",
-      "C": "Bài toán này có ràng buộc đặc biệt nên ít hơn 1 số hạng.",
-      "D": "$m$ và $n$ đã tính sai từ đầu, phải là $m=n=\\sqrt{11}$."
+      "A": "$m$ và $n$ đã tính sai từ đầu, phải là $m=n=\\sqrt{11}$.",
+      "B": "Bài toán này có ràng buộc đặc biệt nên ít hơn 1 số hạng.",
+      "C": "Đó là điều bình thường, không phải lỗi.",
+      "D": "Quên 1 cặp $(i,j)$ khi liệt kê — cần rà lại đủ $i=1..3$, $j=1..4$."
     },
-    "correct": "A",
+    "correct": "D",
     "explanation": "Số số hạng luôn đúng bằng $m\\times n=12$ với bài toán vận tải chuẩn (không ô cấm); thiếu 1 số hạng gần như chắc chắn là bỏ sót khi liệt kê, không phải \"trường hợp đặc biệt\"."
   },
   {
@@ -343,12 +343,12 @@
     "image": null,
     "question": "Một công ty có 2 kho ($A_1,A_2$) và 3 cửa hàng ($B_1,B_2,B_3$). Lượng hàng tồn: $A_1=100$, $A_2=150$; nhu cầu: $B_1=80,B_2=90,B_3=80$. Bài toán này:",
     "options": {
-      "A": "Cân bằng thu phát vì $100+150=80+90+80=250$.",
-      "B": "Không cân bằng vì thiếu dữ liệu cước phí.",
+      "A": "Không cân bằng vì thiếu dữ liệu cước phí.",
+      "B": "Cân bằng thu phát vì $100+150=80+90+80=250$.",
       "C": "Không giải được vì có 2 kho nhưng 3 cửa hàng.",
       "D": "Cân bằng chỉ khi cước phí bằng nhau."
     },
-    "correct": "A",
+    "correct": "B",
     "explanation": "Cân bằng thu phát chỉ phụ thuộc $\\sum a_i=\\sum b_j$: $250=250$ — đúng, không liên quan cước phí hay số lượng trạm phát/thu."
   },
   {
@@ -369,12 +369,12 @@
     "image": null,
     "question": "Một xí nghiệp có 3 phân xưởng sản xuất 1 loại linh kiện, gửi tới 2 nhà máy lắp ráp. Sản lượng phân xưởng: $60,50,40$; nhu cầu nhà máy: $70,90$. Nhận xét đúng:",
     "options": {
-      "A": "Bài toán cân bằng vì $60+50+40=150=70+90-10$ (làm tròn).",
+      "A": "Bài toán không cân bằng: tổng cung $150<$ tổng cầu $160$, cần thêm trạm phát giả với $a_{4}=10$.",
       "B": "Bài toán không cân bằng: tổng cung $150>$ tổng cầu $160$? — cần tính lại: $70+90=160>150$ nên \\textbf{thiếu hàng}, cần thêm trạm phát giả.",
-      "C": "Bài toán không cân bằng: tổng cung $150<$ tổng cầu $160$, cần thêm trạm phát giả với $a_{4}=10$.",
+      "C": "Bài toán cân bằng vì $60+50+40=150=70+90-10$ (làm tròn).",
       "D": "Không thể mô hình hoá vì số phân xưởng khác số nhà máy."
     },
-    "correct": "C",
+    "correct": "A",
     "explanation": "$\\sum a_i=150$, $\\sum b_j=160$, thiếu $10$ đơn vị hàng $\\Rightarrow \\sum a_i<\\sum b_j$, thêm trạm phát giả $A_4$ với $a_4=10$, $c_{4j}=0$ để cân bằng (§7.1b)."
   },
   {
@@ -385,11 +385,11 @@
     "question": "Trong ví dụ ở câu trên (sau khi thêm trạm phát giả $A_4$ với $a_4=10$), biến $x_{41}$ trong phương án tối ưu có ý nghĩa thực tế là:",
     "options": {
       "A": "Lượng hàng thực sự vận chuyển từ phân xưởng giả tới nhà máy 1.",
-      "B": "Lượng hàng nhà máy 1 còn thiếu so với nhu cầu (không có nguồn thật nào đáp ứng).",
-      "C": "Lượng hàng dư thừa tại phân xưởng 4.",
+      "B": "Lượng hàng dư thừa tại phân xưởng 4.",
+      "C": "Lượng hàng nhà máy 1 còn thiếu so với nhu cầu (không có nguồn thật nào đáp ứng).",
       "D": "Luôn luôn bằng 0 trong mọi lời giải."
     },
-    "correct": "B",
+    "correct": "C",
     "explanation": "Trạm phát giả không tồn tại thật — $x_{4j}$ trong lời giải biểu diễn phần nhu cầu tại $B_j$ \\textbf{không được đáp ứng} (thiếu hàng thực tế)."
   },
   {
@@ -424,12 +424,12 @@
     "image": null,
     "question": "Một bài toán vận tải $3\\times 4$ có tổng biến quyết định là 12. Nếu đề bài bổ sung thêm 1 trạm thu mới (từ 4 lên 5 trạm), số biến quyết định trở thành:",
     "options": {
-      "A": "13",
-      "B": "15",
-      "C": "16",
-      "D": "20"
+      "A": "20",
+      "B": "13",
+      "C": "15",
+      "D": "16"
     },
-    "correct": "B",
+    "correct": "C",
     "explanation": "$m\\times n = 3\\times 5=15$ — thêm nguyên 1 cột nghĩa là thêm $m=3$ biến mới, từ 12 lên 15."
   },
   {
@@ -450,12 +450,12 @@
     "image": null,
     "question": "So với bài toán QHTT tổng quát (biến 1 chỉ số $x_j$), điểm khác biệt căn bản về cấu trúc ràng buộc của bài toán vận tải (biến 2 chỉ số $x_{ij}$) là:",
     "options": {
-      "A": "Bài toán vận tải không có ràng buộc dấu.",
-      "B": "Mỗi biến $x_{ij}$ xuất hiện trong đúng 2 ràng buộc chính (1 ràng buộc cung theo dòng $i$, 1 ràng buộc cầu theo cột $j$) — cấu trúc \"mạng hai phía\" đặc thù.",
-      "C": "Bài toán vận tải luôn có nhiều biến hơn ràng buộc.",
-      "D": "Không có khác biệt, hai dạng hoàn toàn tương đương."
+      "A": "Không có khác biệt, hai dạng hoàn toàn tương đương.",
+      "B": "Bài toán vận tải luôn có nhiều biến hơn ràng buộc.",
+      "C": "Mỗi biến $x_{ij}$ xuất hiện trong đúng 2 ràng buộc chính (1 ràng buộc cung theo dòng $i$, 1 ràng buộc cầu theo cột $j$) — cấu trúc \"mạng hai phía\" đặc thù.",
+      "D": "Bài toán vận tải không có ràng buộc dấu."
     },
-    "correct": "B",
+    "correct": "C",
     "explanation": "Chính cấu trúc \"mỗi biến nằm trong đúng 2 ràng buộc\" (một dòng, một cột) tạo nên tính chất đặc biệt của bài toán vận tải: hạng ma trận hệ số $=m+n-1$, PACB có dạng cây trên đồ thị hai phía (đã học ở chương V)."
   },
   {
@@ -466,9 +466,9 @@
     "question": "Bài toán vận tải $a=(80,30,20,60)$, $b=(40,70,50,30)$. Tổng cung và tổng cầu lần lượt là:",
     "options": {
       "A": "190 và 190 — cân bằng.",
-      "B": "190 và 180 — thừa hàng.",
-      "C": "180 và 190 — thiếu hàng.",
-      "D": "Không tính được vì thiếu cước phí."
+      "B": "180 và 190 — thiếu hàng.",
+      "C": "Không tính được vì thiếu cước phí.",
+      "D": "190 và 180 — thừa hàng."
     },
     "correct": "A",
     "explanation": "$\\sum a_i=80{+}30{+}20{+}60=190$; $\\sum b_j=40{+}70{+}50{+}30=190$ — bằng nhau, bài toán cân bằng thu phát (đây chính là dữ liệu Bài 7, Chương V)."
@@ -505,12 +505,12 @@
     "image": null,
     "question": "Một xưởng may sản xuất 2 loại áo ($j=1,2$) từ 3 loại vải ($i=1,2,3$). Gọi $x_{ij}$ là số mét vải loại $i$ dùng để may áo loại $j$. Ràng buộc \"vải loại 2 có sẵn tối đa 500m\" là:",
     "options": {
-      "A": "$x_{21}+x_{22}\\le 500$.",
+      "A": "$\\sum_{i}\\sum_j x_{ij}\\le500$.",
       "B": "$x_{12}+x_{22}\\le 500$.",
-      "C": "$x_{21}=500$.",
-      "D": "$\\sum_{i}\\sum_j x_{ij}\\le500$."
+      "C": "$x_{21}+x_{22}\\le 500$.",
+      "D": "$x_{21}=500$."
     },
-    "correct": "A",
+    "correct": "C",
     "explanation": "Ràng buộc theo \"nguồn\" vải loại $i=2$: cộng theo $j$: $x_{21}+x_{22}\\le500$."
   },
   {
@@ -520,12 +520,12 @@
     "image": null,
     "question": "Vẫn ví dụ trên, hàm mục tiêu \"tối thiểu hoá lãng phí vải\" với hệ số lãng phí $w_{ij}$ trên mỗi mét vải $i$ dùng cho áo $j$, được viết là:",
     "options": {
-      "A": "$\\min \\sum_{i=1}^3\\sum_{j=1}^2 w_{ij}x_{ij}$.",
+      "A": "$\\min(w_{11}+w_{22})$.",
       "B": "$\\max \\sum_{i=1}^3\\sum_{j=1}^2 w_{ij}x_{ij}$.",
-      "C": "$\\min \\sum_{i=1}^3 w_{i1}x_{i1}$ (chỉ áo loại 1).",
-      "D": "$\\min(w_{11}+w_{22})$."
+      "C": "$\\min \\sum_{i=1}^3\\sum_{j=1}^2 w_{ij}x_{ij}$.",
+      "D": "$\\min \\sum_{i=1}^3 w_{i1}x_{i1}$ (chỉ áo loại 1)."
     },
-    "correct": "A",
+    "correct": "C",
     "explanation": "\"Tối thiểu hoá\" $\\Rightarrow \\min$, và phải cộng dồn trên toàn bộ 6 cặp $(i,j)$ vì lãng phí xảy ra ở mọi tổ hợp vải/áo đang dùng."
   },
   {
@@ -547,9 +547,9 @@
     "question": "Bài toán phân công lao động: 4 công nhân ($i=1..4$), 4 công việc ($j=1..4$), $x_{ij}\\in\\{0,1\\}$ = 1 nếu công nhân $i$ làm việc $j$. Đây là trường hợp riêng của bài toán vận tải với:",
     "options": {
       "A": "$a_i=1\\ \\forall i$, $b_j=1\\ \\forall j$ (bài toán phân công/gán — assignment problem).",
-      "B": "$a_i=4\\ \\forall i$.",
-      "C": "Không liên quan gì tới bài toán vận tải.",
-      "D": "$m\\ne n$ bắt buộc."
+      "B": "Không liên quan gì tới bài toán vận tải.",
+      "C": "$m\\ne n$ bắt buộc.",
+      "D": "$a_i=4\\ \\forall i$."
     },
     "correct": "A",
     "explanation": "Bài toán phân công (assignment) là trường hợp đặc biệt của bài toán vận tải cân bằng với mọi $a_i=b_j=1$ — mỗi \"nguồn\" cấp đúng 1 đơn vị, mỗi \"đích\" nhận đúng 1 đơn vị."
@@ -562,9 +562,9 @@
     "question": "Một nhà máy có 2 dây chuyền sản xuất 3 mặt hàng. $x_{ij}$ = số giờ dây chuyền $i$ dùng sản xuất mặt hàng $j$, lợi nhuận $p_{ij}$/giờ. Hàm mục tiêu \"tối đa lợi nhuận\" là:",
     "options": {
       "A": "$\\max\\sum_{i=1}^2\\sum_{j=1}^3 p_{ij}x_{ij}$.",
-      "B": "$\\min\\sum_{i=1}^2\\sum_{j=1}^3 p_{ij}x_{ij}$.",
-      "C": "$\\max\\sum_{j=1}^3 p_{1j}x_{1j}$ (bỏ qua dây chuyền 2).",
-      "D": "$\\max(p_{11}x_{11}\\cdot p_{22}x_{22})$."
+      "B": "$\\max(p_{11}x_{11}\\cdot p_{22}x_{22})$.",
+      "C": "$\\min\\sum_{i=1}^2\\sum_{j=1}^3 p_{ij}x_{ij}$.",
+      "D": "$\\max\\sum_{j=1}^3 p_{1j}x_{1j}$ (bỏ qua dây chuyền 2)."
     },
     "correct": "A",
     "explanation": "Lợi nhuận cộng dồn trên tất cả 6 tổ hợp (dây chuyền, mặt hàng), và \"tối đa\" $\\Rightarrow \\max$."
@@ -601,12 +601,12 @@
     "image": null,
     "question": "Một công ty vận chuyển có ô cấm: kho $A_3$ không thể giao hàng cho cửa hàng $B_1$ (không có đường). Cách xử lý đúng khi lập bảng cước phí là:",
     "options": {
-      "A": "Xoá hẳn dòng $A_3$ ra khỏi bài toán.",
-      "B": "Đặt $c_{31}=M$ (số dương rất lớn), giữ nguyên biến $x_{31}$ trong mô hình.",
+      "A": "Đặt $c_{31}=M$ (số dương rất lớn), giữ nguyên biến $x_{31}$ trong mô hình.",
+      "B": "Đặt $x_{31}=1$ cố định.",
       "C": "Đặt $c_{31}=0$.",
-      "D": "Đặt $x_{31}=1$ cố định."
+      "D": "Xoá hẳn dòng $A_3$ ra khỏi bài toán."
     },
-    "correct": "B",
+    "correct": "A",
     "explanation": "Ô cấm chỉ ảnh hưởng đến \\textit{tuyến} $(3,1)$, không ảnh hưởng toàn bộ trạm phát 3 — chỉ cần phạt cước phí tại đúng ô đó bằng $M$."
   },
   {
@@ -627,12 +627,12 @@
     "image": null,
     "question": "Trong mô hình phân bổ tài nguyên tổng quát, nếu tăng thêm 1 loại hoạt động mới (giữ nguyên số loại tài nguyên $m$), thì:",
     "options": {
-      "A": "Số biến quyết định tăng thêm đúng $m$ biến mới.",
+      "A": "Số ràng buộc chính giảm đi 1.",
       "B": "Số biến quyết định không đổi.",
-      "C": "Số ràng buộc chính giảm đi 1.",
-      "D": "Số biến quyết định tăng gấp đôi."
+      "C": "Số biến quyết định tăng gấp đôi.",
+      "D": "Số biến quyết định tăng thêm đúng $m$ biến mới."
     },
-    "correct": "A",
+    "correct": "D",
     "explanation": "Thêm 1 cột (1 hoạt động $j$ mới) nghĩa là thêm $m$ biến $x_{i,\\text{mới}}$ ($i=1..m$) và thêm đúng 1 ràng buộc mới (ràng buộc theo hoạt động đó, nếu có)."
   },
   {
@@ -642,12 +642,12 @@
     "image": null,
     "question": "Bài toán vận tải xăng dầu: 2 kho, 5 trạm bán lẻ. Do đường ống hạn chế, có đúng 2 ô cấm. Số biến $x_{ij}$ \\textbf{thực sự} còn được phép nhận giá trị dương là:",
     "options": {
-      "A": "10 (không đổi, vì ô cấm chỉ giới hạn giá trị $=0$, không xoá biến khỏi mô hình).",
-      "B": "8 (xoá hẳn 2 biến ứng với ô cấm).",
+      "A": "8 (xoá hẳn 2 biến ứng với ô cấm).",
+      "B": "10 (không đổi, vì ô cấm chỉ giới hạn giá trị $=0$, không xoá biến khỏi mô hình).",
       "C": "Không xác định được nếu thiếu cước phí.",
       "D": "12."
     },
-    "correct": "A",
+    "correct": "B",
     "explanation": "Về mặt mô hình hoá chuẩn, tổng số biến vẫn là $m\\times n=2\\times5=10$; ô cấm chỉ là ràng buộc buộc 2 biến đó $=0$ tại lời giải tối ưu (thông qua $c_{ij}=M$), không làm giảm số biến khai báo."
   },
   {
@@ -672,12 +672,12 @@
     "image": null,
     "question": "Với bài toán chuẩn $m$ ràng buộc, $n$ biến ($m<n$), một PACB không suy biến có đúng:",
     "options": {
-      "A": "$n$ thành phần dương.",
-      "B": "$m$ thành phần dương.",
-      "C": "$n-m$ thành phần dương.",
+      "A": "$m$ thành phần dương.",
+      "B": "$n-m$ thành phần dương.",
+      "C": "$n$ thành phần dương.",
       "D": "$m+n$ thành phần dương."
     },
-    "correct": "B",
+    "correct": "A",
     "explanation": "PACB không suy biến có đúng $m$ thành phần dương (bằng số ràng buộc, vì $\\text{rank}(A)=m$)."
   },
   {
@@ -687,10 +687,10 @@
     "image": null,
     "question": "\"Cơ sở\" $J$ (hay $J_0$) trong thuật toán đơn hình là:",
     "options": {
-      "A": "Tập chỉ số các biến hiện đang bằng 0.",
+      "A": "Tập các ràng buộc chặt.",
       "B": "Tập $m$ chỉ số sao cho $m$ vectơ cột tương ứng $\\{A_j: j\\in J\\}$ độc lập tuyến tính (tạo thành 1 cơ sở của $\\mathbb{R}^m$).",
-      "C": "Toàn bộ tập chỉ số $\\{1,\\dots,n\\}$.",
-      "D": "Tập các ràng buộc chặt."
+      "C": "Tập chỉ số các biến hiện đang bằng 0.",
+      "D": "Toàn bộ tập chỉ số $\\{1,\\dots,n\\}$."
     },
     "correct": "B",
     "explanation": "Cơ sở là $m$ cột độc lập tuyến tính — các biến ứng với cơ sở gọi là \"biến cơ sở\", các biến còn lại là \"biến phi cơ sở\" (thường gán bằng 0)."
@@ -728,9 +728,9 @@
     "question": "Ước lượng (hay chỉ số rút gọn) $\\Delta_j$ của biến phi cơ sở $x_j$ trong bảng đơn hình được tính bởi:",
     "options": {
       "A": "$\\Delta_j = z_j - c_j$ trong đó $z_j={}^t\\!c_J A_J^{-1}A_j$ (đối với bài toán min; dấu ngược lại tuỳ quy ước).",
-      "B": "$\\Delta_j = c_j$.",
-      "C": "$\\Delta_j = b_j$.",
-      "D": "$\\Delta_j$ luôn bằng 0."
+      "B": "$\\Delta_j = b_j$.",
+      "C": "$\\Delta_j$ luôn bằng 0.",
+      "D": "$\\Delta_j = c_j$."
     },
     "correct": "A",
     "explanation": "$\\Delta_j$ đo \"độ lợi/thiệt\" khi đưa $x_j$ vào cơ sở — tính từ $c_j$ và cột $A_j$ đã biểu diễn qua cơ sở hiện tại."
@@ -785,8 +785,8 @@
     "options": {
       "A": "Tính $z_j$ và $\\Delta_j$ cho mọi cột (nhân vô hướng với các cột đã biểu diễn qua cơ sở).",
       "B": "Chỉ dùng để trang trí bảng, không ảnh hưởng tính toán.",
-      "C": "Thay thế cột $b$ (vế phải).",
-      "D": "Chỉ dùng khi có ẩn giả."
+      "C": "Chỉ dùng khi có ẩn giả.",
+      "D": "Thay thế cột $b$ (vế phải)."
     },
     "correct": "A",
     "explanation": "$c_B$ (hệ số mục tiêu của các biến đang trong cơ sở) nhân với các cột hệ số ràng buộc đã \"quy đổi\" qua cơ sở để tính $z_j=c_B\\cdot(\\text{cột }j)$, từ đó có $\\Delta_j$."
@@ -799,11 +799,11 @@
     "question": "Khác biệt căn bản giữa \"phương án cực biên\" và \"phương án tối ưu\" là:",
     "options": {
       "A": "Không có khác biệt, hai khái niệm đồng nhất.",
-      "B": "Mọi PA tối ưu (nếu tồn tại hữu hạn) đều có thể chọn là 1 PACB, nhưng không phải PACB nào cũng tối ưu — PACB chỉ là \"ứng viên\" (đỉnh của miền ràng buộc), tối ưu là PACB có giá trị hàm mục tiêu tốt nhất.",
-      "C": "PACB luôn tốt hơn phương án tối ưu.",
-      "D": "Phương án tối ưu không cần thoả ràng buộc."
+      "B": "Phương án tối ưu không cần thoả ràng buộc.",
+      "C": "Mọi PA tối ưu (nếu tồn tại hữu hạn) đều có thể chọn là 1 PACB, nhưng không phải PACB nào cũng tối ưu — PACB chỉ là \"ứng viên\" (đỉnh của miền ràng buộc), tối ưu là PACB có giá trị hàm mục tiêu tốt nhất.",
+      "D": "PACB luôn tốt hơn phương án tối ưu."
     },
-    "correct": "B",
+    "correct": "C",
     "explanation": "Định lý cơ bản của QHTT: nếu bài toán có PA tối ưu hữu hạn thì có ít nhất 1 PACB (đỉnh) đạt tối ưu — đây là cơ sở lý luận cho việc thuật toán đơn hình chỉ cần duyệt qua các PACB."
   },
   {
@@ -813,12 +813,12 @@
     "image": null,
     "question": "Trong bảng đơn hình dạng chuẩn, hàng cuối cùng (hàng ước lượng $\\Delta_j$ hoặc $z_j-c_j$) dùng để:",
     "options": {
-      "A": "Kiểm tra dấu hiệu tối ưu và chọn biến vào cơ sở nếu chưa tối ưu.",
-      "B": "Tính giá trị các biến cơ sở.",
-      "C": "Ghi lại cước phí ban đầu.",
-      "D": "Không có vai trò gì, chỉ để tham khảo."
+      "A": "Không có vai trò gì, chỉ để tham khảo.",
+      "B": "Ghi lại cước phí ban đầu.",
+      "C": "Kiểm tra dấu hiệu tối ưu và chọn biến vào cơ sở nếu chưa tối ưu.",
+      "D": "Tính giá trị các biến cơ sở."
     },
-    "correct": "A",
+    "correct": "C",
     "explanation": "Hàng ước lượng là \"la bàn\" của thuật toán đơn hình: nếu còn ước lượng \"xấu\" (âm với min, dương với max tuỳ quy ước) thì tiếp tục lặp, chọn cột tương ứng để đưa vào cơ sở."
   },
   {
@@ -828,12 +828,12 @@
     "image": null,
     "question": "(Bài toán $\\max$) Quy tắc chọn biến vào cơ sở phổ biến (Dantzig) là:",
     "options": {
-      "A": "Chọn cột có $\\Delta_j>0$ lớn nhất (cải thiện nhanh nhất trong 1 bước).",
-      "B": "Chọn cột có $\\Delta_j$ nhỏ nhất.",
-      "C": "Chọn cột bất kỳ có $\\Delta_j=0$.",
-      "D": "Chọn cột có chỉ số $j$ nhỏ nhất, bất kể dấu $\\Delta_j$."
+      "A": "Chọn cột có $\\Delta_j$ nhỏ nhất.",
+      "B": "Chọn cột có chỉ số $j$ nhỏ nhất, bất kể dấu $\\Delta_j$.",
+      "C": "Chọn cột có $\\Delta_j>0$ lớn nhất (cải thiện nhanh nhất trong 1 bước).",
+      "D": "Chọn cột bất kỳ có $\\Delta_j=0$."
     },
-    "correct": "A",
+    "correct": "C",
     "explanation": "Quy tắc Dantzig (phổ biến nhất khi học): trong các cột còn cải thiện được, chọn cột có mức cải thiện biên lớn nhất mỗi bước."
   },
   {
@@ -843,12 +843,12 @@
     "image": null,
     "question": "Quy tắc chọn biến ra khỏi cơ sở (tỉ số nhỏ nhất — minimum ratio test) dùng để:",
     "options": {
-      "A": "Đảm bảo phương án mới vẫn khả thi (không có thành phần âm) sau khi đưa biến mới vào.",
-      "B": "Tăng tốc độ hội tụ bất kể tính khả thi.",
-      "C": "Chọn biến có hệ số cước phí lớn nhất.",
-      "D": "Không liên quan tới tính khả thi, chỉ để đơn giản hoá bảng."
+      "A": "Chọn biến có hệ số cước phí lớn nhất.",
+      "B": "Không liên quan tới tính khả thi, chỉ để đơn giản hoá bảng.",
+      "C": "Đảm bảo phương án mới vẫn khả thi (không có thành phần âm) sau khi đưa biến mới vào.",
+      "D": "Tăng tốc độ hội tụ bất kể tính khả thi."
     },
-    "correct": "A",
+    "correct": "C",
     "explanation": "Tỉ số $\\theta=\\min\\{b_i/a_{ik}: a_{ik}>0\\}$ đảm bảo khi tăng biến vào $x_k$ đến giá trị $\\theta$, không biến cơ sở nào bị âm — biến đạt tỉ số nhỏ nhất sẽ ra khỏi cơ sở."
   },
   {
@@ -885,8 +885,8 @@
     "options": {
       "A": "Dừng thuật toán ngay.",
       "B": "Tính lại toàn bộ hàng ước lượng $\\Delta_j$ trên bảng mới, kiểm tra dấu hiệu tối ưu.",
-      "C": "Quay lại bảng ban đầu.",
-      "D": "Đổi bài toán từ max sang min."
+      "C": "Đổi bài toán từ max sang min.",
+      "D": "Quay lại bảng ban đầu."
     },
     "correct": "B",
     "explanation": "Mỗi vòng lặp đơn hình: chọn cột vào → chọn hàng ra (phần tử trục) → biến đổi bảng (pivot) → tính lại $\\Delta_j$ → kiểm tra dừng."
@@ -898,10 +898,10 @@
     "image": null,
     "question": "Nếu tại bước kiểm tra tối ưu, tồn tại biến phi cơ sở $x_k$ với $\\Delta_k=0$ (không âm, không dương — biên), điều này cho biết:",
     "options": {
-      "A": "Bài toán chắc chắn vô nghiệm.",
+      "A": "Cần đổi dấu toàn bộ bảng.",
       "B": "Bài toán có thể có \\textbf{nhiều phương án tối ưu} (đưa $x_k$ vào cơ sở sẽ cho PACB tối ưu khác, cùng giá trị hàm mục tiêu).",
-      "C": "Cần đổi dấu toàn bộ bảng.",
-      "D": "$x_k$ chắc chắn là biến giả."
+      "C": "$x_k$ chắc chắn là biến giả.",
+      "D": "Bài toán chắc chắn vô nghiệm."
     },
     "correct": "B",
     "explanation": "$\\Delta_k=0$ tại một biến phi cơ sở khi đã tối ưu là dấu hiệu kinh điển của bài toán có \\textit{nhiều nghiệm tối ưu}."
@@ -924,12 +924,12 @@
     "image": null,
     "question": "\"Bland's rule\" (quy tắc Bland) trong thuật toán đơn hình được dùng để:",
     "options": {
-      "A": "Tăng tốc độ hội tụ nhanh nhất có thể.",
-      "B": "Tránh hiện tượng \\textit{xoay vòng} (cycling) khi bài toán suy biến, bằng cách luôn chọn biến có chỉ số nhỏ nhất trong các lựa chọn hợp lệ (vào và ra).",
-      "C": "Chỉ áp dụng cho bài toán vận tải.",
-      "D": "Thay thế hoàn toàn quy tắc tỉ số nhỏ nhất."
+      "A": "Chỉ áp dụng cho bài toán vận tải.",
+      "B": "Tăng tốc độ hội tụ nhanh nhất có thể.",
+      "C": "Thay thế hoàn toàn quy tắc tỉ số nhỏ nhất.",
+      "D": "Tránh hiện tượng \\textit{xoay vòng} (cycling) khi bài toán suy biến, bằng cách luôn chọn biến có chỉ số nhỏ nhất trong các lựa chọn hợp lệ (vào và ra)."
     },
-    "correct": "B",
+    "correct": "D",
     "explanation": "Bland's rule là quy tắc \"phá vỡ đồng hạng\" (tie-breaking) đảm bảo thuật toán đơn hình luôn dừng sau hữu hạn bước, kể cả khi gặp nhiều bước suy biến liên tiếp."
   },
   {
@@ -939,12 +939,12 @@
     "image": null,
     "question": "Bài toán đơn hình đạt tối ưu sau khi mọi $\\Delta_j\\ge0$ (bài toán min). Giá trị hàm mục tiêu tối ưu được đọc trực tiếp từ:",
     "options": {
-      "A": "Góc trên-trái bảng đơn hình (luôn bằng 0).",
-      "B": "Ô giao giữa hàng \"$z$\" (hoặc $f$) và cột hệ số tự do $b$ — chính là $\\sum c_{B_i}b_i$.",
-      "C": "Tổng toàn bộ các $\\Delta_j$.",
-      "D": "Không đọc được, phải tính lại từ đầu."
+      "A": "Ô giao giữa hàng \"$z$\" (hoặc $f$) và cột hệ số tự do $b$ — chính là $\\sum c_{B_i}b_i$.",
+      "B": "Không đọc được, phải tính lại từ đầu.",
+      "C": "Góc trên-trái bảng đơn hình (luôn bằng 0).",
+      "D": "Tổng toàn bộ các $\\Delta_j$."
     },
-    "correct": "B",
+    "correct": "A",
     "explanation": "Giá trị hàm mục tiêu tại PACB hiện hành luôn bằng $\\sum_i c_{B_i}\\bar b_i$ — thường đặt ở góc bảng, cập nhật tự động qua mỗi vòng lặp."
   },
   {
@@ -986,12 +986,12 @@
     "image": null,
     "question": "(Bài toán max) Bảng đơn hình có $\\Delta_1=3,\\Delta_2=-1,\\Delta_3=5,\\Delta_4=0$ với các biến phi cơ sở tương ứng. Biến nên được chọn vào cơ sở (quy tắc Dantzig) là:",
     "options": {
-      "A": "$x_1$",
-      "B": "$x_2$",
-      "C": "$x_3$",
-      "D": "$x_4$"
+      "A": "$x_2$",
+      "B": "$x_4$",
+      "C": "$x_1$",
+      "D": "$x_3$"
     },
-    "correct": "C",
+    "correct": "D",
     "explanation": "Quy tắc Dantzig cho bài toán max: chọn $\\Delta_j>0$ lớn nhất — $\\Delta_3=5$ lớn nhất trong các giá trị dương $(3,5)$."
   },
   {
@@ -1001,12 +1001,12 @@
     "image": null,
     "question": "Cột biến vào $x_k$ đã biểu diễn qua cơ sở là $(2,-1,4)^T$, cột $b=(10,6,20)^T$. Tỉ số nhỏ nhất (chỉ xét hệ số dương) là:",
     "options": {
-      "A": "$\\min\\{10/2,20/4\\}=5$ (hàng 1 hoặc hàng 3, bỏ qua hàng 2 vì hệ số $-1<0$).",
-      "B": "$\\min\\{10/2,6/{-1},20/4\\}=-6$.",
-      "C": "$6$.",
-      "D": "$10$."
+      "A": "$\\min\\{10/2,6/{-1},20/4\\}=-6$.",
+      "B": "$\\min\\{10/2,20/4\\}=5$ (hàng 1 hoặc hàng 3, bỏ qua hàng 2 vì hệ số $-1<0$).",
+      "C": "$10$.",
+      "D": "$6$."
     },
-    "correct": "A",
+    "correct": "B",
     "explanation": "Chỉ xét các hàng có hệ số dương trong cột trục: hàng 1 ($2>0$): $10/2=5$; hàng 3 ($4>0$): $20/4=5$; hàng 2 bị loại vì $-1<0$. $\\theta=\\min\\{5,5\\}=5$ (đồng hạng ở hàng 1 và 3)."
   },
   {
@@ -1036,12 +1036,12 @@
     "image": null,
     "question": "Nếu cột biến vào $x_k$ (đã biểu diễn qua cơ sở) có \\textbf{mọi} hệ số $\\le 0$, thì:",
     "options": {
-      "A": "Không thể chọn biến ra — bài toán không bị chặn (unbounded), có thể tăng $x_k$ vô hạn.",
-      "B": "Chọn hàng có hệ số nhỏ nhất (âm nhất) làm hàng trục.",
-      "C": "Bài toán vô nghiệm.",
+      "A": "Chọn hàng có hệ số nhỏ nhất (âm nhất) làm hàng trục.",
+      "B": "Bài toán vô nghiệm.",
+      "C": "Không thể chọn biến ra — bài toán không bị chặn (unbounded), có thể tăng $x_k$ vô hạn.",
       "D": "Phải đổi biến vào khác có cùng $\\Delta_j$."
     },
-    "correct": "A",
+    "correct": "C",
     "explanation": "Đây chính là dấu hiệu \\textit{không bị chặn} đã nêu ở NHÓM 5/6 — không có hàng nào để áp dụng quy tắc tỉ số (vì cần hệ số dương)."
   },
   {
@@ -1052,9 +1052,9 @@
     "question": "Trong bảng đơn hình, sau khi xác định hàng trục $r$ và cột trục $k$ (phần tử trục $a_{rk}\\ne0$), bước biến đổi Gauss-Jordan gồm:",
     "options": {
       "A": "Chia toàn bộ hàng $r$ cho $a_{rk}$, sau đó khử các phần tử khác 0 còn lại của cột $k$ ở mọi hàng khác (kể cả hàng $\\Delta_j$) bằng phép cộng/trừ bội của hàng $r$ mới.",
-      "B": "Chỉ cần đổi tên biến, không cần tính toán lại số liệu.",
-      "C": "Nhân toàn bộ bảng với $a_{rk}$.",
-      "D": "Xoá hẳn hàng $r$ khỏi bảng."
+      "B": "Xoá hẳn hàng $r$ khỏi bảng.",
+      "C": "Chỉ cần đổi tên biến, không cần tính toán lại số liệu.",
+      "D": "Nhân toàn bộ bảng với $a_{rk}$."
     },
     "correct": "A",
     "explanation": "Đây là quy trình chuẩn của phép khử Gauss-Jordan quanh phần tử trục — biến cột $k$ thành cột đơn vị (1 tại hàng $r$, 0 ở các hàng khác)."
@@ -1077,12 +1077,12 @@
     "image": null,
     "question": "(Bài toán min) Ước lượng của các biến phi cơ sở: $\\Delta_1=-4,\\Delta_2=-7,\\Delta_3=2$. Biến nên chọn vào cơ sở là:",
     "options": {
-      "A": "$x_1$ (vì $-4$ gần 0 hơn).",
-      "B": "$x_2$ (vì $\\Delta_2=-7$ âm nhất, cải thiện nhiều nhất mỗi bước theo quy tắc Dantzig).",
-      "C": "$x_3$ (vì $\\Delta_3>0$).",
+      "A": "$x_3$ (vì $\\Delta_3>0$).",
+      "B": "$x_1$ (vì $-4$ gần 0 hơn).",
+      "C": "$x_2$ (vì $\\Delta_2=-7$ âm nhất, cải thiện nhiều nhất mỗi bước theo quy tắc Dantzig).",
       "D": "Không chọn biến nào, đã tối ưu."
     },
-    "correct": "B",
+    "correct": "C",
     "explanation": "Bài toán min: cần $\\Delta_j<0$ để còn cải thiện; theo quy tắc Dantzig chọn ước lượng âm nhất — $\\Delta_2=-7$."
   },
   {
@@ -1092,12 +1092,12 @@
     "image": null,
     "question": "Trường hợp bảng đơn hình có \\textbf{2 biến cùng đạt} $\\Delta_j$ tốt nhất bằng nhau (ví dụ cùng $\\Delta_1=\\Delta_3=6$, bài toán max). Cách xử lý đúng:",
     "options": {
-      "A": "Bài toán vô nghiệm.",
-      "B": "Chọn tuỳ ý một trong hai (thường theo quy tắc phụ như chỉ số nhỏ nhất — Bland — để nhất quán và tránh xoay vòng nếu bài toán suy biến).",
-      "C": "Phải đưa cả hai vào cơ sở cùng lúc.",
-      "D": "Loại bỏ cả hai biến khỏi mô hình."
+      "A": "Loại bỏ cả hai biến khỏi mô hình.",
+      "B": "Phải đưa cả hai vào cơ sở cùng lúc.",
+      "C": "Chọn tuỳ ý một trong hai (thường theo quy tắc phụ như chỉ số nhỏ nhất — Bland — để nhất quán và tránh xoay vòng nếu bài toán suy biến).",
+      "D": "Bài toán vô nghiệm."
     },
-    "correct": "B",
+    "correct": "C",
     "explanation": "Đồng hạng ở bước chọn biến vào không gây lỗi — chỉ cần một quy tắc phá vỡ đồng hạng nhất quán trong suốt quá trình giải."
   },
   {
@@ -1132,12 +1132,12 @@
     "image": null,
     "question": "Vì sao thuật toán đơn hình đảm bảo giá trị hàm mục tiêu \\textbf{không xấu đi} (không tăng với bài toán min) qua mỗi vòng lặp?",
     "options": {
-      "A": "Vì luôn chọn biến vào có ước lượng vi phạm dấu hiệu tối ưu, và $\\theta\\ge 0$ nên thay đổi giá trị hàm mục tiêu luôn cùng dấu có lợi (hoặc bằng 0 nếu $\\theta=0$).",
+      "A": "Đây là giả định, không có chứng minh.",
       "B": "Vì thuật toán luôn đổi dấu bài toán sau mỗi bước.",
-      "C": "Đây là giả định, không có chứng minh.",
-      "D": "Chỉ đúng khi bài toán không suy biến."
+      "C": "Chỉ đúng khi bài toán không suy biến.",
+      "D": "Vì luôn chọn biến vào có ước lượng vi phạm dấu hiệu tối ưu, và $\\theta\\ge 0$ nên thay đổi giá trị hàm mục tiêu luôn cùng dấu có lợi (hoặc bằng 0 nếu $\\theta=0$)."
     },
-    "correct": "A",
+    "correct": "D",
     "explanation": "$\\Delta f = \\theta\\cdot|\\Delta_k|\\ge0$ (luôn không âm vì $\\theta\\ge0$) — đảm bảo tính đơn điệu của thuật toán đơn hình, kể cả khi có bước suy biến ($\\theta=0$, giá trị không đổi nhưng cũng không xấu đi)."
   },
   {
@@ -1147,12 +1147,12 @@
     "image": null,
     "question": "Phương pháp hai pha được dùng khi:",
     "options": {
-      "A": "Bài toán không có sẵn PACB xuất phát rõ ràng (không có đủ cột đơn vị tự nhiên trong ma trận ràng buộc).",
-      "B": "Bài toán đã có sẵn cơ sở đơn vị ngay từ đầu.",
-      "C": "Chỉ dùng cho bài toán vận tải.",
+      "A": "Bài toán đã có sẵn cơ sở đơn vị ngay từ đầu.",
+      "B": "Chỉ dùng cho bài toán vận tải.",
+      "C": "Bài toán không có sẵn PACB xuất phát rõ ràng (không có đủ cột đơn vị tự nhiên trong ma trận ràng buộc).",
       "D": "Chỉ dùng khi hàm mục tiêu là $\\max$."
     },
-    "correct": "A",
+    "correct": "C",
     "explanation": "Khi ràng buộc dạng $\\ge$ hoặc $=$ không cho ngay 1 cột đơn vị, ta thêm biến giả (artificial variables) và giải qua 2 pha để tìm PACB xuất phát hợp lệ."
   },
   {
@@ -1162,12 +1162,12 @@
     "image": null,
     "question": "Mục tiêu của \\textbf{Pha 1} trong phương pháp hai pha là:",
     "options": {
-      "A": "Tối ưu hoá trực tiếp hàm mục tiêu gốc.",
-      "B": "Tối thiểu hoá tổng các biến giả (artificial variables) — nếu đạt được giá trị 0, tìm được PACB khả thi cho bài toán gốc.",
-      "C": "Tối đa hoá tổng các biến giả.",
-      "D": "Chỉ kiểm tra tính suy biến."
+      "A": "Tối đa hoá tổng các biến giả.",
+      "B": "Chỉ kiểm tra tính suy biến.",
+      "C": "Tối ưu hoá trực tiếp hàm mục tiêu gốc.",
+      "D": "Tối thiểu hoá tổng các biến giả (artificial variables) — nếu đạt được giá trị 0, tìm được PACB khả thi cho bài toán gốc."
     },
-    "correct": "B",
+    "correct": "D",
     "explanation": "Pha 1 giải bài toán phụ $\\min\\sum(\\text{biến giả})$ — nếu giá trị tối ưu $=0$ thì loại bỏ biến giả, chuyển sang Pha 2 với hàm mục tiêu gốc; nếu $>0$ thì bài toán gốc vô nghiệm."
   },
   {
@@ -1202,12 +1202,12 @@
     "image": null,
     "question": "Trong Pha 2 của phương pháp hai pha, các cột ứng với biến giả đã ra khỏi cơ sở thường được xử lý như thế nào?",
     "options": {
-      "A": "Có thể loại bỏ hoàn toàn khỏi bảng (không cần xét lại, vì biến giả không có ý nghĩa vật lý trong bài toán gốc).",
-      "B": "Bắt buộc phải giữ lại và có thể đưa trở lại cơ sở.",
-      "C": "Đổi thành biến quyết định thật.",
-      "D": "Nhân với $-1$."
+      "A": "Bắt buộc phải giữ lại và có thể đưa trở lại cơ sở.",
+      "B": "Đổi thành biến quyết định thật.",
+      "C": "Nhân với $-1$.",
+      "D": "Có thể loại bỏ hoàn toàn khỏi bảng (không cần xét lại, vì biến giả không có ý nghĩa vật lý trong bài toán gốc)."
     },
-    "correct": "A",
+    "correct": "D",
     "explanation": "Biến giả chỉ là công cụ toán học để khởi tạo cơ sở ở Pha 1 — một khi đã ra khỏi cơ sở (và Pha 1 đạt 0), chúng không còn vai trò gì trong Pha 2 nên có thể bỏ qua."
   },
   {
@@ -1254,12 +1254,12 @@
     "image": null,
     "question": "So với phương pháp M (một pha, phạt biến giả bằng hệ số $M$ lớn), phương pháp hai pha có ưu điểm chính là:",
     "options": {
-      "A": "Tránh phải làm việc với số $M$ trừu tượng (không cụ thể) trong tính toán tay, giảm sai số/nhầm lẫn khi so sánh các biểu thức chứa $M$.",
-      "B": "Luôn cho kết quả khác với phương pháp M.",
+      "A": "Luôn cho kết quả khác với phương pháp M.",
+      "B": "Tránh phải làm việc với số $M$ trừu tượng (không cụ thể) trong tính toán tay, giảm sai số/nhầm lẫn khi so sánh các biểu thức chứa $M$.",
       "C": "Chạy nhanh hơn về mặt lý thuyết trong mọi trường hợp.",
       "D": "Không cần biến giả."
     },
-    "correct": "A",
+    "correct": "B",
     "explanation": "Cả hai phương pháp đều dùng biến giả và về bản chất tương đương, nhưng hai pha tách hẳn thành 2 bài toán với hệ số cụ thể (0/1), dễ tính tay và trình bày hơn phương pháp M vốn phải mang theo $M$ xuyên suốt bảng."
   },
   {
@@ -1281,11 +1281,11 @@
     "question": "Nếu ở cuối Pha 1, giá trị tối ưu của hàm mục tiêu phụ bằng $0$ nhưng \\textbf{một biến giả vẫn còn trong cơ sở ở mức 0} và không thể đẩy ra bằng pivot thông thường (mọi hệ số hàng đó bằng 0), điều này có nghĩa:",
     "options": {
       "A": "Bài toán gốc vô nghiệm.",
-      "B": "Ràng buộc tương ứng \\textbf{phụ thuộc tuyến tính} vào các ràng buộc khác (dư thừa) — có thể xoá hẳn hàng đó khỏi bảng mà không ảnh hưởng tập phương án.",
-      "C": "Cần tăng số biến giả lên gấp đôi.",
+      "B": "Cần tăng số biến giả lên gấp đôi.",
+      "C": "Ràng buộc tương ứng \\textbf{phụ thuộc tuyến tính} vào các ràng buộc khác (dư thừa) — có thể xoá hẳn hàng đó khỏi bảng mà không ảnh hưởng tập phương án.",
       "D": "Đây là lỗi tính toán, phải làm lại từ đầu."
     },
-    "correct": "B",
+    "correct": "C",
     "explanation": "Đây là dấu hiệu \\textit{ràng buộc dư thừa} (redundant constraint) — hàng đó không mang thêm thông tin, có thể loại bỏ an toàn."
   },
   {
@@ -1297,8 +1297,8 @@
     "options": {
       "A": "$\\ge 0$ (tổng các biến giả, mà biến giả luôn $\\ge0$).",
       "B": "Có thể âm tuỳ bài toán.",
-      "C": "Luôn bằng giá trị hàm mục tiêu gốc.",
-      "D": "Không xác định được dấu."
+      "C": "Không xác định được dấu.",
+      "D": "Luôn bằng giá trị hàm mục tiêu gốc."
     },
     "correct": "A",
     "explanation": "Hàm mục tiêu phụ $=\\sum(\\text{biến giả})$ với mọi biến giả $\\ge0$ theo ràng buộc dấu — nên giá trị tối ưu của Pha 1 luôn $\\ge0$; bằng $0$ là điều kiện cần và đủ để bài toán gốc khả thi."
@@ -1310,12 +1310,12 @@
     "image": null,
     "question": "Bài toán có ràng buộc $2x_1+x_2\\ge 10$. Sau khi đổi thành dạng chuẩn ($-$ biến dư $e\\ge0$, $+$ biến giả $a\\ge0$) là:",
     "options": {
-      "A": "$2x_1+x_2-e+a=10$.",
-      "B": "$2x_1+x_2+e=10$.",
-      "C": "$2x_1+x_2-e=10$ (không cần biến giả).",
-      "D": "$2x_1+x_2+e+a=10$."
+      "A": "$2x_1+x_2+e=10$.",
+      "B": "$2x_1+x_2-e+a=10$.",
+      "C": "$2x_1+x_2+e+a=10$.",
+      "D": "$2x_1+x_2-e=10$ (không cần biến giả)."
     },
-    "correct": "A",
+    "correct": "B",
     "explanation": "Ràng buộc $\\ge$ cần trừ biến dư $e\\ge0$ để thành $=$: $2x_1+x_2-e=10$; sau đó vì cột này không cho hệ số $+1$ tại 1 hàng duy nhất một cách tự nhiên (biến $-e$ không dùng làm cơ sở được vì hệ số âm), nên cộng thêm biến giả $a\\ge0$: $2x_1+x_2-e+a=10$."
   },
   {
@@ -1325,12 +1325,12 @@
     "image": null,
     "question": "Trong phương pháp M, hàm mục tiêu gốc (giả sử $\\min$) được sửa thành:",
     "options": {
-      "A": "$\\min\\ c^Tx + M\\sum(\\text{biến giả})$ với $M$ là số dương \\textbf{rất lớn} (lớn hơn mọi số cụ thể cần so sánh).",
-      "B": "$\\min\\ c^Tx - M\\sum(\\text{biến giả})$.",
-      "C": "$\\max\\ c^Tx+M$.",
-      "D": "Không thay đổi hàm mục tiêu, chỉ thêm ràng buộc."
+      "A": "$\\min\\ c^Tx - M\\sum(\\text{biến giả})$.",
+      "B": "$\\max\\ c^Tx+M$.",
+      "C": "Không thay đổi hàm mục tiêu, chỉ thêm ràng buộc.",
+      "D": "$\\min\\ c^Tx + M\\sum(\\text{biến giả})$ với $M$ là số dương \\textbf{rất lớn} (lớn hơn mọi số cụ thể cần so sánh)."
     },
-    "correct": "A",
+    "correct": "D",
     "explanation": "Phương pháp M \"phạt nặng\" việc dùng biến giả bằng cách cộng $M\\times$(tổng biến giả) vào hàm mục tiêu cần tối thiểu — buộc thuật toán tự động đẩy biến giả về 0 nếu có thể."
   },
   {
@@ -1340,12 +1340,12 @@
     "image": null,
     "question": "Khi so sánh hai biểu thức dạng $p_1M+q_1$ và $p_2M+q_2$ (với $M$ rất lớn) trong phương pháp M, quy tắc so sánh đúng là:",
     "options": {
-      "A": "So sánh $q_1,q_2$ trước, nếu bằng nhau mới xét $p_1,p_2$.",
-      "B": "So sánh hệ số của $M$ ($p_1$ với $p_2$) trước; chỉ khi $p_1=p_2$ mới so sánh phần hằng số $q_1,q_2$ — đúng như \\textbf{thứ tự từ điển} (lexicographic).",
-      "C": "Luôn coi $p_1M+q_1>p_2M+q_2$ nếu $q_1>q_2$, không quan tâm $p$.",
-      "D": "$M$ luôn bị bỏ qua khi so sánh."
+      "A": "So sánh hệ số của $M$ ($p_1$ với $p_2$) trước; chỉ khi $p_1=p_2$ mới so sánh phần hằng số $q_1,q_2$ — đúng như \\textbf{thứ tự từ điển} (lexicographic).",
+      "B": "So sánh $q_1,q_2$ trước, nếu bằng nhau mới xét $p_1,p_2$.",
+      "C": "$M$ luôn bị bỏ qua khi so sánh.",
+      "D": "Luôn coi $p_1M+q_1>p_2M+q_2$ nếu $q_1>q_2$, không quan tâm $p$."
     },
-    "correct": "B",
+    "correct": "A",
     "explanation": "Vì $M$ được coi là \"vô cùng lớn\" so với mọi hằng số cụ thể, sự so sánh phải ưu tiên hệ số của $M$ trước (giống so sánh số theo hàng chục trước hàng đơn vị)."
   },
   {
@@ -1380,12 +1380,12 @@
     "image": null,
     "question": "So với phương pháp hai pha, nhược điểm thường gặp khi làm tay của phương pháp M là:",
     "options": {
-      "A": "Phải mang theo ký hiệu $M$ xuyên suốt các phép tính (cộng, trừ, so sánh) trong toàn bộ bảng, dễ nhầm lẫn hơn khi tính tay.",
-      "B": "Không thể áp dụng cho ràng buộc $=$.",
-      "C": "Chỉ dùng được cho bài toán $\\max$.",
-      "D": "Luôn cho kết quả sai khi bài toán suy biến."
+      "A": "Luôn cho kết quả sai khi bài toán suy biến.",
+      "B": "Chỉ dùng được cho bài toán $\\max$.",
+      "C": "Phải mang theo ký hiệu $M$ xuyên suốt các phép tính (cộng, trừ, so sánh) trong toàn bộ bảng, dễ nhầm lẫn hơn khi tính tay.",
+      "D": "Không thể áp dụng cho ràng buộc $=$."
     },
-    "correct": "A",
+    "correct": "C",
     "explanation": "Đây chính là lý do phương pháp hai pha thường được ưa chuộng hơn khi giải tay: tránh phải làm việc với đại lượng trừu tượng $M$ trong mọi bước."
   },
   {
@@ -1395,12 +1395,12 @@
     "image": null,
     "question": "Cho ước lượng của 2 biến phi cơ sở (bài toán min, dùng M): $\\Delta_1=2M-5$, $\\Delta_2=-M+3$. Biến có ước lượng \\textbf{xấu nhất} (âm nhất theo $M$) là:",
     "options": {
-      "A": "$x_1$, vì $2M-5>0$ với $M$ đủ lớn nên không xấu.",
-      "B": "$x_2$, vì $-M+3<0$ với $M$ đủ lớn — đây là biến nên đưa vào cơ sở.",
-      "C": "Không so sánh được nếu chưa biết giá trị $M$ cụ thể.",
-      "D": "Cả hai đều xấu như nhau."
+      "A": "$x_2$, vì $-M+3<0$ với $M$ đủ lớn — đây là biến nên đưa vào cơ sở.",
+      "B": "Không so sánh được nếu chưa biết giá trị $M$ cụ thể.",
+      "C": "Cả hai đều xấu như nhau.",
+      "D": "$x_1$, vì $2M-5>0$ với $M$ đủ lớn nên không xấu."
     },
-    "correct": "B",
+    "correct": "A",
     "explanation": "Với $M$ đủ lớn: $\\Delta_1=2M-5>0$ (không vi phạm dấu hiệu tối ưu của min), còn $\\Delta_2=-M+3<0$ — vi phạm, nên $x_2$ được chọn vào cơ sở."
   },
   {
@@ -1422,8 +1422,8 @@
     "question": "Ràng buộc \"ô cấm\" trong bài toán vận tải (đặt $c_{ij}=M$) và \"biến giả bị phạt $M$\" trong đơn hình phương pháp M có điểm chung là:",
     "options": {
       "A": "Cả hai đều dùng $M$ như một \\textbf{hằng số phạt rất lớn} để buộc thuật toán tự động tránh (đưa về 0) một đại lượng không mong muốn trong lời giải tối ưu, nếu có thể.",
-      "B": "Không có điểm chung nào, đây là hai khái niệm hoàn toàn khác biệt.",
-      "C": "Cả hai chỉ dùng cho bài toán $\\max$.",
+      "B": "Cả hai chỉ dùng cho bài toán $\\max$.",
+      "C": "Không có điểm chung nào, đây là hai khái niệm hoàn toàn khác biệt.",
       "D": "Cả hai đều yêu cầu $M$ phải là số âm."
     },
     "correct": "A",
@@ -1436,12 +1436,12 @@
     "image": null,
     "question": "Kết luận nào đúng nếu, ở phương án tối ưu cuối cùng của bài toán M, giá trị hàm mục tiêu có dạng $2M+15$ (với $M>0$ hệ số dương)?",
     "options": {
-      "A": "Bài toán gốc vô nghiệm (biến giả không thể triệt tiêu hết vì hệ số $M$ còn dương trong giá trị tối ưu).",
-      "B": "Bài toán gốc có nghiệm tối ưu $=15$.",
-      "C": "Bài toán gốc có nghiệm tối ưu $=2M+15$.",
-      "D": "Không kết luận được gì."
+      "A": "Bài toán gốc có nghiệm tối ưu $=15$.",
+      "B": "Không kết luận được gì.",
+      "C": "Bài toán gốc vô nghiệm (biến giả không thể triệt tiêu hết vì hệ số $M$ còn dương trong giá trị tối ưu).",
+      "D": "Bài toán gốc có nghiệm tối ưu $=2M+15$."
     },
-    "correct": "A",
+    "correct": "C",
     "explanation": "Hệ số của $M$ trong giá trị tối ưu khác 0 (ở đây $=2>0$) nghĩa là biến giả không bị đẩy hết về 0 dù đã tối ưu hoá — bài toán gốc \\textbf{vô nghiệm}."
   },
   {
@@ -1453,8 +1453,8 @@
     "options": {
       "A": "Bài toán gốc có phương án tối ưu với giá trị hàm mục tiêu $=27$.",
       "B": "Bài toán gốc vô nghiệm.",
-      "C": "Cần giải lại với $M$ khác.",
-      "D": "Không đủ thông tin."
+      "C": "Không đủ thông tin.",
+      "D": "Cần giải lại với $M$ khác."
     },
     "correct": "A",
     "explanation": "Hệ số $M$ bằng 0 nghĩa là biến giả đã bị loại hoàn toàn (giá trị 0) khỏi lời giải — phương án hiện tại là phương án tối ưu \\textbf{hợp lệ} của bài toán gốc, giá trị $27$."
@@ -1466,12 +1466,12 @@
     "image": null,
     "question": "Việc lựa chọn phương pháp hai pha hay phương pháp M chủ yếu ảnh hưởng đến:",
     "options": {
-      "A": "Giá trị tối ưu cuối cùng của bài toán (hai phương pháp có thể cho giá trị tối ưu khác nhau).",
-      "B": "Cách trình bày/tính toán trung gian trong quá trình giải — giá trị tối ưu cuối cùng (nếu có nghiệm) là như nhau ở cả hai phương pháp.",
-      "C": "Chỉ phương pháp M mới xử lý được ràng buộc $\\ge$.",
+      "A": "Cách trình bày/tính toán trung gian trong quá trình giải — giá trị tối ưu cuối cùng (nếu có nghiệm) là như nhau ở cả hai phương pháp.",
+      "B": "Chỉ phương pháp M mới xử lý được ràng buộc $\\ge$.",
+      "C": "Giá trị tối ưu cuối cùng của bài toán (hai phương pháp có thể cho giá trị tối ưu khác nhau).",
       "D": "Chỉ phương pháp hai pha mới cho phương án cực biên."
     },
-    "correct": "B",
+    "correct": "A",
     "explanation": "Cả hai đều là các kỹ thuật \\textit{khởi tạo PACB} cho cùng một bài toán gốc — về bản chất toán học tương đương, chỉ khác cách trình bày; kết quả cuối cùng (nếu tồn tại) phải giống nhau."
   },
   {
@@ -1481,12 +1481,12 @@
     "image": null,
     "question": "Cho bài toán: $\\max f=4x_1+3x_2$ với $2x_1+3x_2\\le12,\\ 2x_1+x_2\\le8,\\ x_2\\le3,\\ x_1,x_2\\ge0$. Số biến bù (biến dư/slack) cần thêm để đưa về dạng chuẩn là:",
     "options": {
-      "A": "2",
-      "B": "3",
-      "C": "4",
-      "D": "0"
+      "A": "3",
+      "B": "2",
+      "C": "0",
+      "D": "4"
     },
-    "correct": "B",
+    "correct": "A",
     "explanation": "Có 3 ràng buộc dạng $\\le$, mỗi ràng buộc thêm đúng 1 biến bù $\\Rightarrow$ 3 biến bù $x_3,x_4,x_5$."
   },
   {
@@ -1496,12 +1496,12 @@
     "image": null,
     "question": "Vẫn bài toán trên. PACB xuất phát tự nhiên (dùng ngay các biến bù làm cơ sở) là:",
     "options": {
-      "A": "$x_1=x_2=0,\\ x_3=12,x_4=8,x_5=3$ (gốc toạ độ).",
-      "B": "$x_1=6,x_2=0$.",
-      "C": "$x_1=0,x_2=4$.",
+      "A": "$x_1=6,x_2=0$.",
+      "B": "$x_1=0,x_2=4$.",
+      "C": "$x_1=x_2=0,\\ x_3=12,x_4=8,x_5=3$ (gốc toạ độ).",
       "D": "$x_1=x_2=x_3=x_4=x_5=0$."
     },
-    "correct": "A",
+    "correct": "C",
     "explanation": "Với ràng buộc $\\le$ và vế phải không âm, cơ sở tự nhiên là các biến bù (hệ số đơn vị có sẵn), cho PACB xuất phát tại gốc toạ độ $x_1=x_2=0$."
   },
   {
@@ -1522,12 +1522,12 @@
     "image": null,
     "question": "Giải bằng đơn hình, phương án tối ưu của bài toán trên là $x^*=(3,2)$. Giá trị hàm mục tiêu tối ưu $f^*$ là:",
     "options": {
-      "A": "$18$",
-      "B": "$17$",
-      "C": "$20$",
-      "D": "$14$"
+      "A": "$20$",
+      "B": "$18$",
+      "C": "$14$",
+      "D": "$17$"
     },
-    "correct": "A",
+    "correct": "B",
     "explanation": "$f^*=4(3)+3(2)=12+6=18$ (đã kiểm chứng bằng tính toán số học độc lập)."
   },
   {
@@ -1573,12 +1573,12 @@
     "image": null,
     "question": "Số ràng buộc chặt tại $x^*=(3,2)$ đúng bằng số biến (2 biến $x_1,x_2$) — đây là:",
     "options": {
-      "A": "Sự trùng hợp ngẫu nhiên, không có ý nghĩa gì.",
-      "B": "Đặc trưng của một đỉnh (PACB không suy biến) trong không gian 2 chiều: cần đúng 2 ràng buộc chặt (độc lập) để xác định duy nhất 1 đỉnh.",
-      "C": "Dấu hiệu bài toán vô nghiệm.",
-      "D": "Dấu hiệu cần đổi sang phương pháp M."
+      "A": "Đặc trưng của một đỉnh (PACB không suy biến) trong không gian 2 chiều: cần đúng 2 ràng buộc chặt (độc lập) để xác định duy nhất 1 đỉnh.",
+      "B": "Dấu hiệu bài toán vô nghiệm.",
+      "C": "Dấu hiệu cần đổi sang phương pháp M.",
+      "D": "Sự trùng hợp ngẫu nhiên, không có ý nghĩa gì."
     },
-    "correct": "B",
+    "correct": "A",
     "explanation": "Trong không gian $n$ chiều, một đỉnh (PACB không suy biến) của miền ràng buộc luôn được xác định bởi đúng $n$ ràng buộc chặt độc lập tuyến tính — ở đây $n=2$."
   },
   {
@@ -1590,8 +1590,8 @@
     "options": {
       "A": "Vẫn là $(3,2)$ vì ràng buộc không đổi.",
       "B": "$(0,0)$ — gốc toạ độ, vì đây là điểm có $f$ nhỏ nhất trong miền khả thi (mọi hệ số $c_j\\ge0$ và miền chứa gốc toạ độ).",
-      "C": "$(0,3)$.",
-      "D": "Bài toán không bị chặn."
+      "C": "Bài toán không bị chặn.",
+      "D": "$(0,3)$."
     },
     "correct": "B",
     "explanation": "Vì $c_1,c_2>0$ và miền khả thi chứa gốc toạ độ (mọi ràng buộc đều thoả tại $x=0$ với vế phải dương), giá trị nhỏ nhất của $f=4x_1+3x_2$ (tổng không âm) đạt tại $x_1=x_2=0$, $f_{\\min}=0$."
@@ -1603,12 +1603,12 @@
     "image": null,
     "question": "Ràng buộc nào trong bài toán gốc ($\\max f=4x_1+3x_2$, 3 ràng buộc đã cho) là \\textbf{không cần thiết} (dư thừa, có thể bỏ mà không đổi miền khả thi)?",
     "options": {
-      "A": "Không có ràng buộc nào dư thừa — miền khả thi thực sự bị giới hạn bởi cả 3 ràng buộc tại các đỉnh khác nhau.",
+      "A": "Ràng buộc 1 luôn dư thừa.",
       "B": "Ràng buộc 3 ($x_2\\le3$) luôn dư thừa.",
-      "C": "Ràng buộc 1 luôn dư thừa.",
+      "C": "Không có ràng buộc nào dư thừa — miền khả thi thực sự bị giới hạn bởi cả 3 ràng buộc tại các đỉnh khác nhau.",
       "D": "Cả 3 ràng buộc đều dư thừa."
     },
-    "correct": "A",
+    "correct": "C",
     "explanation": "Cả 3 ràng buộc đều \"chạm\" biên tại ít nhất 1 đỉnh của miền khả thi (kiểm tra bằng hình học/đại số) — không ràng buộc nào có thể bỏ mà giữ nguyên hình dạng miền."
   },
   {
@@ -1620,8 +1620,8 @@
     "options": {
       "A": "Giá trị hàm mục tiêu tăng dần (không giảm) qua mỗi vòng lặp khi giải bài toán $\\max$ — đúng theo lý thuyết đã nêu ở NHÓM 7.",
       "B": "Giá trị hàm mục tiêu luôn giảm.",
-      "C": "Không có quy luật gì, ngẫu nhiên.",
-      "D": "Giá trị hàm mục tiêu dao động lên xuống."
+      "C": "Giá trị hàm mục tiêu dao động lên xuống.",
+      "D": "Không có quy luật gì, ngẫu nhiên."
     },
     "correct": "A",
     "explanation": "Đây là minh hoạ số cụ thể cho tính chất \"đơn điệu không xấu đi\" của thuật toán đơn hình: từ $f_0=0$ tăng dần lên $f^*=18$ qua các vòng lặp, không bao giờ giảm."
