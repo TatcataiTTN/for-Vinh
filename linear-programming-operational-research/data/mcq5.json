@@ -1,0 +1,1642 @@
+[
+  {
+    "id": 1,
+    "group": "NHÓM 1 — Mô hình hoá QHTT từ bài toán thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Một xưởng sản xuất 2 loại sản phẩm $P_1,P_2$. Bước đầu tiên khi mô hình hoá bài toán QHTT là:",
+    "options": {
+      "A": "Giải bằng đơn hình ngay lập tức.",
+      "B": "Vẽ đồ thị.",
+      "C": "Xác định biến quyết định (số lượng mỗi loại sản phẩm cần sản xuất) trước khi viết hàm mục tiêu và ràng buộc.",
+      "D": "Viết ngay hàm mục tiêu."
+    },
+    "correct": "C",
+    "explanation": "Quy trình chuẩn: (1) xác định biến quyết định, (2) viết hàm mục tiêu theo biến đó, (3) viết các ràng buộc — làm sai thứ tự này rất dễ mô hình hoá sai."
+  },
+  {
+    "id": 2,
+    "group": "NHÓM 1 — Mô hình hoá QHTT từ bài toán thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Công ty Phenikaa sản xuất bàn làm việc ($x_1$, lợi nhuận 40) và bàn họp ($x_2$, lợi nhuận 30). Hàm mục tiêu \"tối đa lợi nhuận\" là:",
+    "options": {
+      "A": "$\\max z=40x_1+30x_2$.",
+      "B": "$\\min z=40x_1+30x_2$.",
+      "C": "$\\max z=40x_1\\cdot30x_2$.",
+      "D": "$\\max z=x_1+x_2$."
+    },
+    "correct": "A",
+    "explanation": "Lợi nhuận đơn vị nhân với số lượng sản xuất, cộng dồn cho cả 2 sản phẩm, và \"tối đa hoá\" $\\Rightarrow\\max$."
+  },
+  {
+    "id": 3,
+    "group": "NHÓM 1 — Mô hình hoá QHTT từ bài toán thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Bàn làm việc cần 2 giờ chế biến gỗ, bàn họp cần 1 giờ; quỹ thời gian chế biến gỗ tối đa 16 giờ/ngày. Ràng buộc tương ứng là:",
+    "options": {
+      "A": "$x_1+2x_2\\le16$.",
+      "B": "$2x_1+x_2\\le16$.",
+      "C": "$2x_1+x_2\\ge16$.",
+      "D": "$2x_1+x_2=16$."
+    },
+    "correct": "B",
+    "explanation": "Tổng giờ chế biến gỗ dùng cho cả 2 sản phẩm không được vượt quá quỹ thời gian có sẵn — dùng $\\le$ vì đây là giới hạn trên (tài nguyên có hạn)."
+  },
+  {
+    "id": 4,
+    "group": "NHÓM 1 — Mô hình hoá QHTT từ bài toán thực tế",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn bài toán trên (bàn làm việc 2h chế biến $+$ 1h hoàn thiện; bàn họp 1h chế biến $+$ 2h hoàn thiện; quỹ hoàn thiện tối đa 14h). Viết ràng buộc hoàn thiện (chỉ ghi vế trái, dạng $ax_1+bx_2$).",
+    "answer": [
+      "x1+2x2",
+      "x_1+2x_2"
+    ],
+    "answerType": "text",
+    "explanation": "Ràng buộc hoàn thiện: $x_1+2x_2\\le14$ — hệ số lấy đúng theo số giờ hoàn thiện mỗi loại bàn."
+  },
+  {
+    "id": 5,
+    "group": "NHÓM 1 — Mô hình hoá QHTT từ bài toán thực tế",
+    "type": "truefalse",
+    "image": null,
+    "question": "Đúng hay sai khi mô hình hoá bài toán QHTT từ tình huống thực tế?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Ràng buộc phi âm $x_j\\ge0$ luôn cần thiết khi biến đại diện cho số lượng vật lý (sản phẩm, giờ công, tấn hàng).",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Đơn vị đo của các hệ số trong cùng một ràng buộc phải nhất quán (ví dụ đều tính bằng giờ, không được trộn giờ với phút).",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Số ràng buộc của mô hình luôn phải bằng số biến quyết định.",
+        "correct": false
+      }
+    ],
+    "explanation": "Số ràng buộc và số biến hoàn toàn độc lập với nhau — phụ thuộc vào số \"giới hạn tài nguyên\" thực tế của bài toán, không có quy tắc bắt buộc bằng nhau."
+  },
+  {
+    "id": 6,
+    "group": "NHÓM 1 — Mô hình hoá QHTT từ bài toán thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Nhà máy lọc dầu phối trộn dầu $A$ (giá 60, octane 90) và $B$ (giá 40, octane 80) để có ít nhất 100 thùng xăng với octane trung bình tối thiểu 84. Ràng buộc octane trung bình được viết (sau khi quy đồng, khử mẫu) là:",
+    "options": {
+      "A": "$90x_1+80x_2\\ge84(x_1+x_2)$, tức $6x_1-4x_2\\ge0$ (rút gọn được $3x_1-2x_2\\ge0$).",
+      "B": "$90x_1=80x_2$.",
+      "C": "$90x_1+80x_2\\le84$.",
+      "D": "$x_1+x_2\\ge84$."
+    },
+    "correct": "A",
+    "explanation": "Octane trung bình $=\\dfrac{90x_1+80x_2}{x_1+x_2}\\ge84$ — nhân chéo (vì $x_1+x_2>0$) rồi rút gọn cho ra ràng buộc tuyến tính $3x_1-2x_2\\ge0$ (đúng như lời giải Đề 3)."
+  },
+  {
+    "id": 7,
+    "group": "NHÓM 1 — Mô hình hoá QHTT từ bài toán thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong bài toán lập lịch xe buýt (3 ca, mỗi xe chạy liên tục 2 ca kể từ ca xuất phát), ràng buộc \"đủ xe cho Ca 2 (cần tối thiểu 6 xe)\" được viết là:",
+    "options": {
+      "A": "$x_1+x_2+x_3\\ge6$.",
+      "B": "$x_3\\ge6$.",
+      "C": "$x_1+x_2\\ge6$ (xe xuất phát ca 1 vẫn đang chạy sang ca 2, cộng xe xuất phát đúng ca 2).",
+      "D": "$x_2\\ge6$."
+    },
+    "correct": "C",
+    "explanation": "Xe xuất phát ca 1 chạy 2 ca liên tục nên vẫn phục vụ ca 2; cộng thêm xe xuất phát ngay ca 2 — đúng theo lời giải mẫu (Đề 1, Câu 3)."
+  },
+  {
+    "id": 8,
+    "group": "NHÓM 1 — Mô hình hoá QHTT từ bài toán thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán hoạch định sản xuất — tồn kho 3 kỳ có ràng buộc bảo toàn tồn kho $I_t=I_{t-1}+x_t-d_t$. Ý nghĩa của ràng buộc này là:",
+    "options": {
+      "A": "Không có ý nghĩa thực tế, chỉ là công thức hình thức.",
+      "B": "Tồn kho cuối kỳ $t$ = tồn kho đầu kỳ (thừa từ kỳ trước) $+$ sản lượng sản xuất trong kỳ $-$ nhu cầu tiêu thụ trong kỳ.",
+      "C": "Tồn kho luôn bằng nhu cầu.",
+      "D": "Sản lượng luôn bằng nhu cầu."
+    },
+    "correct": "B",
+    "explanation": "Đây là phương trình cân bằng vật chất cơ bản nhất của mọi mô hình tồn kho — bắt buộc phải nắm để lập đúng ràng buộc cho bài toán 3 kỳ trở lên."
+  },
+  {
+    "id": 9,
+    "group": "NHÓM 1 — Mô hình hoá QHTT từ bài toán thực tế",
+    "type": "fill",
+    "image": null,
+    "question": "Bài toán hoạch định nhân lực: $W_t$ = số công nhân đang có tại tháng $t$, $S_t^+$ = số tuyển thêm, $S_t^-$ = số sa thải. Viết công thức cập nhật $W_t$ theo $W_{t-1}$ (chỉ ghi vế phải).",
+    "answer": [
+      "Wt-1+St+-St-",
+      "W_{t-1}+S_t^+-S_t^-",
+      "Wt-1 + St+ - St-"
+    ],
+    "answerType": "text",
+    "explanation": "$W_t=W_{t-1}+S_t^+-S_t^-$ — số công nhân tháng này bằng tháng trước cộng số tuyển trừ số sa thải."
+  },
+  {
+    "id": 10,
+    "group": "NHÓM 1 — Mô hình hoá QHTT từ bài toán thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Một mô hình QHTT có 5 biến quyết định và 3 ràng buộc chính (chưa kể ràng buộc dấu). Số ràng buộc dấu ($x_j\\ge0$) thông thường là:",
+    "options": {
+      "A": "5 (bằng số biến, mỗi biến 1 ràng buộc dấu).",
+      "B": "3.",
+      "C": "8.",
+      "D": "Không cần ràng buộc dấu."
+    },
+    "correct": "A",
+    "explanation": "Mỗi biến quyết định (đại diện đại lượng vật lý không âm) cần đúng 1 ràng buộc dấu riêng — số ràng buộc dấu luôn bằng số biến."
+  },
+  {
+    "id": 11,
+    "group": "NHÓM 1 — Mô hình hoá QHTT từ bài toán thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Lý do phải mô hình hoá cẩn thận (thay vì giải trực tiếp bằng trực giác) các bài toán như lập lịch xe buýt hay phối trộn dầu là:",
+    "options": {
+      "A": "Chỉ để bài toán trông phức tạp hơn.",
+      "B": "Với bài toán nhiều biến/ràng buộc, trực giác không đảm bảo tìm đúng phương án tối ưu; mô hình hoá chính xác cho phép dùng thuật toán (đồ thị/đơn hình) để tìm chắc chắn phương án tốt nhất.",
+      "C": "Chỉ áp dụng được cho bài toán có đúng 2 biến.",
+      "D": "Không có lý do gì, luôn nên đoán bằng cảm tính."
+    },
+    "correct": "B",
+    "explanation": "Đây là giá trị cốt lõi của Vận trù học: biến vấn đề thực tế thành mô hình toán học để có thể áp dụng thuật toán đảm bảo tìm đúng tối ưu, thay vì phỏng đoán."
+  },
+  {
+    "id": 12,
+    "group": "NHÓM 2 — Miền nghiệm khả thi & tính chất hình học",
+    "type": "mcq",
+    "image": null,
+    "question": "Miền nghiệm khả thi (feasible region) của một bài toán QHTT (giao của các nửa mặt phẳng) luôn là:",
+    "options": {
+      "A": "Một hình tròn.",
+      "B": "Một đường cong bất kỳ.",
+      "C": "Một tập lồi đa diện (convex polyhedron).",
+      "D": "Luôn là một tam giác."
+    },
+    "correct": "C",
+    "explanation": "Giao của hữu hạn nửa mặt phẳng (mỗi ràng buộc tuyến tính là 1 nửa mặt phẳng) luôn cho ra một tập lồi đa diện — đây là nền tảng lý thuyết của cả phương pháp đồ thị lẫn đơn hình."
+  },
+  {
+    "id": 13,
+    "group": "NHÓM 2 — Miền nghiệm khả thi & tính chất hình học",
+    "type": "mcq",
+    "image": null,
+    "question": "\"Điểm cực biên\" (extreme point / vertex) của miền nghiệm khả thi là:",
+    "options": {
+      "A": "Điểm bất kỳ trên biên.",
+      "B": "Điểm có toạ độ âm.",
+      "C": "Điểm chính giữa miền khả thi.",
+      "D": "Điểm không thể biểu diễn thành tổ hợp lồi thực sự của 2 điểm khác trong miền."
+    },
+    "correct": "D",
+    "explanation": "Định nghĩa hình học chuẩn của đỉnh (điểm cực biên) — chính là các điểm mà phương pháp đồ thị/đơn hình duyệt qua để tìm tối ưu."
+  },
+  {
+    "id": 14,
+    "group": "NHÓM 2 — Miền nghiệm khả thi & tính chất hình học",
+    "type": "truefalse",
+    "image": null,
+    "question": "Đúng hay sai về miền nghiệm khả thi và điểm cực biên?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Nếu bài toán có phương án tối ưu hữu hạn, luôn tồn tại ít nhất 1 điểm cực biên đạt tối ưu.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Mọi điểm trong miền khả thi (kể cả điểm nằm bên trong, không phải đỉnh) đều có thể là phương án tối ưu duy nhất.",
+        "correct": false
+      },
+      {
+        "label": "c",
+        "text": "Miền khả thi có thể rỗng nếu các ràng buộc mâu thuẫn nhau.",
+        "correct": true
+      }
+    ],
+    "explanation": "Định lý nền tảng của QHTT: nếu tồn tại tối ưu hữu hạn thì luôn đạt được tại (ít nhất) một đỉnh — nên phương án tối ưu \\textbf{không thể} là một điểm nằm hẳn bên trong miền (trừ trường hợp đặc biệt cả miền suy biến về 1 điểm). Ý (c) đúng: ví dụ $x\\ge5$ và $x\\le2$ đồng thời sẽ cho miền rỗng."
+  },
+  {
+    "id": 15,
+    "group": "NHÓM 2 — Miền nghiệm khả thi & tính chất hình học",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu miền nghiệm khả thi \\textbf{rỗng} (không có điểm nào thoả mãn tất cả ràng buộc), kết luận về bài toán QHTT là:",
+    "options": {
+      "A": "Bài toán có vô số nghiệm.",
+      "B": "Bài toán vô nghiệm (infeasible).",
+      "C": "Cần đổi hàm mục tiêu để có nghiệm.",
+      "D": "Bài toán có đúng 1 nghiệm."
+    },
+    "correct": "B",
+    "explanation": "Miền rỗng nghĩa là các ràng buộc mâu thuẫn nhau — không có \\textit{bất kỳ} điểm nào thoả mãn đồng thời, nên bài toán vô nghiệm ngay từ bước xác định miền, không cần xét tới hàm mục tiêu."
+  },
+  {
+    "id": 16,
+    "group": "NHÓM 2 — Miền nghiệm khả thi & tính chất hình học",
+    "type": "mcq",
+    "image": null,
+    "question": "Số đỉnh (điểm cực biên) tối đa của miền khả thi trong bài toán 2 biến với $m$ ràng buộc chính (không kể ràng buộc dấu) về lý thuyết có thể lên tới:",
+    "options": {
+      "A": "Luôn đúng bằng $m$.",
+      "B": "Luôn đúng bằng 4.",
+      "C": "Không giới hạn, có thể vô hạn.",
+      "D": "$\\binom{m+2}{2}$ (tổ hợp của mọi cặp đường biên, kể cả 2 trục toạ độ)."
+    },
+    "correct": "D",
+    "explanation": "Về mặt tổ hợp, số giao điểm CÓ THỂ có giữa các đường biên (kể cả 2 trục $x_1=0,x_2=0$) là $\\binom{m+2}{2}$, nhưng thực tế chỉ một phần trong số đó thoả mãn TẤT CẢ ràng buộc khác (mới là đỉnh thật của miền) — cần kiểm tra từng giao điểm."
+  },
+  {
+    "id": 17,
+    "group": "NHÓM 2 — Miền nghiệm khả thi & tính chất hình học",
+    "type": "fill",
+    "image": null,
+    "question": "Miền khả thi có 3 ràng buộc chính ($\\le$) cộng 2 ràng buộc dấu ($x_1,x_2\\ge0$), tổng 5 đường biên. Số cặp đường biên có thể giao nhau (tối đa) là bao nhiêu? (gợi ý: $\\binom{5}{2}$)",
+    "answer": 10,
+    "answerType": "number",
+    "explanation": "$\\binom{5}{2}=\\dfrac{5\\times4}{2}=10$ — đây là số giao điểm TỐI ĐA có thể xét, chưa kiểm tra khả thi.",
+    "tolerance": 0
+  },
+  {
+    "id": 18,
+    "group": "NHÓM 2 — Miền nghiệm khả thi & tính chất hình học",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu miền khả thi \\textbf{không bị chặn} (unbounded) theo hướng làm hàm mục tiêu tăng vô hạn (bài toán $\\max$), kết luận là:",
+    "options": {
+      "A": "Bài toán vô nghiệm.",
+      "B": "Hàm mục tiêu không bị chặn trên.",
+      "C": "Miền không bị chặn luôn dẫn tới vô nghiệm.",
+      "D": "Luôn có nghiệm tối ưu tại gốc toạ độ."
+    },
+    "correct": "B",
+    "explanation": "Cần phân biệt rõ hai khái niệm: \"miền không bị chặn\" (hình học) chỉ dẫn tới \"hàm mục tiêu không bị chặn\" (không có tối ưu hữu hạn) NẾU hướng tăng vô hạn của hàm mục tiêu trùng với hướng không bị chặn của miền — không phải mọi bài toán có miền không bị chặn đều vô nghiệm hữu hạn."
+  },
+  {
+    "id": 19,
+    "group": "NHÓM 2 — Miền nghiệm khả thi & tính chất hình học",
+    "type": "mcq",
+    "image": null,
+    "question": "Cho bài toán $\\max z=x_1+x_2$, $x_1-x_2\\le2,\\ x_1,x_2\\ge0$ (chỉ 1 ràng buộc chính). Miền khả thi và giá trị tối ưu:",
+    "options": {
+      "A": "Miền rỗng.",
+      "B": "Có tối ưu hữu hạn tại gốc toạ độ.",
+      "C": "Có tối ưu hữu hạn tại $(2,0)$.",
+      "D": "Miền không bị chặn (có thể tăng $x_2$ vô hạn), hàm mục tiêu không bị chặn."
+    },
+    "correct": "D",
+    "explanation": "Với $x_1$ cố định, $x_2$ có thể tăng vô hạn (ràng buộc $x_1-x_2\\le2$ vẫn thoả khi $x_2$ lớn) $\\Rightarrow z=x_1+x_2\\to\\infty$ — không bị chặn."
+  },
+  {
+    "id": 20,
+    "group": "NHÓM 2 — Miền nghiệm khả thi & tính chất hình học",
+    "type": "mcq",
+    "image": null,
+    "question": "\"Phương án cực biên\" trong QHTT ($n$ chiều tổng quát) và \"đỉnh của miền khả thi\" (2 chiều, phương pháp đồ thị) là hai cách gọi:",
+    "options": {
+      "A": "Hai khái niệm hoàn toàn khác nhau, không liên quan.",
+      "B": "Cùng một khái niệm.",
+      "C": "Chỉ \"đỉnh\" mới có ý nghĩa, \"PACB\" là khái niệm sai.",
+      "D": "Chỉ áp dụng được cho bài toán vận tải."
+    },
+    "correct": "B",
+    "explanation": "Đây là điểm kết nối quan trọng giữa phương pháp đồ thị (trực quan, 2 biến) và phương pháp đơn hình (đại số, $n$ biến) — cùng một ý tưởng cốt lõi: tối ưu luôn đạt tại một \"đỉnh\"."
+  },
+  {
+    "id": 21,
+    "group": "NHÓM 2 — Miền nghiệm khả thi & tính chất hình học",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng trình tự các bước của phương pháp đồ thị (bài toán 2 biến):",
+    "items": [
+      {
+        "id": "g1",
+        "text": "Vẽ các đường biên ràng buộc trên mặt phẳng toạ độ $(x_1,x_2)$"
+      },
+      {
+        "id": "g2",
+        "text": "Xác định miền nghiệm khả thi (giao các nửa mặt phẳng thoả mãn từng ràng buộc)"
+      },
+      {
+        "id": "g3",
+        "text": "Xác định toạ độ tất cả các đỉnh (điểm cực biên) của miền khả thi"
+      },
+      {
+        "id": "g4",
+        "text": "Tính giá trị hàm mục tiêu tại mỗi đỉnh"
+      },
+      {
+        "id": "g5",
+        "text": "So sánh và chọn đỉnh cho giá trị tốt nhất (max hoặc min tuỳ bài toán) làm phương án tối ưu"
+      }
+    ],
+    "correctOrder": [
+      "g1",
+      "g2",
+      "g3",
+      "g4",
+      "g5"
+    ],
+    "explanation": "Đây là quy trình chuẩn 5 bước của phương pháp đồ thị — thứ tự bắt buộc: phải xác định đúng miền khả thi trước khi tìm đỉnh, và phải có đủ toạ độ đỉnh trước khi tính hàm mục tiêu."
+  },
+  {
+    "id": 22,
+    "group": "NHÓM 3 — Phương pháp đồ thị: bàn ghế Phenikaa (Wyndor)",
+    "type": "mcq",
+    "image": "v5_wyndor_graph.png",
+    "question": "Bài toán: $\\max z=40x_1+30x_2$, $2x_1+x_2\\le16$, $x_1+2x_2\\le14$, $x_1,x_2\\ge0$. Giao điểm của 2 đường biên chính ($2x_1+x_2=16$ và $x_1+2x_2=14$) là:",
+    "options": {
+      "A": "$(6,4)$.",
+      "B": "$(8,0)$.",
+      "C": "$(0,7)$.",
+      "D": "$(5,5)$."
+    },
+    "correct": "A",
+    "explanation": "Giải hệ $2x_1+x_2=16,\\ x_1+2x_2=14$: nhân phương trình 1 với 2 rồi trừ phương trình 2: $3x_1=18\\Rightarrow x_1=6$, thay vào $\\Rightarrow x_2=4$."
+  },
+  {
+    "id": 23,
+    "group": "NHÓM 3 — Phương pháp đồ thị: bàn ghế Phenikaa (Wyndor)",
+    "type": "fill",
+    "image": "v5_wyndor_graph.png",
+    "question": "Vẫn bài toán trên. Đỉnh $O=(0,0)$ cho giá trị hàm mục tiêu $z(O)=$?",
+    "answer": 0,
+    "answerType": "number",
+    "explanation": "$z(0,0)=40(0)+30(0)=0$.",
+    "tolerance": 0
+  },
+  {
+    "id": 24,
+    "group": "NHÓM 3 — Phương pháp đồ thị: bàn ghế Phenikaa (Wyndor)",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn bài toán trên. Đỉnh $A$ (giao $2x_1+x_2=16$ với trục $x_2=0$) có toạ độ $x_1=$?",
+    "answer": 8,
+    "answerType": "number",
+    "explanation": "Thay $x_2=0$ vào $2x_1+x_2=16\\Rightarrow x_1=8$ — đỉnh $A=(8,0)$.",
+    "tolerance": 0
+  },
+  {
+    "id": 25,
+    "group": "NHÓM 3 — Phương pháp đồ thị: bàn ghế Phenikaa (Wyndor)",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn bài toán trên. Đỉnh $C$ (giao $x_1+2x_2=14$ với trục $x_1=0$) có toạ độ $x_2=$?",
+    "answer": 7,
+    "answerType": "number",
+    "explanation": "Thay $x_1=0$ vào $x_1+2x_2=14\\Rightarrow x_2=7$ — đỉnh $C=(0,7)$.",
+    "tolerance": 0
+  },
+  {
+    "id": 26,
+    "group": "NHÓM 3 — Phương pháp đồ thị: bàn ghế Phenikaa (Wyndor)",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn bài toán trên, 4 đỉnh của miền khả thi là $O(0,0),A(8,0),B(6,4),C(0,7)$. Giá trị hàm mục tiêu tại từng đỉnh lần lượt là:",
+    "options": {
+      "A": "Cả 4 đỉnh đều cho $z=0$.",
+      "B": "$z(O)=0,\\ z(A)=320,\\ z(B)=360,\\ z(C)=210$.",
+      "C": "$z(O)=0,\\ z(A)=360,\\ z(B)=320,\\ z(C)=210$.",
+      "D": "$z(A)=z(B)=z(C)$."
+    },
+    "correct": "B",
+    "explanation": "$z(A)=40(8)+30(0)=320$; $z(B)=40(6)+30(4)=240+120=360$; $z(C)=40(0)+30(7)=210$ — đỉnh $B$ cho giá trị lớn nhất."
+  },
+  {
+    "id": 27,
+    "group": "NHÓM 3 — Phương pháp đồ thị: bàn ghế Phenikaa (Wyndor)",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn bài toán trên, phương án sản xuất tối ưu và lợi nhuận tối đa là:",
+    "options": {
+      "A": "$x_1^*=0,x_2^*=0,z^*=0$.",
+      "B": "$x_1^*=8,x_2^*=0,z^*=320$.",
+      "C": "$x_1^*=0,x_2^*=7,z^*=210$.",
+      "D": "$x_1^*=6,x_2^*=4,z^*=360$."
+    },
+    "correct": "D",
+    "explanation": "Đỉnh $B(6,4)$ cho $z=360$ — lớn nhất trong 4 đỉnh, nên là phương án tối ưu (6 bàn làm việc, 4 bàn họp mỗi ngày)."
+  },
+  {
+    "id": 28,
+    "group": "NHÓM 3 — Phương pháp đồ thị: bàn ghế Phenikaa (Wyndor)",
+    "type": "truefalse",
+    "image": null,
+    "question": "Vẫn bài toán trên, tại phương án tối ưu $B(6,4)$. Đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Ràng buộc chế biến gỗ chặt: $2(6)+4=16=16$.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Ràng buộc hoàn thiện chặt: $6+2(4)=14=14$.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Cả 2 tài nguyên (chế biến gỗ, hoàn thiện) đều được dùng hết, không dư thừa — phù hợp với việc $B$ là giao của cả 2 đường biên ràng buộc chính.",
+        "correct": true
+      }
+    ],
+    "explanation": "Vì $B$ là giao điểm của \\textbf{cả hai} đường biên ràng buộc (không phải giao với trục toạ độ), nên cả hai tài nguyên đều dùng hết tại phương án tối ưu — cả 3 ý đều đúng."
+  },
+  {
+    "id": 29,
+    "group": "NHÓM 3 — Phương pháp đồ thị: bàn ghế Phenikaa (Wyndor)",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu lợi nhuận bàn họp $P_2$ tăng từ 30 lên 45 USD (giữ nguyên mọi hệ số khác), phương án tối ưu MỚI (thử lại tại 4 đỉnh):",
+    "options": {
+      "A": "Chuyển sang $C(0,7)$ vì $z(C)=315$ lớn hơn.",
+      "B": "Không tính được nếu chưa vẽ lại đồ thị.",
+      "C": "Chuyển sang $A(8,0)$.",
+      "D": "Vẫn là $B(6,4)$ vì $z(B)=40(6)+45(4)=420$ > $z(C)=45(7)=315$ và $>z(A)=320$."
+    },
+    "correct": "D",
+    "explanation": "Tính lại $z$ tại cả 4 đỉnh với hệ số mới: $z(O)=0,z(A)=320,z(B)=240+180=420,z(C)=315$ — $B$ vẫn lớn nhất, phương án tối ưu không đổi (dù giá trị tối ưu tăng)."
+  },
+  {
+    "id": 30,
+    "group": "NHÓM 3 — Phương pháp đồ thị: bàn ghế Phenikaa (Wyndor)",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng thứ tự tính toán khi giải bài toán Wyndor-style bằng phương pháp đồ thị (đã có sẵn 4 đỉnh $O,A,B,C$):",
+    "items": [
+      {
+        "id": "w1",
+        "text": "Xác định 4 đỉnh $O(0,0), A(8,0), B(6,4), C(0,7)$ bằng cách giải các hệ phương trình đường biên"
+      },
+      {
+        "id": "w2",
+        "text": "Tính $z=40x_1+30x_2$ tại từng đỉnh: $0, 320, 360, 210$"
+      },
+      {
+        "id": "w3",
+        "text": "So sánh 4 giá trị, tìm giá trị lớn nhất ($360$ tại $B$)"
+      },
+      {
+        "id": "w4",
+        "text": "Kết luận phương án tối ưu $x_1^*=6,x_2^*=4,z^*=360$"
+      }
+    ],
+    "correctOrder": [
+      "w1",
+      "w2",
+      "w3",
+      "w4"
+    ],
+    "explanation": "Trình tự bắt buộc: xác định đỉnh → tính hàm mục tiêu tại từng đỉnh → so sánh → kết luận. Không thể đảo ngược (ví dụ không thể so sánh trước khi tính đủ giá trị)."
+  },
+  {
+    "id": 31,
+    "group": "NHÓM 4 — Phương pháp đồ thị: phối trộn dầu (Blending)",
+    "type": "mcq",
+    "image": "v5_blending_graph.png",
+    "question": "Bài toán: $\\min z=60x_1+40x_2$, $x_1+x_2\\ge100$, $3x_1-2x_2\\ge0$, $x_1\\le70$, $x_1,x_2\\ge0$. Giao điểm của $x_1+x_2=100$ và $3x_1-2x_2=0$ là:",
+    "options": {
+      "A": "$(0,100)$.",
+      "B": "$(60,40)$.",
+      "C": "$(40,60)$.",
+      "D": "$(70,30)$."
+    },
+    "correct": "C",
+    "explanation": "Từ $3x_1=2x_2\\Rightarrow x_2=1.5x_1$; thay vào $x_1+1.5x_1=100\\Rightarrow x_1=40,\\ x_2=60$."
+  },
+  {
+    "id": 32,
+    "group": "NHÓM 4 — Phương pháp đồ thị: phối trộn dầu (Blending)",
+    "type": "fill",
+    "image": "v5_blending_graph.png",
+    "question": "Vẫn bài toán trên. Kiểm tra ràng buộc $x_1\\le70$ tại điểm $(40,60)$: có thoả mãn không? (trả lời \"co\" hoặc \"khong\")",
+    "answer": "co",
+    "answerType": "text",
+    "explanation": "$x_1=40\\le70$ — thoả mãn, điểm $(40,60)$ khả thi với cả 3 ràng buộc."
+  },
+  {
+    "id": 33,
+    "group": "NHÓM 4 — Phương pháp đồ thị: phối trộn dầu (Blending)",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn bài toán trên (bài toán $\\min$, tìm chi phí nhỏ nhất). Giá trị hàm mục tiêu tại $(40,60)$ là:",
+    "options": {
+      "A": "$z=60(40)+40(60)=2400+2400=4800$.",
+      "B": "$z=100(40)$.",
+      "C": "$z=6000$.",
+      "D": "$z=2800$."
+    },
+    "correct": "A",
+    "explanation": "$z=60(40)+40(60)=2400+2400=4800$ USD — đây chính là phương án tối ưu (đề thi mẫu số 3, câu 1)."
+  },
+  {
+    "id": 34,
+    "group": "NHÓM 4 — Phương pháp đồ thị: phối trộn dầu (Blending)",
+    "type": "truefalse",
+    "image": null,
+    "question": "Đúng hay sai khi giải bài toán $\\min$ bằng phương pháp đồ thị (so với bài toán $\\max$)?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Quy trình 5 bước (vẽ biên, xác định miền, tìm đỉnh, tính $z$, so sánh) vẫn giữ nguyên như bài toán max.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Khác biệt duy nhất là ở bước cuối: chọn đỉnh cho $z$ \\textbf{nhỏ nhất} thay vì lớn nhất.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Bài toán $\\min$ với ràng buộc dạng $\\ge$ luôn có miền khả thi không bị chặn theo hướng làm $z$ tăng — nhưng điều này KHÔNG ảnh hưởng tới việc tìm giá trị nhỏ nhất (vì ta chỉ cần miền bị chặn theo hướng giảm $z$).",
+        "correct": true
+      }
+    ],
+    "explanation": "Cả 3 ý đều đúng — bài toán min và max dùng chung một phương pháp đồ thị, chỉ khác tiêu chí chọn đỉnh cuối cùng."
+  },
+  {
+    "id": 35,
+    "group": "NHÓM 4 — Phương pháp đồ thị: phối trộn dầu (Blending)",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn bài toán phối trộn dầu trên. Ý nghĩa thực tế của ràng buộc $x_1\\le70$ là:",
+    "options": {
+      "A": "Không có ý nghĩa thực tế.",
+      "B": "Octane tối đa của dầu $A$ là 70.",
+      "C": "Khả năng cung cấp tối đa của nguồn dầu $A$ chỉ có 70 thùng.",
+      "D": "Giá dầu $A$ tối đa 70 USD."
+    },
+    "correct": "C",
+    "explanation": "Phân biệt rõ 3 loại ràng buộc trong bài: $x_1+x_2\\ge100$ (yêu cầu sản lượng), $3x_1-2x_2\\ge0$ (yêu cầu chất lượng octane, đã quy đổi), $x_1\\le70$ (giới hạn nguồn cung)."
+  },
+  {
+    "id": 36,
+    "group": "NHÓM 4 — Phương pháp đồ thị: phối trộn dầu (Blending)",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu bỏ ràng buộc $x_1\\le70$ (giả sử nguồn dầu $A$ không giới hạn), phương án tối ưu của bài toán phối trộn:",
+    "options": {
+      "A": "Không đổi — vẫn là $(40,60)$, vì đỉnh tối ưu không nằm trên đường biên $x_1=70$ nên bỏ ràng buộc này không ảnh hưởng.",
+      "B": "Thay đổi hoàn toàn.",
+      "C": "Bài toán trở thành vô nghiệm.",
+      "D": "Bài toán trở thành không bị chặn."
+    },
+    "correct": "A",
+    "explanation": "Vì tại phương án tối ưu $x_1^*=40<70$ (ràng buộc không chặt), việc bỏ ràng buộc dư thừa này không làm thay đổi miền khả thi tại vùng chứa điểm tối ưu — kết quả giữ nguyên (một minh hoạ trực quan cho khái niệm \"ràng buộc không chặt/dư thừa\" đã học ở QHTT)."
+  },
+  {
+    "id": 37,
+    "group": "NHÓM 4 — Phương pháp đồ thị: phối trộn dầu (Blending)",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn bài toán phối trộn. Nếu tăng yêu cầu tối thiểu octane trung bình từ 84 lên 88 (ràng buộc mới sẽ có hệ số khác $3x_1-2x_2\\ge0$), việc ràng buộc \"khan hiếm\" hơn sẽ làm chi phí tối ưu $z^*$ ___ (điền \"tăng\" hoặc \"giảm\" hoặc \"không đổi\").",
+    "answer": "tang",
+    "answerType": "text",
+    "explanation": "Yêu cầu chất lượng cao hơn (octane cao hơn) làm ràng buộc chặt hơn, thu hẹp miền khả thi (hoặc giữ nguyên) $\\Rightarrow$ chi phí tối thiểu không thể giảm, chỉ có thể tăng hoặc giữ nguyên — nói chung sẽ tăng."
+  },
+  {
+    "id": 38,
+    "group": "NHÓM 4 — Phương pháp đồ thị: phối trộn dầu (Blending)",
+    "type": "mcq",
+    "image": null,
+    "question": "So sánh 2 bài toán đồ thị đã học (bàn ghế: $\\max$, 2 ràng buộc $\\le$; phối trộn dầu: $\\min$, ràng buộc $\\ge$ và $\\le$ hỗn hợp), điểm chung về mặt hình học là:",
+    "options": {
+      "A": "Không có điểm chung nào.",
+      "B": "Chỉ bài toán max mới có miền lồi.",
+      "C": "Chỉ bài toán min mới cần vẽ đồ thị.",
+      "D": "Cả hai đều có miền khả thi là tập lồi đa diện và phương án tối ưu đều đạt tại 1 đỉnh của miền."
+    },
+    "correct": "D",
+    "explanation": "Đây là tính tổng quát quan trọng cần nắm: bản chất hình học (miền lồi, tối ưu tại đỉnh) không phụ thuộc vào max/min hay chiều ràng buộc — luôn đúng cho mọi bài toán QHTT 2 biến."
+  },
+  {
+    "id": 39,
+    "group": "NHÓM 4 — Phương pháp đồ thị: phối trộn dầu (Blending)",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng thứ tự xử lý bài toán phối trộn dầu (min cost) bằng đồ thị:",
+    "items": [
+      {
+        "id": "b1",
+        "text": "Xác định miền khả thi từ 3 ràng buộc ($\\ge100$, $\\ge0$ dạng octane, $\\le70$)"
+      },
+      {
+        "id": "b2",
+        "text": "Tìm các đỉnh cực biên (bao gồm cả giao của 2 ràng buộc chính và giao với các đường biên khác)"
+      },
+      {
+        "id": "b3",
+        "text": "Tính $z=60x_1+40x_2$ tại từng đỉnh"
+      },
+      {
+        "id": "b4",
+        "text": "Chọn đỉnh cho $z$ NHỎ NHẤT (vì đây là bài toán min)"
+      }
+    ],
+    "correctOrder": [
+      "b1",
+      "b2",
+      "b3",
+      "b4"
+    ],
+    "explanation": "Cùng quy trình 4 bước cốt lõi như bài toán max, chỉ đảo ngược tiêu chí chọn ở bước cuối."
+  },
+  {
+    "id": 40,
+    "group": "NHÓM 4 — Phương pháp đồ thị: phối trộn dầu (Blending)",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán phối trộn dầu có ràng buộc $x_1+x_2\\ge100$ (thay vì $\\le$). Về mặt đồ thị, miền thoả mãn ràng buộc này nằm:",
+    "options": {
+      "A": "Không xác định được.",
+      "B": "Phía TRÊN (xa gốc toạ độ hơn) đường thẳng $x_1+x_2=100$.",
+      "C": "Phía dưới (gần gốc toạ độ) đường thẳng đó.",
+      "D": "Đúng trên đường thẳng đó."
+    },
+    "correct": "B",
+    "explanation": "Với ràng buộc $\\ge$, miền thoả mãn là nửa mặt phẳng \\textbf{phía xa gốc toạ độ} (kiểm tra bằng cách thay điểm $(0,0)$: $0\\ge100$ sai, nên gốc toạ độ KHÔNG thuộc miền — miền nằm ở phía đối diện)."
+  },
+  {
+    "id": 41,
+    "group": "NHÓM 5 — Dạng chuẩn/chính tắc, biến bù/biến giả",
+    "type": "mcq",
+    "image": null,
+    "question": "Ràng buộc $x_1+x_2+2x_3\\le8$ khi đưa về dạng chuẩn (đẳng thức) cần thêm:",
+    "options": {
+      "A": "Biến bù (slack) $x_4\\ge0$: $x_1+x_2+2x_3+x_4=8$.",
+      "B": "Không cần thêm gì.",
+      "C": "Trừ đi $x_4\\ge0$.",
+      "D": "Biến giả $x_4$ với hệ số $M$."
+    },
+    "correct": "A",
+    "explanation": "Ràng buộc $\\le$ chỉ cần CỘNG thêm biến bù không âm để \"lấp đầy\" phần chênh lệch, chuyển thành đẳng thức — không cần biến giả vì cột biến bù đã tự nhiên là cột đơn vị."
+  },
+  {
+    "id": 42,
+    "group": "NHÓM 5 — Dạng chuẩn/chính tắc, biến bù/biến giả",
+    "type": "mcq",
+    "image": null,
+    "question": "Ràng buộc $2x_1+3x_2\\ge12$ khi đưa về dạng chuẩn cần thêm:",
+    "options": {
+      "A": "Trừ biến dư (surplus) $x_3\\ge0$: $2x_1+3x_2-x_3=12$.",
+      "B": "Chỉ cần cộng biến bù bình thường.",
+      "C": "Nhân cả hai vế với $-1$ rồi cộng biến bù.",
+      "D": "Không cần biến nào cả."
+    },
+    "correct": "A",
+    "explanation": "Ràng buộc $\\ge$ cần TRỪ biến dư để thành đẳng thức, nhưng khi đó không còn cột đơn vị tự nhiên (hệ số $-1$) nên thường phải cộng thêm biến giả để khởi tạo PACB xuất phát."
+  },
+  {
+    "id": 43,
+    "group": "NHÓM 5 — Dạng chuẩn/chính tắc, biến bù/biến giả",
+    "type": "fill",
+    "image": null,
+    "question": "Bài toán có 3 ràng buộc dạng $\\le$ và 2 biến quyết định gốc. Sau khi đưa về dạng chuẩn, tổng số biến (gốc $+$ bù) là bao nhiêu?",
+    "answer": 5,
+    "answerType": "number",
+    "explanation": "2 biến gốc $+$ 3 biến bù (mỗi ràng buộc $\\le$ thêm đúng 1 biến bù) $=5$.",
+    "tolerance": 0
+  },
+  {
+    "id": 44,
+    "group": "NHÓM 5 — Dạng chuẩn/chính tắc, biến bù/biến giả",
+    "type": "truefalse",
+    "image": null,
+    "question": "Đúng hay sai về biến bù (slack) và biến dư (surplus)?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Biến bù $s_i\\ge0$ đại diện cho phần tài nguyên CÒN DƯ (chưa dùng hết) của ràng buộc $\\le$.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Biến dư đại diện cho phần VƯỢT MỨC yêu cầu tối thiểu của ràng buộc $\\ge$.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Cả biến bù và biến dư đều luôn có hệ số $0$ trong hàm mục tiêu gốc (không ảnh hưởng giá trị $z$).",
+        "correct": true
+      }
+    ],
+    "explanation": "Ba tính chất cơ bản và đúng luôn của biến bù/biến dư — chúng chỉ là công cụ đưa bài toán về dạng chuẩn, bản thân không đóng góp vào hàm mục tiêu."
+  },
+  {
+    "id": 45,
+    "group": "NHÓM 5 — Dạng chuẩn/chính tắc, biến bù/biến giả",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán xưởng cơ khí: $x_1+x_2+2x_3\\le8$, $2x_1+x_2+x_3\\le10$. Sau khi thêm biến bù $x_4,x_5$, hệ ràng buộc dạng chuẩn là:",
+    "options": {
+      "A": "$x_1+x_2+2x_3+x_4=8,\\ 2x_1+x_2+x_3+x_5=10$.",
+      "B": "$x_1+x_2+2x_3=8,\\ 2x_1+x_2+x_3=10$ (không cần biến bù).",
+      "C": "Cả hai ràng buộc dùng chung 1 biến bù.",
+      "D": "$x_1+x_2+2x_3-x_4=8,\\ 2x_1+x_2+x_3-x_5=10$."
+    },
+    "correct": "A",
+    "explanation": "Mỗi ràng buộc $\\le$ có biến bù RIÊNG (cộng, hệ số $+1$) — đây đúng là bài toán ở Đề thi mẫu số 2, Câu 1."
+  },
+  {
+    "id": 46,
+    "group": "NHÓM 5 — Dạng chuẩn/chính tắc, biến bù/biến giả",
+    "type": "mcq",
+    "image": null,
+    "question": "Với bài toán trên (2 ràng buộc, 5 biến sau chuẩn hoá), PACB xuất phát tự nhiên (dùng biến bù làm cơ sở) là:",
+    "options": {
+      "A": "$x_4=x_5=0$.",
+      "B": "Không tồn tại PACB xuất phát.",
+      "C": "$x_1=x_2=x_3=0,\\ x_4=8,\\ x_5=10$.",
+      "D": "$x_1=8,x_2=10$."
+    },
+    "correct": "C",
+    "explanation": "Với ràng buộc $\\le$ và vế phải dương, gán biến gốc $=0$, biến bù nhận đúng giá trị vế phải — đây là PACB xuất phát chuẩn, không cần biến giả."
+  },
+  {
+    "id": 47,
+    "group": "NHÓM 5 — Dạng chuẩn/chính tắc, biến bù/biến giả",
+    "type": "mcq",
+    "image": null,
+    "question": "Vì sao khi ràng buộc gốc là $\\le$ (vế phải không âm) thì KHÔNG cần biến giả, nhưng ràng buộc $\\ge$ hoặc $=$ thường cần?",
+    "options": {
+      "A": "Vì $\\ge$ luôn vô nghiệm nếu không có biến giả.",
+      "B": "Không có lý do kỹ thuật nào, chỉ là quy ước.",
+      "C": "Vì $\\le$ luôn dễ giải hơn.",
+      "D": "Vì biến bù (hệ số $+1$, cộng vào) tự nhiên tạo cột đơn vị làm cơ sở xuất phát; còn biến dư (hệ số $-1$, trừ đi) không tạo được cột đơn vị nên cần biến giả bù vào."
+    },
+    "correct": "D",
+    "explanation": "Đây là lý do kỹ thuật cốt lõi — liên quan trực tiếp tới việc bảng đơn hình cần một cơ sở đơn vị $I$ để khởi động, và chỉ có biến bù (không phải biến dư) tự nhiên cho ra cột đơn vị đó."
+  },
+  {
+    "id": 48,
+    "group": "NHÓM 5 — Dạng chuẩn/chính tắc, biến bù/biến giả",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán $\\min z=5x_1+3x_2$, $x_1+x_2=10$ (ràng buộc đẳng thức). Để có PACB xuất phát cần:",
+    "options": {
+      "A": "Chuyển thành 2 ràng buộc $\\le$ và $\\ge$.",
+      "B": "Không cần thêm biến nào.",
+      "C": "Thêm 1 biến giả $a_1\\ge0$: $x_1+x_2+a_1=10$ (không cần biến bù/dư vì đã là đẳng thức).",
+      "D": "Thêm cả biến bù và biến dư."
+    },
+    "correct": "C",
+    "explanation": "Ràng buộc đẳng thức không có \"phần dư/thiếu\" nào để thêm biến bù/dư — chỉ cần thêm trực tiếp 1 biến giả để có cột đơn vị khởi tạo cơ sở."
+  },
+  {
+    "id": 49,
+    "group": "NHÓM 5 — Dạng chuẩn/chính tắc, biến bù/biến giả",
+    "type": "fill",
+    "image": null,
+    "question": "Bài toán có 2 ràng buộc $\\le$, 1 ràng buộc $\\ge$, và 1 ràng buộc $=$ (tổng 4 ràng buộc). Hỏi cần thêm bao nhiêu biến giả (artificial variables) tối thiểu?",
+    "answer": 2,
+    "answerType": "number",
+    "explanation": "Biến giả cần cho ràng buộc $\\ge$ (1) và ràng buộc $=$ (1) — 2 ràng buộc $\\le$ không cần biến giả (chỉ cần biến bù). Tổng: 2 biến giả.",
+    "tolerance": 0
+  },
+  {
+    "id": 50,
+    "group": "NHÓM 5 — Dạng chuẩn/chính tắc, biến bù/biến giả",
+    "type": "mcq",
+    "image": null,
+    "question": "\"Dạng chính tắc\" (canonical form) của bài toán QHTT khác \"dạng chuẩn\" (standard form) chủ yếu ở điểm:",
+    "options": {
+      "A": "Dạng chính tắc chỉ dùng cho bài toán min.",
+      "B": "Không có khái niệm dạng chính tắc trong QHTT.",
+      "C": "Dạng chuẩn dùng ràng buộc đẳng thức (sau khi thêm biến bù/dư/giả); dạng chính tắc thường giữ nguyên bất đẳng thức $\\le$ (dùng trực tiếp cho phương pháp đồ thị hoặc lập đối ngẫu).",
+      "D": "Hai khái niệm hoàn toàn giống nhau."
+    },
+    "correct": "C",
+    "explanation": "Một điểm dễ nhầm lẫn cần phân biệt rõ: mỗi tài liệu/giáo trình có thể dùng thuật ngữ hơi khác nhau, nhưng ý tưởng chung là \"chuẩn\" $=$ đẳng thức (cho đơn hình), \"chính tắc\" $=$ bất đẳng thức chuẩn (cho đồ thị/đối ngẫu)."
+  },
+  {
+    "id": 51,
+    "group": "NHÓM 6 — Bảng đơn hình: khái niệm & tiêu chuẩn tối ưu",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong bảng đơn hình bài toán $\\max z$, ước lượng $\\Delta_k=c_k-z_k$ (quy ước Hillier-Lieberman dùng trong slide). Dấu hiệu tối ưu là:",
+    "options": {
+      "A": "Mọi $\\Delta_k\\ge0$.",
+      "B": "Mọi $\\Delta_k=1$.",
+      "C": "Mọi $\\Delta_k\\le0$ với các biến phi cơ sở.",
+      "D": "$z_k=0$ với mọi $k$."
+    },
+    "correct": "C",
+    "explanation": "Với quy ước $\\Delta_k=c_k-z_k$ (khác dấu so với quy ước $z_k-c_k$ một số tài liệu khác dùng!): $\\Delta_k>0$ nghĩa là đưa $x_k$ vào cơ sở còn cải thiện được $z$; tối ưu khi không còn $\\Delta_k>0$ nào — tức mọi $\\Delta_k\\le0$."
+  },
+  {
+    "id": 52,
+    "group": "NHÓM 6 — Bảng đơn hình: khái niệm & tiêu chuẩn tối ưu",
+    "type": "mcq",
+    "image": null,
+    "question": "Quy tắc chọn biến vào cơ sở (bài toán $\\max$, quy ước $\\Delta_k=c_k-z_k$):",
+    "options": {
+      "A": "Chọn biến có $\\Delta_k<0$ nhỏ nhất.",
+      "B": "Chọn biến có hệ số $c_k$ nhỏ nhất.",
+      "C": "Chọn biến bất kỳ có $\\Delta_k=0$.",
+      "D": "Chọn biến có $\\Delta_k>0$ lớn nhất."
+    },
+    "correct": "D",
+    "explanation": "Đúng theo đề thi mẫu (Đề 2, câu 4.3): \"chọn biến tương ứng $\\Delta_k>0$ lớn nhất\" — cải thiện hàm mục tiêu nhanh nhất mỗi bước."
+  },
+  {
+    "id": 53,
+    "group": "NHÓM 6 — Bảng đơn hình: khái niệm & tiêu chuẩn tối ưu",
+    "type": "mcq",
+    "image": null,
+    "question": "Quy tắc chọn biến RA khỏi cơ sở (tỉ số nhỏ nhất) áp dụng trên cột của biến MỚI vào cơ sở, cụ thể là:",
+    "options": {
+      "A": "Chọn hàng có $b_i$ lớn nhất.",
+      "B": "Chọn ngẫu nhiên.",
+      "C": "Chọn hàng có $a_{ik}$ lớn nhất bất kể dấu.",
+      "D": "Tính tỉ số $b_i/a_{ik}$ cho các hàng có $a_{ik}>0$, chọn hàng đạt tỉ số nhỏ nhất làm hàng trục."
+    },
+    "correct": "D",
+    "explanation": "Đảm bảo phương án mới vẫn khả thi (không âm) — nguyên tắc \"minimum ratio test\" kinh điển."
+  },
+  {
+    "id": 54,
+    "group": "NHÓM 6 — Bảng đơn hình: khái niệm & tiêu chuẩn tối ưu",
+    "type": "truefalse",
+    "image": null,
+    "question": "Đúng hay sai (dựa theo câu MCQ đề thi mẫu số 2)?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Nếu tồn tại $\\Delta_k$ chưa tối ưu (còn cải thiện được) nhưng mọi hệ số trong cột $A_k$ đều $\\le0$, bài toán có hàm mục tiêu không bị chặn ($z\\to+\\infty$).",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Bài toán phân công $n\\times n$ có $n^2$ biến quyết định nhị phân.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Giải thuật đơn hình do Dantzig phát triển năm 1930.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai theo đáp án đề thi mẫu: thuật toán đơn hình Dantzig ra đời năm \\textbf{1947}, không phải 1930 (một mốc lịch sử hay được hỏi trong đề MCQ). Hai ý đầu đúng."
+  },
+  {
+    "id": 55,
+    "group": "NHÓM 6 — Bảng đơn hình: khái niệm & tiêu chuẩn tối ưu",
+    "type": "fill",
+    "image": null,
+    "question": "Bảng đơn hình có 4 ràng buộc (4 biến cơ sở) và tổng cộng 9 biến (kể cả biến bù). Hỏi có bao nhiêu biến PHI cơ sở?",
+    "answer": 5,
+    "answerType": "number",
+    "explanation": "Số biến phi cơ sở $=$ tổng số biến $-$ số ràng buộc $=9-4=5$.",
+    "tolerance": 0
+  },
+  {
+    "id": 56,
+    "group": "NHÓM 6 — Bảng đơn hình: khái niệm & tiêu chuẩn tối ưu",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu ở bảng đơn hình cuối cùng (đã tối ưu), một biến PHI cơ sở có $\\Delta_k=0$ đúng bằng biên tối ưu, kết luận là:",
+    "options": {
+      "A": "$x_k$ chắc chắn là biến giả.",
+      "B": "Cần đổi hàm mục tiêu.",
+      "C": "Bài toán có nhiều phương án tối ưu (đưa $x_k$ vào cơ sở cho PACB khác, cùng giá trị $z^*$).",
+      "D": "Bài toán vô nghiệm."
+    },
+    "correct": "C",
+    "explanation": "Dấu hiệu kinh điển của bài toán có vô số nghiệm tối ưu — đúng như MCQ đề thi mẫu số 3 câu 4 (\"hai đỉnh cực biên liền kề cùng cho giá trị $z^*$\")."
+  },
+  {
+    "id": 57,
+    "group": "NHÓM 6 — Bảng đơn hình: khái niệm & tiêu chuẩn tối ưu",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong bảng đơn hình, phép biến đổi Gauss-Jordan quanh phần tử trục $a_{rk}$ nhằm mục đích:",
+    "options": {
+      "A": "Biến cột $k$ thành cột đơn vị (số 1 tại hàng $r$, số 0 ở mọi hàng khác).",
+      "B": "Không có mục đích cụ thể.",
+      "C": "Đổi dấu toàn bộ bảng.",
+      "D": "Xoá hẳn hàng $r$."
+    },
+    "correct": "A",
+    "explanation": "Đây là bản chất đại số của \"đưa biến vào cơ sở\" — sau phép biến đổi, hệ số của $x_k$ trong ràng buộc $r$ là 1, trong các ràng buộc khác là 0."
+  },
+  {
+    "id": 58,
+    "group": "NHÓM 6 — Bảng đơn hình: khái niệm & tiêu chuẩn tối ưu",
+    "type": "mcq",
+    "image": null,
+    "question": "So sánh bảng đơn hình với phương pháp đồ thị: mỗi bảng đơn hình (mỗi vòng lặp) tương ứng với:",
+    "options": {
+      "A": "Toàn bộ miền khả thi.",
+      "B": "Một đường biên ràng buộc.",
+      "C": "Không có tương ứng nào.",
+      "D": "Một đỉnh (điểm cực biên) của miền khả thi."
+    },
+    "correct": "D",
+    "explanation": "Đây là mối liên hệ hình học-đại số cốt lõi: đơn hình về bản chất là \"đi bộ\" giữa các đỉnh của miền khả thi theo hướng cải thiện hàm mục tiêu, mỗi bảng $=$ 1 đỉnh."
+  },
+  {
+    "id": 59,
+    "group": "NHÓM 6 — Bảng đơn hình: khái niệm & tiêu chuẩn tối ưu",
+    "type": "mcq",
+    "image": null,
+    "question": "Số hàng biến cơ sở trong bảng đơn hình của một bài toán có $m$ ràng buộc chính (sau chuẩn hoá):",
+    "options": {
+      "A": "Giảm dần qua mỗi vòng lặp.",
+      "B": "Không liên quan tới $m$.",
+      "C": "Tăng dần qua mỗi vòng lặp.",
+      "D": "Luôn bằng $m$, không đổi qua các vòng lặp (chỉ đổi \\textit{biến nào} chiếm mỗi hàng)."
+    },
+    "correct": "D",
+    "explanation": "Số hàng cơ sở luôn cố định $=m$ (số ràng buộc) — đơn hình chỉ hoán đổi biến nào đang \"chiếm\" mỗi hàng, không thay đổi số hàng."
+  },
+  {
+    "id": 60,
+    "group": "NHÓM 6 — Bảng đơn hình: khái niệm & tiêu chuẩn tối ưu",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng thứ tự MỘT vòng lặp của thuật toán đơn hình (bảng, bài toán max):",
+    "items": [
+      {
+        "id": "s1",
+        "text": "Kiểm tra dấu hiệu tối ưu: xét dấu mọi $\\Delta_k$"
+      },
+      {
+        "id": "s2",
+        "text": "Nếu chưa tối ưu: chọn cột biến vào (thường $\\Delta_k>0$ lớn nhất)"
+      },
+      {
+        "id": "s3",
+        "text": "Áp dụng tỉ số nhỏ nhất trên cột đó để chọn hàng trục (biến ra)"
+      },
+      {
+        "id": "s4",
+        "text": "Biến đổi Gauss-Jordan quanh phần tử trục, cập nhật toàn bảng"
+      }
+    ],
+    "correctOrder": [
+      "s1",
+      "s2",
+      "s3",
+      "s4"
+    ],
+    "explanation": "Trình tự chuẩn: luôn kiểm tra tối ưu TRƯỚC — nếu đã tối ưu thì dừng ngay, không thực hiện 3 bước sau."
+  },
+  {
+    "id": 61,
+    "group": "NHÓM 7 — Bảng đơn hình: ví dụ số (xưởng cơ khí)",
+    "type": "mcq",
+    "image": null,
+    "question": "Xưởng cơ khí: $\\max z=3x_1+2x_2+4x_3$, $x_1+x_2+2x_3\\le8$, $2x_1+x_2+x_3\\le10$. Sau chuẩn hoá (thêm $x_4,x_5$), PACB xuất phát là:",
+    "options": {
+      "A": "$x_4=x_5=0$.",
+      "B": "$x_1=x_2=x_3=0,x_4=8,x_5=10,z=0$.",
+      "C": "$x_1=8,x_2=10$.",
+      "D": "Không xác định được."
+    },
+    "correct": "B",
+    "explanation": "PACB xuất phát tự nhiên: biến gốc $=0$, biến bù nhận đúng vế phải."
+  },
+  {
+    "id": 62,
+    "group": "NHÓM 7 — Bảng đơn hình: ví dụ số (xưởng cơ khí)",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn bài toán trên. Ở bảng đầu tiên, ước lượng $\\Delta_k=c_k$ (vì $z_k=0$ khi $c_B=0$): $\\Delta_1=3,\\Delta_2=2,\\Delta_3=4$. Biến vào cơ sở là:",
+    "options": {
+      "A": "$x_1$.",
+      "B": "$x_3$ (vì $\\Delta_3=4$ lớn nhất).",
+      "C": "$x_2$.",
+      "D": "Không có biến nào đủ điều kiện vào."
+    },
+    "correct": "B",
+    "explanation": "$\\Delta_3=4$ lớn nhất trong 3 ước lượng dương — chọn $x_3$ vào cơ sở, đúng theo lời giải mẫu (\"Bảng 1: $x_3$ vào, $x_4$ ra, xoay tại $a_{13}=2$\")."
+  },
+  {
+    "id": 63,
+    "group": "NHÓM 7 — Bảng đơn hình: ví dụ số (xưởng cơ khí)",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn bài toán trên, cột $x_3$ có hệ số $(2,1)$ trong 2 ràng buộc, vế phải $(8,10)$. Tính tỉ số nhỏ nhất $\\theta$ để xác định biến ra.",
+    "answer": 4,
+    "answerType": "number",
+    "explanation": "$\\theta=\\min\\{8/2,10/1\\}=\\min\\{4,10\\}=4$ — đạt tại hàng 1 (ứng $x_4$) $\\Rightarrow x_4$ ra khỏi cơ sở.",
+    "tolerance": 0
+  },
+  {
+    "id": 64,
+    "group": "NHÓM 7 — Bảng đơn hình: ví dụ số (xưởng cơ khí)",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn bài toán trên. Sau vòng lặp 1 ($x_3$ vào, $x_4$ ra), PACB mới và bảng tiếp theo (theo lời giải mẫu) có cơ sở là:",
+    "options": {
+      "A": "$\\{x_1,x_2\\}$.",
+      "B": "$\\{x_3,x_5\\}$, tiếp tục với $x_1$ vào, $x_5$ ra (xoay tại $a_{21}=3/2$).",
+      "C": "$\\{x_4,x_5\\}$ (không đổi).",
+      "D": "Bài toán dừng ngay sau vòng 1."
+    },
+    "correct": "B",
+    "explanation": "Đúng theo lời giải mẫu Đề thi số 2: \"Bảng 2: Cơ sở $\\{x_3,x_5\\}$, $x_1$ vào, $x_5$ ra\"."
+  },
+  {
+    "id": 65,
+    "group": "NHÓM 7 — Bảng đơn hình: ví dụ số (xưởng cơ khí)",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn bài toán trên, sau 2 vòng lặp đạt bảng 3 với cơ sở $\\{x_3,x_1\\}$, mọi $\\Delta_k\\le0$. Phương án tối ưu là:",
+    "options": {
+      "A": "$x_1^*=4,x_2^*=2,x_3^*=0$.",
+      "B": "$x_1^*=2,x_2^*=4,x_3^*=0$.",
+      "C": "$x_1^*=0,x_2^*=4,x_3^*=2$.",
+      "D": "$x_1^*=4,x_2^*=0,x_3^*=2$."
+    },
+    "correct": "D",
+    "explanation": "Đúng theo đáp số đề thi mẫu: $x_1^*=4,x_2^*=0,x_3^*=2$."
+  },
+  {
+    "id": 66,
+    "group": "NHÓM 7 — Bảng đơn hình: ví dụ số (xưởng cơ khí)",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn bài toán trên. Tính $z^*=3x_1^*+2x_2^*+4x_3^*$ với $x_1^*=4,x_2^*=0,x_3^*=2$.",
+    "answer": 20,
+    "answerType": "number",
+    "explanation": "$z^*=3(4)+2(0)+4(2)=12+0+8=20$ USD — khớp đúng đáp số đề thi mẫu số 2.",
+    "tolerance": 0
+  },
+  {
+    "id": 67,
+    "group": "NHÓM 7 — Bảng đơn hình: ví dụ số (xưởng cơ khí)",
+    "type": "truefalse",
+    "image": null,
+    "question": "Vẫn bài toán trên, tại phương án tối ưu $(4,0,2)$. Đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Ràng buộc nguyên liệu chặt: $4+0+2(2)=8=8$.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Ràng buộc giờ máy chặt: $2(4)+0+2=10=10$.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Biến $x_2$ không được sử dụng ($x_2^*=0$) vì lợi nhuận đơn vị của nó ($2$ USD) thấp nhất trong 3 sản phẩm.",
+        "correct": true
+      }
+    ],
+    "explanation": "Cả 3 tài nguyên đều dùng hết (2 ràng buộc chặt), và sản phẩm có lợi nhuận thấp nhất bị loại khỏi phương án tối ưu — một mô hình rất điển hình của bài toán phân bổ tài nguyên."
+  },
+  {
+    "id": 68,
+    "group": "NHÓM 7 — Bảng đơn hình: ví dụ số (xưởng cơ khí)",
+    "type": "mcq",
+    "image": null,
+    "question": "Số vòng lặp đơn hình cần thiết để giải bài toán xưởng cơ khí trên (từ PACB xuất phát tới tối ưu) là:",
+    "options": {
+      "A": "1 vòng lặp.",
+      "B": "2 vòng lặp (bảng 1→2→3).",
+      "C": "3 vòng lặp.",
+      "D": "0 (đã tối ưu ngay từ đầu)."
+    },
+    "correct": "B",
+    "explanation": "Theo lời giải mẫu: Bảng 1 (xuất phát) → Bảng 2 (sau vòng 1) → Bảng 3 (sau vòng 2, đạt tối ưu) — đúng 2 vòng lặp."
+  },
+  {
+    "id": 69,
+    "group": "NHÓM 7 — Bảng đơn hình: ví dụ số (xưởng cơ khí)",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu đổi hàm mục tiêu xưởng cơ khí thành $\\min z=3x_1+2x_2+4x_3$ (giữ nguyên ràng buộc $\\le$ và $x\\ge0$), phương án tối ưu MỚI sẽ là:",
+    "options": {
+      "A": "Giống hệt bài toán max, $(4,0,2)$.",
+      "B": "Không tồn tại nghiệm.",
+      "C": "$x_1=x_2=x_3=0$, $z_{\\min}=0$.",
+      "D": "$z_{\\min}\\to-\\infty$."
+    },
+    "correct": "C",
+    "explanation": "Khi mọi hệ số mục tiêu dương và miền khả thi chứa gốc toạ độ (ràng buộc dạng $\\le$, vế phải $\\ge0$), giá trị nhỏ nhất của tổng không âm luôn đạt tại gốc toạ độ."
+  },
+  {
+    "id": 70,
+    "group": "NHÓM 7 — Bảng đơn hình: ví dụ số (xưởng cơ khí)",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng 3 bảng đơn hình theo trình tự giải bài toán xưởng cơ khí:",
+    "items": [
+      {
+        "id": "t1",
+        "text": "Bảng 1: cơ sở $\\{x_4,x_5\\}$, PACB $(0,0,0)$, $z=0$"
+      },
+      {
+        "id": "t2",
+        "text": "Bảng 2: cơ sở $\\{x_3,x_5\\}$ (sau khi $x_3$ vào, $x_4$ ra)"
+      },
+      {
+        "id": "t3",
+        "text": "Bảng 3: cơ sở $\\{x_3,x_1\\}$ (sau khi $x_1$ vào, $x_5$ ra) — đạt tối ưu, $z^*=20$"
+      }
+    ],
+    "correctOrder": [
+      "t1",
+      "t2",
+      "t3"
+    ],
+    "explanation": "Đúng trình tự 3 bảng đơn hình của lời giải mẫu Đề thi số 2, Câu 1."
+  },
+  {
+    "id": 71,
+    "group": "NHÓM 8 — Bảng đơn hình: ví dụ số (Phenikaa Tech)",
+    "type": "mcq",
+    "image": null,
+    "question": "Phenikaa Tech: $\\max z=6x_1+4x_2+5x_3$, $x_1+x_2+x_3\\le80$, $2x_1+x_2+2x_3\\le120$. PACB xuất phát (dùng $x_4,x_5$ làm cơ sở) cho $z=$?",
+    "options": {
+      "A": "80",
+      "B": "0",
+      "C": "200",
+      "D": "120"
+    },
+    "correct": "B",
+    "explanation": "Tại PACB xuất phát $x_1=x_2=x_3=0\\Rightarrow z=0$."
+  },
+  {
+    "id": 72,
+    "group": "NHÓM 8 — Bảng đơn hình: ví dụ số (Phenikaa Tech)",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn bài toán trên. Ước lượng ban đầu $\\Delta_1=6,\\Delta_2=4,\\Delta_3=5$. Biến vào cơ sở vòng 1 là:",
+    "options": {
+      "A": "$x_1$ (vì $\\Delta_1=6$ lớn nhất).",
+      "B": "Cả ba đồng thời.",
+      "C": "$x_2$.",
+      "D": "$x_3$."
+    },
+    "correct": "A",
+    "explanation": "$\\Delta_1=6$ lớn nhất — đúng theo lời giải mẫu \"Bảng 1: $x_1$ vào, $x_5$ ra (xoay tại $a_{21}=2$)\"."
+  },
+  {
+    "id": 73,
+    "group": "NHÓM 8 — Bảng đơn hình: ví dụ số (Phenikaa Tech)",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn bài toán trên, cột $x_1$ có hệ số $(1,2)$, vế phải $(80,120)$. Tính $\\theta=\\min\\{80/1,120/2\\}$.",
+    "answer": 60,
+    "answerType": "number",
+    "explanation": "$\\theta=\\min\\{80,60\\}=60$ — đạt tại hàng 2 (ứng $x_5$) $\\Rightarrow x_5$ ra.",
+    "tolerance": 0
+  },
+  {
+    "id": 74,
+    "group": "NHÓM 8 — Bảng đơn hình: ví dụ số (Phenikaa Tech)",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn bài toán trên, sau vòng 1 ($x_1$ vào, $x_5$ ra), bảng 2 có cơ sở $\\{x_4,x_1\\}$. Vòng 2 tiếp theo (theo lời giải mẫu):",
+    "options": {
+      "A": "Dừng ngay, đã tối ưu.",
+      "B": "$x_2$ vào, $x_4$ ra (xoay tại $a_{12}=1/2$).",
+      "C": "$x_2$ vào, $x_1$ ra.",
+      "D": "$x_3$ vào, $x_1$ ra."
+    },
+    "correct": "B",
+    "explanation": "Đúng theo lời giải mẫu Đề thi số 4: \"Bảng 2: cơ sở $\\{x_4,x_1\\}$, $x_2$ vào, $x_4$ ra\"."
+  },
+  {
+    "id": 75,
+    "group": "NHÓM 8 — Bảng đơn hình: ví dụ số (Phenikaa Tech)",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn bài toán trên, sau 2 vòng lặp đạt bảng 3 (cơ sở $\\{x_2,x_1\\}$, mọi $\\Delta_k\\le0$). Phương án tối ưu là:",
+    "options": {
+      "A": "$x_1^*=40,x_2^*=0,x_3^*=40$.",
+      "B": "$x_1^*=0,x_2^*=40,x_3^*=40$.",
+      "C": "$x_1^*=80,x_2^*=0,x_3^*=0$.",
+      "D": "$x_1^*=40,x_2^*=40,x_3^*=0$."
+    },
+    "correct": "D",
+    "explanation": "Đúng đáp số đề thi mẫu số 4: $x_1^*=40,x_2^*=40,x_3^*=0$."
+  },
+  {
+    "id": 76,
+    "group": "NHÓM 8 — Bảng đơn hình: ví dụ số (Phenikaa Tech)",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn bài toán trên. Tính $z^*=6x_1^*+4x_2^*+5x_3^*=6(40)+4(40)+5(0)$.",
+    "answer": 400,
+    "answerType": "number",
+    "explanation": "$z^*=240+160+0=400$ USD — khớp đúng đáp số đề thi mẫu.",
+    "tolerance": 0
+  },
+  {
+    "id": 77,
+    "group": "NHÓM 8 — Bảng đơn hình: ví dụ số (Phenikaa Tech)",
+    "type": "truefalse",
+    "image": null,
+    "question": "Vẫn bài toán trên, tại $(40,40,0)$. Đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Ràng buộc nguyên liệu chặt: $40+40+0=80=80$.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Ràng buộc giờ lắp ráp chặt: $2(40)+40+0=120=120$.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "$x_3^*=0$ dù $c_3=5>c_2=4$ — vì $x_3$ \"tốn\" tài nguyên giờ lắp ráp gấp đôi ($2x_3$) so với lợi nhuận mang lại, kém hiệu quả hơn $x_1,x_2$ trong bài toán này.",
+        "correct": true
+      }
+    ],
+    "explanation": "Đây là điểm hay của ví dụ: dù $x_3$ có hệ số lợi nhuận đơn vị CAO HƠN $x_2$, nó vẫn bị loại khỏi phương án tối ưu — minh hoạ rằng lợi nhuận đơn vị không phải yếu tố duy nhất quyết định, còn phụ thuộc mức tiêu tốn tài nguyên (\"hiệu suất trên mỗi đơn vị tài nguyên\")."
+  },
+  {
+    "id": 78,
+    "group": "NHÓM 8 — Bảng đơn hình: ví dụ số (Phenikaa Tech)",
+    "type": "mcq",
+    "image": null,
+    "question": "So sánh 2 ví dụ đơn hình đã học (xưởng cơ khí $z^*=20$ sau 2 vòng; Phenikaa Tech $z^*=400$ sau 2 vòng), điểm chung là:",
+    "options": {
+      "A": "Cả hai đều có 2 ràng buộc chính, 3 biến quyết định, và đều cần đúng 2 vòng lặp đơn hình để đạt tối ưu.",
+      "B": "Cả hai đều có $z^*$ bằng nhau.",
+      "C": "Không có điểm chung nào.",
+      "D": "Cả hai đều vô nghiệm."
+    },
+    "correct": "A",
+    "explanation": "Cấu trúc bài toán tương tự (2 ràng buộc, 3 biến) dẫn tới số vòng lặp giống nhau — không phải trùng hợp mà phản ánh độ phức tạp tương đương của 2 bài toán."
+  },
+  {
+    "id": 79,
+    "group": "NHÓM 8 — Bảng đơn hình: ví dụ số (Phenikaa Tech)",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu Phenikaa Tech chỉ có 2 sản phẩm ($x_1,x_2$, bỏ $x_3$) với cùng hệ số, bài toán có thể giải bằng:",
+    "options": {
+      "A": "Không giải được.",
+      "B": "Cần ít nhất 3 biến mới giải được.",
+      "C": "Phương pháp đồ thị (vì chỉ còn 2 biến) thay vì phải dùng bảng đơn hình.",
+      "D": "Chỉ có thể giải bằng đơn hình."
+    },
+    "correct": "C",
+    "explanation": "Nhắc lại nguyên tắc đã học: bài toán 2 biến luôn có thể giải trực quan bằng đồ thị; đơn hình chỉ thực sự cần thiết khi $\\ge3$ biến (không vẽ được)."
+  },
+  {
+    "id": 80,
+    "group": "NHÓM 8 — Bảng đơn hình: ví dụ số (Phenikaa Tech)",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng 3 bảng đơn hình của bài toán Phenikaa Tech:",
+    "items": [
+      {
+        "id": "p1",
+        "text": "Bảng 1: cơ sở $\\{x_4,x_5\\}$, PACB $(0,0,0)$"
+      },
+      {
+        "id": "p2",
+        "text": "Bảng 2: cơ sở $\\{x_4,x_1\\}$ (sau khi $x_1$ vào, $x_5$ ra)"
+      },
+      {
+        "id": "p3",
+        "text": "Bảng 3: cơ sở $\\{x_2,x_1\\}$ (sau khi $x_2$ vào, $x_4$ ra) — tối ưu, $z^*=400$"
+      }
+    ],
+    "correctOrder": [
+      "p1",
+      "p2",
+      "p3"
+    ],
+    "explanation": "Đúng trình tự 3 bảng của lời giải mẫu Đề thi số 4, Câu 1."
+  },
+  {
+    "id": 81,
+    "group": "NHÓM 9 — Vô nghiệm / không bị chặn / suy biến / nhiều PA tối ưu",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán QHTT \\textbf{vô nghiệm} (infeasible) xảy ra khi:",
+    "options": {
+      "A": "Có quá nhiều biến.",
+      "B": "Miền nghiệm khả thi rỗng.",
+      "C": "Số ràng buộc nhiều hơn số biến.",
+      "D": "Hàm mục tiêu có hệ số âm."
+    },
+    "correct": "B",
+    "explanation": "Định nghĩa chuẩn — hoàn toàn là vấn đề của miền ràng buộc, không liên quan gì tới hàm mục tiêu."
+  },
+  {
+    "id": 82,
+    "group": "NHÓM 9 — Vô nghiệm / không bị chặn / suy biến / nhiều PA tối ưu",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán QHTT có hàm mục tiêu \\textbf{không bị chặn} (unbounded) khi:",
+    "options": {
+      "A": "Số biến bằng số ràng buộc.",
+      "B": "Miền khả thi khác rỗng nhưng không bị chặn theo đúng hướng làm hàm mục tiêu tăng (max) hoặc giảm (min) vô hạn.",
+      "C": "Chỉ có 1 ràng buộc.",
+      "D": "Miền khả thi rỗng."
+    },
+    "correct": "B",
+    "explanation": "Phân biệt rõ với \"vô nghiệm\": ở đây miền khả thi KHÁC RỖNG (có phương án), chỉ là không có phương án nào là \"tốt nhất\" vì luôn cải thiện được thêm."
+  },
+  {
+    "id": 83,
+    "group": "NHÓM 9 — Vô nghiệm / không bị chặn / suy biến / nhiều PA tối ưu",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong bảng đơn hình, dấu hiệu nhận biết hàm mục tiêu không bị chặn là:",
+    "options": {
+      "A": "Tồn tại cột $k$ có $\\Delta_k$ vi phạm dấu hiệu tối ưu NHƯNG mọi hệ số trong cột $A_k$ (đã quy đổi qua cơ sở) đều $\\le0$.",
+      "B": "Vế phải $b_i$ âm.",
+      "C": "Có 2 cột giống hệt nhau.",
+      "D": "Mọi $\\Delta_k=0$."
+    },
+    "correct": "A",
+    "explanation": "Đúng theo MCQ đề thi mẫu số 2: \"...tất cả hệ số cột $A_k\\le0$ thì kết luận hàm mục tiêu không bị chặn\"."
+  },
+  {
+    "id": 84,
+    "group": "NHÓM 9 — Vô nghiệm / không bị chặn / suy biến / nhiều PA tối ưu",
+    "type": "truefalse",
+    "image": null,
+    "question": "Phân biệt các tình huống đặc biệt trong QHTT — đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "\"Vô nghiệm\" và \"không bị chặn\" là hai khái niệm khác nhau: vô nghiệm là miền rỗng, không bị chặn là miền khác rỗng nhưng không có tối ưu hữu hạn.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "PACB suy biến (một biến cơ sở bằng 0) luôn đồng nghĩa với bài toán vô nghiệm.",
+        "correct": false
+      },
+      {
+        "label": "c",
+        "text": "\"Nhiều phương án tối ưu\" xảy ra khi có ít nhất 2 đỉnh cực biên (và mọi điểm trên đoạn nối chúng) cùng đạt giá trị hàm mục tiêu tối ưu.",
+        "correct": true
+      }
+    ],
+    "explanation": "Ý (b) sai — suy biến chỉ là hiện tượng một biến cơ sở $=0$, hoàn toàn không liên quan tới việc bài toán có nghiệm hay không; PACB suy biến vẫn có thể (và thường) là phương án tối ưu."
+  },
+  {
+    "id": 85,
+    "group": "NHÓM 9 — Vô nghiệm / không bị chặn / suy biến / nhiều PA tối ưu",
+    "type": "mcq",
+    "image": null,
+    "question": "Cho bài toán $\\max z=2x_1+3x_2$, $x_1\\ge2,\\ x_2\\ge3$ (chỉ có ràng buộc dưới, không ràng buộc trên). Đây là bài toán:",
+    "options": {
+      "A": "Không bị chặn — có thể tăng $x_1,x_2$ vô hạn, $z\\to+\\infty$.",
+      "B": "Có tối ưu hữu hạn tại $(2,3)$.",
+      "C": "Suy biến.",
+      "D": "Vô nghiệm."
+    },
+    "correct": "A",
+    "explanation": "Miền khả thi khác rỗng ($x_1=2,x_2=3$ thoả mãn) nhưng không bị chặn về phía dương $\\Rightarrow$ hàm mục tiêu tăng vô hạn."
+  },
+  {
+    "id": 86,
+    "group": "NHÓM 9 — Vô nghiệm / không bị chặn / suy biến / nhiều PA tối ưu",
+    "type": "mcq",
+    "image": null,
+    "question": "Cho bài toán $x_1\\ge5,\\ x_1\\le2,\\ x_1\\ge0$ (chỉ 1 biến). Bài toán này:",
+    "options": {
+      "A": "Suy biến.",
+      "B": "Không bị chặn.",
+      "C": "Có nghiệm duy nhất $x_1=3.5$.",
+      "D": "Vô nghiệm — vì không tồn tại $x_1$ nào vừa $\\ge5$ vừa $\\le2$ cùng lúc."
+    },
+    "correct": "D",
+    "explanation": "Hai ràng buộc mâu thuẫn trực tiếp ($x_1\\ge5$ và $x_1\\le2$ không thể đồng thời đúng) $\\Rightarrow$ miền rỗng $\\Rightarrow$ vô nghiệm."
+  },
+  {
+    "id": 87,
+    "group": "NHÓM 9 — Vô nghiệm / không bị chặn / suy biến / nhiều PA tối ưu",
+    "type": "mcq",
+    "image": null,
+    "question": "PACB suy biến (degenerate) trong bảng đơn hình là:",
+    "options": {
+      "A": "PACB không tồn tại.",
+      "B": "PACB có mọi biến $=0$.",
+      "C": "PACB có ít nhất 1 biến cơ sở nhận giá trị $0$.",
+      "D": "PACB có giá trị hàm mục tiêu âm."
+    },
+    "correct": "C",
+    "explanation": "Định nghĩa chuẩn — không liên quan tới tối ưu hay khả thi, chỉ là đặc điểm số học của phương án hiện tại."
+  },
+  {
+    "id": 88,
+    "group": "NHÓM 9 — Vô nghiệm / không bị chặn / suy biến / nhiều PA tối ưu",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong đơn hình, PACB suy biến có thể dẫn tới hiện tượng nguy hiểm nào (nếu không xử lý đúng quy tắc)?",
+    "options": {
+      "A": "Không có nguy cơ gì đặc biệt.",
+      "B": "Bài toán tự động trở nên vô nghiệm.",
+      "C": "\"Xoay vòng\" (cycling).",
+      "D": "Hàm mục tiêu tự động không bị chặn."
+    },
+    "correct": "C",
+    "explanation": "Đây là lý do lý thuyết vì sao cần các quy tắc \"phá vỡ đồng hạng\" nhất quán (như Bland's rule) khi lặp lại các bước có $\\theta=0$."
+  },
+  {
+    "id": 89,
+    "group": "NHÓM 9 — Vô nghiệm / không bị chặn / suy biến / nhiều PA tối ưu",
+    "type": "mcq",
+    "image": null,
+    "question": "Thêm 1 ràng buộc mới vào bài toán $\\max z$ đã có (không đổi hàm mục tiêu), giá trị tối ưu MỚI so với CŨ:",
+    "options": {
+      "A": "Không bao giờ tăng lên ($z_{new}^*\\le z_{old}^*$).",
+      "B": "Luôn giữ nguyên.",
+      "C": "Luôn gấp đôi.",
+      "D": "Luôn tăng lên."
+    },
+    "correct": "A",
+    "explanation": "Đúng theo MCQ đề thi mẫu số 4: nguyên lý đơn điệu cơ bản — thu hẹp miền khả thi không bao giờ cải thiện giá trị tối ưu của bài toán max."
+  },
+  {
+    "id": 90,
+    "group": "NHÓM 9 — Vô nghiệm / không bị chặn / suy biến / nhiều PA tối ưu",
+    "type": "fill",
+    "image": null,
+    "question": "Bài toán có 3 ràng buộc rõ ràng mâu thuẫn với nhau (ví dụ $x_1\\ge10$ và $x_1\\le5$). Kết luận về bài toán này (điền 1 từ: \"vo nghiem\" hoặc tương đương)?",
+    "answer": [
+      "vo nghiem",
+      "vô nghiệm",
+      "khong kha thi",
+      "không khả thi"
+    ],
+    "answerType": "text",
+    "explanation": "Ràng buộc mâu thuẫn trực tiếp $\\Rightarrow$ miền khả thi rỗng $\\Rightarrow$ bài toán vô nghiệm — không cần xét tới hàm mục tiêu."
+  },
+  {
+    "id": 91,
+    "group": "NHÓM 10 — Tổng hợp: độ nhạy & ý nghĩa thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Câu 1 đề thi Vận trù học (3.0 điểm) yêu cầu \"mô hình hoá + giải bằng đồ thị/đơn hình\". Tiêu chí lựa chọn phương pháp (đồ thị hay đơn hình) là:",
+    "options": {
+      "A": "Tuỳ ý, không có tiêu chí.",
+      "B": "Luôn dùng đơn hình bất kể số biến.",
+      "C": "Số biến quyết định: 2 biến dùng đồ thị, từ 3 biến trở lên (hoặc đề yêu cầu \"dạng chuẩn\") dùng đơn hình.",
+      "D": "Luôn dùng đồ thị bất kể số biến."
+    },
+    "correct": "C",
+    "explanation": "Đúng theo cấu trúc đề thi mẫu: \"...bằng Phương pháp đồ thị (đối với bài toán 2 biến) hoặc Phương pháp đơn hình (đối với bài toán 3 biến trở lên hoặc bài toán dạng chuẩn)\"."
+  },
+  {
+    "id": 92,
+    "group": "NHÓM 10 — Tổng hợp: độ nhạy & ý nghĩa thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Phân tích độ nhạy (sensitivity analysis) trong QHTT thường trả lời câu hỏi:",
+    "options": {
+      "A": "Không có ứng dụng thực tế.",
+      "B": "Chỉ áp dụng được cho bài toán 2 biến.",
+      "C": "Nếu một hệ số của bài toán (hệ số mục tiêu, vế phải ràng buộc) thay đổi trong một khoảng nhất định, phương án tối ưu/giá trị tối ưu thay đổi như thế nào.",
+      "D": "Chỉ đơn giản là giải lại bài toán nhiều lần với số liệu khác nhau."
+    },
+    "correct": "C",
+    "explanation": "Đây là ứng dụng thực tiễn cực kỳ quan trọng: doanh nghiệp không thể giải lại QHTT mỗi khi giá nguyên liệu biến động nhỏ — phân tích độ nhạy cho câu trả lời nhanh trong một khoảng biến động cho phép."
+  },
+  {
+    "id": 93,
+    "group": "NHÓM 10 — Tổng hợp: độ nhạy & ý nghĩa thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Ví dụ Wyndor-style: nếu lợi nhuận bàn làm việc $c_1$ tăng đủ nhiều (giữ nguyên ràng buộc), phương án tối ưu có thể chuyển từ $B(6,4)$ sang:",
+    "options": {
+      "A": "Không bao giờ đổi.",
+      "B": "$A(8,0)$ — dồn hết nguồn lực sản xuất bàn làm việc khi nó đủ lời.",
+      "C": "$O(0,0)$.",
+      "D": "$C(0,7)$."
+    },
+    "correct": "B",
+    "explanation": "Khi $c_1$ đủ lớn, đường mức hàm mục tiêu \"nghiêng\" về hướng ưu tiên $x_1$, làm đỉnh tối ưu dịch chuyển sang $A$ (đỉnh có $x_1$ lớn nhất) — minh hoạ trực quan ý nghĩa độ nhạy hệ số mục tiêu."
+  },
+  {
+    "id": 94,
+    "group": "NHÓM 10 — Tổng hợp: độ nhạy & ý nghĩa thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu tăng vế phải của MỘT ràng buộc $\\le$ đang CHẶT tại phương án tối ưu (ví dụ tăng quỹ giờ chế biến gỗ từ 16 lên 17), giá trị $z^*$ (bài toán max) sẽ:",
+    "options": {
+      "A": "Luôn giảm.",
+      "B": "Luôn giữ nguyên tuyệt đối.",
+      "C": "Luôn giảm về 0.",
+      "D": "Không giảm — có thể tăng hoặc giữ nguyên (nới lỏng ràng buộc không bao giờ làm xấu đi phương án tối ưu)."
+    },
+    "correct": "D",
+    "explanation": "Ngược lại với việc THÊM ràng buộc (NHÓM 9): NỚI LỎNG một ràng buộc hiện có (tăng vế phải của $\\le$) chỉ có thể mở rộng miền khả thi, không bao giờ làm giảm $z^*$."
+  },
+  {
+    "id": 95,
+    "group": "NHÓM 10 — Tổng hợp: độ nhạy & ý nghĩa thực tế",
+    "type": "truefalse",
+    "image": null,
+    "question": "Đúng hay sai về ý nghĩa thực tế của các khái niệm QHTT đã học?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Một ràng buộc \"không chặt\" (dư thừa) tại phương án tối ưu tương ứng với tài nguyên KHÔNG được sử dụng hết — nới lỏng thêm ràng buộc đó không ảnh hưởng $z^*$.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Biến bù $s_i^*>0$ tại phương án tối ưu cho biết chính xác LƯỢNG tài nguyên $i$ còn dư.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Mọi bài toán thực tế đều nên mô hình hoá bằng đúng 2 biến để dễ vẽ đồ thị, kể cả khi có hàng chục sản phẩm.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — với nhiều biến (thực tế thường có hàng chục, hàng trăm biến), buộc phải dùng đơn hình (hoặc phần mềm); \"rút gọn ép về 2 biến\" sẽ làm sai lệch mô hình thực tế. Hai ý đầu là ý nghĩa kinh tế chuẩn của ràng buộc dư/biến bù."
+  },
+  {
+    "id": 96,
+    "group": "NHÓM 10 — Tổng hợp: độ nhạy & ý nghĩa thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong thực hành thi cử, sai lầm phổ biến nhất khi làm Câu 1 (mô hình hoá $+$ giải) đề thi Vận trù học là:",
+    "options": {
+      "A": "Luôn tính sai phép cộng đơn giản.",
+      "B": "Luôn quên vẽ đồ thị màu.",
+      "C": "Không có sai lầm phổ biến nào.",
+      "D": "Viết sai chiều bất đẳng thức ($\\le$ thay vì $\\ge$ hoặc ngược lại) khi chuyển ngôn ngữ tự nhiên (\"tối thiểu\", \"không vượt quá\"...) sang ràng buộc toán học."
+    },
+    "correct": "D",
+    "explanation": "Đây là lỗi thường gặp nhất: \"tối thiểu $X$\", \"không ít hơn $X$\" $\\to \\ge X$; \"tối đa $X$\", \"không vượt quá $X$\" $\\to \\le X$ — cần đọc kỹ đề để chọn đúng chiều."
+  },
+  {
+    "id": 97,
+    "group": "NHÓM 10 — Tổng hợp: độ nhạy & ý nghĩa thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Khi kiểm tra lại bài làm Câu 1, bước \\textbf{bắt buộc} cuối cùng nên làm là:",
+    "options": {
+      "A": "Chỉ cần kiểm tra ràng buộc đầu tiên.",
+      "B": "Không cần kiểm tra lại gì.",
+      "C": "Chỉ cần tin vào kết quả vẽ đồ thị mà không tính lại bằng số.",
+      "D": "Thay toạ độ phương án tối ưu vào TẤT CẢ ràng buộc gốc để xác nhận không vi phạm ràng buộc nào, rồi tính lại $z^*$ trực tiếp từ hàm mục tiêu."
+    },
+    "correct": "D",
+    "explanation": "Bước tự-kiểm-tra-chéo đơn giản nhưng cực kỳ hiệu quả để phát hiện lỗi tính toán trước khi nộp bài — tương tự nguyên tắc \"kiểm tra chéo\" đã nhấn mạnh ở QHTT chương V."
+  },
+  {
+    "id": 98,
+    "group": "NHÓM 10 — Tổng hợp: độ nhạy & ý nghĩa thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "So sánh giữa phương pháp đồ thị và phương pháp đơn hình về bản chất toán học, phát biểu đúng là:",
+    "options": {
+      "A": "Đơn hình chỉ là một biến thể của đồ thị, không có gì mới.",
+      "B": "Cả hai đều dựa trên cùng một nguyên lý (tối ưu đạt tại đỉnh của miền lồi).",
+      "C": "Đồ thị chính xác hơn đơn hình.",
+      "D": "Hai phương pháp cho ra kết quả khác nhau với cùng 1 bài toán."
+    },
+    "correct": "B",
+    "explanation": "Tổng kết lại toàn bộ NHÓM 1-10: đây là bài học cốt lõi nhất của chương — hai phương pháp là \"hai mặt\" của cùng một lý thuyết nền tảng."
+  },
+  {
+    "id": 99,
+    "group": "NHÓM 10 — Tổng hợp: độ nhạy & ý nghĩa thực tế",
+    "type": "fill",
+    "image": null,
+    "question": "Một bài toán QHTT sau khi thêm 1 ràng buộc mới có $z_{new}^*=z_{old}^*$ (không đổi). Điều này CÓ THỂ xảy ra khi ràng buộc mới ___ (điền: không cắt qua điểm tối ưu cũ / dư thừa tại điểm đó).",
+    "answer": [
+      "khong cat qua diem toi uu cu",
+      "du thua",
+      "dư thừa",
+      "không ảnh hưởng điểm tối ưu"
+    ],
+    "answerType": "text",
+    "explanation": "Nếu ràng buộc mới vẫn thoả mãn tại phương án tối ưu cũ (không \"cắt bỏ\" điểm đó khỏi miền khả thi), giá trị tối ưu giữ nguyên — ràng buộc mới trở thành \"dư thừa\" đối với bài toán."
+  },
+  {
+    "id": 100,
+    "group": "NHÓM 10 — Tổng hợp: độ nhạy & ý nghĩa thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Tổng kết: trong 4 câu của đề thi Vận trù học mẫu, Câu 1 (LP cơ bản: mô hình hoá $+$ đồ thị/đơn hình) đóng vai trò:",
+    "options": {
+      "A": "Câu ít quan trọng nhất trong đề.",
+      "B": "Nền tảng — kiểm tra khả năng chuyển vấn đề thực tế thành mô hình toán và giải bằng công cụ cơ bản nhất (đồ thị/đơn hình), trước khi các câu sau mở rộng sang các biến thể phức tạp hơn (nhị phân, vận tải, mạng...).",
+      "C": "Chỉ kiểm tra kỹ năng vẽ hình, không liên quan lý thuyết.",
+      "D": "Không liên quan gì tới các câu còn lại."
+    },
+    "correct": "B",
+    "explanation": "Câu 1 chiếm điểm số cao nhất (3.0/10) và là nền tảng cho toàn bộ các dạng bài phức tạp hơn ở Câu 2, 3 (nhị phân, vận tải, mạng lưới) — tất cả đều xây trên cùng lý thuyết QHTT cơ bản."
+  }
+]

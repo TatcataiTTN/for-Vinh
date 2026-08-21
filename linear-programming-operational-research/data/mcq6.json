@@ -1,0 +1,1594 @@
+[
+  {
+    "id": 1,
+    "group": "NHÓM 1 — Biến nhị phân & ràng buộc logic",
+    "type": "mcq",
+    "image": null,
+    "question": "Biến quyết định nhị phân $x_i\\in\\{0,1\\}$ thường dùng để mô hình hoá:",
+    "options": {
+      "A": "Giá trị hàm mục tiêu.",
+      "B": "Chỉ dùng được cho bài toán vận tải.",
+      "C": "Số lượng sản phẩm liên tục.",
+      "D": "Quyết định \"có/không\" (chọn hay không chọn một phương án rời rạc): $x_i=1$ nếu chọn, $x_i=0$ nếu không."
+    },
+    "correct": "D",
+    "explanation": "Đây là ý nghĩa cốt lõi của biến nhị phân trong Quy hoạch tuyến tính nhị phân (0-1 Integer Programming, chương 11 Hillier-Lieberman) — khác hẳn biến liên tục $x_j\\ge0$ của QHTT thông thường."
+  },
+  {
+    "id": 2,
+    "group": "NHÓM 1 — Biến nhị phân & ràng buộc logic",
+    "type": "mcq",
+    "image": null,
+    "question": "Ràng buộc logic \"chỉ được chọn tối đa 1 trong 2 dự án $B,D$\" (loại trừ lẫn nhau — mutually exclusive) được viết là:",
+    "options": {
+      "A": "$x_B+x_D\\le1$.",
+      "B": "$x_B+x_D\\ge1$.",
+      "C": "$x_B=x_D$.",
+      "D": "$x_B\\cdot x_D=1$."
+    },
+    "correct": "A",
+    "explanation": "Vì $x_B,x_D\\in\\{0,1\\}$, ràng buộc $\\le1$ cho phép cả hai đều $=0$ (không chọn cái nào), hoặc đúng 1 trong 2 $=1$, nhưng KHÔNG cho phép cả hai cùng $=1$."
+  },
+  {
+    "id": 3,
+    "group": "NHÓM 1 — Biến nhị phân & ràng buộc logic",
+    "type": "mcq",
+    "image": null,
+    "question": "Ràng buộc \"dự án $C$ chỉ được thực hiện nếu dự án $A$ được chọn\" (phụ thuộc — dependency) được viết là:",
+    "options": {
+      "A": "$x_C\\ge x_A$.",
+      "B": "$x_C\\le x_A$.",
+      "C": "$x_C=x_A$.",
+      "D": "$x_C+x_A\\le1$."
+    },
+    "correct": "B",
+    "explanation": "Nếu $x_A=0$ thì bắt buộc $x_C\\le0\\Rightarrow x_C=0$ (không được chọn C); nếu $x_A=1$ thì $x_C\\le1$ không ràng buộc gì thêm (C được tự do chọn hoặc không) — đúng ngữ nghĩa \"C phụ thuộc A\"."
+  },
+  {
+    "id": 4,
+    "group": "NHÓM 1 — Biến nhị phân & ràng buộc logic",
+    "type": "mcq",
+    "image": null,
+    "question": "Ràng buộc \"nếu chọn dự án 1 thì BẮT BUỘC phải chọn dự án 2\" ($x_1=1\\Rightarrow x_2=1$) được viết là:",
+    "options": {
+      "A": "$x_1-x_2\\le0$ (tương đương $x_1\\le x_2$).",
+      "B": "$x_1-x_2\\ge1$.",
+      "C": "$x_1+x_2\\le1$.",
+      "D": "$x_1+x_2\\ge1$."
+    },
+    "correct": "A",
+    "explanation": "Đúng theo MCQ đề thi mẫu số 1: $x_1\\le x_2$ đảm bảo nếu $x_1=1$ thì $x_2$ phải $\\ge1$, tức $x_2=1$ (vì $x_2$ nhị phân)."
+  },
+  {
+    "id": 5,
+    "group": "NHÓM 1 — Biến nhị phân & ràng buộc logic",
+    "type": "truefalse",
+    "image": null,
+    "question": "Đúng hay sai về các ràng buộc logic thường gặp trong QHTT nhị phân?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Ràng buộc \"đúng $k$ trong $n$ dự án được chọn\" viết là $\\sum_{i=1}^n x_i=k$.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Ràng buộc \"nếu chọn $A$ thì KHÔNG được chọn $B$\" (loại trừ lẫn nhau một chiều) viết giống hệt \"chọn $A$ và $B$ độc lập nhau\".",
+        "correct": false
+      },
+      {
+        "label": "c",
+        "text": "Ràng buộc \"phải chọn ít nhất 1 trong 3 dự án $A,B,C$\" viết là $x_A+x_B+x_C\\ge1$.",
+        "correct": true
+      }
+    ],
+    "explanation": "Ý (b) sai: \"nếu chọn $A$ thì không được chọn $B$\" cần ràng buộc RÀNG BUỘC LẪN NHAU $x_A+x_B\\le1$ — hoàn toàn khác với việc không có ràng buộc gì (độc lập). Hai ý còn lại đúng theo cú pháp chuẩn."
+  },
+  {
+    "id": 6,
+    "group": "NHÓM 1 — Biến nhị phân & ràng buộc logic",
+    "type": "mcq",
+    "image": null,
+    "question": "Ràng buộc ngân sách $50x_A+40x_B+70x_C+60x_D\\le150$ (đơn vị triệu USD) trong bài toán chọn dự án có ý nghĩa:",
+    "options": {
+      "A": "Phải chọn đủ 150 dự án.",
+      "B": "Lợi nhuận tối đa là 150 triệu.",
+      "C": "Tổng vốn đầu tư cho các dự án ĐƯỢC CHỌN (những $x_i=1$) không được vượt quá ngân sách 150 triệu.",
+      "D": "Mỗi dự án không được vượt quá 150 triệu."
+    },
+    "correct": "C",
+    "explanation": "Vì các dự án KHÔNG được chọn có $x_i=0$ nên không đóng góp vào tổng — ràng buộc chỉ thực sự tính vốn của các dự án có $x_i=1$."
+  },
+  {
+    "id": 7,
+    "group": "NHÓM 1 — Biến nhị phân & ràng buộc logic",
+    "type": "mcq",
+    "image": null,
+    "question": "Ràng buộc $x_i\\le M\\cdot y_i$ (với $y_i\\in\\{0,1\\}$, $M$ là hằng số rất lớn) trong bài toán chi phí cố định (fixed-charge) có vai trò:",
+    "options": {
+      "A": "Không có vai trò gì đặc biệt.",
+      "B": "\"Khoá\" biến liên tục $x_i$ về 0 nếu $y_i=0$ (không mở cơ sở $i$); nếu $y_i=1$, $x_i$ được tự do nhận giá trị tới $M$.",
+      "C": "$M$ là chi phí cố định trực tiếp.",
+      "D": "Luôn buộc $x_i=M$."
+    },
+    "correct": "B",
+    "explanation": "Đây là kỹ thuật \"big-M constraint\" kinh điển — liên kết biến nhị phân (quyết định mở/đóng) với biến liên tục (mức hoạt động), đúng theo MCQ đề thi mẫu số 3."
+  },
+  {
+    "id": 8,
+    "group": "NHÓM 1 — Biến nhị phân & ràng buộc logic",
+    "type": "mcq",
+    "image": null,
+    "question": "So với QHTT liên tục thông thường, bài toán QHTT nhị phân (BIP) khó giải hơn về mặt thuật toán vì:",
+    "options": {
+      "A": "Miền nghiệm rời rạc (chỉ gồm các điểm $0/1$, không phải tập lồi liên tục) nên không thể áp dụng trực tiếp đơn hình.",
+      "B": "BIP luôn có nhiều biến hơn.",
+      "C": "BIP không có hàm mục tiêu.",
+      "D": "BIP dễ giải hơn QHTT liên tục."
+    },
+    "correct": "A",
+    "explanation": "Đây là khác biệt căn bản: đơn hình dựa trên tính chất \"tối ưu đạt tại đỉnh của tập lồi\" — không áp dụng được khi miền là tập rời rạc hữu hạn điểm."
+  },
+  {
+    "id": 9,
+    "group": "NHÓM 1 — Biến nhị phân & ràng buộc logic",
+    "type": "fill",
+    "image": null,
+    "question": "Bài toán chọn dự án có 6 dự án tiềm năng, mỗi dự án 1 biến nhị phân. Hỏi có tối đa bao nhiêu tổ hợp lựa chọn khác nhau (kể cả không chọn dự án nào)?",
+    "answer": 64,
+    "answerType": "number",
+    "explanation": "Mỗi biến nhị phân có 2 khả năng (0 hoặc 1), 6 biến độc lập $\\Rightarrow 2^6=64$ tổ hợp — đây cũng là lý do BIP \"bùng nổ tổ hợp\" khi số biến tăng.",
+    "tolerance": 0
+  },
+  {
+    "id": 10,
+    "group": "NHÓM 1 — Biến nhị phân & ràng buộc logic",
+    "type": "mcq",
+    "image": null,
+    "question": "Ràng buộc \"dự án $A$ và $B$ phải được chọn ĐỒNG THỜI hoặc ĐỀU KHÔNG chọn\" (cùng chọn hoặc cùng loại) được viết là:",
+    "options": {
+      "A": "$x_A+x_B\\ge1$.",
+      "B": "$x_A=x_B$ (tương đương $x_A-x_B=0$).",
+      "C": "$x_A\\le x_B$ và không cần thêm gì.",
+      "D": "$x_A+x_B\\le1$."
+    },
+    "correct": "B",
+    "explanation": "Ràng buộc đẳng thức buộc 2 biến luôn có cùng giá trị (cả hai $=0$ hoặc cả hai $=1$) — khác với $x_A\\le x_B$ (chỉ là quan hệ 1 chiều, cho phép $B=1,A=0$)."
+  },
+  {
+    "id": 11,
+    "group": "NHÓM 2 — Bài toán chọn dự án / cái túi: mô hình hoá",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán cái túi (Knapsack Problem) 0-1 tổng quát có mô hình:",
+    "options": {
+      "A": "$\\min\\sum_i v_ix_i$ s.t. $\\sum_i w_ix_i\\ge W$.",
+      "B": "$\\max\\sum_i w_ix_i$ s.t. $\\sum_i v_ix_i\\le W$.",
+      "C": "$\\max\\sum_i v_ix_i$ s.t. $\\sum_i w_ix_i\\le W$, $x_i\\in\\{0,1\\}$.",
+      "D": "Không có ràng buộc nào, chỉ có hàm mục tiêu."
+    },
+    "correct": "C",
+    "explanation": "Mô hình chuẩn: tối đa hoá tổng giá trị các món được chọn, chịu ràng buộc tổng trọng lượng không vượt sức chứa — đúng như MCQ đề thi mẫu số 1 (\"BIP\")."
+  },
+  {
+    "id": 12,
+    "group": "NHÓM 2 — Bài toán chọn dự án / cái túi: mô hình hoá",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán chọn dự án đầu tư (với ràng buộc ngân sách duy nhất, mỗi dự án 1 biến nhị phân, tối đa lợi nhuận) chính là:",
+    "options": {
+      "A": "Bài toán phân công.",
+      "B": "Không liên quan gì tới bài toán cái túi.",
+      "C": "Bài toán vận tải.",
+      "D": "Một trường hợp cụ thể của bài toán cái túi 0-1 (ngân sách đóng vai trò \"sức chứa túi\", vốn đầu tư mỗi dự án là \"trọng lượng\", lợi nhuận là \"giá trị\")."
+    },
+    "correct": "D",
+    "explanation": "Đây là một ứng dụng kinh điển: \"Capital Budgeting Problem\" (California Manufacturing Co., Hillier-Lieberman Ch.11) chính là bài toán cái túi 0-1 khi chỉ có 1 ràng buộc ngân sách."
+  },
+  {
+    "id": 13,
+    "group": "NHÓM 2 — Bài toán chọn dự án / cái túi: mô hình hoá",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu bài toán cái túi có THÊM ràng buộc logic (ví dụ \"chỉ chọn tối đa 2 trong 5 món\"), mô hình vẫn thuộc loại:",
+    "options": {
+      "A": "Không còn là bài toán nhị phân nữa.",
+      "B": "QHTT nhị phân (0-1 Integer Programming).",
+      "C": "Không thể mô hình hoá được.",
+      "D": "Trở thành bài toán vận tải."
+    },
+    "correct": "B",
+    "explanation": "QHTT nhị phân rất linh hoạt: có thể thêm bất kỳ ràng buộc logic/tuyến tính nào lên các biến $0/1$ mà vẫn giữ nguyên khuôn khổ bài toán."
+  },
+  {
+    "id": 14,
+    "group": "NHÓM 2 — Bài toán chọn dự án / cái túi: mô hình hoá",
+    "type": "truefalse",
+    "image": null,
+    "question": "Đúng hay sai về bài toán cái túi 0-1?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Bài toán cái túi 0-1 KHÁC với bài toán cái túi \"phân số\" (fractional knapsack, cho phép lấy một phần món hàng) — bài toán phân số giải được bằng thuật toán tham lam (greedy) đơn giản, còn 0-1 thì không.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Bài toán cái túi 0-1 luôn giải được bằng phương pháp đồ thị nếu có đúng 2 món.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Số ràng buộc chính (không kể ràng buộc dấu/nhị phân) của bài toán cái túi cơ bản luôn bằng số món hàng.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai: bài toán cái túi CƠ BẢN chỉ có ĐÚNG 1 ràng buộc (sức chứa túi), không phụ thuộc số món — số món chỉ ảnh hưởng số BIẾN, không ảnh hưởng số ràng buộc."
+  },
+  {
+    "id": 15,
+    "group": "NHÓM 2 — Bài toán chọn dự án / cái túi: mô hình hoá",
+    "type": "mcq",
+    "image": null,
+    "question": "So với QHTT liên tục, lời giải tối ưu của bài toán cái túi 0-1 (dùng đúng thuật toán nhị phân) khác biệt căn bản ở chỗ:",
+    "options": {
+      "A": "Luôn cho giá trị tối ưu thấp hơn QHTT liên tục.",
+      "B": "Không có ràng buộc dấu.",
+      "C": "Không có gì khác biệt.",
+      "D": "Không cho phép \"chọn một phần\" món hàng (như $x_i=0.5$)."
+    },
+    "correct": "D",
+    "explanation": "Đây là lý do CẦN dùng mô hình nhị phân thay vì QHTT liên tục thông thường khi bài toán có bản chất \"chọn hay không chọn\" (một dự án không thể \"thực hiện 60%\")."
+  },
+  {
+    "id": 16,
+    "group": "NHÓM 2 — Bài toán chọn dự án / cái túi: mô hình hoá",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán chọn dự án với 2 ràng buộc bổ sung (dự án $C$ phụ thuộc $A$; loại trừ $B,D$) có tổng số ràng buộc chính (kể cả ngân sách) là:",
+    "options": {
+      "A": "1.",
+      "B": "3 (ngân sách, phụ thuộc, loại trừ).",
+      "C": "2.",
+      "D": "4."
+    },
+    "correct": "B",
+    "explanation": "Đếm đúng: (1) ràng buộc ngân sách, (2) ràng buộc phụ thuộc $x_C\\le x_A$, (3) ràng buộc loại trừ $x_B+x_D\\le1$ — tổng 3 ràng buộc chính."
+  },
+  {
+    "id": 17,
+    "group": "NHÓM 2 — Bài toán chọn dự án / cái túi: mô hình hoá",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu KHÔNG có ràng buộc ngân sách nào (chỉ có các ràng buộc logic phụ thuộc/loại trừ), bài toán chọn dự án tối đa lợi nhuận sẽ:",
+    "options": {
+      "A": "Không giải được vì thiếu ràng buộc.",
+      "B": "Trở thành bài toán vô nghĩa.",
+      "C": "Luôn chọn 0 dự án.",
+      "D": "Vẫn giải được bình thường bằng BIP."
+    },
+    "correct": "D",
+    "explanation": "Không có \"tài nguyên khan hiếm\" nào để giới hạn, nên logic tối ưu đơn giản: chọn hết các dự án có lợi (trừ khi ràng buộc logic bắt buộc loại trừ lẫn nhau)."
+  },
+  {
+    "id": 18,
+    "group": "NHÓM 2 — Bài toán chọn dự án / cái túi: mô hình hoá",
+    "type": "fill",
+    "image": null,
+    "question": "Bài toán cái túi có 4 món hàng, mỗi món 1 biến nhị phân, cộng thêm ràng buộc sức chứa (1 ràng buộc chính). Hỏi tổng số ràng buộc dấu/nhị phân ($x_i\\in\\{0,1\\}$, tương đương 2 ràng buộc $\\ge0,\\le1$ mỗi biến) — chỉ đếm số BIẾN nhị phân cần khai báo.",
+    "answer": 4,
+    "answerType": "number",
+    "explanation": "Số biến nhị phân luôn bằng số món hàng $=4$ — mỗi món 1 biến quyết định độc lập.",
+    "tolerance": 0
+  },
+  {
+    "id": 19,
+    "group": "NHÓM 2 — Bài toán chọn dự án / cái túi: mô hình hoá",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong thực tế, bài toán \"chọn danh mục đầu tư chứng khoán với ngân sách giới hạn\" thường được mô hình hoá gần giống bài toán:",
+    "options": {
+      "A": "Bài toán vận tải.",
+      "B": "Cái túi 0-1 (mỗi cổ phiếu là 1 \"món hàng\", vốn đầu tư là \"trọng lượng\", lợi nhuận kỳ vọng là \"giá trị\").",
+      "C": "Bài toán luồng cực đại.",
+      "D": "Bài toán cây khung nhỏ nhất."
+    },
+    "correct": "B",
+    "explanation": "Ứng dụng tài chính kinh điển của bài toán cái túi — minh hoạ tính ứng dụng rộng của mô hình này ngoài phạm vi \"đóng gói vật lý\"."
+  },
+  {
+    "id": 20,
+    "group": "NHÓM 2 — Bài toán chọn dự án / cái túi: mô hình hoá",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán cái túi 0-1 với $n$ món hàng có độ phức tạp (số tổ hợp cần xét trong trường hợp xấu nhất, nếu duyệt vét cạn — brute force):",
+    "options": {
+      "A": "$2^n$ (mũ theo số món).",
+      "B": "$n$ (tuyến tính).",
+      "C": "$n^2$.",
+      "D": "$\\log n$."
+    },
+    "correct": "A",
+    "explanation": "Mỗi món có 2 lựa chọn độc lập $\\Rightarrow 2^n$ tổ hợp — với $n$ lớn (vài chục món trở lên) việc duyệt vét cạn trở nên bất khả thi, cần thuật toán hiệu quả hơn (quy hoạch động chạy trong $O(nW)$)."
+  },
+  {
+    "id": 21,
+    "group": "NHÓM 3 — Bài toán cái túi: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán cái túi: 5 món với (giá trị, trọng lượng) lần lượt là $(60,10),(100,20),(120,30),(80,15),(30,5)$, sức chứa $W=50$. Giải bằng quy hoạch động, giá trị tối ưu là:",
+    "options": {
+      "A": "300.",
+      "B": "270.",
+      "C": "260.",
+      "D": "250."
+    },
+    "correct": "B",
+    "explanation": "Đã kiểm chứng bằng thuật toán quy hoạch động (DP) độc lập: giá trị tối ưu $=270$."
+  },
+  {
+    "id": 22,
+    "group": "NHÓM 3 — Bài toán cái túi: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn bài toán trên. Các món được chọn trong phương án tối ưu là:",
+    "options": {
+      "A": "Chỉ món 3 (giá trị cao nhất).",
+      "B": "Món 1, 2, 3.",
+      "C": "Tất cả 5 món.",
+      "D": "Món 1, 2, 4, 5 (bỏ món 3)."
+    },
+    "correct": "D",
+    "explanation": "Đã kiểm chứng bằng truy vết DP: chọn món $\\{1,2,4,5\\}$ với tổng trọng lượng $10+20+15+5=50=W$ (dùng hết sức chứa) và tổng giá trị $60+100+80+30=270$."
+  },
+  {
+    "id": 23,
+    "group": "NHÓM 3 — Bài toán cái túi: ví dụ số",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn bài toán trên. Tổng trọng lượng của phương án tối ưu (món 1,2,4,5) là bao nhiêu? (kiểm tra xem có đúng bằng sức chứa $W=50$ không)",
+    "answer": 50,
+    "answerType": "number",
+    "explanation": "$10+20+15+5=50=W$ — sức chứa được dùng hết hoàn toàn, một dấu hiệu tốt cho thấy phương án tối ưu \"vừa khít\" ràng buộc.",
+    "tolerance": 0
+  },
+  {
+    "id": 24,
+    "group": "NHÓM 3 — Bài toán cái túi: ví dụ số",
+    "type": "truefalse",
+    "image": null,
+    "question": "Vẫn bài toán cái túi trên (5 món, $W=50$, tối ưu chọn $\\{1,2,4,5\\}$, giá trị 270). Đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Món 3 (giá trị 120, trọng lượng 30) bị loại dù có giá trị TUYỆT ĐỐI cao nhất, vì tỉ lệ giá trị/trọng lượng của nó ($120/30=4$) thấp hơn các món khác.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Món 5 (giá trị 30, trọng lượng 5) có tỉ lệ giá trị/trọng lượng cao nhất trong 5 món ($30/5=6$).",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Nếu tăng sức chứa $W$ lên rất lớn (đủ chứa cả 5 món), giá trị tối ưu sẽ là tổng giá trị cả 5 món $=60+100+120+80+30=390$.",
+        "correct": true
+      }
+    ],
+    "explanation": "Cả 3 ý đều đúng và minh hoạ đúng bản chất bài toán cái túi: ưu tiên tỉ lệ giá trị/trọng lượng (không phải giá trị tuyệt đối) khi sức chứa hạn chế; khi sức chứa đủ lớn, bài toán trở nên tầm thường (chọn hết)."
+  },
+  {
+    "id": 25,
+    "group": "NHÓM 3 — Bài toán cái túi: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Tỉ lệ giá trị/trọng lượng của 5 món (60/10,100/20,120/30,80/15,30/5) lần lượt là $6, 5, 4, 5.33, 6$. Nếu dùng thuật toán THAM LAM (greedy — ưu tiên tỉ lệ cao nhất, chỉ đúng cho bài toán phân số) cho bài toán 0-1 này:",
+    "options": {
+      "A": "Luôn cho đúng giá trị tối ưu 270 trong mọi trường hợp 0-1.",
+      "B": "Tham lam luôn cho giá trị tốt hơn DP.",
+      "C": "Không thể áp dụng thuật toán tham lam cho bài toán này.",
+      "D": "Có thể KHÔNG cho đúng giá trị tối ưu 270."
+    },
+    "correct": "D",
+    "explanation": "Đây là điểm lý thuyết cực kỳ quan trọng: greedy theo tỉ lệ giá trị/trọng lượng CHỈ tối ưu cho bài toán cái túi phân số — với bài toán 0-1 (không được chia nhỏ món hàng), cần thuật toán quy hoạch động hoặc nhánh cận mới đảm bảo tối ưu."
+  },
+  {
+    "id": 26,
+    "group": "NHÓM 3 — Bài toán cái túi: ví dụ số",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn bài toán cái túi (5 món, $W=50$). Nếu giảm sức chứa xuống $W=30$, giá trị tối ưu mới KHÔNG THỂ lớn hơn giá trị cũ (270). Đây là hệ quả của nguyên lý nào đã học ở QHTT (điền ngắn gọn)?",
+    "answer": [
+      "thu hep mien kha thi",
+      "rang buoc chat hon",
+      "gioi han tai nguyen",
+      "monotonic",
+      "don dieu"
+    ],
+    "answerType": "text",
+    "explanation": "Giảm sức chứa = thắt chặt ràng buộc = thu hẹp miền khả thi — không bao giờ làm tăng giá trị tối ưu của bài toán max (đúng nguyên lý đơn điệu đã học ở QHTT)."
+  },
+  {
+    "id": 27,
+    "group": "NHÓM 3 — Bài toán cái túi: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu bài toán cái túi trên có THÊM ràng buộc \"phải chọn món 3\" ($x_3=1$ bắt buộc), giá trị tối ưu mới:",
+    "options": {
+      "A": "Không tính được nếu không giải lại.",
+      "B": "Luôn lớn hơn 270.",
+      "C": "Không thể lớn hơn 270 (giá trị khi được TỰ DO chọn).",
+      "D": "Luôn bằng đúng 270."
+    },
+    "correct": "C",
+    "explanation": "Ràng buộc bắt buộc là một dạng thu hẹp miền khả thi (giảm thiểu lựa chọn) — áp dụng đúng nguyên lý đơn điệu: thêm ràng buộc không bao giờ cải thiện giá trị tối ưu bài toán max."
+  },
+  {
+    "id": 28,
+    "group": "NHÓM 3 — Bài toán cái túi: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Cách trình bày lời giải bài toán cái túi trong bài thi (khi không có công cụ tính DP) thường dùng:",
+    "options": {
+      "A": "Liệt kê thử một số tổ hợp \"hợp lý\" (ưu tiên tỉ lệ giá trị/trọng lượng cao) và so sánh, tương tự cách giải mẫu \"California Manufacturing\" trong đề thi mẫu (thử các phương án hợp lệ).",
+      "B": "Luôn phải viết code DP đầy đủ.",
+      "C": "Không thể giải tay được.",
+      "D": "Chỉ cần đoán ngẫu nhiên."
+    },
+    "correct": "A",
+    "explanation": "Với bài toán nhỏ (4-6 món như trong đề thi), cách tiếp cận thực dụng là liệt kê các tổ hợp khả thi có triển vọng cao rồi so sánh trực tiếp — đúng theo cách trình bày lời giải mẫu đề thi số 1, câu 2."
+  },
+  {
+    "id": 29,
+    "group": "NHÓM 3 — Bài toán cái túi: ví dụ số",
+    "type": "fill",
+    "image": null,
+    "question": "Bài toán chọn dự án đề thi mẫu số 1: vốn $(50,40,70,60)$, lợi nhuận $(80,60,100,90)$, ngân sách 150, ràng buộc $x_C\\le x_A$, $x_B+x_D\\le1$. Phương án tối ưu là chọn $A,C$, lợi nhuận tối đa là bao nhiêu?",
+    "answer": 180,
+    "answerType": "number",
+    "explanation": "$z^*=80+100=180$ triệu USD (chọn $A,C$; vốn dùng $50+70=120\\le150$) — đúng đáp số đề thi mẫu số 1.",
+    "tolerance": 0
+  },
+  {
+    "id": 30,
+    "group": "NHÓM 3 — Bài toán cái túi: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn bài toán chọn dự án đề thi mẫu số 1. Vì sao KHÔNG chọn cả 4 dự án $A,B,C,D$ dù không vi phạm ràng buộc logic riêng lẻ?",
+    "options": {
+      "A": "Vì số dự án tối đa cho phép là 2.",
+      "B": "Không có lý do gì, chọn cả 4 vẫn hợp lệ.",
+      "C": "Vì tổng vốn $50+40+70+60=220>150$.",
+      "D": "Vì lợi nhuận sẽ âm."
+    },
+    "correct": "C",
+    "explanation": "Hai lý do đồng thời: vượt ngân sách VÀ vi phạm ràng buộc loại trừ $B,D$ — cả hai ràng buộc đều phải kiểm tra khi đánh giá một tổ hợp có khả thi hay không."
+  },
+  {
+    "id": 31,
+    "group": "NHÓM 4 — Bài toán phân công (Assignment): mô hình hoá",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán phân công (Assignment Problem) $n\\times n$ có mô hình QHTT nhị phân:",
+    "options": {
+      "A": "$\\min\\sum_i\\sum_j c_{ij}x_{ij}$ s.t. $\\sum_jx_{ij}=1\\ \\forall i$, $\\sum_ix_{ij}=1\\ \\forall j$, $x_{ij}\\in\\{0,1\\}$.",
+      "B": "$\\max\\sum_ix_{ii}$.",
+      "C": "$\\min\\sum_ic_{ii}$.",
+      "D": "Không có ràng buộc nào."
+    },
+    "correct": "A",
+    "explanation": "Mô hình chuẩn: mỗi người (dòng $i$) được gán ĐÚNG 1 việc, mỗi việc (cột $j$) được nhận ĐÚNG 1 người — chính xác là trường hợp đặc biệt của bài toán vận tải với $a_i=b_j=1$."
+  },
+  {
+    "id": 32,
+    "group": "NHÓM 4 — Bài toán phân công (Assignment): mô hình hoá",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán phân công $n\\times n$ có tổng cộng bao nhiêu biến quyết định nhị phân?",
+    "options": {
+      "A": "$n$.",
+      "B": "$2n$.",
+      "C": "$n!$.",
+      "D": "$n^2$."
+    },
+    "correct": "D",
+    "explanation": "Đúng theo MCQ đề thi mẫu số 2: mỗi cặp (người $i$, việc $j$) là 1 biến $x_{ij}$, có $n\\times n=n^2$ cặp."
+  },
+  {
+    "id": 33,
+    "group": "NHÓM 4 — Bài toán phân công (Assignment): mô hình hoá",
+    "type": "mcq",
+    "image": null,
+    "question": "Số ràng buộc chính (không kể ràng buộc dấu/nhị phân) của bài toán phân công $n\\times n$ là:",
+    "options": {
+      "A": "$1$.",
+      "B": "$2n$ ($n$ ràng buộc \"mỗi người 1 việc\" $+$ $n$ ràng buộc \"mỗi việc 1 người\").",
+      "C": "$n^2$.",
+      "D": "$n$."
+    },
+    "correct": "B",
+    "explanation": "Giống hệt cấu trúc ràng buộc bài toán vận tải cân bằng $m\\times n$ (ở đây $m=n$): $m+n=2n$ ràng buộc chính."
+  },
+  {
+    "id": 34,
+    "group": "NHÓM 4 — Bài toán phân công (Assignment): mô hình hoá",
+    "type": "truefalse",
+    "image": null,
+    "question": "Đúng hay sai về mối liên hệ giữa bài toán phân công và bài toán vận tải?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Bài toán phân công là trường hợp ĐẶC BIỆT của bài toán vận tải với mọi $a_i=b_j=1$.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Vì vậy, bài toán phân công CŨNG có thể giải bằng thuật toán thế vị (chương V) hoặc thuật toán Hungary chuyên dụng (hiệu quả hơn cho cấu trúc đặc biệt này).",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Bài toán phân công không bao giờ có PACB suy biến.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — ngược lại, bài toán phân công LUÔN suy biến nghiêm trọng (vì $a_i=b_j=1$ nhỏ nhất có thể), đây chính là lý do cần thuật toán Hungary chuyên biệt thay vì áp dụng trực tiếp thuật toán thế vị (vốn xử lý suy biến kém hiệu quả hơn cho trường hợp này)."
+  },
+  {
+    "id": 35,
+    "group": "NHÓM 4 — Bài toán phân công (Assignment): mô hình hoá",
+    "type": "mcq",
+    "image": null,
+    "question": "Thuật toán Hungary (Hungarian Method) dùng để giải bài toán phân công dựa trên nguyên lý:",
+    "options": {
+      "A": "Cộng/trừ các hằng số vào từng hàng, từng cột của ma trận chi phí để tạo ra đủ số ô \"chi phí 0\" độc lập (không cùng hàng/cột).",
+      "B": "Không có nguyên lý cụ thể.",
+      "C": "Duyệt vét cạn $n!$ hoán vị.",
+      "D": "Giải trực tiếp bằng đồ thị."
+    },
+    "correct": "A",
+    "explanation": "Đây là liên hệ lý thuyết sâu sắc: thuật toán Hungary về bản chất dùng đúng nguyên lý \"Định lí 1\" (cộng hằng số vào dòng/cột không đổi tập PA tối ưu) đã học ở bài toán vận tải — chỉ là áp dụng có hệ thống hơn."
+  },
+  {
+    "id": 36,
+    "group": "NHÓM 4 — Bài toán phân công (Assignment): mô hình hoá",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu bài toán phân công KHÔNG vuông ($m$ người, $n$ việc, $m\\ne n$), cách xử lý chuẩn là:",
+    "options": {
+      "A": "Thêm \"người giả\" hoặc \"việc giả\" (dummy) với chi phí 0 để cân bằng thành ma trận vuông $\\max(m,n)\\times\\max(m,n)$, tương tự cách xử lý bài toán vận tải không cân bằng.",
+      "B": "Không thể giải được nếu không vuông.",
+      "C": "Đổi hàm mục tiêu.",
+      "D": "Bỏ bớt người/việc dư ra một cách tuỳ ý."
+    },
+    "correct": "A",
+    "explanation": "Hoàn toàn tương tự kỹ thuật \"trạm giả\" đã học ở bài toán vận tải không cân bằng — một minh chứng nữa cho việc bài toán phân công là trường hợp riêng của vận tải."
+  },
+  {
+    "id": 37,
+    "group": "NHÓM 4 — Bài toán phân công (Assignment): mô hình hoá",
+    "type": "mcq",
+    "image": null,
+    "question": "Ràng buộc $\\sum_jx_{ij}=1$ (với $i$ cố định) trong mô hình phân công có ý nghĩa:",
+    "options": {
+      "A": "Người $i$ được gán ĐÚNG 1 việc (không được gán 0 việc, không được gán nhiều hơn 1 việc).",
+      "B": "Tổng chi phí bằng 1.",
+      "C": "Không có ý nghĩa cụ thể.",
+      "D": "Việc $j$ có đúng 1 người làm."
+    },
+    "correct": "A",
+    "explanation": "Ràng buộc theo DÒNG $i$ (cộng theo $j$) luôn ứng với \"phía người/nguồn\" — đúng cấu trúc ràng buộc 2 chiều đã quen thuộc từ bài toán vận tải."
+  },
+  {
+    "id": 38,
+    "group": "NHÓM 4 — Bài toán phân công (Assignment): mô hình hoá",
+    "type": "fill",
+    "image": null,
+    "question": "Bài toán phân công $5\\times5$ có bao nhiêu biến quyết định nhị phân $x_{ij}$?",
+    "answer": 25,
+    "answerType": "number",
+    "explanation": "$n^2=5^2=25$.",
+    "tolerance": 0
+  },
+  {
+    "id": 39,
+    "group": "NHÓM 4 — Bài toán phân công (Assignment): mô hình hoá",
+    "type": "mcq",
+    "image": null,
+    "question": "So sánh bài toán phân công với bài toán TSP (người du lịch), điểm khác biệt căn bản là:",
+    "options": {
+      "A": "Hai bài toán hoàn toàn giống nhau.",
+      "B": "TSP không có biến nhị phân.",
+      "C": "Phân công không có ràng buộc \"loại chu trình con\" (subtour elimination/MTZ).",
+      "D": "Phân công luôn khó giải hơn TSP."
+    },
+    "correct": "C",
+    "explanation": "Đây là khác biệt cấu trúc quan trọng nhất: phân công chỉ cần \"ghép cặp\" (matching) hoàn hảo, trong khi TSP cần thêm ràng buộc đảm bảo lời giải là MỘT chu trình liên thông duy nhất (không tách thành nhiều chu trình con nhỏ) — đây là lý do TSP cần thêm ràng buộc MTZ mà phân công không cần."
+  },
+  {
+    "id": 40,
+    "group": "NHÓM 4 — Bài toán phân công (Assignment): mô hình hoá",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán phân công \"tối đa hoá lợi ích\" (thay vì tối thiểu chi phí, ví dụ gán nhân viên vào dự án để tối đa hiệu suất) có mô hình:",
+    "options": {
+      "A": "Cần thêm biến mới.",
+      "B": "Không thể mô hình hoá dạng phân công.",
+      "C": "Cần đổi hoàn toàn cấu trúc ràng buộc.",
+      "D": "Giống hệt mô hình chuẩn nhưng đổi $\\min$ thành $\\max$ (và $c_{ij}$ nay là \"lợi ích\" thay vì \"chi phí\")."
+    },
+    "correct": "D",
+    "explanation": "Chỉ cần đổi chiều tối ưu hoá hàm mục tiêu — cấu trúc ràng buộc \"mỗi người 1 việc, mỗi việc 1 người\" hoàn toàn không đổi bất kể mục tiêu min hay max."
+  },
+  {
+    "id": 41,
+    "group": "NHÓM 5 — Bài toán phân công: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán phân công 3 lập trình viên $E_1,E_2,E_3$ — 3 dự án $T_1,T_2,T_3$, chi phí $C=\\begin{pmatrix}9&2&7\\\\6&4&3\\\\5&8&1\\end{pmatrix}$. Phương án tối ưu (giải bằng Hungary) là:",
+    "options": {
+      "A": "$E_1\\to T_2(2), E_2\\to T_3(3), E_3\\to T_1(5)$, tổng $=10$.",
+      "B": "$E_1\\to T_3(7), E_2\\to T_1(6), E_3\\to T_2(8)$, tổng $=21$.",
+      "C": "$E_1\\to T_2(2), E_2\\to T_1(6), E_3\\to T_3(1)$, tổng $=9$.",
+      "D": "$E_1\\to T_1(9), E_2\\to T_2(4), E_3\\to T_3(1)$, tổng $=14$."
+    },
+    "correct": "C",
+    "explanation": "Đúng đáp số đề thi mẫu số 2: $z^*=2+6+1=9$ triệu đồng — phương án nhỏ nhất trong các hoán vị khả dĩ."
+  },
+  {
+    "id": 42,
+    "group": "NHÓM 5 — Bài toán phân công: ví dụ số",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn bài toán trên. Kiểm tra: có tổng cộng bao nhiêu cách gán khác nhau (hoán vị) có thể xảy ra cho bài toán $3\\times3$ này (để hiểu vì sao cần thuật toán thay vì thử hết)?",
+    "answer": 6,
+    "answerType": "number",
+    "explanation": "$3!=6$ hoán vị — với $n=3$ vẫn có thể thử hết bằng tay, nhưng với $n$ lớn hơn ($n!$ tăng cực nhanh) bắt buộc cần thuật toán Hungary.",
+    "tolerance": 0
+  },
+  {
+    "id": 43,
+    "group": "NHÓM 5 — Bài toán phân công: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán phân công $4\\times4$ mới: $C=\\begin{pmatrix}9&2&7&8\\\\6&4&3&7\\\\5&8&1&8\\\\7&6&9&4\\end{pmatrix}$. Giải bằng thuật toán Hungary (đã kiểm chứng bằng scipy), phương án tối ưu là:",
+    "options": {
+      "A": "$1\\to3(7),2\\to4(7),3\\to1(5),4\\to2(6)$, tổng $=25$.",
+      "B": "$1\\to4(8),2\\to3(3),3\\to2(8),4\\to1(7)$, tổng $=26$.",
+      "C": "$1\\to2(2), 2\\to1(6), 3\\to3(1), 4\\to4(4)$, tổng $=13$.",
+      "D": "$1\\to1(9),2\\to2(4),3\\to3(1),4\\to4(4)$, tổng $=18$."
+    },
+    "correct": "C",
+    "explanation": "Đã kiểm chứng bằng `scipy.optimize.linear_sum_assignment`: gán $(1{\\to}2,2{\\to}1,3{\\to}3,4{\\to}4)$, tổng chi phí $=2+6+1+4=13$ — nhỏ nhất có thể."
+  },
+  {
+    "id": 44,
+    "group": "NHÓM 5 — Bài toán phân công: ví dụ số",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn bài toán $4\\times4$ trên. Tính tổng chi phí phương án tối ưu: $C_{12}+C_{21}+C_{33}+C_{44}=2+6+1+4$.",
+    "answer": 13,
+    "answerType": "number",
+    "explanation": "$2+6+1+4=13$ — khớp kết quả thuật toán Hungary.",
+    "tolerance": 0
+  },
+  {
+    "id": 45,
+    "group": "NHÓM 5 — Bài toán phân công: ví dụ số",
+    "type": "truefalse",
+    "image": null,
+    "question": "Vẫn bài toán phân công $4\\times4$ trên (tối ưu: $1{\\to}2,2{\\to}1,3{\\to}3,4{\\to}4$, tổng 13). Đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Nhân viên 4 được gán đúng công việc có chi phí THẤP NHẤT trong hàng của mình (hàng 4: $7,6,9,4$ — nhỏ nhất là 4, ứng cột 4).",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Mọi nhân viên đều được gán công việc có chi phí thấp nhất trong hàng của họ.",
+        "correct": false
+      },
+      {
+        "label": "c",
+        "text": "Đây là một phép \"ghép cặp hoàn hảo\" (perfect matching) — mỗi nhân viên đúng 1 việc, mỗi việc đúng 1 nhân viên, không trùng lặp.",
+        "correct": true
+      }
+    ],
+    "explanation": "Ý (b) sai: nhân viên 1 (hàng $9,2,7,8$) được gán việc 2 (chi phí 2, đúng nhỏ nhất hàng 1) NHƯNG nhân viên 3 (hàng $5,8,1,8$) được gán việc 3 (chi phí 1, đúng nhỏ nhất) — thực ra ở đây tất cả ĐỀU trùng với nhỏ nhất hàng, nhưng đây là trường hợp đặc biệt của bộ số liệu này, KHÔNG phải quy luật chung của bài toán phân công (chọn nhỏ nhất từng hàng độc lập thường VI PHẠM ràng buộc cột duy nhất, cần thuật toán Hungary để cân đối)."
+  },
+  {
+    "id": 46,
+    "group": "NHÓM 5 — Bài toán phân công: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu chỉ chọn \"nhỏ nhất mỗi hàng\" một cách độc lập (không quan tâm ràng buộc cột) cho bài toán phân công tổng quát, kết quả thường:",
+    "options": {
+      "A": "Luôn cho đúng phương án tối ưu.",
+      "B": "Luôn nhanh hơn Hungary mà vẫn đúng.",
+      "C": "VI PHẠM ràng buộc \"mỗi việc chỉ 1 người\" (có thể 2 người cùng chọn 1 việc).",
+      "D": "Không có vấn đề gì."
+    },
+    "correct": "C",
+    "explanation": "Một sai lầm phổ biến của người mới học: tưởng rằng chọn nhỏ nhất từng hàng là đủ — thực tế cần đảm bảo TOÀN BỘ là một phép ghép cặp hợp lệ (không trùng cột), đòi hỏi thuật toán chuyên biệt."
+  },
+  {
+    "id": 47,
+    "group": "NHÓM 5 — Bài toán phân công: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán phân công 3 lập trình viên/3 dự án (đề thi mẫu số 2). Nếu $E_2$ KHÔNG THỂ làm $T_3$ (ràng buộc bổ sung, coi như \"ô cấm\"), cách xử lý:",
+    "options": {
+      "A": "Xoá hẳn lập trình viên $E_2$ khỏi bài toán.",
+      "B": "Không thể xử lý được.",
+      "C": "Bài toán trở nên vô nghiệm ngay lập tức.",
+      "D": "Đặt $c_{23}=M$ (số rất lớn) trong ma trận chi phí, giải lại bằng Hungary bình thường."
+    },
+    "correct": "D",
+    "explanation": "Lại một lần nữa khẳng định: bài toán phân công thừa hưởng TOÀN BỘ kỹ thuật xử lý các trường hợp đặc biệt đã học ở bài toán vận tải (ô cấm, không cân bằng...) vì nó là trường hợp riêng."
+  },
+  {
+    "id": 48,
+    "group": "NHÓM 5 — Bài toán phân công: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Độ phức tạp tính toán của thuật toán Hungary cho bài toán $n\\times n$ là $O(n^3)$ — so với duyệt vét cạn $O(n!)$, với $n=10$:",
+    "options": {
+      "A": "Cả hai đều nhanh như nhau.",
+      "B": "Hungary không áp dụng được khi $n=10$.",
+      "C": "Vét cạn luôn nhanh hơn.",
+      "D": "Hungary cần khoảng $10^3=1000$ bước tính, trong khi vét cạn cần $10!=3628800$ bước."
+    },
+    "correct": "D",
+    "explanation": "Một minh hoạ định lượng thuyết phục cho tầm quan trọng của thuật toán chuyên dụng khi kích thước bài toán tăng — đúng tinh thần môn Vận trù học: tìm thuật toán hiệu quả thay vì vét cạn ngây thơ."
+  },
+  {
+    "id": 49,
+    "group": "NHÓM 5 — Bài toán phân công: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu ma trận chi phí phân công có 2 phương án tối ưu khác nhau nhưng CÙNG tổng chi phí nhỏ nhất, kết luận:",
+    "options": {
+      "A": "Phải chọn phương án có chỉ số nhỏ nhất.",
+      "B": "Không thể xảy ra với bài toán phân công.",
+      "C": "Bài toán có nhiều phương án tối ưu.",
+      "D": "Đây là lỗi tính toán, chỉ có 1 phương án đúng."
+    },
+    "correct": "C",
+    "explanation": "Hiện tượng nhiều nghiệm tối ưu là phổ biến trong QHTT nói chung (bao gồm cả trường hợp riêng là bài toán phân công) — không có gì bất thường."
+  },
+  {
+    "id": 50,
+    "group": "NHÓM 5 — Bài toán phân công: ví dụ số",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng ý tưởng các bước chính của thuật toán Hungary khi giải bài toán phân công (mô tả khái quát):",
+    "items": [
+      {
+        "id": "h1",
+        "text": "Trừ số nhỏ nhất mỗi HÀNG khỏi mọi phần tử trong hàng đó (tạo ít nhất 1 số 0 mỗi hàng)"
+      },
+      {
+        "id": "h2",
+        "text": "Trừ số nhỏ nhất mỗi CỘT khỏi mọi phần tử trong cột đó (tạo ít nhất 1 số 0 mỗi cột)"
+      },
+      {
+        "id": "h3",
+        "text": "Tìm cách gán chỉ dùng các ô có giá trị 0, sao cho mỗi hàng/cột đúng 1 ô được chọn"
+      },
+      {
+        "id": "h4",
+        "text": "Nếu chưa gán đủ $n$ cặp, điều chỉnh ma trận (kẻ đường phủ số 0, cộng/trừ tiếp) rồi lặp lại bước 3"
+      }
+    ],
+    "correctOrder": [
+      "h1",
+      "h2",
+      "h3",
+      "h4"
+    ],
+    "explanation": "Đây là ý tưởng khái quát 4 bước của thuật toán Hungary — dựa trên nguyên lý \"đổi cước phí không đổi tập PA tối ưu\" (trừ hằng số theo hàng/cột), lặp lại tới khi tìm được phép gán hoàn chỉnh chỉ dùng ô chi phí 0."
+  },
+  {
+    "id": 51,
+    "group": "NHÓM 6 — Bài toán người du lịch (TSP) & ràng buộc MTZ",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán người du lịch (TSP) yêu cầu tìm:",
+    "options": {
+      "A": "Một chu trình (tour) đi qua TẤT CẢ các thành phố, mỗi thành phố ĐÚNG 1 lần, quay về điểm xuất phát, với tổng chi phí/khoảng cách nhỏ nhất.",
+      "B": "Luồng cực đại giữa các thành phố.",
+      "C": "Cây khung nhỏ nhất nối các thành phố.",
+      "D": "Đường đi ngắn nhất giữa 2 thành phố bất kỳ (không cần quay lại)."
+    },
+    "correct": "A",
+    "explanation": "Định nghĩa chuẩn của TSP — khác với bài toán đường đi ngắn nhất (chỉ 2 điểm) hay MST (không cần chu trình khép kín, không cần đi qua từng đỉnh đúng 1 lần theo thứ tự)."
+  },
+  {
+    "id": 52,
+    "group": "NHÓM 6 — Bài toán người du lịch (TSP) & ràng buộc MTZ",
+    "type": "mcq",
+    "image": null,
+    "question": "Mô hình QHTT nhị phân cơ bản của TSP ($n$ thành phố) có ràng buộc \"mỗi thành phố đúng 1 tuyến đến và đúng 1 tuyến đi\":",
+    "options": {
+      "A": "$\\sum_{i,j}x_{ij}=n$.",
+      "B": "Chỉ cần 1 ràng buộc duy nhất.",
+      "C": "Không cần ràng buộc nào về bậc đỉnh.",
+      "D": "$\\sum_jx_{ij}=1\\ \\forall i$ và $\\sum_ix_{ij}=1\\ \\forall j$."
+    },
+    "correct": "D",
+    "explanation": "Về mặt cấu trúc \"mỗi đỉnh đúng 1 cạnh vào, đúng 1 cạnh ra\", TSP có ràng buộc giống bài toán phân công — NHƯNG chỉ riêng ràng buộc này CHƯA đủ để đảm bảo lời giải là 1 chu trình duy nhất (có thể tách thành nhiều chu trình con nhỏ)."
+  },
+  {
+    "id": 53,
+    "group": "NHÓM 6 — Bài toán người du lịch (TSP) & ràng buộc MTZ",
+    "type": "mcq",
+    "image": null,
+    "question": "Vấn đề \"chu trình con\" (subtour) trong TSP là:",
+    "options": {
+      "A": "Chu trình đi qua ít thành phố hơn yêu cầu và được chấp nhận.",
+      "B": "Chỉ xảy ra khi $n<3$.",
+      "C": "Không phải vấn đề gì đáng lo ngại.",
+      "D": "Hiện tượng lời giải chỉ thoả ràng buộc bậc đỉnh (mỗi đỉnh 1 vào 1 ra) nhưng bị TÁCH thành 2 hay nhiều chu trình nhỏ riêng biệt, thay vì 1 chu trình lớn duy nhất đi qua tất cả đỉnh."
+    },
+    "correct": "D",
+    "explanation": "Đây chính là lý do cần thêm ràng buộc \"loại chu trình con\" (subtour elimination) — nếu không có, thuật toán có thể trả về ví dụ 2 chu trình nhỏ tách biệt thay vì 1 tour lớn hợp lệ."
+  },
+  {
+    "id": 54,
+    "group": "NHÓM 6 — Bài toán người du lịch (TSP) & ràng buộc MTZ",
+    "type": "mcq",
+    "image": null,
+    "question": "Ràng buộc Miller-Tucker-Zemlin (MTZ) dùng biến phụ $u_i$ với mục đích chính:",
+    "options": {
+      "A": "Đảm bảo mỗi thành phố có toạ độ dương.",
+      "B": "Loại bỏ các chu trình con (subtour elimination).",
+      "C": "Giảm chi phí di chuyển trực tiếp.",
+      "D": "Biến bài toán thành liên tục hoàn toàn."
+    },
+    "correct": "B",
+    "explanation": "Đúng theo MCQ đề thi mẫu số 4 — đây là câu hỏi rất hay gặp trong đề thi."
+  },
+  {
+    "id": 55,
+    "group": "NHÓM 6 — Bài toán người du lịch (TSP) & ràng buộc MTZ",
+    "type": "mcq",
+    "image": null,
+    "question": "Dạng ràng buộc MTZ tổng quát ($n$ thành phố, $i,j=2,\\dots,n$, $i\\ne j$) là:",
+    "options": {
+      "A": "$u_i=u_j$.",
+      "B": "$u_i-u_j+nx_{ij}\\le n-1$.",
+      "C": "$u_i+u_j\\ge n$.",
+      "D": "$x_{ij}=u_i$."
+    },
+    "correct": "B",
+    "explanation": "Đây là dạng tổng quát chuẩn của ràng buộc MTZ; với $n=4$ thành phố, ràng buộc thu gọn thành $u_i-u_j+4x_{ij}\\le3$ — đúng như đề thi mẫu số 4 đã dùng."
+  },
+  {
+    "id": 56,
+    "group": "NHÓM 6 — Bài toán người du lịch (TSP) & ràng buộc MTZ",
+    "type": "truefalse",
+    "image": null,
+    "question": "Đúng hay sai về ràng buộc MTZ trong TSP?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Biến $u_i$ có thể diễn giải như \"thứ tự thăm\" thành phố $i$ trong tour (ví dụ $u_i=3$ nghĩa là thành phố $i$ được thăm ở vị trí thứ 3).",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Ràng buộc MTZ chỉ cần áp dụng cho $i,j$ khác thành phố xuất phát (thường bỏ qua đỉnh 1).",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "MTZ là cách DUY NHẤT để loại chu trình con, không còn kỹ thuật nào khác.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — còn có các kỹ thuật khác như ràng buộc loại trừ chu trình con dạng tường minh $\\sum_{i,j\\in S}x_{ij}\\le|S|-1$ (tương tự MST đã học ở chương Network Model), MTZ chỉ là một cách tiếp cận phổ biến (dùng ít ràng buộc hơn khi $n$ lớn)."
+  },
+  {
+    "id": 57,
+    "group": "NHÓM 6 — Bài toán người du lịch (TSP) & ràng buộc MTZ",
+    "type": "mcq",
+    "image": null,
+    "question": "Số biến quyết định nhị phân $x_{ij}$ của mô hình TSP cơ bản với $n$ thành phố (có hướng, $i\\ne j$) là:",
+    "options": {
+      "A": "$n^2$.",
+      "B": "$n(n-1)$.",
+      "C": "$n$.",
+      "D": "$\\binom{n}{2}$."
+    },
+    "correct": "B",
+    "explanation": "Với đồ thị có hướng, mỗi cặp thứ tự $(i,j)$, $i\\ne j$ là 1 biến — có $n(n-1)$ cặp như vậy (khác với đồ thị vô hướng chỉ có $\\binom{n}{2}$)."
+  },
+  {
+    "id": 58,
+    "group": "NHÓM 6 — Bài toán người du lịch (TSP) & ràng buộc MTZ",
+    "type": "fill",
+    "image": null,
+    "question": "TSP với $n=6$ thành phố (có hướng). Tính số biến quyết định $x_{ij}$ ($n(n-1)$).",
+    "answer": 30,
+    "answerType": "number",
+    "explanation": "$n(n-1)=6\\times5=30$.",
+    "tolerance": 0
+  },
+  {
+    "id": 59,
+    "group": "NHÓM 6 — Bài toán người du lịch (TSP) & ràng buộc MTZ",
+    "type": "mcq",
+    "image": null,
+    "question": "Độ phức tạp của TSP (bài toán NP-khó) khi tăng số thành phố $n$ so với bài toán phân công ($n\\times n$, giải được trong $O(n^3)$ bằng Hungary):",
+    "options": {
+      "A": "TSP luôn giải được tức thời với mọi $n$.",
+      "B": "Hai bài toán có cùng độ phức tạp.",
+      "C": "TSP luôn dễ hơn bài toán phân công.",
+      "D": "TSP khó hơn nhiều."
+    },
+    "correct": "D",
+    "explanation": "Một trong những khác biệt lý thuyết quan trọng nhất: dù cấu trúc ràng buộc bậc đỉnh giống phân công, ràng buộc \"1 chu trình duy nhất\" (MTZ/subtour) làm TSP trở thành bài toán NP-khó — khác hẳn độ phức tạp đa thức của phân công."
+  },
+  {
+    "id": 60,
+    "group": "NHÓM 6 — Bài toán người du lịch (TSP) & ràng buộc MTZ",
+    "type": "mcq",
+    "image": null,
+    "question": "Với TSP $n$ thành phố, số chu trình (tour) khả dĩ khác nhau (cố định điểm xuất phát, không phân biệt chiều) là:",
+    "options": {
+      "A": "$n!$.",
+      "B": "$\\dfrac{(n-1)!}{2}$.",
+      "C": "$n$.",
+      "D": "$2^n$."
+    },
+    "correct": "B",
+    "explanation": "Cố định 1 điểm xuất phát: $(n-1)!$ cách sắp xếp $n-1$ thành phố còn lại; chia 2 vì mỗi tour có thể đi theo 2 chiều (thuận/nghịch) cho cùng 1 chu trình vật lý."
+  },
+  {
+    "id": 61,
+    "group": "NHÓM 7 — TSP: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "TSP 4 địa điểm (đề thi mẫu số 4): $C=\\begin{pmatrix}0&10&15&20\\\\10&0&35&25\\\\15&35&0&30\\\\20&25&30&0\\end{pmatrix}$. Chu trình tối ưu (đã kiểm chứng bằng duyệt vét cạn) là:",
+    "options": {
+      "A": "$1\\to2\\to3\\to4\\to1$, chi phí $=95$.",
+      "B": "$1\\to3\\to2\\to4\\to1$, chi phí $=95$.",
+      "C": "$1\\to2\\to4\\to3\\to1$, chi phí $=80$.",
+      "D": "$1\\to4\\to2\\to3\\to1$, chi phí $=90$."
+    },
+    "correct": "C",
+    "explanation": "Đã kiểm chứng bằng thuật toán duyệt vét cạn (brute force, chỉ 3 hoán vị khả dĩ với $n=4$): tour $1{\\to}2{\\to}4{\\to}3{\\to}1$ cho chi phí nhỏ nhất $=10+25+30+15=80$ — khớp đúng đáp số đề thi mẫu số 4."
+  },
+  {
+    "id": 62,
+    "group": "NHÓM 7 — TSP: ví dụ số",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn bài toán trên. Tính chi phí tour $1\\to2\\to4\\to3\\to1$: $c_{12}+c_{24}+c_{43}+c_{31}=10+25+30+15$.",
+    "answer": 80,
+    "answerType": "number",
+    "explanation": "$10+25+30+15=80$.",
+    "tolerance": 0
+  },
+  {
+    "id": 63,
+    "group": "NHÓM 7 — TSP: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn bài toán TSP 4 địa điểm. Vì $n=4$ khá nhỏ, có thể giải bằng cách:",
+    "options": {
+      "A": "Bắt buộc phải dùng MTZ và giải bằng phần mềm chuyên dụng.",
+      "B": "Duyệt vét cạn: chỉ có $(4-1)!/2=3$ chu trình khác nhau cần so sánh.",
+      "C": "Cần duyệt $4!=24$ trường hợp.",
+      "D": "Không thể giải được nếu không có máy tính."
+    },
+    "correct": "B",
+    "explanation": "Với $n=4$: $(4-1)!/2=3$ chu trình — hoàn toàn có thể liệt kê và so sánh trực tiếp bằng tay, đây chính là cách giải thực dụng cho bài toán thi cử."
+  },
+  {
+    "id": 64,
+    "group": "NHÓM 7 — TSP: ví dụ số",
+    "type": "truefalse",
+    "image": null,
+    "question": "Vẫn bài toán TSP 4 địa điểm, 3 chu trình khả dĩ là $1{-}2{-}3{-}4{-}1$ ($10+35+30+20=95$), $1{-}2{-}4{-}3{-}1$ ($10+25+30+15=80$), $1{-}3{-}2{-}4{-}1$ ($15+35+25+20=95$). Đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Chu trình $1{-}2{-}4{-}3{-}1$ có chi phí thấp nhất trong 3 chu trình.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Hai chu trình còn lại có chi phí bằng nhau (đều $=95$), một sự trùng hợp của bộ số liệu này.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Chu trình tối ưu luôn là chu trình có thứ tự chỉ số thành phố tăng dần ($1{-}2{-}3{-}4{-}1$).",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — đây là hiểu lầm phổ biến: thứ tự chỉ số KHÔNG liên quan gì tới tối ưu, chu trình tối ưu phụ thuộc hoàn toàn vào ma trận chi phí cụ thể (ở đây $1{-}2{-}4{-}3{-}1$ mới là tối ưu, không phải thứ tự tăng dần)."
+  },
+  {
+    "id": 65,
+    "group": "NHÓM 7 — TSP: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn bài toán TSP 4 địa điểm, dùng MTZ ($u_i-u_j+4x_{ij}\\le3$). Ràng buộc này áp dụng cho các cặp $(i,j)$ nào?",
+    "options": {
+      "A": "$i,j\\in\\{2,3,4\\}$, $i\\ne j$ (bỏ qua đỉnh xuất phát 1).",
+      "B": "Không cần chỉ rõ, áp dụng ngẫu nhiên.",
+      "C": "Mọi cặp $(i,j)$ kể cả $i=1$ hoặc $j=1$.",
+      "D": "Chỉ cặp $(1,j)$."
+    },
+    "correct": "A",
+    "explanation": "MTZ chuẩn chỉ áp dụng cho các đỉnh KHÔNG PHẢI điểm xuất phát (thường đánh số 1) — đỉnh xuất phát không cần biến $u_1$ vì nó luôn ở \"vị trí gốc\" của tour."
+  },
+  {
+    "id": 66,
+    "group": "NHÓM 7 — TSP: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu nhân viên giao hàng ở TSP trên xuất phát từ địa điểm $2$ thay vì $1$ (đi hết 4 điểm, quay về điểm 2), chu trình tối ưu (chi phí nhỏ nhất) sẽ:",
+    "options": {
+      "A": "Bài toán không giải được nếu đổi điểm xuất phát.",
+      "B": "Vẫn là chu trình vật lý $1{-}2{-}4{-}3{-}1$ (chỉ đổi điểm bắt đầu liệt kê thành $2{-}4{-}3{-}1{-}2$), chi phí không đổi $=80$.",
+      "C": "Chi phí tăng gấp đôi.",
+      "D": "Chi phí sẽ khác hoàn toàn."
+    },
+    "correct": "B",
+    "explanation": "Bản chất chu trình (cycle) không phụ thuộc điểm bắt đầu liệt kê — đi vòng quanh cùng 1 chu trình từ bất kỳ điểm nào cũng cho cùng tổng chi phí."
+  },
+  {
+    "id": 67,
+    "group": "NHÓM 7 — TSP: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "So sánh TSP 4 địa điểm với bài toán phân công $4\\times4$ (cùng đã giải ở NHÓM 5, $z^*=13$) và bài toán cái túi (NHÓM 3, giá trị 270), điểm chung của cả 3 là:",
+    "options": {
+      "A": "Không có điểm chung nào.",
+      "B": "Cả 3 bài toán hoàn toàn giống nhau về thuật toán giải.",
+      "C": "Cả 3 đều giải bằng phương pháp đồ thị.",
+      "D": "Đều là bài toán tối ưu hoá tổ hợp (combinatorial optimization) với biến quyết định nhị phân, nhưng độ khó thuật toán khác nhau rõ rệt: phân công dễ nhất (đa thức), cái túi trung bình (giả đa thức qua DP), TSP khó nhất (NP-khó)."
+    },
+    "correct": "D",
+    "explanation": "Đây là bài học tổng hợp quan trọng của cả chương QHTT nhị phân: cùng \"họ\" bài toán (biến 0-1) nhưng độ phức tạp thuật toán rất khác nhau tuỳ cấu trúc ràng buộc cụ thể."
+  },
+  {
+    "id": 68,
+    "group": "NHÓM 7 — TSP: ví dụ số",
+    "type": "fill",
+    "image": null,
+    "question": "TSP 4 địa điểm. Nếu đổi ma trận sao cho $c_{34}$ giảm từ 30 xuống 10 (các hệ số khác giữ nguyên), chu trình $1{-}2{-}4{-}3{-}1$ có chi phí mới là bao nhiêu? ($10+25+10+15$)",
+    "answer": 60,
+    "answerType": "number",
+    "explanation": "$c_{12}+c_{24}+c_{43}+c_{31}=10+25+10+15=60$ — giảm đúng bằng phần giảm của $c_{34}$ ($30\\to10$, giảm 20).",
+    "tolerance": 0
+  },
+  {
+    "id": 69,
+    "group": "NHÓM 7 — TSP: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong thực hành thi cử, cách trình bày \"tìm chu trình tối ưu TSP nhỏ (4-5 điểm)\" hiệu quả nhất là:",
+    "options": {
+      "A": "Liệt kê đầy đủ các chu trình khả dĩ khác nhau (dùng công thức $(n-1)!/2$), tính chi phí từng chu trình, so sánh trực tiếp.",
+      "B": "Đoán ngẫu nhiên 1 chu trình bất kỳ.",
+      "C": "Luôn phải giải đầy đủ mô hình MTZ bằng bảng đơn hình.",
+      "D": "Không thể tìm được nếu không có phần mềm."
+    },
+    "correct": "A",
+    "explanation": "Với $n$ nhỏ (4-5 điểm như đề thi thường ra), vét cạn trực tiếp nhanh và chắc chắn đúng hơn nhiều so với thiết lập mô hình MTZ đầy đủ rồi giải — mô hình MTZ chủ yếu có giá trị LÝ THUYẾT (câu hỏi mô hình hoá) hơn là công cụ tính tay."
+  },
+  {
+    "id": 70,
+    "group": "NHÓM 7 — TSP: ví dụ số",
+    "type": "mcq",
+    "image": null,
+    "question": "Ý nghĩa thực tế của bài toán TSP (ngoài ví dụ giao hàng) còn ứng dụng trong:",
+    "options": {
+      "A": "Không có ứng dụng thực tế nào khác.",
+      "B": "Chỉ dùng trong các cuộc thi lập trình.",
+      "C": "Lập lịch gia công trên máy CNC (thứ tự khoan các lỗ để giảm thời gian di chuyển đầu khoan), thiết kế mạch điện tử, giải trình tự gen...",
+      "D": "Chỉ ứng dụng được cho giao hàng."
+    },
+    "correct": "C",
+    "explanation": "TSP là một trong những bài toán tối ưu hoá tổ hợp có phạm vi ứng dụng rộng nhất trong Vận trù học — vượt xa ví dụ \"người du lịch\" ban đầu."
+  },
+  {
+    "id": 71,
+    "group": "NHÓM 8 — Fixed-charge & chọn địa điểm kho bãi",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán \"chi phí cố định\" (fixed-charge problem) là dạng bài toán trong đó:",
+    "options": {
+      "A": "Chi phí luôn bằng 0.",
+      "B": "Chi phí gồm 2 phần: chi phí CỐ ĐỊNH $F_i$ (chỉ phát sinh nếu \"mở\" phương án $i$, không phụ thuộc quy mô) $+$ chi phí BIẾN ĐỔI (tỉ lệ với mức hoạt động).",
+      "C": "Không liên quan gì tới biến nhị phân.",
+      "D": "Chỉ có chi phí biến đổi, không có chi phí cố định."
+    },
+    "correct": "B",
+    "explanation": "Đây là dạng bài toán rất phổ biến trong thực tế (mở nhà máy, mở kho, mở tuyến bay...) — kết hợp biến nhị phân (quyết định mở/không) với biến liên tục (mức độ hoạt động nếu mở)."
+  },
+  {
+    "id": 72,
+    "group": "NHÓM 8 — Fixed-charge & chọn địa điểm kho bãi",
+    "type": "mcq",
+    "image": null,
+    "question": "Công ty Logistics xem xét mở tối đa 3 kho $L_1,L_2,L_3$ với chi phí cố định $F_1=100,F_2=120,F_3=90$ (triệu đồng). Biến $y_i\\in\\{0,1\\}$ (mở kho $i$) đóng góp vào hàm mục tiêu:",
+    "options": {
+      "A": "Không đóng góp vào hàm mục tiêu.",
+      "B": "$100y_1+120y_2+90y_3$ (chỉ tính chi phí của những kho THỰC SỰ mở, $y_i=1$).",
+      "C": "$100y_1\\cdot120y_2\\cdot90y_3$.",
+      "D": "$100+120+90=310$ cố định dù có mở kho nào hay không."
+    },
+    "correct": "B",
+    "explanation": "Đúng bản chất biến nhị phân: chi phí cố định của kho $i$ chỉ \"kích hoạt\" vào tổng chi phí khi $y_i=1$ (kho đó thực sự được mở)."
+  },
+  {
+    "id": 73,
+    "group": "NHÓM 8 — Fixed-charge & chọn địa điểm kho bãi",
+    "type": "mcq",
+    "image": null,
+    "question": "Ràng buộc \"nếu kho $L_i$ không mở ($y_i=0$) thì không được vận chuyển hàng qua nó\" ($\\sum_jx_{ij}\\le100y_i$) là dạng ràng buộc:",
+    "options": {
+      "A": "Big-M constraint (liên kết biến nhị phân $y_i$ với biến liên tục $x_{ij}$).",
+      "B": "Không có tác dụng logic gì.",
+      "C": "Ràng buộc cân bằng cung cầu.",
+      "D": "Ràng buộc dấu thông thường."
+    },
+    "correct": "A",
+    "explanation": "Số 100 ở đây đóng vai trò \"$M$\" (đủ lớn, bằng đúng công suất tối đa của kho) — khi $y_i=0$, ràng buộc ép toàn bộ lượng hàng qua kho đó về 0."
+  },
+  {
+    "id": 74,
+    "group": "NHÓM 8 — Fixed-charge & chọn địa điểm kho bãi",
+    "type": "fill",
+    "image": null,
+    "question": "Công ty Logistics (đề thi mẫu số 3): mở kho $L_1,L_2$ ($F_1=100,F_2=120$), chi phí vận chuyển tối ưu $=2(50)+2(70)=100+140=240$. Tổng chi phí (cố định $+$ vận chuyển) $z^*=100+120+240$?",
+    "answer": 460,
+    "answerType": "number",
+    "explanation": "$z^*=100+120+240=460$ triệu đồng — khớp đúng đáp số đề thi mẫu số 3, câu 2.",
+    "tolerance": 0
+  },
+  {
+    "id": 75,
+    "group": "NHÓM 8 — Fixed-charge & chọn địa điểm kho bãi",
+    "type": "truefalse",
+    "image": null,
+    "question": "Vẫn bài toán Logistics trên (mở $L_1,L_2$, không mở $L_3$; $z^*=460$). Đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Dù $L_3$ có chi phí cố định THẤP NHẤT ($F_3=90$, thấp hơn cả $L_1=100$ và $L_2=120$), nó vẫn không được mở — vì quyết định còn phụ thuộc cả chi phí vận chuyển, không chỉ chi phí cố định.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Việc mở kho luôn nên ưu tiên kho có chi phí cố định thấp nhất.",
+        "correct": false
+      },
+      {
+        "label": "c",
+        "text": "Bài toán này là sự kết hợp giữa QHTT nhị phân (quyết định mở kho) và bài toán vận tải (phân phối hàng từ kho đã mở).",
+        "correct": true
+      }
+    ],
+    "explanation": "Ý (b) sai — chính xác là bài học rút ra từ ý (a): quyết định tối ưu phải xét TỔNG chi phí (cố định $+$ vận chuyển), không thể chỉ nhìn 1 thành phần. Đây là bài toán \"lai\" kết hợp 2 loại mô hình đã học."
+  },
+  {
+    "id": 76,
+    "group": "NHÓM 8 — Fixed-charge & chọn địa điểm kho bãi",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu công ty Logistics buộc phải mở ÍT NHẤT 2 trong 3 kho (ràng buộc bổ sung), ràng buộc này viết là:",
+    "options": {
+      "A": "$y_1+y_2+y_3\\ge2$.",
+      "B": "$y_1\\cdot y_2\\cdot y_3\\ge2$.",
+      "C": "$y_1=y_2=y_3$.",
+      "D": "$y_1+y_2+y_3\\le2$."
+    },
+    "correct": "A",
+    "explanation": "Ràng buộc \"ít nhất $k$ trong $n$\" luôn viết dạng $\\sum y_i\\ge k$ — tương tự cú pháp đã học ở NHÓM 1."
+  },
+  {
+    "id": 77,
+    "group": "NHÓM 8 — Fixed-charge & chọn địa điểm kho bãi",
+    "type": "mcq",
+    "image": null,
+    "question": "So sánh bài toán fixed-charge (chọn kho) với bài toán chọn dự án (Câu 2 đề thi, Knapsack-style), điểm khác biệt chính là:",
+    "options": {
+      "A": "Chọn dự án luôn có biến liên tục.",
+      "B": "Hai bài toán hoàn toàn giống nhau.",
+      "C": "Fixed-charge không có biến nhị phân.",
+      "D": "Fixed-charge kết hợp CẢ biến nhị phân (mở/không) LẪN biến liên tục (lượng hàng vận chuyển) trong cùng 1 mô hình; bài toán chọn dự án/cái túi thường chỉ có biến nhị phân."
+    },
+    "correct": "D",
+    "explanation": "Đây là điểm phân biệt cấu trúc quan trọng giữa các \"họ\" bài toán BIP đã học — không phải mọi bài toán BIP đều thuần nhị phân, nhiều bài toán thực tế là \"mixed-integer\" (hỗn hợp nguyên và liên tục)."
+  },
+  {
+    "id": 78,
+    "group": "NHÓM 8 — Fixed-charge & chọn địa điểm kho bãi",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong ràng buộc \"nếu $L_i$ được mở thì cung cấp tối đa 100 đơn vị\" ($\\sum_jx_{ij}\\le100y_i$), nếu ta VÔ TÌNH đặt $M$ (ở đây là 100) NHỎ HƠN nhu cầu thực tế cần đáp ứng, hậu quả là:",
+    "options": {
+      "A": "Luôn cho kết quả đúng bất kể $M$ lớn hay nhỏ.",
+      "B": "Không có hậu quả gì.",
+      "C": "Mô hình có thể trở nên vô nghiệm dù thực tế bài toán gốc có nghiệm hợp lý.",
+      "D": "Chỉ ảnh hưởng tới thời gian tính toán, không ảnh hưởng kết quả."
+    },
+    "correct": "C",
+    "explanation": "Một lỗi mô hình hoá thực tế cần lưu ý: $M$ phải đủ lớn để KHÔNG giới hạn sai khả năng thực của biến liên tục khi biến nhị phân $=1$ — chọn $M$ sai có thể làm sai lệch hoàn toàn kết quả."
+  },
+  {
+    "id": 79,
+    "group": "NHÓM 8 — Fixed-charge & chọn địa điểm kho bãi",
+    "type": "mcq",
+    "image": null,
+    "question": "Ví dụ khác của bài toán fixed-charge trong thực tế (ngoài chọn kho bãi) là:",
+    "options": {
+      "A": "Chỉ áp dụng cho bài toán vận tải hàng không.",
+      "B": "Chỉ áp dụng được cho kho bãi logistics.",
+      "C": "Quyết định mở/đóng một tuyến sản xuất, mở chi nhánh ngân hàng, hay quyết định lắp đặt một đường ống dẫn dầu mới (chi phí lắp đặt cố định $+$ chi phí vận hành theo lưu lượng).",
+      "D": "Không có ví dụ nào khác."
+    },
+    "correct": "C",
+    "explanation": "Cấu trúc \"chi phí cố định để kích hoạt $+$ chi phí biến đổi theo mức sử dụng\" xuất hiện rất phổ biến trong quản trị vận hành — một mô hình có tính tổng quát cao."
+  },
+  {
+    "id": 80,
+    "group": "NHÓM 8 — Fixed-charge & chọn địa điểm kho bãi",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng trình tự lập mô hình bài toán fixed-charge (chọn kho bãi Logistics):",
+    "items": [
+      {
+        "id": "f1",
+        "text": "Đặt biến nhị phân $y_i$ (mở kho $i$?) và biến liên tục $x_{ij}$ (lượng hàng từ kho $i$ tới thị trường $j$)"
+      },
+      {
+        "id": "f2",
+        "text": "Viết hàm mục tiêu $=$ tổng chi phí cố định $\\sum F_iy_i$ $+$ tổng chi phí vận chuyển $\\sum c_{ij}x_{ij}$"
+      },
+      {
+        "id": "f3",
+        "text": "Viết ràng buộc liên kết $\\sum_jx_{ij}\\le \\text{công suất}_i\\cdot y_i$ (khoá $x_{ij}=0$ nếu kho không mở)"
+      },
+      {
+        "id": "f4",
+        "text": "Viết ràng buộc cầu $\\sum_ix_{ij}=d_j$ (đủ nhu cầu mỗi thị trường)"
+      }
+    ],
+    "correctOrder": [
+      "f1",
+      "f2",
+      "f3",
+      "f4"
+    ],
+    "explanation": "Trình tự lập mô hình chuẩn: xác định biến trước, rồi hàm mục tiêu, rồi các ràng buộc (liên kết nhị phân-liên tục trước, ràng buộc cầu sau)."
+  },
+  {
+    "id": 81,
+    "group": "NHÓM 9 — Hoạch định sản xuất — tồn kho — nhân lực",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán hoạch định sản xuất — tồn kho (3 tháng, đề thi mẫu số 2): nhu cầu $d_1=100,d_2=150,d_3=120$; năng lực tối đa 130/tháng; chi phí SX 20 USD/sp, lưu kho 2 USD/sp/tháng. Ràng buộc bảo toàn tồn kho tháng 1 là:",
+    "options": {
+      "A": "$x_1-I_1=100$ (sản lượng trừ tồn kho cuối tháng $=$ nhu cầu, vì tồn kho đầu tháng 1 $=0$).",
+      "B": "$I_1=100$.",
+      "C": "$x_1=100$.",
+      "D": "$x_1+I_1=100$."
+    },
+    "correct": "A",
+    "explanation": "Vì $I_0=0$: $I_1=I_0+x_1-d_1=x_1-100$, viết lại thành $x_1-I_1=100$ — đúng theo lời giải mẫu."
+  },
+  {
+    "id": 82,
+    "group": "NHÓM 9 — Hoạch định sản xuất — tồn kho — nhân lực",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn bài toán trên. Phương án tối ưu (đã cho trong lời giải mẫu) là $x_1=120,x_2=130,x_3=120$; $I_1=20,I_2=0,I_3=0$. Kiểm tra tháng 2: $I_1+x_2-I_2=20+130-0=150=d_2$?",
+    "options": {
+      "A": "Không kiểm tra được.",
+      "B": "Sai, phải bằng 100.",
+      "C": "Đúng, thoả mãn ràng buộc bảo toàn tồn kho tháng 2.",
+      "D": "Sai, phải bằng 130."
+    },
+    "correct": "C",
+    "explanation": "$20+130-0=150=d_2$ — chính xác thoả mãn phương trình cân bằng."
+  },
+  {
+    "id": 83,
+    "group": "NHÓM 9 — Hoạch định sản xuất — tồn kho — nhân lực",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn bài toán trên. Tính tổng chi phí $z^*=20(x_1+x_2+x_3)+2(I_1+I_2+I_3)=20(370)+2(20)$.",
+    "answer": 7440,
+    "answerType": "number",
+    "explanation": "$20(370)+2(20)=7400+40=7440$ USD — khớp đúng đáp số đề thi mẫu số 2.",
+    "tolerance": 0
+  },
+  {
+    "id": 84,
+    "group": "NHÓM 9 — Hoạch định sản xuất — tồn kho — nhân lực",
+    "type": "mcq",
+    "image": null,
+    "question": "Vì sao phương án tối ưu chọn $x_1=120$ (không phải $100=d_1$ vừa đủ nhu cầu tháng 1) dù phải trả thêm chi phí lưu kho $I_1=20$?",
+    "options": {
+      "A": "Vì chi phí lưu kho rẻ hơn chi phí sản xuất.",
+      "B": "Vì tháng 1 luôn phải sản xuất tối đa.",
+      "C": "Vì năng lực SX tháng 2 không đủ đáp ứng $d_2=150$ (giới hạn $\\le130$).",
+      "D": "Không có lý do cụ thể, đây là lựa chọn ngẫu nhiên."
+    },
+    "correct": "C",
+    "explanation": "Đây là bản chất của bài toán hoạch định sản xuất đa kỳ: đôi khi sản xuất dư trước (chấp nhận phí lưu kho) là cách duy nhất để đáp ứng nhu cầu cao đột biến ở kỳ sau khi năng lực có hạn."
+  },
+  {
+    "id": 85,
+    "group": "NHÓM 9 — Hoạch định sản xuất — tồn kho — nhân lực",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán hoạch định nhân lực (đề thi mẫu số 4): nhu cầu 3 tháng $15,20,18$ người, đang có 12 người, chi phí tuyển 200/người, sa thải 300/người, lương 500/người/tháng. Ràng buộc tháng 1 là:",
+    "options": {
+      "A": "$W_1\\le15$.",
+      "B": "$W_1=12+S_1^+-S_1^-\\ge15$ (số công nhân tháng 1 $=$ số cũ $+$ tuyển $-$ sa thải, phải đủ nhu cầu).",
+      "C": "$S_1^+=15$.",
+      "D": "$W_1=15$ cố định."
+    },
+    "correct": "B",
+    "explanation": "Đúng theo lời giải mẫu — lưu ý dùng $\\ge$ (không phải $=$) vì có thể tuyển dư ra ngoài nhu cầu tối thiểu (dù thường không tối ưu để làm vậy vì tốn thêm lương)."
+  },
+  {
+    "id": 86,
+    "group": "NHÓM 9 — Hoạch định sản xuất — tồn kho — nhân lực",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn bài toán trên. Lời giải mẫu: tháng 1 tuyển 3 người ($W_1=15$), tháng 2 tuyển 5 người ($W_2=20$), tháng 3 sa thải 2 người ($W_3=18$). Tính $z^*=500(15+20+18)+200(3+5)+300(2)$.",
+    "answer": 28700,
+    "answerType": "number",
+    "explanation": "$500(53)+200(8)+300(2)=26500+1600+600=28700$ USD — khớp đúng đáp số đề thi mẫu số 4.",
+    "tolerance": 0
+  },
+  {
+    "id": 87,
+    "group": "NHÓM 9 — Hoạch định sản xuất — tồn kho — nhân lực",
+    "type": "truefalse",
+    "image": null,
+    "question": "Vẫn bài toán hoạch định nhân lực trên. Đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Tổng số người tuyển thêm trong 3 tháng là $3+5=8$ người (không tuyển thêm ở tháng 3).",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Tổng số người sa thải là $2$ người, xảy ra ở tháng 3 (khi nhu cầu giảm từ 20 xuống 18).",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Chi phí lương luôn là thành phần LỚN NHẤT trong tổng chi phí (so với chi phí tuyển $+$ sa thải).",
+        "correct": true
+      }
+    ],
+    "explanation": "Cả 3 ý đều đúng theo lời giải mẫu: $500(53)=26500$ (lương) so với $1600+600=2200$ (tuyển+sa thải) — lương chiếm hơn 92% tổng chi phí, một đặc điểm điển hình của bài toán hoạch định nhân lực dài hạn."
+  },
+  {
+    "id": 88,
+    "group": "NHÓM 9 — Hoạch định sản xuất — tồn kho — nhân lực",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán lập lịch xe buýt (đề thi mẫu số 1, 3 ca, mỗi xe chạy 2 ca liên tục) có bản chất toán học GẦN GIỐNG với:",
+    "options": {
+      "A": "Không có bản chất toán học cụ thể nào.",
+      "B": "Bài toán cây khung nhỏ nhất.",
+      "C": "Bài toán TSP.",
+      "D": "Bài toán phủ tập hợp (set covering)."
+    },
+    "correct": "D",
+    "explanation": "Đây là một góc nhìn lý thuyết sâu hơn: bài toán lập lịch ca trực/xe buýt là một biến thể của \"set covering problem\" (bài toán phủ tập hợp) — một dạng bài toán tối ưu hoá tổ hợp kinh điển khác trong Vận trù học."
+  },
+  {
+    "id": 89,
+    "group": "NHÓM 9 — Hoạch định sản xuất — tồn kho — nhân lực",
+    "type": "fill",
+    "image": null,
+    "question": "Bài toán lập lịch xe buýt (đề thi mẫu số 1): $x_3+x_1\\ge3$ (ca 1), $x_1+x_2\\ge6$ (ca 2), $x_2+x_3\\ge4$ (ca 3). Phương án tối ưu mẫu: $x_1=3,x_2=3,x_3=1$. Tính tổng xe $z^*=x_1+x_2+x_3$.",
+    "answer": 7,
+    "answerType": "number",
+    "explanation": "$3+3+1=7$ xe — khớp đúng đáp số đề thi mẫu số 1 (thấp hơn cận dưới lý thuyết $6.5$ được làm tròn lên $7$).",
+    "tolerance": 0
+  },
+  {
+    "id": 90,
+    "group": "NHÓM 9 — Hoạch định sản xuất — tồn kho — nhân lực",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong bài toán lập lịch xe buýt, kỹ thuật \"cộng 3 bất phương trình rồi chia 2\" để tìm cận dưới ($z_{\\min}\\ge6.5\\Rightarrow z_{\\min}\\ge7$ vì $z$ nguyên) minh hoạ:",
+    "options": {
+      "A": "Chỉ áp dụng được cho bài toán liên tục.",
+      "B": "Một sai lầm cần tránh.",
+      "C": "Không có giá trị thực tiễn.",
+      "D": "Một kỹ thuật ước lượng nhanh (bounding) hữu ích khi giải tay bài toán nguyên nhỏ."
+    },
+    "correct": "D",
+    "explanation": "Đây là kỹ thuật tư duy rất hữu ích khi làm bài thi: tìm cận (bound) trước giúp xác nhận nhanh một phương án cụ thể có phải là tối ưu hay không, mà không cần Branch and Bound đầy đủ."
+  },
+  {
+    "id": 91,
+    "group": "NHÓM 10 — Tổng hợp: Branch and Bound & so sánh các dạng BIP",
+    "type": "mcq",
+    "image": null,
+    "question": "Phương pháp Nhánh và Cận (Branch and Bound) là thuật toán phổ biến nhất để giải:",
+    "options": {
+      "A": "Hệ phương trình tuyến tính.",
+      "B": "Quy hoạch nguyên / Quy hoạch nhị phân (Integer/Binary Programming).",
+      "C": "Bài toán đồ thị 2 biến.",
+      "D": "QHTT liên tục thông thường."
+    },
+    "correct": "B",
+    "explanation": "Đúng theo MCQ đề thi mẫu số 4 — B&B là công cụ tổng quát nhất, áp dụng được cho MỌI dạng bài toán nguyên (không chỉ nhị phân), khi các kỹ thuật chuyên biệt (Hungary, MTZ...) không đủ."
+  },
+  {
+    "id": 92,
+    "group": "NHÓM 10 — Tổng hợp: Branch and Bound & so sánh các dạng BIP",
+    "type": "mcq",
+    "image": null,
+    "question": "Ý tưởng cốt lõi của Branch and Bound là:",
+    "options": {
+      "A": "Duyệt vét cạn mọi tổ hợp không có ngoại lệ.",
+      "B": "\"Phân nhánh\" (branch) bài toán gốc thành các bài toán con nhỏ hơn (thường bằng cách cố định 1 biến $=0$ hoặc $=1$), và \"cắt tỉa\" (bound/prune) các nhánh không có triển vọng tốt hơn phương án tốt nhất đã tìm được, tránh phải duyệt hết mọi tổ hợp.",
+      "C": "Không có chiến lược cụ thể nào, chỉ là tên gọi.",
+      "D": "Chỉ áp dụng được cho bài toán có đúng 2 biến."
+    },
+    "correct": "B",
+    "explanation": "Đây là ý tưởng \"chia để trị + cắt tỉa thông minh\" — giúp giảm đáng kể số tổ hợp cần xét so với vét cạn hoàn toàn ($2^n$), dù trường hợp xấu nhất vẫn có thể tệ như vét cạn."
+  },
+  {
+    "id": 93,
+    "group": "NHÓM 10 — Tổng hợp: Branch and Bound & so sánh các dạng BIP",
+    "type": "mcq",
+    "image": null,
+    "question": "So sánh 4 kỹ thuật đã học để giải các dạng QHTT nhị phân (Hungary cho phân công, DP cho cái túi, MTZ cho TSP, Branch and Bound tổng quát), lựa chọn kỹ thuật phù hợp phụ thuộc vào:",
+    "options": {
+      "A": "Luôn dùng B&B cho mọi bài toán, không cần quan tâm cấu trúc.",
+      "B": "Cấu trúc RIÊNG của từng bài toán.",
+      "C": "Chỉ có 1 kỹ thuật đúng cho mọi bài toán BIP.",
+      "D": "Chọn ngẫu nhiên bất kỳ kỹ thuật nào."
+    },
+    "correct": "B",
+    "explanation": "Đây là bài học tổng hợp then chốt của cả chương: nhận diện đúng \"họ\" bài toán (phân công? cái túi? TSP? hay bài toán BIP tổng quát khác?) để chọn thuật toán hiệu quả nhất — không phải lúc nào B&B cũng là lựa chọn tốt nhất dù luôn ÁP DỤNG ĐƯỢC."
+  },
+  {
+    "id": 94,
+    "group": "NHÓM 10 — Tổng hợp: Branch and Bound & so sánh các dạng BIP",
+    "type": "truefalse",
+    "image": null,
+    "question": "Tổng kết chương QHTT nhị phân — đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Bài toán phân công là trường hợp đặc biệt của bài toán vận tải (chương V), với mọi $a_i=b_j=1$.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Bài toán cái túi (mô hình chọn dự án với 1 ràng buộc ngân sách) là trường hợp đơn giản nhất trong 4 dạng BIP kinh điển đã học.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "TSP có thể giải chính xác trong thời gian đa thức với mọi $n$, giống bài toán phân công.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — đây là điểm khác biệt lý thuyết quan trọng nhất đã nhấn mạnh ở NHÓM 6/7: TSP là bài toán NP-khó, KHÔNG có thuật toán đa thức đã biết để giải chính xác với $n$ lớn, khác hẳn bài toán phân công (giải được trong $O(n^3)$)."
+  },
+  {
+    "id": 95,
+    "group": "NHÓM 10 — Tổng hợp: Branch and Bound & so sánh các dạng BIP",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong đề thi Vận trù học mẫu, Câu 2 (2.5 điểm, QHTT Binary) luôn yêu cầu 2 bước: (1) lập mô hình với biến nhị phân, (2) tìm phương án tối ưu. Kỹ năng QUAN TRỌNG NHẤT ở bước (1) là:",
+    "options": {
+      "A": "Chỉ cần nhớ công thức có sẵn mà không cần hiểu ngữ cảnh.",
+      "B": "Luôn dùng đúng 1 dạng ràng buộc cho mọi đề bài.",
+      "C": "Không quan trọng, chỉ cần đúng bước (2).",
+      "D": "Nhận diện đúng LOẠI ràng buộc logic cần thiết (phụ thuộc, loại trừ, kéo theo...) từ ngôn ngữ tự nhiên của đề bài, và chuyển chính xác sang bất đẳng thức tuyến tính trên biến $0/1$."
+    },
+    "correct": "D",
+    "explanation": "Đây là kỹ năng cốt lõi xuyên suốt cả chương — khả năng \"dịch\" ngôn ngữ logic tự nhiên (nếu...thì, hoặc, không đồng thời...) sang ràng buộc toán học chính xác."
+  },
+  {
+    "id": 96,
+    "group": "NHÓM 10 — Tổng hợp: Branch and Bound & so sánh các dạng BIP",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu đề thi yêu cầu \"tìm phương án tối ưu\" cho một bài toán BIP nhỏ (4-6 biến, 2-3 ràng buộc) mà KHÔNG chỉ định thuật toán cụ thể, cách tiếp cận thực dụng nhất khi làm bài thi tự luận là:",
+    "options": {
+      "A": "Luôn phải vẽ đầy đủ cây Branch and Bound.",
+      "B": "Liệt kê và kiểm tra các tổ hợp \"có triển vọng\" (thoả ràng buộc logic, gần đạt giới hạn tài nguyên) thay vì duyệt hết $2^n$ tổ hợp hay áp dụng B&B đầy đủ.",
+      "C": "Không thể giải nếu không có máy tính.",
+      "D": "Đoán 1 phương án bất kỳ và nộp bài."
+    },
+    "correct": "B",
+    "explanation": "Với quy mô nhỏ điển hình của đề thi, cách trình bày thực dụng (thử các phương án hợp lý, so sánh trực tiếp) vừa nhanh vừa đủ thuyết phục — đúng phong cách các lời giải mẫu đã phân tích xuyên suốt bộ câu hỏi này."
+  },
+  {
+    "id": 97,
+    "group": "NHÓM 10 — Tổng hợp: Branch and Bound & so sánh các dạng BIP",
+    "type": "mcq",
+    "image": null,
+    "question": "4 dạng bài BIP kinh điển đã học (Knapsack/chọn dự án, Assignment/phân công, TSP+MTZ, Fixed-charge) đều có điểm chung là:",
+    "options": {
+      "A": "Đều không có hàm mục tiêu.",
+      "B": "Đều dùng biến quyết định nhị phân $x_i\\in\\{0,1\\}$ để mô hình hoá các quyết định \"rời rạc\" (chọn/không chọn, mở/đóng, đi/không đi) mà QHTT liên tục thông thường không biểu diễn được.",
+      "C": "Đều chỉ có đúng 1 ràng buộc.",
+      "D": "Đều giải bằng chính xác cùng 1 thuật toán."
+    },
+    "correct": "B",
+    "explanation": "Tổng kết cuối cùng của cả chương QHTT nhị phân: điểm chung về BẢN CHẤT MÔ HÌNH (biến 0/1 cho quyết định rời rạc), nhưng khác biệt về CẤU TRÚC RÀNG BUỘC dẫn tới thuật toán giải khác nhau hoàn toàn."
+  },
+  {
+    "id": 98,
+    "group": "NHÓM 10 — Tổng hợp: Branch and Bound & so sánh các dạng BIP",
+    "type": "fill",
+    "image": null,
+    "question": "Tổng số câu hỏi đã học trong bộ v6 này (10 nhóm × 10 câu) là bao nhiêu?",
+    "answer": 100,
+    "answerType": "number",
+    "explanation": "$10\\times10=100$ câu — đúng cấu trúc chuẩn của mỗi bộ trắc nghiệm trên trang.",
+    "tolerance": 0
+  },
+  {
+    "id": 99,
+    "group": "NHÓM 10 — Tổng hợp: Branch and Bound & so sánh các dạng BIP",
+    "type": "mcq",
+    "image": null,
+    "question": "So với bộ v5 (mô hình hoá QHTT cơ bản, đồ thị, đơn hình) đã học trước đó, bộ v6 (QHTT nhị phân) này mở rộng kiến thức theo hướng:",
+    "options": {
+      "A": "Không có mối liên hệ gì với bộ v5.",
+      "B": "v6 chỉ lặp lại nội dung v5.",
+      "C": "Từ biến LIÊN TỤC ($x_j\\ge0$, có thể là số thập phân) sang biến RỜI RẠC ($x_j\\in\\{0,1\\}$).",
+      "D": "v6 đơn giản hơn v5."
+    },
+    "correct": "C",
+    "explanation": "Đây là mạch kiến thức logic của môn Vận trù học: từ QHTT liên tục cơ bản (v5) mở rộng sang các biến thể quan trọng (nhị phân ở v6, và tiếp theo sẽ là mạng lưới/trò chơi ở v7) — mỗi bộ xây dựng trên nền tảng của bộ trước."
+  },
+  {
+    "id": 100,
+    "group": "NHÓM 10 — Tổng hợp: Branch and Bound & so sánh các dạng BIP",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng thứ tự đưa ra quyết định khi gặp một bài toán BIP mới trong đề thi (chiến lược tổng quát):",
+    "items": [
+      {
+        "id": "z1",
+        "text": "Đọc kỹ đề, xác định đây có phải 1 trong 4 dạng kinh điển đã học không (knapsack/phân công/TSP/fixed-charge)"
+      },
+      {
+        "id": "z2",
+        "text": "Nếu đúng 1 dạng quen thuộc: áp dụng ngay mô hình và (nếu có) thuật toán chuyên biệt tương ứng"
+      },
+      {
+        "id": "z3",
+        "text": "Nếu KHÔNG khớp dạng nào rõ ràng: tự xây dựng mô hình từ đầu (biến, hàm mục tiêu, ràng buộc logic) như bài toán BIP tổng quát"
+      },
+      {
+        "id": "z4",
+        "text": "Với bài toán nhỏ: thử liệt kê các phương án khả thi có triển vọng, so sánh trực tiếp để tìm tối ưu"
+      }
+    ],
+    "correctOrder": [
+      "z1",
+      "z2",
+      "z3",
+      "z4"
+    ],
+    "explanation": "Chiến lược làm bài hiệu quả: luôn cố gắng NHẬN DIỆN dạng bài quen thuộc trước (tiết kiệm thời gian, giảm sai sót) — chỉ khi không khớp mới xây mô hình hoàn toàn từ đầu."
+  }
+]

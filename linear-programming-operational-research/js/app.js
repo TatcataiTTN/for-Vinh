@@ -13,6 +13,7 @@
       route: "mcq",
       title: "Trắc nghiệm v1 (100 câu)",
       shortTitle: "v1",
+      navLabel: "v1 (100 câu)",
     },
     mcq2: {
       dataFile: "data/mcq_stepbystep.json",
@@ -20,6 +21,7 @@
       route: "mcq2",
       title: "Trắc nghiệm v2 — giải từng bước (100 câu)",
       shortTitle: "v2",
+      navLabel: "v2 — giải từng bước",
     },
     mcq3: {
       dataFile: "data/mcq3.json",
@@ -27,6 +29,7 @@
       route: "mcq3",
       title: "Trắc nghiệm v3 — trọng tâm cuối kỳ: Mô hình hoá & Đơn hình (100 câu)",
       shortTitle: "v3",
+      navLabel: "v3 — Xij & Đơn hình",
     },
     mcq4: {
       dataFile: "data/mcq4.json",
@@ -34,10 +37,36 @@
       route: "mcq4",
       title: "Trắc nghiệm v4 — trọng tâm cuối kỳ: Đối ngẫu (100 câu)",
       shortTitle: "v4",
+      navLabel: "v4 — Đối ngẫu",
+    },
+    mcq5: {
+      dataFile: "data/mcq5.json",
+      storeKey: "vth_progress_v5",
+      route: "mcq5",
+      title: "Trắc nghiệm v5 — Vận trù học: Mô hình hoá, Đồ thị & Đơn hình (100 câu)",
+      shortTitle: "v5",
+      navLabel: "v5 — Mô hình hoá & Đồ thị",
+    },
+    mcq6: {
+      dataFile: "data/mcq6.json",
+      storeKey: "vth_progress_v6",
+      route: "mcq6",
+      title: "Trắc nghiệm v6 — Vận trù học: QHTT nhị phân — Knapsack, Phân công, TSP (100 câu)",
+      shortTitle: "v6",
+      navLabel: "v6 — QHTT nhị phân",
+    },
+    mcq7: {
+      dataFile: "data/mcq7.json",
+      storeKey: "vth_progress_v7",
+      route: "mcq7",
+      title: "Trắc nghiệm v7 — Vận trù học: Vận tải mở rộng, Mạng lưới & Trò chơi (100 câu)",
+      shortTitle: "v7",
+      navLabel: "v7 — Mạng lưới & Trò chơi",
     },
   };
   var SEEN_V2_KEY = "qhtt_seen_v2_notice";
   var SEEN_V34_KEY = "qhtt_seen_v34_notice";
+  var SEEN_V567_KEY = "qhtt_seen_v567_notice";
 
   var state = {
     data: {}, // { mcq: [...], mcq2: [...], mcq3: [...], mcq4: [...] }
@@ -214,9 +243,14 @@
   }
 
   // ---------------------------- Trang chu ----------------------------
+  var BANNER_IDS = {};
+  BANNER_IDS[SEEN_V2_KEY] = "v2-banner";
+  BANNER_IDS[SEEN_V34_KEY] = "v34-banner";
+  BANNER_IDS[SEEN_V567_KEY] = "v567-banner";
+
   function dismissNotice(key) {
     try { localStorage.setItem(key, "1"); } catch (e) { /* im lang */ }
-    var b = document.getElementById(key === SEEN_V2_KEY ? "v2-banner" : "v34-banner");
+    var b = document.getElementById(BANNER_IDS[key]);
     if (b) b.remove();
   }
 
@@ -244,10 +278,15 @@
       "100 câu trắc nghiệm “giải từng bước” — 10 bài toán lớn, mỗi bài 10 câu tái hiện đúng trình tự lời " +
       "giải tự luận (đơn hình, hai pha, M, đối ngẫu, vận tải). Độc lập hoàn toàn với bộ 100 câu cũ.");
     if (b2) children.push(b2);
-    var b34 = updateBanner("v34-banner", SEEN_V34_KEY, "mcq3", "🆕 Bản cập nhật mới nhất (v3 + v4): ",
-      "Thêm 200 câu trọng tâm ôn thi cuối kỳ — v3 (Xij, mô hình hoá, đơn hình) và v4 (đối ngẫu: phát biểu, " +
-      "kiểm tra một cặp phương án có phải là tối ưu). Có nút “Ôn lại câu sai” và “Làm lại từ đầu” cho mọi bộ.");
+    var b34 = updateBanner("v34-banner", SEEN_V34_KEY, "mcq3", "🆕 Bản cập nhật (v3 + v4): ",
+      "Thêm 200 câu trọng tâm ôn thi cuối kỳ QHTT — v3 (Xij, mô hình hoá, đơn hình) và v4 (đối ngẫu: phát biểu, " +
+      "kiểm tra một cặp phương án có phải là tối ưu).");
     if (b34) children.push(b34);
+    var b567 = updateBanner("v567-banner", SEEN_V567_KEY, "mcq5", "🆕 Bản cập nhật mới nhất (v5 + v6 + v7): ",
+      "Thêm 300 câu Vận trù học — v5 (mô hình hoá, đồ thị, đơn hình), v6 (QHTT nhị phân: cái túi, phân công, " +
+      "TSP), v7 (vận tải mở rộng, mạng lưới MST/Dijkstra/luồng cực đại/CPM, lý thuyết trò chơi). Có kèm hình vẽ " +
+      "minh hoạ, nhiều dạng câu hỏi (trắc nghiệm/đúng-sai/điền đáp án/sắp xếp thứ tự).");
+    if (b567) children.push(b567);
 
     var statCells = Object.keys(SETS).map(function (k) {
       var s = countStats(k);
@@ -261,18 +300,15 @@
       el("span", {}, ["Tính toán đúng/đã làm/tổng"]),
     ]));
 
-    var quizBtns = Object.keys(SETS).map(function (k, i) {
-      var cls = i === 2 || i === 3 ? "btn" : (i === 0 ? "btn" : "btn");
-      return el("a", { class: "btn", href: "#/" + k }, [SETS[k].shortTitle === "v1" ? "Trắc nghiệm v1" :
-        SETS[k].shortTitle === "v2" ? "Trắc nghiệm v2 — giải từng bước" :
-        SETS[k].shortTitle === "v3" ? "Trắc nghiệm v3 — Xij & Đơn hình 🆕" : "Trắc nghiệm v4 — Đối ngẫu 🆕"]);
+    var quizBtns = Object.keys(SETS).map(function (k) {
+      return el("a", { class: "btn", href: "#/" + k }, ["Trắc nghiệm " + SETS[k].navLabel]);
     });
 
     children.push(
       el("div", { class: "card hero" }, [
         el("h2", {}, ["Luyện tập Quy hoạch tuyến tính & Vận trù học"]),
         el("p", {}, [
-          "4 bộ trắc nghiệm (400 câu) độc lập nhau + 10 bài tập tính toán. Chấm điểm ngay lập tức, không " +
+          "7 bộ trắc nghiệm (700 câu) độc lập nhau + 10 bài tập tính toán. Chấm điểm ngay lập tức, không " +
           "cần gửi lên server nào. Mỗi bộ có nút “Làm lại từ đầu” và “Ôn lại câu sai” riêng.",
         ]),
         el("div", { class: "stat-row" }, statCells),

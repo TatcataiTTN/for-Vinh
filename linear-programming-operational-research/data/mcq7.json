@@ -1,0 +1,1602 @@
+[
+  {
+    "id": 1,
+    "group": "NHÓM 1 — Vận tải không cân bằng (nguồn/đích giả)",
+    "type": "mcq",
+    "image": null,
+    "question": "Công ty MG Auto: 3 nguồn cung LA(1000), Detroit(1500), New Orleans(1200); 2 đích Denver(2300), Miami(1400). Bài toán này:",
+    "options": {
+      "A": "Không xác định được nếu thiếu cước phí.",
+      "B": "Không cân bằng, thiếu cung.",
+      "C": "Không cân bằng, thừa cung.",
+      "D": "Cân bằng thu phát vì $1000+1500+1200=2300+1400=3700$."
+    },
+    "correct": "D",
+    "explanation": "$\\sum a_i=3700=\\sum b_j$ — cân bằng, có thể lập bảng vận tải cân bằng ngay, không cần trạm giả."
+  },
+  {
+    "id": 2,
+    "group": "NHÓM 1 — Vận tải không cân bằng (nguồn/đích giả)",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn bài toán MG Auto, cước phí $c=\\begin{pmatrix}80&215\\\\100&108\\\\102&68\\end{pmatrix}$ (LA,Detroit,NewOrleans $\\times$ Denver,Miami). Phương án tối ưu (đã kiểm chứng) là:",
+    "options": {
+      "A": "$x_{LA,Denver}=1000,\\ x_{Det,Denver}=1300,\\ x_{Det,Miami}=200,\\ x_{NO,Miami}=1200$.",
+      "B": "$x_{LA,Miami}=1000,\\ x_{Det,Denver}=1500,\\ x_{NO,Denver}=800,\\ x_{NO,Miami}=400$.",
+      "C": "Phân đều mỗi nguồn 50-50 cho 2 đích.",
+      "D": "$x_{LA,Denver}=2300,\\ x_{Det,Miami}=1400$ (không khả thi vì vượt cung)."
+    },
+    "correct": "A",
+    "explanation": "Đúng theo slide gốc (\"Mô hình vận tải và các biến thể\"): $z^*=80(1000)+100(1300)+108(200)+68(1200)=313200$ USD."
+  },
+  {
+    "id": 3,
+    "group": "NHÓM 1 — Vận tải không cân bằng (nguồn/đích giả)",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn bài toán MG Auto trên. Tính $z^*=80(1000)+100(1300)+108(200)+68(1200)$.",
+    "answer": 313200,
+    "answerType": "number",
+    "explanation": "$80000+130000+21600+81600=313200$ USD — khớp đúng slide gốc.",
+    "tolerance": 0
+  },
+  {
+    "id": 4,
+    "group": "NHÓM 1 — Vận tải không cân bằng (nguồn/đích giả)",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu lượng cung Detroit giảm còn $S_2=1300$ (giữ nguyên các số khác), tổng cung mới và kết luận là:",
+    "options": {
+      "A": "Tổng cung $=3500>3700\\Rightarrow$ thừa cung.",
+      "B": "Tổng cung $=3500<3700=$ tổng cầu $\\Rightarrow$ thiếu cung, cần thêm NGUỒN GIẢ với $S_{dummy}=200$, cước phí $0$.",
+      "C": "Bài toán trở nên vô nghiệm.",
+      "D": "Vẫn cân bằng, không cần xử lý gì."
+    },
+    "correct": "B",
+    "explanation": "$1000+1300+1200=3500<3700\\Rightarrow$ thiếu $200$ đơn vị $\\Rightarrow$ thêm nguồn giả (dummy source) — đúng kỹ thuật đã học ở QHTT chương V (§7.1b), khớp ví dụ slide gốc."
+  },
+  {
+    "id": 5,
+    "group": "NHÓM 1 — Vận tải không cân bằng (nguồn/đích giả)",
+    "type": "truefalse",
+    "image": null,
+    "question": "Vẫn tình huống $S_2=1300$ (thiếu cung, thêm nguồn giả 200). Đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Ý nghĩa thực tế của $x_{dummy,j}>0$ trong phương án tối ưu là lượng hàng nhu cầu tại đích $j$ KHÔNG được đáp ứng (thiếu hụt thực tế).",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Cước phí trên các ô \"nguồn giả $\\to$ đích\" luôn đặt bằng 0 vì đây không phải chi phí vận chuyển thực.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Việc thêm nguồn giả làm THAY ĐỔI bản chất bài toán, không còn là bài toán vận tải nữa.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — thêm nguồn/đích giả chỉ là kỹ thuật TOÁN HỌC để cân bằng bảng, bài toán vẫn giữ nguyên bản chất vận tải, giải bằng đúng thuật toán thế vị bình thường."
+  },
+  {
+    "id": 6,
+    "group": "NHÓM 1 — Vận tải không cân bằng (nguồn/đích giả)",
+    "type": "mcq",
+    "image": null,
+    "question": "Ngược lại, nếu nhu cầu Denver giảm còn $D_1=1900$ (giữ nguyên cung gốc 3700), tổng cầu mới và kết luận:",
+    "options": {
+      "A": "Tổng cầu $=3300<3700=$ tổng cung $\\Rightarrow$ thừa cung, cần thêm ĐÍCH GIẢ (dummy destination) với nhu cầu $400$, cước phí $0$.",
+      "B": "Cần thêm nguồn giả (không phải đích giả).",
+      "C": "Tổng cầu $=3300>3700$.",
+      "D": "Vẫn cân bằng."
+    },
+    "correct": "A",
+    "explanation": "$1900+1400=3300<3700\\Rightarrow$ thừa $400$ đơn vị cung $\\Rightarrow$ thêm đích giả — đúng ví dụ slide gốc (\"Dummy\" cột với nhu cầu 400)."
+  },
+  {
+    "id": 7,
+    "group": "NHÓM 1 — Vận tải không cân bằng (nguồn/đích giả)",
+    "type": "mcq",
+    "image": null,
+    "question": "Ý nghĩa thực tế của lượng hàng phân vào ô \"nguồn $i$ $\\to$ đích giả\" trong trường hợp thừa cung là:",
+    "options": {
+      "A": "Lượng hàng vận chuyển thực tế tới một đích ảo có thật.",
+      "B": "Không có ý nghĩa thực tế.",
+      "C": "Lượng hàng CÒN TỒN LẠI tại nguồn $i$ (không xuất đi đâu cả, do tổng cung vượt tổng cầu).",
+      "D": "Lượng hàng bị mất mát trong quá trình vận chuyển."
+    },
+    "correct": "C",
+    "explanation": "Đối xứng với ý nghĩa của nguồn giả (NHÓM 1, câu 5): đích giả \"hấp thụ\" phần cung dư thừa không có nơi tiêu thụ thực tế."
+  },
+  {
+    "id": 8,
+    "group": "NHÓM 1 — Vận tải không cân bằng (nguồn/đích giả)",
+    "type": "mcq",
+    "image": null,
+    "question": "So sánh 2 tình huống không cân bằng (thiếu cung $\\to$ thêm nguồn giả; thừa cung $\\to$ thêm đích giả), điểm chung về mặt kỹ thuật là:",
+    "options": {
+      "A": "Cần thuật toán hoàn toàn mới cho mỗi trường hợp.",
+      "B": "Cả hai đều thêm ĐÚNG 1 \"nút giả\" với cước phí $0$ để đưa bài toán không cân bằng về dạng cân bằng chuẩn.",
+      "C": "Hai kỹ thuật hoàn toàn khác nhau, không có điểm chung.",
+      "D": "Chỉ 1 trong 2 trường hợp có thể xử lý được."
+    },
+    "correct": "B",
+    "explanation": "Tổng kết kỹ thuật cốt lõi: luôn quy về bài toán cân bằng bằng đúng 1 nút giả cước phí 0, dù chiều mất cân bằng khác nhau (thiếu/thừa)."
+  },
+  {
+    "id": 9,
+    "group": "NHÓM 1 — Vận tải không cân bằng (nguồn/đích giả)",
+    "type": "fill",
+    "image": null,
+    "question": "MG Auto có $S_2=1300$ (thiếu cung). Bảng cân bằng mới có 3 nguồn thật $+1$ nguồn giả, 2 đích. Hỏi tổng số ô (biến $x_{ij}$) trong bảng vận tải mới là bao nhiêu?",
+    "answer": 8,
+    "answerType": "number",
+    "explanation": "$4$ nguồn (3 thật $+1$ giả) $\\times2$ đích $=8$ ô.",
+    "tolerance": 0
+  },
+  {
+    "id": 10,
+    "group": "NHÓM 1 — Vận tải không cân bằng (nguồn/đích giả)",
+    "type": "mcq",
+    "image": null,
+    "question": "Tại phương án tối ưu của bài toán $S_2=1300$ (đã thêm nguồn giả 200), nếu $x_{dummy,Miami}=200$ (toàn bộ lượng giả phân vào Miami), điều này có nghĩa:",
+    "options": {
+      "A": "Trong thực tế, Miami sẽ THIẾU 200 đơn vị hàng so với nhu cầu 1400 ban đầu (chỉ nhận được 1200 thực tế).",
+      "B": "Denver sẽ thiếu hàng.",
+      "C": "Không có ý nghĩa gì đặc biệt.",
+      "D": "Miami sẽ nhận thừa 200 đơn vị."
+    },
+    "correct": "A",
+    "explanation": "Đúng theo slide gốc: \"Miami sẽ thiếu 200 xe so với nhu cầu 1400 xe\" — minh hoạ trực tiếp ý nghĩa thực tế của biến ứng với nguồn giả."
+  },
+  {
+    "id": 11,
+    "group": "NHÓM 1 — Vận tải không cân bằng (nguồn/đích giả)",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong thực hành, khi giải bài toán vận tải không cân bằng bằng thuật toán thế vị (chương V), bước \"thêm nút giả\" nên thực hiện:",
+    "options": {
+      "A": "Không cần thực hiện, thuật toán thế vị tự động xử lý được bài toán không cân bằng.",
+      "B": "Ngay từ đầu, TRƯỚC khi tìm PACB ban đầu.",
+      "C": "Chỉ cần thực hiện nếu đề bài yêu cầu.",
+      "D": "Chỉ thực hiện ở bước cuối cùng, sau khi đã tìm được phương án tối ưu."
+    },
+    "correct": "B",
+    "explanation": "Đây là nguyên tắc bắt buộc: MỌI bước của thuật toán thế vị (PACB ban đầu, quy-không, tính $\\Delta_{ij}$...) đều giả định bảng đã cân bằng — phải xử lý mất cân bằng TRƯỚC khi bắt đầu, không phải sau."
+  },
+  {
+    "id": 12,
+    "group": "NHÓM 2 — Vận tải mở rộng: ô cấm & transshipment",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán vận tải có \"trạm trung chuyển\" (transshipment) là bài toán trong đó:",
+    "options": {
+      "A": "Không có nguồn cung nào.",
+      "B": "Chỉ có 1 đích duy nhất.",
+      "C": "Hàng hoá có thể đi qua MỘT HOẶC NHIỀU điểm trung gian trước khi tới đích cuối cùng, thay vì chỉ có tuyến trực tiếp nguồn$\\to$đích.",
+      "D": "Giống hệt bài toán vận tải chuẩn, không có gì khác biệt."
+    },
+    "correct": "C",
+    "explanation": "Đây là mở rộng tự nhiên của bài toán vận tải: một nút có thể vừa nhận hàng vừa gửi tiếp hàng đi — mô hình hoá bằng cách coi mỗi nút trung chuyển vừa là \"đích ảo\" vừa là \"nguồn ảo\"."
+  },
+  {
+    "id": 13,
+    "group": "NHÓM 2 — Vận tải mở rộng: ô cấm & transshipment",
+    "type": "mcq",
+    "image": null,
+    "question": "Kỹ thuật chuẩn để chuyển bài toán transshipment về dạng bài toán vận tải chuẩn (chỉ nguồn$\\to$đích trực tiếp) là:",
+    "options": {
+      "A": "Không thể chuyển đổi được, cần thuật toán hoàn toàn khác.",
+      "B": "Chỉ cần đổi tên biến, không cần thay đổi cấu trúc.",
+      "C": "Bỏ qua điểm trung chuyển, coi như không tồn tại.",
+      "D": "Coi mỗi điểm trung chuyển vừa là 1 đích (nhận hàng), vừa là 1 nguồn (gửi tiếp) với lượng cung/cầu \"đủ lớn\" (buffer), rồi giải như bài toán vận tải mở rộng thông thường."
+    },
+    "correct": "D",
+    "explanation": "Kỹ thuật \"buffer\" kinh điển: gán một lượng cung/cầu giả đủ lớn cho nút trung chuyển để nó có thể \"chuyển tiếp\" bất kỳ lượng hàng nào cần thiết mà không bị giới hạn sai."
+  },
+  {
+    "id": 14,
+    "group": "NHÓM 2 — Vận tải mở rộng: ô cấm & transshipment",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán vận tải có ô cấm (ví dụ trạm phát 3 không thể giao cho trạm thu 1 do không có tuyến đường), cách xử lý chuẩn (đã học ở QHTT chương V) là:",
+    "options": {
+      "A": "Xoá hẳn trạm phát 3 khỏi bài toán.",
+      "B": "Đặt $c_{31}=M$ (số dương rất lớn), giữ nguyên biến $x_{31}$ trong mô hình, giải bình thường bằng thuật toán thế vị.",
+      "C": "Đặt $a_3=0$.",
+      "D": "Đặt $c_{31}=0$."
+    },
+    "correct": "B",
+    "explanation": "Nhắc lại đúng kỹ thuật đã học ở chương V (§7.2): chỉ \"phạt\" cước phí tại đúng ô cấm, không ảnh hưởng tới toàn bộ trạm phát/thu liên quan."
+  },
+  {
+    "id": 15,
+    "group": "NHÓM 2 — Vận tải mở rộng: ô cấm & transshipment",
+    "type": "truefalse",
+    "image": null,
+    "question": "Đúng hay sai về bài toán vận tải có ô cấm?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Nếu ở phương án tối ưu của \"bài toán M\" mà ô cấm vẫn có $x_{ij}>0$, kết luận bài toán gốc vô nghiệm.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Bài toán vận tải chỉ có thể có TỐI ĐA 1 ô cấm.",
+        "correct": false
+      },
+      {
+        "label": "c",
+        "text": "Có thể kết hợp đồng thời cả \"không cân bằng thu phát\" và \"có ô cấm\" trong cùng 1 bài toán.",
+        "correct": true
+      }
+    ],
+    "explanation": "Ý (b) sai — số ô cấm không bị giới hạn, một bài toán có thể có nhiều ô cấm cùng lúc (mỗi ô chỉ cần đặt $c_{ij}=M$ độc lập). Hai ý còn lại đúng theo lý thuyết đã học."
+  },
+  {
+    "id": 16,
+    "group": "NHÓM 2 — Vận tải mở rộng: ô cấm & transshipment",
+    "type": "mcq",
+    "image": null,
+    "question": "So sánh 3 biến thể mở rộng của bài toán vận tải (không cân bằng, ô cấm, transshipment), điểm chung là:",
+    "options": {
+      "A": "Ba biến thể hoàn toàn độc lập, cần 3 thuật toán riêng biệt không liên quan.",
+      "B": "Chỉ 1 trong 3 biến thể có thể giải được bằng thuật toán vận tải.",
+      "C": "Không có điểm chung nào.",
+      "D": "Cả 3 đều có thể quy về (hoặc gần với) dạng bài toán vận tải CÂN BẰNG chuẩn thông qua các kỹ thuật bổ sung (nút giả, cước phí $M$, buffer)."
+    },
+    "correct": "D",
+    "explanation": "Đây là sức mạnh của thuật toán thế vị: một khi đã nắm vững dạng chuẩn, hầu hết các biến thể thực tế đều có thể quy về dạng đó bằng các \"mẹo\" mô hình hoá phù hợp."
+  },
+  {
+    "id": 17,
+    "group": "NHÓM 2 — Vận tải mở rộng: ô cấm & transshipment",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán vận tải với RÀNG BUỘC BỔ SUNG \"trạm phát 1 phải phát hết hàng\" (không được phép tồn kho, dù bài toán đang thừa cung) được xử lý bằng:",
+    "options": {
+      "A": "Xoá trạm phát 1 khỏi bài toán.",
+      "B": "Cấm ô \"trạm phát 1 $\\to$ đích giả\" (đặt cước phí $M$ cho ô đó).",
+      "C": "Tăng cung trạm 1 lên gấp đôi.",
+      "D": "Không thể mô hình hoá ràng buộc này."
+    },
+    "correct": "B",
+    "explanation": "Kết hợp 2 kỹ thuật đã học: thêm đích giả (xử lý thừa cung) $+$ ô cấm (chặn 1 trạm cụ thể không được dùng đích giả) — một minh hoạ về khả năng kết hợp linh hoạt các kỹ thuật."
+  },
+  {
+    "id": 18,
+    "group": "NHÓM 2 — Vận tải mở rộng: ô cấm & transshipment",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu ràng buộc bổ sung là \"lượng hàng CÒN TỒN tại trạm phát 1 không vượt quá 30\" (giới hạn thay vì cấm hẳn), kỹ thuật mô hình hoá phù hợp là:",
+    "options": {
+      "A": "Không thể mô hình hoá được ràng buộc dạng giới hạn (chỉ xử lý được ràng buộc cấm hẳn).",
+      "B": "Tăng cầu lên để bù trừ.",
+      "C": "Chỉ cần giảm cung trạm 1 xuống 30.",
+      "D": "Tách trạm phát 1 thành 2 trạm ảo: một trạm (cung lớn) CẤM nối đích giả, một trạm (cung $=30$) ĐƯỢC PHÉP nối đích giả."
+    },
+    "correct": "D",
+    "explanation": "Kỹ thuật \"tách nút\" tinh vi hơn — đã áp dụng y hệt trong bài Bài 11c chương V QHTT (giới hạn lượng tồn kho tối đa bằng cách tách trạm phát thành 2 trạm ảo)."
+  },
+  {
+    "id": 19,
+    "group": "NHÓM 2 — Vận tải mở rộng: ô cấm & transshipment",
+    "type": "fill",
+    "image": null,
+    "question": "Bài toán vận tải $4\\times5$ có 3 ô cấm. Số biến $x_{ij}$ THỰC SỰ có thể nhận giá trị dương (không tính ô cấm luôn $=0$ tại tối ưu) tối đa là bao nhiêu?",
+    "answer": 17,
+    "answerType": "number",
+    "explanation": "Tổng số ô $=4\\times5=20$, trừ $3$ ô cấm (luôn $=0$ nếu bài toán có nghiệm) $\\Rightarrow$ tối đa $20-3=17$ ô có thể dương.",
+    "tolerance": 0
+  },
+  {
+    "id": 20,
+    "group": "NHÓM 2 — Vận tải mở rộng: ô cấm & transshipment",
+    "type": "mcq",
+    "image": null,
+    "question": "Ứng dụng thực tế của bài toán transshipment (có trạm trung chuyển) phổ biến nhất là:",
+    "options": {
+      "A": "Chỉ áp dụng được cho vận chuyển hàng không.",
+      "B": "Mạng lưới logistics nhiều tầng (nhà máy $\\to$ kho trung tâm $\\to$ kho khu vực $\\to$ cửa hàng bán lẻ).",
+      "C": "Không có ứng dụng thực tế cụ thể.",
+      "D": "Chỉ áp dụng cho bài toán có đúng 2 nguồn."
+    },
+    "correct": "B",
+    "explanation": "Đây chính là mô hình chuỗi cung ứng (supply chain) thực tế điển hình — lý do transshipment là một mở rộng cực kỳ quan trọng của bài toán vận tải cơ bản trong thực hành logistics."
+  },
+  {
+    "id": 21,
+    "group": "NHÓM 2 — Vận tải mở rộng: ô cấm & transshipment",
+    "type": "mcq",
+    "image": null,
+    "question": "Khi giải bài toán vận tải mở rộng (không cân bằng $+$ ô cấm cùng lúc), thứ tự xử lý hợp lý là:",
+    "options": {
+      "A": "Xử lý CÂN BẰNG trước (thêm nút giả nếu cần), sau đó mới đặt cước phí $M$ cho các ô cấm trên bảng đã cân bằng.",
+      "B": "Thứ tự không quan trọng, làm theo bất kỳ trình tự nào cũng được.",
+      "C": "Xử lý ô cấm trước, cân bằng sau.",
+      "D": "Không thể xử lý đồng thời cả 2 vấn đề."
+    },
+    "correct": "A",
+    "explanation": "Về mặt logic không bắt buộc thứ tự tuyệt đối, nhưng quy trình \"cân bằng trước, cấm sau\" giúp tránh nhầm lẫn khi phải đồng thời thêm nút giả VÀ đặt cước phí $M$ cho ô cấm (có thể liên quan tới cả nút giả, như câu 6 nhóm này)."
+  },
+  {
+    "id": 22,
+    "group": "NHÓM 3 — Mạng lưới: khái niệm cơ bản",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong lý thuyết mạng (Network), \"mạng\" $(N,A)$ được định nghĩa là:",
+    "options": {
+      "A": "Một ma trận vuông bất kỳ.",
+      "B": "Một tập hợp các NÚT (nodes, tập $N$) được liên kết với nhau bởi các CUNG (arcs, tập $A$).",
+      "C": "Chỉ là một tập hợp số.",
+      "D": "Một hàm số liên tục."
+    },
+    "correct": "B",
+    "explanation": "Định nghĩa cơ bản nhất của lý thuyết đồ thị/mạng — nền tảng cho mọi bài toán MST, đường đi ngắn nhất, luồng cực đại sau này."
+  },
+  {
+    "id": 23,
+    "group": "NHÓM 3 — Mạng lưới: khái niệm cơ bản",
+    "type": "mcq",
+    "image": null,
+    "question": "\"Cung có hướng\" (directed arc) khác \"cạnh vô hướng\" (undirected edge) ở chỗ:",
+    "options": {
+      "A": "Cung có hướng chỉ dùng được cho bài toán MST.",
+      "B": "Không có khác biệt gì.",
+      "C": "Cạnh vô hướng luôn có trọng số lớn hơn.",
+      "D": "Cung có hướng chỉ cho phép luồng di chuyển theo MỘT chiều duy nhất; cạnh vô hướng cho phép cả hai chiều."
+    },
+    "correct": "D",
+    "explanation": "Phân biệt quan trọng: nhiều bài toán (như luồng cực đại, đường đi ngắn nhất trên mạng giao thông 1 chiều) BẮT BUỘC dùng đồ thị có hướng."
+  },
+  {
+    "id": 24,
+    "group": "NHÓM 3 — Mạng lưới: khái niệm cơ bản",
+    "type": "mcq",
+    "image": null,
+    "question": "\"Cây\" (Tree) trong lý thuyết mạng được định nghĩa là:",
+    "options": {
+      "A": "Bất kỳ mạng nào có $\\ge3$ nút.",
+      "B": "Một mạng không liên thông.",
+      "C": "Một mạng có chu trình.",
+      "D": "Một mạng liên thông KHÔNG có chu trình, gồm một tập con của tất cả các nút."
+    },
+    "correct": "D",
+    "explanation": "Định nghĩa chuẩn — tính chất \"không chu trình\" là điều kiện bắt buộc, phân biệt cây với các mạng liên thông khác."
+  },
+  {
+    "id": 25,
+    "group": "NHÓM 3 — Mạng lưới: khái niệm cơ bản",
+    "type": "mcq",
+    "image": null,
+    "question": "\"Cây khung\" (Spanning tree) khác \"cây\" thông thường ở điểm:",
+    "options": {
+      "A": "Cây khung luôn có chu trình.",
+      "B": "Cây khung luôn có nhiều cạnh hơn cây thường.",
+      "C": "Cây khung phải nối TẤT CẢ các nút của mạng gốc (không chỉ một tập con).",
+      "D": "Không có khác biệt gì."
+    },
+    "correct": "C",
+    "explanation": "\"Khung\" (spanning) nghĩa là \"trải rộng khắp\" — bắt buộc phải chứa MỌI nút của mạng ban đầu, đây là điều kiện phân biệt với cây con bất kỳ."
+  },
+  {
+    "id": 26,
+    "group": "NHÓM 3 — Mạng lưới: khái niệm cơ bản",
+    "type": "truefalse",
+    "image": null,
+    "question": "Cho mạng 5 nút, 7 cung có hướng. Đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Nếu giữa 2 nút bất kỳ luôn có ít nhất 1 đường đi (theo 1 chiều nào đó), mạng được gọi là liên thông.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Cây khung của mạng 5 nút (nếu tồn tại) luôn có đúng 4 cạnh.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Một \"chu trình\" (cycle) là đường đi nối 1 nút với chính nó mà không đi qua nút nào khác.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — định nghĩa chuẩn của chu trình là đường đi nối một nút TRỞ LẠI CHÍNH NÓ nhưng ĐI QUA các nút khác trong mạng (không phải \"không qua nút nào\"). Ý (b) đúng theo tính chất chuẩn: cây khung của $n$ nút luôn có $n-1$ cạnh."
+  },
+  {
+    "id": 27,
+    "group": "NHÓM 3 — Mạng lưới: khái niệm cơ bản",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán \"Bảy cây cầu Königsberg\" (bài toán cổ điển khởi nguồn lý thuyết đồ thị của Euler) hỏi:",
+    "options": {
+      "A": "Có thể đi qua ĐÚNG 1 LẦN mỗi cây cầu (trong số 7 cầu) rồi trở về điểm xuất phát hay không.",
+      "B": "Đường đi ngắn nhất giữa 2 khu vực.",
+      "C": "Cây khung nhỏ nhất của thành phố.",
+      "D": "Luồng cực đại qua các cây cầu."
+    },
+    "correct": "A",
+    "explanation": "Bài toán lịch sử này (Euler, 1736) là khởi nguồn của toàn bộ lý thuyết đồ thị hiện đại — câu hỏi về \"đường đi Euler\" (Euler path), khác với các bài toán MST/SRP/luồng học sau này."
+  },
+  {
+    "id": 28,
+    "group": "NHÓM 3 — Mạng lưới: khái niệm cơ bản",
+    "type": "fill",
+    "image": null,
+    "question": "Mạng có $N=\\{A,B,C,D\\}$ (4 nút) và $A=\\{(A,B),(A,B),(A,C),(A,C),(A,D),(B,D),(C,D)\\}$ (7 cung, có cạnh song song). Hỏi $|N|+|A|$ bằng bao nhiêu?",
+    "answer": 11,
+    "answerType": "number",
+    "explanation": "$|N|=4,\\ |A|=7\\Rightarrow4+7=11$ — đúng ví dụ bài toán 7 cây cầu Königsberg trong slide gốc.",
+    "tolerance": 0
+  },
+  {
+    "id": 29,
+    "group": "NHÓM 3 — Mạng lưới: khái niệm cơ bản",
+    "type": "mcq",
+    "image": null,
+    "question": "Vai trò của mô hình mạng trong thực tế (theo slide gốc) KHÔNG bao gồm:",
+    "options": {
+      "A": "Lập tiến độ dự án xây dựng để hoàn thành sớm nhất.",
+      "B": "Tìm đường đi ngắn nhất giữa hai thành phố.",
+      "C": "Giải phương trình vi phân phi tuyến.",
+      "D": "Thiết kế mạng đường ống khí đốt để giảm chi phí xây dựng."
+    },
+    "correct": "C",
+    "explanation": "3 ứng dụng B, C, D đều là ví dụ thực tế nêu trong slide gốc (thiết kế mạng ống, tìm đường ngắn nhất, lập tiến độ CPM/PERT) — \"giải phương trình vi phân\" không thuộc phạm vi mô hình mạng của Vận trù học."
+  },
+  {
+    "id": 30,
+    "group": "NHÓM 3 — Mạng lưới: khái niệm cơ bản",
+    "type": "mcq",
+    "image": null,
+    "question": "5 thuật toán/mô hình kinh điển học trong chương \"Các bài toán trên mạng\" (theo mục tiêu slide gốc) là:",
+    "options": {
+      "A": "Cây khung nhỏ nhất (MST), Dijkstra/Floyd (đường đi ngắn nhất), Luồng cực đại/Lát cắt, và CPM/PERT (quản trị dự án).",
+      "B": "Chỉ có duy nhất thuật toán Dijkstra.",
+      "C": "Chỉ các thuật toán liên quan tới bài toán vận tải.",
+      "D": "Chỉ có CPM, không có PERT."
+    },
+    "correct": "A",
+    "explanation": "Đúng theo mục tiêu chương trình slide gốc — 4 nhóm kỹ thuật lớn: MST, đường đi ngắn nhất (SRP), luồng cực đại, và CPM/PERT."
+  },
+  {
+    "id": 31,
+    "group": "NHÓM 3 — Mạng lưới: khái niệm cơ bản",
+    "type": "mcq",
+    "image": null,
+    "question": "Việc chuyển đổi các bài toán mạng (MST, SRP, luồng cực đại) thành mô hình QHTT (như đã thấy ở ràng buộc MST dùng biến $x_a\\in\\{0,1\\}$) có ưu điểm và nhược điểm:",
+    "options": {
+      "A": "Luôn luôn nên dùng mô hình QHTT thay vì thuật toán chuyên biệt.",
+      "B": "Không có nhược điểm nào.",
+      "C": "Mô hình QHTT luôn nhanh hơn thuật toán chuyên biệt.",
+      "D": "Ưu điểm: thống nhất framework toán học; Nhược điểm: với mạng lớn ($N$ đỉnh), số ràng buộc loại chu trình có thể tăng theo cấp số mũ ($2^N$), khiến mô hình QHTT trở nên không thực tế."
+    },
+    "correct": "D",
+    "explanation": "Đúng theo nhận xét trong slide gốc (\"Mạng có $N$ đỉnh thì có $2^N$ tập con... khiến mô hình QHTT trở nên rất lớn\") — lý do vì sao cần học các thuật toán chuyên biệt (MST, Dijkstra) thay vì luôn giải bằng đơn hình."
+  },
+  {
+    "id": 32,
+    "group": "NHÓM 4 — Cây khung nhỏ nhất (MST)",
+    "type": "mcq",
+    "image": "v7_mst_graph.png",
+    "question": "Mục tiêu bài toán Tìm cây khung nhỏ nhất (MST) là tìm tập cạnh sao cho:",
+    "options": {
+      "A": "Có nhiều chu trình nhất có thể.",
+      "B": "Kết nối tất cả các nút, KHÔNG tạo chu trình, và tổng trọng số các cạnh là NHỎ NHẤT.",
+      "C": "Chỉ cần kết nối một số nút bất kỳ.",
+      "D": "Tổng trọng số là LỚN NHẤT."
+    },
+    "correct": "B",
+    "explanation": "Ba điều kiện đồng thời bắt buộc — thiếu 1 trong 3 sẽ không còn là bài toán MST đúng nghĩa."
+  },
+  {
+    "id": 33,
+    "group": "NHÓM 4 — Cây khung nhỏ nhất (MST)",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng thứ tự thuật toán tìm cây khung nhỏ nhất (dạng greedy, kết nối dần từ 1 nút bất kỳ — đúng như slide gốc mô tả):",
+    "items": [
+      {
+        "id": "m1",
+        "text": "Đặt $C_0=\\emptyset$, $\\overline{C}_0=N$ (tập mọi nút); bắt đầu với 1 nút $i$ bất kỳ: $C_1=\\{i\\}$"
+      },
+      {
+        "id": "m2",
+        "text": "Tại mỗi bước $k$: chọn nút $j^*\\in\\overline{C}_{k-1}$ tạo ra cung ngắn nhất tới 1 nút trong $C_{k-1}$"
+      },
+      {
+        "id": "m3",
+        "text": "Cập nhật $C_k=C_{k-1}\\cup\\{j^*\\}$, $\\overline{C}_k=\\overline{C}_{k-1}\\setminus\\{j^*\\}$"
+      },
+      {
+        "id": "m4",
+        "text": "Lặp lại bước 2-3 cho tới khi $\\overline{C}_k=\\emptyset$ (mọi nút đã được kết nối) — thuật toán dừng"
+      }
+    ],
+    "correctOrder": [
+      "m1",
+      "m2",
+      "m3",
+      "m4"
+    ],
+    "explanation": "Đúng theo thuật toán MST trong slide gốc — bản chất là thuật toán Prim (greedy, mở rộng dần từ 1 nút gốc, luôn chọn cạnh rẻ nhất nối vào tập đã có)."
+  },
+  {
+    "id": 34,
+    "group": "NHÓM 4 — Cây khung nhỏ nhất (MST)",
+    "type": "mcq",
+    "image": null,
+    "question": "Cho đồ thị 7 nút $A..G$ với các cạnh (đã tính bằng Kruskal, kiểm chứng bằng thuật toán độc lập): $BC{=}1,FG{=}1,AC{=}2,DE{=}2,EF{=}3,AB{=}4,BD{=}5,DF{=}6,EG{=}7,CD{=}8,CE{=}10$. Cây khung nhỏ nhất gồm các cạnh:",
+    "options": {
+      "A": "$BC(1),FG(1),AC(2),DE(2),EF(3),BD(5)$.",
+      "B": "$AC(2),CE(10),EG(7),EF(3),FG(1),BD(5)$ — tổng $=28$.",
+      "C": "Tất cả 11 cạnh đã liệt kê.",
+      "D": "$AB(4),BC(1),CD(8),DE(2),EF(3),FG(1)$ — tổng $=19$."
+    },
+    "correct": "A",
+    "explanation": "Đã kiểm chứng bằng thuật toán Kruskal độc lập: chọn lần lượt các cạnh nhỏ nhất KHÔNG tạo chu trình — $BC,FG,AC,DE,EF,BD$ (6 cạnh $=n-1=7-1$), tổng $=1+1+2+2+3+5=14$."
+  },
+  {
+    "id": 35,
+    "group": "NHÓM 4 — Cây khung nhỏ nhất (MST)",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn đồ thị 7 nút trên. Một cây khung của mạng 7 nút luôn có đúng bao nhiêu cạnh?",
+    "answer": 6,
+    "answerType": "number",
+    "explanation": "Cây khung của $n$ nút luôn có $n-1$ cạnh — ở đây $n=7\\Rightarrow6$ cạnh.",
+    "tolerance": 0
+  },
+  {
+    "id": 36,
+    "group": "NHÓM 4 — Cây khung nhỏ nhất (MST)",
+    "type": "truefalse",
+    "image": null,
+    "question": "Vẫn đồ thị 7 nút, MST $=\\{BC,FG,AC,DE,EF,BD\\}$, tổng $=14$. Đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Cạnh $CE(10)$ và $CD(8)$ (có trọng số lớn nhất) không được chọn vào MST — hợp lý vì thuật toán luôn ưu tiên cạnh nhỏ nhất trước.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Cạnh $AB(4)$ không được chọn dù $A,B$ đều đã có mặt trong MST — vì $A,B$ đã được kết nối GIÁN TIẾP qua đường $A{-}C{-}B$ ($2+1=3<4$), thêm $AB$ trực tiếp sẽ tạo chu trình thừa.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Nếu đổi trọng số $AB$ từ 4 xuống 2.5 (nhỏ hơn $AC+CB=3$), MST có thể thay đổi (chọn $AB$ thay vì $AC$ hoặc $BC$).",
+        "correct": true
+      }
+    ],
+    "explanation": "Cả 3 ý đều đúng và minh hoạ đúng bản chất thuật toán MST: luôn ưu tiên cạnh nhỏ nhất, loại bỏ cạnh gây chu trình thừa, và kết quả nhạy với sự thay đổi trọng số cạnh."
+  },
+  {
+    "id": 37,
+    "group": "NHÓM 4 — Cây khung nhỏ nhất (MST)",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu đồ thị KHÔNG liên thông (một số nút không thể tới được từ các nút khác bằng bất kỳ đường nào), bài toán MST:",
+    "options": {
+      "A": "Không tồn tại cây khung (vì cây khung yêu cầu nối TẤT CẢ các nút).",
+      "B": "Vẫn tìm được MST bình thường.",
+      "C": "Không có ảnh hưởng gì tới bài toán.",
+      "D": "MST sẽ có tổng trọng số $=0$."
+    },
+    "correct": "A",
+    "explanation": "Điều kiện tiên quyết của MST là đồ thị phải liên thông — nếu không, khái niệm mở rộng phù hợp là \"rừng khung\" (forest), áp dụng thuật toán riêng cho mỗi thành phần liên thông."
+  },
+  {
+    "id": 38,
+    "group": "NHÓM 4 — Cây khung nhỏ nhất (MST)",
+    "type": "mcq",
+    "image": null,
+    "question": "Công ty Cáp TV Midwest (ví dụ slide gốc) dùng MST để:",
+    "options": {
+      "A": "Tìm mạng cáp nối các khu dân cư mới với TỔNG CHIỀU DÀI CÁP nhỏ nhất.",
+      "B": "Tối đa hoá số lượng khách hàng.",
+      "C": "Không liên quan gì tới MST.",
+      "D": "Tìm đường truyền tín hiệu nhanh nhất."
+    },
+    "correct": "A",
+    "explanation": "Ứng dụng thực tế kinh điển: mọi bài toán \"kết nối mạng lưới vật lý với chi phí thấp nhất\" (cáp, đường ống, đường dây điện...) đều là ứng dụng trực tiếp của MST."
+  },
+  {
+    "id": 39,
+    "group": "NHÓM 4 — Cây khung nhỏ nhất (MST)",
+    "type": "mcq",
+    "image": null,
+    "question": "Độ phức tạp thuật toán MST (Prim/Kruskal) so với việc giải bằng mô hình QHTT đầy đủ (như đã thấy ở NHÓM 3, ràng buộc loại chu trình $2^N$):",
+    "options": {
+      "A": "Hai cách tiếp cận có tốc độ như nhau.",
+      "B": "Không thể so sánh được.",
+      "C": "MST chuyên biệt (Prim/Kruskal) chạy trong thời gian đa thức (khoảng $O(n^2)$ hoặc $O(m\\log n)$), nhanh hơn RẤT NHIỀU so với mô hình QHTT tổng quát (có thể cần tới $2^N$ ràng buộc).",
+      "D": "QHTT luôn nhanh hơn thuật toán chuyên biệt."
+    },
+    "correct": "C",
+    "explanation": "Đây là lý do thực tiễn quan trọng nhất để học thuật toán MST chuyên biệt thay vì luôn dùng QHTT tổng quát — hiệu quả tính toán chênh lệch cực lớn với mạng lớn."
+  },
+  {
+    "id": 40,
+    "group": "NHÓM 4 — Cây khung nhỏ nhất (MST)",
+    "type": "fill",
+    "image": null,
+    "question": "Đồ thị 7 nút, MST tổng trọng số $=14$ (đã tính ở câu trên). Nếu TĂNG trọng số của MỘT cạnh KHÔNG thuộc MST (ví dụ $CD$ từ 8 lên 20), MST mới sẽ:",
+    "answer": [
+      "khong doi",
+      "không đổi"
+    ],
+    "answerType": "text",
+    "explanation": "MST chỉ phụ thuộc các cạnh ĐƯỢC CHỌN — tăng trọng số một cạnh KHÔNG được chọn (vốn đã bị loại vì quá đắt) càng không ảnh hưởng gì tới kết quả MST."
+  },
+  {
+    "id": 41,
+    "group": "NHÓM 4 — Cây khung nhỏ nhất (MST)",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu MẠNG có 2 cạnh cùng trọng số nhỏ nhất tại một bước của thuật toán (đồng hạng), việc chọn cạnh nào trước:",
+    "options": {
+      "A": "Làm thuật toán không bao giờ dừng.",
+      "B": "Bắt buộc phải chọn cạnh có 2 đầu mút gần gốc toạ độ hơn.",
+      "C": "Luôn dẫn tới MST sai.",
+      "D": "Không ảnh hưởng tới TỔNG TRỌNG SỐ cuối cùng của MST (có thể cho các MST khác nhau về tập cạnh cụ thể, nhưng cùng giá trị tối ưu)."
+    },
+    "correct": "D",
+    "explanation": "Một liên hệ lý thuyết đẹp: hiện tượng \"đồng hạng không ảnh hưởng giá trị tối ưu\" xuất hiện xuyên suốt Vận trù học — từ đơn hình (nhiều PA tối ưu) tới MST (nhiều cây khung nhỏ nhất cùng tổng trọng số)."
+  },
+  {
+    "id": 42,
+    "group": "NHÓM 5 — Đường đi ngắn nhất (Dijkstra)",
+    "type": "mcq",
+    "image": "v7_dijkstra_graph.png",
+    "question": "Thuật toán Dijkstra dùng để giải bài toán:",
+    "options": {
+      "A": "Bài toán cái túi 0-1.",
+      "B": "Cây khung nhỏ nhất.",
+      "C": "Đường đi ngắn nhất từ 1 nút nguồn tới các nút còn lại trên đồ thị có TRỌNG SỐ KHÔNG ÂM.",
+      "D": "Luồng cực đại."
+    },
+    "correct": "C",
+    "explanation": "Đúng theo MCQ đề thi mẫu số 4 — điều kiện \"trọng số không âm\" là bắt buộc, Dijkstra KHÔNG đúng nếu có trọng số âm (khi đó cần thuật toán Bellman-Ford)."
+  },
+  {
+    "id": 43,
+    "group": "NHÓM 5 — Đường đi ngắn nhất (Dijkstra)",
+    "type": "mcq",
+    "image": null,
+    "question": "Cho đồ thị có hướng 6 nút với các cung: $1{\\to}2(4), 1{\\to}3(2), 2{\\to}3(1), 2{\\to}4(5), 3{\\to}2(1), 3{\\to}4(8), 3{\\to}5(10), 4{\\to}5(2), 4{\\to}6(6), 5{\\to}4(2), 5{\\to}6(3)$. Khoảng cách ngắn nhất từ nút 1 tới nút 6 (đã kiểm chứng bằng Dijkstra) là:",
+    "options": {
+      "A": "11.",
+      "B": "18.",
+      "C": "13.",
+      "D": "15."
+    },
+    "correct": "C",
+    "explanation": "Đã kiểm chứng bằng thuật toán Dijkstra độc lập: đường đi $1{\\to}3{\\to}2{\\to}4{\\to}5{\\to}6$, tổng $=2+1+5+2+3=13$."
+  },
+  {
+    "id": 44,
+    "group": "NHÓM 5 — Đường đi ngắn nhất (Dijkstra)",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn đồ thị trên. Đường đi ngắn nhất từ nút 1 tới nút 6 đi qua đúng bao nhiêu cung (cạnh)?",
+    "answer": 5,
+    "answerType": "number",
+    "explanation": "Đường đi $1{\\to}3{\\to}2{\\to}4{\\to}5{\\to}6$ có $5$ cung.",
+    "tolerance": 0
+  },
+  {
+    "id": 45,
+    "group": "NHÓM 5 — Đường đi ngắn nhất (Dijkstra)",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn đồ thị trên. Điều thú vị là đường đi ngắn nhất KHÔNG đi trực tiếp $1{\\to}2(4)$ mà đi vòng $1{\\to}3{\\to}2(2+1=3)$. Điều này minh hoạ:",
+    "options": {
+      "A": "Thuật toán Dijkstra bị lỗi trong trường hợp này.",
+      "B": "Luôn nên đi đường có ít cạnh nhất.",
+      "C": "Nguyên lý cốt lõi của bài toán đường đi ngắn nhất: đường đi TRỰC TIẾP (ít cạnh nhất) chưa chắc là đường đi NGẮN NHẤT (tổng trọng số nhỏ nhất).",
+      "D": "Không có ý nghĩa gì đặc biệt."
+    },
+    "correct": "C",
+    "explanation": "Một hiểu lầm phổ biến cần tránh: \"ngắn nhất\" nghĩa là tổng TRỌNG SỐ nhỏ nhất, không phải số CẠNH ít nhất — hai khái niệm này chỉ trùng nhau khi mọi cạnh có trọng số bằng nhau."
+  },
+  {
+    "id": 46,
+    "group": "NHÓM 5 — Đường đi ngắn nhất (Dijkstra)",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về thuật toán Dijkstra, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Dijkstra là thuật toán \"tham lam\" (greedy) — tại mỗi bước, chọn nút CHƯA THĂM có khoảng cách tạm thời NHỎ NHẤT để \"chốt\" khoảng cách chính thức.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Dijkstra hoạt động đúng cả khi đồ thị có cạnh trọng số ÂM.",
+        "correct": false
+      },
+      {
+        "label": "c",
+        "text": "Sau khi chạy xong, Dijkstra cho biết khoảng cách ngắn nhất từ nguồn tới TẤT CẢ các nút khác (không chỉ 1 đích cụ thể).",
+        "correct": true
+      }
+    ],
+    "explanation": "Ý (b) sai — đây là giới hạn quan trọng nhất của Dijkstra: với trọng số âm, thuật toán có thể cho kết quả SAI (cần dùng Bellman-Ford thay thế). Hai ý còn lại đúng theo bản chất thuật toán."
+  },
+  {
+    "id": 47,
+    "group": "NHÓM 5 — Đường đi ngắn nhất (Dijkstra)",
+    "type": "mcq",
+    "image": null,
+    "question": "So với thuật toán Floyd (Floyd-Warshall) cũng dùng để tìm đường đi ngắn nhất, Dijkstra khác biệt ở:",
+    "options": {
+      "A": "Hai thuật toán hoàn toàn giống nhau.",
+      "B": "Dijkstra luôn chậm hơn Floyd.",
+      "C": "Floyd chỉ dùng được cho 2 nút.",
+      "D": "Dijkstra tìm đường ngắn nhất từ 1 NGUỒN tới mọi đích (single-source); Floyd tìm đường ngắn nhất giữa MỌI CẶP nút (all-pairs) cùng lúc."
+    },
+    "correct": "D",
+    "explanation": "Đây là khác biệt về PHẠM VI bài toán: chọn Dijkstra khi chỉ cần đường đi từ 1 điểm xuất phát cụ thể; chọn Floyd khi cần biết khoảng cách giữa MỌI cặp điểm (ví dụ lập bảng khoảng cách đầy đủ giữa các thành phố)."
+  },
+  {
+    "id": 48,
+    "group": "NHÓM 5 — Đường đi ngắn nhất (Dijkstra)",
+    "type": "mcq",
+    "image": null,
+    "question": "Mô hình hoá bài toán đường đi ngắn nhất (SRP) dưới dạng QHTT (đã đề cập trong slide gốc, mục \"Mô hình hoá SRP dưới dạng QHTT\") thường dùng cấu trúc ràng buộc:",
+    "options": {
+      "A": "Không có ràng buộc nào đặc biệt.",
+      "B": "Chỉ có 1 biến duy nhất.",
+      "C": "Giống hệt bài toán cái túi.",
+      "D": "Giống bài toán vận tải/luồng: mỗi nút trung gian có \"luồng vào $=$ luồng ra\" (bảo toàn luồng), nút nguồn phát ra 1 đơn vị luồng, nút đích nhận vào 1 đơn vị luồng."
+    },
+    "correct": "D",
+    "explanation": "Đây là liên hệ lý thuyết đẹp: bài toán đường đi ngắn nhất có thể mô hình hoá như một \"bài toán luồng chi phí nhỏ nhất\" (min-cost flow) với 1 đơn vị luồng cần vận chuyển từ nguồn tới đích."
+  },
+  {
+    "id": 49,
+    "group": "NHÓM 5 — Đường đi ngắn nhất (Dijkstra)",
+    "type": "fill",
+    "image": null,
+    "question": "Đồ thị có 6 nút, chạy Dijkstra từ nút 1. Kết quả là khoảng cách tới CẢ 5 nút còn lại. Hỏi Dijkstra cho biết khoảng cách tới bao nhiêu nút (không tính chính nút nguồn)?",
+    "answer": 5,
+    "answerType": "number",
+    "explanation": "Với 6 nút, trừ nút nguồn còn lại $5$ nút cần tính khoảng cách.",
+    "tolerance": 0
+  },
+  {
+    "id": 50,
+    "group": "NHÓM 5 — Đường đi ngắn nhất (Dijkstra)",
+    "type": "mcq",
+    "image": null,
+    "question": "Ứng dụng thực tế phổ biến nhất của Dijkstra (ngoài phạm vi bài tập) là:",
+    "options": {
+      "A": "Chỉ dùng cho bài toán phân công.",
+      "B": "Chỉ dùng để giải bài toán cái túi.",
+      "C": "Hệ thống dẫn đường GPS/bản đồ số (tìm tuyến đường ngắn nhất/nhanh nhất giữa 2 địa điểm), định tuyến gói tin trong mạng máy tính.",
+      "D": "Chỉ dùng trong các bài toán học thuật, không có ứng dụng thực tế."
+    },
+    "correct": "C",
+    "explanation": "Dijkstra là một trong những thuật toán có ảnh hưởng thực tiễn lớn nhất của Vận trù học/khoa học máy tính — chạy ẩn phía sau hầu hết ứng dụng bản đồ số mọi người dùng hàng ngày."
+  },
+  {
+    "id": 51,
+    "group": "NHÓM 5 — Đường đi ngắn nhất (Dijkstra)",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu đồ thị có TRỌNG SỐ ÂM trên một số cạnh (nhưng không có chu trình âm), thuật toán phù hợp thay thế Dijkstra là:",
+    "options": {
+      "A": "Bellman-Ford — xử lý được trọng số âm (miễn không có chu trình âm, vì khi đó \"đường ngắn nhất\" không xác định — có thể giảm vô hạn).",
+      "B": "Chỉ cần đổi dấu toàn bộ đồ thị.",
+      "C": "Không có thuật toán nào xử lý được trọng số âm.",
+      "D": "Vẫn dùng Dijkstra bình thường, không cần đổi thuật toán."
+    },
+    "correct": "A",
+    "explanation": "Đây là kiến thức mở rộng quan trọng: Bellman-Ford là lựa chọn thay thế kinh điển khi có trọng số âm — với điều kiện đồ thị không có \"chu trình âm\" (negative cycle), nếu không bài toán không xác định."
+  },
+  {
+    "id": 52,
+    "group": "NHÓM 6 — Luồng cực đại & lát cắt (Max-flow Min-cut)",
+    "type": "mcq",
+    "image": "v7_maxflow_graph.png",
+    "question": "Bài toán Luồng cực đại (Maximum Flow) yêu cầu tìm:",
+    "options": {
+      "A": "Cây khung nhỏ nhất của mạng.",
+      "B": "Đường đi ngắn nhất giữa nguồn và đích.",
+      "C": "Chu trình có tổng dung lượng nhỏ nhất.",
+      "D": "Lượng luồng LỚN NHẤT có thể truyền từ nút nguồn (source) tới nút đích (sink) trên mạng, không vượt quá dung lượng (capacity) mỗi cung."
+    },
+    "correct": "D",
+    "explanation": "Định nghĩa chuẩn — khác hẳn bài toán đường đi ngắn nhất (chỉ quan tâm 1 tuyến) hay MST (không có khái niệm nguồn/đích cố định)."
+  },
+  {
+    "id": 53,
+    "group": "NHÓM 6 — Luồng cực đại & lát cắt (Max-flow Min-cut)",
+    "type": "mcq",
+    "image": null,
+    "question": "\"Lát cắt\" (Cut) trong bài toán luồng cực đại là:",
+    "options": {
+      "A": "Một cạnh bất kỳ trong mạng.",
+      "B": "Tổng dung lượng toàn bộ mạng.",
+      "C": "Đường đi ngắn nhất.",
+      "D": "Một cách chia tập nút thành 2 phần $S$ (chứa nguồn) và $\\overline{S}$ (chứa đích)."
+    },
+    "correct": "D",
+    "explanation": "Định nghĩa chuẩn — lưu ý chỉ tính cung đi TỪ $S$ RA $\\overline{S}$ (một chiều), không tính cung ngược lại."
+  },
+  {
+    "id": 54,
+    "group": "NHÓM 6 — Luồng cực đại & lát cắt (Max-flow Min-cut)",
+    "type": "mcq",
+    "image": null,
+    "question": "Định lý Max-Flow Min-Cut khẳng định:",
+    "options": {
+      "A": "Lát cắt cực tiểu luôn có dung lượng bằng 0.",
+      "B": "Giá trị luồng cực đại (max flow) LUÔN BẰNG dung lượng lát cắt cực tiểu (min cut) trên mạng.",
+      "C": "Luồng cực đại luôn bằng tổng dung lượng mọi cạnh.",
+      "D": "Mọi mạng giao thông đều vô nghiệm."
+    },
+    "correct": "B",
+    "explanation": "Đúng theo MCQ đề thi mẫu số 3 — đây là một trong những định lý quan trọng và đẹp nhất của lý thuyết mạng, liên kết 2 bài toán tưởng chừng khác nhau (luồng cực đại vs lát cắt cực tiểu)."
+  },
+  {
+    "id": 55,
+    "group": "NHÓM 6 — Luồng cực đại & lát cắt (Max-flow Min-cut)",
+    "type": "mcq",
+    "image": null,
+    "question": "Cho mạng 6 nút (nguồn $0$, đích $5$) với các cung/dung lượng: $0{\\to}1(10),0{\\to}2(10),1{\\to}2(2),1{\\to}3(4),1{\\to}4(8),2{\\to}4(9),3{\\to}5(10),4{\\to}3(6),4{\\to}5(10)$. Luồng cực đại (đã kiểm chứng bằng thuật toán Ford-Fulkerson) từ nút 0 tới nút 5 là:",
+    "options": {
+      "A": "20.",
+      "B": "19.",
+      "C": "15.",
+      "D": "24."
+    },
+    "correct": "B",
+    "explanation": "Đã kiểm chứng bằng thuật toán Ford-Fulkerson (BFS/Edmonds-Karp) độc lập, chạy 4 vòng lặp đường tăng luồng: luồng cực đại $=19$."
+  },
+  {
+    "id": 56,
+    "group": "NHÓM 6 — Luồng cực đại & lát cắt (Max-flow Min-cut)",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn mạng trên. Theo định lý Max-Flow Min-Cut, dung lượng của lát cắt cực tiểu trên mạng này (bằng đúng giá trị luồng cực đại) là bao nhiêu?",
+    "answer": 19,
+    "answerType": "number",
+    "explanation": "Theo định lý Max-Flow Min-Cut: dung lượng lát cắt cực tiểu $=$ luồng cực đại $=19$ — không cần tính riêng lát cắt nếu đã biết luồng cực đại.",
+    "tolerance": 0
+  },
+  {
+    "id": 57,
+    "group": "NHÓM 6 — Luồng cực đại & lát cắt (Max-flow Min-cut)",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về bài toán luồng cực đại, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Giá trị luồng qua BẤT KỲ lát cắt nào (không nhất thiết cực tiểu) luôn là một CẬN TRÊN của luồng cực đại thực sự.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Thuật toán Ford-Fulkerson hoạt động bằng cách liên tục tìm \"đường tăng luồng\" (augmenting path) từ nguồn tới đích và tăng luồng dọc theo đường đó, tới khi không còn đường tăng luồng nào.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Luồng cực đại luôn bằng tổng dung lượng CÁC CUNG ĐI RA TRỰC TIẾP từ nút nguồn.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — luồng cực đại bị giới hạn bởi \"nút thắt cổ chai\" (bottleneck) bất kỳ trong toàn mạng, không chỉ các cung xuất phát trực tiếp từ nguồn (dung lượng ra khỏi nguồn có thể lớn nhưng bị giới hạn bởi các cung sâu hơn trong mạng)."
+  },
+  {
+    "id": 58,
+    "group": "NHÓM 6 — Luồng cực đại & lát cắt (Max-flow Min-cut)",
+    "type": "mcq",
+    "image": null,
+    "question": "Mô hình QHTT của bài toán luồng cực đại có ràng buộc \"bảo toàn luồng\" tại mỗi nút trung gian $i$ (không phải nguồn/đích):",
+    "options": {
+      "A": "Tổng luồng vào luôn lớn hơn luồng ra.",
+      "B": "Tổng luồng VÀO nút $i$ $=$ tổng luồng RA khỏi nút $i$ (luồng không bị \"sinh ra\" hay \"mất đi\" tại nút trung gian).",
+      "C": "Không cần ràng buộc gì tại nút trung gian.",
+      "D": "Luồng vào luôn bằng 0."
+    },
+    "correct": "B",
+    "explanation": "Nguyên lý bảo toàn dòng chảy — giống hệt nguyên lý bảo toàn vật chất trong bài toán vận tải/tồn kho, chỉ áp dụng cho mạng luồng."
+  },
+  {
+    "id": 59,
+    "group": "NHÓM 6 — Luồng cực đại & lát cắt (Max-flow Min-cut)",
+    "type": "mcq",
+    "image": null,
+    "question": "Ứng dụng thực tế của bài toán luồng cực đại (ngoài giao thông) bao gồm:",
+    "options": {
+      "A": "Chỉ áp dụng cho bài toán có đúng 2 nút.",
+      "B": "Không có ứng dụng thực tế nào khác.",
+      "C": "Chỉ áp dụng được cho giao thông đường bộ.",
+      "D": "Tối ưu hoá băng thông mạng máy tính (truyền dữ liệu), quy hoạch hệ thống đường ống dẫn dầu/khí đốt, phân bổ tài nguyên trong mạng lưới cung ứng."
+    },
+    "correct": "D",
+    "explanation": "Phạm vi ứng dụng rất rộng — bất kỳ hệ thống nào có khái niệm \"dòng chảy bị giới hạn dung lượng\" đều có thể mô hình hoá bằng bài toán luồng cực đại."
+  },
+  {
+    "id": 60,
+    "group": "NHÓM 6 — Luồng cực đại & lát cắt (Max-flow Min-cut)",
+    "type": "mcq",
+    "image": null,
+    "question": "So sánh bài toán luồng cực đại với bài toán vận tải (chương V QHTT), điểm khác biệt cấu trúc chính là:",
+    "options": {
+      "A": "Hai bài toán hoàn toàn giống nhau.",
+      "B": "Luồng cực đại chỉ có 1 nguồn, 1 đích (điểm-tới-điểm qua mạng trung gian phức tạp); vận tải có NHIỀU nguồn, NHIỀU đích nhưng không có \"mạng trung gian\" phức tạp (thường là kết nối trực tiếp nguồn-đích).",
+      "C": "Luồng cực đại không có ràng buộc dung lượng.",
+      "D": "Vận tải chỉ có 1 nguồn duy nhất."
+    },
+    "correct": "B",
+    "explanation": "Một cách nhìn hữu ích: cả hai đều là bài toán \"luồng\" trên mạng, nhưng khác nhau về TOPO mạng (đơn giản trực tiếp vs phức tạp nhiều tầng) và số lượng nguồn/đích."
+  },
+  {
+    "id": 61,
+    "group": "NHÓM 6 — Luồng cực đại & lát cắt (Max-flow Min-cut)",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng trình tự thuật toán Ford-Fulkerson (tìm luồng cực đại):",
+    "items": [
+      {
+        "id": "ff1",
+        "text": "Khởi tạo luồng $=0$ trên mọi cung"
+      },
+      {
+        "id": "ff2",
+        "text": "Tìm 1 đường tăng luồng (augmenting path) từ nguồn tới đích trên đồ thị THẶNG DƯ (residual graph)"
+      },
+      {
+        "id": "ff3",
+        "text": "Tính \"nút thắt cổ chai\" (bottleneck) $=$ dung lượng thặng dư nhỏ nhất trên đường đó, tăng luồng dọc đường đi đúng bằng giá trị này"
+      },
+      {
+        "id": "ff4",
+        "text": "Cập nhật đồ thị thặng dư (giảm dung lượng thuận, tăng dung lượng nghịch), lặp lại bước 2 tới khi KHÔNG còn đường tăng luồng nào"
+      }
+    ],
+    "correctOrder": [
+      "ff1",
+      "ff2",
+      "ff3",
+      "ff4"
+    ],
+    "explanation": "Đúng trình tự thuật toán Ford-Fulkerson kinh điển — dừng khi không còn đường tăng luồng, lúc đó luồng hiện tại chính là luồng cực đại (theo định lý Max-Flow Min-Cut)."
+  },
+  {
+    "id": 62,
+    "group": "NHÓM 7 — CPM & PERT: đường găng",
+    "type": "mcq",
+    "image": "v7_cpm_graph.png",
+    "question": "CPM (Critical Path Method) dùng để:",
+    "options": {
+      "A": "Tối thiểu hoá chi phí nguyên vật liệu.",
+      "B": "Tìm đường đi ngắn nhất giữa 2 thành phố.",
+      "C": "Xác định \"đường găng\" (critical path).",
+      "D": "Không liên quan gì tới quản trị dự án."
+    },
+    "correct": "C",
+    "explanation": "Định nghĩa chuẩn — CPM là công cụ nền tảng của quản trị dự án, xác định các công việc \"không có dư địa trễ\" quyết định tổng thời gian dự án."
+  },
+  {
+    "id": 63,
+    "group": "NHÓM 7 — CPM & PERT: đường găng",
+    "type": "mcq",
+    "image": null,
+    "question": "Cho dự án 7 hoạt động $A(3),B(5),C(2,\\text{sau }A),D(4,\\text{sau }A,B),E(6,\\text{sau }C),F(3,\\text{sau }D),G(2,\\text{sau }E,F)$ (số trong ngoặc là thời gian, đơn vị ngày). Thời gian hoàn thành dự án ngắn nhất (đã kiểm chứng) là:",
+    "options": {
+      "A": "12 ngày.",
+      "B": "14 ngày.",
+      "C": "11 ngày.",
+      "D": "16 ngày."
+    },
+    "correct": "B",
+    "explanation": "Đã kiểm chứng bằng tính toán CPM đầy đủ (ES/EF/LS/LF): thời gian dự án $=14$ ngày, qua đường găng $B{\\to}D{\\to}F{\\to}G$."
+  },
+  {
+    "id": 64,
+    "group": "NHÓM 7 — CPM & PERT: đường găng",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn dự án trên. Đường găng (critical path — chuỗi hoạt động không có \"độ dự trữ\") là:",
+    "options": {
+      "A": "$B\\to D\\to F\\to G$ (tổng $5+4+3+2=14$).",
+      "B": "$A\\to D\\to F\\to G$.",
+      "C": "$A\\to C\\to E\\to G$ (tổng $3+2+6+2=13$).",
+      "D": "Tất cả 7 hoạt động."
+    },
+    "correct": "A",
+    "explanation": "Đã kiểm chứng: $B{\\to}D{\\to}F{\\to}G$ có tổng thời gian đúng bằng thời gian dự án ($14$ ngày, không có float) — đây là đường găng."
+  },
+  {
+    "id": 65,
+    "group": "NHÓM 7 — CPM & PERT: đường găng",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn dự án trên. Hoạt động $A$ (thời gian 3, không có tiền nhiệm) có \"độ dự trữ\" (float) $=1$ ngày (ES=0,LS=1). Hoạt động $C$ có float bao nhiêu? (ES=3,LS=4)",
+    "answer": 1,
+    "answerType": "number",
+    "explanation": "$\\text{Float}(C)=LS-ES=4-3=1$ ngày — $C$ có thể trễ tối đa 1 ngày mà không ảnh hưởng tổng tiến độ dự án.",
+    "tolerance": 0
+  },
+  {
+    "id": 66,
+    "group": "NHÓM 7 — CPM & PERT: đường găng",
+    "type": "truefalse",
+    "image": null,
+    "question": "Vẫn dự án trên (đường găng $B{\\to}D{\\to}F{\\to}G$, thời gian dự án 14 ngày). Đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Mọi hoạt động trên đường găng đều có \"độ dự trữ\" (float) $=0$.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Nếu hoạt động $B$ bị trễ 1 ngày (không phải lỗi của hoạt động khác), toàn bộ dự án sẽ trễ đúng 1 ngày (vì $B$ nằm trên đường găng).",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Hoạt động $A$ (không nằm trên đường găng) có thể trễ VÔ HẠN mà không ảnh hưởng dự án.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — \"float\" luôn là một giá trị HỮU HẠN cụ thể (ở đây $A$ có float $=1$ ngày, không phải vô hạn); trễ quá float sẽ đẩy hoạt động đó (và có thể cả dự án) chậm lại."
+  },
+  {
+    "id": 67,
+    "group": "NHÓM 7 — CPM & PERT: đường găng",
+    "type": "mcq",
+    "image": null,
+    "question": "\"Thời điểm bắt đầu sớm nhất\" (Earliest Start, ES) của một hoạt động được tính bằng:",
+    "options": {
+      "A": "Giá trị nhỏ nhất trong các EF của tiền nhiệm.",
+      "B": "Giá trị LỚN NHẤT trong các \"thời điểm kết thúc sớm nhất\" (EF) của TẤT CẢ hoạt động tiền nhiệm trực tiếp.",
+      "C": "Không liên quan gì tới hoạt động tiền nhiệm.",
+      "D": "Luôn bằng 0."
+    },
+    "correct": "B",
+    "explanation": "Nguyên tắc chuẩn: hoạt động chỉ có thể bắt đầu khi TẤT CẢ tiền nhiệm đã hoàn thành — nên phải chờ tiền nhiệm hoàn thành MUỘN NHẤT trong số các tiền nhiệm (lấy max)."
+  },
+  {
+    "id": 68,
+    "group": "NHÓM 7 — CPM & PERT: đường găng",
+    "type": "mcq",
+    "image": null,
+    "question": "PERT (Program Evaluation and Review Technique) khác CPM ở điểm chính:",
+    "options": {
+      "A": "PERT không tính đường găng.",
+      "B": "PERT và CPM hoàn toàn giống nhau.",
+      "C": "CPM chỉ dùng cho dự án có 1 hoạt động.",
+      "D": "PERT dùng ƯỚC LƯỢNG XÁC SUẤT thời gian hoạt động (lạc quan/bi quan/khả dĩ nhất) để xử lý sự KHÔNG CHẮC CHẮN, trong khi CPM giả định thời gian hoạt động là con số CỐ ĐỊNH đã biết."
+    },
+    "correct": "D",
+    "explanation": "Đây là khác biệt lịch sử và lý thuyết quan trọng: CPM (DuPont, 1957) ra đời cho dự án có thời gian XÁC ĐỊNH; PERT (US Navy, cùng thời) xử lý dự án có thời gian BẤT ĐỊNH bằng phân phối xác suất (thường dùng phân phối Beta)."
+  },
+  {
+    "id": 69,
+    "group": "NHÓM 7 — CPM & PERT: đường găng",
+    "type": "mcq",
+    "image": null,
+    "question": "Ý nghĩa quản trị thực tiễn quan trọng nhất của việc xác định \"đường găng\" là:",
+    "options": {
+      "A": "Ban quản lý dự án nên tập trung nguồn lực/giám sát chặt các hoạt động trên đường găng.",
+      "B": "Nên tập trung vào các hoạt động CÓ float lớn nhất.",
+      "C": "Chỉ có ý nghĩa lý thuyết, không có ứng dụng quản trị thực tế.",
+      "D": "Đường găng không ảnh hưởng gì tới việc ra quyết định quản lý."
+    },
+    "correct": "A",
+    "explanation": "Đây là giá trị ứng dụng cốt lõi của CPM/PERT trong quản trị dự án thực tế — biến một bài toán lý thuyết thành công cụ ra quyết định cụ thể (ưu tiên giám sát cái gì, linh hoạt điều gì)."
+  },
+  {
+    "id": 70,
+    "group": "NHÓM 7 — CPM & PERT: đường găng",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu MUỐN rút ngắn thời gian dự án (đề thi mẫu số 4 nêu bối cảnh tương tự về quản lý tiến độ), chiến lược hiệu quả nhất (crashing) là:",
+    "options": {
+      "A": "Chỉ cần rút ngắn hoạt động có thời gian dài nhất, bất kể có trên đường găng hay không.",
+      "B": "Không thể rút ngắn thời gian dự án bằng bất kỳ cách nào.",
+      "C": "Tập trung đầu tư thêm nguồn lực (tăng ca, thêm nhân công...) để rút ngắn thời gian các hoạt động TRÊN ĐƯỜNG GĂNG.",
+      "D": "Rút ngắn ngẫu nhiên bất kỳ hoạt động nào."
+    },
+    "correct": "C",
+    "explanation": "Đây là hệ quả trực tiếp và rất thực tiễn của khái niệm đường găng — đầu tư nguồn lực SAI CHỖ (vào hoạt động có float) hoàn toàn lãng phí, không rút ngắn được dự án."
+  },
+  {
+    "id": 71,
+    "group": "NHÓM 7 — CPM & PERT: đường găng",
+    "type": "mcq",
+    "image": null,
+    "question": "So sánh CPM/PERT với các mô hình mạng khác đã học (MST, Dijkstra, luồng cực đại), điểm khác biệt về BẢN CHẤT bài toán là:",
+    "options": {
+      "A": "Không có khác biệt nào giữa các mô hình.",
+      "B": "CPM/PERT làm việc trên mạng có cấu trúc \"phụ thuộc thứ tự\" (precedence, thường biểu diễn bằng đồ thị KHÔNG CHU TRÌNH có hướng.",
+      "C": "CPM/PERT không phải là mô hình mạng.",
+      "D": "CPM/PERT hoàn toàn giống MST về bản chất toán học."
+    },
+    "correct": "B",
+    "explanation": "Một góc nhìn tổng hợp cuối chương Network Model: dù đều dùng \"ngôn ngữ đồ thị\" (nút, cung), mỗi bài toán mạng có Ý NGHĨA và MỤC TIÊU khác nhau tuỳ ngữ cảnh ứng dụng (khoảng cách, dung lượng, hay thời gian/thứ tự)."
+  },
+  {
+    "id": 72,
+    "group": "NHÓM 8 — Lý thuyết trò chơi: khái niệm & phân loại",
+    "type": "mcq",
+    "image": null,
+    "question": "Lý thuyết trò chơi (Game Theory) là:",
+    "options": {
+      "A": "Không liên quan gì tới kinh tế học.",
+      "B": "Nghiên cứu các mô hình toán học về quyết định mang tính đối kháng/hợp tác giữa những người ra quyết định thông minh và có trách nhiệm.",
+      "C": "Một nhánh của hình học.",
+      "D": "Chỉ nghiên cứu các trò chơi giải trí thông thường (cờ vua, bài...)."
+    },
+    "correct": "B",
+    "explanation": "Định nghĩa chuẩn theo slide gốc — von Neumann và Nash (2 nhà toán học sáng lập lý thuyết trò chơi hiện đại) được nêu ngay ở slide mở đầu."
+  },
+  {
+    "id": 73,
+    "group": "NHÓM 8 — Lý thuyết trò chơi: khái niệm & phân loại",
+    "type": "mcq",
+    "image": null,
+    "question": "\"Quyết định có sự cạnh tranh/đối kháng\" (theo định nghĩa slide gốc) khác \"quyết định không có sự cạnh tranh\" ở điểm:",
+    "options": {
+      "A": "Quyết định đối kháng đòi hỏi biết các phương án của ĐỐI PHƯƠNG (dù không biết đối phương sẽ chọn gì), và kết quả phụ thuộc lẫn nhau; quyết định không đối kháng chỉ phụ thuộc hoàn toàn vào cá nhân (không có \"thế lực đối kháng\").",
+      "B": "Quyết định đối kháng luôn có kết quả xấu.",
+      "C": "Chỉ quyết định không đối kháng mới có yếu tố ngẫu nhiên.",
+      "D": "Không có khác biệt nào."
+    },
+    "correct": "A",
+    "explanation": "Đúng theo 2 định nghĩa slide gốc — ranh giới cơ bản để nhận diện một tình huống có phải \"trò chơi\" theo nghĩa lý thuyết trò chơi hay không."
+  },
+  {
+    "id": 74,
+    "group": "NHÓM 8 — Lý thuyết trò chơi: khái niệm & phân loại",
+    "type": "mcq",
+    "image": null,
+    "question": "\"Song ma trận\" (bimatrix) trong lý thuyết trò chơi biểu diễn:",
+    "options": {
+      "A": "Bảng thu hoạch của trò chơi 2 người, mỗi ô ghi CẶP giá trị $(U_1,U_2)$.",
+      "B": "Chỉ dùng cho trò chơi có $>2$ người chơi.",
+      "C": "Ma trận nghịch đảo.",
+      "D": "Hai ma trận hoàn toàn độc lập không liên quan."
+    },
+    "correct": "A",
+    "explanation": "Định nghĩa chuẩn theo slide gốc — mỗi ô của bảng thu hoạch ghi CẢ HAI giá trị (một cho mỗi người chơi), khác với \"đơn ma trận\" chỉ ghi 1 giá trị."
+  },
+  {
+    "id": 75,
+    "group": "NHÓM 8 — Lý thuyết trò chơi: khái niệm & phân loại",
+    "type": "mcq",
+    "image": null,
+    "question": "\"Đơn ma trận\" (payoff matrix, dùng cho trò chơi tổng-không/zero-sum) chỉ cần MỘT ma trận vì:",
+    "options": {
+      "A": "Không có lý do cụ thể.",
+      "B": "Người chơi II không có thu hoạch gì.",
+      "C": "Chỉ áp dụng cho trò chơi 1 người.",
+      "D": "$U_2(a_i,b_j)=-U_1(a_i,b_j)$ với mọi $(i,j)$."
+    },
+    "correct": "D",
+    "explanation": "Đúng định nghĩa slide gốc — đây chính là ý nghĩa của \"tổng bằng 0\" (zero-sum): thắng của người này đúng bằng thua của người kia, không có \"tổng lợi ích\" tăng thêm hay mất đi."
+  },
+  {
+    "id": 76,
+    "group": "NHÓM 8 — Lý thuyết trò chơi: khái niệm & phân loại",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về phân loại trò chơi (theo slide gốc), đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Trò chơi \"Song đề tù nhân\" (Prisoner's Dilemma) là ví dụ kinh điển của trò chơi KHÔNG hợp tác.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Trò chơi \"tĩnh\" (static) là trò chơi mà quyết định được đưa ra ở CÁC THỜI ĐIỂM KHÁC NHAU.",
+        "correct": false
+      },
+      {
+        "label": "c",
+        "text": "Trò chơi có \"thông tin hoàn hảo\" là trò chơi mà mỗi người chơi biết các nước đi đã được thực hiện bởi người chơi khác.",
+        "correct": true
+      }
+    ],
+    "explanation": "Ý (b) sai — theo đúng định nghĩa slide gốc: trò chơi TĨNH là quyết định đưa ra ĐỒNG THỜI; trò chơi ĐỘNG mới là quyết định ở các thời điểm khác nhau (đã bị đảo ngược trong phát biểu sai)."
+  },
+  {
+    "id": 77,
+    "group": "NHÓM 8 — Lý thuyết trò chơi: khái niệm & phân loại",
+    "type": "mcq",
+    "image": null,
+    "question": "Trò chơi \"Cờ vua\" được phân loại (theo các tiêu chí đã học) là:",
+    "options": {
+      "A": "Trò chơi đồng thời, thông tin không hoàn hảo.",
+      "B": "Trò chơi hợp tác, tổng bằng hằng số dương.",
+      "C": "Trò chơi không hợp tác, tổng bằng không (thắng-thua), tuần tự (sequential), thông tin hoàn hảo, động (dynamic).",
+      "D": "Không thể phân loại được."
+    },
+    "correct": "C",
+    "explanation": "Cờ vua là ví dụ kinh điển hội tụ đủ nhiều đặc điểm \"chuẩn mực\" nhất của lý thuyết trò chơi: 2 người, đối kháng hoàn toàn, đi lần lượt, luôn biết nước đi trước đó của đối thủ."
+  },
+  {
+    "id": 78,
+    "group": "NHÓM 8 — Lý thuyết trò chơi: khái niệm & phân loại",
+    "type": "mcq",
+    "image": null,
+    "question": "\"Cây trò chơi\" (Game tree) thường dùng để biểu diễn:",
+    "options": {
+      "A": "Chỉ dùng cho trò chơi 1 người.",
+      "B": "Chỉ dùng được cho trò chơi tĩnh.",
+      "C": "Trò chơi TUẦN TỰ/ĐỘNG (sequential/dynamic).",
+      "D": "Không liên quan gì tới lý thuyết trò chơi."
+    },
+    "correct": "C",
+    "explanation": "Đúng theo slide gốc (mục \"Mô tả trò chơi\": \"trò chơi tuần tự, trò chơi động: dạng sơ đồ cây\") — lựa chọn công cụ biểu diễn (song ma trận hay cây) phụ thuộc bản chất trò chơi (đồng thời hay tuần tự)."
+  },
+  {
+    "id": 79,
+    "group": "NHÓM 8 — Lý thuyết trò chơi: khái niệm & phân loại",
+    "type": "mcq",
+    "image": null,
+    "question": "Ví dụ \"Song đề tù nhân\" (2 người bị giam riêng, mỗi người chọn Nhận tội/Không nhận tội) minh hoạ nghịch lý:",
+    "options": {
+      "A": "Quyết định \"hợp lý\" của TỪNG cá nhân riêng lẻ (đều chọn Nhận tội để giảm nhẹ rủi ro cá nhân) có thể dẫn tới kết quả TỆ HƠN cho cả hai so với khi họ cùng hợp tác (đều Không nhận tội).",
+      "B": "Không có nghịch lý gì, đây là trò chơi tầm thường.",
+      "C": "Chỉ áp dụng được trong lĩnh vực pháp lý.",
+      "D": "Luôn có lợi khi cả hai cùng nhận tội."
+    },
+    "correct": "A",
+    "explanation": "Đây là bài học kinh điển và sâu sắc nhất của lý thuyết trò chơi không hợp tác — minh hoạ vì sao \"tối ưu cá nhân\" không luôn dẫn tới \"tối ưu tập thể\", ứng dụng rộng rãi trong kinh tế học, chính trị học."
+  },
+  {
+    "id": 80,
+    "group": "NHÓM 8 — Lý thuyết trò chơi: khái niệm & phân loại",
+    "type": "mcq",
+    "image": null,
+    "question": "Điều kiện \"ứng xử đúng đắn\" (rationality) trong lý thuyết trò chơi giả định người chơi:",
+    "options": {
+      "A": "Luôn hợp tác với đối phương bất kể tình huống.",
+      "B": "Không quan tâm tới kết quả thu hoạch.",
+      "C": "Biết đầy đủ thông tin về trò chơi và có niềm tin/trách nhiệm để chọn lựa quyết định nhằm đạt thu hoạch TỐT NHẤT có thể cho bản thân.",
+      "D": "Luôn chọn ngẫu nhiên."
+    },
+    "correct": "C",
+    "explanation": "Giả định nền tảng để phân tích trò chơi bằng công cụ toán học — nếu người chơi không \"hợp lý\", các khái niệm như chiến lược tối ưu/cân bằng không còn ý nghĩa dự đoán."
+  },
+  {
+    "id": 81,
+    "group": "NHÓM 8 — Lý thuyết trò chơi: khái niệm & phân loại",
+    "type": "mcq",
+    "image": null,
+    "question": "Trò chơi \"Kéo-Búa-Bao\" được phân loại là:",
+    "options": {
+      "A": "Trò chơi hợp tác.",
+      "B": "Trò chơi có tổng bằng hằng số dương.",
+      "C": "Trò chơi đồng thời (tĩnh), tổng bằng không, không hợp tác, lặp lại (nếu chơi nhiều ván), thuần tuý (không có yếu tố ngẫu nhiên bên ngoài, hoàn toàn do ý chí người chơi).",
+      "D": "Trò chơi tuần tự, thông tin hoàn hảo."
+    },
+    "correct": "C",
+    "explanation": "Đặc điểm then chốt: cả hai ra quyết định ĐỒNG THỜI (không ai biết trước lựa chọn của đối thủ) — đây chính là lý do trò chơi này (và các biến thể tương tự) là ví dụ kinh điển để minh hoạ chiến lược HỖN HỢP (sẽ học ở NHÓM 9)."
+  },
+  {
+    "id": 82,
+    "group": "NHÓM 9 — Lý thuyết trò chơi: điểm yên ngựa & chiến lược hỗn hợp",
+    "type": "mcq",
+    "image": null,
+    "question": "\"Điểm yên ngựa\" (saddle point) của trò chơi tổng-không 2 người tồn tại khi:",
+    "options": {
+      "A": "Không bao giờ tồn tại trong thực tế.",
+      "B": "$\\max_i\\min_j a_{ij}=\\min_j\\max_i a_{ij}$.",
+      "C": "Chỉ tồn tại khi ma trận vuông $2\\times2$.",
+      "D": "Ma trận thu hoạch có mọi phần tử bằng nhau."
+    },
+    "correct": "B",
+    "explanation": "Định nghĩa toán học chuẩn — khi điều kiện này thoả mãn, cả hai người chơi đều nên chọn CHIẾN LƯỢC THUẦN TUÝ (pure strategy) tương ứng, không cần ngẫu nhiên hoá."
+  },
+  {
+    "id": 83,
+    "group": "NHÓM 9 — Lý thuyết trò chơi: điểm yên ngựa & chiến lược hỗn hợp",
+    "type": "mcq",
+    "image": null,
+    "question": "Cho ma trận thu hoạch $A=\\begin{pmatrix}4&6\\\\3&5\\end{pmatrix}$ (người chơi hàng muốn max, người chơi cột muốn min). Ma trận này (đã kiểm chứng):",
+    "options": {
+      "A": "CÓ điểm yên ngựa tại $(2,2)$, $v=5$.",
+      "B": "KHÔNG có điểm yên ngựa.",
+      "C": "CÓ điểm yên ngựa tại $(1,2)$, $v=6$.",
+      "D": "CÓ điểm yên ngựa tại $(1,1)$, giá trị trò chơi $v=4$."
+    },
+    "correct": "D",
+    "explanation": "Đã kiểm chứng: $\\min$ mỗi hàng $=(4,3)$, $\\max=4$; $\\max$ mỗi cột $=(4,6)$, $\\min=4$. Bằng nhau $\\Rightarrow$ điểm yên ngựa tại $(1,1)$, giá trị trò chơi $v=4$."
+  },
+  {
+    "id": 84,
+    "group": "NHÓM 9 — Lý thuyết trò chơi: điểm yên ngựa & chiến lược hỗn hợp",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn ma trận $A=\\begin{pmatrix}4&6\\\\3&5\\end{pmatrix}$. Chiến lược tối ưu của người chơi hàng (chọn hàng 1 hay hàng 2) là hàng số mấy?",
+    "answer": 1,
+    "answerType": "number",
+    "explanation": "Hàng 1 (giá trị $\\min$ hàng $=4$, lớn nhất trong 2 hàng $=\\max(4,3)$) — người chơi hàng luôn chọn hàng đạt \"maximin\".",
+    "tolerance": 0
+  },
+  {
+    "id": 85,
+    "group": "NHÓM 9 — Lý thuyết trò chơi: điểm yên ngựa & chiến lược hỗn hợp",
+    "type": "mcq",
+    "image": null,
+    "question": "Cho ma trận $B=\\begin{pmatrix}1&-1\\\\-1&1\\end{pmatrix}$ (trò chơi \"đoán đồng xu\" — matching pennies). Ma trận này:",
+    "options": {
+      "A": "Không thể phân tích được.",
+      "B": "CÓ điểm yên ngựa tại $(2,2)$.",
+      "C": "CÓ điểm yên ngựa tại $(1,1)$.",
+      "D": "KHÔNG có điểm yên ngựa (maximin $=-1\\ne$ minimax $=1$)."
+    },
+    "correct": "D",
+    "explanation": "Đã kiểm chứng: maximin (theo hàng) $=-1$, minimax (theo cột) $=1$, khác nhau $\\Rightarrow$ không có điểm yên ngựa — đây chính là VÍ DỤ KINH ĐIỂN cần chiến lược hỗn hợp."
+  },
+  {
+    "id": 86,
+    "group": "NHÓM 9 — Lý thuyết trò chơi: điểm yên ngựa & chiến lược hỗn hợp",
+    "type": "fill",
+    "image": null,
+    "question": "Vẫn ma trận $B=\\begin{pmatrix}1&-1\\\\-1&1\\end{pmatrix}$. Dùng công thức chiến lược hỗn hợp 2x2: $p^*=\\frac{d-c}{a+d-b-c}$ với $a{=}1,b{=}{-}1,c{=}{-}1,d{=}1$. Tính $p^*$ (xác suất chọn hàng 1).",
+    "answer": 0.5,
+    "answerType": "number",
+    "explanation": "$p^*=\\dfrac{1-(-1)}{1+1-(-1)-(-1)}=\\dfrac{2}{4}=0.5$ — mỗi chiến lược chọn với xác suất bằng nhau (50-50), hợp lý vì bài toán hoàn toàn đối xứng.",
+    "tolerance": 0.01
+  },
+  {
+    "id": 87,
+    "group": "NHÓM 9 — Lý thuyết trò chơi: điểm yên ngựa & chiến lược hỗn hợp",
+    "type": "mcq",
+    "image": null,
+    "question": "Vẫn ma trận đoán đồng xu $B$. Giá trị trò chơi $v^*$ (khi cả hai chơi chiến lược hỗn hợp tối ưu) là:",
+    "options": {
+      "A": "$v^*=-1$.",
+      "B": "$v^*=1$.",
+      "C": "$v^*=0.5$.",
+      "D": "$v^*=0$ — trò chơi \"công bằng tuyệt đối\", không ai có lợi thế kỳ vọng dài hạn."
+    },
+    "correct": "D",
+    "explanation": "Đã kiểm chứng: $v=\\dfrac{ad-bc}{a+d-b-c}=\\dfrac{1(1)-(-1)(-1)}{4}=\\dfrac{1-1}{4}=0$ — hợp lý vì trò chơi hoàn toàn đối xứng giữa 2 người chơi."
+  },
+  {
+    "id": 88,
+    "group": "NHÓM 9 — Lý thuyết trò chơi: điểm yên ngựa & chiến lược hỗn hợp",
+    "type": "truefalse",
+    "image": null,
+    "question": "So sánh 2 ví dụ đã học ($A=\\begin{pmatrix}4&6\\\\3&5\\end{pmatrix}$ có điểm yên ngựa; $B=\\begin{pmatrix}1&-1\\\\-1&1\\end{pmatrix}$ không có). Đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Khi CÓ điểm yên ngựa, chiến lược tối ưu là THUẦN TUÝ (chọn chắc chắn 1 hàng/cột cụ thể, không cần xác suất).",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Khi KHÔNG có điểm yên ngựa, phải dùng chiến lược HỖN HỢP (chọn ngẫu nhiên theo một phân phối xác suất cụ thể) để đạt kết quả tối ưu dài hạn.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Mọi ma trận trò chơi $2\\times2$ luôn có điểm yên ngựa.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — chính ví dụ $B$ (matching pennies) đã chứng minh phản ví dụ rõ ràng: không phải mọi ma trận $2\\times2$ đều có điểm yên ngựa. Hai ý đầu đúng và là kết luận cốt lõi cần nhớ của lý thuyết trò chơi tổng-không."
+  },
+  {
+    "id": 89,
+    "group": "NHÓM 9 — Lý thuyết trò chơi: điểm yên ngựa & chiến lược hỗn hợp",
+    "type": "mcq",
+    "image": null,
+    "question": "\"Chiến lược bị trội/bị trò\" (dominated strategy) trong lý thuyết trò chơi là:",
+    "options": {
+      "A": "Không có ý nghĩa gì trong phân tích.",
+      "B": "Một chiến lược mà kết quả LUÔN KHÔNG TỐT HƠN (bằng hoặc kém hơn ở mọi trường hợp) so với một chiến lược khác.",
+      "C": "Chiến lược duy nhất trong trò chơi.",
+      "D": "Chiến lược luôn cho kết quả tốt nhất."
+    },
+    "correct": "B",
+    "explanation": "Nguyên lý \"loại trừ chiến lược bị trội\" (dominance) là kỹ thuật đơn giản hoá ma trận trước khi phân tích sâu hơn (tìm điểm yên ngựa hoặc chiến lược hỗn hợp) — giảm kích thước bài toán cần xét."
+  },
+  {
+    "id": 90,
+    "group": "NHÓM 9 — Lý thuyết trò chơi: điểm yên ngựa & chiến lược hỗn hợp",
+    "type": "mcq",
+    "image": null,
+    "question": "Ma trận $D=\\begin{pmatrix}3&2\\\\1&1\\\\4&5\\end{pmatrix}$ (người chơi hàng, 3 chiến lược I,II,III). Đã kiểm chứng: hàng III trội hơn hàng I (mọi cột đều $\\ge$), hàng I trội hơn hàng II. Sau khi loại bỏ các chiến lược bị trội:",
+    "options": {
+      "A": "Còn lại cả 3 hàng, không loại được gì.",
+      "B": "Chỉ còn lại hàng III.",
+      "C": "Không thể áp dụng nguyên lý loại trừ cho ma trận này.",
+      "D": "Chỉ còn lại hàng I."
+    },
+    "correct": "B",
+    "explanation": "Đã kiểm chứng bằng so sánh trực tiếp từng cột: hàng III $\\ge$ hàng I $\\ge$ hàng II ở MỌI cột — người chơi hàng luôn nên chọn III (không bao giờ có lý do chọn I hay II), rút gọn bài toán về 1 dòng duy nhất."
+  },
+  {
+    "id": 91,
+    "group": "NHÓM 9 — Lý thuyết trò chơi: điểm yên ngựa & chiến lược hỗn hợp",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong thực hành thi cử, khi gặp ma trận trò chơi $2\\times2$ và được yêu cầu \"giải trò chơi\", quy trình chuẩn là:",
+    "options": {
+      "A": "Luôn áp dụng công thức chiến lược hỗn hợp bất kể có điểm yên ngựa hay không.",
+      "B": "(1) Kiểm tra có điểm yên ngựa không (so $\\max\\min$ hàng với $\\min\\max$ cột); (2) nếu có, kết luận ngay chiến lược thuần tuý và giá trị trò chơi; (3) nếu không, áp dụng công thức chiến lược hỗn hợp $2\\times2$ để tính $p^*,q^*,v^*$.",
+      "C": "Luôn kết luận trò chơi vô nghiệm.",
+      "D": "Không có quy trình cụ thể nào."
+    },
+    "correct": "B",
+    "explanation": "Tổng kết quy trình chuẩn cho dạng bài \"giải trò chơi ma trận $2\\times2$\" — bước kiểm tra điểm yên ngựa LUÔN LÀM TRƯỚC, vì nếu có thì bài toán đơn giản hơn nhiều so với phải tính chiến lược hỗn hợp."
+  },
+  {
+    "id": 92,
+    "group": "NHÓM 10 — Tổng hợp Vận trù học",
+    "type": "mcq",
+    "image": null,
+    "question": "Xuyên suốt các chủ đề đã học (QHTT cơ bản, BIP, vận tải/mạng, trò chơi), sợi chỉ đỏ chung của Vận trù học (Operations Research) là:",
+    "options": {
+      "A": "Không có mối liên hệ gì giữa các chủ đề.",
+      "B": "Chỉ áp dụng được cho các bài toán quân sự.",
+      "C": "Chỉ tập trung vào việc vẽ đồ thị đẹp.",
+      "D": "Mô hình hoá các vấn đề quyết định thực tế thành bài toán TOÁN HỌC có cấu trúc rõ ràng, rồi dùng THUẬT TOÁN (đảm bảo đúng đắn, hiệu quả) để tìm phương án tốt nhất."
+    },
+    "correct": "D",
+    "explanation": "Đây là bản chất và giá trị cốt lõi của toàn bộ môn học — từ nguồn gốc lịch sử (OR ra đời trong Thế chiến II để tối ưu hoá quyết định quân sự) tới ứng dụng hiện đại (kinh doanh, logistics, tài chính...)."
+  },
+  {
+    "id": 93,
+    "group": "NHÓM 10 — Tổng hợp Vận trù học",
+    "type": "mcq",
+    "image": null,
+    "question": "So sánh 4 mảng lớn đã học (QHTT liên tục, QHTT nhị phân, Mô hình mạng, Lý thuyết trò chơi), điểm phân biệt cấu trúc chính là:",
+    "options": {
+      "A": "Bốn mảng hoàn toàn độc lập, không có sự phân biệt rõ ràng.",
+      "B": "QHTT liên tục/nhị phân tối ưu hoá QUYẾT ĐỊNH CÁ NHÂN (1 người ra quyết định) dưới ràng buộc; Lý thuyết trò chơi phân tích quyết định TƯƠNG TÁC giữa NHIỀU người ra quyết định (có thể đối kháng); Mô hình mạng là công cụ CHUYÊN BIỆT cho các bài toán có cấu trúc đồ thị đặc thù (dùng được trong cả 2 nhóm trên).",
+      "C": "Chỉ có Lý thuyết trò chơi mới thực sự thuộc Vận trù học.",
+      "D": "Không có cách phân loại hợp lý nào."
+    },
+    "correct": "B",
+    "explanation": "Một cách hệ thống hoá hữu ích cuối chương: phân biệt theo SỐ NGƯỜI RA QUYẾT ĐỊNH (1 vs nhiều) và theo CẤU TRÚC BÀI TOÁN (tổng quát vs mạng đặc thù) — giúp nhận diện nhanh loại công cụ cần dùng khi gặp vấn đề mới."
+  },
+  {
+    "id": 94,
+    "group": "NHÓM 10 — Tổng hợp Vận trù học",
+    "type": "truefalse",
+    "image": null,
+    "question": "Tổng kết toàn bộ chương trình — đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Bài toán phân công là cầu nối giữa QHTT nhị phân và bài toán vận tải (chương V) — cùng cấu trúc ràng buộc, khác về ý nghĩa biến ($0/1$ vs liên tục).",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "MST, Dijkstra, luồng cực đại đều có thể mô hình hoá bằng QHTT tổng quát, nhưng thường dùng thuật toán chuyên biệt để hiệu quả hơn.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Lý thuyết trò chơi hoàn toàn tách biệt, không có liên hệ toán học nào với QHTT.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — thực tế, việc giải trò chơi tổng-không với chiến lược hỗn hợp (khi ma trận lớn hơn $2\\times2$) CÓ THỂ quy về bài toán QHTT (mỗi người chơi giải 1 bài toán QHTT đối ngẫu với nhau) — một liên hệ sâu sắc giữa 2 lý thuyết."
+  },
+  {
+    "id": 95,
+    "group": "NHÓM 10 — Tổng hợp Vận trù học",
+    "type": "mcq",
+    "image": null,
+    "question": "Đề thi Vận trù học mẫu có cấu trúc 4 câu (LP cơ bản 3đ, BIP 2.5đ, tình huống thực tế 2.5đ, trắc nghiệm tổng hợp 2đ). Việc phân bổ điểm này phản ánh:",
+    "options": {
+      "A": "Chỉ có kiến thức đơn hình mới được kiểm tra trong đề thi.",
+      "B": "LP cơ bản (đồ thị/đơn hình) là NỀN TẢNG quan trọng nhất (điểm cao nhất); các dạng mở rộng (BIP, vận tải, mạng, trò chơi) được kiểm tra qua tình huống ứng dụng thực tế và câu trắc nghiệm lý thuyết tổng hợp.",
+      "C": "Câu trắc nghiệm là phần quan trọng nhất.",
+      "D": "Tất cả các chủ đề có tầm quan trọng như nhau."
+    },
+    "correct": "B",
+    "explanation": "Đúng theo cấu trúc đề thi mẫu đã phân tích xuyên suốt — chiến lược ôn tập hợp lý nên ưu tiên thời gian tương ứng với trọng số điểm của từng phần."
+  },
+  {
+    "id": 96,
+    "group": "NHÓM 10 — Tổng hợp Vận trù học",
+    "type": "mcq",
+    "image": null,
+    "question": "Kỹ năng \"nhận diện đúng loại bài toán\" (LP cơ bản? BIP nào? vận tải/mạng nào? trò chơi nào?) từ đề bài bằng NGÔN NGỮ TỰ NHIÊN là kỹ năng:",
+    "options": {
+      "A": "Không quan trọng, chỉ cần thuộc công thức.",
+      "B": "Có thể bỏ qua nếu thuộc lòng thuật toán.",
+      "C": "Quan trọng nhất và khó nhất trong toàn bộ môn Vận trù học.",
+      "D": "Chỉ cần thiết cho câu trắc nghiệm."
+    },
+    "correct": "C",
+    "explanation": "Đây là bài học tổng kết quan trọng nhất của toàn bộ 3 bộ câu hỏi (v5, v6, v7): \"mô hình hoá đúng\" luôn là bước quyết định, quan trọng hơn cả kỹ năng tính toán thuần tuý."
+  },
+  {
+    "id": 97,
+    "group": "NHÓM 10 — Tổng hợp Vận trù học",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu gặp một bài toán thực tế MỚI, không khớp hoàn toàn với bất kỳ mô hình \"kinh điển\" nào đã học (QHTT, BIP, vận tải, mạng, trò chơi), chiến lược hợp lý là:",
+    "options": {
+      "A": "Chỉ giải được nếu có sẵn công thức.",
+      "B": "Luôn ép bài toán vào 1 trong các mô hình đã học dù không khớp hoàn toàn.",
+      "C": "Từ bỏ, không thể giải quyết bài toán mới.",
+      "D": "Quay lại NGUYÊN TẮC GỐC (xác định biến quyết định, hàm mục tiêu, ràng buộc) để tự xây dựng mô hình phù hợp."
+    },
+    "correct": "D",
+    "explanation": "Đây là tinh thần cốt lõi của Vận trù học ứng dụng thực tế — các mô hình \"kinh điển\" là NỀN TẢNG và VÍ DỤ MẪU, không phải giới hạn cứng nhắc; khả năng linh hoạt kết hợp/mở rộng mô hình là kỹ năng bậc cao cần rèn luyện."
+  },
+  {
+    "id": 98,
+    "group": "NHÓM 10 — Tổng hợp Vận trù học",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong 3 bộ câu hỏi v5 (LP cơ bản), v6 (BIP), v7 (vận tải/mạng/trò chơi) đã học, chủ đề có tính \"công cụ nền tảng\" cho nhiều chủ đề khác nhất là:",
+    "options": {
+      "A": "QHTT cơ bản (v5).",
+      "B": "Lý thuyết trò chơi là nền tảng cho mọi chủ đề khác.",
+      "C": "Không có chủ đề nào mang tính nền tảng.",
+      "D": "CPM/PERT là nền tảng cho mọi chủ đề khác."
+    },
+    "correct": "A",
+    "explanation": "Một tổng kết hệ thống cuối cùng: QHTT (v5) thực sự là \"ngôn ngữ chung\" xuyên suốt hầu hết các chủ đề của Vận trù học — nắm vững v5 là điều kiện tiên quyết để hiểu sâu v6, v7."
+  },
+  {
+    "id": 99,
+    "group": "NHÓM 10 — Tổng hợp Vận trù học",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng thứ tự HỌC HỢP LÝ (từ nền tảng tới nâng cao) của 3 bộ chủ đề Vận trù học đã ôn tập:",
+    "items": [
+      {
+        "id": "l1",
+        "text": "v5: QHTT cơ bản — mô hình hoá, phương pháp đồ thị, bảng đơn hình (nền tảng của mọi chủ đề sau)"
+      },
+      {
+        "id": "l2",
+        "text": "v6: QHTT nhị phân (BIP) — mở rộng sang biến quyết định rời rạc (knapsack, phân công, TSP, fixed-charge)"
+      },
+      {
+        "id": "l3",
+        "text": "v7: Vận tải mở rộng, Mô hình mạng, Lý thuyết trò chơi — các mô hình chuyên biệt và mở rộng sang bối cảnh nhiều người ra quyết định"
+      }
+    ],
+    "correctOrder": [
+      "l1",
+      "l2",
+      "l3"
+    ],
+    "explanation": "Trình tự học hợp lý phản ánh đúng mức độ phức tạp tăng dần: nắm chắc QHTT liên tục cơ bản trước, rồi mới mở rộng sang biến rời rạc, rồi mới tới các mô hình chuyên biệt/đa tác nhân."
+  },
+  {
+    "id": 100,
+    "group": "NHÓM 10 — Tổng hợp Vận trù học",
+    "type": "mcq",
+    "image": null,
+    "question": "Lời khuyên ôn thi tổng hợp (dựa trên toàn bộ nội dung đã ôn tập trong v5-v7) hiệu quả nhất là:",
+    "options": {
+      "A": "Không cần luyện tập, chỉ cần đọc lý thuyết.",
+      "B": "Chỉ cần học thuộc lòng các con số đáp số mà không cần hiểu quy trình.",
+      "C": "Chỉ cần tập trung vào câu trắc nghiệm, bỏ qua phần tự luận.",
+      "D": "Luyện tập THÀNH THẠO việc chuyển đổi ngôn ngữ tự nhiên $\\to$ mô hình toán học cho từng dạng bài kinh điển, kết hợp với việc luôn KIỂM TRA CHÉO kết quả (thay số vào ràng buộc gốc, đối chiếu công thức tính toán) trước khi kết luận đáp số cuối cùng."
+    },
+    "correct": "D",
+    "explanation": "Lời khuyên tổng kết cuối cùng — nhất quán với nguyên tắc \"kiểm tra chéo\" đã nhấn mạnh xuyên suốt toàn bộ hệ thống câu hỏi ôn tập (QHTT, Vận trù học) trên trang web này."
+  }
+]
