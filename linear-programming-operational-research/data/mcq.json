@@ -610,7 +610,7 @@
       "A": "Không bị chặn.",
       "B": "Duy nhất 1 nghiệm.",
       "C": "Vô nghiệm.",
-      "D": "Vô số nghiệm tối ưu — toàn bộ cạnh nối $C$ và $D$."
+      "D": "Vô số nghiệm tối ưu."
     },
     "correct": "D",
     "explanation": "2 đỉnh kề cùng tối ưu $\\Rightarrow$ cả cạnh nối chúng đều là nghiệm tối ưu (đã chứng minh ở Câu 17/Đề 3 phần lý thuyết Chương I)."
@@ -764,7 +764,7 @@
       "A": "Vô số nghiệm.",
       "B": "Có nghiệm tối ưu hữu hạn.",
       "C": "Không bị chặn.",
-      "D": "Vô nghiệm (tập phương án rỗng) — vì bảng tối ưu còn ẩn giả dương $x_6=1/2$."
+      "D": "Vô nghiệm (tập phương án rỗng)."
     },
     "correct": "D",
     "explanation": "Đúng kết luận đã chứng minh trong tài liệu."
@@ -1197,7 +1197,7 @@
     "options": {
       "A": "Hai phương pháp giống hệt nhau.",
       "B": "Cước phí nhỏ nhất không dùng được cho bài toán vận tải.",
-      "C": "Tây Bắc chỉ dựa vào vị trí ô (không quan tâm cước phí); cước phí nhỏ nhất ưu tiên lấp ô có $c_{ij}$ nhỏ nhất trước.",
+      "C": "Tây Bắc chỉ dựa vào vị trí ô (không quan tâm cước phí).",
       "D": "Tây Bắc luôn cho PATƯ ngay."
     },
     "correct": "C",
@@ -1210,7 +1210,7 @@
     "question": "Điều kiện để 1 bài toán vận tải có phương án (tập phương án khác rỗng) là:",
     "options": {
       "A": "$a_i>b_j$ với mọi $i,j$.",
-      "B": "$\\sum a_i=\\sum b_j$ (cân bằng thu phát) — điều kiện cần và đủ theo Định lý Chương V §1.",
+      "B": "$\\sum a_i=\\sum b_j$ (cân bằng thu phát).",
       "C": "$m=n$.",
       "D": "Không cần điều kiện gì."
     },
@@ -1282,7 +1282,7 @@
       "A": "Không có nền tảng lý thuyết.",
       "B": "Chỉ dùng được khi $m=n$.",
       "C": "Một thuật toán hoàn toàn độc lập, không liên quan đối ngẫu.",
-      "D": "Áp dụng lý thuyết đối ngẫu cho bài toán vận tải — hệ số $(r_i,s_j)$ chính là các biến đối ngẫu."
+      "D": "Áp dụng lý thuyết đối ngẫu cho bài toán vận tải."
     },
     "correct": "D",
     "explanation": "$(r_i,s_j)$ đóng vai trò biến đối ngẫu của 2 nhóm ràng buộc (phát/thu); điều kiện $c_{ij}=r_i+s_j$ tại ô chọn tương ứng điều kiện độ lệch bù."
@@ -1366,7 +1366,7 @@
       "A": "Không có điểm chung nào.",
       "B": "Luôn cần dùng quy hoạch nhị phân cho cả 2.",
       "C": "Chỉ bài toán vận tải là QHTT, các bài toán mạng khác không phải.",
-      "D": "Cả 2 nhóm bài toán đều có thể phát biểu dưới dạng QHTT với ma trận ràng buộc đặc biệt (mỗi cột chỉ có 2 hệ số $\\pm1$ khác 0 — ma trận \"network\")."
+      "D": "Cả 2 nhóm bài toán đều có thể phát biểu dưới dạng QHTT với ma trận ràng buộc đặc biệt (mỗi cột chỉ có 2 hệ số $\\pm1$ khác 0."
     },
     "correct": "D",
     "explanation": "Đây là tính chất \"unimodularity\" nổi tiếng của các bài toán mạng — lý do khiến nghiệm tối ưu của quy hoạch tuyến tính liên tục (relaxation) luôn nguyên, không cần ràng buộc nguyên tường minh."
@@ -1394,7 +1394,7 @@
       "A": "QHTT không đề cập bài toán vận tải.",
       "B": "Hai nội dung hoàn toàn giống nhau, không có khác biệt.",
       "C": "Vận Trù Học không dùng thuật toán thế vị.",
-      "D": "QHTT tập trung chứng minh chặt chẽ lý thuyết (hạng ma trận, điều kiện tồn tại nghiệm, thuật toán thế vị dựa trên đối ngẫu); Vận Trù Học dùng bài toán vận tải như 1 trong nhiều công cụ ứng dụng thực tế (cùng TSP, luồng mạng, quy hoạch nhị phân...)."
+      "D": "QHTT tập trung chứng minh chặt chẽ lý thuyết (hạng ma trận, điều kiện tồn tại nghiệm, thuật toán thế vị dựa trên đối ngẫu)."
     },
     "correct": "D",
     "explanation": "Đúng tổng kết đã phân tích ở phần so sánh 2 môn học (đầu phiên làm việc) — nhấn mạnh QHTT là nhánh lý thuyết nền tảng, Vận Trù Học là nhánh ứng dụng mở rộng."

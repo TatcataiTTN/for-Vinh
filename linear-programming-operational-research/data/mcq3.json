@@ -161,7 +161,7 @@
     "image": null,
     "question": "Vì sao trong mô hình QHTT, người ta luôn phải định nghĩa rõ ý nghĩa của $x_{ij}$ trước khi viết hàm mục tiêu và ràng buộc?",
     "options": {
-      "A": "Vì đơn vị và ý nghĩa của $x_{ij}$ quyết định cách viết đúng hàm mục tiêu (nhân với hệ số nào) và ràng buộc (cộng theo chỉ số nào) — sai ý nghĩa sẽ dẫn tới mô hình sai hoàn toàn dù công thức \"có vẻ đúng\".",
+      "A": "Vì đơn vị và ý nghĩa của $x_{ij}$ quyết định cách viết đúng hàm mục tiêu (nhân với hệ số nào) và ràng buộc (cộng theo chỉ số nào).",
       "B": "Không cần thiết, chỉ là quy ước trình bày.",
       "C": "Vì $x_{ij}$ luôn phải là số nguyên nên cần định nghĩa loại dữ liệu.",
       "D": "Vì máy tính yêu cầu bắt buộc phải có chú thích."
@@ -306,7 +306,7 @@
       "A": "$m$ và $n$ đã tính sai từ đầu, phải là $m=n=\\sqrt{11}$.",
       "B": "Bài toán này có ràng buộc đặc biệt nên ít hơn 1 số hạng.",
       "C": "Đó là điều bình thường, không phải lỗi.",
-      "D": "Quên 1 cặp $(i,j)$ khi liệt kê — cần rà lại đủ $i=1..3$, $j=1..4$."
+      "D": "Quên 1 cặp $(i,j)$ khi liệt kê."
     },
     "correct": "D",
     "explanation": "Số số hạng luôn đúng bằng $m\\times n=12$ với bài toán vận tải chuẩn (không ô cấm); thiếu 1 số hạng gần như chắc chắn là bỏ sót khi liệt kê, không phải \"trường hợp đặc biệt\"."
@@ -452,7 +452,7 @@
     "options": {
       "A": "Không có khác biệt, hai dạng hoàn toàn tương đương.",
       "B": "Bài toán vận tải luôn có nhiều biến hơn ràng buộc.",
-      "C": "Mỗi biến $x_{ij}$ xuất hiện trong đúng 2 ràng buộc chính (1 ràng buộc cung theo dòng $i$, 1 ràng buộc cầu theo cột $j$) — cấu trúc \"mạng hai phía\" đặc thù.",
+      "C": "Mỗi biến $x_{ij}$ xuất hiện trong đúng 2 ràng buộc chính (1 ràng buộc cung theo dòng $i$, 1 ràng buộc cầu theo cột $j$).",
       "D": "Bài toán vận tải không có ràng buộc dấu."
     },
     "correct": "C",
@@ -546,7 +546,7 @@
     "image": null,
     "question": "Bài toán phân công lao động: 4 công nhân ($i=1..4$), 4 công việc ($j=1..4$), $x_{ij}\\in\\{0,1\\}$ = 1 nếu công nhân $i$ làm việc $j$. Đây là trường hợp riêng của bài toán vận tải với:",
     "options": {
-      "A": "$a_i=1\\ \\forall i$, $b_j=1\\ \\forall j$ (bài toán phân công/gán — assignment problem).",
+      "A": "$a_i=1\\ \\forall i$, $b_j=1\\ \\forall j$ (bài toán phân công/gán.",
       "B": "Không liên quan gì tới bài toán vận tải.",
       "C": "$m\\ne n$ bắt buộc.",
       "D": "$a_i=4\\ \\forall i$."
@@ -758,7 +758,7 @@
     "question": "Nếu tồn tại biến phi cơ sở $x_k$ với $\\Delta_k<0$ (bài toán $\\min$) và \\textbf{toàn bộ} cột $A_k$ (đã biểu diễn qua cơ sở) $\\le 0$, kết luận là:",
     "options": {
       "A": "Bài toán vô nghiệm (không có phương án).",
-      "B": "Hàm mục tiêu không bị chặn dưới — bài toán không có lời giải hữu hạn.",
+      "B": "Hàm mục tiêu không bị chặn dưới.",
       "C": "Đã đạt tối ưu.",
       "D": "Cần đổi sang phương pháp M."
     },
@@ -800,7 +800,7 @@
     "options": {
       "A": "Không có khác biệt, hai khái niệm đồng nhất.",
       "B": "Phương án tối ưu không cần thoả ràng buộc.",
-      "C": "Mọi PA tối ưu (nếu tồn tại hữu hạn) đều có thể chọn là 1 PACB, nhưng không phải PACB nào cũng tối ưu — PACB chỉ là \"ứng viên\" (đỉnh của miền ràng buộc), tối ưu là PACB có giá trị hàm mục tiêu tốt nhất.",
+      "C": "Mọi PA tối ưu (nếu tồn tại hữu hạn) đều có thể chọn là 1 PACB, nhưng không phải PACB nào cũng tối ưu.",
       "D": "PACB luôn tốt hơn phương án tối ưu."
     },
     "correct": "C",
@@ -939,7 +939,7 @@
     "image": null,
     "question": "Bài toán đơn hình đạt tối ưu sau khi mọi $\\Delta_j\\ge0$ (bài toán min). Giá trị hàm mục tiêu tối ưu được đọc trực tiếp từ:",
     "options": {
-      "A": "Ô giao giữa hàng \"$z$\" (hoặc $f$) và cột hệ số tự do $b$ — chính là $\\sum c_{B_i}b_i$.",
+      "A": "Ô giao giữa hàng \"$z$\" (hoặc $f$) và cột hệ số tự do $b$.",
       "B": "Không đọc được, phải tính lại từ đầu.",
       "C": "Góc trên-trái bảng đơn hình (luôn bằng 0).",
       "D": "Tổng toàn bộ các $\\Delta_j$."
@@ -1038,7 +1038,7 @@
     "options": {
       "A": "Chọn hàng có hệ số nhỏ nhất (âm nhất) làm hàng trục.",
       "B": "Bài toán vô nghiệm.",
-      "C": "Không thể chọn biến ra — bài toán không bị chặn (unbounded), có thể tăng $x_k$ vô hạn.",
+      "C": "Không thể chọn biến ra.",
       "D": "Phải đổi biến vào khác có cùng $\\Delta_j$."
     },
     "correct": "C",
@@ -1094,7 +1094,7 @@
     "options": {
       "A": "Loại bỏ cả hai biến khỏi mô hình.",
       "B": "Phải đưa cả hai vào cơ sở cùng lúc.",
-      "C": "Chọn tuỳ ý một trong hai (thường theo quy tắc phụ như chỉ số nhỏ nhất — Bland — để nhất quán và tránh xoay vòng nếu bài toán suy biến).",
+      "C": "Chọn tuỳ ý một trong hai (thường theo quy tắc phụ như chỉ số nhỏ nhất.",
       "D": "Bài toán vô nghiệm."
     },
     "correct": "C",
@@ -1165,7 +1165,7 @@
       "A": "Tối đa hoá tổng các biến giả.",
       "B": "Chỉ kiểm tra tính suy biến.",
       "C": "Tối ưu hoá trực tiếp hàm mục tiêu gốc.",
-      "D": "Tối thiểu hoá tổng các biến giả (artificial variables) — nếu đạt được giá trị 0, tìm được PACB khả thi cho bài toán gốc."
+      "D": "Tối thiểu hoá tổng các biến giả (artificial variables)."
     },
     "correct": "D",
     "explanation": "Pha 1 giải bài toán phụ $\\min\\sum(\\text{biến giả})$ — nếu giá trị tối ưu $=0$ thì loại bỏ biến giả, chuyển sang Pha 2 với hàm mục tiêu gốc; nếu $>0$ thì bài toán gốc vô nghiệm."
@@ -1282,7 +1282,7 @@
     "options": {
       "A": "Bài toán gốc vô nghiệm.",
       "B": "Cần tăng số biến giả lên gấp đôi.",
-      "C": "Ràng buộc tương ứng \\textbf{phụ thuộc tuyến tính} vào các ràng buộc khác (dư thừa) — có thể xoá hẳn hàng đó khỏi bảng mà không ảnh hưởng tập phương án.",
+      "C": "Ràng buộc tương ứng \\textbf{phụ thuộc tuyến tính} vào các ràng buộc khác (dư thừa).",
       "D": "Đây là lỗi tính toán, phải làm lại từ đầu."
     },
     "correct": "C",
@@ -1340,7 +1340,7 @@
     "image": null,
     "question": "Khi so sánh hai biểu thức dạng $p_1M+q_1$ và $p_2M+q_2$ (với $M$ rất lớn) trong phương pháp M, quy tắc so sánh đúng là:",
     "options": {
-      "A": "So sánh hệ số của $M$ ($p_1$ với $p_2$) trước; chỉ khi $p_1=p_2$ mới so sánh phần hằng số $q_1,q_2$ — đúng như \\textbf{thứ tự từ điển} (lexicographic).",
+      "A": "So sánh hệ số của $M$ ($p_1$ với $p_2$) trước; chỉ khi $p_1=p_2$ mới so sánh phần hằng số $q_1,q_2$.",
       "B": "So sánh $q_1,q_2$ trước, nếu bằng nhau mới xét $p_1,p_2$.",
       "C": "$M$ luôn bị bỏ qua khi so sánh.",
       "D": "Luôn coi $p_1M+q_1>p_2M+q_2$ nếu $q_1>q_2$, không quan tâm $p$."
@@ -1395,7 +1395,7 @@
     "image": null,
     "question": "Cho ước lượng của 2 biến phi cơ sở (bài toán min, dùng M): $\\Delta_1=2M-5$, $\\Delta_2=-M+3$. Biến có ước lượng \\textbf{xấu nhất} (âm nhất theo $M$) là:",
     "options": {
-      "A": "$x_2$, vì $-M+3<0$ với $M$ đủ lớn — đây là biến nên đưa vào cơ sở.",
+      "A": "$x_2$, vì $-M+3<0$ với $M$ đủ lớn.",
       "B": "Không so sánh được nếu chưa biết giá trị $M$ cụ thể.",
       "C": "Cả hai đều xấu như nhau.",
       "D": "$x_1$, vì $2M-5>0$ với $M$ đủ lớn nên không xấu."
@@ -1466,7 +1466,7 @@
     "image": null,
     "question": "Việc lựa chọn phương pháp hai pha hay phương pháp M chủ yếu ảnh hưởng đến:",
     "options": {
-      "A": "Cách trình bày/tính toán trung gian trong quá trình giải — giá trị tối ưu cuối cùng (nếu có nghiệm) là như nhau ở cả hai phương pháp.",
+      "A": "Cách trình bày/tính toán trung gian trong quá trình giải.",
       "B": "Chỉ phương pháp M mới xử lý được ràng buộc $\\ge$.",
       "C": "Giá trị tối ưu cuối cùng của bài toán (hai phương pháp có thể cho giá trị tối ưu khác nhau).",
       "D": "Chỉ phương pháp hai pha mới cho phương án cực biên."
@@ -1605,7 +1605,7 @@
     "options": {
       "A": "Ràng buộc 1 luôn dư thừa.",
       "B": "Ràng buộc 3 ($x_2\\le3$) luôn dư thừa.",
-      "C": "Không có ràng buộc nào dư thừa — miền khả thi thực sự bị giới hạn bởi cả 3 ràng buộc tại các đỉnh khác nhau.",
+      "C": "Không có ràng buộc nào dư thừa.",
       "D": "Cả 3 ràng buộc đều dư thừa."
     },
     "correct": "C",
@@ -1618,7 +1618,7 @@
     "image": null,
     "question": "So sánh với PACB xuất phát $(0,0)$ có $f_0=0$: quá trình đơn hình tới $x^*=(3,2)$ với $f^*=18$ minh hoạ tính chất nào của thuật toán?",
     "options": {
-      "A": "Giá trị hàm mục tiêu tăng dần (không giảm) qua mỗi vòng lặp khi giải bài toán $\\max$ — đúng theo lý thuyết đã nêu ở NHÓM 7.",
+      "A": "Giá trị hàm mục tiêu tăng dần (không giảm) qua mỗi vòng lặp khi giải bài toán $\\max$.",
       "B": "Giá trị hàm mục tiêu luôn giảm.",
       "C": "Giá trị hàm mục tiêu dao động lên xuống.",
       "D": "Không có quy luật gì, ngẫu nhiên."

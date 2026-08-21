@@ -397,7 +397,7 @@
     "image": null,
     "question": "So sánh Bài toán 2 và Bài toán 3: điểm khác biệt cốt lõi trong quy trình Pha 1 là:",
     "options": {
-      "A": "Bài toán 3 gặp trường hợp ẩn giả suy biến (bằng 0) còn sót trong cơ sở tối ưu Pha 1, cần xử lý đặc biệt; Bài toán 2 thì mọi ẩn giả ra khỏi cơ sở hẳn.",
+      "A": "Bài toán 3 gặp trường hợp ẩn giả suy biến (bằng 0) còn sót trong cơ sở tối ưu Pha 1, cần xử lý đặc biệt.",
       "B": "Bài toán 3 không cần Pha 2.",
       "C": "Không có khác biệt gì.",
       "D": "Bài toán 2 không có ẩn giả."
@@ -790,7 +790,7 @@
     "question": "Sau 3 vòng lặp tiếp theo (tính tương tự — xem lời giải đầy đủ trong `De_Thi_Mau_QHTT.md` Phụ lục B), vòng lặp cuối cùng đạt $\\max\\Delta_{ij}=0$ tại ô $(2,3)$. Ý nghĩa của $\\Delta=0$ (không âm nhưng cũng không dương) là:",
     "options": {
       "A": "Bài toán vô nghiệm.",
-      "B": "Bài toán có **nhiều phương án tối ưu** (đa nghiệm) — có thể dừng ngay hoặc đổi cơ sở thêm mà giá trị hàm mục tiêu không đổi.",
+      "B": "Bài toán có **nhiều phương án tối ưu** (đa nghiệm).",
       "C": "Cần tiếp tục bắt buộc.",
       "D": "Có lỗi tính toán."
     },
@@ -1098,7 +1098,7 @@
     "question": "Đối chiếu với hình đa giác khả thi đầy đủ 5 đỉnh $O(0,0),(100,0),(60,40),(30,60),(0,60)$ — đường đi từ điển đã đi qua đúng những đỉnh nào?",
     "options": {
       "A": "Chỉ đi qua 1 đỉnh duy nhất.",
-      "B": "$O(0,0)\\to(0,60)\\to(30,60)$ — bỏ qua 2 đỉnh $(100,0)$ và $(60,40)$ vì không thuộc đường cải thiện $g$ theo hướng đã chọn.",
+      "B": "$O(0,0)\\to(0,60)\\to(30,60)$.",
       "C": "Đi qua cả 5 đỉnh.",
       "D": "Đi theo chiều ngược kim đồng hồ toàn bộ."
     },
@@ -1125,7 +1125,7 @@
     "image": null,
     "question": "Bài toán đối ngẫu $Q$ (2 ràng buộc gốc $\\ge\\Rightarrow y_1,y_2\\ge0$; 4 biến gốc $\\ge0 \\Rightarrow$ 4 ràng buộc đối ngẫu dạng $\\le$) là:",
     "options": {
-      "A": "$\\max\\ g(y)=y_1+2y_2$, s.t. $2y_1-y_2\\le3,\\ y_1+y_2\\le3,\\ -y_1+y_2\\le1,\\ -2y_1-y_2\\le-1$, $y_1, y_2\\ge0$.",
+      "A": "$\\max\\ g(y)=y_1+2y_2$, s.t.",
       "B": "Không xác định được ràng buộc.",
       "C": "$\\min\\ g(y)=y_1+2y_2$.",
       "D": "$\\max\\ g(y)=y_1+y_2$."
@@ -1254,7 +1254,7 @@
       "A": "Không kết luận được.",
       "B": "Bài toán vô nghiệm.",
       "C": "Cần giải thêm bằng đơn hình để xác nhận.",
-      "D": "$\\bar x$ và $\\bar y$ đều là phương án tối ưu của bài toán tương ứng — đây là cách tìm $\\bar x$ **không cần giải lại bằng đơn hình**, chỉ cần biết $\\bar y$ tối ưu của đối ngẫu."
+      "D": "$\\bar x$ và $\\bar y$ đều là phương án tối ưu của bài toán tương ứng."
     },
     "correct": "D",
     "explanation": "Đúng tinh thần cốt lõi của Bài toán 9: minh họa sức mạnh lý thuyết đối ngẫu — \"suy ngược\" nghiệm tối ưu bài toán gốc từ nghiệm đối ngẫu đã biết, nhanh hơn nhiều so với giải lại từ đầu."
@@ -1394,7 +1394,7 @@
       "A": "Không có gì khác biệt.",
       "B": "Bài toán 10 không có ứng dụng thực tế.",
       "C": "Bài toán 10 dễ hơn hẳn, không cần luyện.",
-      "D": "Bài toán 10 không giải tìm nghiệm tối ưu, mà rèn kỹ năng **biến đổi mô hình** (tiền đề bắt buộc trước khi có thể áp dụng đơn hình gốc) — một bước dễ bị bỏ qua nhưng chiếm điểm riêng trong đề thi tự luận (xem Câu 1, Câu 2 mọi đề trong `De_Thi_Mau_QHTT.md`)."
+      "D": "Bài toán 10 không giải tìm nghiệm tối ưu, mà rèn kỹ năng **biến đổi mô hình** (tiền đề bắt buộc trước khi có thể áp dụng đơn hình gốc)."
     },
     "correct": "D",
     "explanation": "Đúng tổng kết sư phạm — hoàn thiện bộ 100 câu bao phủ đủ 2 kỹ năng cốt lõi: biến đổi mô hình (Bài toán 10) và giải thuật toán (Bài toán 1-9), khớp đúng cấu trúc đề thi thật (Câu 1 luôn có phần \"đưa về dạng chính tắc/chuẩn tắc\" trước khi giải)."

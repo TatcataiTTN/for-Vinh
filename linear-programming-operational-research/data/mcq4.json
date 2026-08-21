@@ -225,7 +225,7 @@
     "options": {
       "A": "Bất đẳng thức như bình thường.",
       "B": "Ràng buộc đối ngẫu $\\ge0$ vô điều kiện.",
-      "C": "Đẳng thức ($=$), vì biến gốc tự do luôn sinh ràng buộc đối ngẫu dạng đẳng thức — quy tắc đối xứng đã nêu ở câu 2.",
+      "C": "Đẳng thức ($=$), vì biến gốc tự do luôn sinh ràng buộc đối ngẫu dạng đẳng thức.",
       "D": "Không tồn tại ràng buộc thứ 2."
     },
     "correct": "C",
@@ -250,7 +250,7 @@
     "question": "Cách nhớ nhanh (mẹo) quy tắc chuyển đổi đối ngẫu thường dùng trong lớp học là:",
     "options": {
       "A": "Luôn đổi $\\max$ thành $\\min$ nhưng giữ nguyên mọi chiều bất đẳng thức và dấu biến.",
-      "B": "\"Cùng chiều chuẩn thì không âm, ngược chiều chuẩn thì không dương, đẳng thức/tự do thì tương ứng với tự do/đẳng thức\" — áp theo cặp (max,$\\le$,$\\ge$0) hoặc (min,$\\ge$,$\\ge$0) làm chiều chuẩn.",
+      "B": "\"Cùng chiều chuẩn thì không âm, ngược chiều chuẩn thì không dương, đẳng thức/tự do thì tương ứng với tự do/đẳng thức\".",
       "C": "Chỉ áp dụng được khi bài toán có đúng 2 biến.",
       "D": "Không có mẹo nào, phải nhớ máy móc từng trường hợp riêng lẻ."
     },
@@ -309,7 +309,7 @@
     "image": null,
     "question": "Hệ quả trực tiếp quan trọng nhất của định lý đối ngẫu yếu là:",
     "options": {
-      "A": "Giá trị tối ưu của bài toán gốc (nếu tồn tại) luôn $\\le$ giá trị tối ưu của bài toán đối ngẫu (nếu tồn tại) — cho bài toán max/min chuẩn.",
+      "A": "Giá trị tối ưu của bài toán gốc (nếu tồn tại) luôn $\\le$ giá trị tối ưu của bài toán đối ngẫu (nếu tồn tại).",
       "B": "Không có hệ quả nào đáng chú ý.",
       "C": "Hai bài toán luôn có cùng số biến.",
       "D": "Bài toán gốc luôn vô nghiệm nếu đối ngẫu có nghiệm."
@@ -352,7 +352,7 @@
       "A": "$5(2)+4(3)\\ge 10(1)+8(2)$ bắt buộc.",
       "B": "Không thể kết luận gì nếu chưa biết ràng buộc cụ thể.",
       "C": "$5(2)+4(3)= 10(1)+8(2)$ bắt buộc.",
-      "D": "$5(2)+4(3)\\le 10(1)+8(2)$, tức $22\\le26$ — đúng, không mâu thuẫn gì."
+      "D": "$5(2)+4(3)\\le 10(1)+8(2)$, tức $22\\le26$."
     },
     "correct": "D",
     "explanation": "Chỉ cần thay số vào bất đẳng thức đối ngẫu yếu $c^Tx_0\\le b^Ty_0$: $22\\le26$ — thoả mãn, đúng như lý thuyết dự đoán (không nhất thiết bằng nhau vì chưa chắc đã tối ưu)."
@@ -366,7 +366,7 @@
     "options": {
       "A": "Chứng minh bài toán luôn có nghiệm.",
       "B": "Tính trực tiếp giá trị tối ưu mà không cần giải bài toán.",
-      "C": "Ước lượng \\textbf{cận} cho giá trị tối ưu (bao nhiêu bước còn phải cải thiện) mà không cần giải hoàn chỉnh cả hai bài toán — hoặc chứng minh tính tối ưu khi tìm được cặp bằng nhau.",
+      "C": "Ước lượng \\textbf{cận} cho giá trị tối ưu (bao nhiêu bước còn phải cải thiện) mà không cần giải hoàn chỉnh cả hai bài toán.",
       "D": "Không có ứng dụng thực tế."
     },
     "correct": "C",
@@ -392,7 +392,7 @@
     "image": null,
     "question": "Chứng minh định lý đối ngẫu yếu dựa trên lập luận cốt lõi nào?",
     "options": {
-      "A": "$c^Tx\\le (A^Ty)^Tx=y^T(Ax)\\le y^Tb=b^Ty$ — dùng $A^Ty\\ge c,\\,x\\ge0$ cho bất đẳng thức đầu và $Ax\\le b,\\,y\\ge0$ cho bất đẳng thức sau.",
+      "A": "$c^Tx\\le (A^Ty)^Tx=y^T(Ax)\\le y^Tb=b^Ty$.",
       "B": "Dựa vào định lý Bolzano-Weierstrass.",
       "C": "Chỉ đúng bằng cách thử số cụ thể, không có chứng minh tổng quát.",
       "D": "Dùng phương pháp quy nạp trên số biến."
@@ -407,7 +407,7 @@
     "image": null,
     "question": "Nếu bài toán gốc $\\max$ VÔ NGHIỆM (không có phương án khả thi nào), và bài toán đối ngẫu $\\min$ CÓ phương án khả thi, thì theo lý thuyết đối ngẫu:",
     "options": {
-      "A": "Bài toán đối ngẫu không bị chặn dưới (giá trị mục tiêu đối ngẫu có thể giảm vô hạn) — vì không có $x$ nào để \"chặn\" nó lại theo đối ngẫu yếu.",
+      "A": "Bài toán đối ngẫu không bị chặn dưới (giá trị mục tiêu đối ngẫu có thể giảm vô hạn).",
       "B": "Bài toán đối ngẫu chắc chắn có nghiệm tối ưu hữu hạn.",
       "C": "Mâu thuẫn logic, tình huống này không thể xảy ra.",
       "D": "Không kết luận được gì thêm."
@@ -563,7 +563,7 @@
     "image": null,
     "question": "Đối ngẫu mạnh và định lý độ lệch bù (complementary slackness) có quan hệ:",
     "options": {
-      "A": "Độ lệch bù là điều kiện \\textbf{cần và đủ} tương đương với việc $x,y$ (cùng khả thi) đạt $f(x)=g(y)$ — tức tương đương với đối ngẫu mạnh áp dụng cho cặp đó.",
+      "A": "Độ lệch bù là điều kiện \\textbf{cần và đủ} tương đương với việc $x,y$ (cùng khả thi) đạt $f(x)=g(y)$.",
       "B": "Độ lệch bù mạnh hơn đối ngẫu mạnh.",
       "C": "Đối ngẫu mạnh là hệ quả của phương pháp M, không liên quan độ lệch bù.",
       "D": "Hai định lý hoàn toàn độc lập, không liên quan gì nhau."
@@ -578,7 +578,7 @@
     "image": null,
     "question": "Nếu bài toán gốc SUY BIẾN tại phương án tối ưu (một biến cơ sở bằng 0), điều này ảnh hưởng thế nào tới đối ngẫu mạnh?",
     "options": {
-      "A": "Đối ngẫu mạnh vẫn đúng ($f^*=g^*$) — suy biến không ảnh hưởng tới định lý này, dù có thể khiến bài toán đối ngẫu có \\textbf{nhiều} phương án tối ưu $y^*$ khác nhau.",
+      "A": "Đối ngẫu mạnh vẫn đúng ($f^*=g^*$).",
       "B": "Giá trị $f^*$ và $g^*$ sẽ lệch nhau đúng bằng phần suy biến.",
       "C": "Đối ngẫu mạnh không còn đúng khi có suy biến.",
       "D": "Bài toán đối ngẫu chắc chắn vô nghiệm."
@@ -681,7 +681,7 @@
       "A": "Không cần bước nào trước, kiểm tra độ lệch bù ngay lập tức.",
       "B": "Giải lại bài toán bằng đơn hình từ đầu.",
       "C": "Tính trực tiếp $f(x_0)$ và $g(y_0)$ trước tiên.",
-      "D": "Kiểm tra $x_0$ khả thi bài toán gốc VÀ $y_0$ khả thi bài toán đối ngẫu — nếu một trong hai không khả thi thì kết luận ngay \\textbf{không tối ưu}, không cần xét độ lệch bù."
+      "D": "Kiểm tra $x_0$ khả thi bài toán gốc VÀ $y_0$ khả thi bài toán đối ngẫu."
     },
     "correct": "D",
     "explanation": "Định lý độ lệch bù chỉ áp dụng cho CẶP phương án \\textbf{đã khả thi} của cả hai bài toán — nếu thiếu điều kiện khả thi thì kết luận sai ngay từ đầu, không cần đi tiếp."
@@ -803,7 +803,7 @@
     "options": {
       "A": "Không cần kiểm tra gì vì cả hai đều dương.",
       "B": "Cả hai ràng buộc đối ngẫu phải KHÔNG chặt.",
-      "C": "Cả hai ràng buộc đối ngẫu đều phải chặt — và đúng như đã kiểm tra ở câu trước, cả hai đều chặt ($=3$ và $=5$) $\\Rightarrow$ thoả mãn.",
+      "C": "Cả hai ràng buộc đối ngẫu đều phải chặt.",
       "D": "Bài toán vô nghiệm."
     },
     "correct": "C",
@@ -819,7 +819,7 @@
       "A": "Không có yêu cầu gì thêm.",
       "B": "Cả 3 ràng buộc gốc đều phải chặt.",
       "C": "Ràng buộc gốc 1 phải chặt.",
-      "D": "Ràng buộc gốc 2 và 3 phải chặt — kiểm tra: $2x_2^*=12=12$✓ chặt, $3x_1^*+2x_2^*=18=18$✓ chặt $\\Rightarrow$ thoả mãn."
+      "D": "Ràng buộc gốc 2 và 3 phải chặt."
     },
     "correct": "D",
     "explanation": "Vì $y_2^*,y_3^*>0$ nên ràng buộc gốc 2, 3 bắt buộc chặt — đã đúng theo tính toán ở câu đầu tiên (cả hai đều $=$, chỉ ràng buộc 1 dư 2 đơn vị, tương ứng đúng với $y_1^*=0$)."
@@ -879,7 +879,7 @@
       "A": "Bài toán chắc chắn suy biến.",
       "B": "Không có ràng buộc gốc nào cần chặt.",
       "C": "Chỉ ràng buộc gốc 1 cần chặt.",
-      "D": "Cả 2 ràng buộc gốc đều phải chặt — đúng như đã kiểm tra (cả hai $=$)."
+      "D": "Cả 2 ràng buộc gốc đều phải chặt."
     },
     "correct": "D",
     "explanation": "Cả $y_1^*,y_2^*$ đều dương nên cả 2 ràng buộc gốc phải chặt — đã xác nhận đúng, hoàn tất kiểm tra độ lệch bù hai chiều."
@@ -918,7 +918,7 @@
     "question": "Vẫn bài toán VD-A ($\\max 3x_1+5x_2$, ràng buộc như NHÓM 6). Xét $y'=(0,1,1)$ (ràng buộc đối ngẫu: $y_1+3y_3\\ge3$, $2y_2+2y_3\\ge5$). Kiểm tra khả thi đối ngẫu:",
     "options": {
       "A": "$y'$ khả thi, mọi ràng buộc đều thoả.",
-      "B": "$y'$ \\textbf{không} khả thi: ràng buộc 2 cho $2(1)+2(1)=4<5$ — vi phạm.",
+      "B": "$y'$ \\textbf{không} khả thi: ràng buộc 2 cho $2(1)+2(1)=4<5$.",
       "C": "$y'$ khả thi nhưng suy biến.",
       "D": "Không kiểm tra được vì thiếu $x$."
     },
@@ -935,7 +935,7 @@
       "A": "$y'$ không khả thi thì $x$ chắc chắn cũng không khả thi.",
       "B": "Cần kiểm tra thêm độ lệch bù mới kết luận được.",
       "C": "Vẫn có thể tối ưu nếu $x$ được chọn phù hợp.",
-      "D": "Không thể là cặp phương án tối ưu — vì $y'$ vi phạm điều kiện khả thi đối ngẫu, một điều kiện \\textbf{tiên quyết} phải kiểm tra trước độ lệch bù."
+      "D": "Không thể là cặp phương án tối ưu."
     },
     "correct": "D",
     "explanation": "Đây minh hoạ đúng quy trình đã nêu ở NHÓM 5: nếu một trong hai phía KHÔNG khả thi, kết luận ngay \\textbf{không tối ưu} mà không cần (và không thể) kiểm tra độ lệch bù."
@@ -977,7 +977,7 @@
     "image": null,
     "question": "Xét bài toán VD-B ($\\max2x_1+3x_2+x_3$, ràng buộc như NHÓM 6), cặp $y'=(2,1)$ (ràng buộc đối ngẫu $y_1+2y_2\\ge2,\\,y_1+y_2\\ge3,\\,y_1\\ge1$). Kiểm tra khả thi đối ngẫu:",
     "options": {
-      "A": "Khả thi: $2+2=4\\ge2$✓, $2+1=3\\ge3$✓, $2\\ge1$✓ — mọi ràng buộc đều thoả.",
+      "A": "Khả thi: $2+2=4\\ge2$✓, $2+1=3\\ge3$✓, $2\\ge1$✓.",
       "B": "Không khả thi vì ràng buộc 1 vi phạm.",
       "C": "Không xác định được.",
       "D": "Không khả thi vì $y_1>y_2$ không được phép."
@@ -1007,7 +1007,7 @@
     "image": null,
     "question": "Xét bài toán VD-C ($\\max4x_1+3x_2$, ràng buộc như v3 NHÓM 10), $x'=(4,1)$. Kiểm tra khả thi gốc ($2x_1+3x_2\\le12,\\,2x_1+x_2\\le8,\\,x_2\\le3$):",
     "options": {
-      "A": "\\textbf{Không} khả thi: ràng buộc 2 cho $2(4)+1=9>8$ — vi phạm.",
+      "A": "\\textbf{Không} khả thi: ràng buộc 2 cho $2(4)+1=9>8$.",
       "B": "Không kiểm tra được nếu thiếu $y$.",
       "C": "Khả thi nhưng suy biến.",
       "D": "Khả thi, mọi ràng buộc đều thoả."
@@ -1023,7 +1023,7 @@
     "question": "Từ câu trên, kết luận cho MỌI cặp $(x'=(4,1), y)$ với $y$ bất kỳ:",
     "options": {
       "A": "$x'$ không khả thi thì bài toán gốc vô nghiệm.",
-      "B": "Không thể là cặp phương án tối ưu, vì $x'$ đã không khả thi gốc — không cần xét $y$ hay độ lệch bù nữa.",
+      "B": "Không thể là cặp phương án tối ưu, vì $x'$ đã không khả thi gốc.",
       "C": "Cần kiểm tra độ lệch bù trước khi kết luận.",
       "D": "Có thể tối ưu nếu chọn đúng $y$."
     },
@@ -1039,7 +1039,7 @@
     "options": {
       "A": "Khả thi, cả hai ràng buộc đều thoả.",
       "B": "Khả thi nhưng suy biến.",
-      "C": "\\textbf{Không} khả thi: ràng buộc 2 cho $3(0)+2+0=2<3$ — vi phạm.",
+      "C": "\\textbf{Không} khả thi: ràng buộc 2 cho $3(0)+2+0=2<3$.",
       "D": "Không kiểm tra được."
     },
     "correct": "C",
@@ -1079,7 +1079,7 @@
     "options": {
       "A": "Chi phí sản xuất trung bình.",
       "B": "Giá bán thực tế của sản phẩm.",
-      "C": "\"Giá bóng\" (shadow price) của tài nguyên $i$ — đo mức tăng giá trị hàm mục tiêu tối ưu khi tăng thêm 1 đơn vị tài nguyên $i$.",
+      "C": "\"Giá bóng\" (shadow price) của tài nguyên $i$.",
       "D": "Không có ý nghĩa kinh tế."
     },
     "correct": "C",
@@ -1135,7 +1135,7 @@
       "A": "Cần thuê đúng bằng 200 giờ, không hơn không kém.",
       "B": "Không liên quan gì tới quyết định thuê máy.",
       "C": "Không nên thuê vì giá thuê $3$ vẫn là chi phí dương.",
-      "D": "Nên thuê thêm, vì lợi ích biên ($5$) lớn hơn chi phí biên ($3$) — mỗi giờ thuê thêm làm lợi nhuận tăng ròng $5-3=2$."
+      "D": "Nên thuê thêm, vì lợi ích biên ($5$) lớn hơn chi phí biên ($3$)."
     },
     "correct": "D",
     "explanation": "So sánh giá bóng (lợi ích biên nội tại của tài nguyên) với giá thị trường (chi phí biên để có thêm tài nguyên) là ứng dụng kinh tế cổ điển và quan trọng nhất của lý thuyết đối ngẫu."
@@ -1148,7 +1148,7 @@
     "question": "Nếu giá bóng $y_i^*=0$ và công ty đang cân nhắc mua thêm tài nguyên $i$ với bất kỳ giá dương nào, quyết định hợp lý là:",
     "options": {
       "A": "Cần mua đúng bằng lượng đang dư.",
-      "B": "Không nên mua thêm — vì tài nguyên đang dư, thêm nữa không làm tăng giá trị tối ưu, mọi chi phí bỏ ra để mua thêm đều là lãng phí.",
+      "B": "Không nên mua thêm.",
       "C": "Luôn nên mua vì tài nguyên không bao giờ thừa.",
       "D": "Giá bóng bằng 0 không liên quan gì tới quyết định mua bán."
     },
@@ -1179,7 +1179,7 @@
     "options": {
       "A": "Luôn bằng cước phí thấp nhất.",
       "B": "Không có ý nghĩa kinh tế nào trong bài toán vận tải.",
-      "C": "\"Giá trị biên\" của việc có thêm 1 đơn vị hàng tại trạm phát $i$ — liên hệ trực tiếp tới hệ thống thế vị $(r_i,s_j)$ đã học ở chương V (bài toán vận tải).",
+      "C": "\"Giá trị biên\" của việc có thêm 1 đơn vị hàng tại trạm phát $i$.",
       "D": "Cước phí vận chuyển trung bình."
     },
     "correct": "C",
@@ -1219,7 +1219,7 @@
     "question": "Nếu MỘT ràng buộc gốc bị thắt chặt hơn (ví dụ $b_i$ giảm), giá trị tối ưu $f^*$ (bài toán $\\max$) sẽ:",
     "options": {
       "A": "Luôn giữ nguyên.",
-      "B": "Không tăng (giảm hoặc giữ nguyên) — thắt chặt ràng buộc không bao giờ làm mở rộng, chỉ có thể thu hẹp miền khả thi.",
+      "B": "Không tăng (giảm hoặc giữ nguyên).",
       "C": "Không liên quan gì tới việc thắt chặt ràng buộc.",
       "D": "Luôn tăng."
     },
@@ -1233,7 +1233,7 @@
     "image": null,
     "question": "Bài toán đối ngẫu của bài toán vận tải (chương V) có biến $(u,v)=(u_1,\\dots,u_m,v_1,\\dots,v_n)$ liên hệ với hệ thống thế vị $(r,s)$ đã học như thế nào?",
     "options": {
-      "A": "$(u,v)=(-r,-s)$ tại phương án tối ưu — hệ thống thế vị chính là nghiệm đối ngẫu đổi dấu.",
+      "A": "$(u,v)=(-r,-s)$ tại phương án tối ưu.",
       "B": "Không có liên hệ gì.",
       "C": "$(u,v)=(r^2,s^2)$.",
       "D": "$(u,v)=(r,s)$ hoàn toàn giống nhau."
@@ -1264,7 +1264,7 @@
     "question": "Ràng buộc gốc của bài toán vận tải đều là đẳng thức ($\\sum_jx_{ij}=a_i$, $\\sum_ix_{ij}=b_j$). Theo quy tắc chuyển đổi đối ngẫu (NHÓM 2), điều này có nghĩa:",
     "options": {
       "A": "$u_i,v_j$ đều $\\le0$ bắt buộc.",
-      "B": "Cả $u_i$ và $v_j$ đều \\textbf{tự do} (không ràng buộc dấu) — đúng như đã học ở chương V ($u,v\\in\\mathbb{R}$, không có điều kiện $\\ge0$).",
+      "B": "Cả $u_i$ và $v_j$ đều \\textbf{tự do} (không ràng buộc dấu).",
       "C": "$u_i,v_j$ đều $\\ge0$ bắt buộc.",
       "D": "Không có ràng buộc đối ngẫu nào được sinh ra."
     },
@@ -1292,7 +1292,7 @@
       "A": "Chỉ áp dụng được nếu bài toán suy biến.",
       "B": "Luôn bằng cước phí trung bình.",
       "C": "Chỉ là công cụ tính toán trung gian, hoàn toàn không có ý nghĩa thực tế.",
-      "D": "\"Giá trị nội tại\" của hàng hoá tại trạm phát/thu đó trong hệ thống vận chuyển tối ưu — chênh lệch $u_i+v_j$ so với $c_{ij}$ cho biết tuyến $(i,j)$ có \"đáng\" mở thêm hay không."
+      "D": "\"Giá trị nội tại\" của hàng hoá tại trạm phát/thu đó trong hệ thống vận chuyển tối ưu."
     },
     "correct": "D",
     "explanation": "Đây là ứng dụng cụ thể của \"giá bóng\" trong bối cảnh mạng lưới vận chuyển — dùng để phân tích liệu có nên mở tuyến mới hay điều chỉnh cước phí."
@@ -1377,7 +1377,7 @@
       "A": "Bài toán chắc chắn vô nghiệm.",
       "B": "Một lỗi tính toán, ô cấm luôn phải chặt.",
       "C": "Không liên quan gì tới lý thuyết đối ngẫu.",
-      "D": "Điều kiện tối ưu $u_i+v_j\\le c_{ij}$ cho ô loại — đúng như dự kiến, vì $x_{i_0j_0}^*=0$ (ô cấm không được dùng) nên không cần chặt."
+      "D": "Điều kiện tối ưu $u_i+v_j\\le c_{ij}$ cho ô loại."
     },
     "correct": "D",
     "explanation": "Hoàn toàn phù hợp lý thuyết: ô cấm chính là ô loại ($x=0$) trong phương án tối ưu (nếu bài toán gốc có nghiệm) — độ lệch bù chỉ yêu cầu $\\le$, không cần chặt."
@@ -1497,7 +1497,7 @@
     "question": "Ứng dụng \"phân tích độ nhạy\" (sensitivity analysis) dựa trên giá bóng $y_i^*$ có giới hạn quan trọng cần lưu ý:",
     "options": {
       "A": "Chỉ áp dụng được khi bài toán không suy biến.",
-      "B": "Chỉ đúng trong một \\textbf{khoảng} thay đổi nhỏ của $b_i$ (miễn cơ sở tối ưu chưa đổi) — thay đổi lớn có thể làm đổi PACB tối ưu, khi đó $y_i^*$ không còn áp dụng được như cũ.",
+      "B": "Chỉ đúng trong một \\textbf{khoảng} thay đổi nhỏ của $b_i$ (miễn cơ sở tối ưu chưa đổi).",
       "C": "Đúng với mọi mức thay đổi $b_i$, không có giới hạn nào.",
       "D": "Chỉ áp dụng cho bài toán có đúng 2 biến."
     },
@@ -1513,7 +1513,7 @@
     "options": {
       "A": "Giải lại toàn bộ bài toán từ đầu.",
       "B": "Đoán ngẫu nhiên.",
-      "C": "Tính trực tiếp $f(x_0)$ và $g(y_0)$, so sánh bằng nhau hay không — nếu bằng nhau thì chắc chắn cả hai đều tối ưu (theo đối ngẫu yếu + mạnh), không cần rà từng điều kiện độ lệch bù riêng lẻ.",
+      "C": "Tính trực tiếp $f(x_0)$ và $g(y_0)$, so sánh bằng nhau hay không.",
       "D": "Không có cách nào nhanh hơn kiểm tra độ lệch bù chi tiết."
     },
     "correct": "C",
@@ -1544,7 +1544,7 @@
       "A": "Không có rủi ro gì, luôn đúng.",
       "B": "Rủi ro duy nhất là mất thời gian, không ảnh hưởng kết luận.",
       "C": "Chỉ rủi ro khi bài toán có 3 biến trở lên.",
-      "D": "Nếu $x_0$ hoặc $y_0$ không khả thi ngay từ đầu, đối ngẫu yếu \\textbf{không áp dụng được}, nên dù $f(x_0)=g(y_0)$ về mặt số học cũng không thể kết luận là cặp tối ưu — cần luôn kiểm tra khả thi trước."
+      "D": "Nếu $x_0$ hoặc $y_0$ không khả thi ngay từ đầu, đối ngẫu yếu \\textbf{không áp dụng được}, nên dù $f(x_0)=g(y_0)$ về mặt số học cũng không thể kết luận là cặp tối ưu."
     },
     "correct": "D",
     "explanation": "Đây là lỗi thường gặp cần tránh: đối ngẫu yếu/mạnh CHỈ áp dụng cho phương án \\textbf{khả thi} — bỏ qua bước kiểm tra khả thi là một lỗ hổng logic nghiêm trọng dù kết quả số học có thể \"trùng hợp\" đúng."
@@ -1557,7 +1557,7 @@
     "question": "Cho ràng buộc gốc \\textbf{đúng chiều chuẩn} $\\le$ nhưng có $b_i<0$ (vế phải âm). Trước khi lập đối ngẫu, cách xử lý thường gặp là:",
     "options": {
       "A": "Đổi toàn bộ bài toán sang $\\min$.",
-      "B": "Vẫn áp dụng trực tiếp quy tắc chuyển đổi bình thường — dấu của $b_i$ không ảnh hưởng tới việc xác định dấu biến đối ngẫu $y_i$ (chỉ phụ thuộc \\textit{chiều} ràng buộc, không phụ thuộc dấu vế phải).",
+      "B": "Vẫn áp dụng trực tiếp quy tắc chuyển đổi bình thường.",
       "C": "Bắt buộc phải nhân ràng buộc với $-1$ trước.",
       "D": "Bỏ qua ràng buộc đó."
     },
@@ -1589,7 +1589,7 @@
       "A": "Không có khái niệm đối ngẫu cho bài toán phi tuyến.",
       "B": "Bài toán phi tuyến luôn vô nghiệm.",
       "C": "Vẫn áp dụng y hệt lý thuyết đã học.",
-      "D": "Lý thuyết đối ngẫu (yếu/mạnh/độ lệch bù) như đã học chỉ áp dụng cho bài toán QHTT (ràng buộc và mục tiêu \\textbf{tuyến tính}) — bài toán phi tuyến cần lý thuyết đối ngẫu tổng quát hơn (ngoài phạm vi môn học này)."
+      "D": "Lý thuyết đối ngẫu (yếu/mạnh/độ lệch bù) như đã học chỉ áp dụng cho bài toán QHTT (ràng buộc và mục tiêu \\textbf{tuyến tính})."
     },
     "correct": "D",
     "explanation": "Một lưu ý phạm vi áp dụng quan trọng để tránh áp dụng sai công thức: toàn bộ lý thuyết đối ngẫu tuyến tính (yếu, mạnh, độ lệch bù dạng đã học) chỉ đúng nguyên vẹn cho bài toán QHTT."
