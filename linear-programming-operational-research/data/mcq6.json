@@ -68,7 +68,7 @@
     "statements": [
       {
         "label": "a",
-        "text": "Ràng buộc \"đúng $k$ trong $n$ dự án được chọn\" viết là $\\sum_{i=1}^n x_i=k$.",
+        "text": "Ràng buộc \"phải chọn ít nhất 1 trong 3 dự án $A,B,C$\" viết là $x_A+x_B+x_C\\ge1$.",
         "correct": true
       },
       {
@@ -78,7 +78,7 @@
       },
       {
         "label": "c",
-        "text": "Ràng buộc \"phải chọn ít nhất 1 trong 3 dự án $A,B,C$\" viết là $x_A+x_B+x_C\\ge1$.",
+        "text": "Ràng buộc \"đúng $k$ trong $n$ dự án được chọn\" viết là $\\sum_{i=1}^n x_i=k$.",
         "correct": true
       }
     ],
@@ -209,12 +209,12 @@
     "statements": [
       {
         "label": "a",
-        "text": "Bài toán cái túi 0-1 KHÁC với bài toán cái túi \"phân số\" (fractional knapsack, cho phép lấy một phần món hàng) — bài toán phân số giải được bằng thuật toán tham lam (greedy) đơn giản, còn 0-1 thì không.",
+        "text": "Bài toán cái túi 0-1 luôn giải được bằng phương pháp đồ thị nếu có đúng 2 món.",
         "correct": true
       },
       {
         "label": "b",
-        "text": "Bài toán cái túi 0-1 luôn giải được bằng phương pháp đồ thị nếu có đúng 2 món.",
+        "text": "Bài toán cái túi 0-1 KHÁC với bài toán cái túi \"phân số\" (fractional knapsack, cho phép lấy một phần món hàng) — bài toán phân số giải được bằng thuật toán tham lam (greedy) đơn giản, còn 0-1 thì không.",
         "correct": true
       },
       {
@@ -361,7 +361,7 @@
     "statements": [
       {
         "label": "a",
-        "text": "Món 3 (giá trị 120, trọng lượng 30) bị loại dù có giá trị TUYỆT ĐỐI cao nhất, vì tỉ lệ giá trị/trọng lượng của nó ($120/30=4$) thấp hơn các món khác.",
+        "text": "Nếu tăng sức chứa $W$ lên rất lớn (đủ chứa cả 5 món), giá trị tối ưu sẽ là tổng giá trị cả 5 món $=60+100+120+80+30=390$.",
         "correct": true
       },
       {
@@ -371,7 +371,7 @@
       },
       {
         "label": "c",
-        "text": "Nếu tăng sức chứa $W$ lên rất lớn (đủ chứa cả 5 món), giá trị tối ưu sẽ là tổng giá trị cả 5 món $=60+100+120+80+30=390$.",
+        "text": "Món 3 (giá trị 120, trọng lượng 30) bị loại dù có giá trị TUYỆT ĐỐI cao nhất, vì tỉ lệ giá trị/trọng lượng của nó ($120/30=4$) thấp hơn các món khác.",
         "correct": true
       }
     ],
@@ -518,18 +518,18 @@
     "statements": [
       {
         "label": "a",
-        "text": "Bài toán phân công là trường hợp ĐẶC BIỆT của bài toán vận tải với mọi $a_i=b_j=1$.",
-        "correct": true
-      },
-      {
-        "label": "b",
         "text": "Vì vậy, bài toán phân công CŨNG có thể giải bằng thuật toán thế vị (chương V) hoặc thuật toán Hungary chuyên dụng (hiệu quả hơn cho cấu trúc đặc biệt này).",
         "correct": true
       },
       {
-        "label": "c",
+        "label": "b",
         "text": "Bài toán phân công không bao giờ có PACB suy biến.",
         "correct": false
+      },
+      {
+        "label": "c",
+        "text": "Bài toán phân công là trường hợp ĐẶC BIỆT của bài toán vận tải với mọi $a_i=b_j=1$.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — ngược lại, bài toán phân công LUÔN suy biến nghiêm trọng (vì $a_i=b_j=1$ nhỏ nhất có thể), đây chính là lý do cần thuật toán Hungary chuyên biệt thay vì áp dụng trực tiếp thuật toán thế vị (vốn xử lý suy biến kém hiệu quả hơn cho trường hợp này)."
@@ -681,13 +681,13 @@
     "statements": [
       {
         "label": "a",
-        "text": "Nhân viên 4 được gán đúng công việc có chi phí THẤP NHẤT trong hàng của mình (hàng 4: $7,6,9,4$ — nhỏ nhất là 4, ứng cột 4).",
-        "correct": true
+        "text": "Mọi nhân viên đều được gán công việc có chi phí thấp nhất trong hàng của họ.",
+        "correct": false
       },
       {
         "label": "b",
-        "text": "Mọi nhân viên đều được gán công việc có chi phí thấp nhất trong hàng của họ.",
-        "correct": false
+        "text": "Nhân viên 4 được gán đúng công việc có chi phí THẤP NHẤT trong hàng của mình (hàng 4: $7,6,9,4$ — nhỏ nhất là 4, ứng cột 4).",
+        "correct": true
       },
       {
         "label": "c",
@@ -765,20 +765,20 @@
     "question": "Sắp xếp đúng ý tưởng các bước chính của thuật toán Hungary khi giải bài toán phân công (mô tả khái quát):",
     "items": [
       {
-        "id": "h1",
-        "text": "Trừ số nhỏ nhất mỗi HÀNG khỏi mọi phần tử trong hàng đó (tạo ít nhất 1 số 0 mỗi hàng)"
-      },
-      {
-        "id": "h2",
-        "text": "Trừ số nhỏ nhất mỗi CỘT khỏi mọi phần tử trong cột đó (tạo ít nhất 1 số 0 mỗi cột)"
-      },
-      {
         "id": "h3",
         "text": "Tìm cách gán chỉ dùng các ô có giá trị 0, sao cho mỗi hàng/cột đúng 1 ô được chọn"
       },
       {
         "id": "h4",
         "text": "Nếu chưa gán đủ $n$ cặp, điều chỉnh ma trận (kẻ đường phủ số 0, cộng/trừ tiếp) rồi lặp lại bước 3"
+      },
+      {
+        "id": "h2",
+        "text": "Trừ số nhỏ nhất mỗi CỘT khỏi mọi phần tử trong cột đó (tạo ít nhất 1 số 0 mỗi cột)"
+      },
+      {
+        "id": "h1",
+        "text": "Trừ số nhỏ nhất mỗi HÀNG khỏi mọi phần tử trong hàng đó (tạo ít nhất 1 số 0 mỗi hàng)"
       }
     ],
     "correctOrder": [
@@ -873,8 +873,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Biến $u_i$ có thể diễn giải như \"thứ tự thăm\" thành phố $i$ trong tour (ví dụ $u_i=3$ nghĩa là thành phố $i$ được thăm ở vị trí thứ 3).",
-        "correct": true
+        "text": "MTZ là cách DUY NHẤT để loại chu trình con, không còn kỹ thuật nào khác.",
+        "correct": false
       },
       {
         "label": "b",
@@ -883,8 +883,8 @@
       },
       {
         "label": "c",
-        "text": "MTZ là cách DUY NHẤT để loại chu trình con, không còn kỹ thuật nào khác.",
-        "correct": false
+        "text": "Biến $u_i$ có thể diễn giải như \"thứ tự thăm\" thành phố $i$ trong tour (ví dụ $u_i=3$ nghĩa là thành phố $i$ được thăm ở vị trí thứ 3).",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — còn có các kỹ thuật khác như ràng buộc loại trừ chu trình con dạng tường minh $\\sum_{i,j\\in S}x_{ij}\\le|S|-1$ (tương tự MST đã học ở chương Network Model), MTZ chỉ là một cách tiếp cận phổ biến (dùng ít ràng buộc hơn khi $n$ lớn)."
@@ -995,8 +995,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Chu trình $1{-}2{-}4{-}3{-}1$ có chi phí thấp nhất trong 3 chu trình.",
-        "correct": true
+        "text": "Chu trình tối ưu luôn là chu trình có thứ tự chỉ số thành phố tăng dần ($1{-}2{-}3{-}4{-}1$).",
+        "correct": false
       },
       {
         "label": "b",
@@ -1005,8 +1005,8 @@
       },
       {
         "label": "c",
-        "text": "Chu trình tối ưu luôn là chu trình có thứ tự chỉ số thành phố tăng dần ($1{-}2{-}3{-}4{-}1$).",
-        "correct": false
+        "text": "Chu trình $1{-}2{-}4{-}3{-}1$ có chi phí thấp nhất trong 3 chu trình.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — đây là hiểu lầm phổ biến: thứ tự chỉ số KHÔNG liên quan gì tới tối ưu, chu trình tối ưu phụ thuộc hoàn toàn vào ma trận chi phí cụ thể (ở đây $1{-}2{-}4{-}3{-}1$ mới là tối ưu, không phải thứ tự tăng dần)."
@@ -1162,7 +1162,7 @@
     "statements": [
       {
         "label": "a",
-        "text": "Dù $L_3$ có chi phí cố định THẤP NHẤT ($F_3=90$, thấp hơn cả $L_1=100$ và $L_2=120$), nó vẫn không được mở — vì quyết định còn phụ thuộc cả chi phí vận chuyển, không chỉ chi phí cố định.",
+        "text": "Bài toán này là sự kết hợp giữa QHTT nhị phân (quyết định mở kho) và bài toán vận tải (phân phối hàng từ kho đã mở).",
         "correct": true
       },
       {
@@ -1172,7 +1172,7 @@
       },
       {
         "label": "c",
-        "text": "Bài toán này là sự kết hợp giữa QHTT nhị phân (quyết định mở kho) và bài toán vận tải (phân phối hàng từ kho đã mở).",
+        "text": "Dù $L_3$ có chi phí cố định THẤP NHẤT ($F_3=90$, thấp hơn cả $L_1=100$ và $L_2=120$), nó vẫn không được mở — vì quyết định còn phụ thuộc cả chi phí vận chuyển, không chỉ chi phí cố định.",
         "correct": true
       }
     ],
@@ -1250,16 +1250,16 @@
         "text": "Đặt biến nhị phân $y_i$ (mở kho $i$?) và biến liên tục $x_{ij}$ (lượng hàng từ kho $i$ tới thị trường $j$)"
       },
       {
-        "id": "f2",
-        "text": "Viết hàm mục tiêu $=$ tổng chi phí cố định $\\sum F_iy_i$ $+$ tổng chi phí vận chuyển $\\sum c_{ij}x_{ij}$"
+        "id": "f4",
+        "text": "Viết ràng buộc cầu $\\sum_ix_{ij}=d_j$ (đủ nhu cầu mỗi thị trường)"
       },
       {
         "id": "f3",
         "text": "Viết ràng buộc liên kết $\\sum_jx_{ij}\\le \\text{công suất}_i\\cdot y_i$ (khoá $x_{ij}=0$ nếu kho không mở)"
       },
       {
-        "id": "f4",
-        "text": "Viết ràng buộc cầu $\\sum_ix_{ij}=d_j$ (đủ nhu cầu mỗi thị trường)"
+        "id": "f2",
+        "text": "Viết hàm mục tiêu $=$ tổng chi phí cố định $\\sum F_iy_i$ $+$ tổng chi phí vận chuyển $\\sum c_{ij}x_{ij}$"
       }
     ],
     "correctOrder": [
@@ -1361,7 +1361,7 @@
     "statements": [
       {
         "label": "a",
-        "text": "Tổng số người tuyển thêm trong 3 tháng là $3+5=8$ người (không tuyển thêm ở tháng 3).",
+        "text": "Chi phí lương luôn là thành phần LỚN NHẤT trong tổng chi phí (so với chi phí tuyển $+$ sa thải).",
         "correct": true
       },
       {
@@ -1371,7 +1371,7 @@
       },
       {
         "label": "c",
-        "text": "Chi phí lương luôn là thành phần LỚN NHẤT trong tổng chi phí (so với chi phí tuyển $+$ sa thải).",
+        "text": "Tổng số người tuyển thêm trong 3 tháng là $3+5=8$ người (không tuyển thêm ở tháng 3).",
         "correct": true
       }
     ],
@@ -1477,13 +1477,13 @@
       },
       {
         "label": "b",
-        "text": "Bài toán cái túi (mô hình chọn dự án với 1 ràng buộc ngân sách) là trường hợp đơn giản nhất trong 4 dạng BIP kinh điển đã học.",
-        "correct": true
+        "text": "TSP có thể giải chính xác trong thời gian đa thức với mọi $n$, giống bài toán phân công.",
+        "correct": false
       },
       {
         "label": "c",
-        "text": "TSP có thể giải chính xác trong thời gian đa thức với mọi $n$, giống bài toán phân công.",
-        "correct": false
+        "text": "Bài toán cái túi (mô hình chọn dự án với 1 ràng buộc ngân sách) là trường hợp đơn giản nhất trong 4 dạng BIP kinh điển đã học.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — đây là điểm khác biệt lý thuyết quan trọng nhất đã nhấn mạnh ở NHÓM 6/7: TSP là bài toán NP-khó, KHÔNG có thuật toán đa thức đã biết để giải chính xác với $n$ lớn, khác hẳn bài toán phân công (giải được trong $O(n^3)$)."
@@ -1567,20 +1567,20 @@
     "question": "Sắp xếp đúng thứ tự đưa ra quyết định khi gặp một bài toán BIP mới trong đề thi (chiến lược tổng quát):",
     "items": [
       {
-        "id": "z1",
-        "text": "Đọc kỹ đề, xác định đây có phải 1 trong 4 dạng kinh điển đã học không (knapsack/phân công/TSP/fixed-charge)"
-      },
-      {
-        "id": "z2",
-        "text": "Nếu đúng 1 dạng quen thuộc: áp dụng ngay mô hình và (nếu có) thuật toán chuyên biệt tương ứng"
+        "id": "z4",
+        "text": "Với bài toán nhỏ: thử liệt kê các phương án khả thi có triển vọng, so sánh trực tiếp để tìm tối ưu"
       },
       {
         "id": "z3",
         "text": "Nếu KHÔNG khớp dạng nào rõ ràng: tự xây dựng mô hình từ đầu (biến, hàm mục tiêu, ràng buộc logic) như bài toán BIP tổng quát"
       },
       {
-        "id": "z4",
-        "text": "Với bài toán nhỏ: thử liệt kê các phương án khả thi có triển vọng, so sánh trực tiếp để tìm tối ưu"
+        "id": "z1",
+        "text": "Đọc kỹ đề, xác định đây có phải 1 trong 4 dạng kinh điển đã học không (knapsack/phân công/TSP/fixed-charge)"
+      },
+      {
+        "id": "z2",
+        "text": "Nếu đúng 1 dạng quen thuộc: áp dụng ngay mô hình và (nếu có) thuật toán chuyên biệt tương ứng"
       }
     ],
     "correctOrder": [
