@@ -66,8 +66,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Ràng buộc phi âm $x_j\\ge0$ luôn cần thiết khi biến đại diện cho số lượng vật lý (sản phẩm, giờ công, tấn hàng).",
-        "correct": true
+        "text": "Số ràng buộc của mô hình luôn phải bằng số biến quyết định.",
+        "correct": false
       },
       {
         "label": "b",
@@ -76,8 +76,8 @@
       },
       {
         "label": "c",
-        "text": "Số ràng buộc của mô hình luôn phải bằng số biến quyết định.",
-        "correct": false
+        "text": "Ràng buộc phi âm $x_j\\ge0$ luôn cần thiết khi biến đại diện cho số lượng vật lý (sản phẩm, giờ công, tấn hàng).",
+        "correct": true
       }
     ],
     "explanation": "Số ràng buộc và số biến hoàn toàn độc lập với nhau — phụ thuộc vào số \"giới hạn tài nguyên\" thực tế của bài toán, không có quy tắc bắt buộc bằng nhau."
@@ -210,13 +210,13 @@
     "statements": [
       {
         "label": "a",
-        "text": "Nếu bài toán có phương án tối ưu hữu hạn, luôn tồn tại ít nhất 1 điểm cực biên đạt tối ưu.",
-        "correct": true
+        "text": "Mọi điểm trong miền khả thi (kể cả điểm nằm bên trong, không phải đỉnh) đều có thể là phương án tối ưu duy nhất.",
+        "correct": false
       },
       {
         "label": "b",
-        "text": "Mọi điểm trong miền khả thi (kể cả điểm nằm bên trong, không phải đỉnh) đều có thể là phương án tối ưu duy nhất.",
-        "correct": false
+        "text": "Nếu bài toán có phương án tối ưu hữu hạn, luôn tồn tại ít nhất 1 điểm cực biên đạt tối ưu.",
+        "correct": true
       },
       {
         "label": "c",
@@ -320,24 +320,24 @@
     "question": "Sắp xếp đúng trình tự các bước của phương pháp đồ thị (bài toán 2 biến):",
     "items": [
       {
-        "id": "g1",
-        "text": "Vẽ các đường biên ràng buộc trên mặt phẳng toạ độ $(x_1,x_2)$"
-      },
-      {
         "id": "g2",
         "text": "Xác định miền nghiệm khả thi (giao các nửa mặt phẳng thoả mãn từng ràng buộc)"
       },
       {
-        "id": "g3",
-        "text": "Xác định toạ độ tất cả các đỉnh (điểm cực biên) của miền khả thi"
+        "id": "g5",
+        "text": "So sánh và chọn đỉnh cho giá trị tốt nhất (max hoặc min tuỳ bài toán) làm phương án tối ưu"
       },
       {
         "id": "g4",
         "text": "Tính giá trị hàm mục tiêu tại mỗi đỉnh"
       },
       {
-        "id": "g5",
-        "text": "So sánh và chọn đỉnh cho giá trị tốt nhất (max hoặc min tuỳ bài toán) làm phương án tối ưu"
+        "id": "g3",
+        "text": "Xác định toạ độ tất cả các đỉnh (điểm cực biên) của miền khả thi"
+      },
+      {
+        "id": "g1",
+        "text": "Vẽ các đường biên ràng buộc trên mặt phẳng toạ độ $(x_1,x_2)$"
       }
     ],
     "correctOrder": [
@@ -436,7 +436,7 @@
     "statements": [
       {
         "label": "a",
-        "text": "Ràng buộc chế biến gỗ chặt: $2(6)+4=16=16$.",
+        "text": "Cả 2 tài nguyên (chế biến gỗ, hoàn thiện) đều được dùng hết, không dư thừa — phù hợp với việc $B$ là giao của cả 2 đường biên ràng buộc chính.",
         "correct": true
       },
       {
@@ -446,7 +446,7 @@
       },
       {
         "label": "c",
-        "text": "Cả 2 tài nguyên (chế biến gỗ, hoàn thiện) đều được dùng hết, không dư thừa — phù hợp với việc $B$ là giao của cả 2 đường biên ràng buộc chính.",
+        "text": "Ràng buộc chế biến gỗ chặt: $2(6)+4=16=16$.",
         "correct": true
       }
     ],
@@ -479,16 +479,16 @@
         "text": "Xác định 4 đỉnh $O(0,0), A(8,0), B(6,4), C(0,7)$ bằng cách giải các hệ phương trình đường biên"
       },
       {
-        "id": "w2",
-        "text": "Tính $z=40x_1+30x_2$ tại từng đỉnh: $0, 320, 360, 210$"
+        "id": "w4",
+        "text": "Kết luận phương án tối ưu $x_1^*=6,x_2^*=4,z^*=360$"
       },
       {
         "id": "w3",
         "text": "So sánh 4 giá trị, tìm giá trị lớn nhất ($360$ tại $B$)"
       },
       {
-        "id": "w4",
-        "text": "Kết luận phương án tối ưu $x_1^*=6,x_2^*=4,z^*=360$"
+        "id": "w2",
+        "text": "Tính $z=40x_1+30x_2$ tại từng đỉnh: $0, 320, 360, 210$"
       }
     ],
     "correctOrder": [
@@ -548,17 +548,17 @@
     "statements": [
       {
         "label": "a",
-        "text": "Quy trình 5 bước (vẽ biên, xác định miền, tìm đỉnh, tính $z$, so sánh) vẫn giữ nguyên như bài toán max.",
-        "correct": true
-      },
-      {
-        "label": "b",
         "text": "Khác biệt duy nhất là ở bước cuối: chọn đỉnh cho $z$ \\textbf{nhỏ nhất} thay vì lớn nhất.",
         "correct": true
       },
       {
-        "label": "c",
+        "label": "b",
         "text": "Bài toán $\\min$ với ràng buộc dạng $\\ge$ luôn có miền khả thi không bị chặn theo hướng làm $z$ tăng — nhưng điều này KHÔNG ảnh hưởng tới việc tìm giá trị nhỏ nhất (vì ta chỉ cần miền bị chặn theo hướng giảm $z$).",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Quy trình 5 bước (vẽ biên, xác định miền, tìm đỉnh, tính $z$, so sánh) vẫn giữ nguyên như bài toán max.",
         "correct": true
       }
     ],
@@ -627,20 +627,20 @@
     "question": "Sắp xếp đúng thứ tự xử lý bài toán phối trộn dầu (min cost) bằng đồ thị:",
     "items": [
       {
-        "id": "b1",
-        "text": "Xác định miền khả thi từ 3 ràng buộc ($\\ge100$, $\\ge0$ dạng octane, $\\le70$)"
-      },
-      {
-        "id": "b2",
-        "text": "Tìm các đỉnh cực biên (bao gồm cả giao của 2 ràng buộc chính và giao với các đường biên khác)"
+        "id": "b4",
+        "text": "Chọn đỉnh cho $z$ NHỎ NHẤT (vì đây là bài toán min)"
       },
       {
         "id": "b3",
         "text": "Tính $z=60x_1+40x_2$ tại từng đỉnh"
       },
       {
-        "id": "b4",
-        "text": "Chọn đỉnh cho $z$ NHỎ NHẤT (vì đây là bài toán min)"
+        "id": "b1",
+        "text": "Xác định miền khả thi từ 3 ràng buộc ($\\ge100$, $\\ge0$ dạng octane, $\\le70$)"
+      },
+      {
+        "id": "b2",
+        "text": "Tìm các đỉnh cực biên (bao gồm cả giao của 2 ràng buộc chính và giao với các đường biên khác)"
       }
     ],
     "correctOrder": [
@@ -716,12 +716,12 @@
     "statements": [
       {
         "label": "a",
-        "text": "Biến bù $s_i\\ge0$ đại diện cho phần tài nguyên CÒN DƯ (chưa dùng hết) của ràng buộc $\\le$.",
+        "text": "Biến dư đại diện cho phần VƯỢT MỨC yêu cầu tối thiểu của ràng buộc $\\ge$.",
         "correct": true
       },
       {
         "label": "b",
-        "text": "Biến dư đại diện cho phần VƯỢT MỨC yêu cầu tối thiểu của ràng buộc $\\ge$.",
+        "text": "Biến bù $s_i\\ge0$ đại diện cho phần tài nguyên CÒN DƯ (chưa dùng hết) của ràng buộc $\\le$.",
         "correct": true
       },
       {
@@ -872,8 +872,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Nếu tồn tại $\\Delta_k$ chưa tối ưu (còn cải thiện được) nhưng mọi hệ số trong cột $A_k$ đều $\\le0$, bài toán có hàm mục tiêu không bị chặn ($z\\to+\\infty$).",
-        "correct": true
+        "text": "Giải thuật đơn hình do Dantzig phát triển năm 1930.",
+        "correct": false
       },
       {
         "label": "b",
@@ -882,8 +882,8 @@
       },
       {
         "label": "c",
-        "text": "Giải thuật đơn hình do Dantzig phát triển năm 1930.",
-        "correct": false
+        "text": "Nếu tồn tại $\\Delta_k$ chưa tối ưu (còn cải thiện được) nhưng mọi hệ số trong cột $A_k$ đều $\\le0$, bài toán có hàm mục tiêu không bị chặn ($z\\to+\\infty$).",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai theo đáp án đề thi mẫu: thuật toán đơn hình Dantzig ra đời năm \\textbf{1947}, không phải 1930 (một mốc lịch sử hay được hỏi trong đề MCQ). Hai ý đầu đúng."
@@ -967,20 +967,20 @@
     "question": "Sắp xếp đúng thứ tự MỘT vòng lặp của thuật toán đơn hình (bảng, bài toán max):",
     "items": [
       {
-        "id": "s1",
-        "text": "Kiểm tra dấu hiệu tối ưu: xét dấu mọi $\\Delta_k$"
-      },
-      {
-        "id": "s2",
-        "text": "Nếu chưa tối ưu: chọn cột biến vào (thường $\\Delta_k>0$ lớn nhất)"
-      },
-      {
         "id": "s3",
         "text": "Áp dụng tỉ số nhỏ nhất trên cột đó để chọn hàng trục (biến ra)"
       },
       {
         "id": "s4",
         "text": "Biến đổi Gauss-Jordan quanh phần tử trục, cập nhật toàn bảng"
+      },
+      {
+        "id": "s2",
+        "text": "Nếu chưa tối ưu: chọn cột biến vào (thường $\\Delta_k>0$ lớn nhất)"
+      },
+      {
+        "id": "s1",
+        "text": "Kiểm tra dấu hiệu tối ưu: xét dấu mọi $\\Delta_k$"
       }
     ],
     "correctOrder": [
@@ -1082,7 +1082,7 @@
     "statements": [
       {
         "label": "a",
-        "text": "Ràng buộc nguyên liệu chặt: $4+0+2(2)=8=8$.",
+        "text": "Biến $x_2$ không được sử dụng ($x_2^*=0$) vì lợi nhuận đơn vị của nó ($2$ USD) thấp nhất trong 3 sản phẩm.",
         "correct": true
       },
       {
@@ -1092,7 +1092,7 @@
       },
       {
         "label": "c",
-        "text": "Biến $x_2$ không được sử dụng ($x_2^*=0$) vì lợi nhuận đơn vị của nó ($2$ USD) thấp nhất trong 3 sản phẩm.",
+        "text": "Ràng buộc nguyên liệu chặt: $4+0+2(2)=8=8$.",
         "correct": true
       }
     ],
@@ -1136,16 +1136,16 @@
     "question": "Sắp xếp đúng 3 bảng đơn hình theo trình tự giải bài toán xưởng cơ khí:",
     "items": [
       {
+        "id": "t3",
+        "text": "Bảng 3: cơ sở $\\{x_3,x_1\\}$ (sau khi $x_1$ vào, $x_5$ ra) — đạt tối ưu, $z^*=20$"
+      },
+      {
         "id": "t1",
         "text": "Bảng 1: cơ sở $\\{x_4,x_5\\}$, PACB $(0,0,0)$, $z=0$"
       },
       {
         "id": "t2",
         "text": "Bảng 2: cơ sở $\\{x_3,x_5\\}$ (sau khi $x_3$ vào, $x_4$ ra)"
-      },
-      {
-        "id": "t3",
-        "text": "Bảng 3: cơ sở $\\{x_3,x_1\\}$ (sau khi $x_1$ vào, $x_5$ ra) — đạt tối ưu, $z^*=20$"
       }
     ],
     "correctOrder": [
@@ -1246,7 +1246,7 @@
     "statements": [
       {
         "label": "a",
-        "text": "Ràng buộc nguyên liệu chặt: $40+40+0=80=80$.",
+        "text": "$x_3^*=0$ dù $c_3=5>c_2=4$ — vì $x_3$ \"tốn\" tài nguyên giờ lắp ráp gấp đôi ($2x_3$) so với lợi nhuận mang lại, kém hiệu quả hơn $x_1,x_2$ trong bài toán này.",
         "correct": true
       },
       {
@@ -1256,7 +1256,7 @@
       },
       {
         "label": "c",
-        "text": "$x_3^*=0$ dù $c_3=5>c_2=4$ — vì $x_3$ \"tốn\" tài nguyên giờ lắp ráp gấp đôi ($2x_3$) so với lợi nhuận mang lại, kém hiệu quả hơn $x_1,x_2$ trong bài toán này.",
+        "text": "Ràng buộc nguyên liệu chặt: $40+40+0=80=80$.",
         "correct": true
       }
     ],
@@ -1300,16 +1300,16 @@
     "question": "Sắp xếp đúng 3 bảng đơn hình của bài toán Phenikaa Tech:",
     "items": [
       {
-        "id": "p1",
-        "text": "Bảng 1: cơ sở $\\{x_4,x_5\\}$, PACB $(0,0,0)$"
+        "id": "p3",
+        "text": "Bảng 3: cơ sở $\\{x_2,x_1\\}$ (sau khi $x_2$ vào, $x_4$ ra) — tối ưu, $z^*=400$"
       },
       {
         "id": "p2",
         "text": "Bảng 2: cơ sở $\\{x_4,x_1\\}$ (sau khi $x_1$ vào, $x_5$ ra)"
       },
       {
-        "id": "p3",
-        "text": "Bảng 3: cơ sở $\\{x_2,x_1\\}$ (sau khi $x_2$ vào, $x_4$ ra) — tối ưu, $z^*=400$"
+        "id": "p1",
+        "text": "Bảng 1: cơ sở $\\{x_4,x_5\\}$, PACB $(0,0,0)$"
       }
     ],
     "correctOrder": [
@@ -1373,7 +1373,7 @@
     "statements": [
       {
         "label": "a",
-        "text": "\"Vô nghiệm\" và \"không bị chặn\" là hai khái niệm khác nhau: vô nghiệm là miền rỗng, không bị chặn là miền khác rỗng nhưng không có tối ưu hữu hạn.",
+        "text": "\"Nhiều phương án tối ưu\" xảy ra khi có ít nhất 2 đỉnh cực biên (và mọi điểm trên đoạn nối chúng) cùng đạt giá trị hàm mục tiêu tối ưu.",
         "correct": true
       },
       {
@@ -1383,7 +1383,7 @@
       },
       {
         "label": "c",
-        "text": "\"Nhiều phương án tối ưu\" xảy ra khi có ít nhất 2 đỉnh cực biên (và mọi điểm trên đoạn nối chúng) cùng đạt giá trị hàm mục tiêu tối ưu.",
+        "text": "\"Vô nghiệm\" và \"không bị chặn\" là hai khái niệm khác nhau: vô nghiệm là miền rỗng, không bị chặn là miền khác rỗng nhưng không có tối ưu hữu hạn.",
         "correct": true
       }
     ],
@@ -1553,13 +1553,13 @@
       },
       {
         "label": "b",
-        "text": "Biến bù $s_i^*>0$ tại phương án tối ưu cho biết chính xác LƯỢNG tài nguyên $i$ còn dư.",
-        "correct": true
+        "text": "Mọi bài toán thực tế đều nên mô hình hoá bằng đúng 2 biến để dễ vẽ đồ thị, kể cả khi có hàng chục sản phẩm.",
+        "correct": false
       },
       {
         "label": "c",
-        "text": "Mọi bài toán thực tế đều nên mô hình hoá bằng đúng 2 biến để dễ vẽ đồ thị, kể cả khi có hàng chục sản phẩm.",
-        "correct": false
+        "text": "Biến bù $s_i^*>0$ tại phương án tối ưu cho biết chính xác LƯỢNG tài nguyên $i$ còn dư.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — với nhiều biến (thực tế thường có hàng chục, hàng trăm biến), buộc phải dùng đơn hình (hoặc phần mềm); \"rút gọn ép về 2 biến\" sẽ làm sai lệch mô hình thực tế. Hai ý đầu là ý nghĩa kinh tế chuẩn của ràng buộc dư/biến bù."
