@@ -64,8 +64,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Ý nghĩa thực tế của $x_{dummy,j}>0$ trong phương án tối ưu là lượng hàng nhu cầu tại đích $j$ KHÔNG được đáp ứng (thiếu hụt thực tế).",
-        "correct": true
+        "text": "Việc thêm nguồn giả làm THAY ĐỔI bản chất bài toán, không còn là bài toán vận tải nữa.",
+        "correct": false
       },
       {
         "label": "b",
@@ -74,8 +74,8 @@
       },
       {
         "label": "c",
-        "text": "Việc thêm nguồn giả làm THAY ĐỔI bản chất bài toán, không còn là bài toán vận tải nữa.",
-        "correct": false
+        "text": "Ý nghĩa thực tế của $x_{dummy,j}>0$ trong phương án tối ưu là lượng hàng nhu cầu tại đích $j$ KHÔNG được đáp ứng (thiếu hụt thực tế).",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — thêm nguồn/đích giả chỉ là kỹ thuật TOÁN HỌC để cân bằng bảng, bài toán vẫn giữ nguyên bản chất vận tải, giải bằng đúng thuật toán thế vị bình thường."
@@ -220,13 +220,13 @@
     "statements": [
       {
         "label": "a",
-        "text": "Nếu ở phương án tối ưu của \"bài toán M\" mà ô cấm vẫn có $x_{ij}>0$, kết luận bài toán gốc vô nghiệm.",
-        "correct": true
+        "text": "Bài toán vận tải chỉ có thể có TỐI ĐA 1 ô cấm.",
+        "correct": false
       },
       {
         "label": "b",
-        "text": "Bài toán vận tải chỉ có thể có TỐI ĐA 1 ô cấm.",
-        "correct": false
+        "text": "Nếu ở phương án tối ưu của \"bài toán M\" mà ô cấm vẫn có $x_{ij}>0$, kết luận bài toán gốc vô nghiệm.",
+        "correct": true
       },
       {
         "label": "c",
@@ -391,8 +391,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Nếu giữa 2 nút bất kỳ luôn có ít nhất 1 đường đi (theo 1 chiều nào đó), mạng được gọi là liên thông.",
-        "correct": true
+        "text": "Một \"chu trình\" (cycle) là đường đi nối 1 nút với chính nó mà không đi qua nút nào khác.",
+        "correct": false
       },
       {
         "label": "b",
@@ -401,8 +401,8 @@
       },
       {
         "label": "c",
-        "text": "Một \"chu trình\" (cycle) là đường đi nối 1 nút với chính nó mà không đi qua nút nào khác.",
-        "correct": false
+        "text": "Nếu giữa 2 nút bất kỳ luôn có ít nhất 1 đường đi (theo 1 chiều nào đó), mạng được gọi là liên thông.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — định nghĩa chuẩn của chu trình là đường đi nối một nút TRỞ LẠI CHÍNH NÓ nhưng ĐI QUA các nút khác trong mạng (không phải \"không qua nút nào\"). Ý (b) đúng theo tính chất chuẩn: cây khung của $n$ nút luôn có $n-1$ cạnh."
@@ -501,20 +501,20 @@
     "question": "Sắp xếp đúng thứ tự thuật toán tìm cây khung nhỏ nhất (dạng greedy, kết nối dần từ 1 nút bất kỳ — đúng như slide gốc mô tả):",
     "items": [
       {
-        "id": "m1",
-        "text": "Đặt $C_0=\\emptyset$, $\\overline{C}_0=N$ (tập mọi nút); bắt đầu với 1 nút $i$ bất kỳ: $C_1=\\{i\\}$"
-      },
-      {
-        "id": "m2",
-        "text": "Tại mỗi bước $k$: chọn nút $j^*\\in\\overline{C}_{k-1}$ tạo ra cung ngắn nhất tới 1 nút trong $C_{k-1}$"
-      },
-      {
         "id": "m3",
         "text": "Cập nhật $C_k=C_{k-1}\\cup\\{j^*\\}$, $\\overline{C}_k=\\overline{C}_{k-1}\\setminus\\{j^*\\}$"
       },
       {
         "id": "m4",
         "text": "Lặp lại bước 2-3 cho tới khi $\\overline{C}_k=\\emptyset$ (mọi nút đã được kết nối) — thuật toán dừng"
+      },
+      {
+        "id": "m2",
+        "text": "Tại mỗi bước $k$: chọn nút $j^*\\in\\overline{C}_{k-1}$ tạo ra cung ngắn nhất tới 1 nút trong $C_{k-1}$"
+      },
+      {
+        "id": "m1",
+        "text": "Đặt $C_0=\\emptyset$, $\\overline{C}_0=N$ (tập mọi nút); bắt đầu với 1 nút $i$ bất kỳ: $C_1=\\{i\\}$"
       }
     ],
     "correctOrder": [
@@ -560,17 +560,17 @@
     "statements": [
       {
         "label": "a",
-        "text": "Cạnh $CE(10)$ và $CD(8)$ (có trọng số lớn nhất) không được chọn vào MST — hợp lý vì thuật toán luôn ưu tiên cạnh nhỏ nhất trước.",
-        "correct": true
-      },
-      {
-        "label": "b",
         "text": "Cạnh $AB(4)$ không được chọn dù $A,B$ đều đã có mặt trong MST — vì $A,B$ đã được kết nối GIÁN TIẾP qua đường $A{-}C{-}B$ ($2+1=3<4$), thêm $AB$ trực tiếp sẽ tạo chu trình thừa.",
         "correct": true
       },
       {
-        "label": "c",
+        "label": "b",
         "text": "Nếu đổi trọng số $AB$ từ 4 xuống 2.5 (nhỏ hơn $AC+CB=3$), MST có thể thay đổi (chọn $AB$ thay vì $AC$ hoặc $BC$).",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Cạnh $CE(10)$ và $CD(8)$ (có trọng số lớn nhất) không được chọn vào MST — hợp lý vì thuật toán luôn ưu tiên cạnh nhỏ nhất trước.",
         "correct": true
       }
     ],
@@ -714,13 +714,13 @@
     "statements": [
       {
         "label": "a",
-        "text": "Dijkstra là thuật toán \"tham lam\" (greedy) — tại mỗi bước, chọn nút CHƯA THĂM có khoảng cách tạm thời NHỎ NHẤT để \"chốt\" khoảng cách chính thức.",
-        "correct": true
+        "text": "Dijkstra hoạt động đúng cả khi đồ thị có cạnh trọng số ÂM.",
+        "correct": false
       },
       {
         "label": "b",
-        "text": "Dijkstra hoạt động đúng cả khi đồ thị có cạnh trọng số ÂM.",
-        "correct": false
+        "text": "Dijkstra là thuật toán \"tham lam\" (greedy) — tại mỗi bước, chọn nút CHƯA THĂM có khoảng cách tạm thời NHỎ NHẤT để \"chốt\" khoảng cách chính thức.",
+        "correct": true
       },
       {
         "label": "c",
@@ -881,8 +881,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Giá trị luồng qua BẤT KỲ lát cắt nào (không nhất thiết cực tiểu) luôn là một CẬN TRÊN của luồng cực đại thực sự.",
-        "correct": true
+        "text": "Luồng cực đại luôn bằng tổng dung lượng CÁC CUNG ĐI RA TRỰC TIẾP từ nút nguồn.",
+        "correct": false
       },
       {
         "label": "b",
@@ -891,8 +891,8 @@
       },
       {
         "label": "c",
-        "text": "Luồng cực đại luôn bằng tổng dung lượng CÁC CUNG ĐI RA TRỰC TIẾP từ nút nguồn.",
-        "correct": false
+        "text": "Giá trị luồng qua BẤT KỲ lát cắt nào (không nhất thiết cực tiểu) luôn là một CẬN TRÊN của luồng cực đại thực sự.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — luồng cực đại bị giới hạn bởi \"nút thắt cổ chai\" (bottleneck) bất kỳ trong toàn mạng, không chỉ các cung xuất phát trực tiếp từ nguồn (dung lượng ra khỏi nguồn có thể lớn nhưng bị giới hạn bởi các cung sâu hơn trong mạng)."
@@ -954,16 +954,16 @@
         "text": "Khởi tạo luồng $=0$ trên mọi cung"
       },
       {
-        "id": "ff2",
-        "text": "Tìm 1 đường tăng luồng (augmenting path) từ nguồn tới đích trên đồ thị THẶNG DƯ (residual graph)"
+        "id": "ff4",
+        "text": "Cập nhật đồ thị thặng dư (giảm dung lượng thuận, tăng dung lượng nghịch), lặp lại bước 2 tới khi KHÔNG còn đường tăng luồng nào"
       },
       {
         "id": "ff3",
         "text": "Tính \"nút thắt cổ chai\" (bottleneck) $=$ dung lượng thặng dư nhỏ nhất trên đường đó, tăng luồng dọc đường đi đúng bằng giá trị này"
       },
       {
-        "id": "ff4",
-        "text": "Cập nhật đồ thị thặng dư (giảm dung lượng thuận, tăng dung lượng nghịch), lặp lại bước 2 tới khi KHÔNG còn đường tăng luồng nào"
+        "id": "ff2",
+        "text": "Tìm 1 đường tăng luồng (augmenting path) từ nguồn tới đích trên đồ thị THẶNG DƯ (residual graph)"
       }
     ],
     "correctOrder": [
@@ -1039,8 +1039,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Mọi hoạt động trên đường găng đều có \"độ dự trữ\" (float) $=0$.",
-        "correct": true
+        "text": "Hoạt động $A$ (không nằm trên đường găng) có thể trễ VÔ HẠN mà không ảnh hưởng dự án.",
+        "correct": false
       },
       {
         "label": "b",
@@ -1049,8 +1049,8 @@
       },
       {
         "label": "c",
-        "text": "Hoạt động $A$ (không nằm trên đường găng) có thể trễ VÔ HẠN mà không ảnh hưởng dự án.",
-        "correct": false
+        "text": "Mọi hoạt động trên đường găng đều có \"độ dự trữ\" (float) $=0$.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — \"float\" luôn là một giá trị HỮU HẠN cụ thể (ở đây $A$ có float $=1$ ngày, không phải vô hạn); trễ quá float sẽ đẩy hoạt động đó (và có thể cả dự án) chậm lại."
@@ -1199,7 +1199,7 @@
     "statements": [
       {
         "label": "a",
-        "text": "Trò chơi \"Song đề tù nhân\" (Prisoner's Dilemma) là ví dụ kinh điển của trò chơi KHÔNG hợp tác.",
+        "text": "Trò chơi có \"thông tin hoàn hảo\" là trò chơi mà mỗi người chơi biết các nước đi đã được thực hiện bởi người chơi khác.",
         "correct": true
       },
       {
@@ -1209,7 +1209,7 @@
       },
       {
         "label": "c",
-        "text": "Trò chơi có \"thông tin hoàn hảo\" là trò chơi mà mỗi người chơi biết các nước đi đã được thực hiện bởi người chơi khác.",
+        "text": "Trò chơi \"Song đề tù nhân\" (Prisoner's Dilemma) là ví dụ kinh điển của trò chơi KHÔNG hợp tác.",
         "correct": true
       }
     ],
@@ -1381,8 +1381,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Khi CÓ điểm yên ngựa, chiến lược tối ưu là THUẦN TUÝ (chọn chắc chắn 1 hàng/cột cụ thể, không cần xác suất).",
-        "correct": true
+        "text": "Mọi ma trận trò chơi $2\\times2$ luôn có điểm yên ngựa.",
+        "correct": false
       },
       {
         "label": "b",
@@ -1391,8 +1391,8 @@
       },
       {
         "label": "c",
-        "text": "Mọi ma trận trò chơi $2\\times2$ luôn có điểm yên ngựa.",
-        "correct": false
+        "text": "Khi CÓ điểm yên ngựa, chiến lược tối ưu là THUẦN TUÝ (chọn chắc chắn 1 hàng/cột cụ thể, không cần xác suất).",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — chính ví dụ $B$ (matching pennies) đã chứng minh phản ví dụ rõ ràng: không phải mọi ma trận $2\\times2$ đều có điểm yên ngựa. Hai ý đầu đúng và là kết luận cốt lõi cần nhớ của lý thuyết trò chơi tổng-không."
@@ -1486,13 +1486,13 @@
       },
       {
         "label": "b",
-        "text": "MST, Dijkstra, luồng cực đại đều có thể mô hình hoá bằng QHTT tổng quát, nhưng thường dùng thuật toán chuyên biệt để hiệu quả hơn.",
-        "correct": true
+        "text": "Lý thuyết trò chơi hoàn toàn tách biệt, không có liên hệ toán học nào với QHTT.",
+        "correct": false
       },
       {
         "label": "c",
-        "text": "Lý thuyết trò chơi hoàn toàn tách biệt, không có liên hệ toán học nào với QHTT.",
-        "correct": false
+        "text": "MST, Dijkstra, luồng cực đại đều có thể mô hình hoá bằng QHTT tổng quát, nhưng thường dùng thuật toán chuyên biệt để hiệu quả hơn.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — thực tế, việc giải trò chơi tổng-không với chiến lược hỗn hợp (khi ma trận lớn hơn $2\\times2$) CÓ THỂ quy về bài toán QHTT (mỗi người chơi giải 1 bài toán QHTT đối ngẫu với nhau) — một liên hệ sâu sắc giữa 2 lý thuyết."
@@ -1565,16 +1565,16 @@
     "question": "Sắp xếp đúng thứ tự HỌC HỢP LÝ (từ nền tảng tới nâng cao) của 3 bộ chủ đề Vận trù học đã ôn tập:",
     "items": [
       {
-        "id": "l1",
-        "text": "v5: QHTT cơ bản — mô hình hoá, phương pháp đồ thị, bảng đơn hình (nền tảng của mọi chủ đề sau)"
-      },
-      {
         "id": "l2",
         "text": "v6: QHTT nhị phân (BIP) — mở rộng sang biến quyết định rời rạc (knapsack, phân công, TSP, fixed-charge)"
       },
       {
         "id": "l3",
         "text": "v7: Vận tải mở rộng, Mô hình mạng, Lý thuyết trò chơi — các mô hình chuyên biệt và mở rộng sang bối cảnh nhiều người ra quyết định"
+      },
+      {
+        "id": "l1",
+        "text": "v5: QHTT cơ bản — mô hình hoá, phương pháp đồ thị, bảng đơn hình (nền tảng của mọi chủ đề sau)"
       }
     ],
     "correctOrder": [
