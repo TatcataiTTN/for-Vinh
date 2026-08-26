@@ -53,7 +53,7 @@
     "statements": [
       {
         "label": "a",
-        "text": "Bài toán đối ngẫu có 3 biến $y_1,y_2,y_3$ (ứng với 3 ràng buộc gốc).",
+        "text": "Hàm mục tiêu đối ngẫu là $\\min\\ 4y_1+12y_2+18y_3$.",
         "correct": true
       },
       {
@@ -63,7 +63,7 @@
       },
       {
         "label": "c",
-        "text": "Hàm mục tiêu đối ngẫu là $\\min\\ 4y_1+12y_2+18y_3$.",
+        "text": "Bài toán đối ngẫu có 3 biến $y_1,y_2,y_3$ (ứng với 3 ràng buộc gốc).",
         "correct": true
       }
     ],
@@ -185,12 +185,12 @@
     "statements": [
       {
         "label": "a",
-        "text": "Ràng buộc gốc $\\ge$ (ngược chiều chuẩn) sinh biến đối ngẫu $y_i\\le0$.",
+        "text": "Biến gốc $x_j\\le0$ (ngược chiều chuẩn, đáng lẽ $\\ge0$) sinh ràng buộc đối ngẫu $\\le$ (ngược chiều chuẩn).",
         "correct": true
       },
       {
         "label": "b",
-        "text": "Biến gốc $x_j\\le0$ (ngược chiều chuẩn, đáng lẽ $\\ge0$) sinh ràng buộc đối ngẫu $\\le$ (ngược chiều chuẩn).",
+        "text": "Ràng buộc gốc $\\ge$ (ngược chiều chuẩn) sinh biến đối ngẫu $y_i\\le0$.",
         "correct": true
       },
       {
@@ -326,8 +326,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Nếu tìm được MỘT $x$ khả thi gốc và MỘT $y$ khả thi đối ngẫu sao cho $c^Tx=b^Ty$, thì cả hai đều là phương án tối ưu của bài toán tương ứng.",
-        "correct": true
+        "text": "Đối ngẫu yếu chỉ áp dụng được khi cả hai bài toán đều đã đạt phương án tối ưu.",
+        "correct": false
       },
       {
         "label": "b",
@@ -336,8 +336,8 @@
       },
       {
         "label": "c",
-        "text": "Đối ngẫu yếu chỉ áp dụng được khi cả hai bài toán đều đã đạt phương án tối ưu.",
-        "correct": false
+        "text": "Nếu tìm được MỘT $x$ khả thi gốc và MỘT $y$ khả thi đối ngẫu sao cho $c^Tx=b^Ty$, thì cả hai đều là phương án tối ưu của bài toán tương ứng.",
+        "correct": true
       }
     ],
     "explanation": "Ý (a) chính là \\textit{tiêu chuẩn dừng} thực dụng nhất rút ra từ đối ngẫu yếu — nếu tìm được cặp bằng nhau thì cả hai chắc chắn tối ưu, không cần chứng minh gì thêm. Ý (b) đúng: nếu gốc không bị chặn, giả sử đối ngẫu có $y$ khả thi thì theo đối ngẫu yếu $c^Tx\\le b^Ty$ với mọi $x$ khả thi — mâu thuẫn với $c^Tx\\to\\infty$; nên đối ngẫu phải vô nghiệm. Ý (c) sai: đối ngẫu yếu đúng với MỌI phương án khả thi, không chỉ tại tối ưu."
@@ -469,17 +469,17 @@
     "statements": [
       {
         "label": "a",
-        "text": "Nếu bài toán gốc không bị chặn thì đối ngẫu chắc chắn vô nghiệm (theo cả yếu lẫn mạnh).",
-        "correct": true
-      },
-      {
-        "label": "b",
         "text": "Nếu cả hai bài toán (gốc và đối ngẫu) đều vô nghiệm, đối ngẫu mạnh vẫn áp dụng được và cho $f^*=g^*$.",
         "correct": false
       },
       {
-        "label": "c",
+        "label": "b",
         "text": "Đối ngẫu mạnh là cơ sở lý thuyết để chứng minh dấu hiệu tối ưu trong thuật toán đơn hình.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Nếu bài toán gốc không bị chặn thì đối ngẫu chắc chắn vô nghiệm (theo cả yếu lẫn mạnh).",
         "correct": true
       }
     ],
@@ -610,12 +610,12 @@
     "statements": [
       {
         "label": "a",
-        "text": "\"$x_j^*>0\\Rightarrow$ ràng buộc đối ngẫu $j$ chặt\" tương đương với phát biểu ngược \"ràng buộc đối ngẫu $j$ không chặt $\\Rightarrow x_j^*=0$\".",
+        "text": "\"$y_i^*>0\\Rightarrow$ ràng buộc gốc $i$ chặt\" tương đương với \"ràng buộc gốc $i$ không chặt (còn dư — slack) $\\Rightarrow y_i^*=0$\".",
         "correct": true
       },
       {
         "label": "b",
-        "text": "\"$y_i^*>0\\Rightarrow$ ràng buộc gốc $i$ chặt\" tương đương với \"ràng buộc gốc $i$ không chặt (còn dư — slack) $\\Rightarrow y_i^*=0$\".",
+        "text": "\"$x_j^*>0\\Rightarrow$ ràng buộc đối ngẫu $j$ chặt\" tương đương với phát biểu ngược \"ràng buộc đối ngẫu $j$ không chặt $\\Rightarrow x_j^*=0$\".",
         "correct": true
       },
       {
@@ -1054,8 +1054,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Có ít nhất 1 ví dụ trong 5 ví dụ trên là do vi phạm điều kiện \\textbf{khả thi} (gốc hoặc đối ngẫu), không phải do vi phạm độ lệch bù.",
-        "correct": true
+        "text": "Tất cả 5 ví dụ đều dẫn đến cùng 1 nguyên nhân duy nhất là vi phạm độ lệch bù.",
+        "correct": false
       },
       {
         "label": "b",
@@ -1064,8 +1064,8 @@
       },
       {
         "label": "c",
-        "text": "Tất cả 5 ví dụ đều dẫn đến cùng 1 nguyên nhân duy nhất là vi phạm độ lệch bù.",
-        "correct": false
+        "text": "Có ít nhất 1 ví dụ trong 5 ví dụ trên là do vi phạm điều kiện \\textbf{khả thi} (gốc hoặc đối ngẫu), không phải do vi phạm độ lệch bù.",
+        "correct": true
       }
     ],
     "explanation": "5 ví dụ minh hoạ đủ 3 kiểu \"sai\" thường gặp trong đề thi: (1) vi phạm khả thi đối ngẫu ($y'=(0,1,1)$ và $y'=(0,2,0)$), (2) vi phạm khả thi gốc ($x'=(4,1)$), (3) cả hai khả thi nhưng vi phạm độ lệch bù ($x'=(4,0)$ với $y^*$, và $y'=(2,1)$ với $x^*$) — không phải lúc nào nguyên nhân cũng giống nhau, cần kiểm tra đúng thứ tự (khả thi trước, độ lệch bù sau)."
@@ -1109,8 +1109,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Một tài nguyên khan hiếm (ràng buộc chặt, đang dùng hết) luôn có giá bóng $\\ge0$ nhưng không nhất thiết $>0$.",
-        "correct": true
+        "text": "Giá bóng luôn bằng đúng cước phí/chi phí đơn vị $c_j$ của biến gốc tương ứng.",
+        "correct": false
       },
       {
         "label": "b",
@@ -1119,8 +1119,8 @@
       },
       {
         "label": "c",
-        "text": "Giá bóng luôn bằng đúng cước phí/chi phí đơn vị $c_j$ của biến gốc tương ứng.",
-        "correct": false
+        "text": "Một tài nguyên khan hiếm (ràng buộc chặt, đang dùng hết) luôn có giá bóng $\\ge0$ nhưng không nhất thiết $>0$.",
+        "correct": true
       }
     ],
     "explanation": "Giá bóng $y_i^*$ và hệ số mục tiêu $c_j$ là hai đại lượng hoàn toàn khác nhau (một gắn với ràng buộc $i$, một gắn với biến $j$) — không có quan hệ bằng nhau trực tiếp. Hai ý đầu đúng theo lý thuyết chuẩn."
@@ -1306,7 +1306,7 @@
     "statements": [
       {
         "label": "a",
-        "text": "Nếu $x_{ij}^*>0$ (ô chọn) thì bắt buộc $u_i^*+v_j^*=c_{ij}$ — đây chính là công thức \"quy-không các ô chọn\" đã học ở §3 chương V.",
+        "text": "Số biến đối ngẫu của bài toán vận tải $m\\times n$ (chuẩn) là $m+n$.",
         "correct": true
       },
       {
@@ -1316,7 +1316,7 @@
       },
       {
         "label": "c",
-        "text": "Số biến đối ngẫu của bài toán vận tải $m\\times n$ (chuẩn) là $m+n$.",
+        "text": "Nếu $x_{ij}^*>0$ (ô chọn) thì bắt buộc $u_i^*+v_j^*=c_{ij}$ — đây chính là công thức \"quy-không các ô chọn\" đã học ở §3 chương V.",
         "correct": true
       }
     ],
@@ -1436,8 +1436,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Đối ngẫu yếu áp dụng cho MỌI cặp phương án khả thi; đối ngẫu mạnh và độ lệch bù chỉ có ý nghĩa xác định tại cặp phương án \\textbf{tối ưu}.",
-        "correct": true
+        "text": "Bài toán vận tải (chương V) là một trường hợp \\textbf{đặc biệt}, không áp dụng được lý thuyết đối ngẫu tổng quát (chương IV).",
+        "correct": false
       },
       {
         "label": "b",
@@ -1446,8 +1446,8 @@
       },
       {
         "label": "c",
-        "text": "Bài toán vận tải (chương V) là một trường hợp \\textbf{đặc biệt}, không áp dụng được lý thuyết đối ngẫu tổng quát (chương IV).",
-        "correct": false
+        "text": "Đối ngẫu yếu áp dụng cho MỌI cặp phương án khả thi; đối ngẫu mạnh và độ lệch bù chỉ có ý nghĩa xác định tại cặp phương án \\textbf{tối ưu}.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — ngược lại, bài toán vận tải là ví dụ \\textbf{minh hoạ đẹp} cho lý thuyết đối ngẫu tổng quát, với hệ thống thế vị $(r,s)=-(u,v)$ chính là nghiệm đối ngẫu, như đã học ở NHÓM 9."
