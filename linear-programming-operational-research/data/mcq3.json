@@ -38,23 +38,23 @@
     "statements": [
       {
         "label": "a",
-        "text": "Có tổng cộng $3\\times 4=12$ biến quyết định $x_{ij}$.",
-        "correct": true
-      },
-      {
-        "label": "b",
-        "text": "Chỉ số $i$ chạy từ 1 đến 4 (số trạm thu).",
-        "correct": false
-      },
-      {
-        "label": "c",
         "text": "$x_{ij}\\ge 0$ với mọi $i,j$ vì lượng hàng không thể âm.",
         "correct": true
       },
       {
-        "label": "d",
+        "label": "b",
         "text": "$x_{ij}$ là số nguyên bắt buộc trong mọi bài toán vận tải.",
         "correct": false
+      },
+      {
+        "label": "c",
+        "text": "Chỉ số $i$ chạy từ 1 đến 4 (số trạm thu).",
+        "correct": false
+      },
+      {
+        "label": "d",
+        "text": "Có tổng cộng $3\\times 4=12$ biến quyết định $x_{ij}$.",
+        "correct": true
       }
     ],
     "explanation": "12 biến vì $m\\times n=3\\times4$. Chỉ số $i=1..3$ (phát), $j=1..4$ (thu) — ngược với phát biểu (b). Điều kiện không âm là ràng buộc bắt buộc. Tính nguyên chỉ cần khi đề yêu cầu (bài toán vận tải chuẩn có phương án tối ưu tự nhiên là số nguyên nếu $a_i,b_j$ nguyên, nhưng đó là hệ quả chứ không phải ràng buộc bắt buộc phải khai báo)."
@@ -124,7 +124,7 @@
     "statements": [
       {
         "label": "a",
-        "text": "Ràng buộc \"sản phẩm $P_3$ cần đủ 15 giờ máy (tổng từ mọi máy)\" là $\\sum_{i=1}^3 x_{i3}=15$.",
+        "text": "Hàm mục tiêu \"tổng thời gian máy hoạt động\" là $\\sum_i\\sum_j x_{ij}$.",
         "correct": true
       },
       {
@@ -134,7 +134,7 @@
       },
       {
         "label": "c",
-        "text": "Hàm mục tiêu \"tổng thời gian máy hoạt động\" là $\\sum_i\\sum_j x_{ij}$.",
+        "text": "Ràng buộc \"sản phẩm $P_3$ cần đủ 15 giờ máy (tổng từ mọi máy)\" là $\\sum_{i=1}^3 x_{i3}=15$.",
         "correct": true
       }
     ],
@@ -234,23 +234,23 @@
     "statements": [
       {
         "label": "a",
-        "text": "Khai triển hàm mục tiêu có $12$ số hạng.",
+        "text": "Tổng số ràng buộc chính (không kể dấu) là $m+n=7$.",
         "correct": true
       },
       {
         "label": "b",
-        "text": "Ràng buộc cung tại trạm phát 3 có $4$ số hạng.",
-        "correct": false
-      },
-      {
-        "label": "c",
         "text": "Ràng buộc cầu tại trạm thu 1 có $4$ số hạng.",
         "correct": true
       },
       {
-        "label": "d",
-        "text": "Tổng số ràng buộc chính (không kể dấu) là $m+n=7$.",
+        "label": "c",
+        "text": "Khai triển hàm mục tiêu có $12$ số hạng.",
         "correct": true
+      },
+      {
+        "label": "d",
+        "text": "Ràng buộc cung tại trạm phát 3 có $4$ số hạng.",
+        "correct": false
       }
     ],
     "explanation": "$m\\times n=12$ số hạng ở mục tiêu. Ràng buộc cung dòng $i=3$ cộng theo $j=1..3$ nên có $3$ số hạng (không phải 4) — (b) sai. Ràng buộc cầu cột $j=1$ cộng theo $i=1..4$ nên có $4$ số hạng — (c) đúng. Tổng ràng buộc chính $=m+n=4+3=7$."
@@ -320,8 +320,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Về mặt mô hình hoá gốc vẫn viết đủ 9 số hạng nhưng đặt $c_{23}=M$ (rất lớn) để \"phạt\" việc dùng ô cấm.",
-        "correct": true
+        "text": "Cả hai cách trên đều không tương đương nhau và luôn cho kết quả khác nhau.",
+        "correct": false
       },
       {
         "label": "b",
@@ -330,8 +330,8 @@
       },
       {
         "label": "c",
-        "text": "Cả hai cách trên đều không tương đương nhau và luôn cho kết quả khác nhau.",
-        "correct": false
+        "text": "Về mặt mô hình hoá gốc vẫn viết đủ 9 số hạng nhưng đặt $c_{23}=M$ (rất lớn) để \"phạt\" việc dùng ô cấm.",
+        "correct": true
       }
     ],
     "explanation": "Hai cách xử lý ô cấm (đặt $c_{ij}=M$ hoặc loại hẳn biến khỏi mô hình) là <b>tương đương</b> về bản chất — đều đảm bảo $x_{23}=0$ tại phương án tối ưu (nếu bài toán gốc có nghiệm), chỉ khác cách trình bày/thuật toán."
@@ -401,8 +401,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Cách mô hình hoá chuẩn là đặt $c_{24}=M$ với $M$ là số dương rất lớn.",
-        "correct": true
+        "text": "Ô cấm chỉ có thể tồn tại khi bài toán không cân bằng thu phát.",
+        "correct": false
       },
       {
         "label": "b",
@@ -411,8 +411,8 @@
       },
       {
         "label": "c",
-        "text": "Ô cấm chỉ có thể tồn tại khi bài toán không cân bằng thu phát.",
-        "correct": false
+        "text": "Cách mô hình hoá chuẩn là đặt $c_{24}=M$ với $M$ là số dương rất lớn.",
+        "correct": true
       }
     ],
     "explanation": "Ô cấm là ràng buộc độc lập với việc cân bằng thu phát hay không — có thể xuất hiện ở cả bài toán cân bằng lẫn không cân bằng. Hai ý đầu đúng theo lý thuyết §7.2."
@@ -482,8 +482,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Số biến quyết định là 16.",
-        "correct": true
+        "text": "Ràng buộc cầu tại trạm thu 2 là $x_{21}+x_{22}+x_{23}+x_{24}=70$.",
+        "correct": false
       },
       {
         "label": "b",
@@ -492,8 +492,8 @@
       },
       {
         "label": "c",
-        "text": "Ràng buộc cầu tại trạm thu 2 là $x_{21}+x_{22}+x_{23}+x_{24}=70$.",
-        "correct": false
+        "text": "Số biến quyết định là 16.",
+        "correct": true
       }
     ],
     "explanation": "$m\\times n=4\\times4=16$ biến — đúng. Ràng buộc cung dòng 4 cộng theo $j$ — đúng. Ràng buộc \\textbf{cầu} tại cột $j=2$ phải cộng theo $i$: $x_{12}+x_{22}+x_{32}+x_{42}=70$, không phải cộng theo dòng 2 như (c) viết — (c) sai."
@@ -578,8 +578,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Ràng buộc \"dây chuyền 1 hoạt động tối đa 200 giờ\" là $\\sum_{j=1}^3 x_{1j}\\le 200$.",
-        "correct": true
+        "text": "Cả hai ràng buộc trên đều có dạng đẳng thức bắt buộc ($=$), không thể là bất đẳng thức.",
+        "correct": false
       },
       {
         "label": "b",
@@ -588,8 +588,8 @@
       },
       {
         "label": "c",
-        "text": "Cả hai ràng buộc trên đều có dạng đẳng thức bắt buộc ($=$), không thể là bất đẳng thức.",
-        "correct": false
+        "text": "Ràng buộc \"dây chuyền 1 hoạt động tối đa 200 giờ\" là $\\sum_{j=1}^3 x_{1j}\\le 200$.",
+        "correct": true
       }
     ],
     "explanation": "Hai ràng buộc được viết đúng dạng khai triển. Trong bài toán phân bổ tổng quát (khác bài toán vận tải chuẩn), ràng buộc thường là bất đẳng thức ($\\le,\\ge$) chứ không bắt buộc là đẳng thức."
@@ -709,13 +709,13 @@
       },
       {
         "label": "b",
-        "text": "PACB suy biến không thể là phương án tối ưu.",
-        "correct": false
+        "text": "Khi suy biến, một hoặc nhiều biến cơ sở có giá trị bằng 0.",
+        "correct": true
       },
       {
         "label": "c",
-        "text": "Khi suy biến, một hoặc nhiều biến cơ sở có giá trị bằng 0.",
-        "correct": true
+        "text": "PACB suy biến không thể là phương án tối ưu.",
+        "correct": false
       }
     ],
     "explanation": "Suy biến chỉ nghĩa là có biến cơ sở bằng 0 — không liên quan tới việc có tối ưu hay không; PACB suy biến hoàn toàn có thể là phương án tối ưu."
@@ -865,13 +865,13 @@
       },
       {
         "label": "b",
-        "text": "Nếu mọi $a_{ik}\\le 0$, bài toán vô nghiệm hoàn toàn (kể cả phương án khả thi).",
-        "correct": false
+        "text": "Nếu có nhiều hàng cùng đạt tỉ số nhỏ nhất, có thể xảy ra suy biến ở bước tiếp theo.",
+        "correct": true
       },
       {
         "label": "c",
-        "text": "Nếu có nhiều hàng cùng đạt tỉ số nhỏ nhất, có thể xảy ra suy biến ở bước tiếp theo.",
-        "correct": true
+        "text": "Nếu mọi $a_{ik}\\le 0$, bài toán vô nghiệm hoàn toàn (kể cả phương án khả thi).",
+        "correct": false
       }
     ],
     "explanation": "Nếu mọi $a_{ik}\\le0$ thì không phải \"vô nghiệm\" mà là dấu hiệu \\textbf{không bị chặn} (unbounded) — bài toán vẫn có phương án khả thi, chỉ không có tối ưu hữu hạn."
@@ -1018,12 +1018,12 @@
     "statements": [
       {
         "label": "a",
-        "text": "Đây là dấu hiệu bài toán sẽ trở nên suy biến ở bảng tiếp theo (một biến cơ sở mới sẽ bằng 0).",
+        "text": "Việc chọn hàng 1 hay hàng 3 làm hàng trục không ảnh hưởng gì tới tính đúng đắn của thuật toán (miễn tuân thủ quy tắc nào đó nhất quán, ví dụ Bland, để tránh xoay vòng).",
         "correct": true
       },
       {
         "label": "b",
-        "text": "Việc chọn hàng 1 hay hàng 3 làm hàng trục không ảnh hưởng gì tới tính đúng đắn của thuật toán (miễn tuân thủ quy tắc nào đó nhất quán, ví dụ Bland, để tránh xoay vòng).",
+        "text": "Đây là dấu hiệu bài toán sẽ trở nên suy biến ở bảng tiếp theo (một biến cơ sở mới sẽ bằng 0).",
         "correct": true
       }
     ],
@@ -1109,8 +1109,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Biến vào luôn được chọn trong số các biến \\textit{phi cơ sở}.",
-        "correct": true
+        "text": "Sau một vòng lặp, biến vừa vào cơ sở luôn có giá trị lớn hơn 0 tuyệt đối (không thể suy biến ngay lập tức).",
+        "correct": false
       },
       {
         "label": "b",
@@ -1119,8 +1119,8 @@
       },
       {
         "label": "c",
-        "text": "Sau một vòng lặp, biến vừa vào cơ sở luôn có giá trị lớn hơn 0 tuyệt đối (không thể suy biến ngay lập tức).",
-        "correct": false
+        "text": "Biến vào luôn được chọn trong số các biến \\textit{phi cơ sở}.",
+        "correct": true
       }
     ],
     "explanation": "Hai ý đầu đúng theo định nghĩa. Ý ba sai: nếu $\\theta=0$ (đồng hạng có hàng $b_i=0$), biến vừa vào cơ sở có thể nhận giá trị $0$ ngay — đây chính là bước suy biến."
@@ -1184,13 +1184,13 @@
       },
       {
         "label": "b",
-        "text": "Nếu kết thúc Pha 1 với giá trị $=0$ nhưng vẫn còn 1 biến giả trong cơ sở (ở mức 0), có thể tiếp tục xử lý (đẩy biến giả ra khỏi cơ sở) rồi mới chuyển Pha 2.",
-        "correct": true
+        "text": "Pha 2 luôn bắt đầu lại từ đầu, không liên quan gì tới kết quả Pha 1.",
+        "correct": false
       },
       {
         "label": "c",
-        "text": "Pha 2 luôn bắt đầu lại từ đầu, không liên quan gì tới kết quả Pha 1.",
-        "correct": false
+        "text": "Nếu kết thúc Pha 1 với giá trị $=0$ nhưng vẫn còn 1 biến giả trong cơ sở (ở mức 0), có thể tiếp tục xử lý (đẩy biến giả ra khỏi cơ sở) rồi mới chuyển Pha 2.",
+        "correct": true
       }
     ],
     "explanation": "Pha 2 kế thừa trực tiếp PACB (bảng đơn hình) đạt được ở cuối Pha 1 — chỉ thay hàng mục tiêu bằng hàm mục tiêu gốc rồi tiếp tục lặp bình thường."
@@ -1357,7 +1357,7 @@
     "statements": [
       {
         "label": "a",
-        "text": "Nếu trong phương án tối ưu cuối cùng vẫn còn biến giả $>0$, bài toán gốc vô nghiệm.",
+        "text": "Giá trị $M$ cụ thể (ví dụ $M=1000$ hay $M=10^6$) không ảnh hưởng tới kết luận cuối cùng, miễn $M$ đủ lớn.",
         "correct": true
       },
       {
@@ -1367,7 +1367,7 @@
       },
       {
         "label": "c",
-        "text": "Giá trị $M$ cụ thể (ví dụ $M=1000$ hay $M=10^6$) không ảnh hưởng tới kết luận cuối cùng, miễn $M$ đủ lớn.",
+        "text": "Nếu trong phương án tối ưu cuối cùng vẫn còn biến giả $>0$, bài toán gốc vô nghiệm.",
         "correct": true
       }
     ],
@@ -1539,8 +1539,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Ràng buộc 1 ($2x_1+3x_2\\le12$) chặt: $2(3)+3(2)=12$.",
-        "correct": true
+        "text": "Ràng buộc 3 ($x_2\\le3$) chặt: $2=3$.",
+        "correct": false
       },
       {
         "label": "b",
@@ -1549,8 +1549,8 @@
       },
       {
         "label": "c",
-        "text": "Ràng buộc 3 ($x_2\\le3$) chặt: $2=3$.",
-        "correct": false
+        "text": "Ràng buộc 1 ($2x_1+3x_2\\le12$) chặt: $2(3)+3(2)=12$.",
+        "correct": true
       }
     ],
     "explanation": "Ràng buộc 1: $6+6=12=12$ — chặt. Ràng buộc 2: $6+2=8=8$ — chặt. Ràng buộc 3: $x_2=2\\ne3$ — \\textbf{không chặt} (còn dư 1 đơn vị), nên ý (c) sai vì $2\\ne3$."
