@@ -1,0 +1,1854 @@
+[
+  {
+    "id": 1,
+    "group": "NHÓM 1 — Đại cương Vận trù học & mô hình tối ưu tổng quát",
+    "type": "mcq",
+    "image": null,
+    "question": "Vận trù học (Operations Research) được định nghĩa là:",
+    "options": {
+      "A": "Phương pháp khảo sát ý kiến khách hàng bằng bảng hỏi thống kê mô tả.",
+      "B": "Một nhánh của kế toán tài chính dùng để lập báo cáo doanh thu.",
+      "C": "Lĩnh vực sử dụng mô hình toán học, thuật toán và phân tích định lượng để hỗ trợ ra quyết định tối ưu.",
+      "D": "Kỹ thuật lập trình phần mềm quản lý cơ sở dữ liệu doanh nghiệp."
+    },
+    "correct": "C",
+    "explanation": "Đúng theo định nghĩa mở đầu slide 1: VTH dùng mô hình + thuật toán + phân tích định lượng để hỗ trợ ra quyết định tối ưu."
+  },
+  {
+    "id": 2,
+    "group": "NHÓM 1 — Đại cương Vận trù học & mô hình tối ưu tổng quát",
+    "type": "mcq",
+    "image": null,
+    "question": "Một bài toán Vận trù học điển hình thường gồm những thành phần nào?",
+    "options": {
+      "A": "Chỉ cần hàm mục tiêu, không cần ràng buộc.",
+      "B": "Biến quyết định và ràng buộc, nhưng không cần hàm mục tiêu.",
+      "C": "Chỉ cần miền nghiệm khả thi và lời giải cuối cùng.",
+      "D": "Biến quyết định, hàm mục tiêu, các ràng buộc, và miền nghiệm khả thi."
+    },
+    "correct": "D",
+    "explanation": "4 thành phần chuẩn: biến quyết định, hàm mục tiêu f(x), ràng buộc, và miền khả thi D — thiếu 1 thành phần thì chưa phải mô hình tối ưu đầy đủ."
+  },
+  {
+    "id": 3,
+    "group": "NHÓM 1 — Đại cương Vận trù học & mô hình tối ưu tổng quát",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong mô hình tối ưu tổng quát $\\min_{x\\in D} f(x)$ (hoặc $\\max$), $D$ là:",
+    "options": {
+      "A": "Tập tất cả các giá trị mà $f(x)$ có thể nhận.",
+      "B": "Tập các phương án thỏa mãn mọi ràng buộc (miền khả thi).",
+      "C": "Tập các biến quyết định chưa gán giá trị.",
+      "D": "Chỉ riêng phương án tối ưu duy nhất của bài toán."
+    },
+    "correct": "B",
+    "explanation": "$D$ là miền khả thi — tập nghiệm thỏa ràng buộc; $f$ là hàm mục tiêu, $x$ là biến quyết định."
+  },
+  {
+    "id": 4,
+    "group": "NHÓM 1 — Đại cương Vận trù học & mô hình tối ưu tổng quát",
+    "type": "mcq",
+    "image": null,
+    "question": "Đâu KHÔNG phải là một trong các \"bài toán kinh điển\" được liệt kê trong bài giảng nhập môn Vận trù học?",
+    "options": {
+      "A": "Bài toán người du lịch (TSP).",
+      "B": "Bài toán vận tải.",
+      "C": "Bài toán hồi quy tuyến tính đa biến (thống kê).",
+      "D": "Bài toán quy hoạch tuyến tính."
+    },
+    "correct": "C",
+    "explanation": "Các bài toán kinh điển được liệt kê: QHTT, vận tải, phân công, đường đi ngắn nhất, TSP, ba lô, mạng xã hội — hồi quy tuyến tính là bài toán thống kê, không thuộc danh sách này."
+  },
+  {
+    "id": 5,
+    "group": "NHÓM 1 — Đại cương Vận trù học & mô hình tối ưu tổng quát",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán đường bay (network flow trong hàng không) mô hình hoá theo lý thuyết đồ thị như thế nào?",
+    "options": {
+      "A": "Mỗi hành khách là một đỉnh riêng biệt trong đồ thị.",
+      "B": "Sân bay là đỉnh, đường bay là cạnh có hướng, biến $x_{ij}\\in\\{0,1\\}$ biểu diễn có chọn đường bay $i\\to j$ hay không.",
+      "C": "Sân bay là cạnh, đường bay là đỉnh của đồ thị vô hướng.",
+      "D": "Chỉ có 1 đỉnh duy nhất đại diện cho toàn bộ mạng lưới."
+    },
+    "correct": "B",
+    "explanation": "Đúng theo slide: $G=(V,E)$ với $V$ = tập sân bay, $E$ = tập đường bay, $x_{ij}=1$ nếu chọn đường bay từ $i$ đến $j$."
+  },
+  {
+    "id": 6,
+    "group": "NHÓM 1 — Đại cương Vận trù học & mô hình tối ưu tổng quát",
+    "type": "mcq",
+    "image": null,
+    "question": "Ràng buộc bảo toàn luồng trong bài toán đường bay (dạng luồng chi phí nhỏ nhất từ $s$ đến $t$) có dạng:",
+    "options": {
+      "A": "$x_{ij}\\ge c_{ij}$ với mọi cạnh $(i,j)$.",
+      "B": "$\\sum_j x_{ij}=0$ tại đỉnh nguồn $s$.",
+      "C": "$\\sum_{j:(i,j)\\in E}x_{ij}-\\sum_{j:(j,i)\\in E}x_{ji}=1$ nếu $i=s$, $=-1$ nếu $i=t$, $=0$ với $i\\ne s,t$.",
+      "D": "$\\sum x_{ij}=\\sum x_{ji}$ tại MỌI đỉnh kể cả $s$ và $t$."
+    },
+    "correct": "C",
+    "explanation": "Đỉnh nguồn $s$ phát ra 1 đơn vị luồng thực (chênh lệch ra-vào $=1$), đỉnh đích $t$ thu vào 1 đơn vị ($=-1$), đỉnh trung gian bảo toàn (chênh lệch $=0$)."
+  },
+  {
+    "id": 7,
+    "group": "NHÓM 1 — Đại cương Vận trù học & mô hình tối ưu tổng quát",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về khái niệm mô hình tối ưu tổng quát, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Hàm mục tiêu $f(x)$ luôn phải là hàm tuyến tính trong mọi bài toán Vận trù học.",
+        "correct": false
+      },
+      {
+        "label": "b",
+        "text": "Biến quyết định $x$ là đại lượng mà người ra quyết định có thể kiểm soát/lựa chọn giá trị.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Nếu miền khả thi $D=\\emptyset$ (rỗng) thì bài toán vô nghiệm, không có phương án tối ưu.",
+        "correct": true
+      }
+    ],
+    "explanation": "Ý (a) sai — $f(x)$ có thể phi tuyến (như trong QH phi tuyến); QHTT chỉ là 1 trường hợp riêng có $f$ tuyến tính. (b), (c) đúng theo định nghĩa mô hình tối ưu tổng quát."
+  },
+  {
+    "id": 8,
+    "group": "NHÓM 1 — Đại cương Vận trù học & mô hình tối ưu tổng quát",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về bài toán luồng mạng (Network Flow Problem) tổng quát, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Bài toán luồng mạng chỉ ứng dụng được cho vận chuyển hàng hoá, không dùng được cho dữ liệu hay hành khách.",
+        "correct": false
+      },
+      {
+        "label": "b",
+        "text": "Thành phần cơ bản của một mạng gồm: đỉnh nguồn, đỉnh đích, các cạnh có khả năng thông qua, và dung lượng trên mỗi cạnh.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Mục tiêu phổ biến của bài toán luồng mạng là tối ưu một tiêu chí nhất định (ví dụ tối đa luồng hoặc tối thiểu chi phí).",
+        "correct": true
+      }
+    ],
+    "explanation": "Ý (a) sai — slide liệt kê ứng dụng cho cả hàng hoá, dữ liệu, hành khách, điện năng. (b), (c) đúng theo khái niệm mạng lưới."
+  },
+  {
+    "id": 9,
+    "group": "NHÓM 1 — Đại cương Vận trù học & mô hình tối ưu tổng quát",
+    "type": "fill",
+    "image": null,
+    "question": "Trong mô hình tối ưu tổng quát, đại lượng mà người ra quyết định có thể kiểm soát và cần tìm giá trị tối ưu được gọi là gì? (điền đúng thuật ngữ, không dấu cũng được)",
+    "answer": [
+      "bien quyet dinh",
+      "biến quyết định",
+      "decision variable",
+      "decision variables"
+    ],
+    "answerType": "text",
+    "explanation": "Đây chính là \"biến quyết định\" ($x$) trong mô hình $\\min/\\max f(x)$ với $x\\in D$."
+  },
+  {
+    "id": 10,
+    "group": "NHÓM 1 — Đại cương Vận trù học & mô hình tối ưu tổng quát",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng trình tự xây dựng một mô hình tối ưu Vận trù học từ bài toán thực tế (theo cách tiếp cận chuẩn đã học):",
+    "items": [
+      {
+        "id": "m2",
+        "text": "Xây dựng hàm mục tiêu theo các biến quyết định (tối đa hoặc tối thiểu)."
+      },
+      {
+        "id": "m4",
+        "text": "Xác định miền khả thi $D$ và giải mô hình để tìm phương án tối ưu."
+      },
+      {
+        "id": "m3",
+        "text": "Xác định các ràng buộc (nguồn lực, cân bằng, giới hạn...) theo biến quyết định."
+      },
+      {
+        "id": "m1",
+        "text": "Xác định rõ biến quyết định — đại lượng cần tìm giá trị."
+      }
+    ],
+    "correctOrder": [
+      "m1",
+      "m2",
+      "m3",
+      "m4"
+    ],
+    "explanation": "Trình tự chuẩn: chọn biến $\\to$ hàm mục tiêu $\\to$ ràng buộc $\\to$ miền khả thi và giải — đúng thứ tự tư duy mô hình hoá đã trình bày trong bài nhập môn."
+  },
+  {
+    "id": 11,
+    "group": "NHÓM 2 — Lý thuyết QHTT: dạng bài toán, miền khả thi, tính lồi",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán quy hoạch tuyến tính (QHTT) có dạng tổng quát $\\min(\\max)\\ c^Tx$ thỏa $Ax\\ge b$ (hoặc $\\le b$), $x\\ge0$. Đặc điểm bắt buộc của QHTT là:",
+    "options": {
+      "A": "Các biến quyết định bắt buộc phải là số nguyên.",
+      "B": "Hàm mục tiêu và tất cả các ràng buộc đều là hàm/biểu thức tuyến tính theo biến quyết định.",
+      "C": "Số ràng buộc phải bằng đúng số biến quyết định.",
+      "D": "Hàm mục tiêu phải là hàm bậc hai (quadratic)."
+    },
+    "correct": "B",
+    "explanation": "Định nghĩa QHTT: hàm mục tiêu tuyến tính, ràng buộc tuyến tính — đây là điều kiện bắt buộc để phân biệt QHTT với QH phi tuyến hay QH nguyên."
+  },
+  {
+    "id": 12,
+    "group": "NHÓM 2 — Lý thuyết QHTT: dạng bài toán, miền khả thi, tính lồi",
+    "type": "mcq",
+    "image": null,
+    "question": "Miền khả thi của một bài toán QHTT (nếu khác rỗng và bị chặn) có tính chất hình học gì?",
+    "options": {
+      "A": "Luôn là một hình tròn hoặc hình elip trong không gian biến.",
+      "B": "Là một tập rời rạc gồm hữu hạn điểm cô lập.",
+      "C": "Là một đa diện lồi (polytope/polyhedron) — giao của hữu hạn nửa không gian.",
+      "D": "Luôn không lồi, có thể có nhiều thành phần liên thông tách biệt."
+    },
+    "correct": "C",
+    "explanation": "Mỗi ràng buộc tuyến tính xác định 1 nửa không gian (nửa mặt phẳng nếu 2 biến); giao của hữu hạn nửa không gian lồi luôn là 1 tập lồi — đa diện lồi."
+  },
+  {
+    "id": 13,
+    "group": "NHÓM 2 — Lý thuyết QHTT: dạng bài toán, miền khả thi, tính lồi",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu bài toán QHTT dạng $\\max$ có miền khả thi không bị chặn theo hướng làm $f(x)\\to+\\infty$, thì:",
+    "options": {
+      "A": "Bài toán luôn có đúng 1 phương án tối ưu duy nhất.",
+      "B": "Bài toán suy biến (degenerate) và cần đổi biến.",
+      "C": "Bài toán vô nghiệm vì miền khả thi rỗng.",
+      "D": "Bài toán không bị chặn (unbounded) — không tồn tại phương án tối ưu hữu hạn."
+    },
+    "correct": "D",
+    "explanation": "Miền khả thi khác rỗng nhưng không bị chặn theo hướng cải thiện mục tiêu $\\Rightarrow$ $f(x)$ có thể tăng vô hạn $\\Rightarrow$ bài toán không bị chặn, không có PA tối ưu hữu hạn."
+  },
+  {
+    "id": 14,
+    "group": "NHÓM 2 — Lý thuyết QHTT: dạng bài toán, miền khả thi, tính lồi",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong ví dụ sản xuất 2 sản phẩm $A,B$ (max $3x_1+5x_2$ với $x_1+2x_2\\le8,\\ 2x_1+x_2\\le6,\\ x_1,x_2\\ge0$), $x_1,x_2$ đóng vai trò:",
+    "options": {
+      "A": "Chỉ số của các ràng buộc trong mô hình.",
+      "B": "Biến quyết định — số lượng sản phẩm $A,B$ cần sản xuất.",
+      "C": "Hệ số của hàm mục tiêu (lợi nhuận đơn vị).",
+      "D": "Hằng số ràng buộc về giờ máy và nguyên liệu."
+    },
+    "correct": "B",
+    "explanation": "$x_1,x_2$ là biến quyết định (số lượng sản phẩm A, B); các số 3, 5, 8, 6 mới là hệ số/hằng số của mô hình."
+  },
+  {
+    "id": 15,
+    "group": "NHÓM 2 — Lý thuyết QHTT: dạng bài toán, miền khả thi, tính lồi",
+    "type": "mcq",
+    "image": null,
+    "question": "Một điểm cực biên (extreme point) của miền khả thi đa diện lồi trong QHTT là:",
+    "options": {
+      "A": "Trung điểm của đoạn thẳng nối 2 đỉnh bất kỳ.",
+      "B": "Bất kỳ điểm nào nằm trên biên của miền khả thi.",
+      "C": "Điểm có toạ độ lớn nhất trong tất cả các biến.",
+      "D": "Điểm không thể biểu diễn thành tổ hợp lồi thực sự của 2 điểm khác trong miền khả thi."
+    },
+    "correct": "D",
+    "explanation": "Định nghĩa chuẩn: $x$ là điểm cực biên nếu không tồn tại $x^1\\ne x^2$ trong miền khả thi và $\\theta\\in(0,1)$ sao cho $x=\\theta x^1+(1-\\theta)x^2$."
+  },
+  {
+    "id": 16,
+    "group": "NHÓM 2 — Lý thuyết QHTT: dạng bài toán, miền khả thi, tính lồi",
+    "type": "mcq",
+    "image": null,
+    "question": "Vì sao lời giải tối ưu của QHTT (nếu tồn tại và hữu hạn) luôn có thể tìm được tại một điểm cực biên (đỉnh) của miền khả thi?",
+    "options": {
+      "A": "Vì miền khả thi của QHTT không bao giờ có điểm cực biên.",
+      "B": "Vì hàm mục tiêu tuyến tính luôn là hàm hằng số trên toàn miền khả thi.",
+      "C": "Vì hàm mục tiêu tuyến tính đạt giá trị tối ưu tại ít nhất một điểm cực biên của miền khả thi lồi đa diện.",
+      "D": "Vì mọi điểm trong miền khả thi đều là điểm cực biên."
+    },
+    "correct": "C",
+    "explanation": "Đây là định lý nền tảng của QHTT: do tính tuyến tính của $f$ và tính lồi đa diện của $D$, tối ưu (nếu hữu hạn) luôn đạt được tại ít nhất 1 đỉnh — cơ sở lý luận cho thuật toán đơn hình chỉ cần duyệt các đỉnh."
+  },
+  {
+    "id": 17,
+    "group": "NHÓM 2 — Lý thuyết QHTT: dạng bài toán, miền khả thi, tính lồi",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về tính chất hình học và đại số của QHTT, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Giao của hai tập lồi luôn là một tập lồi.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Miền khả thi của một bài toán QHTT luôn bị chặn (không thể là tập không bị chặn).",
+        "correct": false
+      },
+      {
+        "label": "c",
+        "text": "Nếu bài toán QHTT có nhiều hơn 1 phương án tối ưu thì tập hợp mọi phương án tối ưu cũng là một tập lồi.",
+        "correct": true
+      }
+    ],
+    "explanation": "Ý (b) sai — miền khả thi có thể không bị chặn (ví dụ chỉ có ràng buộc $x\\ge0$, không có ràng buộc chặn trên). (a), (c) đúng — hệ quả trực tiếp của tính lồi trong QHTT."
+  },
+  {
+    "id": 18,
+    "group": "NHÓM 2 — Lý thuyết QHTT: dạng bài toán, miền khả thi, tính lồi",
+    "type": "truefalse",
+    "image": null,
+    "question": "So sánh dạng chuẩn (standard form) và dạng chính tắc của QHTT, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Dạng chính tắc yêu cầu mọi ràng buộc là đẳng thức (=) và mọi biến không âm.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Việc đổi biến $x_j=x_j'-x_j''$ với $x_j',x_j''\\ge0$ được dùng khi biến gốc $x_j$ không bị ràng buộc dấu (free variable).",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Thêm biến bù (slack variable) làm THAY ĐỔI bản chất bài toán gốc, không còn tương đương nữa.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — thêm biến bù chỉ là kỹ thuật chuyển ràng buộc bất đẳng thức thành đẳng thức, bài toán vẫn tương đương hoàn toàn với bài toán gốc."
+  },
+  {
+    "id": 19,
+    "group": "NHÓM 2 — Lý thuyết QHTT: dạng bài toán, miền khả thi, tính lồi",
+    "type": "fill",
+    "image": null,
+    "question": "Điền tên loại biến được thêm vào để chuyển ràng buộc $\\le$ thành ràng buộc $=$ khi đưa QHTT về dạng chính tắc (ví dụ: $x_1+x_2\\le8 \\to x_1+x_2+s=8$).",
+    "answer": [
+      "bien bu",
+      "biến bù",
+      "slack",
+      "slack variable"
+    ],
+    "answerType": "text",
+    "explanation": "Đây là \"biến bù\" (slack variable) $s\\ge0$ — hấp thụ phần dư giữa vế trái và vế phải của ràng buộc $\\le$."
+  },
+  {
+    "id": 20,
+    "group": "NHÓM 2 — Lý thuyết QHTT: dạng bài toán, miền khả thi, tính lồi",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng trình tự các bước biến đổi một bài toán QHTT bất kỳ về dạng chính tắc (chuẩn bị để giải bằng đơn hình):",
+    "items": [
+      {
+        "id": "m2",
+        "text": "Đổi biến $x_j=x_j'-x_j''$ với các biến không ràng buộc dấu."
+      },
+      {
+        "id": "m4",
+        "text": "Thêm biến giả (artificial variable) nếu chưa có sẵn cột đơn vị làm cơ sở ban đầu."
+      },
+      {
+        "id": "m1",
+        "text": "Đổi mục tiêu $\\max$ thành $\\min$ (nhân $-1$) nếu cần chuẩn hoá về 1 loại mục tiêu duy nhất."
+      },
+      {
+        "id": "m3",
+        "text": "Thêm biến bù/biến dư vào các ràng buộc bất đẳng thức để chuyển thành đẳng thức."
+      }
+    ],
+    "correctOrder": [
+      "m1",
+      "m2",
+      "m3",
+      "m4"
+    ],
+    "explanation": "Trình tự chuẩn hoá: chuẩn mục tiêu $\\to$ xử lý biến tự do $\\to$ thêm biến bù cho bất đẳng thức $\\to$ thêm biến giả nếu cần cơ sở ban đầu — đúng thứ tự các bước biến đổi trước khi lập bảng đơn hình."
+  },
+  {
+    "id": 21,
+    "group": "NHÓM 3 — Lý thuyết đơn hình: PACB, tối ưu, các trường hợp đặc biệt",
+    "type": "mcq",
+    "image": null,
+    "question": "Phương án cực biên (PACB) khả thi trong phương pháp đơn hình tương ứng với điều gì trên hình học?",
+    "options": {
+      "A": "Một điểm bất kỳ nằm trong phần trong (interior) của miền khả thi.",
+      "B": "Điểm xa gốc toạ độ nhất trong miền khả thi.",
+      "C": "Trung điểm của cạnh nối 2 đỉnh liền kề của miền khả thi.",
+      "D": "Một đỉnh (điểm cực biên) của miền nghiệm khả thi đa diện lồi."
+    },
+    "correct": "D",
+    "explanation": "PACB $\\leftrightarrow$ đỉnh của đa diện lồi — đây là lý do thuật toán đơn hình chỉ cần duyệt qua các đỉnh (PACB) thay vì toàn bộ miền khả thi vô hạn điểm."
+  },
+  {
+    "id": 22,
+    "group": "NHÓM 3 — Lý thuyết đơn hình: PACB, tối ưu, các trường hợp đặc biệt",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong bảng đơn hình (bài toán min), tiêu chuẩn để một PACB hiện tại là PHƯƠNG ÁN TỐI ƯU là:",
+    "options": {
+      "A": "Mọi hệ số ước lượng (hàng $z_j-c_j$ hoặc $\\Delta_j$) đều $\\le0$ — không còn biến nào có thể đưa vào để cải thiện mục tiêu.",
+      "B": "Tất cả các biến cơ sở đều dương nghiêm ngặt (không suy biến).",
+      "C": "Số ràng buộc bằng đúng số biến quyết định trong bài toán gốc.",
+      "D": "Giá trị hàm mục tiêu bằng 0 tại phương án đó."
+    },
+    "correct": "A",
+    "explanation": "Tiêu chuẩn dừng đơn hình: không còn biến ngoài cơ sở nào có hệ số ước lượng dương (bài toán min) $\\Rightarrow$ không thể cải thiện thêm $\\Rightarrow$ đã tối ưu."
+  },
+  {
+    "id": 23,
+    "group": "NHÓM 3 — Lý thuyết đơn hình: PACB, tối ưu, các trường hợp đặc biệt",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong bước chọn biến ra khỏi cơ sở (tiêu chuẩn tỷ số $\\theta$) của đơn hình, ta chọn hàng có:",
+    "options": {
+      "A": "Tỷ số $\\theta=x_{i0}/a_{is}$ nhỏ nhất trong các hàng có hệ số cột xoay $a_{is}>0$.",
+      "B": "Chỉ số hàng nhỏ nhất (luôn chọn hàng đầu tiên trong bảng).",
+      "C": "Tỷ số $\\theta$ lớn nhất trong tất cả các hàng, kể cả hàng có $a_{is}\\le0$.",
+      "D": "Hệ số cột xoay $a_{is}$ lớn nhất, bất kể giá trị $\\theta$."
+    },
+    "correct": "A",
+    "explanation": "Quy tắc tỷ số tối thiểu (min-ratio test) đảm bảo phương án mới vẫn khả thi (mọi biến cơ sở $\\ge0$) — chỉ xét các hàng có $a_{is}>0$."
+  },
+  {
+    "id": 24,
+    "group": "NHÓM 3 — Lý thuyết đơn hình: PACB, tối ưu, các trường hợp đặc biệt",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu ở bước chọn biến ra khỏi cơ sở, TẤT CẢ hệ số cột xoay $a_{is}\\le0$ (không có hàng nào $a_{is}>0$), thì kết luận là:",
+    "options": {
+      "A": "Cần chuyển ngay sang giải bằng phương pháp đối ngẫu.",
+      "B": "Bài toán không bị chặn (unbounded) — có thể tăng biến vào cơ sở vô hạn mà vẫn giữ khả thi.",
+      "C": "Bài toán đã đạt tối ưu ngay lập tức, dừng thuật toán.",
+      "D": "Bài toán vô nghiệm vì miền khả thi rỗng."
+    },
+    "correct": "B",
+    "explanation": "Nếu không hàng nào có $a_{is}>0$ thì không có giới hạn tăng biến vào cơ sở — mục tiêu có thể cải thiện vô hạn $\\Rightarrow$ bài toán không bị chặn."
+  },
+  {
+    "id": 25,
+    "group": "NHÓM 3 — Lý thuyết đơn hình: PACB, tối ưu, các trường hợp đặc biệt",
+    "type": "mcq",
+    "image": null,
+    "question": "Hiện tượng \"suy biến\" (degeneracy) trong đơn hình xảy ra khi:",
+    "options": {
+      "A": "Bài toán có đúng 1 ràng buộc duy nhất.",
+      "B": "Có ít nhất một biến cơ sở nhận giá trị bằng 0 trong phương án cực biên hiện tại.",
+      "C": "Hàm mục tiêu không thay đổi qua mọi bước lặp.",
+      "D": "Tất cả các biến cơ sở đều dương nghiêm ngặt."
+    },
+    "correct": "B",
+    "explanation": "Suy biến: PACB có $\\ge1$ biến cơ sở $=0$ — có thể dẫn tới hiện tượng \"xoay vòng\" (cycling) nếu không dùng quy tắc chọn phù hợp (Bland's rule)."
+  },
+  {
+    "id": 26,
+    "group": "NHÓM 3 — Lý thuyết đơn hình: PACB, tối ưu, các trường hợp đặc biệt",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán QHTT có \"nhiều phương án tối ưu\" (đa nghiệm) khi kết thúc đơn hình xảy ra khi:",
+    "options": {
+      "A": "Giá trị hàm mục tiêu tối ưu bằng 0.",
+      "B": "Tất cả các hệ số ước lượng đều âm nghiêm ngặt.",
+      "C": "Bảng đơn hình có nhiều hơn 1 hàng ràng buộc.",
+      "D": "Tại phương án tối ưu, tồn tại biến ngoài cơ sở có hệ số ước lượng bằng 0 (có thể đưa vào cơ sở mà giá trị mục tiêu không đổi)."
+    },
+    "correct": "D",
+    "explanation": "Nếu biến ngoài cơ sở có $\\Delta_j=0$ (không cải thiện cũng không xấu đi), đưa nó vào cơ sở cho ra 1 đỉnh tối ưu khác cùng giá trị $f^*$ — dấu hiệu của đa nghiệm."
+  },
+  {
+    "id": 27,
+    "group": "NHÓM 3 — Lý thuyết đơn hình: PACB, tối ưu, các trường hợp đặc biệt",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về phương pháp đơn hình, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Mỗi bước lặp của đơn hình (không suy biến) luôn làm giá trị hàm mục tiêu tốt lên hoặc giữ nguyên, không bao giờ xấu đi.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Số phương án cực biên khả thi của một bài toán QHTT là hữu hạn, không vượt quá $\\binom{n}{m}$ (n: số biến, m: số ràng buộc chính).",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Phương pháp đơn hình luôn duyệt qua TẤT CẢ các phương án cực biên trước khi tìm ra lời giải tối ưu.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — đơn hình chỉ duyệt một chuỗi PACB kề nhau theo hướng cải thiện mục tiêu, KHÔNG duyệt hết toàn bộ (số PACB có thể rất lớn nhưng số bước lặp thực tế thường nhỏ)."
+  },
+  {
+    "id": 28,
+    "group": "NHÓM 3 — Lý thuyết đơn hình: PACB, tối ưu, các trường hợp đặc biệt",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về các trường hợp đặc biệt trong đơn hình, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Nếu tại phương án tối ưu có 2 biến ngoài cơ sở cùng có hệ số ước lượng bằng 0 thì bài toán chắc chắn có ít nhất 2 phương án tối ưu khác nhau.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Hiện tượng suy biến (degeneracy) luôn khiến thuật toán đơn hình dừng lại và báo bài toán vô nghiệm.",
+        "correct": false
+      },
+      {
+        "label": "c",
+        "text": "Việc dùng phương pháp 2 pha giúp tránh phải chọn hệ số $M$ tuỳ ý như trong phương pháp Big-M.",
+        "correct": true
+      }
+    ],
+    "explanation": "Ý (b) sai — suy biến chỉ là hiện tượng có biến cơ sở bằng 0, KHÔNG đồng nghĩa vô nghiệm; đơn hình vẫn tiếp tục chạy bình thường (có thể cần quy tắc chống xoay vòng). (a), (c) đúng."
+  },
+  {
+    "id": 29,
+    "group": "NHÓM 3 — Lý thuyết đơn hình: PACB, tối ưu, các trường hợp đặc biệt",
+    "type": "fill",
+    "image": null,
+    "question": "Điền tên phương pháp giải QHTT dùng biến giả $M$ rất lớn gán vào hàm mục tiêu để phạt các biến giả, thay vì tách thành 2 pha riêng.",
+    "answer": [
+      "phuong phap M",
+      "phương pháp M",
+      "big M",
+      "big-m",
+      "phuong phap big m"
+    ],
+    "answerType": "text",
+    "explanation": "Đây là \"phương pháp M\" (Big-M method) — thêm biến giả với hệ số phạt $M$ rất lớn trong hàm mục tiêu, đối lập với phương pháp 2 pha (tách thành Pha 1 và Pha 2)."
+  },
+  {
+    "id": 30,
+    "group": "NHÓM 3 — Lý thuyết đơn hình: PACB, tối ưu, các trường hợp đặc biệt",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng trình tự một bước lặp (1 vòng xoay bảng) trong phương pháp đơn hình dạng bảng:",
+    "items": [
+      {
+        "id": "m1",
+        "text": "Kiểm tra tiêu chuẩn tối ưu (hàng $\\Delta_j$) — nếu đã tối ưu thì dừng."
+      },
+      {
+        "id": "m3",
+        "text": "Áp dụng tiêu chuẩn tỷ số $\\theta$ để chọn hàng xoay (biến ra khỏi cơ sở)."
+      },
+      {
+        "id": "m2",
+        "text": "Chọn cột xoay (biến vào cơ sở) — cột có hệ số ước lượng vi phạm tiêu chuẩn tối ưu."
+      },
+      {
+        "id": "m4",
+        "text": "Thực hiện phép biến đổi Gauss-Jordan quanh phần tử xoay để cập nhật bảng mới."
+      }
+    ],
+    "correctOrder": [
+      "m1",
+      "m2",
+      "m3",
+      "m4"
+    ],
+    "explanation": "Đúng trình tự 1 bước lặp đơn hình dạng bảng: kiểm tra dừng $\\to$ chọn biến vào $\\to$ chọn biến ra $\\to$ xoay bảng (cập nhật) $\\to$ quay lại bước 1."
+  },
+  {
+    "id": 31,
+    "group": "NHÓM 4 — Lý thuyết đối ngẫu",
+    "type": "mcq",
+    "image": null,
+    "question": "Với bài toán gốc (P) là bài toán $\\min$, bài toán đối ngẫu (D) tương ứng luôn là bài toán:",
+    "options": {
+      "A": "Một bài toán $\\min$ khác, không liên quan cấu trúc tới (P).",
+      "B": "Bài toán $\\max$ với số biến bằng số ràng buộc của (P), và số ràng buộc bằng số biến của (P).",
+      "C": "Bài toán có cùng số biến và cùng số ràng buộc y hệt như (P).",
+      "D": "Bài toán phi tuyến, không còn là QHTT."
+    },
+    "correct": "B",
+    "explanation": "Quy tắc đối ngẫu: min $\\leftrightarrow$ max; mỗi ràng buộc của (P) sinh ra 1 biến đối ngẫu, mỗi biến của (P) sinh ra 1 ràng buộc đối ngẫu."
+  },
+  {
+    "id": 32,
+    "group": "NHÓM 4 — Lý thuyết đối ngẫu",
+    "type": "mcq",
+    "image": null,
+    "question": "Định lý đối ngẫu yếu (weak duality) phát biểu rằng (với P là min, D là max):",
+    "options": {
+      "A": "(D) luôn có nhiều phương án tối ưu hơn (P).",
+      "B": "Giá trị tối ưu của (P) luôn bằng giá trị tối ưu của (D) trong mọi trường hợp.",
+      "C": "Nếu (P) vô nghiệm thì (D) cũng chắc chắn vô nghiệm.",
+      "D": "Giá trị mục tiêu của MỌI phương án khả thi của (D) luôn $\\le$ giá trị mục tiêu của MỌI phương án khả thi của (P)."
+    },
+    "correct": "D",
+    "explanation": "Đối ngẫu yếu: $c^Tx\\ge b^Ty$ với mọi $x$ khả thi của (P) và $y$ khả thi của (D) — đúng với MỌI cặp phương án khả thi, không chỉ tại tối ưu."
+  },
+  {
+    "id": 33,
+    "group": "NHÓM 4 — Lý thuyết đối ngẫu",
+    "type": "mcq",
+    "image": null,
+    "question": "Định lý đối ngẫu mạnh (strong duality) phát biểu rằng:",
+    "options": {
+      "A": "Chỉ đúng khi cả (P) và (D) đều có duy nhất 1 ràng buộc.",
+      "B": "Nếu 1 trong 2 bài toán (P) hoặc (D) có phương án tối ưu hữu hạn thì bài toán kia cũng có, và 2 giá trị tối ưu bằng nhau.",
+      "C": "(P) và (D) luôn có tập nghiệm tối ưu hoàn toàn giống hệt nhau.",
+      "D": "Giá trị tối ưu của (P) luôn lớn hơn giá trị tối ưu của (D) một khoảng dương cố định."
+    },
+    "correct": "B",
+    "explanation": "Đối ngẫu mạnh mạnh hơn đối ngẫu yếu: tại tối ưu, khoảng cách (duality gap) bằng 0 — $f^*_P=f^*_D$."
+  },
+  {
+    "id": 34,
+    "group": "NHÓM 4 — Lý thuyết đối ngẫu",
+    "type": "mcq",
+    "image": null,
+    "question": "Định lý độ lệch bù (complementary slackness) cho biết: nếu ràng buộc gốc thứ $i$ KHÔNG chặt (lỏng, dư) tại phương án tối ưu $x^*$ thì:",
+    "options": {
+      "A": "Ràng buộc đó bắt buộc phải bị loại khỏi mô hình.",
+      "B": "Biến đối ngẫu tương ứng $y_i^*$ phải bằng 0.",
+      "C": "Biến đối ngẫu tương ứng $y_i^*$ phải bằng vô cùng.",
+      "D": "Biến gốc $x_i$ tương ứng phải bằng 0."
+    },
+    "correct": "B",
+    "explanation": "Độ lệch bù: với mỗi $i$, hoặc ràng buộc gốc $i$ chặt ($=$), hoặc $y_i^*=0$ (không cả hai đồng thời dương/lỏng) — đây là điều kiện cần và đủ cho tính tối ưu đồng thời của $x^*,y^*$."
+  },
+  {
+    "id": 35,
+    "group": "NHÓM 4 — Lý thuyết đối ngẫu",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong diễn giải kinh tế của đối ngẫu (economic interpretation), biến đối ngẫu $y_i^*$ của ràng buộc nguồn lực $i$ được gọi là:",
+    "options": {
+      "A": "Hằng số cố định không phụ thuộc vào mô hình gốc.",
+      "B": "Chi phí sản xuất trực tiếp của nguồn lực $i$.",
+      "C": "Số lượng đơn vị nguồn lực $i$ còn dư sau khi giải bài toán.",
+      "D": "Giá bóng (shadow price) — mức thay đổi của giá trị mục tiêu tối ưu khi nới lỏng ràng buộc $i$ thêm 1 đơn vị."
+    },
+    "correct": "D",
+    "explanation": "Giá bóng $y_i^*$ đo độ nhạy của $f^*$ theo vế phải $b_i$ — chính là hệ số đối ngẫu tại phương án tối ưu."
+  },
+  {
+    "id": 36,
+    "group": "NHÓM 4 — Lý thuyết đối ngẫu",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu bài toán gốc (P) không bị chặn (unbounded), thì theo lý thuyết đối ngẫu, bài toán đối ngẫu (D) tương ứng phải:",
+    "options": {
+      "A": "Vô nghiệm (miền khả thi của D rỗng).",
+      "B": "Cũng không bị chặn.",
+      "C": "Có giá trị tối ưu bằng đúng giá trị tối ưu của (P).",
+      "D": "Có đúng 1 phương án tối ưu duy nhất."
+    },
+    "correct": "A",
+    "explanation": "Hệ quả của đối ngẫu yếu: nếu (P) không bị chặn thì không tồn tại $y$ khả thi nào của (D) (nếu có sẽ vi phạm bất đẳng thức đối ngẫu yếu) $\\Rightarrow$ (D) vô nghiệm."
+  },
+  {
+    "id": 37,
+    "group": "NHÓM 4 — Lý thuyết đối ngẫu",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về mối quan hệ Primal–Dual, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Đối với bài toán $\\min\\{4y_1+3y_2:y_1\\ge5,y_2\\ge4,y_1,y_2\\ge0\\}$, đây có thể là đối ngẫu của một bài toán $\\max$ với 2 ràng buộc và 2 biến gốc.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Đối ngẫu của đối ngẫu (dual của dual) luôn quay trở lại đúng bài toán gốc ban đầu.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Cặp bài toán gốc và đối ngẫu luôn có SỐ BIẾN bằng nhau.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — số biến của (D) bằng số RÀNG BUỘC của (P), không nhất thiết bằng số biến của (P). (a), (b) đúng theo lý thuyết đối ngẫu chuẩn."
+  },
+  {
+    "id": 38,
+    "group": "NHÓM 4 — Lý thuyết đối ngẫu",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về ứng dụng đối ngẫu để kiểm tra tối ưu, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Có thể dùng định lý độ lệch bù để kiểm tra 1 cặp phương án $(x,y)$ có phải là cặp tối ưu (P)-(D) hay không, mà không cần giải lại từ đầu.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Nếu $x$ khả thi của (P) và $y$ khả thi của (D) mà $c^Tx=b^Ty$ thì cả 2 đều là phương án tối ưu của bài toán tương ứng.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Việc dùng số $M$ lớn trong phương pháp Big-M không hề gây khó khăn tính toán so với phương pháp 2 pha.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — số $M$ lớn dễ gây sai số/nhầm lẫn khi tính tay, đây chính là lý do phương pháp 2 pha thường được ưa chuộng hơn khi giải tay. (a), (b) đúng theo lý thuyết đối ngẫu."
+  },
+  {
+    "id": 39,
+    "group": "NHÓM 4 — Lý thuyết đối ngẫu",
+    "type": "fill",
+    "image": null,
+    "question": "Điền tên định lý cho biết: tại phương án tối ưu, giá trị hàm mục tiêu của bài toán gốc luôn BẰNG giá trị hàm mục tiêu của bài toán đối ngẫu (không còn khoảng cách).",
+    "answer": [
+      "doi ngau manh",
+      "đối ngẫu mạnh",
+      "strong duality",
+      "dinh ly doi ngau manh"
+    ],
+    "answerType": "text",
+    "explanation": "Đây là \"Định lý đối ngẫu mạnh\" (Strong Duality Theorem) — phân biệt với đối ngẫu yếu (chỉ cho bất đẳng thức, không đảm bảo bằng nhau)."
+  },
+  {
+    "id": 40,
+    "group": "NHÓM 4 — Lý thuyết đối ngẫu",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng trình tự các bước dùng lý thuyết đối ngẫu để KIỂM TRA xem một cặp phương án $(\\bar x,\\bar y)$ có phải là cặp tối ưu hay không:",
+    "items": [
+      {
+        "id": "m1",
+        "text": "Kiểm tra $\\bar x$ có khả thi đối với bài toán gốc (P) hay không."
+      },
+      {
+        "id": "m2",
+        "text": "Kiểm tra $\\bar y$ có khả thi đối với bài toán đối ngẫu (D) hay không."
+      },
+      {
+        "id": "m3",
+        "text": "Áp dụng điều kiện độ lệch bù cho từng cặp ràng buộc–biến tương ứng."
+      },
+      {
+        "id": "m4",
+        "text": "Kết luận: nếu mọi điều kiện độ lệch bù đều thỏa và cả hai đều khả thi thì $(\\bar x,\\bar y)$ là cặp tối ưu."
+      }
+    ],
+    "correctOrder": [
+      "m1",
+      "m2",
+      "m3",
+      "m4"
+    ],
+    "explanation": "Đúng trình tự kiểm tra tối ưu bằng độ lệch bù: khả thi (P) $\\to$ khả thi (D) $\\to$ kiểm tra độ lệch bù từng cặp $\\to$ kết luận — không cần giải lại đơn hình từ đầu."
+  },
+  {
+    "id": 41,
+    "group": "NHÓM 5 — Lý thuyết bài toán vận tải & phân công",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong bài toán vận tải với $m$ kho (nguồn) và $n$ điểm tiêu thụ (đích), điều kiện CÂN BẰNG thu phát là:",
+    "options": {
+      "A": "$a_i=b_j$ với mọi cặp $(i,j)$.",
+      "B": "$m=n$ (số nguồn phải bằng số đích).",
+      "C": "Mọi $c_{ij}$ phải bằng nhau.",
+      "D": "$\\sum_{i=1}^m a_i=\\sum_{j=1}^n b_j$ (tổng lượng cung bằng tổng lượng cầu)."
+    },
+    "correct": "D",
+    "explanation": "Điều kiện cân bằng: tổng cung $=$ tổng cầu. Nếu không, cần thêm nguồn/đích giả (dummy) với cước phí $=0$ để cân bằng trước khi giải."
+  },
+  {
+    "id": 42,
+    "group": "NHÓM 5 — Lý thuyết bài toán vận tải & phân công",
+    "type": "mcq",
+    "image": null,
+    "question": "Nếu bài toán vận tải KHÔNG cân bằng (tổng cung $\\ne$ tổng cầu), cách xử lý chuẩn là:",
+    "options": {
+      "A": "Loại bỏ bớt một số ràng buộc cho tới khi cân bằng.",
+      "B": "Thêm 1 nguồn hoặc đích giả với cước phí bằng $0$, lượng bằng đúng phần chênh lệch cung–cầu.",
+      "C": "Nhân toàn bộ ma trận cước phí với 1 hằng số để cân bằng.",
+      "D": "Kết luận ngay bài toán vô nghiệm, không giải tiếp."
+    },
+    "correct": "B",
+    "explanation": "Thêm nguồn/đích giả (dummy) là kỹ thuật toán học thuần tuý để cân bằng bảng — bản chất bài toán vận tải không đổi, vẫn giải bằng thuật toán thế vị bình thường."
+  },
+  {
+    "id": 43,
+    "group": "NHÓM 5 — Lý thuyết bài toán vận tải & phân công",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán phân công (Assignment Problem) là trường hợp đặc biệt của bài toán vận tải khi:",
+    "options": {
+      "A": "Cước phí $c_{ij}$ luôn bằng 0 với mọi $i,j$.",
+      "B": "$m\\ne n$ và các $a_i,b_j$ là số thực bất kỳ.",
+      "C": "Không có ràng buộc cân bằng thu phát nào cả.",
+      "D": "$m=n$ và mọi $a_i=b_j=1$, biến $x_{ij}\\in\\{0,1\\}$ (gán đúng 1 người cho đúng 1 việc)."
+    },
+    "correct": "D",
+    "explanation": "Phân công: số người $=$ số việc ($m=n$), mỗi người/việc có \"cung/cầu\" đúng bằng 1, biến nhị phân $x_{ij}$ — đặc biệt hoá từ mô hình vận tải tổng quát."
+  },
+  {
+    "id": 44,
+    "group": "NHÓM 5 — Lý thuyết bài toán vận tải & phân công",
+    "type": "mcq",
+    "image": null,
+    "question": "Số phương án cực biên khả thi cơ sở (basic feasible solution) của bài toán vận tải $m\\times n$ cân bằng có tối đa bao nhiêu ô chọn (ô cơ sở, không suy biến)?",
+    "options": {
+      "A": "$m+n-1$ ô.",
+      "B": "$m-n$ ô.",
+      "C": "$m\\times n$ ô (toàn bộ bảng).",
+      "D": "$\\min(m,n)$ ô."
+    },
+    "correct": "A",
+    "explanation": "Bài toán vận tải có $m+n$ ràng buộc đẳng thức nhưng 1 ràng buộc thừa (phụ thuộc tuyến tính do điều kiện cân bằng), nên PACB không suy biến có đúng $m+n-1$ ô cơ sở."
+  },
+  {
+    "id": 45,
+    "group": "NHÓM 5 — Lý thuyết bài toán vận tải & phân công",
+    "type": "mcq",
+    "image": null,
+    "question": "Ý nghĩa thực tế khi biến $x_{dummy,j}>0$ (lượng hàng từ nguồn GIẢ đến đích $j$) xuất hiện trong phương án tối ưu của bài toán vận tải không cân bằng (thiếu cung) là:",
+    "options": {
+      "A": "Bài toán chắc chắn vô nghiệm nếu điều này xảy ra.",
+      "B": "Đây là lỗi tính toán, cần loại bỏ khỏi bảng ngay lập tức.",
+      "C": "Nhu cầu tại đích $j$ không được đáp ứng đầy đủ — thiếu hụt thực tế đúng bằng lượng đó.",
+      "D": "Đích $j$ nhận thêm hàng miễn phí từ một kho thực tế nào đó."
+    },
+    "correct": "C",
+    "explanation": "Nguồn/đích giả chỉ là công cụ toán học; $x_{dummy,j}>0$ phản ánh phần cầu không được đáp ứng thực tế (do tổng cung < tổng cầu)."
+  },
+  {
+    "id": 46,
+    "group": "NHÓM 5 — Lý thuyết bài toán vận tải & phân công",
+    "type": "mcq",
+    "image": null,
+    "question": "Miền nghiệm khả thi của bài toán vận tải/phân công (với $0\\le x_{ij}\\le\\min(a_i,b_j)$) có tính chất:",
+    "options": {
+      "A": "Không lồi vì biến $x_{ij}$ có thể âm.",
+      "B": "Chỉ gồm đúng 1 điểm duy nhất trong mọi trường hợp.",
+      "C": "Là đa diện lồi bị chặn (polytope) do các ràng buộc chặn trên/dưới hữu hạn.",
+      "D": "Không bị chặn vì $x_{ij}$ có thể tiến ra vô cùng."
+    },
+    "correct": "C",
+    "explanation": "Do $0\\le x_{ij}\\le\\min(a_i,b_j)<\\infty$, miền khả thi luôn bị chặn — khác với QHTT tổng quát có thể không bị chặn."
+  },
+  {
+    "id": 47,
+    "group": "NHÓM 5 — Lý thuyết bài toán vận tải & phân công",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về lý thuyết bài toán vận tải và phân công, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Bài toán vận tải luôn có ít nhất 1 phương án tối ưu hữu hạn nếu đã cân bằng cung–cầu và $c_{ij}$ hữu hạn.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Thuật toán Hungary (Hungarian method) là thuật toán chuyên dụng, hiệu quả hơn dùng đơn hình tổng quát để giải bài toán phân công.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Bài toán phân công không thể có nhiều hơn 1 phương án tối ưu (luôn duy nhất).",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — bài toán phân công hoàn toàn có thể có đa nghiệm (nhiều cách gán khác nhau cùng cho tổng chi phí tối ưu). (a), (b) đúng."
+  },
+  {
+    "id": 48,
+    "group": "NHÓM 5 — Lý thuyết bài toán vận tải & phân công",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về bài toán vận tải mở rộng (ô cấm, transshipment), đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "\"Ô cấm\" trong bảng vận tải (tuyến đường không được phép dùng) được xử lý bằng cách gán cước phí rất lớn $M$ cho ô đó.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Bài toán vận tải trung chuyển (transshipment) cho phép hàng đi qua các điểm trung gian trước khi tới đích cuối cùng.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Vận tải trung chuyển không thể quy đổi lại về dạng bài toán vận tải chuẩn (2 lớp nguồn–đích).",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — bài toán transshipment vẫn có thể quy đổi về dạng vận tải chuẩn bằng cách coi mỗi điểm trung gian vừa là nguồn vừa là đích với cung/cầu bổ sung phù hợp."
+  },
+  {
+    "id": 49,
+    "group": "NHÓM 5 — Lý thuyết bài toán vận tải & phân công",
+    "type": "fill",
+    "image": null,
+    "question": "Điền tên thuật toán chuyên dụng (khác với đơn hình tổng quát) thường dùng để giải bài toán phân công (assignment problem).",
+    "answer": [
+      "hungary",
+      "hungari",
+      "thuat toan hungary",
+      "hungarian",
+      "hungarian method"
+    ],
+    "answerType": "text",
+    "explanation": "Đây là \"thuật toán Hungary\" (Hungarian method) — thuật toán chuyên biệt, hiệu quả hơn khi giải bài toán phân công so với dùng đơn hình tổng quát."
+  },
+  {
+    "id": 50,
+    "group": "NHÓM 5 — Lý thuyết bài toán vận tải & phân công",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng trình tự các bước giải bài toán vận tải cân bằng bằng phương pháp thế vị (MODI):",
+    "items": [
+      {
+        "id": "m2",
+        "text": "Tính các thế vị $u_i,v_j$ dựa trên các ô cơ sở đã chọn."
+      },
+      {
+        "id": "m3",
+        "text": "Kiểm tra tiêu chuẩn tối ưu bằng cách tính $c_{ij}-u_i-v_j$ cho các ô phi cơ sở."
+      },
+      {
+        "id": "m1",
+        "text": "Lập phương án cực biên khả thi ban đầu (ví dụ bằng phương pháp góc Tây Bắc hoặc chi phí nhỏ nhất)."
+      },
+      {
+        "id": "m4",
+        "text": "Nếu chưa tối ưu, chọn ô đưa vào cơ sở và điều chỉnh theo chu trình (vòng $+\\theta/-\\theta$) để tìm phương án mới."
+      }
+    ],
+    "correctOrder": [
+      "m1",
+      "m2",
+      "m3",
+      "m4"
+    ],
+    "explanation": "Đúng trình tự MODI: lập PACB ban đầu $\\to$ tính thế vị $u,v$ $\\to$ kiểm tra tối ưu $\\to$ nếu chưa tối ưu thì điều chỉnh theo chu trình — lặp lại cho tới khi mọi $c_{ij}-u_i-v_j\\ge0$."
+  },
+  {
+    "id": 51,
+    "group": "NHÓM 6 — Lý thuyết đồ thị & bài toán đường đi ngắn nhất",
+    "type": "mcq",
+    "image": null,
+    "question": "Một đồ thị $G=(V,E)$ trong lý thuyết mạng lưới (network) gồm:",
+    "options": {
+      "A": "$V$ là tập cạnh, $E$ là tập đỉnh.",
+      "B": "$V$ và $E$ luôn phải có số phần tử bằng nhau.",
+      "C": "$V$ là tập đỉnh (nút), $E$ là tập cạnh (cung) nối các đỉnh, mỗi cạnh có thể mang trọng số $c_{ij}$.",
+      "D": "Chỉ gồm tập đỉnh $V$, không có khái niệm cạnh $E$."
+    },
+    "correct": "C",
+    "explanation": "Định nghĩa chuẩn: $V$ = tập đỉnh, $E$ = tập cạnh (cung); mỗi cạnh $(i,j)\\in E$ thường gắn trọng số $c_{ij}$ (khoảng cách/chi phí/thời gian)."
+  },
+  {
+    "id": 52,
+    "group": "NHÓM 6 — Lý thuyết đồ thị & bài toán đường đi ngắn nhất",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán đường đi ngắn nhất (shortest path) yêu cầu tìm:",
+    "options": {
+      "A": "Đường đi từ đỉnh nguồn $s$ đến đỉnh đích $t$ sao cho tổng trọng số các cạnh trên đường đi là nhỏ nhất.",
+      "B": "Một chu trình đi qua tất cả các đỉnh của đồ thị.",
+      "C": "Đường đi dài nhất có thể có giữa 2 đỉnh bất kỳ.",
+      "D": "Cây con có số cạnh ít nhất kết nối toàn bộ đồ thị."
+    },
+    "correct": "A",
+    "explanation": "Đúng định nghĩa: minimize tổng chi phí $\\sum c_{ij}$ dọc theo đường đi từ $s$ đến $t$."
+  },
+  {
+    "id": 53,
+    "group": "NHÓM 6 — Lý thuyết đồ thị & bài toán đường đi ngắn nhất",
+    "type": "mcq",
+    "image": null,
+    "question": "Thuật toán Dijkstra giải bài toán đường đi ngắn nhất chỉ đảm bảo đúng kết quả khi:",
+    "options": {
+      "A": "Số đỉnh của đồ thị phải là số chẵn.",
+      "B": "Đồ thị phải là đồ thị vô hướng, không được có hướng.",
+      "C": "Trọng số các cạnh phải là số nguyên dương lớn hơn 100.",
+      "D": "Tất cả trọng số cạnh trong đồ thị đều KHÔNG ÂM."
+    },
+    "correct": "D",
+    "explanation": "Dijkstra dùng chiến lược \"tham lam\" (greedy) chọn đỉnh có khoảng cách tạm thời nhỏ nhất — chỉ đúng khi không có trọng số âm; nếu có cạnh âm phải dùng Bellman-Ford."
+  },
+  {
+    "id": 54,
+    "group": "NHÓM 6 — Lý thuyết đồ thị & bài toán đường đi ngắn nhất",
+    "type": "mcq",
+    "image": null,
+    "question": "So với Dijkstra, thuật toán Bellman–Ford có ưu điểm gì?",
+    "options": {
+      "A": "Vẫn giải đúng bài toán đường đi ngắn nhất khi đồ thị có cạnh trọng số ÂM (miễn không có chu trình âm).",
+      "B": "Luôn chạy nhanh hơn Dijkstra trong mọi trường hợp.",
+      "C": "Không cần biết đỉnh nguồn $s$ trước khi chạy thuật toán.",
+      "D": "Chỉ áp dụng được cho đồ thị vô hướng."
+    },
+    "correct": "A",
+    "explanation": "Bellman–Ford xử lý được cạnh âm (Dijkstra thì không) nhờ cơ chế lặp \"relaxation\" nhiều vòng, nhưng đổi lại độ phức tạp cao hơn Dijkstra."
+  },
+  {
+    "id": 55,
+    "group": "NHÓM 6 — Lý thuyết đồ thị & bài toán đường đi ngắn nhất",
+    "type": "mcq",
+    "image": null,
+    "question": "Thuật toán Floyd–Warshall dùng để giải bài toán đường đi ngắn nhất theo kiểu:",
+    "options": {
+      "A": "Tìm đường đi ngắn nhất giữa TẤT CẢ các cặp đỉnh (all-pairs shortest path) trong đồ thị.",
+      "B": "Chỉ áp dụng được cho đồ thị có đúng 2 đỉnh.",
+      "C": "Tìm cây khung nhỏ nhất của đồ thị, không liên quan đường đi ngắn nhất.",
+      "D": "Chỉ tìm đường đi ngắn nhất từ 1 đỉnh nguồn duy nhất tới các đỉnh còn lại."
+    },
+    "correct": "A",
+    "explanation": "Floyd–Warshall (dùng quy hoạch động) giải bài toán all-pairs shortest path — khác Dijkstra/Bellman-Ford vốn chỉ giải single-source."
+  },
+  {
+    "id": 56,
+    "group": "NHÓM 6 — Lý thuyết đồ thị & bài toán đường đi ngắn nhất",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong ví dụ minh hoạ mạng lưới đường bay HN–DN–NT–HCM, đường bay tối ưu (chi phí nhỏ nhất) HN$\\to$HCM chính là kết quả của việc áp dụng:",
+    "options": {
+      "A": "Bài toán đường đi ngắn nhất trên đồ thị có hướng có trọng số.",
+      "B": "Bài toán luồng cực đại (max-flow) giữa 2 đỉnh.",
+      "C": "Bài toán cây khung nhỏ nhất (MST) trên đồ thị vô hướng.",
+      "D": "Bài toán người du lịch (TSP) qua toàn bộ các sân bay."
+    },
+    "correct": "A",
+    "explanation": "Ví dụ đường bay là ứng dụng trực tiếp của shortest-path: mỗi sân bay là đỉnh, đường bay là cạnh có trọng số (chi phí/thời gian), tìm đường có tổng trọng số nhỏ nhất từ nguồn tới đích."
+  },
+  {
+    "id": 57,
+    "group": "NHÓM 6 — Lý thuyết đồ thị & bài toán đường đi ngắn nhất",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về lý thuyết đồ thị và đường đi ngắn nhất, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Một đồ thị có hướng (directed graph) thì cạnh $(i,j)$ và $(j,i)$ được coi là hai cạnh khác nhau (có thể có trọng số khác nhau).",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Thuật toán Dijkstra có thể áp dụng trực tiếp và cho kết quả đúng ngay cả khi đồ thị có cạnh trọng số âm.",
+        "correct": false
+      },
+      {
+        "label": "c",
+        "text": "Bài toán đường đi ngắn nhất luôn có nghiệm nếu tồn tại ít nhất 1 đường đi từ $s$ đến $t$ và đồ thị không có chu trình âm nào có thể tới được từ đường đi đó.",
+        "correct": true
+      }
+    ],
+    "explanation": "Ý (b) sai — Dijkstra chỉ đúng khi mọi trọng số $\\ge0$; có cạnh âm phải dùng Bellman–Ford. (a), (c) đúng theo lý thuyết đồ thị chuẩn."
+  },
+  {
+    "id": 58,
+    "group": "NHÓM 6 — Lý thuyết đồ thị & bài toán đường đi ngắn nhất",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về ứng dụng và đặc điểm các thuật toán đường đi ngắn nhất, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Floyd–Warshall thường được ưu tiên hơn khi cần biết khoảng cách ngắn nhất giữa MỌI cặp đỉnh, thay vì chỉ chạy Dijkstra $n$ lần từ mỗi đỉnh.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Nếu đồ thị có chu trình trọng số âm mà đường đi từ $s$ đến $t$ có thể đi qua chu trình đó, bài toán đường đi ngắn nhất KHÔNG xác định (độ dài có thể giảm vô hạn).",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Đường đi ngắn nhất giữa 2 đỉnh trong đồ thị có hướng luôn duy nhất, không thể có 2 đường cùng độ dài nhỏ nhất.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — hoàn toàn có thể có nhiều đường đi khác nhau cùng đạt độ dài ngắn nhất (đồng tối ưu), tương tự hiện tượng đa nghiệm trong QHTT. (a), (b) đúng."
+  },
+  {
+    "id": 59,
+    "group": "NHÓM 6 — Lý thuyết đồ thị & bài toán đường đi ngắn nhất",
+    "type": "fill",
+    "image": null,
+    "question": "Điền tên thuật toán giải bài toán đường đi ngắn nhất mà VẪN cho kết quả đúng dù đồ thị có cạnh trọng số âm (miễn không có chu trình âm).",
+    "answer": [
+      "bellman ford",
+      "bellman-ford",
+      "bellman",
+      "thuat toan bellman ford"
+    ],
+    "answerType": "text",
+    "explanation": "Đây là thuật toán \"Bellman–Ford\" — khác Dijkstra (greedy, không xử lý được cạnh âm), Bellman–Ford dùng cơ chế lặp relaxation nên xử lý được cạnh âm."
+  },
+  {
+    "id": 60,
+    "group": "NHÓM 6 — Lý thuyết đồ thị & bài toán đường đi ngắn nhất",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng trình tự (ý tưởng tổng quát) của thuật toán Dijkstra tìm đường đi ngắn nhất từ đỉnh nguồn $s$:",
+    "items": [
+      {
+        "id": "m4",
+        "text": "Đánh dấu $u$ đã xử lý xong; lặp lại cho tới khi mọi đỉnh đã được xử lý hoặc đã tới đỉnh đích $t$."
+      },
+      {
+        "id": "m3",
+        "text": "Cập nhật (relax) khoảng cách tới các đỉnh kề $v$ của $u$: nếu $d(u)+c_{uv}<d(v)$ thì cập nhật $d(v)=d(u)+c_{uv}$."
+      },
+      {
+        "id": "m1",
+        "text": "Khởi tạo khoảng cách $d(s)=0$, $d(v)=\\infty$ với mọi $v\\ne s$; đánh dấu $s$ đã xử lý."
+      },
+      {
+        "id": "m2",
+        "text": "Trong các đỉnh chưa xử lý, chọn đỉnh $u$ có $d(u)$ nhỏ nhất."
+      }
+    ],
+    "correctOrder": [
+      "m1",
+      "m2",
+      "m3",
+      "m4"
+    ],
+    "explanation": "Đúng trình tự Dijkstra: khởi tạo $\\to$ chọn đỉnh gần nhất chưa xử lý $\\to$ relax các đỉnh kề $\\to$ đánh dấu hoàn tất $\\to$ lặp lại — đây là chiến lược tham lam (greedy) kinh điển."
+  },
+  {
+    "id": 61,
+    "group": "NHÓM 7 — Cây khung nhỏ nhất & Luồng cực đại",
+    "type": "mcq",
+    "image": null,
+    "question": "Cây khung nhỏ nhất (Minimum Spanning Tree - MST) của một đồ thị vô hướng liên thông $G$ là:",
+    "options": {
+      "A": "Chu trình đi qua tất cả các đỉnh đúng 1 lần rồi quay lại điểm xuất phát.",
+      "B": "Tập hợp mọi cạnh của $G$, kể cả các cạnh tạo chu trình.",
+      "C": "Cây con (không chu trình) chứa TẤT CẢ các đỉnh của $G$ với tổng trọng số các cạnh nhỏ nhất.",
+      "D": "Đường đi ngắn nhất giữa 2 đỉnh xa nhau trong đồ thị."
+    },
+    "correct": "C",
+    "explanation": "MST: cây (n-1 cạnh, không chu trình, liên thông) bao trùm mọi đỉnh, tổng trọng số nhỏ nhất trong số mọi cây khung có thể của $G$."
+  },
+  {
+    "id": 62,
+    "group": "NHÓM 7 — Cây khung nhỏ nhất & Luồng cực đại",
+    "type": "mcq",
+    "image": null,
+    "question": "Một cây khung của đồ thị $n$ đỉnh luôn có đúng bao nhiêu cạnh (nếu tồn tại)?",
+    "options": {
+      "A": "$n+1$ cạnh.",
+      "B": "$\\binom{n}{2}$ cạnh (toàn bộ cạnh có thể có).",
+      "C": "$n-1$ cạnh.",
+      "D": "$n$ cạnh."
+    },
+    "correct": "C",
+    "explanation": "Cây (tree) có $n$ đỉnh thì luôn có đúng $n-1$ cạnh, không có chu trình, và liên thông — đây là tính chất định nghĩa của cây."
+  },
+  {
+    "id": 63,
+    "group": "NHÓM 7 — Cây khung nhỏ nhất & Luồng cực đại",
+    "type": "mcq",
+    "image": null,
+    "question": "Thuật toán tìm MST được mô tả theo kiểu \"mở rộng dần từ 1 nút gốc, mỗi bước chọn cạnh ngắn nhất nối vào tập đã có\" chính là tư tưởng của thuật toán nào?",
+    "options": {
+      "A": "Thuật toán Prim.",
+      "B": "Thuật toán Ford–Fulkerson.",
+      "C": "Thuật toán Hungary.",
+      "D": "Thuật toán Dijkstra."
+    },
+    "correct": "A",
+    "explanation": "Mô tả \"mở rộng dần từ 1 đỉnh, luôn chọn cạnh rẻ nhất nối thêm 1 đỉnh mới vào cây\" chính là thuật toán Prim (khác Kruskal — Kruskal xét cạnh theo thứ tự trọng số tăng dần, không cần bắt đầu từ 1 đỉnh cố định)."
+  },
+  {
+    "id": 64,
+    "group": "NHÓM 7 — Cây khung nhỏ nhất & Luồng cực đại",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán luồng cực đại (Maximum Flow Problem) yêu cầu tìm:",
+    "options": {
+      "A": "Cây khung nhỏ nhất kết nối $s$ và $t$.",
+      "B": "Đường đi ngắn nhất từ $s$ đến $t$ theo trọng số cạnh.",
+      "C": "Chu trình có tổng trọng số nhỏ nhất đi qua $s$ và $t$.",
+      "D": "Giá trị luồng lớn nhất có thể truyền từ đỉnh nguồn $s$ đến đỉnh đích $t$, thỏa mãn ràng buộc dung lượng trên mỗi cạnh."
+    },
+    "correct": "D",
+    "explanation": "Max-flow: maximize $\\sum_{j:(s,j)\\in E}x_{sj}$ (luồng phát ra từ nguồn), thỏa ràng buộc bảo toàn luồng tại đỉnh trung gian và $0\\le x_{ij}\\le c_{ij}$."
+  },
+  {
+    "id": 65,
+    "group": "NHÓM 7 — Cây khung nhỏ nhất & Luồng cực đại",
+    "type": "mcq",
+    "image": null,
+    "question": "Định lý Max-Flow Min-Cut phát biểu rằng:",
+    "options": {
+      "A": "Giá trị luồng cực đại từ $s$ đến $t$ luôn bằng giá trị lát cắt cực tiểu (min-cut) tách $s$ khỏi $t$.",
+      "B": "Giá trị luồng cực đại luôn lớn hơn giá trị lát cắt cực tiểu.",
+      "C": "Lát cắt cực tiểu luôn bằng tổng dung lượng của TẤT CẢ các cạnh trong mạng.",
+      "D": "Luồng cực đại không có mối liên hệ gì với khái niệm lát cắt."
+    },
+    "correct": "A",
+    "explanation": "Đây là định lý nền tảng của lý thuyết luồng mạng: max-flow $=$ min-cut — một trong những kết quả đẹp và quan trọng nhất của tối ưu tổ hợp trên đồ thị."
+  },
+  {
+    "id": 66,
+    "group": "NHÓM 7 — Cây khung nhỏ nhất & Luồng cực đại",
+    "type": "mcq",
+    "image": null,
+    "question": "Đâu KHÔNG phải là một thuật toán/kỹ thuật giải bài toán luồng cực đại đã được liệt kê trong bài giảng?",
+    "options": {
+      "A": "Kỹ thuật Push–Relabel.",
+      "B": "Thuật toán Kruskal.",
+      "C": "Thuật toán Edmonds–Karp.",
+      "D": "Thuật toán Ford–Fulkerson."
+    },
+    "correct": "B",
+    "explanation": "Kruskal là thuật toán tìm CÂY KHUNG NHỎ NHẤT, không phải thuật toán luồng cực đại. Các thuật toán luồng cực đại chuẩn: Ford–Fulkerson, Edmonds–Karp, Dinic, Push–Relabel."
+  },
+  {
+    "id": 67,
+    "group": "NHÓM 7 — Cây khung nhỏ nhất & Luồng cực đại",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về lý thuyết MST và luồng cực đại, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Nếu đồ thị có $n$ đỉnh và các trọng số cạnh đều khác nhau đôi một thì cây khung nhỏ nhất là DUY NHẤT.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Ràng buộc dung lượng cạnh trong bài toán luồng cực đại có dạng $0\\le x_{ij}\\le c_{ij}$.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Bài toán luồng cực đại chỉ có duy nhất 1 lát cắt (cut) tách $s$ khỏi $t$ trong mọi đồ thị.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — một đồ thị có thể có nhiều lát cắt khác nhau tách $s$ khỏi $t$; định lý max-flow min-cut chỉ nói lát cắt NHỎ NHẤT trong số đó bằng đúng giá trị luồng cực đại. (a), (b) đúng."
+  },
+  {
+    "id": 68,
+    "group": "NHÓM 7 — Cây khung nhỏ nhất & Luồng cực đại",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về đặc điểm chung của MST và bài toán luồng cực đại, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Cả bài toán MST và bài toán luồng cực đại đều được giải trong thời gian đa thức (không thuộc lớp NP-khó).",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Việc thêm 1 cạnh (dung lượng dương) vào mạng KHÔNG BAO GIỜ làm giảm giá trị luồng cực đại từ $s$ đến $t$.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Cây khung nhỏ nhất luôn chứa cạnh có trọng số nhỏ nhất TOÀN ĐỒ THỊ và không chứa cạnh có trọng số lớn nhất toàn đồ thị.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — không có quy tắc bắt buộc như vậy; MST hoàn toàn có thể phải chứa 1 cạnh trọng số lớn để duy trì tính liên thông (ví dụ cầu nối duy nhất giữa 2 cụm đỉnh), dù cạnh đó không nhỏ nhất/lớn nhất toàn đồ thị. (a), (b) đúng."
+  },
+  {
+    "id": 69,
+    "group": "NHÓM 7 — Cây khung nhỏ nhất & Luồng cực đại",
+    "type": "fill",
+    "image": null,
+    "question": "Điền tên định lý cho biết: giá trị luồng cực đại từ nguồn $s$ đến đích $t$ luôn bằng giá trị lát cắt cực tiểu tách $s$ khỏi $t$.",
+    "answer": [
+      "max flow min cut",
+      "max-flow min-cut",
+      "dinh ly max flow min cut",
+      "định lý max-flow min-cut"
+    ],
+    "answerType": "text",
+    "explanation": "Đây là \"Định lý Max-Flow Min-Cut\" — kết quả nền tảng liên kết bài toán tối ưu luồng với bài toán lát cắt nhỏ nhất trên đồ thị."
+  },
+  {
+    "id": 70,
+    "group": "NHÓM 7 — Cây khung nhỏ nhất & Luồng cực đại",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng trình tự (ý tưởng tổng quát) của thuật toán Ford–Fulkerson tìm luồng cực đại:",
+    "items": [
+      {
+        "id": "m1",
+        "text": "Khởi tạo luồng $x_{ij}=0$ trên mọi cạnh."
+      },
+      {
+        "id": "m2",
+        "text": "Tìm một đường tăng luồng (augmenting path) từ $s$ đến $t$ trong đồ thị thặng dư (residual graph)."
+      },
+      {
+        "id": "m3",
+        "text": "Nếu tìm được, tăng luồng dọc theo đường đó thêm 1 lượng bằng dung lượng thặng dư nhỏ nhất trên đường."
+      },
+      {
+        "id": "m4",
+        "text": "Lặp lại tìm đường tăng luồng cho tới khi KHÔNG còn đường tăng luồng nào từ $s$ đến $t$ — luồng hiện tại là luồng cực đại."
+      }
+    ],
+    "correctOrder": [
+      "m1",
+      "m2",
+      "m3",
+      "m4"
+    ],
+    "explanation": "Đúng trình tự Ford–Fulkerson: khởi tạo $\\to$ tìm đường tăng luồng trên đồ thị thặng dư $\\to$ tăng luồng $\\to$ lặp lại tới khi hết đường tăng luồng — khi đó (theo định lý max-flow min-cut) đã đạt luồng cực đại."
+  },
+  {
+    "id": 71,
+    "group": "NHÓM 8 — TSP & Bài toán ba lô (Knapsack), QH nguyên",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán người du lịch (TSP) yêu cầu tìm:",
+    "options": {
+      "A": "Một chu trình đi qua TẤT CẢ các thành phố đúng 1 lần, rồi quay lại điểm xuất phát, với tổng quãng đường nhỏ nhất.",
+      "B": "Cây khung nhỏ nhất kết nối tất cả các thành phố (không cần chu trình khép kín).",
+      "C": "Đường đi ngắn nhất giữa 2 thành phố bất kỳ, không cần quay lại điểm xuất phát.",
+      "D": "Chu trình đi qua một SỐ thành phố tuỳ chọn, bỏ qua các thành phố còn lại."
+    },
+    "correct": "A",
+    "explanation": "TSP: chu trình Hamilton (qua mỗi đỉnh đúng 1 lần, khép kín) có tổng trọng số nhỏ nhất — khác MST (không cần khép kín) và shortest-path (không cần qua hết mọi đỉnh)."
+  },
+  {
+    "id": 72,
+    "group": "NHÓM 8 — TSP & Bài toán ba lô (Knapsack), QH nguyên",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong mô hình TSP với biến $x_{ij}\\in\\{0,1\\}$, hai ràng buộc $\\sum_jx_{ij}=1$ và $\\sum_ix_{ij}=1$ đảm bảo điều gì?",
+    "options": {
+      "A": "Không thành phố nào được phép có cạnh nối tới nó.",
+      "B": "Tổng chi phí toàn chu trình phải bằng 0.",
+      "C": "Mỗi thành phố phải được thăm ít nhất 2 lần.",
+      "D": "Mỗi thành phố có đúng 1 cạnh đi ra và đúng 1 cạnh đi vào (bậc vào = bậc ra = 1)."
+    },
+    "correct": "D",
+    "explanation": "2 ràng buộc bậc vào/bậc ra $=1$ đảm bảo mỗi đỉnh chỉ xuất hiện đúng 1 lần trên đường đi — nhưng CHƯA đủ để loại trừ các \"chu trình con\" (subtour), cần thêm ràng buộc MTZ."
+  },
+  {
+    "id": 73,
+    "group": "NHÓM 8 — TSP & Bài toán ba lô (Knapsack), QH nguyên",
+    "type": "mcq",
+    "image": null,
+    "question": "Vì sao chỉ riêng ràng buộc bậc vào/bậc ra $=1$ CHƯA đủ để mô hình hoá đúng bài toán TSP?",
+    "options": {
+      "A": "Vì ràng buộc đó khiến bài toán trở thành QHTT liên tục, không còn là bài toán nhị phân.",
+      "B": "Vì ràng buộc đó làm biến $x_{ij}$ vượt quá giới hạn $[0,1]$.",
+      "C": "Vì ràng buộc đó không tương thích với đồ thị có hướng.",
+      "D": "Vì nghiệm có thể là tập hợp nhiều \"chu trình con\" (subtour) rời rạc thay vì 1 chu trình duy nhất đi qua mọi đỉnh."
+    },
+    "correct": "D",
+    "explanation": "Ví dụ: với 6 đỉnh, nghiệm có thể là 2 chu trình con tách biệt (3+3 đỉnh) mà vẫn thỏa mãn bậc vào/ra $=1$ tại mọi đỉnh — cần ràng buộc loại chu trình con (MTZ) để ngăn hiện tượng này."
+  },
+  {
+    "id": 74,
+    "group": "NHÓM 8 — TSP & Bài toán ba lô (Knapsack), QH nguyên",
+    "type": "mcq",
+    "image": null,
+    "question": "Ràng buộc Miller–Tucker–Zemlin (MTZ) trong mô hình TSP có mục đích:",
+    "options": {
+      "A": "Đảm bảo chi phí $c_{ij}$ luôn đối xứng ($c_{ij}=c_{ji}$).",
+      "B": "Loại bỏ các chu trình con (subtour elimination), đảm bảo lời giải là đúng 1 chu trình Hamilton duy nhất.",
+      "C": "Chuyển bài toán TSP thành bài toán vận tải tương đương.",
+      "D": "Giảm số biến quyết định của mô hình xuống còn một nửa."
+    },
+    "correct": "B",
+    "explanation": "MTZ dùng biến phụ $u_i$ (thứ tự thăm đỉnh) với ràng buộc $u_i-u_j+nx_{ij}\\le n-1$ để ngăn hình thành các chu trình con nhỏ không đi qua hết mọi đỉnh."
+  },
+  {
+    "id": 75,
+    "group": "NHÓM 8 — TSP & Bài toán ba lô (Knapsack), QH nguyên",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán TSP được xếp vào lớp bài toán có độ phức tạp tính toán như thế nào?",
+    "options": {
+      "A": "Luôn giải được tức thời bằng công thức đóng (closed-form) đơn giản.",
+      "B": "Chỉ có thể giải bằng phương pháp đồ thị, không thể mô hình hoá bằng QHTT nhị phân.",
+      "C": "P (giải được trong thời gian đa thức) với mọi kích thước bài toán.",
+      "D": "NP-khó (NP-hard) — chưa có thuật toán nào giải đúng (exact) trong thời gian đa thức cho trường hợp tổng quát."
+    },
+    "correct": "D",
+    "explanation": "TSP là bài toán tối ưu tổ hợp kinh điển thuộc lớp NP-khó — số chu trình khả thi tăng theo giai thừa $(n-1)!/2$, nên với $n$ lớn cần dùng heuristic/metaheuristic thay vì duyệt đúng (exact)."
+  },
+  {
+    "id": 76,
+    "group": "NHÓM 8 — TSP & Bài toán ba lô (Knapsack), QH nguyên",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong mô hình bài toán ba lô (Knapsack), biến $x_i\\in\\{0,1\\}$ và ràng buộc $\\sum w_ix_i\\le W$ biểu diễn:",
+    "options": {
+      "A": "Chọn số lượng bất kỳ (không giới hạn) của mỗi vật phẩm.",
+      "B": "Ràng buộc về giá trị tối thiểu phải đạt được của ba lô.",
+      "C": "Số lượng ba lô tối đa được phép sử dụng.",
+      "D": "Chọn (hoặc không chọn) từng vật phẩm $i$ sao cho tổng khối lượng các vật đã chọn không vượt quá sức chứa $W$ của ba lô."
+    },
+    "correct": "D",
+    "explanation": "Ba lô 0-1: mỗi vật phẩm hoặc được chọn trọn vẹn ($x_i=1$) hoặc không chọn ($x_i=0$); ràng buộc duy nhất là tổng khối lượng $w_i$ các vật đã chọn không vượt sức chứa $W$; mục tiêu maximize tổng giá trị $\\sum p_ix_i$."
+  },
+  {
+    "id": 77,
+    "group": "NHÓM 8 — TSP & Bài toán ba lô (Knapsack), QH nguyên",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về TSP và bài toán ba lô, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Cả bài toán TSP và bài toán ba lô đều có thể phát biểu dưới dạng quy hoạch tuyến tính NHỊ PHÂN (biến $x\\in\\{0,1\\}$).",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Bài toán ba lô (0-1 knapsack) có thể giải chính xác bằng quy hoạch động (dynamic programming) với độ phức tạp giả đa thức.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "TSP với $n$ thành phố có đúng $n$ chu trình Hamilton khả thi khác nhau cần xét.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — số chu trình Hamilton khả thi của TSP là $(n-1)!/2$ (với đồ thị đối xứng), tăng rất nhanh theo giai thừa, KHÔNG phải chỉ $n$ chu trình. (a), (b) đúng."
+  },
+  {
+    "id": 78,
+    "group": "NHÓM 8 — TSP & Bài toán ba lô (Knapsack), QH nguyên",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về mô hình hoá và độ phức tạp của TSP/ba lô, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Ràng buộc MTZ chỉ cần thiết khi mô hình hoá TSP bằng biến nhị phân $x_{ij}$ trên đồ thị, không cần thiết nếu giải bằng quy hoạch động.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Bài toán ba lô 0-1 với $n$ vật phẩm luôn có $2^n$ phương án khả thi cần xét nếu duyệt toàn bộ (brute-force), trước khi áp ràng buộc sức chứa.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "TSP đối xứng ($c_{ij}=c_{ji}$) và TSP bất đối xứng ($c_{ij}\\ne c_{ji}$) luôn có cùng số chu trình Hamilton khả thi cần xét.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — TSP đối xứng có $(n-1)!/2$ chu trình khả thi (do mỗi chu trình đếm 2 lần theo 2 chiều), còn TSP bất đối xứng có $(n-1)!$ chu trình (chiều đi và chiều ngược không tương đương). (a), (b) đúng."
+  },
+  {
+    "id": 79,
+    "group": "NHÓM 8 — TSP & Bài toán ba lô (Knapsack), QH nguyên",
+    "type": "fill",
+    "image": null,
+    "question": "Điền cụm từ mô tả lớp độ phức tạp tính toán mà bài toán TSP (dạng tổng quát) thuộc về — chưa có thuật toán đúng chạy trong thời gian đa thức được biết đến.",
+    "answer": [
+      "np kho",
+      "np-kho",
+      "np hard",
+      "np-hard"
+    ],
+    "answerType": "text",
+    "explanation": "TSP thuộc lớp NP-khó (NP-hard) — đặc điểm chung của nhiều bài toán tối ưu tổ hợp kinh điển (cùng nhóm với bài toán ba lô dạng tổng quát, bài toán tô màu đồ thị, v.v.)."
+  },
+  {
+    "id": 80,
+    "group": "NHÓM 8 — TSP & Bài toán ba lô (Knapsack), QH nguyên",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng trình tự tư duy khi mô hình hoá bài toán ba lô (0-1 knapsack) từ đề bài thực tế:",
+    "items": [
+      {
+        "id": "m3",
+        "text": "Viết hàm mục tiêu $\\max\\sum_{i=1}^n p_ix_i$ (tổng giá trị các vật đã chọn)."
+      },
+      {
+        "id": "m4",
+        "text": "Viết ràng buộc sức chứa $\\sum_{i=1}^n w_ix_i\\le W$."
+      },
+      {
+        "id": "m2",
+        "text": "Đặt biến quyết định nhị phân $x_i\\in\\{0,1\\}$ cho từng vật phẩm (chọn hay không chọn)."
+      },
+      {
+        "id": "m1",
+        "text": "Xác định danh sách $n$ vật phẩm, mỗi vật có giá trị $p_i$ và khối lượng $w_i$ đã biết."
+      }
+    ],
+    "correctOrder": [
+      "m1",
+      "m2",
+      "m3",
+      "m4"
+    ],
+    "explanation": "Đúng trình tự: liệt kê dữ liệu vật phẩm $\\to$ đặt biến nhị phân $\\to$ hàm mục tiêu (maximize giá trị) $\\to$ ràng buộc sức chứa — đây là quy trình mô hình hoá chuẩn cho bài toán ba lô 0-1."
+  },
+  {
+    "id": 81,
+    "group": "NHÓM 9 — CPM/PERT & lý thuyết trò chơi",
+    "type": "mcq",
+    "image": null,
+    "question": "Phương pháp đường găng CPM (Critical Path Method) dùng để:",
+    "options": {
+      "A": "Phân bổ nhân sự tối ưu cho từng công việc riêng lẻ, không xét thời gian.",
+      "B": "Tìm chu trình chi phí nhỏ nhất qua tất cả các công việc của dự án.",
+      "C": "Tính lợi nhuận tối đa của dự án theo giá bán sản phẩm.",
+      "D": "Lập lịch dự án gồm nhiều công việc có quan hệ trước–sau, xác định thời gian hoàn thành dự án ngắn nhất và các công việc \"găng\" (không được trễ)."
+    },
+    "correct": "D",
+    "explanation": "CPM mô hình dự án như 1 đồ thị có hướng (công việc là cạnh hoặc đỉnh), tìm đường đi có tổng thời gian dài nhất (đường găng) — đây chính là thời gian hoàn thành dự án tối thiểu có thể."
+  },
+  {
+    "id": 82,
+    "group": "NHÓM 9 — CPM/PERT & lý thuyết trò chơi",
+    "type": "mcq",
+    "image": null,
+    "question": "\"Đường găng\" (critical path) trong CPM là:",
+    "options": {
+      "A": "Đường đi từ điểm bắt đầu đến điểm kết thúc dự án có tổng thời gian DÀI NHẤT trong toàn mạng công việc.",
+      "B": "Tập hợp mọi công việc không có quan hệ trước–sau với công việc nào khác.",
+      "C": "Công việc duy nhất tốn nhiều nhân lực nhất trong dự án.",
+      "D": "Đường đi có tổng thời gian NGẮN NHẤT trong toàn mạng công việc."
+    },
+    "correct": "A",
+    "explanation": "Đường găng = đường dài nhất (longest path) qua mạng công việc — mọi công việc trên đường găng nếu bị trễ sẽ làm trễ toàn bộ dự án (không có \"thời gian dự trữ\")."
+  },
+  {
+    "id": 83,
+    "group": "NHÓM 9 — CPM/PERT & lý thuyết trò chơi",
+    "type": "mcq",
+    "image": null,
+    "question": "Một công việc có \"thời gian dự trữ\" (slack/float) bằng 0 nghĩa là:",
+    "options": {
+      "A": "Công việc đó nằm trên đường găng — không được phép trễ dù chỉ 1 đơn vị thời gian.",
+      "B": "Công việc đó có thể trễ bao lâu tuỳ ý mà không ảnh hưởng dự án.",
+      "C": "Công việc đó đã hoàn thành từ trước khi dự án bắt đầu.",
+      "D": "Công việc đó không cần thực hiện, có thể bỏ qua khỏi dự án."
+    },
+    "correct": "A",
+    "explanation": "Slack $=0$ $\\Leftrightarrow$ công việc thuộc đường găng; slack $>0$ nghĩa là công việc có thể trễ tối đa bằng giá trị slack đó mà không ảnh hưởng ngày hoàn thành dự án."
+  },
+  {
+    "id": 84,
+    "group": "NHÓM 9 — CPM/PERT & lý thuyết trò chơi",
+    "type": "mcq",
+    "image": null,
+    "question": "Lý thuyết trò chơi (Game Theory) nghiên cứu về:",
+    "options": {
+      "A": "Chỉ nghiên cứu quyết định của 1 cá nhân duy nhất, không có tương tác với ai khác.",
+      "B": "Chỉ áp dụng được cho các trò chơi giải trí, không có ứng dụng thực tế.",
+      "C": "Tình huống ra quyết định có nhiều người chơi (người tham gia), lợi ích của mỗi người phụ thuộc vào chiến lược của TẤT CẢ người chơi.",
+      "D": "Chỉ nghiên cứu các bài toán tối ưu tuyến tính có 1 hàm mục tiêu duy nhất."
+    },
+    "correct": "C",
+    "explanation": "Điểm khác biệt cốt lõi của game theory so với tối ưu hoá thông thường: kết quả phụ thuộc vào chiến lược của NHIỀU người chơi tương tác lẫn nhau, không chỉ 1 người ra quyết định đơn lẻ."
+  },
+  {
+    "id": 85,
+    "group": "NHÓM 9 — CPM/PERT & lý thuyết trò chơi",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong trò chơi 2 người tổng-bằng-0 (zero-sum), điều gì luôn đúng?",
+    "options": {
+      "A": "Tổng lợi ích (payoff) của 2 người chơi luôn bằng 0 — người này thắng bao nhiêu thì người kia thua đúng bấy nhiêu.",
+      "B": "Lợi ích của mỗi người chơi luôn bằng 0 tại mọi thời điểm.",
+      "C": "Cả 2 người chơi luôn cùng thắng hoặc cùng thua.",
+      "D": "Trò chơi không thể có điểm cân bằng (equilibrium)."
+    },
+    "correct": "A",
+    "explanation": "Zero-sum: $payoff_1+payoff_2=0$ tại mọi kết cục của trò chơi — lợi ích hoàn toàn đối lập giữa 2 người chơi."
+  },
+  {
+    "id": 86,
+    "group": "NHÓM 9 — CPM/PERT & lý thuyết trò chơi",
+    "type": "mcq",
+    "image": null,
+    "question": "\"Điểm yên ngựa\" (saddle point) trong trò chơi ma trận 2 người tổng-bằng-0 xảy ra khi:",
+    "options": {
+      "A": "Cả 2 người chơi đều nhận payoff bằng 0.",
+      "B": "Giá trị $\\max_i\\min_j a_{ij}$ (maximin) bằng $\\min_j\\max_i a_{ij}$ (minimax) — trò chơi có lời giải bằng chiến lược thuần túy.",
+      "C": "Ma trận trả thưởng có tất cả các phần tử bằng nhau.",
+      "D": "Ma trận trả thưởng không có giá trị lớn nhất hay nhỏ nhất."
+    },
+    "correct": "B",
+    "explanation": "Điểm yên ngựa tồn tại $\\Leftrightarrow$ maximin $=$ minimax $=$ giá trị trò chơi $v$ — khi đó cả 2 người chơi đều có chiến lược THUẦN TÚY tối ưu, không cần trộn xác suất (mixed strategy)."
+  },
+  {
+    "id": 87,
+    "group": "NHÓM 9 — CPM/PERT & lý thuyết trò chơi",
+    "type": "mcq",
+    "image": null,
+    "question": "Khi trò chơi ma trận KHÔNG có điểm yên ngựa (maximin $\\ne$ minimax), người chơi cần dùng:",
+    "options": {
+      "A": "Từ chối tham gia trò chơi vì trò chơi này không có lời giải.",
+      "B": "Chỉ có thể giải bằng phương pháp đồ thị, không thể dùng QHTT.",
+      "C": "Chiến lược hỗn hợp (mixed strategy) — chọn ngẫu nhiên giữa các chiến lược thuần túy theo 1 phân phối xác suất tối ưu.",
+      "D": "Luôn chọn cố định đúng 1 chiến lược thuần túy duy nhất, không thay đổi."
+    },
+    "correct": "C",
+    "explanation": "Định lý minimax (Von Neumann): mọi trò chơi ma trận hữu hạn 2 người tổng-bằng-0 luôn có lời giải bằng chiến lược hỗn hợp — có thể tìm bằng QHTT (mỗi người chơi giải 1 bài toán LP tương ứng, 2 bài toán này là cặp đối ngẫu của nhau)."
+  },
+  {
+    "id": 88,
+    "group": "NHÓM 9 — CPM/PERT & lý thuyết trò chơi",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về CPM/PERT và lý thuyết trò chơi, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Dự án có thể có nhiều hơn 1 đường găng (cùng đạt độ dài lớn nhất) đồng thời.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "Trong trò chơi ma trận 2 người tổng-bằng-0, giá trị trò chơi (game value) $v$ luôn thỏa $\\text{maximin}\\le v\\le\\text{minimax}$.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Chiến lược hỗn hợp chỉ cần thiết khi CẢ HAI người chơi đều muốn hợp tác với nhau (cooperative game).",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — chiến lược hỗn hợp cần thiết trong trò chơi KHÔNG hợp tác (non-cooperative), zero-sum, khi không có điểm yên ngựa — không liên quan đến việc 2 người chơi có hợp tác hay không. (a), (b) đúng."
+  },
+  {
+    "id": 89,
+    "group": "NHÓM 9 — CPM/PERT & lý thuyết trò chơi",
+    "type": "fill",
+    "image": null,
+    "question": "Điền tên phương pháp giải trò chơi ma trận 2 người tổng-bằng-0 tổng quát (khi số chiến lược mỗi bên $>2$) bằng cách chuyển thành 2 bài toán tối ưu đối ngẫu nhau.",
+    "answer": [
+      "quy hoach tuyen tinh",
+      "quy hoạch tuyến tính",
+      "linear programming",
+      "qhtt"
+    ],
+    "answerType": "text",
+    "explanation": "Trò chơi ma trận tổng quát được giải bằng QHTT: mỗi người chơi tương ứng với 1 bài toán LP, và 2 bài toán LP này chính là 1 cặp bài toán đối ngẫu (gốc–đối ngẫu) của nhau."
+  },
+  {
+    "id": 90,
+    "group": "NHÓM 9 — CPM/PERT & lý thuyết trò chơi",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp đúng trình tự các bước tính toán CPM cơ bản cho 1 dự án (theo phương pháp đường găng):",
+    "items": [
+      {
+        "id": "m4",
+        "text": "Tính thời gian dự trữ (slack $=LS-ES$) của mỗi công việc; xác định đường găng là các công việc có slack $=0$."
+      },
+      {
+        "id": "m1",
+        "text": "Vẽ mạng công việc (network) thể hiện quan hệ trước–sau giữa các công việc."
+      },
+      {
+        "id": "m2",
+        "text": "Tính thời điểm bắt đầu sớm nhất (ES) và kết thúc sớm nhất (EF) cho từng công việc, đi xuôi từ đầu tới cuối dự án."
+      },
+      {
+        "id": "m3",
+        "text": "Tính thời điểm bắt đầu muộn nhất (LS) và kết thúc muộn nhất (LF), đi ngược từ cuối về đầu dự án."
+      }
+    ],
+    "correctOrder": [
+      "m1",
+      "m2",
+      "m3",
+      "m4"
+    ],
+    "explanation": "Đúng trình tự CPM: vẽ mạng $\\to$ tính xuôi (ES/EF) $\\to$ tính ngược (LS/LF) $\\to$ tính slack và xác định đường găng — đây là quy trình chuẩn của phương pháp đường găng."
+  },
+  {
+    "id": 91,
+    "group": "NHÓM 10 — Tổng hợp: so sánh các mô hình, ứng dụng thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "So sánh QHTT và Quy hoạch nguyên (Integer Programming): khác biệt cốt lõi là gì?",
+    "options": {
+      "A": "QHTT luôn khó giải hơn QH nguyên trong mọi trường hợp.",
+      "B": "QH nguyên không có hàm mục tiêu, chỉ có ràng buộc.",
+      "C": "QH nguyên chỉ áp dụng được cho bài toán có đúng 1 biến duy nhất.",
+      "D": "QH nguyên yêu cầu thêm ràng buộc biến quyết định phải nhận giá trị nguyên (hoặc nhị phân), trong khi QHTT cho phép biến liên tục."
+    },
+    "correct": "D",
+    "explanation": "QH nguyên = QHTT + ràng buộc bổ sung biến nguyên/nhị phân — về tổng quát QH nguyên KHÓ hơn QHTT (NP-khó trong trường hợp tổng quát), do miền khả thi rời rạc thay vì liên tục lồi."
+  },
+  {
+    "id": 92,
+    "group": "NHÓM 10 — Tổng hợp: so sánh các mô hình, ứng dụng thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán vận tải và bài toán phân công đều có thể quy về dạng bài toán nào tổng quát hơn?",
+    "options": {
+      "A": "Bài toán CPM/PERT lập lịch dự án.",
+      "B": "Bài toán luồng chi phí nhỏ nhất (minimum cost flow) trên mạng lưới.",
+      "C": "Bài toán lý thuyết trò chơi 2 người tổng-bằng-0.",
+      "D": "Bài toán quy hoạch phi tuyến (nonlinear programming) tổng quát."
+    },
+    "correct": "B",
+    "explanation": "Cả vận tải lẫn phân công đều là trường hợp đặc biệt của bài toán luồng chi phí nhỏ nhất trên mạng 2 lớp đỉnh (nguồn–đích) — điểm mấu chốt để hiểu vì sao ma trận ràng buộc của chúng có cấu trúc đặc biệt (unimodular)."
+  },
+  {
+    "id": 93,
+    "group": "NHÓM 10 — Tổng hợp: so sánh các mô hình, ứng dụng thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Điểm chung quan trọng khiến bài toán vận tải, phân công và luồng mạng đều có thể giải bằng đơn hình NHƯNG với phương án tối ưu LUÔN nguyên (dù không ép ràng buộc nguyên) là:",
+    "options": {
+      "A": "Vì các bài toán này luôn chỉ có 2 biến quyết định.",
+      "B": "Ma trận ràng buộc của các bài toán này có tính chất đặc biệt (unimodular toàn phần) khi $a_i,b_j,c_{ij}$ là số nguyên.",
+      "C": "Vì các bài toán này không có ràng buộc nào cả.",
+      "D": "Vì hàm mục tiêu của các bài toán này luôn bằng 0."
+    },
+    "correct": "B",
+    "explanation": "Nhờ tính unimodular toàn phần (totally unimodular) của ma trận ràng buộc mạng, mọi điểm cực biên của miền khả thi (khi dữ liệu đầu vào nguyên) đều có toạ độ nguyên — không cần ép ràng buộc nguyên tường minh vẫn ra nghiệm nguyên."
+  },
+  {
+    "id": 94,
+    "group": "NHÓM 10 — Tổng hợp: so sánh các mô hình, ứng dụng thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Trong bảng \"Tổng kết các bài toán trong Vận trù học\", mục tiêu của bài toán TSP được mô tả là:",
+    "options": {
+      "A": "Tìm chu trình ngắn nhất qua tất cả các điểm.",
+      "B": "Tối thiểu chi phí vận chuyển giữa các kho và điểm tiêu thụ.",
+      "C": "Tối đa luồng hoặc tối thiểu chi phí luồng trên mạng.",
+      "D": "Gán người/nguồn lực cho công việc sao cho chi phí nhỏ nhất."
+    },
+    "correct": "A",
+    "explanation": "Theo đúng bảng tổng kết trong slide nhập môn: TSP $\\to$ \"tìm chu trình ngắn nhất qua tất cả điểm\", ứng dụng trong giao hàng/robot/du lịch."
+  },
+  {
+    "id": 95,
+    "group": "NHÓM 10 — Tổng hợp: so sánh các mô hình, ứng dụng thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Ứng dụng thực tế được liệt kê cho bài toán Đường đi ngắn nhất và Network Flow trong bảng tổng kết là gì?",
+    "options": {
+      "A": "Đường đi ngắn nhất: lập lịch dự án xây dựng. Network Flow: dự báo thời tiết.",
+      "B": "Đường đi ngắn nhất: giao thông, bản đồ, đường bay. Network Flow: hàng không, internet, logistics.",
+      "C": "Cả hai đều không có ứng dụng thực tế cụ thể nào được nêu.",
+      "D": "Cả hai đều chỉ ứng dụng cho lĩnh vực tài chính ngân hàng."
+    },
+    "correct": "B",
+    "explanation": "Theo bảng tổng kết: đường đi ngắn nhất ứng dụng giao thông/bản đồ/đường bay; network flow ứng dụng hàng không/internet/logistics — đúng như liệt kê gốc trong slide."
+  },
+  {
+    "id": 96,
+    "group": "NHÓM 10 — Tổng hợp: so sánh các mô hình, ứng dụng thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Nhìn tổng thể, \"thông điệp chính\" mà bài giảng nhập môn Vận trù học muốn truyền tải là:",
+    "options": {
+      "A": "Vận trù học chỉ là công cụ lý thuyết thuần tuý, không có ứng dụng thực tế.",
+      "B": "Vận trù học giúp ra quyết định khoa học, giảm chi phí và nâng cao hiệu quả hệ thống.",
+      "C": "Vận trù học chỉ giải quyết được bài toán có đúng 1 biến quyết định duy nhất.",
+      "D": "Vận trù học chỉ áp dụng được cho các bài toán tài chính kế toán."
+    },
+    "correct": "B",
+    "explanation": "Đúng nguyên văn kết luận của slide nhập môn: \"Vận trù học giúp ra quyết định khoa học, giảm chi phí và nâng cao hiệu quả hệ thống\"."
+  },
+  {
+    "id": 97,
+    "group": "NHÓM 10 — Tổng hợp: so sánh các mô hình, ứng dụng thực tế",
+    "type": "mcq",
+    "image": null,
+    "question": "Bài toán \"tối đa/tối thiểu ảnh hưởng\" trên mạng xã hội (influence maximization/minimization) có điểm chung nào với các bài toán Vận trù học kinh điển đã học?",
+    "options": {
+      "A": "Chỉ dùng được phương pháp đơn hình thuần tuý, không liên quan tới lý thuyết đồ thị.",
+      "B": "Luôn quy về đúng bài toán vận tải, không có dạng nào khác.",
+      "C": "Đều mô hình hoá bằng đồ thị (mạng lưới người dùng là đỉnh, quan hệ/tương tác là cạnh) và tối ưu một hàm mục tiêu trên đồ thị đó.",
+      "D": "Không có điểm chung nào, đây là bài toán hoàn toàn tách biệt khỏi Vận trù học."
+    },
+    "correct": "C",
+    "explanation": "Bài toán trên mạng xã hội (tối đa/tối thiểu ảnh hưởng) là ứng dụng mở rộng của tư duy tối ưu trên đồ thị — cùng nền tảng lý thuyết mạng lưới với đường đi ngắn nhất, MST, luồng cực đại đã học."
+  },
+  {
+    "id": 98,
+    "group": "NHÓM 10 — Tổng hợp: so sánh các mô hình, ứng dụng thực tế",
+    "type": "truefalse",
+    "image": null,
+    "question": "Về so sánh tổng hợp các mô hình Vận trù học, đúng hay sai?",
+    "statements": [
+      {
+        "label": "a",
+        "text": "Bài toán phân công có thể được giải bằng cách coi nó là 1 bài toán vận tải đặc biệt rồi áp dụng thuật toán thế vị, dù thuật toán Hungary thường hiệu quả hơn.",
+        "correct": true
+      },
+      {
+        "label": "b",
+        "text": "QH phi tuyến (nonlinear programming) là một dạng tổng quát hơn QHTT, cho phép hàm mục tiêu hoặc ràng buộc là phi tuyến.",
+        "correct": true
+      },
+      {
+        "label": "c",
+        "text": "Mọi bài toán tối ưu tổ hợp (TSP, ba lô, phân công) đều thuộc lớp NP-khó, không có ngoại lệ nào giải được trong thời gian đa thức.",
+        "correct": false
+      }
+    ],
+    "explanation": "Ý (c) sai — bài toán PHÂN CÔNG (assignment) tuy là bài toán tổ hợp nhưng giải được trong thời gian đa thức (bằng thuật toán Hungary), khác với TSP hay ba lô tổng quát (NP-khó). (a), (b) đúng."
+  },
+  {
+    "id": 99,
+    "group": "NHÓM 10 — Tổng hợp: so sánh các mô hình, ứng dụng thực tế",
+    "type": "fill",
+    "image": null,
+    "question": "Điền tên tính chất của ma trận ràng buộc trong các bài toán mạng (vận tải, phân công, luồng) giúp đảm bảo nghiệm tối ưu của đơn hình luôn nguyên khi dữ liệu đầu vào nguyên (không cần ép ràng buộc nguyên).",
+    "answer": [
+      "unimodular",
+      "toan phan unimodular",
+      "totally unimodular",
+      "unimodular toan phan"
+    ],
+    "answerType": "text",
+    "explanation": "Đây là tính chất \"unimodular toàn phần\" (totally unimodular) của ma trận ràng buộc — lý do các bài toán mạng cho nghiệm nguyên tự nhiên mà không cần ràng buộc nguyên tường minh."
+  },
+  {
+    "id": 100,
+    "group": "NHÓM 10 — Tổng hợp: so sánh các mô hình, ứng dụng thực tế",
+    "type": "order",
+    "image": null,
+    "question": "Sắp xếp các bài toán sau theo đúng thứ tự đã trình bày trong bảng \"Tổng kết các bài toán trong Vận trù học\" (từ trên xuống dưới):",
+    "items": [
+      {
+        "id": "m3",
+        "text": "Bài toán phân công"
+      },
+      {
+        "id": "m4",
+        "text": "Đường đi ngắn nhất"
+      },
+      {
+        "id": "m1",
+        "text": "Quy hoạch tuyến tính"
+      },
+      {
+        "id": "m2",
+        "text": "Bài toán vận tải"
+      }
+    ],
+    "correctOrder": [
+      "m1",
+      "m2",
+      "m3",
+      "m4"
+    ],
+    "explanation": "Đúng thứ tự liệt kê trong bảng tổng kết gốc: QHTT $\\to$ Vận tải $\\to$ Phân công $\\to$ Đường đi ngắn nhất $\\to$ TSP $\\to$ Network Flow."
+  }
+]

@@ -63,10 +63,19 @@
       shortTitle: "v7",
       navLabel: "v7 — Mạng lưới & Trò chơi",
     },
+    mcq8: {
+      dataFile: "data/mcq8.json",
+      storeKey: "vth_progress_v8",
+      route: "mcq8",
+      title: "Trắc nghiệm v8 — Vận trù học: Lý thuyết tổng hợp (100 câu)",
+      shortTitle: "v8",
+      navLabel: "v8 — Lý thuyết tổng hợp",
+    },
   };
   var SEEN_V2_KEY = "qhtt_seen_v2_notice";
   var SEEN_V34_KEY = "qhtt_seen_v34_notice";
   var SEEN_V567_KEY = "qhtt_seen_v567_notice";
+  var SEEN_V8_KEY = "qhtt_seen_v8_notice";
 
   var state = {
     data: {}, // { mcq: [...], mcq2: [...], mcq3: [...], mcq4: [...] }
@@ -247,6 +256,7 @@
   BANNER_IDS[SEEN_V2_KEY] = "v2-banner";
   BANNER_IDS[SEEN_V34_KEY] = "v34-banner";
   BANNER_IDS[SEEN_V567_KEY] = "v567-banner";
+  BANNER_IDS[SEEN_V8_KEY] = "v8-banner";
 
   function dismissNotice(key) {
     try { localStorage.setItem(key, "1"); } catch (e) { /* im lang */ }
@@ -287,6 +297,11 @@
       "TSP), v7 (vận tải mở rộng, mạng lưới MST/Dijkstra/luồng cực đại/CPM, lý thuyết trò chơi). Có kèm hình vẽ " +
       "minh hoạ, nhiều dạng câu hỏi (trắc nghiệm/đúng-sai/điền đáp án/sắp xếp thứ tự).");
     if (b567) children.push(b567);
+    var b8 = updateBanner("v8-banner", SEEN_V8_KEY, "mcq8", "🆕 Bản cập nhật mới nhất (v8): ",
+      "Thêm 100 câu LÝ THUYẾT Vận trù học — khái niệm, định nghĩa, định lý tổng hợp: đại cương VTH, QHTT & đơn hình, " +
+      "đối ngẫu, vận tải/phân công, đồ thị/đường đi ngắn nhất, MST/luồng cực đại, TSP/ba lô, CPM/PERT & lý thuyết trò " +
+      "chơi, và tổng hợp so sánh các mô hình. Không tính toán số, tập trung vào bản chất lý thuyết.");
+    if (b8) children.push(b8);
 
     var statCells = Object.keys(SETS).map(function (k) {
       var s = countStats(k);
