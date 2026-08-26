@@ -955,20 +955,20 @@
     "question": "Sắp xếp đúng thứ tự các bước của MỘT vòng lặp thuật toán đơn hình (dạng bảng):",
     "items": [
       {
-        "id": "s1",
-        "text": "Kiểm tra dấu hiệu tối ưu (xét dấu mọi $\\Delta_j$)"
-      },
-      {
-        "id": "s2",
-        "text": "Chọn biến vào cơ sở (cột có $\\Delta_j$ vi phạm dấu hiệu tối ưu, thường lớn nhất)"
-      },
-      {
         "id": "s3",
         "text": "Áp dụng quy tắc tỉ số nhỏ nhất để chọn biến ra (hàng trục)"
       },
       {
         "id": "s4",
         "text": "Biến đổi Gauss-Jordan quanh phần tử trục, cập nhật toàn bảng"
+      },
+      {
+        "id": "s2",
+        "text": "Chọn biến vào cơ sở (cột có $\\Delta_j$ vi phạm dấu hiệu tối ưu, thường lớn nhất)"
+      },
+      {
+        "id": "s1",
+        "text": "Kiểm tra dấu hiệu tối ưu (xét dấu mọi $\\Delta_j$)"
       }
     ],
     "correctOrder": [
@@ -1222,8 +1222,8 @@
         "text": "Thêm biến giả vào các ràng buộc chưa có sẵn cột đơn vị"
       },
       {
-        "id": "t2",
-        "text": "Giải Pha 1: tối thiểu hoá tổng biến giả"
+        "id": "t5",
+        "text": "Giải Pha 2 bằng thuật toán đơn hình thông thường trên hàm mục tiêu gốc"
       },
       {
         "id": "t3",
@@ -1234,8 +1234,8 @@
         "text": "Loại bỏ (hoặc đẩy ra khỏi cơ sở) các biến giả, thay hàng mục tiêu bằng hàm mục tiêu gốc"
       },
       {
-        "id": "t5",
-        "text": "Giải Pha 2 bằng thuật toán đơn hình thông thường trên hàm mục tiêu gốc"
+        "id": "t2",
+        "text": "Giải Pha 1: tối thiểu hoá tổng biến giả"
       }
     ],
     "correctOrder": [
