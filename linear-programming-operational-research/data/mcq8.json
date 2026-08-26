@@ -98,8 +98,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Hàm mục tiêu $f(x)$ luôn phải là hàm tuyến tính trong mọi bài toán Vận trù học.",
-        "correct": false
+        "text": "Nếu miền khả thi $D=\\emptyset$ (rỗng) thì bài toán vô nghiệm, không có phương án tối ưu.",
+        "correct": true
       },
       {
         "label": "b",
@@ -108,8 +108,8 @@
       },
       {
         "label": "c",
-        "text": "Nếu miền khả thi $D=\\emptyset$ (rỗng) thì bài toán vô nghiệm, không có phương án tối ưu.",
-        "correct": true
+        "text": "Hàm mục tiêu $f(x)$ luôn phải là hàm tuyến tính trong mọi bài toán Vận trù học.",
+        "correct": false
       }
     ],
     "explanation": "Ý (a) sai — $f(x)$ có thể phi tuyến (như trong QH phi tuyến); QHTT chỉ là 1 trường hợp riêng có $f$ tuyến tính. (b), (c) đúng theo định nghĩa mô hình tối ưu tổng quát."
@@ -123,13 +123,13 @@
     "statements": [
       {
         "label": "a",
-        "text": "Bài toán luồng mạng chỉ ứng dụng được cho vận chuyển hàng hoá, không dùng được cho dữ liệu hay hành khách.",
-        "correct": false
+        "text": "Thành phần cơ bản của một mạng gồm: đỉnh nguồn, đỉnh đích, các cạnh có khả năng thông qua, và dung lượng trên mỗi cạnh.",
+        "correct": true
       },
       {
         "label": "b",
-        "text": "Thành phần cơ bản của một mạng gồm: đỉnh nguồn, đỉnh đích, các cạnh có khả năng thông qua, và dung lượng trên mỗi cạnh.",
-        "correct": true
+        "text": "Bài toán luồng mạng chỉ ứng dụng được cho vận chuyển hàng hoá, không dùng được cho dữ liệu hay hành khách.",
+        "correct": false
       },
       {
         "label": "c",
@@ -285,7 +285,7 @@
     "statements": [
       {
         "label": "a",
-        "text": "Giao của hai tập lồi luôn là một tập lồi.",
+        "text": "Nếu bài toán QHTT có nhiều hơn 1 phương án tối ưu thì tập hợp mọi phương án tối ưu cũng là một tập lồi.",
         "correct": true
       },
       {
@@ -295,7 +295,7 @@
       },
       {
         "label": "c",
-        "text": "Nếu bài toán QHTT có nhiều hơn 1 phương án tối ưu thì tập hợp mọi phương án tối ưu cũng là một tập lồi.",
+        "text": "Giao của hai tập lồi luôn là một tập lồi.",
         "correct": true
       }
     ],
@@ -310,18 +310,18 @@
     "statements": [
       {
         "label": "a",
-        "text": "Dạng chính tắc yêu cầu mọi ràng buộc là đẳng thức (=) và mọi biến không âm.",
-        "correct": true
-      },
-      {
-        "label": "b",
         "text": "Việc đổi biến $x_j=x_j'-x_j''$ với $x_j',x_j''\\ge0$ được dùng khi biến gốc $x_j$ không bị ràng buộc dấu (free variable).",
         "correct": true
       },
       {
-        "label": "c",
+        "label": "b",
         "text": "Thêm biến bù (slack variable) làm THAY ĐỔI bản chất bài toán gốc, không còn tương đương nữa.",
         "correct": false
+      },
+      {
+        "label": "c",
+        "text": "Dạng chính tắc yêu cầu mọi ràng buộc là đẳng thức (=) và mọi biến không âm.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — thêm biến bù chỉ là kỹ thuật chuyển ràng buộc bất đẳng thức thành đẳng thức, bài toán vẫn tương đương hoàn toàn với bài toán gốc."
@@ -472,12 +472,12 @@
     "statements": [
       {
         "label": "a",
-        "text": "Mỗi bước lặp của đơn hình (không suy biến) luôn làm giá trị hàm mục tiêu tốt lên hoặc giữ nguyên, không bao giờ xấu đi.",
+        "text": "Số phương án cực biên khả thi của một bài toán QHTT là hữu hạn, không vượt quá $\\binom{n}{m}$ (n: số biến, m: số ràng buộc chính).",
         "correct": true
       },
       {
         "label": "b",
-        "text": "Số phương án cực biên khả thi của một bài toán QHTT là hữu hạn, không vượt quá $\\binom{n}{m}$ (n: số biến, m: số ràng buộc chính).",
+        "text": "Mỗi bước lặp của đơn hình (không suy biến) luôn làm giá trị hàm mục tiêu tốt lên hoặc giữ nguyên, không bao giờ xấu đi.",
         "correct": true
       },
       {
@@ -497,7 +497,7 @@
     "statements": [
       {
         "label": "a",
-        "text": "Nếu tại phương án tối ưu có 2 biến ngoài cơ sở cùng có hệ số ước lượng bằng 0 thì bài toán chắc chắn có ít nhất 2 phương án tối ưu khác nhau.",
+        "text": "Việc dùng phương pháp 2 pha giúp tránh phải chọn hệ số $M$ tuỳ ý như trong phương pháp Big-M.",
         "correct": true
       },
       {
@@ -507,7 +507,7 @@
       },
       {
         "label": "c",
-        "text": "Việc dùng phương pháp 2 pha giúp tránh phải chọn hệ số $M$ tuỳ ý như trong phương pháp Big-M.",
+        "text": "Nếu tại phương án tối ưu có 2 biến ngoài cơ sở cùng có hệ số ước lượng bằng 0 thì bài toán chắc chắn có ít nhất 2 phương án tối ưu khác nhau.",
         "correct": true
       }
     ],
@@ -660,8 +660,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Đối với bài toán $\\min\\{4y_1+3y_2:y_1\\ge5,y_2\\ge4,y_1,y_2\\ge0\\}$, đây có thể là đối ngẫu của một bài toán $\\max$ với 2 ràng buộc và 2 biến gốc.",
-        "correct": true
+        "text": "Cặp bài toán gốc và đối ngẫu luôn có SỐ BIẾN bằng nhau.",
+        "correct": false
       },
       {
         "label": "b",
@@ -670,8 +670,8 @@
       },
       {
         "label": "c",
-        "text": "Cặp bài toán gốc và đối ngẫu luôn có SỐ BIẾN bằng nhau.",
-        "correct": false
+        "text": "Đối với bài toán $\\min\\{4y_1+3y_2:y_1\\ge5,y_2\\ge4,y_1,y_2\\ge0\\}$, đây có thể là đối ngẫu của một bài toán $\\max$ với 2 ràng buộc và 2 biến gốc.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — số biến của (D) bằng số RÀNG BUỘC của (P), không nhất thiết bằng số biến của (P). (a), (b) đúng theo lý thuyết đối ngẫu chuẩn."
@@ -685,8 +685,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Có thể dùng định lý độ lệch bù để kiểm tra 1 cặp phương án $(x,y)$ có phải là cặp tối ưu (P)-(D) hay không, mà không cần giải lại từ đầu.",
-        "correct": true
+        "text": "Việc dùng số $M$ lớn trong phương pháp Big-M không hề gây khó khăn tính toán so với phương pháp 2 pha.",
+        "correct": false
       },
       {
         "label": "b",
@@ -695,8 +695,8 @@
       },
       {
         "label": "c",
-        "text": "Việc dùng số $M$ lớn trong phương pháp Big-M không hề gây khó khăn tính toán so với phương pháp 2 pha.",
-        "correct": false
+        "text": "Có thể dùng định lý độ lệch bù để kiểm tra 1 cặp phương án $(x,y)$ có phải là cặp tối ưu (P)-(D) hay không, mà không cần giải lại từ đầu.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — số $M$ lớn dễ gây sai số/nhầm lẫn khi tính tay, đây chính là lý do phương pháp 2 pha thường được ưa chuộng hơn khi giải tay. (a), (b) đúng theo lý thuyết đối ngẫu."
@@ -724,20 +724,20 @@
     "question": "Sắp xếp đúng trình tự các bước dùng lý thuyết đối ngẫu để KIỂM TRA xem một cặp phương án $(\\bar x,\\bar y)$ có phải là cặp tối ưu hay không:",
     "items": [
       {
-        "id": "m1",
-        "text": "Kiểm tra $\\bar x$ có khả thi đối với bài toán gốc (P) hay không."
-      },
-      {
-        "id": "m2",
-        "text": "Kiểm tra $\\bar y$ có khả thi đối với bài toán đối ngẫu (D) hay không."
-      },
-      {
         "id": "m3",
         "text": "Áp dụng điều kiện độ lệch bù cho từng cặp ràng buộc–biến tương ứng."
       },
       {
         "id": "m4",
         "text": "Kết luận: nếu mọi điều kiện độ lệch bù đều thỏa và cả hai đều khả thi thì $(\\bar x,\\bar y)$ là cặp tối ưu."
+      },
+      {
+        "id": "m2",
+        "text": "Kiểm tra $\\bar y$ có khả thi đối với bài toán đối ngẫu (D) hay không."
+      },
+      {
+        "id": "m1",
+        "text": "Kiểm tra $\\bar x$ có khả thi đối với bài toán gốc (P) hay không."
       }
     ],
     "correctOrder": [
@@ -847,8 +847,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Bài toán vận tải luôn có ít nhất 1 phương án tối ưu hữu hạn nếu đã cân bằng cung–cầu và $c_{ij}$ hữu hạn.",
-        "correct": true
+        "text": "Bài toán phân công không thể có nhiều hơn 1 phương án tối ưu (luôn duy nhất).",
+        "correct": false
       },
       {
         "label": "b",
@@ -857,8 +857,8 @@
       },
       {
         "label": "c",
-        "text": "Bài toán phân công không thể có nhiều hơn 1 phương án tối ưu (luôn duy nhất).",
-        "correct": false
+        "text": "Bài toán vận tải luôn có ít nhất 1 phương án tối ưu hữu hạn nếu đã cân bằng cung–cầu và $c_{ij}$ hữu hạn.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — bài toán phân công hoàn toàn có thể có đa nghiệm (nhiều cách gán khác nhau cùng cho tổng chi phí tối ưu). (a), (b) đúng."
@@ -877,13 +877,13 @@
       },
       {
         "label": "b",
-        "text": "Bài toán vận tải trung chuyển (transshipment) cho phép hàng đi qua các điểm trung gian trước khi tới đích cuối cùng.",
-        "correct": true
+        "text": "Vận tải trung chuyển không thể quy đổi lại về dạng bài toán vận tải chuẩn (2 lớp nguồn–đích).",
+        "correct": false
       },
       {
         "label": "c",
-        "text": "Vận tải trung chuyển không thể quy đổi lại về dạng bài toán vận tải chuẩn (2 lớp nguồn–đích).",
-        "correct": false
+        "text": "Bài toán vận tải trung chuyển (transshipment) cho phép hàng đi qua các điểm trung gian trước khi tới đích cuối cùng.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — bài toán transshipment vẫn có thể quy đổi về dạng vận tải chuẩn bằng cách coi mỗi điểm trung gian vừa là nguồn vừa là đích với cung/cầu bổ sung phù hợp."
@@ -1040,13 +1040,13 @@
       },
       {
         "label": "b",
-        "text": "Thuật toán Dijkstra có thể áp dụng trực tiếp và cho kết quả đúng ngay cả khi đồ thị có cạnh trọng số âm.",
-        "correct": false
+        "text": "Bài toán đường đi ngắn nhất luôn có nghiệm nếu tồn tại ít nhất 1 đường đi từ $s$ đến $t$ và đồ thị không có chu trình âm nào có thể tới được từ đường đi đó.",
+        "correct": true
       },
       {
         "label": "c",
-        "text": "Bài toán đường đi ngắn nhất luôn có nghiệm nếu tồn tại ít nhất 1 đường đi từ $s$ đến $t$ và đồ thị không có chu trình âm nào có thể tới được từ đường đi đó.",
-        "correct": true
+        "text": "Thuật toán Dijkstra có thể áp dụng trực tiếp và cho kết quả đúng ngay cả khi đồ thị có cạnh trọng số âm.",
+        "correct": false
       }
     ],
     "explanation": "Ý (b) sai — Dijkstra chỉ đúng khi mọi trọng số $\\ge0$; có cạnh âm phải dùng Bellman–Ford. (a), (c) đúng theo lý thuyết đồ thị chuẩn."
@@ -1060,12 +1060,12 @@
     "statements": [
       {
         "label": "a",
-        "text": "Floyd–Warshall thường được ưu tiên hơn khi cần biết khoảng cách ngắn nhất giữa MỌI cặp đỉnh, thay vì chỉ chạy Dijkstra $n$ lần từ mỗi đỉnh.",
+        "text": "Nếu đồ thị có chu trình trọng số âm mà đường đi từ $s$ đến $t$ có thể đi qua chu trình đó, bài toán đường đi ngắn nhất KHÔNG xác định (độ dài có thể giảm vô hạn).",
         "correct": true
       },
       {
         "label": "b",
-        "text": "Nếu đồ thị có chu trình trọng số âm mà đường đi từ $s$ đến $t$ có thể đi qua chu trình đó, bài toán đường đi ngắn nhất KHÔNG xác định (độ dài có thể giảm vô hạn).",
+        "text": "Floyd–Warshall thường được ưu tiên hơn khi cần biết khoảng cách ngắn nhất giữa MỌI cặp đỉnh, thay vì chỉ chạy Dijkstra $n$ lần từ mỗi đỉnh.",
         "correct": true
       },
       {
@@ -1222,8 +1222,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Nếu đồ thị có $n$ đỉnh và các trọng số cạnh đều khác nhau đôi một thì cây khung nhỏ nhất là DUY NHẤT.",
-        "correct": true
+        "text": "Bài toán luồng cực đại chỉ có duy nhất 1 lát cắt (cut) tách $s$ khỏi $t$ trong mọi đồ thị.",
+        "correct": false
       },
       {
         "label": "b",
@@ -1232,8 +1232,8 @@
       },
       {
         "label": "c",
-        "text": "Bài toán luồng cực đại chỉ có duy nhất 1 lát cắt (cut) tách $s$ khỏi $t$ trong mọi đồ thị.",
-        "correct": false
+        "text": "Nếu đồ thị có $n$ đỉnh và các trọng số cạnh đều khác nhau đôi một thì cây khung nhỏ nhất là DUY NHẤT.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — một đồ thị có thể có nhiều lát cắt khác nhau tách $s$ khỏi $t$; định lý max-flow min-cut chỉ nói lát cắt NHỎ NHẤT trong số đó bằng đúng giá trị luồng cực đại. (a), (b) đúng."
@@ -1252,13 +1252,13 @@
       },
       {
         "label": "b",
-        "text": "Việc thêm 1 cạnh (dung lượng dương) vào mạng KHÔNG BAO GIỜ làm giảm giá trị luồng cực đại từ $s$ đến $t$.",
-        "correct": true
+        "text": "Cây khung nhỏ nhất luôn chứa cạnh có trọng số nhỏ nhất TOÀN ĐỒ THỊ và không chứa cạnh có trọng số lớn nhất toàn đồ thị.",
+        "correct": false
       },
       {
         "label": "c",
-        "text": "Cây khung nhỏ nhất luôn chứa cạnh có trọng số nhỏ nhất TOÀN ĐỒ THỊ và không chứa cạnh có trọng số lớn nhất toàn đồ thị.",
-        "correct": false
+        "text": "Việc thêm 1 cạnh (dung lượng dương) vào mạng KHÔNG BAO GIỜ làm giảm giá trị luồng cực đại từ $s$ đến $t$.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — không có quy tắc bắt buộc như vậy; MST hoàn toàn có thể phải chứa 1 cạnh trọng số lớn để duy trì tính liên thông (ví dụ cầu nối duy nhất giữa 2 cụm đỉnh), dù cạnh đó không nhỏ nhất/lớn nhất toàn đồ thị. (a), (b) đúng."
@@ -1290,16 +1290,16 @@
         "text": "Khởi tạo luồng $x_{ij}=0$ trên mọi cạnh."
       },
       {
-        "id": "m2",
-        "text": "Tìm một đường tăng luồng (augmenting path) từ $s$ đến $t$ trong đồ thị thặng dư (residual graph)."
+        "id": "m4",
+        "text": "Lặp lại tìm đường tăng luồng cho tới khi KHÔNG còn đường tăng luồng nào từ $s$ đến $t$ — luồng hiện tại là luồng cực đại."
       },
       {
         "id": "m3",
         "text": "Nếu tìm được, tăng luồng dọc theo đường đó thêm 1 lượng bằng dung lượng thặng dư nhỏ nhất trên đường."
       },
       {
-        "id": "m4",
-        "text": "Lặp lại tìm đường tăng luồng cho tới khi KHÔNG còn đường tăng luồng nào từ $s$ đến $t$ — luồng hiện tại là luồng cực đại."
+        "id": "m2",
+        "text": "Tìm một đường tăng luồng (augmenting path) từ $s$ đến $t$ trong đồ thị thặng dư (residual graph)."
       }
     ],
     "correctOrder": [
@@ -1409,8 +1409,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Cả bài toán TSP và bài toán ba lô đều có thể phát biểu dưới dạng quy hoạch tuyến tính NHỊ PHÂN (biến $x\\in\\{0,1\\}$).",
-        "correct": true
+        "text": "TSP với $n$ thành phố có đúng $n$ chu trình Hamilton khả thi khác nhau cần xét.",
+        "correct": false
       },
       {
         "label": "b",
@@ -1419,8 +1419,8 @@
       },
       {
         "label": "c",
-        "text": "TSP với $n$ thành phố có đúng $n$ chu trình Hamilton khả thi khác nhau cần xét.",
-        "correct": false
+        "text": "Cả bài toán TSP và bài toán ba lô đều có thể phát biểu dưới dạng quy hoạch tuyến tính NHỊ PHÂN (biến $x\\in\\{0,1\\}$).",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — số chu trình Hamilton khả thi của TSP là $(n-1)!/2$ (với đồ thị đối xứng), tăng rất nhanh theo giai thừa, KHÔNG phải chỉ $n$ chu trình. (a), (b) đúng."
@@ -1434,8 +1434,8 @@
     "statements": [
       {
         "label": "a",
-        "text": "Ràng buộc MTZ chỉ cần thiết khi mô hình hoá TSP bằng biến nhị phân $x_{ij}$ trên đồ thị, không cần thiết nếu giải bằng quy hoạch động.",
-        "correct": true
+        "text": "TSP đối xứng ($c_{ij}=c_{ji}$) và TSP bất đối xứng ($c_{ij}\\ne c_{ji}$) luôn có cùng số chu trình Hamilton khả thi cần xét.",
+        "correct": false
       },
       {
         "label": "b",
@@ -1444,8 +1444,8 @@
       },
       {
         "label": "c",
-        "text": "TSP đối xứng ($c_{ij}=c_{ji}$) và TSP bất đối xứng ($c_{ij}\\ne c_{ji}$) luôn có cùng số chu trình Hamilton khả thi cần xét.",
-        "correct": false
+        "text": "Ràng buộc MTZ chỉ cần thiết khi mô hình hoá TSP bằng biến nhị phân $x_{ij}$ trên đồ thị, không cần thiết nếu giải bằng quy hoạch động.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — TSP đối xứng có $(n-1)!/2$ chu trình khả thi (do mỗi chu trình đếm 2 lần theo 2 chiều), còn TSP bất đối xứng có $(n-1)!$ chu trình (chiều đi và chiều ngược không tương đương). (a), (b) đúng."
@@ -1616,13 +1616,13 @@
       },
       {
         "label": "b",
-        "text": "Trong trò chơi ma trận 2 người tổng-bằng-0, giá trị trò chơi (game value) $v$ luôn thỏa $\\text{maximin}\\le v\\le\\text{minimax}$.",
-        "correct": true
+        "text": "Chiến lược hỗn hợp chỉ cần thiết khi CẢ HAI người chơi đều muốn hợp tác với nhau (cooperative game).",
+        "correct": false
       },
       {
         "label": "c",
-        "text": "Chiến lược hỗn hợp chỉ cần thiết khi CẢ HAI người chơi đều muốn hợp tác với nhau (cooperative game).",
-        "correct": false
+        "text": "Trong trò chơi ma trận 2 người tổng-bằng-0, giá trị trò chơi (game value) $v$ luôn thỏa $\\text{maximin}\\le v\\le\\text{minimax}$.",
+        "correct": true
       }
     ],
     "explanation": "Ý (c) sai — chiến lược hỗn hợp cần thiết trong trò chơi KHÔNG hợp tác (non-cooperative), zero-sum, khi không có điểm yên ngựa — không liên quan đến việc 2 người chơi có hợp tác hay không. (a), (b) đúng."
@@ -1788,18 +1788,18 @@
     "statements": [
       {
         "label": "a",
+        "text": "Mọi bài toán tối ưu tổ hợp (TSP, ba lô, phân công) đều thuộc lớp NP-khó, không có ngoại lệ nào giải được trong thời gian đa thức.",
+        "correct": false
+      },
+      {
+        "label": "b",
         "text": "Bài toán phân công có thể được giải bằng cách coi nó là 1 bài toán vận tải đặc biệt rồi áp dụng thuật toán thế vị, dù thuật toán Hungary thường hiệu quả hơn.",
         "correct": true
       },
       {
-        "label": "b",
+        "label": "c",
         "text": "QH phi tuyến (nonlinear programming) là một dạng tổng quát hơn QHTT, cho phép hàm mục tiêu hoặc ràng buộc là phi tuyến.",
         "correct": true
-      },
-      {
-        "label": "c",
-        "text": "Mọi bài toán tối ưu tổ hợp (TSP, ba lô, phân công) đều thuộc lớp NP-khó, không có ngoại lệ nào giải được trong thời gian đa thức.",
-        "correct": false
       }
     ],
     "explanation": "Ý (c) sai — bài toán PHÂN CÔNG (assignment) tuy là bài toán tổ hợp nhưng giải được trong thời gian đa thức (bằng thuật toán Hungary), khác với TSP hay ba lô tổng quát (NP-khó). (a), (b) đúng."
