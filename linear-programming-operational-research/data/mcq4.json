@@ -735,24 +735,24 @@
     "question": "Sắp xếp đúng trình tự các bước khi dùng độ lệch bù để KIỂM TRA một cặp $(x_0,y_0)$ có phải phương án tối ưu:",
     "items": [
       {
-        "id": "d1",
-        "text": "Kiểm tra $x_0\\ge0$ và thoả mọi ràng buộc gốc (khả thi gốc)"
-      },
-      {
         "id": "d2",
         "text": "Kiểm tra $y_0\\ge0$ và thoả mọi ràng buộc đối ngẫu (khả thi đối ngẫu)"
       },
       {
-        "id": "d3",
-        "text": "Với mỗi $j$ có $x_{0,j}>0$: kiểm tra ràng buộc đối ngẫu thứ $j$ có chặt không"
+        "id": "d5",
+        "text": "Nếu mọi bước trên đều thoả: kết luận $(x_0,y_0)$ là cặp phương án tối ưu"
       },
       {
         "id": "d4",
         "text": "Với mỗi $i$ có $y_{0,i}>0$: kiểm tra ràng buộc gốc thứ $i$ có chặt không"
       },
       {
-        "id": "d5",
-        "text": "Nếu mọi bước trên đều thoả: kết luận $(x_0,y_0)$ là cặp phương án tối ưu"
+        "id": "d3",
+        "text": "Với mỗi $j$ có $x_{0,j}>0$: kiểm tra ràng buộc đối ngẫu thứ $j$ có chặt không"
+      },
+      {
+        "id": "d1",
+        "text": "Kiểm tra $x_0\\ge0$ và thoả mọi ràng buộc gốc (khả thi gốc)"
       }
     ],
     "correctOrder": [
@@ -1464,8 +1464,8 @@
         "text": "Lập bài toán đối ngẫu (xác định đúng biến, ràng buộc theo quy tắc chuyển đổi)"
       },
       {
-        "id": "o2",
-        "text": "Kiểm tra $x_0$ khả thi bài toán gốc"
+        "id": "o5",
+        "text": "Kết luận và (nếu muốn) xác nhận chéo bằng $f(x_0)=g(y_0)$"
       },
       {
         "id": "o3",
@@ -1476,8 +1476,8 @@
         "text": "Kiểm tra độ lệch bù cả 2 chiều (biến gốc↔ràng buộc đối ngẫu, biến đối ngẫu↔ràng buộc gốc)"
       },
       {
-        "id": "o5",
-        "text": "Kết luận và (nếu muốn) xác nhận chéo bằng $f(x_0)=g(y_0)$"
+        "id": "o2",
+        "text": "Kiểm tra $x_0$ khả thi bài toán gốc"
       }
     ],
     "correctOrder": [
