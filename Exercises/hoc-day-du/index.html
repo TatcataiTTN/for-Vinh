@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Học Đầy Đủ — Cơ Sở Dữ Liệu</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fdfae7;
+    --primary: #1e2bfa;
+    --text: #111111;
+    --text-muted: #6b6b6b;
+    --border: rgba(30, 43, 250, 0.2);
+    --card-bg: rgba(30, 43, 250, 0.04);
+    --accent-light: rgba(30, 43, 250, 0.08);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; margin: 0; }
+  .hero {
+    padding: 4vw 5vw 2vw; max-width: 1100px; margin: 0 auto;
+  }
+  .kicker { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--primary); }
+  .accent-line { width: 64px; height: 3px; background: var(--primary); margin: 0.9rem 0 1.4rem; }
+  h1 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 600; line-height: 1.1; }
+  .lead { color: var(--text-muted); font-size: 1.05rem; max-width: 640px; margin-top: 1rem; line-height: 1.6; }
+  .back-link { display: inline-block; margin-top: 1.4rem; font-size: 0.9rem; color: var(--primary); text-decoration: none; font-weight: 500; }
+  .back-link:hover { text-decoration: underline; }
+
+  .grid {
+    max-width: 1100px; margin: 2rem auto 5rem; padding: 0 5vw;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.1rem;
+  }
+  .card {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px;
+    padding: 1.4rem 1.5rem; text-decoration: none; color: var(--text);
+    transition: transform .12s ease, box-shadow .15s ease;
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -18px rgba(30,43,250,.35); }
+  .card .num { font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--primary); letter-spacing: 0.05em; }
+  .card h3 { font-size: 1.05rem; font-weight: 600; }
+  .card p { margin: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+  .card .go { margin-top: auto; font-size: 0.78rem; font-weight: 600; color: var(--primary); }
+
+  .footer-note { max-width: 1100px; margin: 0 auto 4rem; padding: 0 5vw; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; }
+  .footer-note a { color: var(--primary); }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <span class="kicker">Giáo Trình Điện Tử · Phenikaa</span>
+    <div class="accent-line"></div>
+    <h1>Học Đầy Đủ<br>Cơ Sở Dữ Liệu</h1>
+    <p class="lead">10 bài giảng slide, bám sát đúng nội dung các buổi học thật — từ cài đặt MySQL, thiết kế bảng, các dạng truy vấn SQL, tới JOIN và truy vấn con. Dùng phím mũi tên để chuyển slide trong mỗi bài.</p>
+    <a class="back-link" href="../index.html">← Quay lại trang Luyện Tập Tương Tác</a>
+  </div>
+
+  <div class="grid">
+    <a class="card" href="bai-1.html"><span class="num">BÀI 01</span><h3>Cài Đặt MySQL &amp; Quản Lý CSDL</h3><p>Cài đặt server, kết nối, tạo/xóa cơ sở dữ liệu đầu tiên.</p><span class="go">Xem slide →</span></a>
+    <a class="card" href="bai-2.html"><span class="num">BÀI 02</span><h3>Kiểu Dữ Liệu &amp; Định Nghĩa Bảng</h3><p>CREATE/ALTER/DROP TABLE, ràng buộc, DDL/DML/DCL/TCL.</p><span class="go">Xem slide →</span></a>
+    <a class="card" href="bai-3.html"><span class="num">BÀI 03</span><h3>Tổng Quan SQL &amp; Truy Vấn Cơ Bản</h3><p>SELECT–FROM–WHERE, toán tử so sánh và logic.</p><span class="go">Xem slide →</span></a>
+    <a class="card" href="bai-4.html"><span class="num">BÀI 04</span><h3>Truy Vấn Cơ Bản (Phần 2)</h3><p>IN, BETWEEN, LIKE, thuộc tính suy diễn, ORDER BY, UNION.</p><span class="go">Xem slide →</span></a>
+    <a class="card" href="bai-5.html"><span class="num">BÀI 05</span><h3>Hàm Nhóm &amp; Truy Vấn Nhóm</h3><p>LIMIT, MIN/MAX/COUNT/SUM/AVG, GROUP BY, HAVING.</p><span class="go">Xem slide →</span></a>
+    <a class="card" href="bai-6.html"><span class="num">BÀI 06</span><h3>Các Phép Nối Bảng (JOIN)</h3><p>INNER JOIN, LEFT JOIN, SELF JOIN, alias.</p><span class="go">Xem slide →</span></a>
+    <a class="card" href="bai-7.html"><span class="num">BÀI 07</span><h3>Truy Vấn Con (Subquery)</h3><p>Tương quan, không tương quan, EXISTS, subquery ở SELECT/FROM.</p><span class="go">Xem slide →</span></a>
+    <a class="card" href="bai-8.html"><span class="num">BÀI 08</span><h3>Thêm, Sửa, Xóa Dữ Liệu</h3><p>INSERT, UPDATE, DELETE, ràng buộc khóa ngoại khi xóa.</p><span class="go">Xem slide →</span></a>
+    <a class="card" href="bai-9.html"><span class="num">BÀI 09</span><h3>Ôn Tập Tổng Hợp SQL</h3><p>20 câu ôn tập: lọc, JOIN, GROUP BY, subquery, UNION.</p><span class="go">Xem slide →</span></a>
+    <a class="card" href="bai-10.html"><span class="num">BÀI 10</span><h3>Nối Bảng Nâng Cao — 20 Bài Tập</h3><p>INNER JOIN cơ bản, hàm tổng hợp, và LEFT JOIN.</p><span class="go">Xem slide →</span></a>
+  </div>
+
+  <div class="footer-note">
+    Muốn luyện tập có chấm điểm tự động (SQL, trắc nghiệm, tự luận)? Quay lại <a href="../index.html">trang Luyện Tập Tương Tác</a>.
+  </div>
+
+</body>
+</html>

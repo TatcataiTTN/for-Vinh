@@ -280,6 +280,13 @@ function renderLanding() {
         <div class="stat-box"><div class="num">${done}</div><div class="lbl">Đã hoàn thành</div></div>
       </div>
     </div>
+    <div class="card" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:linear-gradient(135deg,#eef2f7,#f0fdfa);">
+      <div>
+        <h3 style="margin:0 0 4px;">📖 Chưa nắm chắc lý thuyết? Học đầy đủ trước đã.</h3>
+        <p style="margin:0;color:var(--text-soft);font-size:13.5px;">10 bài giảng dạng slide, bám sát đúng nội dung các buổi học thật — từ cài đặt MySQL tới JOIN và Subquery.</p>
+      </div>
+      <a href="hoc-day-du/index.html" class="btn btn-primary" style="text-decoration:none;flex-shrink:0;">Vào học đầy đủ →</a>
+    </div>
     <div class="db-card-grid">${cards}</div>
     <p class="footer-note">💾 Tiến trình học được lưu ngay trên trình duyệt này — đóng tab, tắt máy, mở lại đúng đường link vẫn còn nguyên. Chỉ mất nếu bạn xoá dữ liệu trình duyệt (Clear browsing data) hoặc dùng chế độ ẩn danh.<br>Lần mở đầu tiên cần tải dữ liệu về máy; từ lần thứ hai trở đi trình duyệt đã lưu sẵn nên mở gần như ngay lập tức.</p>
   `;
