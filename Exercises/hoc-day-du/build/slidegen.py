@@ -193,10 +193,16 @@ def closing_slide(title, sub, cta_text, cta_href, contact):
     </div>"""
 
 
-def build_deck(slides, out_path, head_path, foot_path, page_title):
+def build_deck(slides, out_path, head_path, foot_path, page_title,
+                practice_href=None, practice_label="🧪 Luyện tập chủ đề này"):
     head = open(head_path, encoding="utf-8").read()
     head = head.replace("<title>Presentation Template</title>", f"<title>{esc(page_title)}</title>")
     foot = open(foot_path, encoding="utf-8").read()
+    if practice_href:
+        pin = f'<a class="practice-pin" href="{practice_href}">{practice_label}</a>'
+    else:
+        pin = ""
+    foot = foot.replace("{{PRACTICE_LINK}}", pin)
     body = "\n  <div class=\"deck\">\n" + "\n".join(slides) + "\n\n  </div>\n"
     doc = head + "\n</head>\n<body>\n" + body + foot
     with open(out_path, "w", encoding="utf-8") as f:

@@ -26,15 +26,32 @@ BAI_META = [
 def deck_path(n):
     return os.path.join(OUT_DIR, f"bai-{n}.html")
 
+# Câu hỏi SQL tương tác khớp chủ đề nhất cho từng bài (id trong data/questions.json,
+# đều thuộc CSDL classicmodels để nhất quán với ví dụ trong slide). Bài 1-2 chưa có
+# bài tập DDL tương tác nên trỏ về trang chủ luyện tập.
+PRACTICE_HREF = {
+    1: "../index.html",
+    2: "../index.html",
+    3: "../index.html#/cm01",
+    4: "../index.html#/cm02",
+    5: "../index.html#/cm07",
+    6: "../index.html#/cm04",
+    7: "../index.html#/cm09",
+    8: "../index.html#/cm12",
+    9: "../index.html#/cm01",
+    10: "../index.html#/cm14",
+}
+
 def nav_closing(n, extra_sub=""):
     total = len(BAI_META)
+    practice_href = PRACTICE_HREF[n]
     if n < total:
         nxt_title = BAI_META[n][0].replace("&", "&")
         return closing_slide(
             f"Hoàn Thành Bài {n}",
             f"Tiếp theo: Bài {n+1} — {nxt_title}. {extra_sub}",
             f"Sang Bài {n+1} →", f"bai-{n+1}.html",
-            'Luyện tập tương tác: <a href="../index.html" style="color:inherit;">tatcataittn.github.io/for-Vinh/Exercises</a>'
+            f'🧪 Luyện tập ngay chủ đề này: <a href="{practice_href}" style="color:inherit;">bấm vào đây</a>'
         )
     else:
         return closing_slide(
@@ -78,7 +95,7 @@ def gen_bai1():
             "Ghi nhớ khi cấu hình MySQL"),
         nav_closing(1),
     ]
-    build_deck(slides, deck_path(1), HEAD, FOOT, "Bài 1 — Cài Đặt MySQL")
+    build_deck(slides, deck_path(1), HEAD, FOOT, "Bài 1 — Cài Đặt MySQL", practice_href=PRACTICE_HREF[1])
 
 # ============================================================ BÀI 2
 def gen_bai2():
@@ -108,7 +125,7 @@ def gen_bai2():
             "Cảnh báo quan trọng nhất chương này"),
         nav_closing(2),
     ]
-    build_deck(slides, deck_path(2), HEAD, FOOT, "Bài 2 — Kiểu Dữ Liệu & Bảng")
+    build_deck(slides, deck_path(2), HEAD, FOOT, "Bài 2 — Kiểu Dữ Liệu & Bảng", practice_href=PRACTICE_HREF[2])
 
 # ============================================================ BÀI 3
 def gen_bai3():
@@ -137,7 +154,7 @@ def gen_bai3():
             "Quy tắc bắt buộc phải nhớ"),
         nav_closing(3),
     ]
-    build_deck(slides, deck_path(3), HEAD, FOOT, "Bài 3 — Tổng Quan SQL")
+    build_deck(slides, deck_path(3), HEAD, FOOT, "Bài 3 — Tổng Quan SQL", practice_href=PRACTICE_HREF[3])
 
 # ============================================================ BÀI 4
 def gen_bai4():
@@ -165,7 +182,7 @@ def gen_bai4():
             "Mẹo dùng ORDER BY nhiều cột"),
         nav_closing(4),
     ]
-    build_deck(slides, deck_path(4), HEAD, FOOT, "Bài 4 — Truy Vấn Cơ Bản Phần 2")
+    build_deck(slides, deck_path(4), HEAD, FOOT, "Bài 4 — Truy Vấn Cơ Bản Phần 2", practice_href=PRACTICE_HREF[4])
 
 # ============================================================ BÀI 5
 def gen_bai5():
@@ -192,7 +209,7 @@ def gen_bai5():
             "Ghi nhớ để tránh lỗi 'Invalid use of group function'"),
         nav_closing(5),
     ]
-    build_deck(slides, deck_path(5), HEAD, FOOT, "Bài 5 — Hàm Nhóm & GROUP BY")
+    build_deck(slides, deck_path(5), HEAD, FOOT, "Bài 5 — Hàm Nhóm & GROUP BY", practice_href=PRACTICE_HREF[5])
 
 # ============================================================ BÀI 6
 def gen_bai6():
@@ -219,7 +236,7 @@ def gen_bai6():
             "Kiến thức mở rộng hay bị hỏi trong đề thi"),
         nav_closing(6),
     ]
-    build_deck(slides, deck_path(6), HEAD, FOOT, "Bài 6 — Các Phép Nối Bảng")
+    build_deck(slides, deck_path(6), HEAD, FOOT, "Bài 6 — Các Phép Nối Bảng", practice_href=PRACTICE_HREF[6])
 
 # ============================================================ BÀI 7
 def gen_bai7():
@@ -248,7 +265,7 @@ def gen_bai7():
             "Lưu ý về hiệu năng"),
         nav_closing(7),
     ]
-    build_deck(slides, deck_path(7), HEAD, FOOT, "Bài 7 — Truy Vấn Con")
+    build_deck(slides, deck_path(7), HEAD, FOOT, "Bài 7 — Truy Vấn Con", practice_href=PRACTICE_HREF[7])
 
 # ============================================================ BÀI 8
 def gen_bai8():
@@ -277,7 +294,7 @@ def gen_bai8():
             "Quy tắc an toàn bắt buộc"),
         nav_closing(8, extra_sub="Bài này khớp với bộ 10 câu ôn tập GROUP BY/HAVING/JOIN/SUBQUERY đã có lời giải chi tiết."),
     ]
-    build_deck(slides, deck_path(8), HEAD, FOOT, "Bài 8 — Thêm Sửa Xóa Dữ Liệu")
+    build_deck(slides, deck_path(8), HEAD, FOOT, "Bài 8 — Thêm Sửa Xóa Dữ Liệu", practice_href=PRACTICE_HREF[8])
 
 # ============================================================ BÀI 9
 def gen_bai9():
@@ -305,7 +322,7 @@ def gen_bai9():
             "Nguyên văn ghi chú của giảng viên ở buổi ôn tập này"),
         nav_closing(9),
     ]
-    build_deck(slides, deck_path(9), HEAD, FOOT, "Bài 9 — Ôn Tập Tổng Hợp")
+    build_deck(slides, deck_path(9), HEAD, FOOT, "Bài 9 — Ôn Tập Tổng Hợp", practice_href=PRACTICE_HREF[9])
 
 # ============================================================ BÀI 10
 def gen_bai10():
@@ -337,7 +354,7 @@ def gen_bai10():
             [("20", "Bài tập JOIN"), ("3", "Nhóm độ khó"), ("100%", "Đã có lời giải")]),
         nav_closing(10, extra_sub="20 bài JOIN này (mã cm14-cm33) đã có sẵn để luyện tương tác, chấm điểm ngay."),
     ]
-    build_deck(slides, deck_path(10), HEAD, FOOT, "Bài 10 — Nối Bảng Nâng Cao")
+    build_deck(slides, deck_path(10), HEAD, FOOT, "Bài 10 — Nối Bảng Nâng Cao", practice_href=PRACTICE_HREF[10])
 
 
 ALL_GENERATORS = [gen_bai1, gen_bai2, gen_bai3, gen_bai4, gen_bai5,

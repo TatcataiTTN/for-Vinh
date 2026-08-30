@@ -961,6 +961,27 @@
     .code-explain b { color: var(--text); }
     .two-col-code { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
 
+    /* Nút cố định "Luyện tập chủ đề này" — góc trên phải, cùng ngữ pháp với .slide-counter */
+    .practice-pin {
+      position: fixed;
+      top: 2.2vh;
+      right: 3vw;
+      z-index: 110;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #fff;
+      background: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 8px 20px -8px rgba(30,43,250,.55);
+    }
+    .practice-pin:hover { filter: brightness(1.08); }
+
     /* Huy hiệu "giống đề thi thật" — cùng ngữ pháp với .slide-header .tag */
     .exam-badge {
       display: inline-flex;
@@ -1120,12 +1141,13 @@ WHERE employees.officeCode = offices.officeCode
       <h1>Hoàn Thành Bài 8</h1>
       <p class="closing-sub">Tiếp theo: Bài 9 — Ôn Tập Tổng Hợp SQL. Bài này khớp với bộ 10 câu ôn tập GROUP BY/HAVING/JOIN/SUBQUERY đã có lời giải chi tiết.</p>
       <a href="bai-9.html" class="cta-btn">Sang Bài 9 →</a>
-      <p class="closing-contact">Luyện tập tương tác: <a href="../index.html" style="color:inherit;">tatcataittn.github.io/for-Vinh/Exercises</a></p>
+      <p class="closing-contact">🧪 Luyện tập ngay chủ đề này: <a href="../index.html#/cm12" style="color:inherit;">bấm vào đây</a></p>
     </div>
 
   </div>
 
   <!-- Navigation -->
+  <a class="practice-pin" href="../index.html#/cm12">🧪 Luyện tập chủ đề này</a>
   <div class="slide-counter"><span id="current">1</span> / <span id="total">10</span></div>
   <div class="keyboard-hint">Use arrow keys to navigate</div>
   <div class="progress-bar" id="progress"></div>

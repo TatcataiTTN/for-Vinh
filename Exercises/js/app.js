@@ -4,6 +4,22 @@
 
 const STORAGE_KEY = "sqlpractice_progress_v1";
 
+// Suy ra bài giảng lý thuyết (hoc-day-du/bai-N.html) khớp nhất với 1 câu hỏi SQL,
+// dựa trên từ khóa trong "topic". Dùng chung cho cả 3 CSDL (classicmodels/truong_hoc/
+// cua_hang_sach) vì các topic được đặt tên nhất quán theo dạng bài, không theo CSDL.
+function topicToLecture(topic) {
+  if (!topic) return null;
+  const t = topic;
+  if (/Bài 10/.test(t)) return 10;
+  if (/JOIN/.test(t)) return 6;
+  if (/Subquery/.test(t)) return 7;
+  if (/GROUP BY|HAVING/.test(t)) return 5;
+  if (/DML/.test(t)) return 8;
+  if (/LIKE|ORDER BY|BETWEEN|\bIN\b/.test(t)) return 4;
+  if (/WHERE/.test(t)) return 3;
+  return null;
+}
+
 const state = {
   SQL: null,
   dbBytes: {},         // { dbName: Uint8Array }
@@ -330,6 +346,11 @@ function renderSqlQuestion(q) {
     `<div class="schema-table"><span class="t-name">${t.name}</span> — <span class="t-cols">${t.cols}</span></div>`
   ).join("");
 
+  const lecture = topicToLecture(q.topic);
+  const lectureLink = lecture
+    ? `<a class="btn btn-ghost" style="text-decoration:none;" href="hoc-day-du/bai-${lecture}.html">📖 Xem lý thuyết Bài ${lecture}</a>`
+    : "";
+
   main.innerHTML = `
     <div class="topbar">
       <h2>${schema.icon} ${q.title}</h2>
@@ -338,6 +359,7 @@ function renderSqlQuestion(q) {
     <div class="card">
       <h3><span class="diff-badge diff-${q.difficulty}">${"★".repeat(q.difficulty)}${"☆".repeat(3 - q.difficulty)}</span> Đề bài</h3>
       <div class="topic-chip">${q.topic}</div>
+      ${lectureLink ? `<div style="margin:6px 0 2px;">${lectureLink}</div>` : ""}
       <p class="prompt-text">${q.prompt}</p>
       <div style="margin-top:12px;">
         <span class="schema-toggle" id="schema-toggle">▸ Xem sơ đồ các bảng liên quan</span>

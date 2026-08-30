@@ -961,6 +961,27 @@
     .code-explain b { color: var(--text); }
     .two-col-code { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
 
+    /* Nút cố định "Luyện tập chủ đề này" — góc trên phải, cùng ngữ pháp với .slide-counter */
+    .practice-pin {
+      position: fixed;
+      top: 2.2vh;
+      right: 3vw;
+      z-index: 110;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #fff;
+      background: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 8px 20px -8px rgba(30,43,250,.55);
+    }
+    .practice-pin:hover { filter: brightness(1.08); }
+
     /* Huy hiệu "giống đề thi thật" — cùng ngữ pháp với .slide-header .tag */
     .exam-badge {
       display: inline-flex;
