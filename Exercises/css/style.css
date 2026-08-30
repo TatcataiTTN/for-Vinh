@@ -181,6 +181,26 @@ table.result-table tbody tr:nth-child(even) { background: #fafcfd; }
 .db-card p { margin: 0; font-size: 13px; color: var(--text-soft); }
 .db-card .go { font-size: 12.5px; color: var(--teal-dark); font-weight: 700; margin-top: 10px; display:block; }
 
+/* ---------- Sidebar: nhóm con (mcq theo buổi/chương) ---------- */
+.sidebar-subheader {
+  font-size: 11px; color: #7d93a8; text-transform: uppercase; letter-spacing: .04em;
+  margin: 8px 0 4px 6px;
+}
+
+/* ---------- Trắc nghiệm (MCQ) ---------- */
+.mcq-options { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+.mcq-option {
+  display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px;
+  border: 1px solid var(--border); border-radius: 10px; cursor: pointer; transition: all .12s ease;
+}
+.mcq-option:hover { border-color: var(--teal); background: var(--tealbg, #f0fdfa); }
+.mcq-option input { margin-top: 3px; }
+.mcq-option .mcq-letter { font-weight: 700; color: var(--navy); flex-shrink: 0; }
+.mcq-option .mcq-text { font-size: 14.5px; }
+.mcq-option.selected { border-color: var(--teal); background: #ecfdf9; }
+.mcq-option.correct { border-color: var(--green); background: #eaf7ea; }
+.mcq-option.wrong { border-color: var(--red); background: #fdeceb; }
+
 /* ---------- Boot / thiết lập lần đầu ---------- */
 .boot-overlay {
   position: fixed; inset: 0; z-index: 999;

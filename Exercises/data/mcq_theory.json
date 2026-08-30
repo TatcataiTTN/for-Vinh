@@ -1,0 +1,2330 @@
+[
+  {
+    "id": "mcqth001",
+    "group": 1,
+    "question": "Hệ quản trị cơ sở dữ liệu (DBMS) là gì?",
+    "options": [
+      "Một phần mềm dùng để tạo và quản lý cơ sở dữ liệu.",
+      "Một ngôn ngữ lập trình để truy vấn dữ liệu.",
+      "Một thiết bị phần cứng lưu trữ dữ liệu.",
+      "Một tập hợp các dữ liệu được tổ chức có cấu trúc."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth002",
+    "group": 1,
+    "question": "Đâu không phải là chức năng chính của một DBMS?",
+    "options": [
+      "Quản lý người dùng và bảo mật.",
+      "Thiết kế giao diện người dùng đồ họa (GUI).",
+      "Thao tác dữ liệu (DML).",
+      "Định nghĩa dữ liệu (DDL)."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth003",
+    "group": 1,
+    "question": "Ưu điểm chính của việc sử dụng DBMS so với hệ thống file truyền thống là gì?",
+    "options": [
+      "Dễ dàng chia sẻ dữ liệu.",
+      "Tất cả các đáp án trên.",
+      "Giảm sự dư thừa dữ liệu và tăng tính nhất quán.",
+      "Tăng tốc độ truy cập dữ liệu."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth004",
+    "group": 1,
+    "question": "Mô hình dữ liệu nào tổ chức dữ liệu dưới dạng các cây phân cấp?",
+    "options": [
+      "Mô hình phân cấp (Hierarchical Model)",
+      "Mô hình mạng (Network Model)",
+      "Mô hình quan hệ (Relational Model)",
+      "Mô hình hướng đối tượng (Object-Oriented Model)"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth005",
+    "group": 1,
+    "question": "SQL là viết tắt của cụm từ nào?",
+    "options": [
+      "Sequential Query Language",
+      "Structured Query Language",
+      "Simple Query Language",
+      "Standard Question Language"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth006",
+    "group": 1,
+    "question": "DDL (Data Definition Language) trong SQL dùng để làm gì?",
+    "options": [
+      "Kiểm soát quyền truy cập người dùng (GRANT, REVOKE).",
+      "Truy vấn và thao tác dữ liệu (SELECT, INSERT, UPDATE).",
+      "Định nghĩa cấu trúc của cơ sở dữ liệu (CREATE, ALTER, DROP).",
+      "Quản lý giao dịch (COMMIT, ROLLBACK)."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth007",
+    "group": 1,
+    "question": "DML (Data Manipulation Language) trong SQL dùng để làm gì?",
+    "options": [
+      "Truy vấn và thao tác trên dữ liệu (SELECT, INSERT, UPDATE, DELETE).",
+      "Tạo và xóa các bảng, chỉ mục.",
+      "Cấp và thu hồi quyền.",
+      "Bắt đầu và kết thúc giao dịch."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth008",
+    "group": 1,
+    "question": "Người nào chịu trách nhiệm chính trong việc thiết kế, triển khai và bảo trì cơ sở dữ liệu?",
+    "options": [
+      "Quản trị viên cơ sở dữ liệu (DBA)",
+      "Nhà phân tích hệ thống",
+      "Lập trình viên ứng dụng",
+      "Người dùng cuối"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth009",
+    "group": 1,
+    "question": "Tính độc lập dữ liệu (Data Independence) có nghĩa là gì?",
+    "options": [
+      "Dữ liệu có thể được truy cập từ bất kỳ đâu.",
+      "Dữ liệu không phụ thuộc vào phần cứng.",
+      "Dữ liệu được lưu trữ độc lập với hệ điều hành.",
+      "Thay đổi ở một mức độ kiến trúc không ảnh hưởng đến mức độ cao hơn."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth010",
+    "group": 1,
+    "question": "Kiến trúc 3 mức của một hệ CSDL bao gồm những mức nào?",
+    "options": [
+      "Mức người dùng, Mức hệ thống, Mức vật lý.",
+      "Mức cao, Mức trung, Mức thấp.",
+      "Mức ngoài (External), Mức khái niệm (Conceptual), Mức trong (Internal).",
+      "Mức ứng dụng, Mức logic, Mức lưu trữ."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth011",
+    "group": 1,
+    "question": "Mức nào trong kiến trúc 3 mức mô tả cách dữ liệu được lưu trữ vật lý trên đĩa?",
+    "options": [
+      "Mức trong (Internal)",
+      "Mức logic",
+      "Mức ngoài (External)",
+      "Mức khái niệm (Conceptual)"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth012",
+    "group": 1,
+    "question": "Một 'siêu dữ liệu' (metadata) là gì?",
+    "options": [
+      "Dữ liệu về dữ liệu, mô tả cấu trúc của CSDL.",
+      "Dữ liệu được mã hóa.",
+      "Dữ liệu có kích thước rất lớn.",
+      "Dữ liệu tạm thời."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth013",
+    "group": 1,
+    "question": "Mục đích chính của việc xây dựng hệ cơ sở dữ liệu là gì?",
+    "options": [
+      "Giảm chi phí phần cứng.",
+      "Quản lý dữ liệu tập trung, chia sẻ dùng chung và giảm dư thừa.",
+      "Đảm bảo máy tính chạy nhanh hơn.",
+      "Viết các câu lệnh lập trình nhanh hơn."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth014",
+    "group": 1,
+    "question": "Ngôn ngữ điều khiển dữ liệu (DCL) thường bao gồm các lệnh nào?",
+    "options": [
+      "SELECT, FROM, WHERE",
+      "CREATE, ALTER, DROP",
+      "INSERT, UPDATE, DELETE",
+      "GRANT, REVOKE"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth015",
+    "group": 1,
+    "question": "Khái niệm 'Từ điển dữ liệu' (Data Dictionary) trong CSDL là gì?",
+    "options": [
+      "Một tệp văn bản lưu trữ các truy vấn mẫu.",
+      "Nơi lưu trữ siêu dữ liệu (metadata) về các đối tượng trong hệ thống.",
+      "Một bảng chứa danh sách mật khẩu người dùng.",
+      "Một cuốn sách hướng dẫn sử dụng CSDL."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth016",
+    "group": 1,
+    "question": "Nhược điểm lớn nhất của hệ thống quản lý dữ liệu bằng tập tin truyền thống là gì?",
+    "options": [
+      "Khó khăn trong việc dùng chung dữ liệu và dễ xảy ra dư thừa, bất đồng nhất.",
+      "Không thể lưu trữ được văn bản.",
+      "Yêu cầu phần cứng quá đắt đỏ.",
+      "Tốc độ truy xuất quá nhanh."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth017",
+    "group": 1,
+    "question": "Sự khác biệt cơ bản giữa Dữ liệu (Data) và Thông tin (Information) là gì?",
+    "options": [
+      "Dữ liệu dùng cho máy tính, thông tin dùng cho con người.",
+      "Không có sự khác biệt, chúng là một.",
+      "Dữ liệu là các sự kiện thô chưa qua xử lý, còn thông tin là dữ liệu đã được xử lý mang lại ý nghĩa.",
+      "Thông tin là các sự kiện thô, còn dữ liệu là thông tin đã qua xử lý."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth018",
+    "group": 1,
+    "question": "Đặc trưng nào sau đây KHÔNG phải là đặc trưng của một Hệ CSDL?",
+    "options": [
+      "Dữ liệu phụ thuộc chặt chẽ vào chương trình ứng dụng.",
+      "Tính tự mô tả (self-describing).",
+      "Cho phép nhiều người dùng truy cập đồng thời.",
+      "Tính độc lập dữ liệu."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth019",
+    "group": 1,
+    "question": "Người dùng cuối (End-user) thường tương tác với CSDL thông qua mức nào trong kiến trúc 3 mức?",
+    "options": [
+      "Mức khái niệm (Conceptual level).",
+      "Mức vật lý (Physical level).",
+      "Mức trong (Internal level).",
+      "Mức ngoài (External level)."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth020",
+    "group": 1,
+    "question": "Tính độc lập dữ liệu vật lý có nghĩa là gì?",
+    "options": [
+      "Có thể thay đổi cấu trúc lưu trữ vật lý mà không làm thay đổi lược đồ khái niệm.",
+      "Người dùng không cần biết dữ liệu được lưu ở đâu.",
+      "Có thể thay đổi lược đồ khái niệm mà không ảnh hưởng đến mức ngoài.",
+      "Dữ liệu được lưu trữ trên nhiều máy tính khác nhau."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth021",
+    "group": 1,
+    "question": "Lược đồ cơ sở dữ liệu (Database Schema) là gì?",
+    "options": [
+      "Thiết kế tổng thể, cấu trúc của cơ sở dữ liệu.",
+      "Hệ quản trị CSDL đang được sử dụng.",
+      "Dữ liệu được lưu trữ trong CSDL.",
+      "Một tài khoản quản trị."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth022",
+    "group": 1,
+    "question": "Trạng thái cơ sở dữ liệu (Database State/Instance) thể hiện điều gì?",
+    "options": [
+      "Cấu trúc của các bảng.",
+      "Tập hợp dữ liệu hiện có trong CSDL tại một thời điểm cụ thể.",
+      "Tình trạng kết nối mạng của máy chủ.",
+      "Phiên bản của phần mềm DBMS."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth023",
+    "group": 1,
+    "question": "Hệ quản trị CSDL quan hệ (RDBMS) lưu trữ dữ liệu chủ yếu dưới cấu trúc nào?",
+    "options": [
+      "Cây đồ thị (Graph).",
+      "Bảng (Table) hai chiều.",
+      "Tập tin văn bản (Text file).",
+      "Danh sách liên kết (Linked list)."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth024",
+    "group": 1,
+    "question": "Trong kiến trúc 3 mức, mức khái niệm (Conceptual level) có nhiệm vụ gì?",
+    "options": [
+      "Cung cấp giao diện đồ họa cho người dùng.",
+      "Mô tả cấu trúc vật lý của đĩa cứng.",
+      "Mô tả toàn bộ cấu trúc logic của CSDL cho cộng đồng người dùng.",
+      "Mô tả một phần của CSDL cho một nhóm người dùng cụ thể."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth025",
+    "group": 1,
+    "question": "Đối tượng nào dưới đây KHÔNG trực tiếp tham gia vào môi trường sử dụng CSDL?",
+    "options": [
+      "Người thiết kế CSDL (Database Designer).",
+      "Quản trị viên CSDL (DBA).",
+      "Lập trình viên ứng dụng (Application Programmer).",
+      "Người thiết kế phần cứng máy tính."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth026",
+    "group": 1,
+    "question": "Tính toàn vẹn dữ liệu (Data Integrity) trong CSDL nhằm đảm bảo điều gì?",
+    "options": [
+      "Dữ liệu chiếm ít dung lượng nhất.",
+      "Mọi người dùng đều có thể truy cập dữ liệu.",
+      "Dữ liệu không bao giờ bị xóa.",
+      "Tính chính xác, hợp lệ và đáng tin cậy của dữ liệu."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth027",
+    "group": 1,
+    "question": "Tính nhất quán (Consistency) của CSDL nghĩa là gì?",
+    "options": [
+      "Dữ liệu luôn được sao lưu thường xuyên.",
+      "Dữ liệu không mâu thuẫn nhau và tuân thủ các ràng buộc nghiệp vụ trên toàn hệ thống.",
+      "Dữ liệu giống nhau ở mọi máy trạm.",
+      "Giao diện phần mềm luôn giữ nguyên hình dáng."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth028",
+    "group": 1,
+    "question": "Kiến trúc hệ CSDL Client-Server hoạt động theo cơ chế nào?",
+    "options": [
+      "Không cần mạng kết nối giữa các máy.",
+      "Máy khách (Client) gửi yêu cầu, máy chủ (Server) xử lý dữ liệu và trả kết quả về.",
+      "Máy khách xử lý toàn bộ dữ liệu, máy chủ chỉ hiển thị.",
+      "Mọi máy tính đều chia sẻ dữ liệu ngang hàng."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth029",
+    "group": 1,
+    "question": "Hệ cơ sở dữ liệu phân tán (Distributed Database) có đặc điểm gì?",
+    "options": [
+      "Toàn bộ dữ liệu được lưu trên đám mây công cộng.",
+      "Dữ liệu được lưu trữ hoàn toàn trên một ổ đĩa duy nhất.",
+      "Chỉ có một người được phép truy cập tại một thời điểm.",
+      "Dữ liệu được phân tán và lưu trữ trên nhiều máy tính/điểm nút kết nối mạng với nhau."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth030",
+    "group": 1,
+    "question": "Ngôn ngữ truy vấn (Query Language) chủ yếu được dùng để làm gì?",
+    "options": [
+      "Trích xuất, tìm kiếm và thao tác thông tin từ CSDL.",
+      "Cài đặt hệ điều hành máy chủ.",
+      "Thiết kế giao diện web.",
+      "Quét virus cho dữ liệu."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth031",
+    "group": 2,
+    "question": "Trong mô hình thực thể - liên kết (ERD), hình chữ nhật biểu diễn cho thành phần nào?",
+    "options": [
+      "Thực thể (Entity).",
+      "Thuộc tính (Attribute).",
+      "Mối quan hệ (Relationship).",
+      "Khóa chính (Primary Key)."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth032",
+    "group": 2,
+    "question": "Hình elip trong ERD biểu diễn cho thành phần nào?",
+    "options": [
+      "Khóa ngoại.",
+      "Mối quan hệ.",
+      "Thuộc tính.",
+      "Thực thể."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth033",
+    "group": 2,
+    "question": "Mối quan hệ 'một-nhiều' (1:N) trong ERD có nghĩa là gì?",
+    "options": [
+      "Một thực thể của tập hợp này liên kết với một thực thể của tập hợp kia.",
+      "Một thực thể của tập hợp này liên kết với nhiều thực thể của tập hợp kia.",
+      "Không có liên kết nào.",
+      "Nhiều thực thể của tập hợp này liên kết với nhiều thực thể của tập hợp kia."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth034",
+    "group": 2,
+    "question": "Thuộc tính được gạch chân trong ERD là gì?",
+    "options": [
+      "Thuộc tính khóa (Key attribute)",
+      "Thuộc tính phức hợp (Composite attribute)",
+      "Thuộc tính đa trị (Multivalued attribute)",
+      "Thuộc tính dẫn xuất (Derived attribute)"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth035",
+    "group": 2,
+    "question": "Một thực thể yếu (Weak Entity) là gì?",
+    "options": [
+      "Một thực thể không có khóa chính.",
+      "Một thực thể không thể tồn tại nếu không có thực thể chủ sở hữu của nó.",
+      "Một thực thể có ít thuộc tính.",
+      "Một thực thể không tham gia vào bất kỳ mối quan hệ nào."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth036",
+    "group": 2,
+    "question": "Trong ERD, hình thoi biểu diễn cho thành phần nào?",
+    "options": [
+      "Thuộc tính (Attribute)",
+      "Thực thể (Entity)",
+      "Mối quan hệ (Relationship)",
+      "Ràng buộc (Constraint)"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth037",
+    "group": 2,
+    "question": "Thuộc tính 'Tuổi' được tính từ 'Ngày sinh' là một ví dụ của loại thuộc tính nào?",
+    "options": [
+      "Thuộc tính đơn",
+      "Thuộc tính phức hợp",
+      "Thuộc tính đa trị",
+      "Thuộc tính dẫn xuất"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth038",
+    "group": 2,
+    "question": "Mối quan hệ giữa SINHVIEN và MONHOC trong hệ thống đăng ký học phần là loại quan hệ gì?",
+    "options": [
+      "Một - Nhiều (1:N)",
+      "Một - Một (1:1)",
+      "Không có quan hệ",
+      "Nhiều - Nhiều (N:M)"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth039",
+    "group": 2,
+    "question": "Trong sơ đồ ER, đường thẳng (Line) được sử dụng để làm gì?",
+    "options": [
+      "Biểu diễn khóa chính.",
+      "Kết nối thực thể với mối quan hệ và thuộc tính với thực thể.",
+      "Kết nối các thuộc tính với nhau.",
+      "Chỉ hướng của dữ liệu."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth040",
+    "group": 2,
+    "question": "Ràng buộc tham gia toàn phần (Total participation) của một thực thể vào mối quan hệ được biểu diễn bằng ký hiệu gì?",
+    "options": [
+      "Đường nét đứt.",
+      "Mũi tên.",
+      "Đường đôi (hai nét song song).",
+      "Đường đơn."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth041",
+    "group": 2,
+    "question": "Ràng buộc tham gia bán phần (Partial participation) được biểu diễn bằng ký hiệu gì?",
+    "options": [
+      "Đường mũi tên kép.",
+      "Đường đôi.",
+      "Đường đơn.",
+      "Đường nét đứt."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth042",
+    "group": 2,
+    "question": "Trong mô hình ER, một thực thể yếu (Weak Entity) được nhận dạng thông qua điều gì?",
+    "options": [
+      "Thông qua toàn bộ các thuộc tính của nó.",
+      "Bằng một khóa ngoại ngẫu nhiên.",
+      "Nó không cần được nhận dạng.",
+      "Thông qua thực thể chủ sở hữu (Owner entity) và khóa cục bộ của chính nó."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth043",
+    "group": 2,
+    "question": "Khóa cục bộ (Partial Key) của một thực thể yếu được biểu diễn như thế nào trong ERD?",
+    "options": [
+      "Được gạch dưới bằng nét liền.",
+      "Có dấu sao (*) bên cạnh.",
+      "Được in đậm.",
+      "Được gạch dưới bằng nét đứt."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth044",
+    "group": 2,
+    "question": "Hình chữ nhật nét đôi trong sơ đồ ER biểu diễn cho khái niệm nào?",
+    "options": [
+      "Thực thể mạnh.",
+      "Thuộc tính phức hợp.",
+      "Thực thể yếu.",
+      "Mối quan hệ nhiều-nhiều."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth045",
+    "group": 2,
+    "question": "Hình elip nét đôi trong sơ đồ ER biểu diễn cho loại thuộc tính nào?",
+    "options": [
+      "Thuộc tính dẫn xuất.",
+      "Thuộc tính đơn trị.",
+      "Thuộc tính khóa.",
+      "Thuộc tính đa trị."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth046",
+    "group": 2,
+    "question": "Hình elip nét đứt trong sơ đồ ER biểu diễn cho loại thuộc tính nào?",
+    "options": [
+      "Thuộc tính dẫn xuất.",
+      "Thuộc tính phức hợp.",
+      "Thuộc tính khóa.",
+      "Thuộc tính đa trị."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth047",
+    "group": 2,
+    "question": "Mối quan hệ đệ quy (Recursive relationship) là gì?",
+    "options": [
+      "Mối quan hệ không có bản số.",
+      "Một tập thực thể có mối quan hệ với chính nó.",
+      "Mối quan hệ luôn lặp lại vô hạn.",
+      "Mối quan hệ giữa 3 thực thể trở lên."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth048",
+    "group": 2,
+    "question": "Bản số (Cardinality ratio) của một mối quan hệ cho biết điều gì?",
+    "options": [
+      "Tốc độ truy xuất mối quan hệ.",
+      "Số lượng tối thiểu các thuộc tính của một thực thể.",
+      "Số lượng bảng cần tạo trong cơ sở dữ liệu.",
+      "Số lượng tối đa các thực thể của một tập thực thể có thể tham gia vào mối quan hệ."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth049",
+    "group": 2,
+    "question": "Khi một thực thể có bản số tối thiểu trong mối quan hệ bằng 1, điều này có ý nghĩa gì?",
+    "options": [
+      "Thực thể đó là khóa chính.",
+      "Thực thể đó bắt buộc phải tham gia vào mối quan hệ (Tham gia toàn phần).",
+      "Thực thể đó chỉ có một thuộc tính.",
+      "Mối quan hệ đó là quan hệ 1-1."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth050",
+    "group": 2,
+    "question": "Khi một thực thể có bản số tối thiểu trong mối quan hệ bằng 0, điều này có ý nghĩa gì?",
+    "options": [
+      "Sự tham gia của thực thể vào mối quan hệ là không bắt buộc (Tham gia bán phần).",
+      "Mối quan hệ không có tác dụng.",
+      "Đó là một thực thể yếu.",
+      "Thực thể đó không tồn tại."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth051",
+    "group": 2,
+    "question": "Một mối quan hệ (Relationship) trong ERD có thể có thuộc tính không?",
+    "options": [
+      "Chỉ các mối quan hệ 1:1 mới có.",
+      "Chỉ có mối quan hệ đệ quy mới có.",
+      "Có, thường xuất hiện ở các mối quan hệ Nhiều-Nhiều (M:N).",
+      "Tuyệt đối không, chỉ thực thể mới có thuộc tính."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth052",
+    "group": 2,
+    "question": "Thuộc tính 'Địa chỉ' gồm Số nhà, Tên đường, Quận, Thành phố là một ví dụ về loại thuộc tính nào?",
+    "options": [
+      "Thuộc tính khóa.",
+      "Thuộc tính phức hợp.",
+      "Thuộc tính dẫn xuất.",
+      "Thuộc tính đa trị."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth053",
+    "group": 2,
+    "question": "Thuộc tính đơn trị (Single-valued attribute) là gì?",
+    "options": [
+      "Thuộc tính không thể làm khóa.",
+      "Chỉ nhận một giá trị duy nhất cho một thực thể cụ thể.",
+      "Thuộc tính có độ dài bằng 1 ký tự.",
+      "Thuộc tính chỉ có một chữ số."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth054",
+    "group": 2,
+    "question": "Sự khác biệt giữa Thực thể (Entity) và Tập thực thể (Entity Set) là gì?",
+    "options": [
+      "Tập thực thể nằm trong thực thể.",
+      "Thực thể là khái niệm, tập thực thể là vật lý.",
+      "Không có khác biệt.",
+      "Thực thể là một đối tượng cụ thể, tập thực thể là tập hợp các đối tượng cùng loại."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth055",
+    "group": 2,
+    "question": "Mối quan hệ nhận dạng (Identifying relationship) dùng để liên kết các đối tượng nào?",
+    "options": [
+      "Hai thuộc tính với nhau.",
+      "Một thực thể yếu và thực thể chủ sở hữu của nó.",
+      "Hai thực thể mạnh với nhau.",
+      "Nhiều tập thực thể cùng lúc."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth056",
+    "group": 2,
+    "question": "Mối quan hệ nhận dạng được biểu diễn bằng ký hiệu gì trong ERD?",
+    "options": [
+      "Hình elip nét đôi.",
+      "Hình thoi nét liền.",
+      "Hình thoi nét đôi.",
+      "Hình thoi nét đứt."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth057",
+    "group": 2,
+    "question": "Trong mối quan hệ Một-Một (1:1), bản số tối đa ở mỗi nhánh của mối quan hệ là bao nhiêu?",
+    "options": [
+      "N và N",
+      "1 và N",
+      "0 và 1",
+      "1 và 1"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth058",
+    "group": 2,
+    "question": "Mối quan hệ giữa 'Nhà cung cấp' và 'Mặt hàng' (Một nhà CC cấp nhiều mặt hàng, một mặt hàng do nhiều nhà CC cấp) là quan hệ gì?",
+    "options": [
+      "N:M (Nhiều-Nhiều)",
+      "1:1",
+      "1:N",
+      "N:1"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth059",
+    "group": 2,
+    "question": "Bậc (Cấp) của một mối quan hệ (Degree of a relationship) được định nghĩa như thế nào?",
+    "options": [
+      "Số lượng thuộc tính của mối quan hệ.",
+      "Số lượng các tập thực thể tham gia vào mối quan hệ đó.",
+      "Mức độ ưu tiên của mối quan hệ.",
+      "Số lượng tối đa các bản ghi tham gia."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth060",
+    "group": 2,
+    "question": "Mối quan hệ bậc 3 (Ternary relationship) liên kết bao nhiêu tập thực thể?",
+    "options": [
+      "3 tập thực thể.",
+      "Nhiều hơn 3 tập thực thể.",
+      "1 tập thực thể.",
+      "2 tập thực thể."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth061",
+    "group": 2,
+    "question": "[Bài tập ERD] Cho bài toán: 'Một công ty quản lý dự án. Mỗi nhân viên có thể tham gia nhiều dự án, và mỗi dự án có nhiều nhân viên tham gia. Mỗi nhân viên chỉ thuộc về một phòng ban duy nhất. Mỗi phòng ban có nhiều nhân viên'. Phát biểu nào sau đây ĐÚNG về sơ đồ ERD của bài toán này?",
+    "options": [
+      "Mối quan hệ giữa PHONGBAN và NHANVIEN là N:M.",
+      "Mối quan hệ giữa PHONGBAN và DUAN là 1:N.",
+      "Mối quan hệ giữa NHANVIEN và DUAN là 1:N.",
+      "Mối quan hệ giữa PHONGBAN và NHANVIEN là 1:N, giữa NHANVIEN và DUAN là N:M."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth062",
+    "group": 2,
+    "question": "[Bài tập ERD] Thiết kế CSDL cho thư viện: 'Mỗi độc giả có thể mượn nhiều cuốn sách. Mỗi cuốn sách có thể được nhiều độc giả mượn (vào các thời điểm khác nhau). Cần lưu lại Ngày mượn và Ngày trả'. Thuộc tính 'Ngày mượn', 'Ngày trả' sẽ được đặt ở đâu trong mô hình ERD?",
+    "options": [
+      "Là thuộc tính của mối quan hệ MƯỢN (giữa ĐỘC GIẢ và SÁCH).",
+      "Là thuộc tính của thực thể SÁCH.",
+      "Phải tạo một thực thể mới là NGÀY THÁNG.",
+      "Là thuộc tính của thực thể ĐỘC GIẢ."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth063",
+    "group": 2,
+    "question": "[EER] Trong mô hình Thực thể - Liên kết mở rộng (EER), ràng buộc 'Disjoint' (Rời rạc) trên một cấu trúc Siêu lớp/Lớp con (Superclass/Subclass) có ý nghĩa gì?",
+    "options": [
+      "Một thực thể thuộc Siêu lớp chỉ có thể thuộc TỐI ĐA một Lớp con (không được phép thuộc hai lớp con cùng lúc).",
+      "Các Lớp con không được phép có thuộc tính riêng.",
+      "Một thực thể thuộc Siêu lớp có thể đồng thời thuộc nhiều Lớp con.",
+      "Mọi thực thể của Siêu lớp bắt buộc phải thuộc ít nhất một Lớp con."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth064",
+    "group": 2,
+    "question": "[EER] Trong mô hình EER, ràng buộc 'Overlapping' (Chồng chéo) cho phép điều gì?",
+    "options": [
+      "Một thực thể thuộc Siêu lớp có thể thuộc về hai hay nhiều Lớp con cùng một lúc.",
+      "Lớp con có thể kế thừa từ nhiều Siêu lớp khác nhau.",
+      "Các tập thực thể bị xóa bỏ.",
+      "Một thực thể không cần thuộc Siêu lớp mà vẫn thuộc Lớp con."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth065",
+    "group": 2,
+    "question": "[EER] Ràng buộc 'Total Completeness' (Bắt buộc toàn phần - ký hiệu bằng đường nét đôi) trong phân lớp EER nghĩa là gì?",
+    "options": [
+      "Một thực thể của Siêu lớp KHÔNG BẮT BUỘC phải thuộc bất kỳ Lớp con nào.",
+      "Siêu lớp không được phép có thực thể nào.",
+      "Mọi thực thể của Siêu lớp BẮT BUỘC phải thuộc ít nhất một trong các Lớp con.",
+      "Mọi Lớp con phải có số lượng thuộc tính bằng nhau."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth066",
+    "group": 2,
+    "question": "[Bài tập EER] Thực thể NHANVIEN là Siêu lớp của 3 Lớp con: KYSU, QUANLY, NHANVIEN_BANHANG. Ràng buộc là Disjoint và Partial. Phát biểu nào sau đây đúng?",
+    "options": [
+      "Mọi nhân viên bắt buộc phải làm một trong 3 vị trí: Kỹ sư, Quản lý hoặc Bán hàng.",
+      "Một nhân viên có thể vừa là Kỹ sư vừa là Quản lý.",
+      "Một nhân viên không thể vừa là Kỹ sư vừa là Quản lý, và có thể có những nhân viên không thuộc cả 3 vị trí trên (ví dụ Bảo vệ).",
+      "Không thể lưu trữ nhân viên nếu không biết họ thuộc lớp con nào."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth067",
+    "group": 3,
+    "question": "Phép toán nào trong đại số quan hệ được sử dụng để chọn các bộ (hàng) thỏa mãn một điều kiện nhất định?",
+    "options": [
+      "Phép chọn (σ)",
+      "Phép kết nối (⨝)",
+      "Phép chiếu (π)",
+      "Phép hợp (∪)"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth068",
+    "group": 3,
+    "question": "Phép toán nào trong đại số quan hệ được sử dụng để chọn ra các thuộc tính (cột) từ một quan hệ?",
+    "options": [
+      "Phép chọn (σ)",
+      "Phép chiếu (π)",
+      "Phép chia (÷)",
+      "Phép trừ (−)"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth069",
+    "group": 3,
+    "question": "Trong SQL, mệnh đề nào tương ứng với phép chọn (σ) trong đại số quan hệ?",
+    "options": [
+      "SELECT",
+      "WHERE",
+      "GROUP BY",
+      "FROM"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth070",
+    "group": 3,
+    "question": "Trong SQL, mệnh đề nào tương ứng với phép chiếu (π) trong đại số quan hệ?",
+    "options": [
+      "WHERE",
+      "ORDER BY",
+      "SELECT",
+      "FROM"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth071",
+    "group": 3,
+    "question": "Phép kết nối tự nhiên (Natural Join) giữa hai quan hệ R và S dựa trên điều kiện nào?",
+    "options": [
+      "Các thuộc tính có cùng tên và cùng kiểu dữ liệu.",
+      "Khóa chính của R và khóa ngoại của S.",
+      "Tất cả các thuộc tính.",
+      "Không có điều kiện nào."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth072",
+    "group": 3,
+    "question": "Toán tử LIKE trong SQL được dùng để làm gì?",
+    "options": [
+      "So khớp chuỗi theo một mẫu.",
+      "So sánh lớn hơn.",
+      "So sánh bằng.",
+      "Kiểm tra giá trị NULL."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth073",
+    "group": 3,
+    "question": "Để sắp xếp kết quả truy vấn theo thứ tự giảm dần, ta dùng từ khóa nào sau ORDER BY?",
+    "options": [
+      "ASC",
+      "DESC",
+      "REVERSE",
+      "DOWN"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth074",
+    "group": 3,
+    "question": "Phép toán HỢP (UNION) của hai quan hệ R và S yêu cầu điều gì?",
+    "options": [
+      "R và S phải khả hợp (cùng số lượng thuộc tính và kiểu dữ liệu tương ứng).",
+      "Không yêu cầu gì.",
+      "R và S phải có ít nhất một thuộc tính chung.",
+      "R và S phải có cùng khóa chính."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth075",
+    "group": 3,
+    "question": "Sự khác biệt giữa UNION và UNION ALL là gì?",
+    "options": [
+      "Không có sự khác biệt.",
+      "UNION ALL nhanh hơn UNION.",
+      "UNION chỉ dùng cho số, UNION ALL dùng cho chuỗi.",
+      "UNION loại bỏ các bộ trùng lặp, UNION ALL thì không."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth076",
+    "group": 3,
+    "question": "Phép toán Tích Đề-các (Cartesian Product) kết hợp quan hệ R (m hàng) và S (n hàng) sẽ tạo ra bao nhiêu hàng?",
+    "options": [
+      "MAX(m, n) hàng",
+      "m + n hàng",
+      "m * n hàng",
+      "m - n hàng"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth077",
+    "group": 3,
+    "question": "Phép trừ (Difference) giữa hai quan hệ R và S (Ký hiệu: R - S) trả về kết quả gì?",
+    "options": [
+      "Tất cả các bộ của R và S.",
+      "Các bộ thuộc cả R và S.",
+      "Các bộ thuộc R nhưng không thuộc S.",
+      "Các bộ thuộc S nhưng không thuộc R."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth078",
+    "group": 3,
+    "question": "Phép giao (Intersection) của hai quan hệ R và S trả về kết quả gì?",
+    "options": [
+      "Các bộ có giá trị NULL.",
+      "Các bộ vừa thuộc R vừa thuộc S.",
+      "Tất cả các bộ.",
+      "Các bộ thuộc R nhưng không thuộc S."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth079",
+    "group": 3,
+    "question": "Yêu cầu bắt buộc để hai quan hệ có thể thực hiện phép Hợp (Union), Giao (Intersect) và Trừ (Difference) là gì?",
+    "options": [
+      "Chúng phải có cùng số dòng.",
+      "Khóa chính phải giống nhau.",
+      "Chúng phải có cùng tên.",
+      "Chúng phải khả hợp (union-compatible)."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth080",
+    "group": 3,
+    "question": "Phép kết nối Theta (Theta Join) kết hợp hai quan hệ dựa trên điều kiện gì?",
+    "options": [
+      "Chỉ điều kiện bằng (=).",
+      "Một điều kiện so sánh bất kỳ (như =, <, >, <=, >=, <>).",
+      "Điều kiện cùng tên cột.",
+      "Điều kiện khóa chính - khóa ngoại."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth081",
+    "group": 3,
+    "question": "Phép kết nối bằng (Equi-join) là trường hợp đặc biệt của phép toán nào?",
+    "options": [
+      "Cross Join",
+      "Theta Join (với điều kiện là dấu bằng =)",
+      "Natural Join",
+      "Outer Join"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth082",
+    "group": 3,
+    "question": "Trong SQL, phép Left Outer Join sẽ trả về kết quả như thế nào?",
+    "options": [
+      "Chỉ những bản ghi khớp nhau ở cả hai bảng.",
+      "Tất cả bản ghi của cả hai bảng.",
+      "Tất cả bản ghi của bảng bên phải, các cột bên trái điền NULL nếu không khớp.",
+      "Tất cả bản ghi của bảng bên trái, các cột bên phải điền NULL nếu không có dữ liệu khớp."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth083",
+    "group": 3,
+    "question": "Phép Right Outer Join sẽ giữ lại những bản ghi nào?",
+    "options": [
+      "Tất cả bản ghi bảng bên phải.",
+      "Tất cả bản ghi bảng bên trái.",
+      "Chỉ bản ghi trùng nhau.",
+      "Không giữ lại bản ghi nào."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth084",
+    "group": 3,
+    "question": "Phép Full Outer Join mang lại kết quả tương đương với việc thực hiện những phép toán nào kết hợp lại?",
+    "options": [
+      "Inner Join và Cross Join",
+      "Left Outer Join UNION Right Outer Join",
+      "Left Outer Join INTERSECT Right Outer Join",
+      "Chỉ Inner Join"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth085",
+    "group": 3,
+    "question": "Trong câu lệnh SELECT, từ khóa DISTINCT được sử dụng để làm gì?",
+    "options": [
+      "Loại bỏ các dòng có giá trị trùng lặp trong tập kết quả.",
+      "Đếm số dòng.",
+      "Sắp xếp dữ liệu.",
+      "Giới hạn số dòng trả về."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth086",
+    "group": 3,
+    "question": "Mệnh đề GROUP BY trong SQL dùng để làm gì?",
+    "options": [
+      "Lọc các dòng trước khi truy vấn.",
+      "Sắp xếp kết quả.",
+      "Nhóm các dòng có cùng giá trị ở một hoặc nhiều cột để sử dụng với hàm tập hợp.",
+      "Gộp các bảng lại với nhau."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth087",
+    "group": 3,
+    "question": "Sự khác biệt cơ bản giữa mệnh đề HAVING và mệnh đề WHERE là gì?",
+    "options": [
+      "WHERE lọc dữ liệu sau khi nhóm.",
+      "HAVING dùng cho chuỗi, WHERE dùng cho số.",
+      "Không có sự khác biệt, dùng thay thế nhau được.",
+      "HAVING lọc dữ liệu sau khi đã nhóm (GROUP BY), còn WHERE lọc trước khi nhóm."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth088",
+    "group": 3,
+    "question": "Hàm tập hợp (Aggregate function) nào được sử dụng để đếm số lượng bản ghi thỏa mãn điều kiện?",
+    "options": [
+      "SUM()",
+      "COUNT()",
+      "MAX()",
+      "AVG()"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth089",
+    "group": 3,
+    "question": "Hàm nào sau đây được dùng để tính giá trị trung bình của một cột kiểu số?",
+    "options": [
+      "MEAN()",
+      "MEDIAN()",
+      "TOTAL()",
+      "AVG()"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth090",
+    "group": 3,
+    "question": "Trong mệnh đề WHERE, toán tử IN(a, b, c) tương đương với cách viết nào?",
+    "options": [
+      "X != a OR X != b",
+      "X BETWEEN a AND c",
+      "X = a AND X = b AND X = c",
+      "X = a OR X = b OR X = c"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth091",
+    "group": 3,
+    "question": "Mệnh đề 'WHERE age BETWEEN 18 AND 25' sẽ chọn những bản ghi có độ tuổi là bao nhiêu?",
+    "options": [
+      "Từ 18 đến 25, bao gồm cả 18 và 25.",
+      "Chỉ 18 và 25.",
+      "Lớn hơn 18 và nhỏ hơn 25.",
+      "Từ 19 đến 24."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth092",
+    "group": 3,
+    "question": "Ký tự đại diện '%' (phần trăm) trong toán tử LIKE có ý nghĩa gì?",
+    "options": [
+      "Đại diện cho các ký tự số.",
+      "Bắt buộc phải có khoảng trắng.",
+      "Đại diện cho 0, 1 hoặc nhiều ký tự bất kỳ.",
+      "Đại diện cho đúng 1 ký tự bất kỳ."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth093",
+    "group": 3,
+    "question": "Ký tự đại diện '_' (dấu gạch dưới) trong toán tử LIKE có ý nghĩa gì?",
+    "options": [
+      "Đại diện cho đúng 1 ký tự bất kỳ.",
+      "Đại diện cho chuỗi rỗng.",
+      "Đại diện cho 1 từ.",
+      "Đại diện cho ký tự in hoa."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth094",
+    "group": 3,
+    "question": "Để kiểm tra xem một cột có chứa giá trị Rỗng hay không, ta phải sử dụng toán tử nào trong SQL?",
+    "options": [
+      "== NULL",
+      "LIKE NULL",
+      "IS NULL",
+      "= NULL"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth095",
+    "group": 3,
+    "question": "Phép chia (Division) trong đại số quan hệ thường được ứng dụng để giải quyết các câu truy vấn có chứa cụm từ nào?",
+    "options": [
+      "Ít nhất một",
+      "Chỉ một",
+      "'Tất cả', 'Mọi' (ví dụ: Tìm sinh viên đã học 'tất cả' các môn)",
+      "Không ai"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth096",
+    "group": 3,
+    "question": "Câu lệnh INSERT INTO trong SQL có chức năng gì?",
+    "options": [
+      "Thêm một hoặc nhiều dòng dữ liệu mới vào bảng.",
+      "Xóa một bảng.",
+      "Sửa đổi dữ liệu hiện có.",
+      "Đọc dữ liệu từ bảng."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth097",
+    "group": 4,
+    "question": "Khi chuyển một thực thể mạnh trong ERD sang mô hình quan hệ, nó sẽ trở thành gì?",
+    "options": [
+      "Một khóa ngoại.",
+      "Một mối quan hệ.",
+      "Một bảng (quan hệ).",
+      "Một thuộc tính."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth098",
+    "group": 4,
+    "question": "Mối quan hệ 'nhiều-nhiều' (M:N) trong ERD được chuyển sang mô hình quan hệ như thế nào?",
+    "options": [
+      "Thêm khóa chính của một thực thể vào thực thể kia làm khóa ngoại.",
+      "Tạo một bảng mới cho mối quan hệ đó, với khóa chính là sự kết hợp của các khóa chính từ hai thực thể tham gia.",
+      "Không thể chuyển đổi.",
+      "Chỉ cần thêm một thuộc tính vào một trong hai thực thể."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth099",
+    "group": 4,
+    "question": "Khi chuyển mối quan hệ 1-N, khóa ngoại được đặt ở phía nào?",
+    "options": [
+      "Phía '1' (một)",
+      "Cả hai phía",
+      "Phía 'N' (nhiều)",
+      "Tạo một bảng riêng"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth100",
+    "group": 4,
+    "question": "Một thuộc tính đa trị (ví dụ: 'SoDienThoai' của một nhân viên) được chuyển sang mô hình quan hệ như thế nào?",
+    "options": [
+      "Tạo một bảng mới riêng cho thuộc tính đó, chứa khóa chính của bảng gốc.",
+      "Bỏ qua thuộc tính đó.",
+      "Lưu trữ các giá trị trong một cột, cách nhau bởi dấu phẩy.",
+      "Chỉ lưu giá trị đầu tiên."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth101",
+    "group": 4,
+    "question": "Khi chuyển đổi một thuộc tính phức hợp sang mô hình quan hệ, phương pháp phổ biến là gì?",
+    "options": [
+      "Tạo bảng mới.",
+      "Bỏ qua thuộc tính phức hợp đó.",
+      "Tạo các cột (thuộc tính) riêng lẻ cho từng thành phần của nó, loại bỏ tên thuộc tính phức hợp chung.",
+      "Gộp tất cả thành 1 chuỗi."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth102",
+    "group": 4,
+    "question": "Đối với mối quan hệ Một-Một (1:1), khóa ngoại (Foreign Key) nên được đặt ở bảng nào để hạn chế tối đa giá trị NULL?",
+    "options": [
+      "Bảng tham gia bán phần.",
+      "Phải tạo bảng thứ 3.",
+      "Bảng nào cũng được.",
+      "Bảng tham gia toàn phần."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth103",
+    "group": 4,
+    "question": "Một mối quan hệ đệ quy (Recursive) 1:N được chuyển sang mô hình quan hệ như thế nào?",
+    "options": [
+      "Chỉ cần dùng mảng.",
+      "Tạo thêm 2 bảng mới.",
+      "Không thể chuyển được.",
+      "Thêm một thuộc tính làm khóa ngoại vào chính bảng đó, tham chiếu đến khóa chính của nó."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth104",
+    "group": 4,
+    "question": "Khóa chính của bảng được tạo ra từ một thực thể yếu (Weak Entity) bao gồm những thành phần nào?",
+    "options": [
+      "Khóa chính của thực thể chủ kết hợp với khóa cục bộ của thực thể yếu.",
+      "Khóa cục bộ của nó.",
+      "Một ID tự tăng.",
+      "Khóa chính của thực thể chủ."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth105",
+    "group": 4,
+    "question": "Thuộc tính dẫn xuất (Derived attribute) trong sơ đồ ER khi chuyển sang lược đồ quan hệ sẽ được xử lý như thế nào?",
+    "options": [
+      "Luôn được lưu thành cột bắt buộc.",
+      "Trở thành khóa chính.",
+      "Tạo thành một bảng mới.",
+      "Thường không được lưu trữ vật lý thành cột, mà sẽ được tính toán qua câu truy vấn (View/SQL)."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth106",
+    "group": 4,
+    "question": "Khi chuyển đổi một mối quan hệ bậc 3 (Ternary), thông thường ta sẽ tạo ra điều gì?",
+    "options": [
+      "Không tạo gì cả.",
+      "Ba bảng mới.",
+      "Thêm cột vào 1 trong 3 thực thể.",
+      "Một bảng mới chứa 3 khóa ngoại tham chiếu đến 3 thực thể tham gia."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth107",
+    "group": 4,
+    "question": "Khóa chính của một bảng sinh ra từ mối quan hệ Nhiều-Nhiều (M:N) thường là gì?",
+    "options": [
+      "Không có khóa chính.",
+      "Một cột ID tự sinh mới hoàn toàn.",
+      "Sự kết hợp của tất cả các khóa ngoại tham chiếu đến các bảng tham gia.",
+      "Khóa của một trong hai bảng tham gia."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth108",
+    "group": 4,
+    "question": "Nếu một thực thể có thuộc tính đa trị, theo nguyên tắc chuẩn, ta phải làm gì?",
+    "options": [
+      "Dùng kiểu dữ liệu mảng (nếu RDBMS không hỗ trợ thì gộp chuỗi).",
+      "Ghi vào một file log.",
+      "Bỏ qua thuộc tính đa trị.",
+      "Tạo một bảng mới chứa khóa chính của thực thể và thuộc tính đa trị đó."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth109",
+    "group": 4,
+    "question": "Trong quan hệ 1:N giữa PHONGBAN (1) và NHANVIEN (N), khóa ngoại sẽ được đặt ở bảng nào?",
+    "options": [
+      "Bảng trung gian",
+      "Không có khóa ngoại",
+      "NHANVIEN",
+      "PHONGBAN"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth110",
+    "group": 4,
+    "question": "Trong trường hợp cả hai thực thể trong quan hệ 1:1 đều có sự tham gia toàn phần (Total Participation), cách tối ưu nhất thường là gì?",
+    "options": [
+      "Gộp chung cả hai thực thể vào một bảng duy nhất.",
+      "Bỏ qua mối quan hệ này.",
+      "Giữ nguyên 2 bảng và đặt khóa ngoại ở 2 bên.",
+      "Tạo 3 bảng."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth111",
+    "group": 4,
+    "question": "Khi ánh xạ một cấu trúc phân cấp (Superclass/Subclass) thành một bảng duy nhất (Single Table) cho toàn bộ, ta bắt buộc phải thêm một cột để làm gì?",
+    "options": [
+      "Làm thuộc tính phân loại (Discriminator attribute) để phân biệt các Subclass.",
+      "Để tính toán chi phí.",
+      "Để đếm số lượng bản ghi.",
+      "Làm khóa chính."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth112",
+    "group": 4,
+    "question": "Nhược điểm lớn nhất của việc ánh xạ toàn bộ mô hình Superclass/Subclass thành một bảng duy nhất là gì?",
+    "options": [
+      "Bị mất dữ liệu chung.",
+      "Bảng có quá ít cột.",
+      "Khó truy vấn.",
+      "Có thể tạo ra rất nhiều giá trị NULL ở các cột dành riêng cho từng subclass."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth113",
+    "group": 4,
+    "question": "Nếu chọn cách tạo bảng riêng cho từng Subclass, khóa chính của các bảng Subclass sẽ là gì?",
+    "options": [
+      "Tất cả các thuộc tính của Subclass.",
+      "Chính là khóa chính của bảng Superclass.",
+      "Khóa ngoại trỏ đến bảng khác.",
+      "Tự động sinh ra ID mới."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth114",
+    "group": 4,
+    "question": "Khóa chính của bảng tạo ra từ một thuộc tính đa trị của một thực thể mạnh gồm những gì?",
+    "options": [
+      "Chỉ là giá trị của thuộc tính đa trị.",
+      "Một trường ID tự động tăng.",
+      "Chỉ là khóa chính của bảng gốc.",
+      "Khóa chính của thực thể mạnh và bản thân giá trị của thuộc tính đa trị đó."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth115",
+    "group": 4,
+    "question": "Khẳng định nào sau đây là ĐÚNG về việc chuyển đổi mối quan hệ từ ER sang bảng?",
+    "options": [
+      "Tất cả các mối quan hệ đều bị xóa đi.",
+      "Mọi mối quan hệ đều phải tạo ra bảng mới.",
+      "Quan hệ 1:N và 1:1 thường không cần tạo bảng mới, chỉ cần dùng khóa ngoại.",
+      "Quan hệ N:M không cần tạo bảng mới."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth116",
+    "group": 4,
+    "question": "Mối quan hệ ISA trong mô hình thực thể liên kết mở rộng (EER) đại diện cho khái niệm nào?",
+    "options": [
+      "Tính đa hình.",
+      "Tính đóng gói.",
+      "Tính kế thừa / phân lớp cha - con.",
+      "Tính liên kết."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth117",
+    "group": 4,
+    "question": "Việc ánh xạ mối quan hệ n-ary (n > 2) luôn luôn dẫn đến kết quả nào?",
+    "options": [
+      "Việc tạo ra một quan hệ (bảng) mới để thể hiện mối quan hệ đó.",
+      "Việc xóa bớt 1 thực thể.",
+      "Việc thêm khóa ngoại vào 1 bảng hiện có.",
+      "Không thể thực hiện được trong SQL."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth118",
+    "group": 4,
+    "question": "Trong quá trình chuyển đổi, các thuộc tính đơn trị (Single-valued) của một thực thể sẽ trở thành gì?",
+    "options": [
+      "Các bảng mới.",
+      "Các cột (trường) của bảng tương ứng.",
+      "Các dòng dữ liệu.",
+      "Khóa chính."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth119",
+    "group": 4,
+    "question": "Nếu có quan hệ N:1 từ THIETBI đến LOAITHIETBI, thuộc tính khóa ngoại sẽ được lưu ở đâu?",
+    "options": [
+      "Ở cả hai bảng",
+      "Bảng LOAITHIETBI",
+      "Trong 1 bảng trung gian",
+      "Bảng THIETBI"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth120",
+    "group": 4,
+    "question": "Khi nào người thiết kế cần cân nhắc sử dụng Khóa thay thế (Surrogate Key, ví dụ ID tự tăng) khi chuyển đổi mô hình?",
+    "options": [
+      "Khi khóa tự nhiên quá dài, phức tạp hoặc gồm quá nhiều thuộc tính kết hợp.",
+      "Chỉ dùng cho bảng có 1 cột.",
+      "Luôn luôn sử dụng.",
+      "Khi không có khóa ngoại."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth121",
+    "group": 4,
+    "question": "Nếu một mối quan hệ 1:N có các thuộc tính riêng của nó, các thuộc tính này sẽ được chuyển đi đâu?",
+    "options": [
+      "Đưa vào bảng ở phía '1'.",
+      "Được đưa vào bảng ở phía 'N' cùng với khóa ngoại.",
+      "Bị xóa đi.",
+      "Tạo bảng mới chứa chúng."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth122",
+    "group": 4,
+    "question": "Nếu một mối quan hệ N:M có các thuộc tính riêng, các thuộc tính này sẽ được lưu ở đâu?",
+    "options": [
+      "Ở một trong hai bảng ban đầu.",
+      "Trong bảng trung gian được tạo ra cho mối quan hệ đó.",
+      "Không thể lưu được.",
+      "Ở cả hai bảng ban đầu."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth123",
+    "group": 4,
+    "question": "Khóa ngoại có được phép chứa giá trị NULL không?",
+    "options": [
+      "Có, nếu thực thể chứa khóa ngoại có ràng buộc tham gia bán phần vào mối quan hệ.",
+      "Luôn luôn phải là NULL.",
+      "Tuyệt đối không.",
+      "Chỉ khi khóa ngoại cũng là khóa chính."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth124",
+    "group": 4,
+    "question": "Theo chuẩn, khóa ngoại của một bảng phải tham chiếu đến loại khóa nào của bảng khác?",
+    "options": [
+      "Khóa ngoại của bảng kia.",
+      "Khóa chính (Primary Key) hoặc Khóa duy nhất (Unique Key).",
+      "Bất kỳ cột nào.",
+      "Chỉ cột kiểu Số."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth125",
+    "group": 4,
+    "question": "Khi thực thể yếu và mối quan hệ nhận dạng của nó được chuyển đổi, thuộc tính của mối quan hệ nhận dạng đi đâu?",
+    "options": [
+      "Đưa vào bảng của thực thể chủ.",
+      "Nó bị loại bỏ.",
+      "Tất cả thuộc tính của mối quan hệ nhận dạng được đưa vào bảng của thực thể yếu.",
+      "Tạo bảng mới."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth126",
+    "group": 4,
+    "question": "Kết quả cuối cùng của việc chuyển đổi toàn bộ sơ đồ ER sang mô hình quan hệ là gì?",
+    "options": [
+      "Một ổ đĩa được định dạng.",
+      "Mã nguồn lập trình.",
+      "Giao diện phần mềm.",
+      "Một tập hợp các lược đồ quan hệ (bảng) đã được xác định các thuộc tính, khóa chính, khóa ngoại."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth127",
+    "group": 5,
+    "question": "Mục tiêu chính của thiết kế cơ sở dữ liệu là gì?",
+    "options": [
+      "Tạo ra một cơ sở dữ liệu có hiệu suất cao.",
+      "Tất cả các đáp án trên.",
+      "Đảm bảo tính toàn vẹn và nhất quán của dữ liệu.",
+      "Dễ dàng mở rộng và bảo trì."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth128",
+    "group": 5,
+    "question": "Giai đoạn nào trong quá trình thiết kế CSDL tập trung vào việc lựa chọn Hệ quản trị CSDL và các cấu trúc lưu trữ vật lý?",
+    "options": [
+      "Thiết kế vật lý",
+      "Thiết kế logic",
+      "Thiết kế khái niệm",
+      "Phân tích yêu cầu"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth129",
+    "group": 5,
+    "question": "Việc tạo chỉ mục (index) cho một bảng thường được thực hiện ở giai đoạn nào?",
+    "options": [
+      "Phân tích yêu cầu",
+      "Thiết kế logic",
+      "Thiết kế vật lý",
+      "Thiết kế khái niệm"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth130",
+    "group": 5,
+    "question": "Giai đoạn đầu tiên và quan trọng nhất trong quá trình thiết kế CSDL là gì?",
+    "options": [
+      "Thiết kế giao diện.",
+      "Thu thập và phân tích yêu cầu (Requirements Analysis).",
+      "Viết mã SQL.",
+      "Cài đặt phần mềm DBMS."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth131",
+    "group": 5,
+    "question": "Sản phẩm chủ yếu của giai đoạn thiết kế khái niệm (Conceptual Design) là gì?",
+    "options": [
+      "Mô hình Thực thể - Liên kết (ERD) hoặc EER.",
+      "Các bảng trong cơ sở dữ liệu.",
+      "Cấu trúc thư mục đĩa.",
+      "Tài liệu API."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth132",
+    "group": 5,
+    "question": "Giai đoạn thiết kế logic (Logical Design) thực hiện công việc chính nào?",
+    "options": [
+      "Tạo người dùng và phân quyền.",
+      "Cấu hình phần cứng.",
+      "Chuyển đổi sơ đồ khái niệm (như ER) sang mô hình dữ liệu của DBMS (như Mô hình quan hệ).",
+      "Lập trình ứng dụng."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth133",
+    "group": 5,
+    "question": "Tính độc lập dữ liệu vật lý đạt được phần lớn là nhờ sự tách biệt giữa hai giai đoạn thiết kế nào?",
+    "options": [
+      "Lập trình và Kiểm thử.",
+      "Thiết kế logic và Thiết kế vật lý.",
+      "Thiết kế khái niệm và Thiết kế logic.",
+      "Phân tích yêu cầu và Thiết kế khái niệm."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth134",
+    "group": 5,
+    "question": "Mục đích của kỹ thuật 'Phi chuẩn hóa' (Denormalization) trong giai đoạn thiết kế vật lý là gì?",
+    "options": [
+      "Bảo mật dữ liệu tốt hơn.",
+      "Loại bỏ hoàn toàn sự dư thừa dữ liệu.",
+      "Giảm dung lượng ổ cứng.",
+      "Tăng tốc độ truy xuất đọc bằng cách chấp nhận duy trì một số dư thừa dữ liệu có kiểm soát."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth135",
+    "group": 5,
+    "question": "Trong tổ chức dữ liệu vật lý, cấu trúc Heap (Đống) có đặc điểm gì?",
+    "options": [
+      "Các bản ghi được lưu trữ không theo bất kỳ thứ tự sắp xếp nào, thường thêm vào cuối tệp.",
+      "Sử dụng cây nhị phân phân nhánh.",
+      "Dữ liệu luôn được sắp xếp theo khóa.",
+      "Tra cứu dữ liệu rất nhanh."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth136",
+    "group": 5,
+    "question": "Ưu điểm nổi bật của cấu trúc tập tin tuần tự (Sequential File) là gì?",
+    "options": [
+      "Tốn ít bộ nhớ RAM nhất.",
+      "Phù hợp để duyệt toàn bộ khối lượng lớn dữ liệu theo thứ tự khóa.",
+      "Thêm bản ghi mới vào giữa tệp rất nhanh.",
+      "Truy xuất ngẫu nhiên cực nhanh."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth137",
+    "group": 5,
+    "question": "Cấu trúc dữ liệu B-Tree hoặc B+Tree thường được sử dụng trong hệ quản trị CSDL với mục đích gì?",
+    "options": [
+      "Nén dữ liệu.",
+      "Xây dựng cấu trúc Chỉ mục (Index) hỗ trợ tìm kiếm nhanh.",
+      "Lưu trữ video.",
+      "Mã hóa mật khẩu."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth138",
+    "group": 5,
+    "question": "Index (Chỉ mục) trên một bảng có tác dụng chính là gì?",
+    "options": [
+      "Tự động sửa lỗi chính tả.",
+      "Tăng tốc độ tìm kiếm các bản ghi dựa trên thuộc tính được đánh index.",
+      "Tăng tốc độ thêm, sửa, xóa dữ liệu.",
+      "Làm đẹp giao diện hiển thị."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth139",
+    "group": 5,
+    "question": "Hậu quả của việc tạo quá nhiều Index trên một bảng dữ liệu là gì?",
+    "options": [
+      "Tốc độ đọc chậm đi.",
+      "Dữ liệu sẽ bị mất.",
+      "Máy chủ sẽ bị khởi động lại.",
+      "Làm chậm các thao tác cập nhật (INSERT, UPDATE, DELETE) và tốn thêm dung lượng lưu trữ."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth140",
+    "group": 5,
+    "question": "Clustered Index (Chỉ mục cụm) khác biệt như thế nào so với các loại chỉ mục khác?",
+    "options": [
+      "Nó chỉ dùng cho chuỗi.",
+      "Nó không chiếm dung lượng.",
+      "Nó sắp xếp lại dữ liệu vật lý thực tế trên đĩa theo trật tự của khóa chỉ mục.",
+      "Nó được lưu trữ trên đám mây."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth141",
+    "group": 5,
+    "question": "Non-Clustered Index (Chỉ mục không cụm) lưu trữ dữ liệu như thế nào?",
+    "options": [
+      "Sao chép toàn bộ bảng sang nơi khác.",
+      "Nén dữ liệu thành file zip.",
+      "Tạo ra một cấu trúc riêng biệt chứa giá trị khóa và con trỏ (pointer) trỏ đến vị trí lưu trữ vật lý của bản ghi.",
+      "Sắp xếp vật lý các dòng dữ liệu."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth142",
+    "group": 5,
+    "question": "Một bảng trong CSDL có thể có tối đa bao nhiêu Clustered Index?",
+    "options": [
+      "255",
+      "Không giới hạn.",
+      "Tùy thuộc vào số lượng cột.",
+      "Chỉ có 1 Clustered Index duy nhất (vì dữ liệu vật lý chỉ có thể sắp xếp theo 1 thứ tự)."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth143",
+    "group": 5,
+    "question": "Kỹ thuật phân mảnh dữ liệu (Data Fragmentation) thường được áp dụng phổ biến trong loại hệ CSDL nào?",
+    "options": [
+      "CSDL Dạng văn bản.",
+      "CSDL Cá nhân (Personal DB).",
+      "CSDL Cục bộ.",
+      "CSDL Phân tán (Distributed DB)."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth144",
+    "group": 5,
+    "question": "Khung nhìn (View) trong CSDL hỗ trợ giải quyết vấn đề nào sau đây?",
+    "options": [
+      "Lưu trữ ảnh.",
+      "Gửi email cho khách hàng.",
+      "Thay thế hoàn toàn bảng thật.",
+      "Đơn giản hóa truy vấn phức tạp, che giấu cấu trúc bảng thật và tăng cường bảo mật dữ liệu."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth145",
+    "group": 5,
+    "question": "Trong quản trị CSDL, khái niệm 'Transaction' (Giao dịch) đóng vai trò gì?",
+    "options": [
+      "Là một ngôn ngữ lập trình.",
+      "Là một bảng lưu trữ lịch sử.",
+      "Là một kết nối mạng.",
+      "Là một đơn vị công việc logic bao gồm nhiều thao tác, đảm bảo tính toàn vẹn dữ liệu khi có thay đổi."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth146",
+    "group": 5,
+    "question": "Việc phân tích chi phí không gian lưu trữ và tối ưu hóa hiệu suất truy vấn thuộc về giai đoạn thiết kế nào?",
+    "options": [
+      "Phân tích yêu cầu.",
+      "Cài đặt ứng dụng.",
+      "Thiết kế khái niệm.",
+      "Thiết kế vật lý."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth147",
+    "group": 5,
+    "question": "Kỹ thuật 'Hashing' (Băm) trong tổ chức tệp tin được hiểu là gì?",
+    "options": [
+      "Tính toán vị trí lưu trữ hoặc tìm kiếm của bản ghi bằng cách đưa khóa vào một hàm toán học (Hàm băm).",
+      "Gộp nhiều bảng làm một.",
+      "Mã hóa dữ liệu bằng mật khẩu.",
+      "Cắt nhỏ file thành nhiều phần."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth148",
+    "group": 5,
+    "question": "Việc lựa chọn Hệ quản trị CSDL (DBMS) cụ thể thường được chốt lại ở giai đoạn nào?",
+    "options": [
+      "Giai đoạn thiết kế khái niệm.",
+      "Chỉ người dùng cuối mới quyết định.",
+      "Sau khi ứng dụng đã chạy.",
+      "Trong hoặc ngay trước khi tiến hành Thiết kế logic để ánh xạ vào loại mô hình tương ứng."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth149",
+    "group": 5,
+    "question": "Trong quản lý giao dịch, quá trình Rollback thực hiện thao tác gì?",
+    "options": [
+      "Sao lưu toàn bộ CSDL.",
+      "Hủy bỏ một giao dịch đang thực hiện dở dang và hoàn trả dữ liệu lại trạng thái trước khi giao dịch bắt đầu.",
+      "Xóa toàn bộ dữ liệu trong bảng.",
+      "Khởi động lại máy chủ."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth150",
+    "group": 5,
+    "question": "Lệnh Commit trong một giao dịch có ý nghĩa gì?",
+    "options": [
+      "Hủy giao dịch.",
+      "Ghi nhận chính thức mọi thay đổi của giao dịch vào CSDL một cách vĩnh viễn.",
+      "Chuyển giao dịch cho người khác.",
+      "Tạm dừng giao dịch."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth151",
+    "group": 5,
+    "question": "Bốn tính chất cơ bản của một giao dịch (ACID) là gì?",
+    "options": [
+      "Atomicity, Consistency, Isolation, Durability.",
+      "Append, Create, Insert, Delete.",
+      "Active, Connected, Indexed, Direct.",
+      "Accuracy, Completeness, Integrity, Dependability."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth152",
+    "group": 5,
+    "question": "Tính 'Nguyên tử' (Atomicity) trong tính chất ACID của giao dịch có nghĩa là gì?",
+    "options": [
+      "Giao dịch được thực hiện ở tốc độ nguyên tử.",
+      "Giao dịch chỉ chỉnh sửa một cột duy nhất.",
+      "Giao dịch phải được thực hiện trọn vẹn tất cả các thao tác, hoặc không có thao tác nào được thực hiện.",
+      "Giao dịch không thể bị chia nhỏ ở mức vật lý."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth153",
+    "group": 5,
+    "question": "Tính 'Bền vững' (Durability) trong ACID đảm bảo điều gì?",
+    "options": [
+      "Khi giao dịch đã báo Commit thành công, các thay đổi sẽ được lưu trữ vĩnh viễn, kể cả khi hệ thống sập ngay sau đó.",
+      "Dữ liệu không bao giờ cũ.",
+      "Ổ cứng không bị hỏng.",
+      "Dữ liệu được nén lại để bền hơn."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth154",
+    "group": 5,
+    "question": "Cơ chế Khóa (Locking) trong DBMS được sử dụng chủ yếu để giải quyết vấn đề gì?",
+    "options": [
+      "Quên mật khẩu.",
+      "Kiểm soát truy cập đồng thời (Concurrency Control), tránh tình trạng nhiều giao dịch cùng sửa một dữ liệu gây sai lệch.",
+      "Ngăn chặn hacker xâm nhập.",
+      "Khóa tài khoản người dùng vi phạm."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth155",
+    "group": 5,
+    "question": "Hiện tượng Khóa chết (Deadlock) trong CSDL xảy ra khi nào?",
+    "options": [
+      "Khi CSDL bị xóa.",
+      "Khi hai hay nhiều giao dịch đang chờ đợi lẫn nhau giải phóng tài nguyên mà chúng đang giữ, dẫn đến tắc nghẽn vĩnh viễn.",
+      "Khi người dùng nhập sai mật khẩu quá 5 lần.",
+      "Khi hết dung lượng đĩa cứng."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth156",
+    "group": 5,
+    "question": "Chiến lược Sao lưu (Backup) và Phục hồi (Recovery) nên được xem xét xây dựng ở giai đoạn nào?",
+    "options": [
+      "Trong giai đoạn thiết kế vật lý và hoạch định Quản trị vận hành.",
+      "Trước khi bắt đầu dự án.",
+      "Trong giai đoạn phân tích yêu cầu phần mềm.",
+      "Khi hệ thống bị hỏng."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth157",
+    "group": 6,
+    "question": "Một bảng được coi là ở dạng chuẩn 1NF (First Normal Form) khi nào?",
+    "options": [
+      "Tất cả các thuộc tính không khóa phụ thuộc hoàn toàn vào khóa chính.",
+      "Không có phụ thuộc hàm một phần.",
+      "Không có thuộc tính đa trị và mỗi thuộc tính chứa giá trị nguyên tố.",
+      "Không có phụ thuộc hàm bắc cầu."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth158",
+    "group": 6,
+    "question": "Một quan hệ R(A, B, C, D) với khóa là A và có phụ thuộc hàm A -> B, B -> C. Quan hệ này vi phạm dạng chuẩn nào?",
+    "options": [
+      "Dạng chuẩn BCNF",
+      "Không vi phạm dạng chuẩn nào",
+      "Dạng chuẩn 2NF (do có phụ thuộc một phần)",
+      "Dạng chuẩn 3NF (do có phụ thuộc bắc cầu A -> B -> C)"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth159",
+    "group": 6,
+    "question": "Cho quan hệ R(A, B, C, D) với khóa là (A, B) và có phụ thuộc hàm A -> C. Quan hệ này vi phạm dạng chuẩn nào?",
+    "options": [
+      "Dạng chuẩn 1NF",
+      "Dạng chuẩn BCNF",
+      "Dạng chuẩn 3NF",
+      "Dạng chuẩn 2NF (do C phụ thuộc một phần vào khóa)"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth160",
+    "group": 6,
+    "question": "Cho quan hệ R(A, B, C) và tập phụ thuộc hàm F = {A -> B, B -> C}. Bao đóng của A, ký hiệu (A)+, là gì?",
+    "options": [
+      "{A, B, C}",
+      "{A, C}",
+      "{A}",
+      "{A, B}"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth161",
+    "group": 6,
+    "question": "Cho R(U) với U={A,B,C,D,E,G} và F={AB→C, C→A, BC→D, ACD→B, D→EG, BE→C, CG→BD, CE→AG}. Tìm bao đóng của (BD)+.",
+    "options": [
+      "{B, D}",
+      "{A, B, C, D}",
+      "{A, B, C, D, E, G}",
+      "{B, D, E, G}"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth162",
+    "group": 6,
+    "question": "Cho R(A,B,C,D,E) và F={A→BC, CD→E, B→D, E→A}. Tìm một khóa của R.",
+    "options": [
+      "{A}",
+      "{B, C}",
+      "{C, D}",
+      "{E}"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth163",
+    "group": 6,
+    "question": "Sử dụng luật bắc cầu (Transitivity) của tiên đề Armstrong, nếu có X -> Y và Y -> Z thì có thể suy ra điều gì?",
+    "options": [
+      "Y -> X",
+      "X -> YZ",
+      "X -> Z",
+      "Z -> X"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth164",
+    "group": 6,
+    "question": "Quan hệ R(A, B, C, D) với F = {A -> B, B -> C, C -> D}. Quan hệ này ở dạng chuẩn cao nhất là gì?",
+    "options": [
+      "1NF",
+      "BCNF",
+      "3NF",
+      "2NF"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth165",
+    "group": 6,
+    "question": "Cho R(A,B,C,D,E) và F={A→B, BC→D, E→A}. Tìm tất cả các khóa của R.",
+    "options": [
+      "{A, C}",
+      "{A, D}",
+      "{CE}, {EBC}",
+      "{E}"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth166",
+    "group": 6,
+    "question": "Bất thường cập nhật (Update Anomaly) trong cơ sở dữ liệu xảy ra khi nào?",
+    "options": [
+      "Khi dữ liệu bị xóa đi.",
+      "Khi sửa dữ liệu ở một nơi nhưng quên sửa ở những nơi khác chứa dữ liệu trùng lặp, dẫn đến không nhất quán.",
+      "Khi mất điện.",
+      "Khi không thể thêm dữ liệu mới."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth167",
+    "group": 6,
+    "question": "Bất thường thêm mới (Insertion Anomaly) là hiện tượng gì?",
+    "options": [
+      "Máy chủ báo lỗi hết bộ nhớ.",
+      "Thêm dữ liệu quá chậm.",
+      "Khi không thể thêm thông tin của một thực thể vào bảng vì chưa có đủ thông tin khóa của thực thể khác đi kèm.",
+      "Thêm hai dòng giống hệt nhau."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth168",
+    "group": 6,
+    "question": "Bất thường xóa (Deletion Anomaly) là hiện tượng gì?",
+    "options": [
+      "Khi xóa thông tin của một thực thể lại dẫn đến việc vô tình làm mất thông tin của một thực thể khác không liên quan.",
+      "Lỗi lệnh DELETE trong SQL.",
+      "Không được cấp quyền xóa dữ liệu.",
+      "Xóa nhầm bảng."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth169",
+    "group": 6,
+    "question": "Khóa dự bị (Candidate Key) của một quan hệ được định nghĩa là gì?",
+    "options": [
+      "Bất kỳ tập thuộc tính nào xác định duy nhất một bộ.",
+      "Khóa do người dùng tự đặt.",
+      "Một siêu khóa (Superkey) có số lượng thuộc tính tối thiểu (không chứa tập con nào là siêu khóa).",
+      "Khóa ngoại trỏ đến bảng khác."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth170",
+    "group": 6,
+    "question": "Phụ thuộc hàm đầy đủ (Full functional dependency) X -> Y có nghĩa là gì?",
+    "options": [
+      "Y có số lượng thuộc tính lớn hơn X.",
+      "X và Y là các khóa dự bị.",
+      "Y phụ thuộc vào toàn bộ X, và Y không phụ thuộc vào bất kỳ tập con thực sự nào của X.",
+      "Y bằng X."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth171",
+    "group": 6,
+    "question": "Mục đích của việc chuẩn hóa quan hệ lên dạng chuẩn 2 (2NF) là để giải quyết vấn đề gì của 1NF?",
+    "options": [
+      "Loại bỏ phụ thuộc hàm bắc cầu.",
+      "Loại bỏ các thuộc tính đa trị.",
+      "Loại bỏ các phụ thuộc hàm một phần (thuộc tính không khóa phụ thuộc vào một phần của khóa chính).",
+      "Loại bỏ mọi sự dư thừa."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth172",
+    "group": 6,
+    "question": "Dạng chuẩn 3 (3NF) yêu cầu loại bỏ loại phụ thuộc nào để dữ liệu trở nên tốt hơn?",
+    "options": [
+      "Phụ thuộc hàm một phần.",
+      "Phụ thuộc hàm bắc cầu (thuộc tính không khóa phụ thuộc vào một thuộc tính không khóa khác).",
+      "Phụ thuộc tựa bắc cầu.",
+      "Phụ thuộc đa trị."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth173",
+    "group": 6,
+    "question": "Điều kiện để một lược đồ quan hệ đạt dạng chuẩn Boyce-Codd (BCNF) là gì?",
+    "options": [
+      "Đạt 1NF là đủ.",
+      "Với mọi phụ thuộc hàm X -> Y (không tầm thường), X bắt buộc phải là một siêu khóa.",
+      "Không có khóa ngoại.",
+      "Mọi thuộc tính đều là khóa."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth174",
+    "group": 6,
+    "question": "Phát biểu nào sau đây ĐÚNG về mối quan hệ giữa 3NF và BCNF?",
+    "options": [
+      "Chúng hoàn toàn giống nhau.",
+      "Mọi quan hệ đạt 3NF đều đạt BCNF.",
+      "Mọi quan hệ đạt BCNF đều đạt 3NF, nhưng điều ngược lại chưa chắc đúng.",
+      "Không liên quan gì đến nhau."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth175",
+    "group": 6,
+    "question": "Khi một quan hệ vi phạm 2NF, cách khắc phục (phân rã) chuẩn nhất là gì?",
+    "options": [
+      "Xóa bỏ các cột vi phạm.",
+      "Chuyển nó thành 3NF luôn.",
+      "Tách các thuộc tính phụ thuộc một phần ra một bảng mới, cùng với phần khóa mà chúng phụ thuộc làm khóa chính.",
+      "Thêm một ID tự tăng."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth176",
+    "group": 6,
+    "question": "Dựa trên luật hội (Union) của hệ tiên đề Armstrong, nếu có A -> B và A -> C, ta suy ra được điều gì?",
+    "options": [
+      "B -> C",
+      "BC -> A",
+      "C -> B",
+      "A -> BC"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth177",
+    "group": 6,
+    "question": "Thuộc tính nguyên tố (Prime attribute) là gì?",
+    "options": [
+      "Khóa ngoại.",
+      "Thuộc tính tham gia vào cấu tạo của BẤT KỲ khóa dự bị nào của quan hệ.",
+      "Thuộc tính không bao giờ rỗng.",
+      "Thuộc tính kiểu số nguyên."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth178",
+    "group": 6,
+    "question": "Cho quan hệ R(A, B, C, D) có các khóa dự bị là {A, B} và {B, C}. Các thuộc tính nguyên tố của R là gì?",
+    "options": [
+      "D.",
+      "Chỉ A và B.",
+      "Chỉ B và C.",
+      "A, B và C."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth179",
+    "group": 6,
+    "question": "Phụ thuộc hàm X -> Y được gọi là 'tầm thường' (Trivial) khi nào?",
+    "options": [
+      "Khi Y là tập con của X (Y ⊆ X).",
+      "Khi Y có ít thuộc tính hơn X.",
+      "Khi X và Y không giao nhau.",
+      "Khi X là tập con của Y."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth180",
+    "group": 6,
+    "question": "Một lược đồ quan hệ chỉ có 2 thuộc tính (ví dụ R(A, B)) thì chắc chắn đạt dạng chuẩn cao nhất là dạng chuẩn nào?",
+    "options": [
+      "2NF",
+      "1NF",
+      "BCNF",
+      "3NF"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth181",
+    "group": 6,
+    "question": "Theo luật tựa bắc cầu (Pseudotransitivity) của hệ tiên đề Armstrong, nếu X -> Y và WY -> Z thì suy ra được gì?",
+    "options": [
+      "WX -> Z",
+      "Z -> X",
+      "W -> Z",
+      "XY -> W"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth182",
+    "group": 6,
+    "question": "Khi phân rã một quan hệ thành các quan hệ nhỏ hơn để chuẩn hóa, tính chất quan trọng nhất BẮT BUỘC phải thỏa mãn là gì?",
+    "options": [
+      "Tính bảo toàn thông tin (Lossless-join decomposition), tức là khi kết nối (Join) lại không bị sinh ra thông tin giả.",
+      "Bảo toàn số lượng cột.",
+      "Không cần khóa ngoại.",
+      "Tốc độ nhanh."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth183",
+    "group": 6,
+    "question": "Tính bảo toàn phụ thuộc (Dependency Preservation) trong phân rã quan hệ có nghĩa là gì?",
+    "options": [
+      "Không bao giờ xóa thuộc tính.",
+      "Giữ nguyên khóa chính ban đầu.",
+      "Tất cả các phụ thuộc hàm ban đầu đều có thể kiểm tra được trên các bảng con đã phân rã mà không cần thực hiện phép JOIN.",
+      "Mọi bảng đều phải có khóa ngoại."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth184",
+    "group": 6,
+    "question": "Nhược điểm của việc chuẩn hóa dữ liệu lên các mức quá cao (như BCNF, 4NF) là gì?",
+    "options": [
+      "Dữ liệu bị trùng lặp nhiều hơn.",
+      "Phải dùng phép JOIN nhiều bảng hơn khi truy vấn, làm giảm hiệu suất đọc dữ liệu (Query performance).",
+      "Gây ra bất thường cập nhật.",
+      "Không thể dùng SQL."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth185",
+    "group": 6,
+    "question": "Quá trình làm giảm cấp độ chuẩn hóa (ví dụ cố tình từ 3NF xuống 2NF) nhằm tối ưu hóa hiệu suất truy vấn đọc gọi là gì?",
+    "options": [
+      "Gom nhóm dữ liệu.",
+      "Phi chuẩn hóa (Denormalization).",
+      "Phân mảnh dữ liệu.",
+      "Tái chuẩn hóa."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth186",
+    "group": 6,
+    "question": "Luật tăng trưởng (Augmentation) trong hệ tiên đề Armstrong phát biểu như thế nào?",
+    "options": [
+      "Nếu X -> Y thì Y -> X",
+      "Nếu X -> Y thì X -> YZ",
+      "Nếu X -> Y thì XZ -> YZ (với Z là tập thuộc tính bất kỳ)",
+      "Nếu X -> Y thì Z -> X"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth187",
+    "group": 6,
+    "question": "[Bài tập Bao đóng] Cho lược đồ R(A, B, C, D, E, G) và tập phụ thuộc hàm F = {AB → C, C → A, BC → D, ACD → B, D → EG, BE → C, CG → BD, CE → AG}. Tính bao đóng của (BD)+.",
+    "options": [
+      "{B, C, D, E, G}",
+      "{B, D}",
+      "{B, D, E, G}",
+      "{A, B, C, D, E, G}"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth188",
+    "group": 6,
+    "question": "[Bài tập Tìm Khóa] Kế thừa dữ kiện câu trên (R và F). Khẳng định nào sau đây là ĐÚNG về khóa của lược đồ quan hệ R?",
+    "options": [
+      "{A, B} là khóa duy nhất của R.",
+      "{B, D} là một khóa dự bị của R vì (BD)+ = R và không có tập con thực sự nào của {B, D} có bao đóng bằng R.",
+      "{D} là khóa của R.",
+      "R không có khóa."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth189",
+    "group": 6,
+    "question": "[Bài tập Dạng Chuẩn] Xét quan hệ R(MaSach, TenSach, TheLoai, MaTG, TenTG, NamXB) với tập phụ thuộc hàm F = {MaSach → TenSach, TheLoai, MaTG, NamXB; MaTG → TenTG}. Quan hệ R đang ở dạng chuẩn nào và vi phạm dạng chuẩn nào?",
+    "options": [
+      "Đạt 3NF, vi phạm BCNF.",
+      "Đạt 1NF, vi phạm 2NF.",
+      "Đạt BCNF.",
+      "Đạt 2NF, vi phạm 3NF (do có phụ thuộc bắc cầu MaSach → MaTG → TenTG)."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqth190",
+    "group": 6,
+    "question": "[Bài tập Phân Rã] Với quan hệ R ở câu trên, cách phân rã nào sau đây đưa R về dạng chuẩn 3NF mà vẫn bảo toàn thông tin?",
+    "options": [
+      "R1(MaSach, TenSach, TheLoai, MaTG, NamXB) và R2(MaTG, TenTG)",
+      "Xóa cột TenTG đi.",
+      "R1(MaSach, MaTG) và R2(MaSach, TenTG)",
+      "R1(MaSach, TenSach, TheLoai, NamXB) và R2(MaTG, TenTG)"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqth191",
+    "group": 6,
+    "question": "[Bài tập Tìm Khóa] Cho quan hệ R(X, Y, Z, W, U, V) và tập phụ thuộc hàm F = {X → Y, Y → Z, Z → W, W → U, U → V}. Khóa của R là gì?",
+    "options": [
+      "{X, Y}",
+      "{V}",
+      "{X}",
+      "Tất cả các thuộc tính."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth192",
+    "group": 6,
+    "question": "[Bài tập Dạng Chuẩn] Cho quan hệ R(A, B, C, D) với khóa duy nhất là {A, B}. Có các phụ thuộc hàm: {A, B} → C, {A, B} → D, và B → C. Quan hệ này vi phạm dạng chuẩn nào đầu tiên?",
+    "options": [
+      "Không vi phạm dạng chuẩn nào.",
+      "Vi phạm 1NF.",
+      "Vi phạm 2NF (do có phụ thuộc một phần: thuộc tính không khóa C phụ thuộc vào B là một phần của khóa).",
+      "Vi phạm 3NF."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqth193",
+    "group": 6,
+    "question": "[Hệ Tiên Đề Armstrong] Giả sử ta có F = {A → B, B → C, CD → E}. Phát biểu nào sau đây KHÔNG THỂ suy ra từ hệ tiên đề Armstrong?",
+    "options": [
+      "AD → E (Vì A → B, B → C nên A → C. Thay C bằng A trong CD → E ta được AD → E)",
+      "C → A",
+      "A → C (Luật bắc cầu)",
+      "ACD → E (Luật tựa bắc cầu)"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqth194",
+    "group": 6,
+    "question": "[Bài tập Bao đóng] Cho lược đồ R(A, B, C, D, E) và tập phụ thuộc hàm F = {A → BC, CD → E, B → D, E → A}. Tính bao đóng (B)+.",
+    "options": [
+      "{A, B, C, D, E}",
+      "{B}",
+      "{B, D}",
+      "{B, C, D}"
+    ],
+    "correctIndex": 2
+  }
+]

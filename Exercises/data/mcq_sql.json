@@ -1,0 +1,2642 @@
+[
+  {
+    "id": "mcqsql001",
+    "group": 3,
+    "question": "Làm thế nào để lấy tất cả thông tin của các nhân viên trong bảng `employees`?",
+    "options": [
+      "SELECT * FROM employees;",
+      "SELECT ALL FROM employees;",
+      "FETCH * FROM employees;",
+      "GET * FROM employees;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql002",
+    "group": 3,
+    "question": "Viết câu lệnh để hiển thị `lastName`, `firstName` và `email` của toàn bộ nhân viên.",
+    "options": [
+      "SELECT COLUMNS(lastName, firstName, email) FROM employees;",
+      "SELECT (lastName, firstName, email) FROM employees;",
+      "SELECT lastName, firstName, email FROM employees;",
+      "SHOW lastName, firstName, email FROM employees;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql003",
+    "group": 3,
+    "question": "Làm thế nào để lấy danh sách các mã văn phòng (officeCode) từ bảng nhân viên?",
+    "options": [
+      "SELECT COLUMN officeCode FROM employees;",
+      "LIST officeCode FROM employees;",
+      "SHOW officeCode FROM employees;",
+      "SELECT officeCode FROM employees;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql004",
+    "group": 3,
+    "question": "Hiển thị mã khách hàng, tên khách hàng và số điện thoại của tất cả khách hàng.",
+    "options": [
+      "SELECT customerNumber, customerName, phone FROM customers;",
+      "SELECT customerNumber, customerName, phone FROM clients;",
+      "LIST customerNumber, customerName, phone FROM customers;",
+      "SHOW customerNumber, customerName, phone FROM customers;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql005",
+    "group": 3,
+    "question": "Hiển thị mã sản phẩm, tên sản phẩm và giá bán lẻ đề xuất (MSRP) của tất cả sản phẩm.",
+    "options": [
+      "GET productCode, productName, MSRP FROM products;",
+      "SELECT productCode, productName, MSRP FROM items;",
+      "SHOW productCode, productName, MSRP FROM products;",
+      "SELECT productCode, productName, MSRP FROM products;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql006",
+    "group": 3,
+    "question": "Làm thế nào để tìm các nhân viên có vị trí công việc (jobTitle) là 'Sales Rep'?",
+    "options": [
+      "SELECT * FROM employees HAVING jobTitle = 'Sales Rep';",
+      "SELECT * FROM employees WHERE jobTitle = 'Sales Rep';",
+      "SELECT * FROM employees WHERE jobTitle IS 'Sales Rep';",
+      "SELECT * FROM employees WITH jobTitle = 'Sales Rep';"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql007",
+    "group": 3,
+    "question": "Làm thế nào để tìm tất cả các khách hàng có quốc gia (country) là 'France'?",
+    "options": [
+      "SELECT * FROM customers WHERE country IS 'France';",
+      "SELECT * FROM customers FILTER country = 'France';",
+      "SELECT * FROM customers WHERE country = 'France';",
+      "SELECT * FROM customers HAVING country = 'France';"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql008",
+    "group": 3,
+    "question": "Tìm các sản phẩm có tỷ lệ xích (productScale) là '1:10'.",
+    "options": [
+      "SELECT * FROM products WHERE productScale IS '1:10';",
+      "SELECT * FROM products WITH productScale = '1:10';",
+      "SELECT * FROM products HAVING productScale = '1:10';",
+      "SELECT * FROM products WHERE productScale = '1:10';"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql009",
+    "group": 3,
+    "question": "Tìm các thanh toán (payments) có số tiền giao dịch (amount) lớn hơn 100,000.",
+    "options": [
+      "SELECT * FROM payments WHERE amount > '100000';",
+      "SELECT * FROM payments WHERE amount > 100000;",
+      "SELECT * FROM payments HAVING amount > 100000;",
+      "SELECT * FROM payments WHERE amount >= 100000;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql010",
+    "group": 3,
+    "question": "Tìm các khách hàng có hạn mức tín dụng (creditLimit) nhỏ hơn hoặc bằng 20,000.",
+    "options": [
+      "SELECT * FROM customers HAVING creditLimit <= 20000;",
+      "SELECT * FROM customers WHERE creditLimit <= 20000;",
+      "SELECT * FROM customers WHERE creditLimit =< 20000;",
+      "SELECT * FROM customers WHERE creditLimit < 20000;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql011",
+    "group": 3,
+    "question": "Hiển thị thông tin chi tiết của văn phòng đặt tại thành phố 'San Francisco'.",
+    "options": [
+      "SELECT * FROM offices HAVING city = 'San Francisco';",
+      "SELECT * FROM offices WHERE city = 'San Francisco';",
+      "SELECT * FROM offices WITH city = 'San Francisco';",
+      "SELECT * FROM offices WHERE city IS 'San Francisco';"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql012",
+    "group": 3,
+    "question": "Viết câu lệnh tìm các nhân viên có mã người quản lý trực tiếp (reportsTo) là 1143.",
+    "options": [
+      "SELECT * FROM employees WHERE reportsTo = 1143;",
+      "SELECT * FROM employees HAVING reportsTo = 1143;",
+      "SELECT * FROM employees WHERE reportsTo IS 1143;",
+      "SELECT * FROM employees WITH reportsTo = 1143;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql013",
+    "group": 3,
+    "question": "Đưa ra danh sách các đơn hàng có trạng thái (status) khác 'Shipped'.",
+    "options": [
+      "SELECT * FROM orders WHERE NOT status = 'Shipped';",
+      "SELECT * FROM orders WHERE status <> 'Shipped';",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT * FROM orders WHERE status != 'Shipped';"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql014",
+    "group": 3,
+    "question": "Tìm tất cả sản phẩm có số lượng trong kho (quantityInStock) dưới 100 sản phẩm.",
+    "options": [
+      "SELECT * FROM products WHERE quantityInStock < 100;",
+      "SELECT * FROM products WHERE quantityInStock < '100';",
+      "SELECT * FROM products WHERE quantityInStock <= 100;",
+      "SELECT * FROM products HAVING quantityInStock < 100;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql015",
+    "group": 3,
+    "question": "Đưa ra các giao dịch thanh toán được thực hiện sau ngày '2004-11-01'.",
+    "options": [
+      "SELECT * FROM payments WHERE paymentDate >= '2004-11-01';",
+      "SELECT * FROM payments HAVING paymentDate > '2004-11-01';",
+      "SELECT * FROM payments WHERE paymentDate AFTER '2004-11-01';",
+      "SELECT * FROM payments WHERE paymentDate > '2004-11-01';"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql016",
+    "group": 3,
+    "question": "Tìm khách hàng ở Mỹ ('USA') VÀ có hạn mức tín dụng (creditLimit) trên 100,000.",
+    "options": [
+      "SELECT * FROM customers WHERE country = 'USA' OR creditLimit > 100000;",
+      "SELECT * FROM customers WHERE country = 'USA' AND creditLimit > 100000;",
+      "SELECT * FROM customers WHERE country = 'USA', creditLimit > 100000;",
+      "SELECT * FROM customers WHERE country = 'USA' THEN creditLimit > 100000;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql017",
+    "group": 3,
+    "question": "Tìm nhân viên làm việc tại văn phòng số '1' HOẶC văn phòng số '2'.",
+    "options": [
+      "SELECT * FROM employees WHERE officeCode = '1' OR officeCode = '2';",
+      "SELECT * FROM employees WHERE officeCode IN ('1', '2');",
+      "Cả A và C đều đúng",
+      "SELECT * FROM employees WHERE officeCode = '1' AND officeCode = '2';"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql018",
+    "group": 3,
+    "question": "Tìm các sản phẩm thuộc nhóm sản phẩm 'Classic Cars' có giá mua (buyPrice) trên 90.",
+    "options": [
+      "SELECT * FROM products WHERE productLine = 'Classic Cars' WITH buyPrice > 90;",
+      "SELECT * FROM products WHERE productLine = 'Classic Cars' HAVING buyPrice > 90;",
+      "SELECT * FROM products WHERE productLine = 'Classic Cars' OR buyPrice > 90;",
+      "SELECT * FROM products WHERE productLine = 'Classic Cars' AND buyPrice > 90;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql019",
+    "group": 3,
+    "question": "Đưa ra danh sách đơn hàng được đặt từ ngày '2005-04-01' đến ngày '2005-04-30'.",
+    "options": [
+      "Cả A và B đều đúng",
+      "SELECT * FROM orders WHERE orderDate BETWEEN '2005-04-01' AND '2005-04-30';",
+      "SELECT * FROM orders WHERE orderDate IN ('2005-04-01', '2005-04-30');",
+      "SELECT * FROM orders WHERE orderDate >= '2005-04-01' AND orderDate <= '2005-04-30';"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql020",
+    "group": 3,
+    "question": "Đưa ra danh sách các khách hàng ở các thành phố 'Nantes', 'Paris' hoặc 'Lyon' của Pháp.",
+    "options": [
+      "Cả A và B đều đúng",
+      "SELECT * FROM customers WHERE city IN ('Nantes', 'Paris', 'Lyon');",
+      "SELECT * FROM customers WHERE city = 'Nantes' AND city = 'Paris' AND city = 'Lyon';",
+      "SELECT * FROM customers WHERE city = 'Nantes' OR city = 'Paris' OR city = 'Lyon';"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql021",
+    "group": 3,
+    "question": "Tìm các sản phẩm được cung cấp bởi nhà cung cấp 'Classic Metal Creations' hoặc 'Exoto Designs'.",
+    "options": [
+      "SELECT * FROM products WHERE productVendor IN ('Classic Metal Creations', 'Exoto Designs');",
+      "SELECT * FROM products WHERE productVendor = 'Classic Metal Creations' OR productVendor = 'Exoto Designs';",
+      "SELECT * FROM products WHERE productVendor = 'Classic Metal Creations' AND productVendor = 'Exoto Designs';",
+      "Cả A và B đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql022",
+    "group": 3,
+    "question": "Tìm các đơn hàng có trạng thái là 'On Hold' HOẶC 'Disputed'.",
+    "options": [
+      "SELECT * FROM orders WHERE status = 'On Hold' OR status = 'Disputed';",
+      "SELECT * FROM orders WHERE status = 'On Hold' AND status = 'Disputed';",
+      "SELECT * FROM orders WHERE status IN ('On Hold', 'Disputed');",
+      "Cả A và B đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql023",
+    "group": 3,
+    "question": "Tìm khách hàng ở quốc gia 'Canada' có hạn mức tín dụng lớn hơn 50,000.",
+    "options": [
+      "SELECT * FROM customers WHERE country = 'Canada' WITH creditLimit > 50000;",
+      "SELECT * FROM customers WHERE country = 'Canada' AND creditLimit > 50000;",
+      "SELECT * FROM customers WHERE country = 'Canada', creditLimit > 50000;",
+      "SELECT * FROM customers WHERE country = 'Canada' OR creditLimit > 50000;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql024",
+    "group": 3,
+    "question": "Tìm nhân viên có chức vụ công việc là 'VP Sales' hoặc 'VP Marketing'.",
+    "options": [
+      "SELECT * FROM employees WHERE jobTitle IN ('VP Sales', 'VP Marketing');",
+      "SELECT * FROM employees WHERE jobTitle = 'VP Sales' OR jobTitle = 'VP Marketing';",
+      "Cả A và B đều đúng",
+      "SELECT * FROM employees WHERE jobTitle = 'VP Sales' AND jobTitle = 'VP Marketing';"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql025",
+    "group": 3,
+    "question": "Đưa ra các chi tiết đơn hàng (orderdetails) có số lượng đặt trên 50 VÀ giá mỗi sản phẩm nhỏ hơn 50.",
+    "options": [
+      "SELECT * FROM orderdetails WHERE quantityOrdered > 50 OR priceEach < 50;",
+      "SELECT * FROM orderdetails WHERE quantityOrdered > 50 WITH priceEach < 50;",
+      "SELECT * FROM orderdetails WHERE quantityOrdered > 50 AND priceEach < 50;",
+      "SELECT * FROM orderdetails WHERE quantityOrdered > 50, priceEach < 50;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql026",
+    "group": 3,
+    "question": "Làm thế nào để lấy danh sách các nhân viên có trường `reportsTo` chưa được xác định?",
+    "options": [
+      "SELECT * FROM employees WHERE reportsTo IS NULL;",
+      "SELECT * FROM employees WHERE reportsTo = '';",
+      "SELECT * FROM employees WHERE reportsTo = NULL;",
+      "SELECT * FROM employees WHERE reportsTo IS EMPTY;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql027",
+    "group": 3,
+    "question": "Đưa ra danh sách các khách hàng có tiểu bang (state) chưa xác định.",
+    "options": [
+      "SELECT * FROM customers WHERE state = NULL;",
+      "SELECT * FROM customers WHERE state IS NULL;",
+      "SELECT * FROM customers WHERE state IS EMPTY;",
+      "SELECT * FROM customers WHERE state = '';"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql028",
+    "group": 3,
+    "question": "Đưa ra danh sách các đơn hàng đã được vận chuyển (trường shippedDate khác NULL).",
+    "options": [
+      "SELECT * FROM orders WHERE shippedDate != NULL;",
+      "SELECT * FROM orders WHERE shippedDate <> NULL;",
+      "SELECT * FROM orders WHERE NOT shippedDate IS NULL;",
+      "SELECT * FROM orders WHERE shippedDate IS NOT NULL;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql029",
+    "group": 3,
+    "question": "Tìm khách hàng đã được gán nhân viên đại diện chăm sóc (salesRepEmployeeNumber khác NULL).",
+    "options": [
+      "SELECT * FROM customers WHERE salesRepEmployeeNumber <> NULL;",
+      "SELECT * FROM customers WHERE salesRepEmployeeNumber IS NOT NULL;",
+      "SELECT * FROM customers WHERE NOT salesRepEmployeeNumber IS NULL;",
+      "SELECT * FROM customers WHERE salesRepEmployeeNumber != NULL;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql030",
+    "group": 3,
+    "question": "Tìm các đơn hàng chưa được vận chuyển (trường shippedDate có giá trị NULL).",
+    "options": [
+      "SELECT * FROM orders WHERE shippedDate IS NULL;",
+      "SELECT * FROM orders WHERE shippedDate IS EMPTY;",
+      "SELECT * FROM orders WHERE shippedDate = NULL;",
+      "SELECT * FROM orders WHERE shippedDate = '';"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql031",
+    "group": 3,
+    "question": "Làm thế nào để lấy danh sách các quốc gia khác nhau của khách hàng (không trùng lặp)?",
+    "options": [
+      "SELECT DISTINCT country FROM customers;",
+      "Cả A và C đều đúng",
+      "SELECT UNIQUE country FROM customers;",
+      "SELECT country FROM customers GROUP BY country;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql032",
+    "group": 3,
+    "question": "Tìm danh sách các tiểu bang (state) khác nhau của khách hàng sinh sống tại nước Mỹ ('USA').",
+    "options": [
+      "SELECT state FROM customers WHERE country = 'USA' GROUP BY state;",
+      "Cả A và C đều đúng",
+      "SELECT DISTINCT state FROM customers WHERE country = 'USA';",
+      "SELECT UNIQUE state FROM customers WHERE country = 'USA';"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql033",
+    "group": 3,
+    "question": "Đưa ra danh sách các nhóm sản phẩm (productLine) khác nhau hiện có trong bảng products.",
+    "options": [
+      "Cả A và C đều đúng",
+      "SELECT UNIQUE productLine FROM products;",
+      "SELECT productLine FROM products GROUP BY productLine;",
+      "SELECT DISTINCT productLine FROM products;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql034",
+    "group": 3,
+    "question": "Tìm các trạng thái (status) đơn hàng khác nhau hiện có trong bảng orders.",
+    "options": [
+      "SELECT DISTINCT status FROM orders;",
+      "Cả A và C đều đúng",
+      "SELECT status FROM orders GROUP BY status;",
+      "SELECT UNIQUE status FROM orders;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql035",
+    "group": 3,
+    "question": "Hiển thị danh sách các mã nhân viên bán hàng (salesRepEmployeeNumber) khác nhau hiện diện trong bảng khách hàng (loại bỏ NULL).",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT DISTINCT salesRepEmployeeNumber FROM customers WHERE salesRepEmployeeNumber IS NOT NULL;",
+      "SELECT salesRepEmployeeNumber FROM customers WHERE salesRepEmployeeNumber IS NOT NULL GROUP BY salesRepEmployeeNumber;",
+      "SELECT UNIQUE salesRepEmployeeNumber FROM customers WHERE salesRepEmployeeNumber IS NOT NULL;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql036",
+    "group": 3,
+    "question": "Làm thế nào để lấy ra thông tin của 10 sản phẩm đầu tiên trong hệ thống?",
+    "options": [
+      "SELECT * FROM products FETCH FIRST 10 ROWS ONLY;",
+      "SELECT * FROM products LIMIT 10;",
+      "SELECT * FROM products WHERE ROWNUM <= 10;",
+      "SELECT * FROM products TOP 10;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql037",
+    "group": 3,
+    "question": "Lấy ra thông tin của 5 đơn đặt hàng đầu tiên trong bảng `orders`.",
+    "options": [
+      "SELECT * FROM orders WHERE ROWNUM <= 5;",
+      "SELECT * FROM orders LIMIT 5;",
+      "SELECT * FROM orders FETCH FIRST 5 ROWS ONLY;",
+      "SELECT * FROM orders TOP 5;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql038",
+    "group": 3,
+    "question": "Viết câu lệnh để lấy thông tin khách hàng từ vị trí thứ 11 đến vị trí thứ 15 (lấy 5 bản ghi).",
+    "options": [
+      "SELECT * FROM customers LIMIT 5, 10;",
+      "SELECT * FROM customers LIMIT 10, 5;",
+      "Cả A và B đều đúng",
+      "SELECT * FROM customers LIMIT 5 OFFSET 10;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql039",
+    "group": 3,
+    "question": "Lấy ra thông tin của 3 nhân viên đầu tiên có chức vụ công việc là 'Sales Rep'.",
+    "options": [
+      "SELECT * FROM employees WHERE jobTitle = 'Sales Rep' AND ROWNUM <= 3;",
+      "SELECT * FROM employees WHERE jobTitle = 'Sales Rep' TOP 3;",
+      "SELECT * FROM employees WHERE jobTitle = 'Sales Rep' LIMIT 3;",
+      "SELECT * FROM employees WHERE jobTitle = 'Sales Rep' FETCH FIRST 3 ROWS ONLY;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql040",
+    "group": 3,
+    "question": "Đưa ra danh sách thông tin của 8 sản phẩm đầu tiên thuộc nhóm sản phẩm 'Motorcycles'.",
+    "options": [
+      "SELECT * FROM products WHERE productLine = 'Motorcycles' FETCH FIRST 8 ROWS ONLY;",
+      "SELECT * FROM products WHERE productLine = 'Motorcycles' LIMIT 8;",
+      "SELECT * FROM products WHERE productLine = 'Motorcycles' AND ROWNUM <= 8;",
+      "SELECT * FROM products WHERE productLine = 'Motorcycles' TOP 8;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql041",
+    "group": 4,
+    "question": "Dùng toán tử IN để tìm các khách hàng ở các quốc gia 'USA', 'France', 'Canada'.",
+    "options": [
+      "Cả A và B đều đúng",
+      "SELECT * FROM customers WHERE country ALL ('USA', 'France', 'Canada');",
+      "SELECT * FROM customers WHERE country IN ('USA', 'France', 'Canada');",
+      "SELECT * FROM customers WHERE country = 'USA' OR country = 'France' OR country = 'Canada';"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql042",
+    "group": 4,
+    "question": "Tìm khách hàng KHÔNG cư trú ở các thành phố 'Nantes', 'Paris', 'Lyon'.",
+    "options": [
+      "SELECT * FROM customers WHERE city <> 'Nantes' AND city <> 'Paris' AND city <> 'Lyon';",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT * FROM customers WHERE NOT (city = 'Nantes' OR city = 'Paris' OR city = 'Lyon');",
+      "SELECT * FROM customers WHERE city NOT IN ('Nantes', 'Paris', 'Lyon');"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql043",
+    "group": 4,
+    "question": "Tìm tất cả đơn đặt hàng có trạng thái (status) là 'On Hold', 'In Process' hoặc 'Disputed'.",
+    "options": [
+      "SELECT * FROM orders WHERE status IN ('On Hold', 'In Process', 'Disputed');",
+      "Cả A và B đều đúng",
+      "SELECT * FROM orders WHERE status = 'On Hold' OR status = 'In Process' OR status = 'Disputed';",
+      "SELECT * FROM orders WHERE status = 'On Hold' AND status = 'In Process' AND status = 'Disputed';"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql044",
+    "group": 4,
+    "question": "Tìm các sản phẩm có tỷ lệ xích (productScale) thuộc tập hợp '1:10' hoặc '1:12'.",
+    "options": [
+      "SELECT * FROM products WHERE productScale IN ('1:10', '1:12');",
+      "Cả A và B đều đúng",
+      "SELECT * FROM products WHERE productScale = '1:10' AND productScale = '1:12';",
+      "SELECT * FROM products WHERE productScale = '1:10' OR productScale = '1:12';"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql045",
+    "group": 4,
+    "question": "Tìm thông tin nhân viên có mã văn phòng (officeCode) là '1', '2' hoặc '3'.",
+    "options": [
+      "Cả A và B đều đúng",
+      "SELECT * FROM employees WHERE officeCode BETWEEN '1' AND '3';",
+      "SELECT * FROM employees WHERE officeCode IN ('1', '2', '3');",
+      "SELECT * FROM employees WHERE officeCode = '1' OR officeCode = '2' OR officeCode = '3';"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql046",
+    "group": 4,
+    "question": "Sử dụng BETWEEN tìm các sản phẩm có giá mua (buyPrice) nằm trong phạm vi từ 50 đến 100 USD.",
+    "options": [
+      "Cả A và B đều đúng",
+      "SELECT * FROM products WHERE buyPrice >= 50 AND buyPrice <= 100;",
+      "SELECT * FROM products WHERE buyPrice BETWEEN 50 AND 100;",
+      "SELECT * FROM products WHERE buyPrice > 50 AND buyPrice < 100;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql047",
+    "group": 4,
+    "question": "Tìm các đơn đặt hàng được lập trong khoảng thời gian từ '2003-01-01' đến '2003-12-31'.",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT * FROM orders WHERE YEAR(orderDate) = 2003;",
+      "SELECT * FROM orders WHERE orderDate >= '2003-01-01' AND orderDate <= '2003-12-31';",
+      "SELECT * FROM orders WHERE orderDate BETWEEN '2003-01-01' AND '2003-12-31';"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql048",
+    "group": 4,
+    "question": "Đưa ra các đơn hàng được vận chuyển (shippedDate) trong khoảng từ ngày '2004-01-01' đến '2004-06-30'.",
+    "options": [
+      "SELECT * FROM orders WHERE shippedDate BETWEEN '2004-01-01' AND '2004-06-30';",
+      "Cả A và B đều đúng",
+      "SELECT * FROM orders WHERE shippedDate >= '2004-01-01' AND shippedDate <= '2004-06-30';",
+      "SELECT * FROM orders WHERE YEAR(shippedDate) = 2004 AND MONTH(shippedDate) <= 6;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql049",
+    "group": 4,
+    "question": "Đưa ra danh sách khách hàng có hạn mức tín dụng (creditLimit) nằm trong khoảng từ 50,000 đến 150,000 USD.",
+    "options": [
+      "Cả A và B đều đúng",
+      "SELECT * FROM customers WHERE creditLimit >= 50000 AND creditLimit <= 150000;",
+      "SELECT * FROM customers WHERE creditLimit > 49999 AND creditLimit < 150001;",
+      "SELECT * FROM customers WHERE creditLimit BETWEEN 50000 AND 150000;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql050",
+    "group": 4,
+    "question": "Tìm các chi tiết đơn hàng (orderdetails) có số lượng đặt (quantityOrdered) nằm ngoài khoảng từ 20 đến 40.",
+    "options": [
+      "SELECT * FROM orderdetails WHERE quantityOrdered < 20 OR quantityOrdered > 40;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT * FROM orderdetails WHERE NOT (quantityOrdered >= 20 AND quantityOrdered <= 40);",
+      "SELECT * FROM orderdetails WHERE quantityOrdered NOT BETWEEN 20 AND 40;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql051",
+    "group": 4,
+    "question": "Dùng toán tử LIKE tìm tất cả nhân viên có họ (lastName) bắt đầu bằng chữ 'P'.",
+    "options": [
+      "SELECT * FROM employees WHERE lastName = 'P*';",
+      "SELECT * FROM employees WHERE lastName STARTS WITH 'P';",
+      "SELECT * FROM employees WHERE LEFT(lastName, 1) = 'P';",
+      "SELECT * FROM employees WHERE lastName LIKE 'P%';"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql052",
+    "group": 4,
+    "question": "Tìm các nhân viên có tên (firstName) kết thúc bằng ký tự 'y'.",
+    "options": [
+      "SELECT * FROM employees WHERE RIGHT(firstName, 1) = 'y';",
+      "SELECT * FROM employees WHERE firstName LIKE '%y';",
+      "SELECT * FROM employees WHERE firstName ENDS WITH 'y';",
+      "SELECT * FROM employees WHERE firstName LIKE '_y';"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql053",
+    "group": 4,
+    "question": "Tìm kiếm tất cả khách hàng mà trong tên khách hàng (customerName) có chứa cụm từ 'Gift'.",
+    "options": [
+      "SELECT * FROM customers WHERE INSTR(customerName, 'Gift') > 0;",
+      "SELECT * FROM customers WHERE customerName LIKE '%Gift%';",
+      "SELECT * FROM customers WHERE customerName = '%Gift%';",
+      "SELECT * FROM customers WHERE customerName CONTAINS 'Gift';"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql054",
+    "group": 4,
+    "question": "Lọc các sản phẩm có mã sản phẩm (productCode) bắt đầu bằng chuỗi ký tự tiền tố 'S10_'.",
+    "options": [
+      "SELECT * FROM products WHERE productCode LIKE 'S10\\_%';",
+      "Cả A và B đều đúng",
+      "SELECT * FROM products WHERE productCode LIKE 'S10_%';",
+      "SELECT * FROM products WHERE productCode STARTS WITH 'S10_';"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql055",
+    "group": 4,
+    "question": "Tìm danh sách nhân viên sử dụng email có tên miền thuộc công ty là '@classicmodelcars.com'.",
+    "options": [
+      "SELECT * FROM employees WHERE email ENDS WITH '@classicmodelcars.com';",
+      "SELECT * FROM employees WHERE RIGHT(email, 21) = '@classicmodelcars.com';",
+      "Cả A và B đều đúng",
+      "SELECT * FROM employees WHERE email LIKE '%@classicmodelcars.com';"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql056",
+    "group": 4,
+    "question": "Tìm khách hàng có tên liên hệ bắt đầu bằng chữ 'M' và ký tự kết thúc là 'e'.",
+    "options": [
+      "SELECT * FROM customers WHERE contactFirstName LIKE 'M_e';",
+      "SELECT * FROM customers WHERE contactFirstName LIKE 'M%e';",
+      "SELECT * FROM customers WHERE LEFT(contactFirstName, 1) = 'M' AND RIGHT(contactFirstName, 1) = 'e';",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql057",
+    "group": 4,
+    "question": "Tìm các đơn đặt hàng có ghi chú (comments) chứa cụm từ 'dispute' (không phân biệt hoa thường).",
+    "options": [
+      "Cả A và B đều đúng",
+      "SELECT * FROM orders WHERE comments LIKE '%dispute%';",
+      "SELECT * FROM orders WHERE comments CONTAINS 'dispute';",
+      "SELECT * FROM orders WHERE LOWER(comments) LIKE '%dispute%';"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql058",
+    "group": 4,
+    "question": "Tìm các sản phẩm mà mã của chúng chứa chuỗi '_20' (cần dùng ký tự escape).",
+    "options": [
+      "SELECT * FROM products WHERE productCode LIKE '%_20';",
+      "SELECT * FROM products WHERE productCode LIKE '%\\_20%';",
+      "SELECT * FROM products WHERE productCode LIKE '%/_20%' ESCAPE '/';",
+      "SELECT * FROM products WHERE productCode LIKE '%_20%';"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql059",
+    "group": 4,
+    "question": "Tìm kiếm khách hàng có số điện thoại bắt đầu bằng mã vùng của nước Pháp '+33'.",
+    "options": [
+      "SELECT * FROM customers WHERE LEFT(phone, 3) = '+33';",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT * FROM customers WHERE phone STARTS WITH '+33';",
+      "SELECT * FROM customers WHERE phone LIKE '+33%';"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql060",
+    "group": 4,
+    "question": "Tìm danh sách các nhân viên có họ (lastName) không bắt đầu bằng bất kỳ ký tự nào trong tập hợp 'A', 'B', 'C'.",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT * FROM employees WHERE lastName NOT LIKE 'A%' AND lastName NOT LIKE 'B%' AND lastName NOT LIKE 'C%';",
+      "SELECT * FROM employees WHERE LEFT(lastName, 1) NOT IN ('A', 'B', 'C');",
+      "SELECT * FROM employees WHERE lastName NOT REGEXP '^[ABC]';"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql061",
+    "group": 4,
+    "question": "Đưa ra mã đơn hàng và tiền thuế dự kiến (10% của doanh số) đặt tên cột là taxAmount.",
+    "options": [
+      "SELECT orderNumber, (priceEach * quantityOrdered) * 0.1 AS taxAmount FROM orderdetails;",
+      "SELECT orderNumber, priceEach * quantityOrdered / 10 AS taxAmount FROM orderdetails;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT orderNumber, (priceEach * quantityOrdered * 0.1) AS taxAmount FROM orderdetails;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql062",
+    "group": 4,
+    "question": "Tính toán tổng giá trị tồn kho của từng sản phẩm (buyPrice * quantityInStock) đặt tên cột là inventoryValue.",
+    "options": [
+      "Cả A và B đều đúng",
+      "SELECT productCode, buyPrice * quantityInStock FROM products;",
+      "SELECT productCode, (buyPrice * quantityInStock) AS inventoryValue FROM products;",
+      "SELECT productCode, buyPrice * quantityInStock AS inventoryValue FROM products;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql063",
+    "group": 4,
+    "question": "Đưa ra mã sản phẩm và khoảng lợi nhuận lý thuyết trên mỗi sản phẩm (MSRP - buyPrice) đặt tên cột là expectedProfit.",
+    "options": [
+      "SELECT productCode, MSRP - buyPrice FROM products;",
+      "SELECT productCode, (MSRP - buyPrice) AS expectedProfit FROM products;",
+      "SELECT productCode, MSRP - buyPrice AS expectedProfit FROM products;",
+      "Cả A và B đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql064",
+    "group": 4,
+    "question": "Đưa ra chi tiết đơn hàng gồm giá bán thực tế và giá bán sau khi được chiết khấu 5% đặt tên cột là discountedPrice.",
+    "options": [
+      "SELECT orderNumber, productCode, priceEach, priceEach * 0.95 AS discountedPrice FROM orderdetails;",
+      "SELECT orderNumber, productCode, priceEach, (priceEach * 0.95) AS discountedPrice FROM orderdetails;",
+      "SELECT orderNumber, productCode, priceEach, priceEach - (priceEach * 0.05) AS discountedPrice FROM orderdetails;",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql065",
+    "group": 4,
+    "question": "Gộp họ và tên nhân viên thành một thuộc tính suy diễn duy nhất đặt tên là fullName sử dụng hàm CONCAT.",
+    "options": [
+      "SELECT CONCAT(firstName, ' ', lastName) AS fullName FROM employees;",
+      "SELECT firstName + ' ' + lastName AS fullName FROM employees;",
+      "SELECT firstName || ' ' || lastName AS fullName FROM employees;",
+      "SELECT MERGE(firstName, ' ', lastName) AS fullName FROM employees;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql066",
+    "group": 4,
+    "question": "Sắp xếp danh sách khách hàng theo thứ tự tên quốc gia (country) tăng dần, nếu trùng quốc gia thì xếp theo tên khách hàng (customerName) giảm dần.",
+    "options": [
+      "SELECT * FROM customers ORDER BY country, customerName;",
+      "SELECT * FROM customers ORDER BY country, customerName DESC;",
+      "SELECT * FROM customers ORDER BY country DESC, customerName ASC;",
+      "SELECT * FROM customers ORDER BY country ASC, customerName DESC;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql067",
+    "group": 4,
+    "question": "Đưa ra 10 sản phẩm có số lượng tồn kho (quantityInStock) ít nhất.",
+    "options": [
+      "SELECT * FROM products ORDER BY quantityInStock DESC LIMIT 10;",
+      "SELECT * FROM products LIMIT 10 ORDER BY quantityInStock ASC;",
+      "SELECT TOP 10 * FROM products ORDER BY quantityInStock ASC;",
+      "SELECT * FROM products ORDER BY quantityInStock ASC LIMIT 10;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql068",
+    "group": 4,
+    "question": "Tìm 10 sản phẩm có giá mua (buyPrice) cao nhất.",
+    "options": [
+      "SELECT TOP 10 * FROM products ORDER BY buyPrice DESC;",
+      "SELECT * FROM products ORDER BY buyPrice ASC LIMIT 10;",
+      "SELECT * FROM products ORDER BY buyPrice DESC LIMIT 10;",
+      "SELECT * FROM products LIMIT 10 ORDER BY buyPrice DESC;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql069",
+    "group": 4,
+    "question": "Đưa ra danh sách các thanh toán của khách hàng, sắp xếp theo ngày thanh toán (paymentDate) giảm dần và số tiền thanh toán (amount) tăng dần.",
+    "options": [
+      "SELECT * FROM payments ORDER BY amount ASC, paymentDate DESC;",
+      "SELECT * FROM payments ORDER BY paymentDate DESC, amount ASC;",
+      "SELECT * FROM payments ORDER BY paymentDate, amount;",
+      "SELECT * FROM payments ORDER BY paymentDate DESC, amount DESC;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql070",
+    "group": 4,
+    "question": "Tìm kiếm và đưa ra 5 khách hàng có hạn mức tín dụng (creditLimit) cao nhất.",
+    "options": [
+      "SELECT TOP 5 * FROM customers ORDER BY creditLimit DESC;",
+      "SELECT * FROM customers LIMIT 5 ORDER BY creditLimit DESC;",
+      "SELECT * FROM customers ORDER BY creditLimit ASC LIMIT 5;",
+      "SELECT * FROM customers ORDER BY creditLimit DESC LIMIT 5;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql071",
+    "group": 4,
+    "question": "Kết hợp cột thành phố (city) từ hai bảng customers và offices để tạo danh sách thành phố duy nhất không trùng lặp, sắp xếp tăng dần.",
+    "options": [
+      "SELECT city FROM customers, offices ORDER BY city ASC;",
+      "SELECT city FROM customers UNION ALL SELECT city FROM offices ORDER BY city ASC;",
+      "SELECT DISTINCT city FROM customers, offices ORDER BY city ASC;",
+      "SELECT city FROM customers UNION SELECT city FROM offices ORDER BY city ASC;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql072",
+    "group": 4,
+    "question": "Kết hợp mã số và tên đại diện từ hai nguồn: customers và employees thành một danh bạ chung, sắp xếp theo tên tăng dần.",
+    "options": [
+      "SELECT customerNumber, customerName FROM customers, employees;",
+      "SELECT customerNumber, customerName FROM customers JOIN employees;",
+      "(SELECT customerNumber, customerName FROM customers) UNION ALL (SELECT employeeNumber, CONCAT(firstName, ' ', lastName) FROM employees) ORDER BY 2 ASC;",
+      "(SELECT customerNumber, customerName FROM customers) UNION (SELECT employeeNumber, CONCAT(firstName, ' ', lastName) FROM employees) ORDER BY 2 ASC;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql073",
+    "group": 4,
+    "question": "Kết hợp danh sách quốc gia (country) của khách hàng và quốc gia của văn phòng thành tập hợp chung duy nhất, sắp xếp giảm dần.",
+    "options": [
+      "SELECT country FROM customers UNION ALL SELECT country FROM offices ORDER BY country DESC;",
+      "SELECT country FROM customers, offices ORDER BY country DESC;",
+      "SELECT country FROM customers UNION SELECT country FROM offices ORDER BY country DESC;",
+      "SELECT DISTINCT country FROM customers, offices ORDER BY country DESC;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql074",
+    "group": 4,
+    "question": "Kết hợp danh bạ liên hệ gồm địa chỉ email của nhân viên và tên người liên hệ khách hàng, sắp xếp danh sách kết quả tăng dần.",
+    "options": [
+      "(SELECT email FROM employees) UNION ALL (SELECT contactFirstName FROM customers) ORDER BY 1 ASC;",
+      "SELECT email, contactFirstName FROM employees, customers;",
+      "(SELECT email FROM employees) UNION (SELECT contactFirstName FROM customers) ORDER BY 1 ASC;",
+      "SELECT email FROM employees JOIN customers;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql075",
+    "group": 4,
+    "question": "Sử dụng UNION kết hợp mã giao dịch và ngày tương ứng từ hai sự kiện: Ngày đặt hàng và Ngày thanh toán, sắp xếp theo ngày tăng dần.",
+    "options": [
+      "SELECT * FROM orders UNION SELECT * FROM payments;",
+      "SELECT orderNumber, orderDate, checkNumber, paymentDate FROM orders, payments;",
+      "(SELECT orderNumber, orderDate FROM orders) UNION ALL (SELECT checkNumber, paymentDate FROM payments) ORDER BY 2 ASC;",
+      "(SELECT orderNumber, orderDate FROM orders) UNION (SELECT checkNumber, paymentDate FROM payments) ORDER BY 2 ASC;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql076",
+    "group": 4,
+    "question": "Tìm các sản phẩm thuộc nhóm 'Classic Cars' có giá bán lẻ đề xuất (MSRP) nằm trong phạm vi từ 100 đến 200 USD.",
+    "options": [
+      "SELECT * FROM products WHERE productLine = 'Classic Cars' AND MSRP >= 100 AND MSRP <= 200;",
+      "SELECT * FROM products WHERE productLine = 'Classic Cars' AND MSRP BETWEEN 100 AND 200;",
+      "SELECT * FROM products WHERE productLine = 'Classic Cars' OR MSRP BETWEEN 100 AND 200;",
+      "Cả A và C đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql077",
+    "group": 4,
+    "question": "Đưa ra các khách hàng sống tại Mỹ ('USA') hoặc Pháp ('France') có tên liên hệ bắt đầu bằng chữ 'J'.",
+    "options": [
+      "SELECT * FROM customers WHERE country IN ('USA', 'France') AND contactFirstName LIKE 'J%';",
+      "Cả A và B đều đúng",
+      "SELECT * FROM customers WHERE (country = 'USA' OR country = 'France') AND contactFirstName LIKE 'J%';",
+      "SELECT * FROM customers WHERE country IN ('USA', 'France') OR contactFirstName LIKE 'J%';"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql078",
+    "group": 4,
+    "question": "Tìm 5 đơn hàng chưa được giao hoặc giao trễ của các khách hàng có mã thuộc danh sách (124, 141, 148).",
+    "options": [
+      "SELECT * FROM orders WHERE customerNumber IN (124, 141, 148) AND shippedDate IS NULL LIMIT 5;",
+      "SELECT * FROM orders WHERE customerNumber IN (124, 141, 148) AND status <> 'Shipped' LIMIT 5;",
+      "SELECT * FROM orders WHERE customerNumber IN (124, 141, 148) LIMIT 5;",
+      "SELECT * FROM orders WHERE customerNumber IN (124, 141, 148) AND (shippedDate IS NULL OR status <> 'Shipped') LIMIT 5;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql079",
+    "group": 4,
+    "question": "Lọc các nhân viên làm việc tại văn phòng số '1', '4' hoặc '6' mà chức vụ công việc (jobTitle) có chứa từ 'Manager', sắp xếp theo tên đầy đủ tăng dần.",
+    "options": [
+      "SELECT * FROM employees WHERE officeCode IN ('1', '4', '6') AND jobTitle LIKE '%Manager%' ORDER BY firstName, lastName;",
+      "SELECT * FROM employees WHERE officeCode IN ('1', '4', '6') OR jobTitle LIKE '%Manager%' ORDER BY firstName, lastName;",
+      "Cả A và B đều đúng",
+      "SELECT *, CONCAT(firstName, ' ', lastName) AS fullName FROM employees WHERE officeCode IN ('1', '4', '6') AND jobTitle LIKE '%Manager%' ORDER BY fullName ASC;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql080",
+    "group": 4,
+    "question": "Đưa ra danh sách sản phẩm có số lượng tồn dưới 1000 sản phẩm hoặc giá MSRP trên 150 USD, tính toán tổng giá trị tồn kho, sắp xếp giá trị tồn kho này giảm dần.",
+    "options": [
+      "SELECT *, (buyPrice * quantityInStock) AS inventoryValue FROM products WHERE quantityInStock < 1000 OR MSRP > 150 ORDER BY 9 DESC;",
+      "Cả A và C đều đúng",
+      "SELECT *, (buyPrice * quantityInStock) AS inventoryValue FROM products WHERE quantityInStock < 1000 OR MSRP > 150 ORDER BY inventoryValue DESC;",
+      "SELECT *, (buyPrice * quantityInStock) AS inventoryValue FROM products WHERE quantityInStock < 1000 AND MSRP > 150 ORDER BY inventoryValue DESC;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql081",
+    "group": 5,
+    "question": "Đếm tổng số lượng khách hàng hiện có trong bảng customers.",
+    "options": [
+      "SELECT SUM(*) FROM customers;",
+      "SELECT TOTAL(customers) FROM customers;",
+      "SELECT COUNT(*) FROM customers;",
+      "SELECT COUNT(customers) FROM customers;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql082",
+    "group": 5,
+    "question": "Tính tổng số tiền thu được từ toàn bộ các giao dịch thanh toán trong bảng payments.",
+    "options": [
+      "SELECT AGGREGATE(amount) FROM payments;",
+      "SELECT TOTAL(amount) FROM payments;",
+      "SELECT SUM(amount) FROM payments;",
+      "SELECT COUNT(amount) FROM payments;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql083",
+    "group": 5,
+    "question": "Tính hạn mức tín dụng (creditLimit) trung bình của các khách hàng tại Mỹ (USA).",
+    "options": [
+      "SELECT AVG(creditLimit) FROM customers WHERE country = 'USA';",
+      "SELECT SUM(creditLimit) / COUNT(creditLimit) FROM customers WHERE country = 'USA';",
+      "SELECT MEAN(creditLimit) FROM customers WHERE country = 'USA';",
+      "Cả A và C đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql084",
+    "group": 5,
+    "question": "Tìm giá bán (priceEach) cao nhất và thấp nhất của các sản phẩm đã từng bán trong bảng orderdetails.",
+    "options": [
+      "SELECT HIGHEST(priceEach), LOWEST(priceEach) FROM orderdetails;",
+      "SELECT CEIL(priceEach), FLOOR(priceEach) FROM orderdetails;",
+      "SELECT TOP(priceEach), BOTTOM(priceEach) FROM orderdetails;",
+      "SELECT MAX(priceEach), MIN(priceEach) FROM orderdetails;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql085",
+    "group": 5,
+    "question": "Đếm tổng số lượng nhân viên hiện đang có trong bảng employees.",
+    "options": [
+      "SELECT COUNT(*) FROM employees;",
+      "Cả A và B đều đúng",
+      "SELECT SUM(1) FROM employees;",
+      "SELECT COUNT(employeeNumber) FROM employees;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql086",
+    "group": 5,
+    "question": "Thống kê số lượng khách hàng theo từng quốc gia (country), sắp xếp số lượng khách hàng giảm dần.",
+    "options": [
+      "SELECT country, COUNT(*) AS customer_count FROM customers GROUP BY country ORDER BY customer_count DESC;",
+      "SELECT country, COUNT(*) FROM customers GROUP BY country ORDER BY 2 DESC;",
+      "SELECT country, COUNT(customerNumber) FROM customers GROUP BY country ORDER BY COUNT(customerNumber) DESC;",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql087",
+    "group": 5,
+    "question": "Thống kê số lượng nhân viên theo từng văn phòng (officeCode), sắp xếp tăng dần theo mã văn phòng.",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT officeCode, COUNT(*) FROM employees GROUP BY officeCode;",
+      "SELECT officeCode, COUNT(*) FROM employees GROUP BY officeCode ORDER BY officeCode ASC;",
+      "SELECT officeCode, COUNT(*) FROM employees GROUP BY officeCode ORDER BY 1;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql088",
+    "group": 5,
+    "question": "Tính tổng số lượng hàng hóa còn trong kho (quantityInStock) theo từng nhóm dòng sản phẩm (productLine).",
+    "options": [
+      "SELECT productLine, COUNT(quantityInStock) FROM products GROUP BY productLine;",
+      "SELECT productLine, SUM(quantityInStock) FROM products GROUP BY productLine;",
+      "SELECT productLine, SUM(*) FROM products GROUP BY productLine;",
+      "SELECT productLine, TOTAL(quantityInStock) FROM products GROUP BY productLine;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql089",
+    "group": 5,
+    "question": "Tính số tiền thanh toán trung bình (amount) của từng khách hàng dựa trên bảng payments.",
+    "options": [
+      "SELECT customerNumber, SUM(amount) / COUNT(amount) FROM payments GROUP BY customerNumber;",
+      "Cả A và C đều đúng",
+      "SELECT customerNumber, MEAN(amount) FROM payments GROUP BY customerNumber;",
+      "SELECT customerNumber, AVG(amount) FROM payments GROUP BY customerNumber;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql090",
+    "group": 5,
+    "question": "Thống kê số lượng đơn đặt hàng theo từng trạng thái (status).",
+    "options": [
+      "SELECT status, SUM(1) FROM orders GROUP BY status;",
+      "SELECT status, COUNT(*) FROM orders GROUP BY status;",
+      "SELECT status, COUNT(orderNumber) FROM orders GROUP BY status;",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql091",
+    "group": 5,
+    "question": "Tìm hạn mức tín dụng (creditLimit) lớn nhất và nhỏ nhất của khách hàng theo từng quốc gia.",
+    "options": [
+      "SELECT country, HIGHEST(creditLimit), LOWEST(creditLimit) FROM customers GROUP BY country;",
+      "SELECT country, TOP(creditLimit), BOTTOM(creditLimit) FROM customers GROUP BY country;",
+      "SELECT country, MAX(creditLimit), MIN(creditLimit) FROM customers GROUP BY country;",
+      "SELECT country, CEIL(creditLimit), FLOOR(creditLimit) FROM customers GROUP BY country;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql092",
+    "group": 5,
+    "question": "Tính tổng số tiền thu được từ các khoản thanh toán (payments) theo từng năm.",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT YEAR(paymentDate), SUM(amount) FROM payments GROUP BY YEAR(paymentDate);",
+      "SELECT EXTRACT(YEAR FROM paymentDate), SUM(amount) FROM payments GROUP BY 1;",
+      "SELECT DATE_FORMAT(paymentDate, '%Y'), SUM(amount) FROM payments GROUP BY 1;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql093",
+    "group": 5,
+    "question": "Tính tổng số lượng sản phẩm được đặt hàng (quantityOrdered) cho mỗi mã sản phẩm (productCode).",
+    "options": [
+      "SELECT productCode, SUM(quantityOrdered) FROM orderdetails GROUP BY productCode;",
+      "SELECT productCode, SUM(*) FROM orderdetails GROUP BY productCode;",
+      "SELECT productCode, COUNT(quantityOrdered) FROM orderdetails GROUP BY productCode;",
+      "SELECT productCode, TOTAL(quantityOrdered) FROM orderdetails GROUP BY productCode;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql094",
+    "group": 5,
+    "question": "Đếm số lượng sản phẩm của từng nhà cung cấp (productVendor) trong bảng products.",
+    "options": [
+      "SELECT productVendor, COUNT(*) FROM products GROUP BY productVendor;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT productVendor, COUNT(productCode) FROM products GROUP BY productVendor;",
+      "SELECT productVendor, SUM(1) FROM products GROUP BY productVendor;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql095",
+    "group": 5,
+    "question": "Thống kê số lượng khách hàng được phân công cho từng nhân viên đại diện chăm sóc (salesRepEmployeeNumber), sắp xếp số lượng giảm dần.",
+    "options": [
+      "SELECT salesRepEmployeeNumber, COUNT(*) FROM customers GROUP BY salesRepEmployeeNumber;",
+      "SELECT salesRepEmployeeNumber, COUNT(*) FROM customers GROUP BY salesRepEmployeeNumber ORDER BY 2 DESC;",
+      "SELECT salesRepEmployeeNumber, COUNT(customerNumber) FROM customers GROUP BY salesRepEmployeeNumber ORDER BY 2 DESC;",
+      "SELECT salesRepEmployeeNumber, COUNT(*) FROM customers WHERE salesRepEmployeeNumber IS NOT NULL GROUP BY salesRepEmployeeNumber ORDER BY 2 DESC;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql096",
+    "group": 5,
+    "question": "Đếm số lượng nhân viên theo từng chức danh công việc (jobTitle) trong bảng employees.",
+    "options": [
+      "SELECT jobTitle, SUM(1) FROM employees GROUP BY jobTitle;",
+      "SELECT jobTitle, COUNT(*) FROM employees GROUP BY jobTitle;",
+      "SELECT jobTitle, COUNT(employeeNumber) FROM employees GROUP BY jobTitle;",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql097",
+    "group": 5,
+    "question": "Tính tổng giá trị (priceEach * quantityOrdered) của từng dòng chi tiết đơn hàng cho mỗi mã đơn đặt hàng (orderNumber).",
+    "options": [
+      "SELECT orderNumber, priceEach * quantityOrdered FROM orderdetails;",
+      "SELECT orderNumber, SUM(priceEach * quantityOrdered) FROM orderdetails GROUP BY orderNumber;",
+      "SELECT orderNumber, TOTAL(priceEach * quantityOrdered) FROM orderdetails GROUP BY orderNumber;",
+      "SELECT orderNumber, SUM(priceEach) * SUM(quantityOrdered) FROM orderdetails GROUP BY orderNumber;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql098",
+    "group": 5,
+    "question": "Thống kê số lượng đơn hàng được đặt theo từng khách hàng (customerNumber).",
+    "options": [
+      "SELECT customerNumber, COUNT(orderNumber) FROM orders GROUP BY customerNumber;",
+      "SELECT customerNumber, COUNT(*) FROM orders GROUP BY customerNumber;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT customerNumber, SUM(1) FROM orders GROUP BY customerNumber;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql099",
+    "group": 5,
+    "question": "Tính doanh thu trung bình của các chi tiết đơn hàng theo từng sản phẩm.",
+    "options": [
+      "SELECT productCode, MEAN(priceEach * quantityOrdered) FROM orderdetails GROUP BY productCode;",
+      "SELECT productCode, SUM(priceEach * quantityOrdered) / COUNT(*) FROM orderdetails GROUP BY productCode;",
+      "SELECT productCode, AVG(priceEach * quantityOrdered) FROM orderdetails GROUP BY productCode;",
+      "Cả A và C đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql100",
+    "group": 5,
+    "question": "Đếm số lượng sản phẩm theo từng tỷ lệ xích (productScale).",
+    "options": [
+      "SELECT productScale, COUNT(productCode) FROM products GROUP BY productScale;",
+      "SELECT productScale, COUNT(*) FROM products GROUP BY productScale;",
+      "SELECT productScale, SUM(1) FROM products GROUP BY productScale;",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql101",
+    "group": 5,
+    "question": "Thống kê số lượng thành phố khác nhau có văn phòng làm việc ở mỗi quốc gia.",
+    "options": [
+      "SELECT country, COUNT(UNIQUE city) FROM offices GROUP BY country;",
+      "SELECT country, COUNT(DISTINCT city) FROM offices GROUP BY country;",
+      "SELECT country, COUNT(city) FROM offices GROUP BY country;",
+      "SELECT country, DISTINCT COUNT(city) FROM offices GROUP BY country;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql102",
+    "group": 5,
+    "question": "Tính tổng số tiền thanh toán của từng khách hàng tại quốc gia Pháp (France).",
+    "options": [
+      "SELECT customerNumber, SUM(amount) FROM payments WHERE country = 'France' GROUP BY customerNumber;",
+      "Cả A và C đều đúng",
+      "SELECT p.customerNumber, SUM(p.amount) FROM payments p JOIN customers c ON p.customerNumber = c.customerNumber WHERE c.country = 'France' GROUP BY p.customerNumber;",
+      "SELECT customerNumber, SUM(amount) FROM payments WHERE customerNumber IN (SELECT customerNumber FROM customers WHERE country = 'France') GROUP BY customerNumber;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql103",
+    "group": 5,
+    "question": "Tính tổng số lượng đặt hàng trung bình trên từng dòng chi tiết đơn hàng theo mỗi mã sản phẩm.",
+    "options": [
+      "SELECT productCode, SUM(quantityOrdered) / COUNT(*) FROM orderdetails GROUP BY productCode;",
+      "SELECT productCode, MEAN(quantityOrdered) FROM orderdetails GROUP BY productCode;",
+      "SELECT productCode, AVG(quantityOrdered) FROM orderdetails GROUP BY productCode;",
+      "Cả A và C đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql104",
+    "group": 5,
+    "question": "Thống kê số đơn đặt hàng được lập theo từng tháng trong năm 2003.",
+    "options": [
+      "SELECT EXTRACT(MONTH FROM orderDate), COUNT(*) FROM orders WHERE YEAR(orderDate) = 2003 GROUP BY 1;",
+      "SELECT DATE_FORMAT(orderDate, '%m'), COUNT(*) FROM orders WHERE YEAR(orderDate) = 2003 GROUP BY 1;",
+      "SELECT MONTH(orderDate), COUNT(*) FROM orders WHERE YEAR(orderDate) = 2003 GROUP BY MONTH(orderDate);",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql105",
+    "group": 5,
+    "question": "Đếm số lượng khách hàng không có tiểu bang xác định (state IS NULL) theo từng quốc gia.",
+    "options": [
+      "SELECT country, COUNT(*) FROM customers GROUP BY country WHERE state IS NULL;",
+      "SELECT country, COUNT(*) FROM customers WHERE state IS NULL GROUP BY country;",
+      "SELECT country, COUNT(customerNumber) FROM customers WHERE state IS NULL GROUP BY country;",
+      "Cả A và C đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql106",
+    "group": 5,
+    "question": "Tìm các quốc gia có nhiều hơn 5 khách hàng.",
+    "options": [
+      "SELECT country, COUNT(*) FROM customers GROUP BY country WHERE COUNT(*) > 5;",
+      "SELECT country, COUNT(*) FROM customers WHERE COUNT(*) > 5 GROUP BY country;",
+      "SELECT country, COUNT(*) FROM customers GROUP BY country HAVING COUNT(*) > 5;",
+      "SELECT country FROM customers WHERE COUNT(country) > 5;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql107",
+    "group": 5,
+    "question": "Lọc các mã đơn đặt hàng (orderNumber) có tổng giá trị đơn hàng vượt quá 60,000 USD.",
+    "options": [
+      "SELECT orderNumber, SUM(priceEach * quantityOrdered) FROM orderdetails GROUP BY orderNumber HAVING SUM(priceEach * quantityOrdered) > 60000;",
+      "SELECT orderNumber, SUM(priceEach * quantityOrdered) AS total FROM orderdetails GROUP BY orderNumber HAVING total > 60000;",
+      "Cả A và B đều đúng",
+      "SELECT orderNumber FROM orderdetails GROUP BY orderNumber HAVING SUM(priceEach * quantityOrdered) > 60000;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql108",
+    "group": 5,
+    "question": "Tìm các mã sản phẩm (productCode) có tổng số lượng đặt hàng (quantityOrdered) lớn hơn 1000 sản phẩm.",
+    "options": [
+      "SELECT productCode, SUM(quantityOrdered) FROM orderdetails WHERE SUM(quantityOrdered) > 1000 GROUP BY productCode;",
+      "SELECT productCode FROM orderdetails WHERE quantityOrdered > 1000;",
+      "SELECT productCode FROM orderdetails GROUP BY productCode WHERE SUM(quantityOrdered) > 1000;",
+      "SELECT productCode, SUM(quantityOrdered) FROM orderdetails GROUP BY productCode HAVING SUM(quantityOrdered) > 1000;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql109",
+    "group": 5,
+    "question": "Tìm các nhân viên đại diện chăm sóc khách hàng (salesRepEmployeeNumber) đang quản lý nhiều hơn 7 khách hàng.",
+    "options": [
+      "SELECT salesRepEmployeeNumber FROM customers WHERE salesRepEmployeeNumber IS NOT NULL GROUP BY salesRepEmployeeNumber HAVING COUNT(*) > 7;",
+      "SELECT salesRepEmployeeNumber, COUNT(*) FROM customers GROUP BY salesRepEmployeeNumber HAVING COUNT(*) > 7;",
+      "SELECT salesRepEmployeeNumber FROM customers GROUP BY salesRepEmployeeNumber WHERE COUNT(*) > 7;",
+      "SELECT salesRepEmployeeNumber, COUNT(*) FROM customers WHERE COUNT(*) > 7 GROUP BY salesRepEmployeeNumber;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql110",
+    "group": 5,
+    "question": "Lọc các văn phòng (officeCode) có số lượng nhân viên làm việc từ 3 người trở lên.",
+    "options": [
+      "SELECT officeCode FROM employees WHERE officeCode IN (SELECT officeCode FROM employees GROUP BY officeCode HAVING COUNT(*) >= 3);",
+      "SELECT officeCode FROM employees GROUP BY officeCode HAVING COUNT(*) >= 3;",
+      "SELECT officeCode, COUNT(*) FROM employees WHERE COUNT(*) >= 3 GROUP BY officeCode;",
+      "SELECT officeCode, COUNT(*) FROM employees GROUP BY officeCode HAVING COUNT(*) >= 3;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql111",
+    "group": 5,
+    "question": "Tìm các bang (state) tại Mỹ có tổng hạn mức tín dụng (creditLimit) của các khách hàng lớn hơn 300,000 USD.",
+    "options": [
+      "SELECT state FROM customers WHERE country = 'USA' AND creditLimit > 300000;",
+      "SELECT state, SUM(creditLimit) FROM customers WHERE country = 'USA' GROUP BY state HAVING SUM(creditLimit) > 300000;",
+      "SELECT state, SUM(creditLimit) FROM customers WHERE country = 'USA' AND state IS NOT NULL GROUP BY state HAVING SUM(creditLimit) > 300000;",
+      "SELECT state, SUM(creditLimit) FROM customers WHERE country = 'USA' AND SUM(creditLimit) > 300000 GROUP BY state;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql112",
+    "group": 5,
+    "question": "Tìm các nhà cung cấp sản phẩm (productVendor) có nhiều hơn 10 sản phẩm trong hệ thống.",
+    "options": [
+      "SELECT productVendor, COUNT(*) FROM products GROUP BY productVendor HAVING COUNT(*) > 10;",
+      "SELECT productVendor FROM products GROUP BY productVendor HAVING COUNT(*) > 10;",
+      "SELECT productVendor, COUNT(*) FROM products WHERE COUNT(*) > 10 GROUP BY productVendor;",
+      "SELECT productVendor FROM products WHERE productVendor IN (SELECT productVendor FROM products GROUP BY productVendor HAVING COUNT(*) > 10);"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql113",
+    "group": 5,
+    "question": "Lọc ra những đơn hàng có số lượng mặt hàng (itemsCount) lớn hơn 15 mặt hàng.",
+    "options": [
+      "SELECT orderNumber, COUNT(productCode) FROM orderdetails GROUP BY orderNumber HAVING COUNT(productCode) > 15;",
+      "SELECT orderNumber FROM orderdetails GROUP BY orderNumber HAVING COUNT(*) > 15;",
+      "SELECT orderNumber, COUNT(*) AS itemsCount FROM orderdetails GROUP BY orderNumber HAVING itemsCount > 15;",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql114",
+    "group": 5,
+    "question": "Tìm các khách hàng có tổng số tiền đã thanh toán (payments) lớn hơn 100,000 USD.",
+    "options": [
+      "SELECT customerNumber FROM payments WHERE amount > 100000;",
+      "SELECT customerNumber, SUM(amount) FROM payments WHERE SUM(amount) > 100000 GROUP BY customerNumber;",
+      "SELECT customerNumber, SUM(amount) FROM payments GROUP BY customerNumber HAVING SUM(amount) > 100000;",
+      "SELECT customerNumber FROM payments GROUP BY customerNumber HAVING SUM(amount) > 100000;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql115",
+    "group": 5,
+    "question": "Lọc các nhóm sản phẩm (productLine) có giá bán lẻ đề xuất trung bình (MSRP) lớn hơn 100 USD.",
+    "options": [
+      "SELECT productLine, AVG(MSRP) FROM products GROUP BY productLine HAVING AVG(MSRP) > 100;",
+      "SELECT productLine, AVG(MSRP) FROM products WHERE AVG(MSRP) > 100 GROUP BY productLine;",
+      "SELECT productLine FROM products WHERE MSRP > 100;",
+      "SELECT productLine FROM products GROUP BY productLine HAVING AVG(MSRP) > 100;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql116",
+    "group": 5,
+    "question": "Thống kê các đơn đặt hàng có tổng giá trị lớn hơn 50,000 USD và hiển thị kèm tổng số lượng sản phẩm được đặt trong đơn đó.",
+    "options": [
+      "Cả A và B đều đúng",
+      "SELECT orderNumber, COUNT(*), SUM(priceEach * quantityOrdered) FROM orderdetails GROUP BY orderNumber HAVING SUM(priceEach * quantityOrdered) > 50000;",
+      "SELECT orderNumber, SUM(quantityOrdered), SUM(priceEach * quantityOrdered) AS total FROM orderdetails GROUP BY orderNumber HAVING total > 50000;",
+      "SELECT orderNumber, SUM(quantityOrdered), SUM(priceEach * quantityOrdered) FROM orderdetails GROUP BY orderNumber HAVING SUM(priceEach * quantityOrdered) > 50000;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql117",
+    "group": 5,
+    "question": "Lọc ra các năm có tổng doanh thu thanh toán (payments) vượt quá 1,000,000 USD.",
+    "options": [
+      "SELECT YEAR(paymentDate), SUM(amount) FROM payments GROUP BY YEAR(paymentDate) HAVING SUM(amount) > 1000000;",
+      "SELECT YEAR(paymentDate), SUM(amount) FROM payments WHERE SUM(amount) > 1000000 GROUP BY YEAR(paymentDate);",
+      "SELECT YEAR(paymentDate) FROM payments WHERE amount > 1000000;",
+      "SELECT YEAR(paymentDate) FROM payments GROUP BY YEAR(paymentDate) HAVING SUM(amount) > 1000000;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql118",
+    "group": 5,
+    "question": "Tìm các khách hàng có tổng giá trị đơn hàng trung bình trên mỗi đơn hàng lớn hơn 20,000 USD.",
+    "options": [
+      "SELECT customerNumber, AVG(SUM(priceEach * quantityOrdered)) FROM orderdetails JOIN orders USING(orderNumber) GROUP BY customerNumber HAVING AVG(SUM(priceEach * quantityOrdered)) > 20000;",
+      "Không thể thực hiện bằng một câu lệnh SQL.",
+      "SELECT customerNumber, AVG(total) FROM (SELECT o.customerNumber, od.orderNumber, SUM(od.priceEach * od.quantityOrdered) AS total FROM orders o JOIN orderdetails od ON o.orderNumber = od.orderNumber GROUP BY o.orderNumber, o.customerNumber) AS order_totals GROUP BY customerNumber HAVING AVG(total) > 20000;",
+      "SELECT customerNumber, AVG(priceEach * quantityOrdered) FROM orderdetails JOIN orders USING(orderNumber) GROUP BY customerNumber HAVING AVG(priceEach * quantityOrdered) > 20000;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql119",
+    "group": 5,
+    "question": "Thống kê các sản phẩm thuộc nhóm 'Classic Cars' có tổng doanh số bán ra lớn hơn 80,000 USD.",
+    "options": [
+      "Cả A và C đều đúng",
+      "SELECT productCode, SUM(priceEach * quantityOrdered) FROM orderdetails WHERE productLine = 'Classic Cars' GROUP BY productCode HAVING SUM(priceEach * quantityOrdered) > 80000;",
+      "SELECT productCode, SUM(priceEach * quantityOrdered) FROM orderdetails WHERE productCode IN (SELECT productCode FROM products WHERE productLine = 'Classic Cars') GROUP BY productCode HAVING SUM(priceEach * quantityOrdered) > 80000;",
+      "SELECT od.productCode, SUM(od.priceEach * od.quantityOrdered) AS total FROM orderdetails od JOIN products p ON od.productCode = p.productCode WHERE p.productLine = 'Classic Cars' GROUP BY od.productCode HAVING total > 80000;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql120",
+    "group": 5,
+    "question": "Lọc các khách hàng có số lần thanh toán lớn hơn 3 lần, sắp xếp số lần thanh toán giảm dần.",
+    "options": [
+      "SELECT customerNumber, COUNT(*) AS transaction_count FROM payments GROUP BY customerNumber HAVING transaction_count > 3 ORDER BY transaction_count DESC;",
+      "SELECT customerNumber, COUNT(*) FROM payments GROUP BY customerNumber HAVING COUNT(*) > 3 ORDER BY 2 DESC;",
+      "SELECT customerNumber FROM payments GROUP BY customerNumber HAVING COUNT(checkNumber) > 3 ORDER BY COUNT(checkNumber) DESC;",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql121",
+    "group": 6,
+    "question": "Đưa ra danh sách gồm mã nhân viên, họ tên nhân viên và địa chỉ thành phố của văn phòng nơi họ làm việc.",
+    "options": [
+      "SELECT e.employeeNumber, CONCAT(e.firstName, ' ', e.lastName), o.city FROM employees e JOIN offices o ON e.officeCode = o.officeCode;",
+      "SELECT e.employeeNumber, e.firstName, e.lastName, o.city FROM employees e INNER JOIN offices o USING(officeCode);",
+      "SELECT e.employeeNumber, e.firstName, e.lastName, o.city FROM employees e, offices o WHERE e.officeCode = o.officeCode;",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql122",
+    "group": 6,
+    "question": "Hiển thị thông tin tên khách hàng và họ tên đầy đủ của nhân viên đại diện bán hàng quản lý họ.",
+    "options": [
+      "SELECT c.customerName, CONCAT(e.firstName, ' ', e.lastName) FROM customers c, employees e WHERE c.salesRepEmployeeNumber = e.employeeNumber;",
+      "SELECT c.customerName, CONCAT(e.firstName, ' ', e.lastName) FROM customers c JOIN employees e ON c.salesRepEmployeeNumber = e.employeeNumber;",
+      "SELECT c.customerName, CONCAT(e.firstName, ' ', e.lastName) FROM customers c LEFT JOIN employees e ON c.salesRepEmployeeNumber = e.employeeNumber WHERE c.salesRepEmployeeNumber IS NOT NULL;",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql123",
+    "group": 6,
+    "question": "Liệt kê mã đơn hàng, trạng thái đơn hàng và tên của khách hàng đã đặt đơn hàng đó.",
+    "options": [
+      "SELECT o.orderNumber, o.status, c.customerName FROM orders o INNER JOIN customers c USING(customerNumber);",
+      "SELECT o.orderNumber, o.status, c.customerName FROM orders o, customers c WHERE o.customerNumber = c.customerNumber;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT o.orderNumber, o.status, c.customerName FROM orders o JOIN customers c ON o.customerNumber = c.customerNumber;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql124",
+    "group": 6,
+    "question": "Đưa ra tên sản phẩm và mô tả tóm tắt của dòng sản phẩm tương ứng.",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT p.productName, pl.textDescription FROM products p INNER JOIN productlines pl USING(productLine);",
+      "SELECT p.productName, pl.textDescription FROM products p, productlines pl WHERE p.productLine = pl.productLine;",
+      "SELECT p.productName, pl.textDescription FROM products p JOIN productlines pl ON p.productLine = pl.productLine;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql125",
+    "group": 6,
+    "question": "Đưa ra mã đơn hàng, mã sản phẩm và tên sản phẩm của từng mặt hàng được mua.",
+    "options": [
+      "SELECT od.orderNumber, od.productCode, p.productName FROM orderdetails od, products p WHERE od.productCode = p.productCode;",
+      "SELECT od.orderNumber, od.productCode, p.productName FROM orderdetails od INNER JOIN products p USING(productCode);",
+      "SELECT od.orderNumber, od.productCode, p.productName FROM orderdetails od JOIN products p ON od.productCode = p.productCode;",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql126",
+    "group": 6,
+    "question": "Hiển thị tên khách hàng và ngày thanh toán tương ứng của họ.",
+    "options": [
+      "SELECT c.customerName, p.paymentDate FROM customers c INNER JOIN payments p USING(customerNumber);",
+      "SELECT c.customerName, p.paymentDate FROM customers c JOIN payments p ON c.customerNumber = p.customerNumber;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT c.customerName, p.paymentDate FROM customers c, payments p WHERE c.customerNumber = p.customerNumber;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql127",
+    "group": 6,
+    "question": "Liệt kê tên sản phẩm và số lượng đặt hàng tương ứng của tất cả các sản phẩm đã từng bán.",
+    "options": [
+      "SELECT p.productName, od.quantityOrdered FROM products p INNER JOIN orderdetails od USING(productCode);",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT p.productName, od.quantityOrdered FROM products p, orderdetails od WHERE p.productCode = od.productCode;",
+      "SELECT p.productName, od.quantityOrdered FROM products p JOIN orderdetails od ON p.productCode = od.productCode;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql128",
+    "group": 6,
+    "question": "Đưa ra thông tin gồm mã khách hàng, tên khách hàng và quốc gia của văn phòng quản lý nhân viên đại diện của khách hàng đó.",
+    "options": [
+      "SELECT c.customerNumber, c.customerName, ofc.country FROM customers c INNER JOIN employees e ON c.salesRepEmployeeNumber = e.employeeNumber INNER JOIN offices ofc ON e.officeCode = ofc.officeCode;",
+      "SELECT c.customerNumber, c.customerName, ofc.country FROM customers c JOIN employees e ON c.salesRepEmployeeNumber = e.employeeNumber JOIN offices ofc ON e.officeCode = ofc.officeCode;",
+      "SELECT c.customerNumber, c.customerName, ofc.country FROM customers c, employees e, offices ofc WHERE c.salesRepEmployeeNumber = e.employeeNumber AND e.officeCode = ofc.officeCode;",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql129",
+    "group": 6,
+    "question": "Đưa ra danh sách chi tiết đơn hàng gồm mã đơn, mã sản phẩm, giá bán thực tế và giá mua của sản phẩm (buyPrice).",
+    "options": [
+      "SELECT od.orderNumber, od.productCode, od.priceEach, p.buyPrice FROM orderdetails od JOIN products p ON od.productCode = p.productCode;",
+      "SELECT od.orderNumber, od.productCode, od.priceEach, p.buyPrice FROM orderdetails od, products p WHERE od.productCode = p.productCode;",
+      "SELECT od.orderNumber, od.productCode, od.priceEach, p.buyPrice FROM orderdetails od INNER JOIN products p USING(productCode);",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql130",
+    "group": 6,
+    "question": "Hiển thị tên nhân viên, chức vụ và họ tên đầy đủ của người quản lý trực tiếp họ.",
+    "options": [
+      "SELECT CONCAT(e.firstName, ' ', e.lastName), e.jobTitle, CONCAT(m.firstName, ' ', m.lastName) FROM employees e, employees m WHERE e.reportsTo = m.employeeNumber;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT CONCAT(e.firstName, ' ', e.lastName) AS Employee, e.jobTitle, CONCAT(m.firstName, ' ', m.lastName) AS Manager FROM employees e JOIN employees m ON e.reportsTo = m.employeeNumber;",
+      "SELECT CONCAT(e.firstName, ' ', e.lastName), e.jobTitle, CONCAT(m.firstName, ' ', m.lastName) FROM employees e INNER JOIN employees m ON e.reportsTo = m.employeeNumber;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql131",
+    "group": 6,
+    "question": "Đưa ra tên các khách hàng và tổng số tiền họ đã thanh toán, sắp xếp giảm dần.",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT c.customerName, SUM(p.amount) FROM customers c, payments p WHERE c.customerNumber = p.customerNumber GROUP BY c.customerName ORDER BY 2 DESC;",
+      "SELECT c.customerName, SUM(p.amount) AS total FROM customers c JOIN payments p ON c.customerNumber = p.customerNumber GROUP BY c.customerName ORDER BY total DESC;",
+      "SELECT c.customerName, SUM(p.amount) FROM customers c INNER JOIN payments p USING(customerNumber) GROUP BY c.customerName ORDER BY 2 DESC;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql132",
+    "group": 6,
+    "question": "Đưa ra tên khách hàng và tổng giá trị đơn hàng mà họ đã đặt.",
+    "options": [
+      "SELECT c.customerName, SUM(od.priceEach * od.quantityOrdered) FROM customers c INNER JOIN orders o USING(customerNumber) INNER JOIN orderdetails od USING(orderNumber) GROUP BY c.customerName;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT c.customerName, SUM(od.priceEach * od.quantityOrdered) FROM customers c, orders o, orderdetails od WHERE c.customerNumber = o.customerNumber AND o.orderNumber = od.orderNumber GROUP BY c.customerName;",
+      "SELECT c.customerName, SUM(od.priceEach * od.quantityOrdered) FROM customers c JOIN orders o ON c.customerNumber = o.customerNumber JOIN orderdetails od ON o.orderNumber = od.orderNumber GROUP BY c.customerName;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql133",
+    "group": 6,
+    "question": "Thống kê số lượng đơn hàng đã đặt của từng nhân viên đại diện chăm sóc khách hàng.",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT e.employeeNumber, COUNT(o.orderNumber) FROM employees e, customers c, orders o WHERE e.employeeNumber = c.salesRepEmployeeNumber AND c.customerNumber = o.customerNumber GROUP BY e.employeeNumber;",
+      "SELECT e.employeeNumber, COUNT(o.orderNumber) FROM employees e JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber JOIN orders o ON c.customerNumber = o.customerNumber GROUP BY e.employeeNumber;",
+      "SELECT e.employeeNumber, COUNT(o.orderNumber) FROM employees e INNER JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber INNER JOIN orders o ON c.customerNumber = o.customerNumber GROUP BY e.employeeNumber;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql134",
+    "group": 6,
+    "question": "Liệt kê mã đơn hàng, tên khách hàng, tên sản phẩm và số lượng đặt của từng mặt hàng.",
+    "options": [
+      "SELECT o.orderNumber, c.customerName, p.productName, od.quantityOrdered FROM orders o JOIN customers c ON o.customerNumber = c.customerNumber JOIN orderdetails od ON o.orderNumber = od.orderNumber JOIN products p ON od.productCode = p.productCode;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT o.orderNumber, c.customerName, p.productName, od.quantityOrdered FROM orders o INNER JOIN customers c USING(customerNumber) INNER JOIN orderdetails od USING(orderNumber) INNER JOIN products p USING(productCode);",
+      "SELECT o.orderNumber, c.customerName, p.productName, od.quantityOrdered FROM orders o, customers c, orderdetails od, products p WHERE o.customerNumber = c.customerNumber AND o.orderNumber = od.orderNumber AND od.productCode = p.productCode;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql135",
+    "group": 6,
+    "question": "Tính tổng doanh thu mang về cho công ty từ các đơn hàng của từng văn phòng làm việc.",
+    "options": [
+      "SELECT ofc.city, SUM(p.amount) FROM offices ofc JOIN employees e ON ofc.officeCode = e.officeCode JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber JOIN payments p ON c.customerNumber = p.customerNumber GROUP BY ofc.city;",
+      "SELECT ofc.city, SUM(p.amount) FROM offices ofc, employees e, customers c, payments p WHERE ofc.officeCode = e.officeCode AND e.employeeNumber = c.salesRepEmployeeNumber AND c.customerNumber = p.customerNumber GROUP BY ofc.city;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT ofc.city, SUM(p.amount) FROM offices ofc INNER JOIN employees e ON ofc.officeCode = e.officeCode INNER JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber INNER JOIN payments p ON c.customerNumber = p.customerNumber GROUP BY ofc.city;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql136",
+    "group": 6,
+    "question": "Thống kê tổng số lượng sản phẩm đã bán ra theo từng nhóm dòng sản phẩm (productLine).",
+    "options": [
+      "SELECT p.productLine, SUM(od.quantityOrdered) FROM products p JOIN orderdetails od ON p.productCode = od.productCode GROUP BY p.productLine;",
+      "SELECT pl.productLine, SUM(od.quantityOrdered) FROM productlines pl JOIN products p ON pl.productLine = p.productLine JOIN orderdetails od ON p.productCode = od.productCode GROUP BY pl.productLine;",
+      "Cả B và C đều đúng",
+      "SELECT p.productLine, SUM(od.quantityOrdered) FROM products p, orderdetails od WHERE p.productCode = od.productCode GROUP BY p.productLine;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql137",
+    "group": 6,
+    "question": "Tìm 5 khách hàng mang lại doanh thu đặt hàng cao nhất cho công ty.",
+    "options": [
+      "SELECT c.customerName, SUM(od.priceEach * od.quantityOrdered) FROM customers c INNER JOIN orders o USING(customerNumber) INNER JOIN orderdetails od USING(orderNumber) GROUP BY c.customerName ORDER BY 2 DESC LIMIT 5;",
+      "SELECT c.customerName, SUM(od.priceEach * od.quantityOrdered) AS total FROM customers c JOIN orders o ON c.customerNumber = o.customerNumber JOIN orderdetails od ON o.orderNumber = od.orderNumber GROUP BY c.customerName ORDER BY total DESC LIMIT 5;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT c.customerName, SUM(od.priceEach * od.quantityOrdered) FROM customers c, orders o, orderdetails od WHERE c.customerNumber = o.customerNumber AND o.orderNumber = od.orderNumber GROUP BY c.customerName ORDER BY 2 DESC LIMIT 5;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql138",
+    "group": 6,
+    "question": "Đưa ra mã đơn hàng, ngày đặt hàng, tên sản phẩm và doanh số của sản phẩm đó trong đơn hàng, sắp xếp doanh số giảm dần.",
+    "options": [
+      "SELECT o.orderNumber, o.orderDate, p.productName, (od.priceEach * od.quantityOrdered) AS revenue FROM orders o JOIN orderdetails od ON o.orderNumber = od.orderNumber JOIN products p ON od.productCode = p.productCode ORDER BY revenue DESC;",
+      "SELECT o.orderNumber, o.orderDate, p.productName, (od.priceEach * od.quantityOrdered) FROM orders o, orderdetails od, products p WHERE o.orderNumber = od.orderNumber AND od.productCode = p.productCode ORDER BY 4 DESC;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT o.orderNumber, o.orderDate, p.productName, (od.priceEach * od.quantityOrdered) FROM orders o INNER JOIN orderdetails od USING(orderNumber) INNER JOIN products p USING(productCode) ORDER BY 4 DESC;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql139",
+    "group": 6,
+    "question": "Tính số lượng khách hàng của từng văn phòng làm việc.",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT o.city, COUNT(c.customerNumber) FROM offices o, employees e, customers c WHERE o.officeCode = e.officeCode AND e.employeeNumber = c.salesRepEmployeeNumber GROUP BY o.city;",
+      "SELECT o.city, COUNT(c.customerNumber) FROM offices o INNER JOIN employees e ON o.officeCode = e.officeCode INNER JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber GROUP BY o.city;",
+      "SELECT o.city, COUNT(c.customerNumber) FROM offices o JOIN employees e ON o.officeCode = e.officeCode JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber GROUP BY o.city;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql140",
+    "group": 6,
+    "question": "Liệt kê các sản phẩm thuộc dòng 'Classic Cars' kèm theo tổng số tiền bán ra của từng sản phẩm đó.",
+    "options": [
+      "SELECT p.productName, SUM(od.priceEach * od.quantityOrdered) FROM products p JOIN orderdetails od ON p.productCode = od.productCode WHERE p.productLine = 'Classic Cars' GROUP BY p.productName;",
+      "SELECT p.productName, SUM(od.priceEach * od.quantityOrdered) FROM products p, orderdetails od WHERE p.productCode = od.productCode AND p.productLine = 'Classic Cars' GROUP BY p.productName;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT p.productName, SUM(od.priceEach * od.quantityOrdered) FROM products p INNER JOIN orderdetails od USING(productCode) WHERE p.productLine = 'Classic Cars' GROUP BY p.productName;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql141",
+    "group": 6,
+    "question": "Đưa ra thông tin về các dòng sản phẩm (productLine) và tổng số lượng hàng hiện có trong kho của dòng sản phẩm đó.",
+    "options": [
+      "SELECT pl.productLine, SUM(p.quantityInStock) FROM productlines pl, products p WHERE pl.productLine = p.productLine GROUP BY pl.productLine;",
+      "SELECT pl.productLine, SUM(p.quantityInStock) FROM productlines pl JOIN products p ON pl.productLine = p.productLine GROUP BY pl.productLine;",
+      "SELECT p.productLine, SUM(p.quantityInStock) FROM products p GROUP BY p.productLine;",
+      "Cả A và B đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql142",
+    "group": 6,
+    "question": "Hiển thị danh sách tất cả các khách hàng kèm theo mã đơn hàng của họ (dùng LEFT JOIN).",
+    "options": [
+      "SELECT c.customerName, o.orderNumber FROM customers c LEFT OUTER JOIN orders o ON c.customerNumber = o.customerNumber;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT c.customerName, o.orderNumber FROM customers c LEFT JOIN orders o ON c.customerNumber = o.customerNumber;",
+      "SELECT c.customerName, o.orderNumber FROM orders o RIGHT JOIN customers c ON c.customerNumber = o.customerNumber;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql143",
+    "group": 6,
+    "question": "Tìm các khách hàng chưa từng thực hiện bất kỳ đơn đặt hàng nào.",
+    "options": [
+      "SELECT c.customerName FROM customers c WHERE c.customerNumber NOT IN (SELECT customerNumber FROM orders);",
+      "SELECT c.customerName FROM customers c WHERE NOT EXISTS (SELECT 1 FROM orders o WHERE o.customerNumber = c.customerNumber);",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT c.customerName FROM customers c LEFT JOIN orders o ON c.customerNumber = o.customerNumber WHERE o.orderNumber IS NULL;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql144",
+    "group": 6,
+    "question": "Tìm các nhân viên chưa từng đại diện chăm sóc cho bất kỳ khách hàng nào.",
+    "options": [
+      "SELECT e.firstName, e.lastName FROM employees e WHERE e.employeeNumber NOT IN (SELECT salesRepEmployeeNumber FROM customers WHERE salesRepEmployeeNumber IS NOT NULL);",
+      "SELECT e.firstName, e.lastName FROM employees e WHERE NOT EXISTS (SELECT 1 FROM customers c WHERE c.salesRepEmployeeNumber = e.employeeNumber);",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT e.firstName, e.lastName FROM employees e LEFT JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber WHERE c.customerNumber IS NULL;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql145",
+    "group": 6,
+    "question": "Liệt kê toàn bộ danh mục sản phẩm kèm theo mã đơn đặt hàng mà sản phẩm đó xuất hiện.",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT p.productName, od.orderNumber FROM products p LEFT OUTER JOIN orderdetails od ON p.productCode = od.productCode;",
+      "SELECT p.productName, od.orderNumber FROM orderdetails od RIGHT JOIN products p ON p.productCode = od.productCode;",
+      "SELECT p.productName, od.orderNumber FROM products p LEFT JOIN orderdetails od ON p.productCode = od.productCode;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql146",
+    "group": 6,
+    "question": "Tìm các sản phẩm trong hệ thống chưa từng được bất kỳ khách hàng nào đặt mua.",
+    "options": [
+      "SELECT p.productName FROM products p WHERE p.productCode NOT IN (SELECT productCode FROM orderdetails);",
+      "SELECT p.productName FROM products p WHERE NOT EXISTS (SELECT 1 FROM orderdetails od WHERE od.productCode = p.productCode);",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT p.productName FROM products p LEFT JOIN orderdetails od ON p.productCode = od.productCode WHERE od.orderNumber IS NULL;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql147",
+    "group": 6,
+    "question": "Liệt kê toàn bộ các văn phòng và số lượng nhân viên làm việc tại đó.",
+    "options": [
+      "SELECT o.city, COUNT(e.employeeNumber) FROM offices o LEFT JOIN employees e ON o.officeCode = e.officeCode GROUP BY o.city;",
+      "SELECT o.city, COUNT(e.employeeNumber) FROM employees e RIGHT JOIN offices o ON o.officeCode = e.officeCode GROUP BY o.city;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT o.city, COUNT(e.employeeNumber) FROM offices o LEFT OUTER JOIN employees e ON o.officeCode = e.officeCode GROUP BY o.city;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql148",
+    "group": 6,
+    "question": "Tìm văn phòng hiện chưa có bất kỳ nhân viên nào đăng ký làm việc.",
+    "options": [
+      "SELECT o.city FROM offices o LEFT JOIN employees e ON o.officeCode = e.officeCode WHERE e.employeeNumber IS NULL;",
+      "SELECT o.city FROM offices o WHERE o.officeCode NOT IN (SELECT officeCode FROM employees);",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT o.city FROM offices o WHERE NOT EXISTS (SELECT 1 FROM employees e WHERE e.officeCode = o.officeCode);"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql149",
+    "group": 6,
+    "question": "Hiển thị danh sách khách hàng và các khoản thanh toán của họ.",
+    "options": [
+      "SELECT c.customerName, p.checkNumber, p.amount FROM customers c LEFT OUTER JOIN payments p ON c.customerNumber = p.customerNumber;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT c.customerName, p.checkNumber, p.amount FROM payments p RIGHT JOIN customers c ON c.customerNumber = p.customerNumber;",
+      "SELECT c.customerName, p.checkNumber, p.amount FROM customers c LEFT JOIN payments p ON c.customerNumber = p.customerNumber;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql150",
+    "group": 6,
+    "question": "Tìm các khách hàng trong hệ thống chưa thực hiện bất kỳ giao dịch thanh toán nào.",
+    "options": [
+      "SELECT c.customerName FROM customers c WHERE c.customerNumber NOT IN (SELECT customerNumber FROM payments);",
+      "SELECT c.customerName FROM customers c WHERE NOT EXISTS (SELECT 1 FROM payments p WHERE p.customerNumber = c.customerNumber);",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT c.customerName FROM customers c LEFT JOIN payments p ON c.customerNumber = p.customerNumber WHERE p.checkNumber IS NULL;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql151",
+    "group": 6,
+    "question": "Đưa ra danh sách các dòng sản phẩm và tên sản phẩm thuộc dòng đó, bao gồm cả dòng chưa có sản phẩm nào.",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT pl.productLine, p.productName FROM products p RIGHT JOIN productlines pl ON pl.productLine = p.productLine;",
+      "SELECT pl.productLine, p.productName FROM productlines pl LEFT JOIN products p ON pl.productLine = p.productLine;",
+      "SELECT pl.productLine, p.productName FROM productlines pl LEFT OUTER JOIN products p ON pl.productLine = p.productLine;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql152",
+    "group": 6,
+    "question": "Hiển thị họ tên đầy đủ của nhân viên và họ tên đầy đủ của người quản lý trực tiếp họ, sắp xếp tên quản lý tăng dần.",
+    "options": [
+      "SELECT CONCAT(e.firstName, ' ', e.lastName), CONCAT(m.firstName, ' ', m.lastName) FROM employees e INNER JOIN employees m ON e.reportsTo = m.employeeNumber ORDER BY 2 ASC;",
+      "SELECT CONCAT(e.firstName, ' ', e.lastName), CONCAT(m.firstName, ' ', m.lastName) FROM employees e, employees m WHERE e.reportsTo = m.employeeNumber ORDER BY 2 ASC;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT CONCAT(e.firstName, ' ', e.lastName), CONCAT(m.firstName, ' ', m.lastName) FROM employees e JOIN employees m ON e.reportsTo = m.employeeNumber ORDER BY 2 ASC;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql153",
+    "group": 6,
+    "question": "Hiển thị danh sách tất cả các nhân viên cấp dưới trực thuộc quản lý của Anthony Bow (mã nhân viên 1143).",
+    "options": [
+      "SELECT * FROM employees WHERE reportsTo = 1143;",
+      "SELECT e.* FROM employees e, employees m WHERE e.reportsTo = m.employeeNumber AND m.employeeNumber = 1143;",
+      "SELECT e.* FROM employees e JOIN employees m ON e.reportsTo = m.employeeNumber WHERE m.employeeNumber = 1143;",
+      "Cả A và B đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql154",
+    "group": 6,
+    "question": "Tìm các nhân viên có cùng mã văn phòng làm việc (officeCode) với người quản lý trực tiếp của họ.",
+    "options": [
+      "SELECT e.* FROM employees e INNER JOIN employees m ON e.reportsTo = m.employeeNumber AND e.officeCode = m.officeCode;",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT e.* FROM employees e, employees m WHERE e.reportsTo = m.employeeNumber AND e.officeCode = m.officeCode;",
+      "SELECT e.* FROM employees e JOIN employees m ON e.reportsTo = m.employeeNumber WHERE e.officeCode = m.officeCode;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql155",
+    "group": 6,
+    "question": "Tìm các khách hàng có cùng thành phố cư trú với văn phòng làm việc của nhân viên đại diện bán hàng phụ trách họ.",
+    "options": [
+      "SELECT c.* FROM customers c JOIN employees e ON c.salesRepEmployeeNumber = e.employeeNumber JOIN offices o ON e.officeCode = o.officeCode WHERE c.city = o.city;",
+      "SELECT c.* FROM customers c, employees e, offices o WHERE c.salesRepEmployeeNumber = e.employeeNumber AND e.officeCode = o.officeCode AND c.city = o.city;",
+      "SELECT c.* FROM customers c INNER JOIN employees e ON c.salesRepEmployeeNumber = e.employeeNumber INNER JOIN offices o ON e.officeCode = o.officeCode AND c.city = o.city;",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql156",
+    "group": 6,
+    "question": "Tìm các nhân viên có cùng chức danh công việc (jobTitle) làm việc trong cùng một văn phòng.",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT e1.*, e2.employeeNumber FROM employees e1 INNER JOIN employees e2 ON e1.officeCode = e2.officeCode AND e1.jobTitle = e2.jobTitle AND e1.employeeNumber < e2.employeeNumber;",
+      "SELECT e1.*, e2.employeeNumber FROM employees e1, employees e2 WHERE e1.officeCode = e2.officeCode AND e1.jobTitle = e2.jobTitle AND e1.employeeNumber < e2.employeeNumber;",
+      "SELECT e1.*, e2.employeeNumber FROM employees e1 JOIN employees e2 ON e1.officeCode = e2.officeCode AND e1.jobTitle = e2.jobTitle WHERE e1.employeeNumber < e2.employeeNumber;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql157",
+    "group": 6,
+    "question": "Tìm các cặp khách hàng ở cùng một quốc gia và cùng một thành phố.",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT c1.customerName, c2.customerName, c1.city, c1.country FROM customers c1 JOIN customers c2 ON c1.city = c2.city AND c1.country = c2.country WHERE c1.customerNumber < c2.customerNumber;",
+      "SELECT c1.customerName, c2.customerName, c1.city, c1.country FROM customers c1 INNER JOIN customers c2 ON c1.city = c2.city AND c1.country = c2.country AND c1.customerNumber < c2.customerNumber;",
+      "SELECT c1.customerName, c2.customerName, c1.city, c1.country FROM customers c1, customers c2 WHERE c1.city = c2.city AND c1.country = c2.country AND c1.customerNumber < c2.customerNumber;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql158",
+    "group": 6,
+    "question": "Đưa ra danh sách các đơn đặt hàng trong tháng 3 năm 2005 gồm mã đơn hàng, tên khách hàng và tổng giá trị đơn hàng.",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT o.orderNumber, c.customerName, SUM(od.priceEach * od.quantityOrdered) FROM orders o JOIN customers c ON o.customerNumber = c.customerNumber JOIN orderdetails od ON o.orderNumber = od.orderNumber WHERE o.orderDate BETWEEN '2005-03-01' AND '2005-03-31' GROUP BY o.orderNumber, c.customerName;",
+      "SELECT o.orderNumber, c.customerName, SUM(od.priceEach * od.quantityOrdered) FROM orders o, customers c, orderdetails od WHERE o.customerNumber = c.customerNumber AND o.orderNumber = od.orderNumber AND o.orderDate >= '2005-03-01' AND o.orderDate <= '2005-03-31' GROUP BY o.orderNumber, c.customerName;",
+      "SELECT o.orderNumber, c.customerName, SUM(od.priceEach * od.quantityOrdered) FROM orders o INNER JOIN customers c USING(customerNumber) INNER JOIN orderdetails od USING(orderNumber) WHERE YEAR(o.orderDate) = 2005 AND MONTH(o.orderDate) = 3 GROUP BY o.orderNumber, c.customerName;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql159",
+    "group": 6,
+    "question": "Liệt kê các sản phẩm thuộc nhóm 'Vintage Cars' có tổng giá trị bán ra từ trước đến nay lớn hơn 50,000 USD.",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT p.productName, SUM(od.priceEach * od.quantityOrdered) FROM products p INNER JOIN orderdetails od USING(productCode) WHERE p.productLine = 'Vintage Cars' GROUP BY p.productName HAVING SUM(od.priceEach * od.quantityOrdered) > 50000;",
+      "SELECT p.productName, SUM(od.priceEach * od.quantityOrdered) FROM products p, orderdetails od WHERE p.productCode = od.productCode AND p.productLine = 'Vintage Cars' GROUP BY p.productName HAVING SUM(od.priceEach * od.quantityOrdered) > 50000;",
+      "SELECT p.productName, SUM(od.priceEach * od.quantityOrdered) AS total FROM products p JOIN orderdetails od ON p.productCode = od.productCode WHERE p.productLine = 'Vintage Cars' GROUP BY p.productName HAVING total > 50000;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql160",
+    "group": 6,
+    "question": "Đưa ra thông tin 10 sản phẩm có doanh thu bán ra cao nhất, kèm theo tên dòng sản phẩm và nhà cung cấp.",
+    "options": [
+      "SELECT p.productName, pl.productLine, p.productVendor, SUM(od.priceEach * od.quantityOrdered) AS total FROM products p JOIN productlines pl ON p.productLine = pl.productLine JOIN orderdetails od ON p.productCode = od.productCode GROUP BY p.productCode ORDER BY total DESC LIMIT 10;",
+      "SELECT p.productName, pl.productLine, p.productVendor, SUM(od.priceEach * od.quantityOrdered) FROM products p, productlines pl, orderdetails od WHERE p.productLine = pl.productLine AND p.productCode = od.productCode GROUP BY p.productCode ORDER BY 4 DESC LIMIT 10;",
+      "SELECT p.productName, pl.productLine, p.productVendor, SUM(od.priceEach * od.quantityOrdered) FROM products p INNER JOIN productlines pl USING(productLine) INNER JOIN orderdetails od USING(productCode) GROUP BY p.productCode ORDER BY 4 DESC LIMIT 10;",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql161",
+    "group": 7,
+    "question": "Đưa ra các mã sản phẩm có đơn đặt hàng trong tháng 3/2005.",
+    "options": [
+      "SELECT DISTINCT productCode FROM orderdetails WHERE orderNumber IN (SELECT orderNumber FROM orders WHERE orderDate BETWEEN '2005-03-01' AND '2005-03-31');",
+      "SELECT DISTINCT od.productCode FROM orderdetails od JOIN orders o ON od.orderNumber = o.orderNumber WHERE o.orderDate BETWEEN '2005-03-01' AND '2005-03-31';",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT DISTINCT productCode FROM orderdetails WHERE orderNumber IN (SELECT orderNumber FROM orders WHERE YEAR(orderDate) = 2005 AND MONTH(orderDate) = 3);"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql162",
+    "group": 7,
+    "question": "Dùng phép nối thay cho câu 1.",
+    "options": [
+      "SELECT DISTINCT od.productCode FROM orderdetails od INNER JOIN orders o USING(orderNumber) WHERE YEAR(o.orderDate) = 2005 AND MONTH(o.orderDate) = 3;",
+      "SELECT DISTINCT od.productCode FROM orderdetails od, orders o WHERE od.orderNumber = o.orderNumber AND o.orderDate BETWEEN '2005-03-01' AND '2005-03-31';",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT DISTINCT od.productCode FROM orderdetails od JOIN orders o ON od.orderNumber = o.orderNumber WHERE o.orderDate BETWEEN '2005-03-01' AND '2005-03-31';"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql163",
+    "group": 7,
+    "question": "Đưa ra các đơn hàng trong ngày gần nhất.",
+    "options": [
+      "Cả A và C đều đúng",
+      "SELECT * FROM orders WHERE orderDate = (SELECT MAX(orderDate) FROM orders);",
+      "SELECT * FROM orders ORDER BY orderDate DESC LIMIT 1;",
+      "SELECT * FROM orders WHERE orderDate >= ALL (SELECT orderDate FROM orders);"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql164",
+    "group": 7,
+    "question": "Đưa ra các đơn hàng có tổng giá trị > trung bình tổng giá trị các đơn hàng.",
+    "options": [
+      "SELECT orderNumber, SUM(priceEach * quantityOrdered) FROM orderdetails GROUP BY orderNumber HAVING SUM(priceEach * quantityOrdered) > (SELECT AVG(total) FROM (SELECT SUM(priceEach * quantityOrdered) AS total FROM orderdetails GROUP BY orderNumber) AS avg_totals);",
+      "Cả B và C đều đúng",
+      "SELECT orderNumber, total FROM (SELECT orderNumber, SUM(priceEach * quantityOrdered) AS total FROM orderdetails GROUP BY orderNumber) AS order_totals WHERE total > (SELECT AVG(total) FROM (SELECT SUM(priceEach * quantityOrdered) AS total FROM orderdetails GROUP BY orderNumber) AS avg_totals);",
+      "SELECT orderNumber FROM orderdetails GROUP BY orderNumber HAVING SUM(priceEach * quantityOrdered) > (SELECT AVG(total) FROM (SELECT SUM(priceEach * quantityOrdered) AS total FROM orderdetails GROUP BY orderNumber) AS avg_totals);"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql165",
+    "group": 7,
+    "question": "Đưa ra sản phẩm có giá mua > trung bình giá mua của tất cả sản phẩm.",
+    "options": [
+      "SELECT * FROM products WHERE buyPrice > (SELECT AVG(buyPrice) FROM products);",
+      "Cả A và B đều đúng",
+      "SELECT * FROM products HAVING buyPrice > AVG(buyPrice);",
+      "SELECT * FROM products WHERE buyPrice > (SELECT SUM(buyPrice)/COUNT(*) FROM products);"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql166",
+    "group": 7,
+    "question": "Đưa ra các văn phòng có số nhân viên > số nhân viên trung bình của các văn phòng.",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT * FROM offices o WHERE (SELECT COUNT(*) FROM employees e WHERE e.officeCode = o.officeCode) > (SELECT COUNT(*)/COUNT(DISTINCT officeCode) FROM employees);",
+      "SELECT * FROM offices o JOIN (SELECT officeCode, COUNT(*) as c FROM employees GROUP BY officeCode) AS ec ON o.officeCode = ec.officeCode WHERE ec.c > (SELECT AVG(c) FROM (SELECT COUNT(*) as c FROM employees GROUP BY officeCode) AS counts);",
+      "SELECT * FROM offices WHERE officeCode IN (SELECT officeCode FROM employees GROUP BY officeCode HAVING COUNT(*) > (SELECT AVG(emp_count) FROM (SELECT COUNT(*) AS emp_count FROM employees GROUP BY officeCode) AS counts));"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql167",
+    "group": 7,
+    "question": "Đưa ra nhân viên làm việc tại văn phòng có doanh số cao nhất.",
+    "options": [
+      "Không thể thực hiện bằng một câu lệnh.",
+      "SELECT * FROM employees WHERE officeCode = (SELECT officeCode FROM (SELECT e.officeCode, SUM(p.amount) AS total FROM employees e JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber JOIN payments p ON c.customerNumber = p.customerNumber GROUP BY e.officeCode ORDER BY total DESC LIMIT 1) AS top_office);",
+      "SELECT * FROM employees WHERE officeCode = (SELECT officeCode FROM employees GROUP BY officeCode ORDER BY COUNT(*) DESC LIMIT 1);",
+      "SELECT * FROM employees WHERE officeCode = (SELECT officeCode FROM customers GROUP BY salesRepEmployeeNumber ORDER BY COUNT(*) DESC LIMIT 1);"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql168",
+    "group": 7,
+    "question": "Đưa ra khách hàng có tổng thanh toán > trung bình thanh toán của tất cả khách hàng.",
+    "options": [
+      "Cả A và B đều đúng",
+      "SELECT * FROM customers c JOIN (SELECT customerNumber, SUM(amount) as total FROM payments GROUP BY customerNumber) AS pt ON c.customerNumber = pt.customerNumber WHERE pt.total > (SELECT AVG(amount) FROM payments);",
+      "SELECT * FROM customers c WHERE (SELECT SUM(amount) FROM payments p WHERE p.customerNumber = c.customerNumber) > (SELECT AVG(amount) FROM payments);",
+      "SELECT * FROM customers WHERE customerNumber IN (SELECT customerNumber FROM payments GROUP BY customerNumber HAVING SUM(amount) > (SELECT AVG(total) FROM (SELECT SUM(amount) AS total FROM payments GROUP BY customerNumber) AS avg_payments));"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql169",
+    "group": 7,
+    "question": "Đưa ra các dòng sản phẩm có số lượng sản phẩm > trung bình số lượng sản phẩm mỗi dòng.",
+    "options": [
+      "SELECT * FROM productlines pl JOIN (SELECT productLine, COUNT(*) as c FROM products GROUP BY productLine) AS pc ON pl.productLine = pc.productLine WHERE pc.c > (SELECT AVG(c) FROM (SELECT COUNT(*) as c FROM products GROUP BY productLine) AS counts);",
+      "SELECT * FROM productlines WHERE productLine IN (SELECT productLine FROM products GROUP BY productLine HAVING COUNT(*) > (SELECT AVG(p_count) FROM (SELECT COUNT(*) AS p_count FROM products GROUP BY productLine) AS counts));",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT * FROM productlines pl WHERE (SELECT COUNT(*) FROM products p WHERE p.productLine = pl.productLine) > (SELECT COUNT(*)/COUNT(DISTINCT productLine) FROM products);"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql170",
+    "group": 7,
+    "question": "Tìm các khách hàng chưa từng thực hiện thanh toán (dùng NOT EXISTS).",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT * FROM customers c WHERE NOT EXISTS (SELECT 1 FROM payments p WHERE p.customerNumber = c.customerNumber);",
+      "SELECT * FROM customers WHERE customerNumber NOT IN (SELECT customerNumber FROM payments);",
+      "SELECT * FROM customers c LEFT JOIN payments p ON c.customerNumber = p.customerNumber WHERE p.checkNumber IS NULL;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql171",
+    "group": 7,
+    "question": "Đưa ra thông tin các nhân viên không có bất kỳ khách hàng nào được giao chăm sóc (dùng NOT IN).",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT * FROM employees WHERE employeeNumber NOT IN (SELECT DISTINCT salesRepEmployeeNumber FROM customers WHERE salesRepEmployeeNumber IS NOT NULL);",
+      "SELECT * FROM employees e WHERE NOT EXISTS (SELECT 1 FROM customers c WHERE c.salesRepEmployeeNumber = e.employeeNumber);",
+      "SELECT * FROM employees e LEFT JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber WHERE c.customerNumber IS NULL;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql172",
+    "group": 7,
+    "question": "Tìm các sản phẩm chưa bao giờ được đặt hàng (dùng NOT EXISTS).",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT * FROM products p WHERE NOT EXISTS (SELECT 1 FROM orderdetails od WHERE od.productCode = p.productCode);",
+      "SELECT * FROM products p LEFT JOIN orderdetails od ON p.productCode = od.productCode WHERE od.orderNumber IS NULL;",
+      "SELECT * FROM products WHERE productCode NOT IN (SELECT productCode FROM orderdetails);"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql173",
+    "group": 7,
+    "question": "Đưa ra thông tin khách hàng có đơn đặt hàng với tổng giá trị cao nhất.",
+    "options": [
+      "SELECT * FROM customers WHERE customerNumber = (SELECT o.customerNumber FROM orders o JOIN orderdetails od ON o.orderNumber = od.orderNumber GROUP BY o.orderNumber, o.customerNumber ORDER BY SUM(od.priceEach * od.quantityOrdered) DESC LIMIT 1);",
+      "SELECT * FROM customers WHERE customerNumber = (SELECT customerNumber FROM orders WHERE orderNumber = (SELECT orderNumber FROM orderdetails GROUP BY orderNumber ORDER BY SUM(priceEach * quantityOrdered) DESC LIMIT 1));",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT * FROM customers c JOIN orders o ON c.customerNumber = o.customerNumber JOIN (SELECT orderNumber, SUM(priceEach * quantityOrdered) as total FROM orderdetails GROUP BY orderNumber ORDER BY total DESC LIMIT 1) as top_order ON o.orderNumber = top_order.orderNumber;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql174",
+    "group": 7,
+    "question": "Đưa ra thông tin nhân viên có tổng doanh số quản lý thấp nhất.",
+    "options": [
+      "SELECT * FROM employees WHERE employeeNumber = (SELECT salesRepEmployeeNumber FROM payments JOIN customers USING(customerNumber) GROUP BY salesRepEmployeeNumber ORDER BY SUM(amount) ASC LIMIT 1);",
+      "SELECT * FROM employees WHERE employeeNumber = (SELECT salesRepEmployeeNumber FROM (SELECT c.salesRepEmployeeNumber, SUM(p.amount) AS total FROM customers c JOIN payments p ON c.customerNumber = p.customerNumber GROUP BY c.salesRepEmployeeNumber ORDER BY total ASC LIMIT 1) AS bottom_sales);",
+      "SELECT * FROM employees e JOIN (SELECT c.salesRepEmployeeNumber, SUM(p.amount) AS total FROM customers c JOIN payments p ON c.customerNumber = p.customerNumber GROUP BY c.salesRepEmployeeNumber ORDER BY total ASC LIMIT 1) AS bs ON e.employeeNumber = bs.salesRepEmployeeNumber;",
+      "Tất cả các đáp án trên đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql175",
+    "group": 7,
+    "question": "Đưa ra các đơn hàng của khách hàng cư trú tại Mỹ.",
+    "options": [
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT * FROM orders o WHERE EXISTS (SELECT 1 FROM customers c WHERE c.customerNumber = o.customerNumber AND c.country = 'USA');",
+      "SELECT * FROM orders WHERE customerNumber IN (SELECT customerNumber FROM customers WHERE country = 'USA');",
+      "SELECT o.* FROM orders o JOIN customers c ON o.customerNumber = c.customerNumber WHERE c.country = 'USA';"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql176",
+    "group": 7,
+    "question": "Tìm sản phẩm có đơn giá bán ra trung bình cao nhất.",
+    "options": [
+      "SELECT * FROM products WHERE productCode = (SELECT productCode FROM orderdetails GROUP BY productCode ORDER BY AVG(priceEach) DESC LIMIT 1);",
+      "SELECT * FROM products p JOIN (SELECT productCode, AVG(priceEach) as avg_p FROM orderdetails GROUP BY productCode ORDER BY avg_p DESC LIMIT 1) as top_p ON p.productCode = top_p.productCode;",
+      "SELECT * FROM products WHERE priceEach = (SELECT MAX(AVG(priceEach)) FROM orderdetails);",
+      "Cả A và B đều đúng"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql177",
+    "group": 7,
+    "question": "Tìm nhân viên có số lượng khách hàng chăm sóc cao hơn trung bình toàn hệ thống.",
+    "options": [
+      "SELECT * FROM employees e JOIN (SELECT salesRepEmployeeNumber, COUNT(*) as c FROM customers GROUP BY salesRepEmployeeNumber) AS cc ON e.employeeNumber = cc.salesRepEmployeeNumber WHERE cc.c > (SELECT AVG(c) FROM (SELECT COUNT(*) as c FROM customers WHERE salesRepEmployeeNumber IS NOT NULL GROUP BY salesRepEmployeeNumber) as counts);",
+      "SELECT * FROM employees e WHERE (SELECT COUNT(*) FROM customers c WHERE c.salesRepEmployeeNumber = e.employeeNumber) > (SELECT AVG(c) FROM (SELECT COUNT(*) as c FROM customers WHERE salesRepEmployeeNumber IS NOT NULL GROUP BY salesRepEmployeeNumber) as counts);",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT * FROM employees WHERE employeeNumber IN (SELECT salesRepEmployeeNumber FROM customers GROUP BY salesRepEmployeeNumber HAVING COUNT(*) > (SELECT COUNT(*)/COUNT(DISTINCT salesRepEmployeeNumber) FROM customers WHERE salesRepEmployeeNumber IS NOT NULL));"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql178",
+    "group": 7,
+    "question": "Đưa ra thông tin sản phẩm và doanh số của từng sản phẩm (sử dụng truy vấn con trong SELECT).",
+    "options": [
+      "SELECT p.productName, (SELECT SUM(od.priceEach * od.quantityOrdered) FROM orderdetails od WHERE od.productCode = p.productCode) FROM products p;",
+      "Cả A và B đều đúng",
+      "SELECT p.productName, (SELECT SUM(od.priceEach * od.quantityOrdered) FROM orderdetails od WHERE od.productCode = p.productCode) AS total_sales FROM products p;",
+      "SELECT p.productName, SUM(od.priceEach * od.quantityOrdered) FROM products p LEFT JOIN orderdetails od ON p.productCode = od.productCode GROUP BY p.productName;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql179",
+    "group": 7,
+    "question": "Đưa ra thông tin khách hàng và số lượng đơn hàng của khách hàng đó (sử dụng truy vấn con trong SELECT).",
+    "options": [
+      "Cả A và B đều đúng",
+      "SELECT c.customerName, COUNT(o.orderNumber) FROM customers c LEFT JOIN orders o ON c.customerNumber = o.customerNumber GROUP BY c.customerName;",
+      "SELECT c.customerName, (SELECT COUNT(*) FROM orders o WHERE o.customerNumber = c.customerNumber) AS order_count FROM customers c;",
+      "SELECT c.customerName, (SELECT COUNT(o.orderNumber) FROM orders o WHERE o.customerNumber = c.customerNumber) FROM customers c;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql180",
+    "group": 7,
+    "question": "Đưa ra danh sách nhân viên có cùng chức vụ với người quản lý trực tiếp.",
+    "options": [
+      "SELECT e.* FROM employees e JOIN employees m ON e.reportsTo = m.employeeNumber WHERE e.jobTitle = m.jobTitle;",
+      "SELECT * FROM employees e WHERE EXISTS (SELECT 1 FROM employees m WHERE e.reportsTo = m.employeeNumber AND e.jobTitle = m.jobTitle);",
+      "Tất cả các đáp án trên đều đúng",
+      "SELECT * FROM employees e WHERE jobTitle = (SELECT jobTitle FROM employees WHERE employeeNumber = e.reportsTo);"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql181",
+    "group": 8,
+    "question": "Lệnh nào được dùng để thêm 1 sản phẩm mới vào bảng products?",
+    "options": [
+      "INSERT INTO products (...) VALUES (...);",
+      "UPDATE products SET ...;",
+      "CREATE ROW products (...) VALUES (...);",
+      "ADD TO products (...) VALUES (...);"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql182",
+    "group": 8,
+    "question": "Lệnh nào được dùng để thêm 1 khách hàng mới vào bảng customers?",
+    "options": [
+      "INSERT ROW customers (...) VALUES (...);",
+      "INSERT INTO customers (...) VALUES (...);",
+      "ADD CUSTOMER (...) VALUES (...);",
+      "NEW customers (...) VALUES (...);"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql183",
+    "group": 8,
+    "question": "Làm thế nào để cập nhật địa chỉ của văn phòng ở London (officeCode = 7)?",
+    "options": [
+      "UPDATE offices SET addressLine1 = 'New Address' WHERE officeCode = 7;",
+      "MODIFY offices SET addressLine1 = 'New Address' WHERE officeCode = 7;",
+      "ALTER offices SET addressLine1 = 'New Address' WHERE officeCode = 7;",
+      "CHANGE offices SET addressLine1 = 'New Address' WHERE officeCode = 7;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql184",
+    "group": 8,
+    "question": "Làm thế nào để cập nhật email của nhân viên 1002?",
+    "options": [
+      "ALTER employees SET email = 'new@email.com' WHERE employeeNumber = 1002;",
+      "MODIFY employees SET email = 'new@email.com' WHERE employeeNumber = 1002;",
+      "CHANGE employees SET email = 'new@email.com' WHERE employeeNumber = 1002;",
+      "UPDATE employees SET email = 'new@email.com' WHERE employeeNumber = 1002;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql185",
+    "group": 8,
+    "question": "Làm thế nào để xóa nhân viên có officeCode = 6?",
+    "options": [
+      "DROP FROM employees WHERE officeCode = 6;",
+      "DELETE FROM employees WHERE officeCode = 6;",
+      "REMOVE FROM employees WHERE officeCode = 6;",
+      "ERASE FROM employees WHERE officeCode = 6;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql186",
+    "group": 8,
+    "question": "Làm thế nào để xóa khách hàng chưa từng thanh toán?",
+    "options": [
+      "DELETE FROM customers WHERE NOT EXISTS (SELECT 1 FROM payments p WHERE p.customerNumber = customers.customerNumber);",
+      "Tất cả các đáp án trên đều đúng",
+      "DELETE FROM customers WHERE customerNumber NOT IN (SELECT customerNumber FROM payments);",
+      "DELETE c FROM customers c LEFT JOIN payments p ON c.customerNumber = p.customerNumber WHERE p.checkNumber IS NULL;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql187",
+    "group": 8,
+    "question": "Lệnh nào được dùng để thêm 1 bản ghi mới vào bảng payments?",
+    "options": [
+      "NEW payments (...) VALUES (...);",
+      "INSERT ROW payments (...) VALUES (...);",
+      "INSERT INTO payments (...) VALUES (...);",
+      "ADD PAYMENT (...) VALUES (...);"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql188",
+    "group": 8,
+    "question": "Làm thế nào để cập nhật trạng thái đơn hàng 10100 thành 'Shipped'?",
+    "options": [
+      "UPDATE orders SET status = 'Shipped' WHERE orderNumber = 10100;",
+      "ALTER orders SET status = 'Shipped' WHERE orderNumber = 10100;",
+      "CHANGE orders SET status = 'Shipped' WHERE orderNumber = 10100;",
+      "MODIFY orders SET status = 'Shipped' WHERE orderNumber = 10100;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql189",
+    "group": 8,
+    "question": "Làm thế nào để xóa 1 dòng trong bảng orderdetails theo orderNumber?",
+    "options": [
+      "DELETE FROM orderdetails WHERE orderNumber = 10100;",
+      "DROP FROM orderdetails WHERE orderNumber = 10100;",
+      "REMOVE FROM orderdetails WHERE orderNumber = 10100;",
+      "ERASE FROM orderdetails WHERE orderNumber = 10100;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql190",
+    "group": 8,
+    "question": "Lệnh nào được dùng để thêm 1 dòng mới vào bảng productlines?",
+    "options": [
+      "ADD TO productlines (...) VALUES (...);",
+      "INSERT INTO productlines (...) VALUES (...);",
+      "CREATE ROW productlines (...) VALUES (...);",
+      "UPDATE productlines SET ...;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql191",
+    "group": 8,
+    "question": "Làm thế nào để cập nhật số lượng tồn kho của một sản phẩm?",
+    "options": [
+      "ALTER products SET quantityInStock = 500 WHERE productCode = 'S10_1678';",
+      "CHANGE products SET quantityInStock = 500 WHERE productCode = 'S10_1678';",
+      "UPDATE products SET quantityInStock = 500 WHERE productCode = 'S10_1678';",
+      "MODIFY products SET quantityInStock = 500 WHERE productCode = 'S10_1678';"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql192",
+    "group": 8,
+    "question": "Làm thế nào để xóa các sản phẩm thuộc dòng 'Motorcycles'?",
+    "options": [
+      "REMOVE FROM products WHERE productLine = 'Motorcycles';",
+      "DELETE FROM products WHERE productLine = 'Motorcycles';",
+      "DROP FROM products WHERE productLine = 'Motorcycles';",
+      "ERASE FROM products WHERE productLine = 'Motorcycles';"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql193",
+    "group": 8,
+    "question": "Lệnh nào được dùng để thêm một văn phòng mới tại Tokyo?",
+    "options": [
+      "NEW offices (...) VALUES (...);",
+      "ADD OFFICE (...) VALUES (...);",
+      "INSERT INTO offices (...) VALUES (...);",
+      "INSERT ROW offices (...) VALUES (...);"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql194",
+    "group": 8,
+    "question": "Làm thế nào để cập nhật số điện thoại của một văn phòng?",
+    "options": [
+      "MODIFY offices SET phone = '+123456789' WHERE officeCode = '1';",
+      "ALTER offices SET phone = '+123456789' WHERE officeCode = '1';",
+      "UPDATE offices SET phone = '+123456789' WHERE officeCode = '1';",
+      "CHANGE offices SET phone = '+123456789' WHERE officeCode = '1';"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql195",
+    "group": 8,
+    "question": "Làm thế nào để xóa các nhân viên có jobTitle = 'Sales Rep'?",
+    "options": [
+      "ERASE FROM employees WHERE jobTitle = 'Sales Rep';",
+      "REMOVE FROM employees WHERE jobTitle = 'Sales Rep';",
+      "DROP FROM employees WHERE jobTitle = 'Sales Rep';",
+      "DELETE FROM employees WHERE jobTitle = 'Sales Rep';"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql196",
+    "group": 8,
+    "question": "Làm thế nào để cập nhật creditLimit của khách hàng có mã 103?",
+    "options": [
+      "MODIFY customers SET creditLimit = 150000 WHERE customerNumber = 103;",
+      "CHANGE customers SET creditLimit = 150000 WHERE customerNumber = 103;",
+      "UPDATE customers SET creditLimit = 150000 WHERE customerNumber = 103;",
+      "ALTER customers SET creditLimit = 150000 WHERE customerNumber = 103;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql197",
+    "group": 8,
+    "question": "Lệnh nào được dùng để thêm 1 bản ghi vào bảng orders?",
+    "options": [
+      "NEW orders (...) VALUES (...);",
+      "INSERT ROW orders (...) VALUES (...);",
+      "INSERT INTO orders (...) VALUES (...);",
+      "ADD ORDER (...) VALUES (...);"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql198",
+    "group": 8,
+    "question": "Làm thế nào để cập nhật shippedDate cho đơn hàng 10100?",
+    "options": [
+      "ALTER orders SET shippedDate = '2003-01-15' WHERE orderNumber = 10100;",
+      "CHANGE orders SET shippedDate = '2003-01-15' WHERE orderNumber = 10100;",
+      "MODIFY orders SET shippedDate = '2003-01-15' WHERE orderNumber = 10100;",
+      "UPDATE orders SET shippedDate = '2003-01-15' WHERE orderNumber = 10100;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql199",
+    "group": 8,
+    "question": "Làm thế nào để xóa đơn hàng có status = 'Cancelled'?",
+    "options": [
+      "REMOVE FROM orders WHERE status = 'Cancelled';",
+      "DROP FROM orders WHERE status = 'Cancelled';",
+      "ERASE FROM orders WHERE status = 'Cancelled';",
+      "DELETE FROM orders WHERE status = 'Cancelled';"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql200",
+    "group": 8,
+    "question": "Lệnh nào được dùng để thêm một bản ghi vào bảng employees?",
+    "options": [
+      "NEW employees (...) VALUES (...);",
+      "INSERT INTO employees (...) VALUES (...);",
+      "INSERT ROW employees (...) VALUES (...);",
+      "ADD EMPLOYEE (...) VALUES (...);"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql201",
+    "group": 8,
+    "question": "Làm thế nào để cập nhật lastName của nhân viên 1166?",
+    "options": [
+      "MODIFY employees SET lastName = 'NewName' WHERE employeeNumber = 1166;",
+      "CHANGE employees SET lastName = 'NewName' WHERE employeeNumber = 1166;",
+      "UPDATE employees SET lastName = 'NewName' WHERE employeeNumber = 1166;",
+      "ALTER employees SET lastName = 'NewName' WHERE employeeNumber = 1166;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql202",
+    "group": 8,
+    "question": "Làm thế nào để xóa các sản phẩm có quantityInStock < 10?",
+    "options": [
+      "DELETE FROM products WHERE quantityInStock < 10;",
+      "REMOVE FROM products WHERE quantityInStock < 10;",
+      "ERASE FROM products WHERE quantityInStock < 10;",
+      "DROP FROM products WHERE quantityInStock < 10;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql203",
+    "group": 8,
+    "question": "Lệnh nào được dùng để thêm 1 dòng dữ liệu vào bảng offices?",
+    "options": [
+      "UPDATE offices SET ...;",
+      "INSERT INTO offices (...) VALUES (...);",
+      "ADD TO offices (...) VALUES (...);",
+      "CREATE ROW offices (...) VALUES (...);"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql204",
+    "group": 8,
+    "question": "Làm thế nào để cập nhật city cho văn phòng có officeCode = 4?",
+    "options": [
+      "CHANGE offices SET city = 'NewCity' WHERE officeCode = 4;",
+      "ALTER offices SET city = 'NewCity' WHERE officeCode = 4;",
+      "MODIFY offices SET city = 'NewCity' WHERE officeCode = 4;",
+      "UPDATE offices SET city = 'NewCity' WHERE officeCode = 4;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql205",
+    "group": 8,
+    "question": "Làm thế nào để xóa khách hàng có creditLimit < 50000?",
+    "options": [
+      "ERASE FROM customers WHERE creditLimit < 50000;",
+      "REMOVE FROM customers WHERE creditLimit < 50000;",
+      "DELETE FROM customers WHERE creditLimit < 50000;",
+      "DROP FROM customers WHERE creditLimit < 50000;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql206",
+    "group": 8,
+    "question": "Làm thế nào để thêm tiền thanh toán cho khách hàng 103?",
+    "options": [
+      "INSERT INTO customers (payment) VALUES (500) WHERE customerNumber = 103;",
+      "INSERT INTO payments (customerNumber, checkNumber, paymentDate, amount) VALUES (103, 'CK123', CURDATE(), 500);",
+      "ADD PAYMENT TO customers (103, 'CK123', CURDATE(), 500);",
+      "UPDATE customers SET payment = 500 WHERE customerNumber = 103;"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql207",
+    "group": 8,
+    "question": "Làm thế nào để cập nhật amount cho một payment?",
+    "options": [
+      "MODIFY payments SET amount = 1000 WHERE checkNumber = 'ABC123';",
+      "CHANGE payments SET amount = 1000 WHERE checkNumber = 'ABC123';",
+      "UPDATE payments SET amount = 1000 WHERE checkNumber = 'ABC123';",
+      "ALTER payments SET amount = 1000 WHERE checkNumber = 'ABC123';"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql208",
+    "group": 8,
+    "question": "Làm thế nào để xóa bản ghi trong bảng orders theo customerNumber?",
+    "options": [
+      "ERASE FROM orders WHERE customerNumber = 103;",
+      "DROP FROM orders WHERE customerNumber = 103;",
+      "REMOVE FROM orders WHERE customerNumber = 103;",
+      "DELETE FROM orders WHERE customerNumber = 103;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql209",
+    "group": 8,
+    "question": "Lệnh nào được dùng để thêm 1 sản phẩm mới thuộc dòng 'Classic Cars'?",
+    "options": [
+      "INSERT INTO products (..., productLine) VALUES (..., 'Classic Cars');",
+      "NEW products (..., productLine) VALUES (..., 'Classic Cars');",
+      "INSERT ROW products (..., productLine) VALUES (..., 'Classic Cars');",
+      "ADD PRODUCT (..., productLine) VALUES (..., 'Classic Cars');"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql210",
+    "group": 8,
+    "question": "Làm thế nào để cập nhật giá nhập buyPrice cho sản phẩm có mã S10_1678?",
+    "options": [
+      "UPDATE products SET buyPrice = 55.00 WHERE productCode = 'S10_1678';",
+      "ALTER products SET buyPrice = 55.00 WHERE productCode = 'S10_1678';",
+      "MODIFY products SET buyPrice = 55.00 WHERE productCode = 'S10_1678';",
+      "CHANGE products SET buyPrice = 55.00 WHERE productCode = 'S10_1678';"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql211",
+    "group": 8,
+    "question": "Làm thế nào để xóa các nhân viên có reportsTo = 1002?",
+    "options": [
+      "ERASE FROM employees WHERE reportsTo = 1002;",
+      "REMOVE FROM employees WHERE reportsTo = 1002;",
+      "DROP FROM employees WHERE reportsTo = 1002;",
+      "DELETE FROM employees WHERE reportsTo = 1002;"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql212",
+    "group": 8,
+    "question": "Lệnh nào được dùng để thêm 1 line item vào orderdetails?",
+    "options": [
+      "CREATE ROW orderdetails (...) VALUES (...);",
+      "ADD TO orderdetails (...) VALUES (...);",
+      "UPDATE orderdetails SET ...;",
+      "INSERT INTO orderdetails (...) VALUES (...);"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql213",
+    "group": 8,
+    "question": "Làm thế nào để cập nhật quantityOrdered cho một dòng trong orderdetails?",
+    "options": [
+      "UPDATE orderdetails SET quantityOrdered = 50 WHERE orderNumber = 10100 AND productCode = 'S10_1678';",
+      "CHANGE orderdetails SET quantityOrdered = 50 WHERE orderNumber = 10100 AND productCode = 'S10_1678';",
+      "ALTER orderdetails SET quantityOrdered = 50 WHERE orderNumber = 10100 AND productCode = 'S10_1678';",
+      "MODIFY orderdetails SET quantityOrdered = 50 WHERE orderNumber = 10100 AND productCode = 'S10_1678';"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql214",
+    "group": 8,
+    "question": "Làm thế nào để xóa các đơn hàng có requiredDate < shippedDate?",
+    "options": [
+      "REMOVE FROM orders WHERE requiredDate < shippedDate;",
+      "ERASE FROM orders WHERE requiredDate < shippedDate;",
+      "DELETE FROM orders WHERE requiredDate < shippedDate;",
+      "DROP FROM orders WHERE requiredDate < shippedDate;"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql215",
+    "group": 8,
+    "question": "Lệnh nào được dùng để thêm khách hàng mới có salesRepEmployeeNumber = 1165?",
+    "options": [
+      "NEW customers (..., salesRepEmployeeNumber) VALUES (..., 1165);",
+      "INSERT ROW customers (..., salesRepEmployeeNumber) VALUES (..., 1165);",
+      "ADD CUSTOMER (..., salesRepEmployeeNumber) VALUES (..., 1165);",
+      "INSERT INTO customers (..., salesRepEmployeeNumber) VALUES (..., 1165);"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "mcqsql216",
+    "group": 8,
+    "question": "Làm thế nào để cập nhật country cho khách hàng 103?",
+    "options": [
+      "UPDATE customers SET country = 'Germany' WHERE customerNumber = 103;",
+      "ALTER customers SET country = 'Germany' WHERE customerNumber = 103;",
+      "CHANGE customers SET country = 'Germany' WHERE customerNumber = 103;",
+      "MODIFY customers SET country = 'Germany' WHERE customerNumber = 103;"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql217",
+    "group": 8,
+    "question": "Làm thế nào để xóa các bản ghi payments cũ trước năm 2004?",
+    "options": [
+      "DELETE FROM payments WHERE YEAR(paymentDate) < 2004;",
+      "DELETE FROM payments WHERE paymentDate < '2004-01-01';",
+      "Cả A và B đều đúng",
+      "REMOVE FROM payments WHERE paymentDate < '2004-01-01';"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "mcqsql218",
+    "group": 8,
+    "question": "Lệnh nào được dùng để thêm một chuỗi dữ liệu vào productlines?",
+    "options": [
+      "INSERT INTO productlines (productLine, textDescription) VALUES ('Demo', 'Demo description');",
+      "ADD TO productlines (productLine, textDescription) VALUES ('Demo', 'Demo description');",
+      "UPDATE productlines SET ...;",
+      "CREATE ROW productlines (productLine, textDescription) VALUES ('Demo', 'Demo description');"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "mcqsql219",
+    "group": 8,
+    "question": "Làm thế nào để cập nhật tên sản phẩm có productCode = S10_1949?",
+    "options": [
+      "MODIFY products SET productName = 'New Name' WHERE productCode = 'S10_1949';",
+      "UPDATE products SET productName = 'New Name' WHERE productCode = 'S10_1949';",
+      "CHANGE products SET productName = 'New Name' WHERE productCode = 'S10_1949';",
+      "ALTER products SET productName = 'New Name' WHERE productCode = 'S10_1949';"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "mcqsql220",
+    "group": 8,
+    "question": "Làm thế nào để xóa các nhân viên không có reportsTo?",
+    "options": [
+      "ERASE FROM employees WHERE reportsTo IS NULL;",
+      "REMOVE FROM employees WHERE reportsTo IS NULL;",
+      "DELETE FROM employees WHERE reportsTo IS NULL;",
+      "DROP FROM employees WHERE reportsTo IS NULL;"
+    ],
+    "correctIndex": 2
+  }
+]

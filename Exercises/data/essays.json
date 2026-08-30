@@ -1,0 +1,184 @@
+[
+  {
+    "id": "es01",
+    "topic": "Thiết kế ERD",
+    "difficulty": 2,
+    "title": "Mô hình quản lý Gian Hàng (đề thi thật, Câu 1.a)",
+    "prompt": "Một siêu thị có nhiều gian hàng. Một gian hàng chứa nhiều loại hàng. Một gian hàng được quản lý bởi một số nhân viên. Một nhân viên quản lý một số gian hàng. Thiết kế mô hình chỉ với 3 đối tượng chính:\nGian Hàng: Mã Gian Hàng, Tên Gian Hàng\nNhân Viên: Mã Nhân Viên, tên Nhân Viên\nHàng: Mã Hàng, tên Hàng\n\na) Vẽ mô hình thực thể liên kết (mô tả bằng văn bản: liệt kê thực thể, thuộc tính, khóa, các mối kết hợp và bản số N/1 mỗi chiều).",
+    "guidance": "Trình bày theo đúng thứ tự: (1) liệt kê từng thực thể và thuộc tính, gạch chân khóa chính; (2) với mỗi mối kết hợp, nêu tên, hai thực thể tham gia, và bản số ở MỖI đầu (vd '1 gian hàng - N nhân viên' hay ngược lại); (3) đọc kỹ đề để xác định đúng chiều N/1, đừng đoán.",
+    "modelAnswer": "Ba thực thể:\n- NHÂN VIÊN(Mã Nhân Viên [khóa], Tên Nhân Viên)\n- GIAN HÀNG(Mã Gian Hàng [khóa], Tên Gian Hàng)\n- HÀNG(Mã Hàng [khóa], Tên Hàng)\n\nHai mối kết hợp:\n- QUẢN LÝ giữa NHÂN VIÊN và GIAN HÀNG, bản số N-N (một nhân viên quản lý nhiều gian hàng, một gian hàng được quản lý bởi nhiều nhân viên) — đề bài dùng từ 'một số nhân viên' và 'một số gian hàng' ở cả hai chiều nên đây là quan hệ N-N, không phải 1-N.\n- CHỨA giữa GIAN HÀNG và HÀNG, bản số 1-N (một gian hàng chứa nhiều loại hàng, nhưng đề không nói một loại hàng thuộc nhiều gian hàng, nên phía GIAN HÀNG là 1, phía HÀNG là N).",
+    "rubric": [
+      { "criterion": "Đầy đủ 3 thực thể + đúng thuộc tính", "points": 0.25 },
+      { "criterion": "Xác định đúng khóa chính từng thực thể", "points": 0.25 },
+      { "criterion": "Xác định đúng 2 mối kết hợp (QUẢN LÝ, CHỨA)", "points": 0.25 },
+      { "criterion": "Xác định đúng bản số N-N cho QUẢN LÝ và 1-N cho CHỨA", "points": 0.25 }
+    ],
+    "totalPoints": 1
+  },
+  {
+    "id": "es02",
+    "topic": "Chuyển ERD sang mô hình quan hệ",
+    "difficulty": 2,
+    "title": "Mô hình quản lý Gian Hàng (đề thi thật, Câu 1.b)",
+    "prompt": "Từ mô hình ERD ở câu es01 (NHÂN VIÊN, GIAN HÀNG, HÀNG; quan hệ QUẢN LÝ là N-N, quan hệ CHỨA là 1-N), hãy chuyển đổi sang mô hình quan hệ: liệt kê đầy đủ các bảng, khóa chính (PK), khóa ngoại (FK) của từng bảng.",
+    "guidance": "Quy tắc chuyển đổi: (1) mỗi thực thể mạnh → một bảng, khóa chính giữ nguyên; (2) quan hệ N-N → PHẢI tạo bảng trung gian riêng, khóa chính là cặp khóa ngoại của 2 bảng liên quan; (3) quan hệ 1-N → KHÔNG tạo bảng riêng, chỉ thêm khóa ngoại vào bảng phía N.",
+    "modelAnswer": "4 bảng:\n- NhanVien(MaNhanVien [PK], TenNhanVien)\n- GianHang(MaGianHang [PK], TenGianHang)\n- QuanLy(MaGianHang [PK, FK→GianHang], MaNhanVien [PK, FK→NhanVien]) — bảng trung gian bắt buộc vì quan hệ N-N, khóa chính là cặp (MaGianHang, MaNhanVien)\n- Hang(MaHang [PK], TenHang, MaGianHang [FK→GianHang]) — quan hệ CHỨA là 1-N nên không tạo bảng riêng, chỉ thêm MaGianHang làm khóa ngoại ngay trong bảng Hang.",
+    "rubric": [
+      { "criterion": "Bảng NhanVien và GianHang đúng, đủ khóa chính", "points": 0.25 },
+      { "criterion": "Tạo đúng bảng trung gian QuanLy cho quan hệ N-N, khóa chính là cặp khóa ngoại", "points": 0.5 },
+      { "criterion": "Bảng Hang có khóa ngoại MaGianHang, KHÔNG tạo bảng riêng cho quan hệ CHỨA (vì là 1-N)", "points": 0.25 }
+    ],
+    "totalPoints": 1
+  },
+  {
+    "id": "es03",
+    "topic": "Thiết kế ERD",
+    "difficulty": 2,
+    "title": "Mô hình quản lý lớp học thêm",
+    "prompt": "Một trung tâm có nhiều lớp học. Một lớp học có nhiều học sinh theo học. Một học sinh có thể theo học nhiều lớp khác nhau. Mỗi lớp học chỉ do một giáo viên duy nhất phụ trách; một giáo viên có thể phụ trách nhiều lớp. Đối tượng chính: LỚP HỌC(Mã Lớp, Tên Lớp), HỌC SINH(Mã HS, Tên HS), GIÁO VIÊN(Mã GV, Tên GV). Vẽ mô hình ERD (mô tả bằng văn bản: thực thể, khóa, mối kết hợp, bản số).",
+    "guidance": "Đọc kỹ hai câu khác nhau trong đề: quan hệ HỌC SINH-LỚP HỌC và quan hệ GIÁO VIÊN-LỚP HỌC có bản số khác nhau — một cái là N-N, một cái là 1-N. Đừng áp cùng một loại bản số cho cả hai.",
+    "modelAnswer": "Ba thực thể: LỚP HỌC(Mã Lớp [khóa], Tên Lớp), HỌC SINH(Mã HS [khóa], Tên HS), GIÁO VIÊN(Mã GV [khóa], Tên GV).\n\n- Mối kết hợp THEO HỌC giữa HỌC SINH và LỚP HỌC: bản số N-N (một học sinh học nhiều lớp, một lớp có nhiều học sinh).\n- Mối kết hợp PHỤ TRÁCH giữa GIÁO VIÊN và LỚP HỌC: bản số 1-N (một giáo viên phụ trách nhiều lớp, nhưng mỗi lớp chỉ có một giáo viên — phía LỚP HỌC là N, phía GIÁO VIÊN là 1).",
+    "rubric": [
+      { "criterion": "Đầy đủ 3 thực thể + thuộc tính + khóa", "points": 0.3 },
+      { "criterion": "Nhận diện đúng quan hệ THEO HỌC là N-N", "points": 0.35 },
+      { "criterion": "Nhận diện đúng quan hệ PHỤ TRÁCH là 1-N (không nhầm thành N-N)", "points": 0.35 }
+    ],
+    "totalPoints": 1
+  },
+  {
+    "id": "es04",
+    "topic": "Chuyển ERD sang mô hình quan hệ",
+    "difficulty": 2,
+    "title": "Mô hình quản lý lớp học thêm — chuyển sang quan hệ",
+    "prompt": "Từ ERD ở câu es03, chuyển sang mô hình quan hệ: liệt kê các bảng, khóa chính, khóa ngoại.",
+    "guidance": "Áp đúng quy tắc: N-N → bảng trung gian riêng; 1-N → thêm khóa ngoại vào bảng phía N, không tạo bảng riêng.",
+    "modelAnswer": "4 bảng:\n- HocSinh(MaHS [PK], TenHS)\n- GiaoVien(MaGV [PK], TenGV)\n- LopHoc(MaLop [PK], TenLop, MaGV [FK→GiaoVien]) — quan hệ PHỤ TRÁCH là 1-N nên khóa ngoại MaGV nằm ngay trong LopHoc, không cần bảng riêng.\n- TheoHoc(MaHS [PK, FK→HocSinh], MaLop [PK, FK→LopHoc]) — bảng trung gian bắt buộc vì quan hệ THEO HỌC là N-N.",
+    "rubric": [
+      { "criterion": "Bảng HocSinh, GiaoVien đúng", "points": 0.2 },
+      { "criterion": "Bảng LopHoc có khóa ngoại MaGV, không tách bảng riêng cho quan hệ 1-N", "points": 0.4 },
+      { "criterion": "Bảng trung gian TheoHoc đúng cho quan hệ N-N, khóa chính là cặp", "points": 0.4 }
+    ],
+    "totalPoints": 1
+  },
+  {
+    "id": "es05",
+    "topic": "Dự đoán hành vi TRIGGER",
+    "difficulty": 2,
+    "title": "TRIGGER kiểm tra điểm thi (đề thi thật, Câu 2.2)",
+    "prompt": "Cho một TRIGGER được khởi tạo như sau trên bảng DiemThi:\n\nDELIMITER //\nCREATE TRIGGER DiemThi_Nguong BEFORE INSERT\nON DiemThi\nFOR EACH ROW\nIF NEW.diem < 5 THEN\n  SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'diem thi lon hon 5 thi moi qua.';\nEND IF; //\nDELIMITER ;\n\nĐiều gì xảy ra khi dùng câu lệnh thêm một dòng dữ liệu với thuộc tính Diem là 100 vào bảng DiemThi? Giải thích tại sao.",
+    "guidance": "Đọc kỹ điều kiện IF: trigger chỉ chặn khi diem < 5. Đối chiếu giá trị 100 với đúng điều kiện đó, đừng suy diễn ngược logic (thông báo lỗi ghi 'lớn hơn 5 thì mới qua' dễ gây hiểu lầm giá trị lớn sẽ bị chặn — thực ra logic code là chặn khi NHỎ HƠN 5).",
+    "modelAnswer": "Việc thêm dòng với Diem = 100 sẽ THÀNH CÔNG, không bị chặn. Lý do: trigger chỉ kiểm tra điều kiện `NEW.diem < 5`; vì 100 không nhỏ hơn 5 nên điều kiện IF sai (FALSE), khối lệnh SIGNAL bên trong không được thực thi, và MySQL cho phép câu lệnh INSERT tiếp tục chèn dòng dữ liệu bình thường. Trigger này chỉ chặn các trường hợp Diem < 5 (kể cả điểm âm hay điểm 0), còn giá trị điểm lớn bất thường như 100 (vượt thang điểm 10) lại không hề bị kiểm soát — đây thực chất là một lỗ hổng thiết kế của trigger (thiếu điều kiện chặn cận trên).",
+    "rubric": [
+      { "criterion": "Kết luận đúng: INSERT thành công, không lỗi", "points": 0.5 },
+      { "criterion": "Giải thích đúng lý do (điều kiện diem<5 sai với giá trị 100)", "points": 0.3 },
+      { "criterion": "Nhận ra được đây là lỗ hổng thiết kế (không giới hạn cận trên)", "points": 0.2 }
+    ],
+    "totalPoints": 1
+  },
+  {
+    "id": "es06",
+    "topic": "Dự đoán hành vi TRIGGER",
+    "difficulty": 3,
+    "title": "TRIGGER kiểm tra tồn kho",
+    "prompt": "Cho trigger sau trên bảng orderdetails của CSDL classicmodels:\n\nDELIMITER //\nCREATE TRIGGER trg_CheckQuantityInStock\nBEFORE INSERT ON orderdetails\nFOR EACH ROW\nBEGIN\n    DECLARE v_stock INT;\n    SELECT quantityInStock INTO v_stock FROM products WHERE productCode = NEW.productCode;\n    IF NEW.quantityOrdered > v_stock THEN\n        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'So luong dat vuot qua ton kho hien co!';\n    END IF;\nEND //\nDELIMITER ;\n\nGiả sử sản phẩm 'S10_1678' có quantityInStock = 7933. Điều gì xảy ra khi thực hiện: INSERT INTO orderdetails (orderNumber, productCode, quantityOrdered, priceEach, orderLineNumber) VALUES (99999, 'S10_1678', 8000, 95.7, 1); ? Và điều gì xảy ra nếu quantityOrdered = 5000 thay vì 8000?",
+    "guidance": "So sánh trực tiếp giá trị quantityOrdered với v_stock đã truy vấn được cho đúng sản phẩm đó — đây là ví dụ điển hình của kiểm tra ràng buộc nghiệp vụ (business rule) không thể biểu diễn bằng khóa ngoại/CHECK constraint thông thường.",
+    "modelAnswer": "Trường hợp quantityOrdered = 8000: vì 8000 > 7933 (tồn kho hiện có), điều kiện IF đúng, trigger phát tín hiệu lỗi SQLSTATE 45000 với thông báo 'So luong dat vuot qua ton kho hien co!' — câu lệnh INSERT bị HỦY BỎ, không có dòng nào được thêm vào orderdetails.\n\nTrường hợp quantityOrdered = 5000: vì 5000 không lớn hơn 7933, điều kiện IF sai, trigger không làm gì, INSERT thực hiện bình thường và dòng dữ liệu được thêm vào bảng orderdetails. Lưu ý: trigger này KHÔNG tự động trừ tồn kho sau khi bán — quantityInStock trong products vẫn giữ nguyên 7933 trừ khi có thêm một trigger/logic khác cập nhật nó.",
+    "rubric": [
+      { "criterion": "Trường hợp 8000: kết luận đúng bị chặn, nêu đúng lý do", "points": 0.4 },
+      { "criterion": "Trường hợp 5000: kết luận đúng insert thành công", "points": 0.4 },
+      { "criterion": "Nhận ra trigger không tự trừ tồn kho sau khi insert", "points": 0.2 }
+    ],
+    "totalPoints": 1
+  },
+  {
+    "id": "es07",
+    "topic": "So sánh cách tạo bảng",
+    "difficulty": 2,
+    "title": "So sánh hai cách tạo bảng tạm từ SELECT",
+    "prompt": "Cho hai câu lệnh sau, cùng chạy trên CSDL classicmodels:\n\nCâu lệnh 1: CREATE TABLE Temp_KhachMy AS SELECT * FROM customers WHERE country = 'USA';\nCâu lệnh 2: CREATE TABLE Temp_KhachMy2 LIKE customers;\n\nHai bảng Temp_KhachMy và Temp_KhachMy2 giống và khác nhau ở điểm nào? (Xét cả cấu trúc cột lẫn dữ liệu bên trong, và ràng buộc như khóa chính/khóa ngoại nếu có).",
+    "guidance": "Phân biệt rõ 3 khía cạnh: (1) có dữ liệu hay không, (2) cấu trúc cột (tên, kiểu) có giống bảng gốc không, (3) các ràng buộc (PK, FK, AUTO_INCREMENT, index) có được sao chép không — đây là điểm khác biệt quan trọng nhất giữa hai cú pháp CREATE TABLE ... AS SELECT và CREATE TABLE ... LIKE.",
+    "modelAnswer": "Giống nhau: cả hai đều dùng để tạo bảng mới có cùng danh sách cột (tên và kiểu dữ liệu cơ bản) với bảng customers.\n\nKhác nhau:\n1. Dữ liệu: 'CREATE TABLE ... AS SELECT' (câu 1) tạo bảng VÀ chèn ngay dữ liệu là kết quả của SELECT (chỉ các khách hàng ở USA). 'CREATE TABLE ... LIKE' (câu 2) chỉ sao chép cấu trúc, bảng Temp_KhachMy2 tạo ra HOÀN TOÀN RỖNG, không có dòng dữ liệu nào.\n2. Ràng buộc: 'AS SELECT' KHÔNG sao chép khóa chính, khóa ngoại, chỉ mục (index), thuộc tính AUTO_INCREMENT của bảng gốc — bảng mới có cột nhưng không có ràng buộc gì. 'LIKE' sao chép ĐẦY ĐỦ cấu trúc kể cả khóa chính, chỉ mục, AUTO_INCREMENT (nhưng không sao chép khóa ngoại tham chiếu đến bảng khác).\n3. Vì vậy nếu muốn có một bảng tạm rỗng nhưng giữ đúng ràng buộc để insert dữ liệu vào sau, nên dùng LIKE; nếu muốn có ngay một tập con dữ liệu để xử lý tạm thời, dùng AS SELECT.",
+    "rubric": [
+      { "criterion": "Nêu đúng điểm giống (cùng cấu trúc cột cơ bản)", "points": 0.2 },
+      { "criterion": "Nêu đúng khác biệt về dữ liệu (có/không có dữ liệu, lọc WHERE)", "points": 0.4 },
+      { "criterion": "Nêu đúng khác biệt về ràng buộc (PK/index có hay không)", "points": 0.4 }
+    ],
+    "totalPoints": 1
+  },
+  {
+    "id": "es08",
+    "topic": "Chuẩn hóa CSDL",
+    "difficulty": 3,
+    "title": "Nhận diện vi phạm chuẩn hóa",
+    "prompt": "Cho bảng DonHang(MaDon, MaKH, TenKH, DiaChiKH, MaSP, TenSP, DonGia, SoLuong) lưu thông tin đơn hàng, trong đó một đơn hàng có thể chứa nhiều sản phẩm (mỗi sản phẩm một dòng riêng). Khóa chính là (MaDon, MaSP). Bảng này đang vi phạm những dạng chuẩn nào? Chỉ rõ phụ thuộc hàm gây vi phạm và cách tách bảng để chuẩn hóa lên 3NF.",
+    "guidance": "Kiểm tra lần lượt: có phụ thuộc hàm nào chỉ phụ thuộc vào MỘT PHẦN của khóa chính (MaDon hoặc MaSP riêng lẻ) không (vi phạm 2NF)? Có phụ thuộc bắc cầu giữa các cột không khóa với nhau không (vi phạm 3NF)?",
+    "modelAnswer": "Vi phạm 2NF: khóa chính là (MaDon, MaSP), nhưng TenKH và DiaChiKH chỉ phụ thuộc vào MaKH — mà MaKH lại chỉ phụ thuộc vào MaDon (một phần của khóa), không phụ thuộc vào MaSP. Đây là phụ thuộc hàm từng phần vào khóa chính, vi phạm 2NF. Tương tự, TenSP và DonGia chỉ phụ thuộc vào MaSP (phần còn lại của khóa), cũng là phụ thuộc từng phần.\n\nVi phạm 3NF (phụ thuộc bắc cầu): TenKH, DiaChiKH phụ thuộc vào MaKH, mà MaKH lại phụ thuộc vào MaDon (không phải khóa chính đầy đủ, nhưng xét trong bảng DonHang tách sau thì MaKH sẽ là cột không khóa phụ thuộc bắc cầu qua MaDon).\n\nCách tách để đạt 3NF (4 bảng):\n- KhachHang(MaKH [PK], TenKH, DiaChiKH)\n- SanPham(MaSP [PK], TenSP, DonGia)\n- DonHang(MaDon [PK], MaKH [FK→KhachHang])\n- ChiTietDonHang(MaDon [PK, FK], MaSP [PK, FK], SoLuong)\n\nSau khi tách, mỗi bảng chỉ còn các cột phụ thuộc hàm đầy đủ vào đúng khóa chính của bảng đó, không còn phụ thuộc từng phần hay bắc cầu.",
+    "rubric": [
+      { "criterion": "Chỉ đúng vi phạm 2NF (phụ thuộc từng phần TenKH/DiaChiKH và TenSP/DonGia)", "points": 0.4 },
+      { "criterion": "Chỉ đúng vi phạm 3NF (phụ thuộc bắc cầu qua MaKH)", "points": 0.3 },
+      { "criterion": "Tách đúng thành 4 bảng, xác định đúng PK/FK từng bảng", "points": 0.3 }
+    ],
+    "totalPoints": 1
+  },
+  {
+    "id": "es09",
+    "topic": "Bao đóng thuộc tính",
+    "difficulty": 2,
+    "title": "Tính bao đóng X+",
+    "prompt": "Cho R(A,B,C,D,E) và tập phụ thuộc hàm F = {A→B, B→C, CD→E}. Tính bao đóng của X = {A, D}, tức (AD)+. Trình bày từng bước lặp.",
+    "guidance": "Áp đúng thuật toán: khởi tạo X(0)=AD, ở mỗi bước tìm một phụ thuộc hàm có vế trái là tập con của tập hiện có, bổ sung vế phải vào, lặp tới khi không đổi.",
+    "modelAnswer": "X(0) = {A, D}.\nBước 1: A→B có vế trái {A} ⊆ X(0), bổ sung B → X(1) = {A, B, D}.\nBước 2: B→C có vế trái {B} ⊆ X(1), bổ sung C → X(2) = {A, B, C, D}.\nBước 3: CD→E có vế trái {C, D} ⊆ X(2), bổ sung E → X(3) = {A, B, C, D, E}.\nBước 4: không còn phụ thuộc hàm nào bổ sung được thuộc tính mới → dừng.\nKết luận: (AD)+ = {A, B, C, D, E} = toàn bộ tập thuộc tính của R, nên AD là một siêu khóa (superkey) của R.",
+    "rubric": [
+      { "criterion": "Áp dụng đúng A→B ở bước 1", "points": 0.25 },
+      { "criterion": "Áp dụng đúng B→C ở bước 2", "points": 0.25 },
+      { "criterion": "Áp dụng đúng CD→E ở bước 3 (nhận ra D đã có sẵn từ X(0))", "points": 0.25 },
+      { "criterion": "Kết luận đúng (AD)+ = toàn bộ R, AD là siêu khóa", "points": 0.25 }
+    ],
+    "totalPoints": 1
+  },
+  {
+    "id": "es10",
+    "topic": "Tìm khóa ứng viên",
+    "difficulty": 3,
+    "title": "Tìm tất cả khóa ứng viên bằng phương pháp L/R/N/M",
+    "prompt": "Cho R(A,B,C,D,E) và F = {A→BC, C→D, D→E}. Tìm tất cả các khóa ứng viên của R bằng phương pháp phân loại thuộc tính (L: chỉ xuất hiện vế trái, R: chỉ xuất hiện vế phải, N: không xuất hiện, M: xuất hiện cả hai vế).",
+    "guidance": "Bước 1: liệt kê L, R, N, M. Bước 2: tập L∪N chắc chắn phải có trong MỌI khóa ứng viên (vì không cách nào suy ra được từ thuộc tính khác) — tính (L∪N)+ trước. Bước 3: nếu (L∪N)+ = R thì đó là khóa ứng viên duy nhất; nếu chưa đủ, thử bổ sung từng thuộc tính thuộc M vào để tìm thêm khóa ứng viên khác.",
+    "modelAnswer": "Phân loại thuộc tính dựa trên F = {A→BC, C→D, D→E}:\n- Vế trái xuất hiện: A, C, D. Vế phải xuất hiện: B, C, D, E.\n- L (chỉ vế trái): A.\n- R (chỉ vế phải): B, E.\n- N (không xuất hiện ở đâu cả): không có thuộc tính nào (tất cả A,B,C,D,E đều đã xuất hiện ở L, R, hoặc M).\n- M (cả hai vế): C, D.\n\nL∪N = {A}. Tính A+: A→BC nên thêm B,C → {A,B,C}; C→D nên thêm D → {A,B,C,D}; D→E nên thêm E → {A,B,C,D,E}. Vậy A+ = toàn bộ R.\n\nKết luận: A là khóa ứng viên, và vì A+ đã bằng R ngay từ L∪N (không cần thử thêm thuộc tính M nào), đây là khóa ứng viên DUY NHẤT của R. Các thuộc tính C, D tuy nằm trong M nhưng không tạo thêm khóa ứng viên nào khác vì A một mình đã đủ.",
+    "rubric": [
+      { "criterion": "Phân loại đúng L={A}, R={B,E}, M={C,D}, N=rỗng", "points": 0.3 },
+      { "criterion": "Tính đúng A+ = toàn bộ R qua 3 bước lặp", "points": 0.4 },
+      { "criterion": "Kết luận đúng A là khóa ứng viên duy nhất, giải thích tại sao không cần xét thêm M", "points": 0.3 }
+    ],
+    "totalPoints": 1
+  },
+  {
+    "id": "es11",
+    "topic": "Dự đoán kết quả VIEW",
+    "difficulty": 2,
+    "title": "VIEW có cập nhật được không?",
+    "prompt": "Cho view sau trên CSDL classicmodels:\n\nCREATE VIEW v_DoanhThuTheoThang AS\nSELECT MONTH(o.orderDate) AS Thang, SUM(od.quantityOrdered * od.priceEach) AS TongDoanhThu\nFROM orders o JOIN orderdetails od ON o.orderNumber = od.orderNumber\nGROUP BY MONTH(o.orderDate);\n\nCó thể thực hiện UPDATE v_DoanhThuTheoThang SET TongDoanhThu = 0 WHERE Thang = 1; được không? Giải thích tại sao.",
+    "guidance": "Nhớ lại điều kiện để một VIEW có thể cập nhật được (updatable view): view không được chứa GROUP BY, hàm gộp (SUM/COUNT/AVG...), DISTINCT, JOIN nhiều bảng phức tạp, hoặc các cột tính toán từ biểu thức.",
+    "modelAnswer": "KHÔNG thể cập nhật được. View v_DoanhThuTheoThang không phải là 'updatable view' vì vi phạm nhiều điều kiện cùng lúc: (1) có mệnh đề GROUP BY, (2) cột TongDoanhThu là kết quả của hàm gộp SUM(), không tương ứng trực tiếp với một cột vật lý nào trong bảng gốc, (3) view được xây dựng từ JOIN hai bảng (orders và orderdetails). MySQL sẽ báo lỗi dạng 'The target table v_DoanhThuTheoThang of the UPDATE is not updatable' vì không thể xác định UPDATE này phải sửa vào dòng cụ thể nào của bảng gốc — giá trị TongDoanhThu là một con số đã được tính tổng từ nhiều dòng orderdetails khác nhau, không phải giá trị lưu trữ trực tiếp.",
+    "rubric": [
+      { "criterion": "Kết luận đúng: không cập nhật được", "points": 0.4 },
+      { "criterion": "Nêu đúng ít nhất 2 lý do (GROUP BY, hàm gộp, JOIN)", "points": 0.4 },
+      { "criterion": "Giải thích được bản chất: không ánh xạ ngược về dòng dữ liệu gốc cụ thể", "points": 0.2 }
+    ],
+    "totalPoints": 1
+  },
+  {
+    "id": "es12",
+    "topic": "Kiến trúc CSDL",
+    "difficulty": 1,
+    "title": "So sánh WHERE và HAVING bằng ví dụ cụ thể",
+    "prompt": "Giải thích sự khác nhau giữa WHERE và HAVING, sau đó chỉ ra lỗi sai (nếu có) trong câu lệnh sau và sửa lại:\n\nSELECT customerNumber, SUM(amount) AS TongTien\nFROM payments\nWHERE SUM(amount) > 50000\nGROUP BY customerNumber;",
+    "guidance": "Nhắc lại thứ tự thực thi logic: FROM → WHERE → GROUP BY → HAVING → SELECT. WHERE chạy trước khi có kết quả gộp nhóm nên không thể chứa hàm gộp.",
+    "modelAnswer": "WHERE lọc trên từng dòng dữ liệu thô, thực thi TRƯỚC khi gộp nhóm, nên không được chứa hàm gộp (SUM, COUNT, AVG...). HAVING lọc trên kết quả SAU khi đã GROUP BY, dùng để đặt điều kiện lên chính các hàm gộp đó.\n\nCâu lệnh trong đề bị SAI cú pháp vì dùng SUM(amount) trong mệnh đề WHERE — tại thời điểm WHERE thực thi, MySQL chưa hề tính tổng theo nhóm, nên sẽ báo lỗi 'Invalid use of group function'. Câu lệnh đúng phải chuyển điều kiện đó sang HAVING:\n\nSELECT customerNumber, SUM(amount) AS TongTien\nFROM payments\nGROUP BY customerNumber\nHAVING SUM(amount) > 50000;",
+    "rubric": [
+      { "criterion": "Giải thích đúng bản chất WHERE (trước gộp) vs HAVING (sau gộp)", "points": 0.4 },
+      { "criterion": "Chỉ đúng lỗi: SUM trong WHERE là sai", "points": 0.3 },
+      { "criterion": "Sửa đúng thành HAVING, giữ đúng vị trí GROUP BY", "points": 0.3 }
+    ],
+    "totalPoints": 1
+  }
+]
