@@ -200,7 +200,28 @@ function route() {
   }
   renderSidebar();
 }
-function goTo(id) { location.hash = "#/" + id; }
+function goTo(id) {
+  location.hash = "#/" + id;
+  if (window.innerWidth <= 860) closeMobileSidebar();
+}
+
+// ---------------------------------------------------------- Menu di động (mobile drawer)
+function openMobileSidebar() {
+  document.getElementById("sidebar-el").classList.add("open");
+  document.getElementById("sidebar-backdrop").classList.add("open");
+  document.body.classList.add("drawer-open");
+}
+function closeMobileSidebar() {
+  document.getElementById("sidebar-el").classList.remove("open");
+  document.getElementById("sidebar-backdrop").classList.remove("open");
+  document.body.classList.remove("drawer-open");
+}
+function toggleMobileSidebar() {
+  const isOpen = document.getElementById("sidebar-el").classList.contains("open");
+  if (isOpen) closeMobileSidebar(); else openMobileSidebar();
+}
+document.getElementById("sidebar-toggle-btn").onclick = toggleMobileSidebar;
+document.getElementById("sidebar-backdrop").onclick = closeMobileSidebar;
 
 // ---------------------------------------------------------- Sidebar
 function renderSidebar() {

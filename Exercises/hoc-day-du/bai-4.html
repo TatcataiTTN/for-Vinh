@@ -982,6 +982,25 @@
     }
     .practice-pin:hover { filter: brightness(1.08); }
 
+    /* Responsive cho màn hình hẹp (điện thoại) — không đổi font/màu, chỉ đổi
+       bố cục lưới 2 cột thành 1 cột và dời nút practice-pin xuống dưới header
+       để không đè lên tiêu đề dài. */
+    @media (max-width: 700px) {
+      .agenda-grid, .detail-body, .split-body, .two-col-code {
+        grid-template-columns: 1fr !important;
+      }
+      .split-right { padding-left: 0; border-left: none; margin-top: 1rem; }
+      /* Dời xuống khoảng trống giữa số trang (trái) và nút prev/next (phải)
+         ở mép dưới, để không đè lên tiêu đề slide (vốn dài, chiếm hết bề ngang). */
+      .practice-pin {
+        top: auto; bottom: 2vh; right: auto; left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.62rem; padding: 0.35rem 0.7rem;
+        white-space: nowrap;
+      }
+      .keyboard-hint { display: none; }
+    }
+
     /* Huy hiệu "giống đề thi thật" — cùng ngữ pháp với .slide-header .tag */
     .exam-badge {
       display: inline-flex;
