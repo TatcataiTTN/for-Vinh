@@ -9,11 +9,14 @@
     không gõ tay đáp án.
   </p>
 
+  <a class="cl-slide-cta" href="chien-luoc-slides/" target="_blank" rel="noopener">
+    🖥️ &nbsp;<b>Mở bản SLIDE TRÌNH CHIẾU (21 trang)</b> — bấm Sau/Trước hoặc phím mũi tên để lật từng trang &nbsp;→
+  </a>
+
   <nav class="cl-toc">
     <a href="#cl-b1">B1 — Xij là gì? Khai triển biểu thức</a>
     <a href="#cl-b2">B2 — Đơn hình: chọn cách giải nhanh nhất</a>
     <a href="#cl-b3">B3 — Đối ngẫu: kiểm tra 1 cặp PA có tối ưu không</a>
-    <a href="chien-luoc-slides/" target="_blank" rel="noopener">🖥️ Xem bản slide trình chiếu (18 trang, có điều hướng)</a>
   </nav>
 
   <!-- ============================== B1 ============================== -->
@@ -78,6 +81,46 @@
         X_{24}^*=120,\ X_{31}^*=230$ (các $X_{ij}$ còn lại $=0$), $f^*=2950$ — đã kiểm chứng bằng thuật toán tối
         ưu chuẩn (scipy linprog), khớp với bảng thế vị.</p>
     </div>
+
+    <h3>Bài tập tự luyện — B1</h3>
+
+    <details class="cl-practice">
+      <summary>Bài 2 — Phân công (Assignment) $3\times3$. Bấm để xem đề &amp; lời giải đầy đủ.</summary>
+      <p><b>Đề:</b> 3 lập trình viên $E_1,E_2,E_3$ và 3 dự án $T_1,T_2,T_3$. Chi phí (triệu đồng) cho trong ma
+        trận $C=\begin{pmatrix}9&2&7\\6&4&3\\5&8&1\end{pmatrix}$ ($E_i\times T_j$). Định nghĩa $X_{ij}$, viết mô
+        hình QHTT nhị phân, khai triển đầy đủ ràng buộc, tìm phương án phân công tối ưu.</p>
+      <div class="cl-solution">
+        <p><b>Bước 1 — Định nghĩa:</b> $X_{ij}=1$ nếu lập trình viên $i$ được giao dự án $j$; $X_{ij}=0$ nếu
+          ngược lại ($i,j=1,2,3$).</p>
+        <p><b>Bước 2 — Hàm mục tiêu (khai triển):</b></p>
+        <p>$\min f = 9X_{11}+2X_{12}+7X_{13}+6X_{21}+4X_{22}+3X_{23}+5X_{31}+8X_{32}+X_{33}$</p>
+        <p><b>Bước 3 — Ràng buộc mỗi người đúng 1 việc (khai triển từng $i$):</b></p>
+        <p>$i=1:\ X_{11}+X_{12}+X_{13}=1$<br>$i=2:\ X_{21}+X_{22}+X_{23}=1$<br>$i=3:\ X_{31}+X_{32}+X_{33}=1$</p>
+        <p><b>Bước 4 — Ràng buộc mỗi việc đúng 1 người (khai triển từng $j$):</b></p>
+        <p>$j=1:\ X_{11}+X_{21}+X_{31}=1$<br>$j=2:\ X_{12}+X_{22}+X_{32}=1$<br>$j=3:\ X_{13}+X_{23}+X_{33}=1$</p>
+        <p>$X_{ij}\in\{0,1\}$ với mọi $i,j$.</p>
+        <p class="cl-answer">✅ Phương án tối ưu: $E_1\to T_2\ (2),\ E_2\to T_1\ (6),\ E_3\to T_3\ (1)$,
+          $f^*=2+6+1=9$ triệu đồng — kiểm chứng bằng thuật toán Hungary (scipy linear_sum_assignment).</p>
+      </div>
+    </details>
+
+    <details class="cl-practice">
+      <summary>Bài 3 — Vận tải $2\times3$ không cân bằng chỉ số. Bấm để xem đề &amp; lời giải đầy đủ.</summary>
+      <p><b>Đề:</b> 2 kho $S_1(100),S_2(150)$; 3 đại lý $D_1(80),D_2(90),D_3(80)$. Cước phí
+        $c=\begin{pmatrix}4&6&3\\5&3&7\end{pmatrix}$. Định nghĩa $X_{ij}$, khai triển đầy đủ mô hình, tìm PA vận
+        chuyển tối ưu.</p>
+      <div class="cl-solution">
+        <p><b>Bước 1:</b> $X_{ij}$ = lượng hàng (tấn) từ kho $i$ đến đại lý $j$ ($i=1,2;\ j=1,2,3$). Kiểm tra cân
+          bằng: $\sum a_i=100+150=250=\sum b_j=80+90+80$ ✓ — cân bằng, không cần trạm giả.</p>
+        <p><b>Bước 2 — hàm mục tiêu:</b> $\min f=4X_{11}+6X_{12}+3X_{13}+5X_{21}+3X_{22}+7X_{23}$</p>
+        <p><b>Bước 3 — ràng buộc cung:</b> $i{=}1{:}\ X_{11}{+}X_{12}{+}X_{13}{=}100$;
+          $i{=}2{:}\ X_{21}{+}X_{22}{+}X_{23}{=}150$</p>
+        <p><b>Bước 4 — ràng buộc cầu:</b> $j{=}1{:}\ X_{11}{+}X_{21}{=}80$; $j{=}2{:}\ X_{12}{+}X_{22}{=}90$;
+          $j{=}3{:}\ X_{13}{+}X_{23}{=}80$</p>
+        <p class="cl-answer">✅ $X_{11}^*=20,\ X_{13}^*=80,\ X_{21}^*=60,\ X_{22}^*=90$ (còn lại $=0$),
+          $f^*=4(20)+3(80)+5(60)+3(90)=890$ USD — kiểm chứng bằng scipy linprog.</p>
+      </div>
+    </details>
   </section>
 
   <!-- ============================== B2 ============================== -->
@@ -156,6 +199,59 @@
       <p class="cl-answer">✅ Kết luận: $x_1^*=2,\ x_2^*=0,\ x_3^*=1,\ z^*=13$ — đã kiểm chứng độc lập bằng
         scipy.optimize.linprog, khớp tuyệt đối.</p>
     </div>
+
+    <h3>Bài tập tự luyện — B2</h3>
+
+    <details class="cl-practice">
+      <summary>Bài 2 — 3 biến, 2 ràng buộc (chỉ 2 dòng, nên rất nhanh). Bấm để xem đề &amp; lời giải đầy đủ.</summary>
+      <p><b>Đề:</b> $\max z=3x_1+2x_2+4x_3$ với $x_1+x_2+2x_3\le8,\ 2x_1+x_2+x_3\le10,\ x_1,x_2,x_3\ge0$.</p>
+      <div class="cl-solution">
+        <p><b>Bước 1 — dạng chuẩn:</b> thêm $x_4,x_5\ge0$: $x_1+x_2+2x_3+x_4=8,\ 2x_1+x_2+x_3+x_5=10$.</p>
+        <p><b>Bảng 1</b> — cơ sở $\{x_4,x_5\}$:</p>
+        <table class="cl-tableau">
+          <thead><tr><th>Cơ sở</th><th>$x_1$</th><th>$x_2$</th><th>$x_3$</th><th>$x_4$</th><th>$x_5$</th><th>RHS</th></tr></thead>
+          <tbody>
+            <tr><td>$x_4$</td><td>1</td><td>1</td><td>2</td><td>1</td><td>0</td><td>8</td></tr>
+            <tr><td>$x_5$</td><td>2</td><td>1</td><td>1</td><td>0</td><td>1</td><td>10</td></tr>
+            <tr class="cl-zrow"><td>$z$</td><td>−3</td><td>−2</td><td>−4</td><td>0</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table>
+        <p>Cột $x_3$ âm nhất ($-4$) → <b>$x_3$ vào</b>. $\theta$: $8/2=4$, $10/1=10$ → nhỏ nhất dòng $x_4$ →
+          <b>$x_4$ ra</b> (xoay $a_{13}=2$).</p>
+        <p><b>Bảng 2</b> — cơ sở $\{x_3,x_5\}$:</p>
+        <table class="cl-tableau">
+          <thead><tr><th>Cơ sở</th><th>$x_1$</th><th>$x_2$</th><th>$x_3$</th><th>$x_4$</th><th>$x_5$</th><th>RHS</th></tr></thead>
+          <tbody>
+            <tr><td>$x_3$</td><td>1/2</td><td>1/2</td><td>1</td><td>1/2</td><td>0</td><td>4</td></tr>
+            <tr><td>$x_5$</td><td>3/2</td><td>1/2</td><td>0</td><td>−1/2</td><td>1</td><td>6</td></tr>
+            <tr class="cl-zrow"><td>$z$</td><td>−1</td><td>0</td><td>0</td><td>2</td><td>0</td><td>16</td></tr>
+          </tbody>
+        </table>
+        <p>Cột $x_1$ còn âm ($-1$) → <b>$x_1$ vào</b>. $\theta$: $4/(1/2)=8$, $6/(3/2)=4$ → nhỏ nhất dòng $x_5$ →
+          <b>$x_5$ ra</b> (xoay $a_{21}=3/2$). Sau xoay: mọi hệ số hàng $z\ge0$ → tối ưu, chỉ 2 vòng.</p>
+        <p class="cl-answer">✅ $x_1^*=4,\ x_2^*=0,\ x_3^*=2,\ z^*=20$ — kiểm chứng bằng scipy linprog.</p>
+      </div>
+    </details>
+
+    <details class="cl-practice">
+      <summary>Bài 3 — 3 biến, hệ số lớn hơn (dạng đề Câu 1 thi cuối kỳ). Bấm để xem đề &amp; lời giải đầy đủ.</summary>
+      <p><b>Đề:</b> $\max z=6x_1+4x_2+5x_3$ với $x_1+x_2+x_3\le80,\ 2x_1+x_2+2x_3\le120,\ x_1,x_2,x_3\ge0$.</p>
+      <div class="cl-solution">
+        <p><b>Bảng 1</b> — cơ sở $\{x_4,x_5\}$, cột $x_1$ âm nhất ($-6$) → <b>$x_1$ vào</b>. $\theta$:
+          $80/1=80$, $120/2=60$ → nhỏ nhất dòng $x_5$ → <b>$x_5$ ra</b> (xoay $a_{21}=2$).</p>
+        <table class="cl-tableau">
+          <thead><tr><th>Cơ sở</th><th>$x_1$</th><th>$x_2$</th><th>$x_3$</th><th>$x_4$</th><th>$x_5$</th><th>RHS</th></tr></thead>
+          <tbody>
+            <tr><td>$x_4$</td><td>0</td><td>1/2</td><td>0</td><td>1</td><td>−1/2</td><td>20</td></tr>
+            <tr><td>$x_1$</td><td>1</td><td>1/2</td><td>1</td><td>0</td><td>1/2</td><td>60</td></tr>
+            <tr class="cl-zrow"><td>$z$</td><td>0</td><td>−1</td><td>1</td><td>0</td><td>3</td><td>360</td></tr>
+          </tbody>
+        </table>
+        <p>Cột $x_2$ còn âm ($-1$) → <b>$x_2$ vào</b>. $\theta$: $20/(1/2)=40$, $60/(1/2)=120$ → nhỏ nhất dòng
+          $x_4$ → <b>$x_4$ ra</b> (xoay $a_{12}=1/2$). Sau xoay: mọi hệ số hàng $z\ge0$ → tối ưu.</p>
+        <p class="cl-answer">✅ $x_1^*=40,\ x_2^*=40,\ x_3^*=0,\ z^*=400$ — kiểm chứng bằng scipy linprog.</p>
+      </div>
+    </details>
   </section>
 
   <!-- ============================== B3 ============================== -->
@@ -220,6 +316,38 @@
         <b>Đây là lý do nên luôn so giá trị mục tiêu trước khi lao vào kiểm tra từng điều kiện độ lệch bù</b> —
         tiết kiệm rất nhiều thời gian làm bài.</p>
     </div>
+
+    <h3>Bài tập tự luyện — B3</h3>
+
+    <details class="cl-practice">
+      <summary>Bài 2 — Dùng (P) ở bài B2-2. Bấm để xem đề &amp; lời giải đầy đủ.</summary>
+      <p><b>Đề:</b> (P): $\max z=3x_1+2x_2+4x_3$ với $x_1+x_2+2x_3\le8,\ 2x_1+x_2+x_3\le10$. Đối ngẫu (D):
+        $\min w=8y_1+10y_2$ với $y_1+2y_2\ge3,\ y_1+y_2\ge2,\ 2y_1+y_2\ge4$. Kiểm tra cặp
+        $\bar x=(4,0,2),\ \bar y'=(2,1)$ có phải tối ưu không.</p>
+      <div class="cl-solution">
+        <p><b>Bước 1 — khả thi $\bar y'$:</b> $2+2(1)=4\ge3$ ✓; $2+1=3\ge2$ ✓; $2(2)+1=5\ge4$ ✓ — khả thi.</p>
+        <p><b>Bước 2 — so giá trị mục tiêu:</b> $c^T\bar x=3(4)+2(0)+4(2)=20$;
+          $b^T\bar y'=8(2)+10(1)=26$. $26\ne20$ ⟹ <b>kết luận ngay KHÔNG tối ưu</b>, không cần xét độ lệch bù.</p>
+        <p class="cl-answer bad">❌ $(\bar x,\bar y')$ KHÔNG phải cặp tối ưu (dù cả 2 đều khả thi). Đáp án đúng
+          của (D) là $y^*=(5/3,2/3)$, cho $w^*=20=z^*$ — bạn có thể tự thử lại bằng đúng quy trình 3 bước.</p>
+      </div>
+    </details>
+
+    <details class="cl-practice">
+      <summary>Bài 3 — Dùng (P) ở bài B2-3. Bấm để xem đề &amp; lời giải đầy đủ.</summary>
+      <p><b>Đề:</b> (P): $\max z=6x_1+4x_2+5x_3$ với $x_1+x_2+x_3\le80,\ 2x_1+x_2+2x_3\le120$. Đối ngẫu (D):
+        $\min w=80y_1+120y_2$ với $y_1+2y_2\ge6,\ y_1+y_2\ge4,\ y_1+2y_2\ge5$. Kiểm tra cặp
+        $\bar x=(40,40,0),\ \bar y'=(3,1)$.</p>
+      <div class="cl-solution">
+        <p><b>Bước 1 — khả thi $\bar y'$ đối với (D):</b> ràng buộc 1: $3+2(1)=5\ge6$? <b>SAI</b> (5&lt;6) —
+          $\bar y'$ đã <b>không khả thi</b>.</p>
+        <p class="cl-answer bad">❌ Dừng ngay tại bước 1: $\bar y'$ không khả thi đối với (D) ⟹ không thể là
+          thành phần của cặp tối ưu — <b>không cần tính tiếp bước 2, 3</b>. Đáp án đúng của (D) là $y^*=(2,2)$,
+          cho $w^*=400=z^*$.</p>
+        <p class="cl-tip">💡 Đây là lý do LUÔN kiểm tra khả thi trước tiên — nếu vừa thay số đã thấy sai ngay 1
+          ràng buộc, dừng luôn, không cần tính hết các bước còn lại.</p>
+      </div>
+    </details>
   </section>
 
   <p class="cl-footer">
