@@ -45,6 +45,14 @@ header.topbar nav a.active,header.topbar nav a:hover{
   background:rgba(255,255,255,0.15);
   color:#fff;
 }
+header.topbar nav a.nav-slide-link{
+  background:var(--accent);
+  color:#fff;
+  font-weight:600;
+}
+header.topbar nav a.nav-slide-link:hover{
+  background:#a5301f;
+}
 main{
   max-width:980px;
   margin:0 auto;
@@ -304,7 +312,19 @@ footer{
 .cl-tableau td:first-child{font-weight:700;background:#fafbfd}
 .cl-zrow{background:#fef4f2;font-weight:600}
 .cl-footer{font-size:0.82rem;color:var(--muted);border-top:1px solid var(--border);padding-top:14px;margin-top:20px}
+.cl-slide-cta{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  background:var(--primary);color:#fff;text-decoration:none;font-size:1.08rem;
+  border-radius:10px;padding:16px 20px;margin-bottom:18px;text-align:center;
+}
+.cl-slide-cta:hover{background:#092e6e}
+.cl-slide-cta b{color:#fff}
+.cl-practice{background:var(--card);border:1px solid var(--border);border-radius:8px;margin:12px 0;padding:4px 18px}
+.cl-practice summary{cursor:pointer;padding:12px 0;font-weight:600;color:var(--primary)}
+.cl-practice[open] summary{border-bottom:1px solid var(--border);margin-bottom:10px}
+.cl-practice p{margin:8px 0}
 @media(max-width:640px){
   .cl-tableau{font-size:0.78rem}
   .cl-tableau th,.cl-tableau td{padding:4px 5px}
+  .cl-slide-cta{font-size:0.95rem;padding:14px}
 }
