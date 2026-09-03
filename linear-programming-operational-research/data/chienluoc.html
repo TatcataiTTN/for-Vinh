@@ -448,36 +448,39 @@
     <h3>Bài tập tự luyện — B4</h3>
 
     <details class="cl-practice">
-      <summary>Bài 2 — 5 dự án. Bấm để xem đề &amp; lời giải đầy đủ.</summary>
-      <p><b>Đề:</b> 5 dự án $A,B,C,D,E$, lợi nhuận $p=(12,18,9,15,7)$. Điều kiện: (1) nếu chọn $A$ thì phải
-        chọn $B$; (2) không được chọn cả $C$ và $D$; (3) chọn từ 1 đến 3 dự án. Tìm PA tối ưu.</p>
+      <summary>Bài 2 — Chọn kênh quảng cáo (bối cảnh khác). Bấm để xem đề &amp; lời giải đầy đủ.</summary>
+      <p><b>Đề:</b> Công ty cân nhắc 5 kênh quảng cáo: TV, Báo, Radio, Mạng xã hội (MXH), Banner ngoài trời —
+        lượt tiếp cận kỳ vọng (triệu lượt) $p=(30,10,14,22,9)$. Điều kiện: (1) nếu chọn TV thì phải chọn thêm
+        MXH (chiến dịch đa kênh); (2) không được chọn cả Radio và Báo (trùng phân khúc khán giả); (3) chọn từ
+        1 đến 3 kênh (giới hạn ngân sách). Tìm PA tối ưu.</p>
       <div class="cl-solution">
-        <p><b>Dịch điều kiện:</b> $x_A\le x_B$;\ $x_C+x_D\le1$;\ $1\le x_A{+}x_B{+}x_C{+}x_D{+}x_E\le3$.</p>
-        <p><b>Suy luận nhanh:</b> $B$ có lợi nhuận cao nhất (18) và không bị ràng buộc gì ép buộc theo chiều
-          ngược lại (chọn $B$ không bắt buộc phải chọn $A$) → luôn nên có $B$. Còn 2 suất: xét thêm $A$ (15,
-          hợp lệ vì đã có sẵn $B$) và $D$ (15, tốt hơn $C{=}9$ do $C,D$ loại trừ nhau)
-          → ứng viên $\{A,B,D\}=12+18+15=45$; so với $\{B,D,E\}=18+15+7=40$ và $\{A,B,C\}=12+18+9=39$ → 45 lớn
-          nhất.</p>
-        <p class="cl-answer">✅ Phương án tối ưu: $\{A,B,D\}$, $f^*=45$ — kiểm chứng bằng brute-force $2^5=32$
-          tổ hợp.</p>
+        <p><b>Dịch điều kiện:</b> $x_{TV}\le x_{MXH}$;\ $x_{Radio}+x_{Báo}\le1$;\
+          $1\le x_{TV}{+}x_{Báo}{+}x_{Radio}{+}x_{MXH}{+}x_{Banner}\le3$.</p>
+        <p><b>Suy luận nhanh:</b> TV có lượt tiếp cận cao nhất (30) nhưng kéo theo bắt buộc MXH (22) → cụm
+          $\{TV,MXH\}=52$ dùng hết 2/3 suất. Suất còn lại chọn cao nhất trong nhóm không bị loại trừ:
+          Radio$=14>$Banner$=9$ (và Radio không loại trừ TV/MXH) → $\{TV,MXH,Radio\}=30+22+14=66$. So với bỏ
+          TV: tốt nhất chỉ $\{MXH,Radio,Banner\}=22+14+9=45<66$.</p>
+        <p class="cl-answer">✅ Phương án tối ưu: $\{TV,MXH,Radio\}$, $f^*=66$ triệu lượt tiếp cận — kiểm chứng
+          bằng brute-force $2^5=32$ tổ hợp.</p>
       </div>
     </details>
 
     <details class="cl-practice">
-      <summary>Bài 3 — 6 dự án, điều kiện AND. Bấm để xem đề &amp; lời giải đầy đủ.</summary>
-      <p><b>Đề:</b> 6 dự án $A,\dots,F$, lợi nhuận $p=(20,14,11,17,9,13)$. Điều kiện: (1) không được chọn cả $A$
-        và $B$; (2) nếu chọn cả $D$ và $E$ thì phải chọn $C$; (3) nếu chọn $F$ thì phải chọn $A$;
-        (4) chọn ít nhất 2 dự án. Tìm PA tối ưu.</p>
+      <summary>Bài 3 — Chọn địa điểm mở chi nhánh (bối cảnh khác, điều kiện AND). Bấm để xem đề &amp; lời giải đầy đủ.</summary>
+      <p><b>Đề:</b> Công ty cân nhắc mở chi nhánh tại 6 địa điểm $A,\dots,F$, lợi nhuận kỳ vọng (tỷ đồng/năm)
+        $p=(25,18,12,16,10,14)$. Điều kiện: (1) $A$ và $B$ cùng nằm 1 quận nên không được mở cả 2; (2) nếu mở
+        cả $A$ và $D$ thì phải mở thêm kho trung chuyển tại $C$; (3) nếu mở $D$ thì bắt buộc phải mở $A$ trước
+        (do phụ thuộc logistics); (4) phải mở ít nhất 2 chi nhánh. Tìm PA tối ưu.</p>
       <div class="cl-solution">
-        <p><b>Dịch điều kiện:</b> $x_A+x_B\le1$;\ $x_C\ge x_D+x_E-1$;\ $x_F\le x_A$;\
+        <p><b>Dịch điều kiện:</b> $x_A+x_B\le1$;\ $x_C\ge x_A+x_D-1$;\ $x_D\le x_A$;\
           $x_A{+}\cdots{+}x_F\ge2$.</p>
-        <p><b>Suy luận nhanh:</b> $A=20$ là lợi nhuận cao nhất và không bị ràng buộc trên ép buộc gì thêm khi
-          chọn (chỉ loại $B$) → nên chọn $A$. Vì chọn $A$, có thể thêm $F=13$ (được phép vì $F\le A$ đã thoả).
-          Xét thêm $D,E$: nếu chọn cả 2 ($17{+}9{=}26$) thì buộc thêm $C=11$ → tổng thêm $37$; so với chỉ chọn
-          $D$ đơn lẻ ($17$, không cần $C$) → chọn cả cụm $D,E,C$ lợi hơn ($37>17$). Vậy phương án đầy đủ:
-          $\{A,C,D,E,F\}=20+11+17+9+13=70$ (bỏ $B$ vì loại trừ với $A$).</p>
-        <p class="cl-answer">✅ Phương án tối ưu: $\{A,C,D,E,F\}$, $f^*=70$ — kiểm chứng bằng brute-force
-          $2^6=64$ tổ hợp.</p>
+        <p><b>Suy luận nhanh:</b> $A=25$ lợi nhuận cao nhất, chỉ loại $B$ khi chọn → nên chọn $A$. Nếu thêm
+          $D=16$ (được phép vì $D\le A$ đã thoả), điều kiện (2) bị kích hoạt (đã chọn cả $A,D$) nên buộc thêm
+          $C=12$ → cụm $\{A,D,C\}=25+16+12=53$. $E,F$ không bị ràng buộc gì thêm nên thêm cả 2:
+          $\{A,C,D,E,F\}=53+10+14=77$. So với không mở $D$ (bỏ cả cụm $D,C$ bắt buộc): chỉ còn
+          $\{A,E,F\}=25+10+14=49<77$.</p>
+        <p class="cl-answer">✅ Phương án tối ưu: $\{A,C,D,E,F\}$, $f^*=77$ tỷ đồng/năm — kiểm chứng bằng
+          brute-force $2^6=64$ tổ hợp.</p>
       </div>
     </details>
   </section>
