@@ -76,6 +76,7 @@
   var SEEN_V34_KEY = "qhtt_seen_v34_notice";
   var SEEN_V567_KEY = "qhtt_seen_v567_notice";
   var SEEN_V8_KEY = "qhtt_seen_v8_notice";
+  var SEEN_CHIENLUOC_KEY = "qhtt_seen_chienluoc_notice";
 
   var state = {
     data: {}, // { mcq: [...], mcq2: [...], mcq3: [...], mcq4: [...] }
@@ -183,16 +184,41 @@
     });
   }
 
+  function fetchText(path, timeoutMs) {
+    return new Promise(function (resolve, reject) {
+      var ctrl = new AbortController();
+      var timer = setTimeout(function () {
+        ctrl.abort();
+        reject(new Error("Quá thời gian tải " + path));
+      }, timeoutMs || 20000);
+      fetch(path, { signal: ctrl.signal })
+        .then(function (r) {
+          clearTimeout(timer);
+          if (!r.ok) throw new Error("HTTP " + r.status + " khi tải " + path);
+          return r.text();
+        })
+        .then(resolve)
+        .catch(function (err) {
+          clearTimeout(timer);
+          reject(err);
+        });
+    });
+  }
+
   function boot() {
     var app = document.getElementById("app");
     app.innerHTML = "";
     app.appendChild(el("div", { class: "loading" }, ["Đang tải dữ liệu bài tập…"]));
 
     var setKeys = Object.keys(SETS);
-    Promise.all(setKeys.map(function (k) { return fetchJSON(SETS[k].dataFile); }).concat([fetchJSON("data/numeric.json")]))
+    Promise.all(
+      setKeys.map(function (k) { return fetchJSON(SETS[k].dataFile); })
+        .concat([fetchJSON("data/numeric.json"), fetchText("data/chienluoc.html")])
+    )
       .then(function (res) {
         setKeys.forEach(function (k, i) { state.data[k] = res[i]; });
-        state.numeric = res[res.length - 1];
+        state.numeric = res[res.length - 2];
+        state.chienluocHtml = res[res.length - 1];
         window.addEventListener("hashchange", route);
         route();
       })
@@ -223,6 +249,7 @@
     }
     if (parts[0] === "numeric" && parts.length === 1) return renderNumericOverview();
     if (parts[0] === "numeric" && parts.length === 2) return renderNumericQuestion(parseInt(parts[1], 10));
+    if (parts[0] === "chienluoc") return renderChienLuoc();
     renderHome();
   }
 
@@ -257,6 +284,7 @@
   BANNER_IDS[SEEN_V34_KEY] = "v34-banner";
   BANNER_IDS[SEEN_V567_KEY] = "v567-banner";
   BANNER_IDS[SEEN_V8_KEY] = "v8-banner";
+  BANNER_IDS[SEEN_CHIENLUOC_KEY] = "cl-banner";
 
   function dismissNotice(key) {
     try { localStorage.setItem(key, "1"); } catch (e) { /* im lang */ }
@@ -302,6 +330,11 @@
       "đối ngẫu, vận tải/phân công, đồ thị/đường đi ngắn nhất, MST/luồng cực đại, TSP/ba lô, CPM/PERT & lý thuyết trò " +
       "chơi, và tổng hợp so sánh các mô hình. Không tính toán số, tập trung vào bản chất lý thuyết.");
     if (b8) children.push(b8);
+    var bcl = updateBanner("cl-banner", SEEN_CHIENLUOC_KEY, "chienluoc", "🆕 Trang mới — Chiến lược thi: ",
+      "3 dạng bài trọng tâm cuối kỳ (Xij & khai triển biểu thức, Đơn hình, Đối ngẫu) — bảng chọn phương pháp " +
+      "giải NHANH NHẤT cho từng tình huống đề bài, kèm ví dụ giải đầy đủ từng bước (số liệu đã kiểm chứng bằng " +
+      "scipy, không gõ tay đáp án). Xem cách trình bày lời giải chuẩn để không bị mất điểm.");
+    if (bcl) children.push(bcl);
 
     var statCells = Object.keys(SETS).map(function (k) {
       var s = countStats(k);
@@ -702,6 +735,12 @@
     ]);
 
     mount(el("div", { class: "quiz-layout" }, [main, side]));
+  }
+
+  // ---------------------------- Trang chien luoc giai nhanh (B1/B2/B3) ----------------------------
+  function renderChienLuoc() {
+    var wrap = el("div", { class: "card", html: state.chienluocHtml || "<p>Không tải được nội dung.</p>" });
+    mount(wrap);
   }
 
   // ---------------------------- Numeric: tong quan ----------------------------
