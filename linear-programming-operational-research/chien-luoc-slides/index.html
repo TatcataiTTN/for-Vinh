@@ -396,6 +396,93 @@ $$3x_1+4x_2+2x_3\le8,\quad x_1,x_2,x_3\ge0$$
 </div>
     </div>
     </section>
+<section class="slide slide-section" data-index="17a">
+    <div class="s-section">
+      <div class="sec-num">B4</div>
+      <h2>Ràng buộc logic</h2>
+      <p>Trong QHTT nhị phân</p>
+    </div>
+    </section>
+<section class="slide " data-index="17b">
+    <div class="s-content">
+      <div class="kicker">B4 · NHẬN DIỆN</div>
+      <h2>Dịch đúng câu lời văn — khó nhất, không phải tính toán</h2>
+      <div class="body">
+<p>Đề mô tả 1 danh sách phương án bằng biến nhị phân $x_i\in\{0,1\}$, kèm <b>các câu điều kiện bằng lời</b>
+  ("nếu... thì...", "không được chọn cả...", "phải chọn ít nhất..."). Dịch sai 1 câu là sai cả mô hình dù bước
+  tính sau đó có đúng.</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="17c">
+    <div class="s-content">
+      <div class="kicker">B4 · BẢNG DỊCH NHANH</div>
+      <h2>Thuộc bảng này là làm được mọi câu logic</h2>
+      <div class="body">
+<table class="strategy-table">
+  <thead><tr><th>Câu tiếng Việt</th><th>Ràng buộc</th></tr></thead>
+  <tbody>
+    <tr><td>"Nếu chọn $A$ thì <b>phải</b> chọn $B$"</td><td>$x_A\le x_B$</td></tr>
+    <tr><td>"Nếu chọn $A$ thì <b>không được</b> chọn $B$" / "không chọn cả $A,B$"</td><td>$x_A+x_B\le1$</td></tr>
+    <tr><td>"Phải chọn <b>ít nhất 1</b> trong $\{A,B,C\}$"</td><td>$x_A+x_B+x_C\ge1$</td></tr>
+    <tr><td>"Chỉ được chọn <b>tối đa $k$</b> trong $n$ phương án"</td><td>$\sum x_i\le k$</td></tr>
+    <tr><td>"Phải chọn <b>đúng 1</b> trong $\{A,B\}$"</td><td>$x_A+x_B=1$</td></tr>
+    <tr><td>"Nếu chọn <b>cả</b> $A,B$ thì phải chọn $C$" (AND)</td><td>$x_C\ge x_A+x_B-1$</td></tr>
+    <tr><td>"$A,B$ cùng chọn hoặc cùng không"</td><td>$x_A=x_B$</td></tr>
+  </tbody>
+</table>
+<p class="tip">💡 "nếu...thì phải" → $\le$ (kéo theo) &nbsp;·&nbsp; "không được cả" → $+\le1$ &nbsp;·&nbsp;
+  "ít nhất" → $\ge$ &nbsp;·&nbsp; "tối đa" → $\le$. Luôn thử tay 2-3 trường hợp cụ thể để tự kiểm tra công thức.</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="17d">
+    <div class="s-content">
+      <div class="kicker">B4 · VÍ DỤ</div>
+      <h2>Đề bài — 7 tài khoản đầu tư</h2>
+      <div class="body">
+<p>Lợi nhuận kỳ vọng $p=(15,10,25,8,20,12,6)$ cho $a,\dots,g$. Điều kiện:</p>
+<ol class="step-list">
+  <li>Nếu đầu tư $a$ thì cũng phải đầu tư $b$</li>
+  <li>Nếu đầu tư $c$ thì không được đầu tư $e$</li>
+  <li>Không được đầu tư cả $d$ và $f$</li>
+  <li>Nếu đầu tư $b$ thì cũng phải đầu tư $g$</li>
+  <li>Chỉ được chọn tối đa 4 trong 7 tài khoản</li>
+  <li>Nếu đầu tư cả $a$ và $c$ thì phải đầu tư $g$</li>
+  <li>Phải chọn ít nhất 1 tài khoản</li>
+</ol>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="17e">
+    <div class="s-content">
+      <div class="kicker">B4 · LỜI GIẢI</div>
+      <h2>Dịch điều kiện &amp; giải bằng suy luận theo cụm</h2>
+      <div class="body">
+<p>$\max f=15x_a+10x_b+25x_c+8x_d+20x_e+12x_f+6x_g$ với 7 ràng buộc dịch trực tiếp từ bảng.</p>
+<p><b>Nhận xét:</b> (1)+(4) tạo <b>chuỗi kéo theo</b> $a\to b\to g$ — chọn $a$ thì dùng hết 3/4 "suất". Còn
+  đúng 1 suất tự do trong $\{c,d,e,f\}$ (chú ý $c,e$ và $d,f$ loại trừ nhau) → chọn $c=25$ (cao nhất nhóm này).
+  Kiểm tra (6): đã có $g=1$ sẵn ✓.</p>
+<p>$\{a,b,c,g\}=15{+}10{+}25{+}6=56$. So với không chọn $a$: tốt nhất $\{b,c,f,g\}=53<56$.</p>
+<p class="answer">✅ Phương án tối ưu: $\{a,b,c,g\}$, $f^*=56$ — kiểm chứng brute-force $2^7=128$ tổ hợp
+  (31 khả thi).</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="17f">
+    <div class="s-content">
+      <div class="kicker">B4 · TỰ LUYỆN</div>
+      <h2>2 bài thêm để tự làm (lời giải đầy đủ trên web)</h2>
+      <div class="body">
+<p><b>Bài 2 — 5 tài khoản:</b> $p=(12,18,9,15,7)$. (1) $a\to b$; (2) không cả $c,d$; (3) chọn 1-3 tài khoản.</p>
+<p class="answer">✅ $\{a,b,d\}$, $f^*=45$.</p>
+<p><b>Bài 3 — 6 tài khoản, điều kiện AND:</b> $p=(20,14,11,17,9,13)$. (1) không cả $a,b$; (2) chọn cả $d,e$ thì
+  phải $c$; (3) $f\to a$; (4) chọn $\ge2$.</p>
+<p class="answer">✅ $\{a,c,d,e,f\}$, $f^*=70$.</p>
+<p class="tip">💡 Xem lời giải suy luận từng bước tại trang "Chiến lược thi" (mục Bài tập tự luyện — B4).</p>
+</div>
+    </div>
+    </section>
 <section class="slide " data-index="17">
     <div class="s-content">
       <div class="kicker">TỔNG KẾT</div>
@@ -410,6 +497,9 @@ $$3x_1+4x_2+2x_3\le8,\quad x_1,x_2,x_3\ge0$$
       <td>Dùng đơn hình cho bài 2 biến; bỏ qua bước kiểm tra $\Delta_j\ge0$ để kết luận tối ưu</td></tr>
     <tr><td><b>B3</b></td><td>Khả thi → so giá trị mục tiêu → độ lệch bù (nếu cần)</td>
       <td>Giải lại từ đầu bằng đơn hình thay vì kiểm tra trực tiếp cặp đã cho</td></tr>
+    <tr><td><b>B4</b></td><td>Tra bảng dịch câu lời văn → ràng buộc → suy luận theo cụm kéo theo</td>
+      <td>Dịch sai chiều kéo theo ($\le$ chứ không phải $\ge$); quên ràng buộc "điều kiện AND" khi cả 2 vế đều
+        được chọn</td></tr>
   </tbody>
 </table>
 <p class="callout">Xem đầy đủ tại trang <b>"Chiến lược thi"</b> trên web luyện tập — có thêm phần luyện tập
