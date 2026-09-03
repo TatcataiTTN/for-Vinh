@@ -323,6 +323,11 @@ footer{
 .cl-practice summary{cursor:pointer;padding:12px 0;font-weight:600;color:var(--primary)}
 .cl-practice[open] summary{border-bottom:1px solid var(--border);margin-bottom:10px}
 .cl-practice p{margin:8px 0}
+.cl-conditions{padding-left:22px;line-height:1.7}
+.cl-conditions li{margin-bottom:4px}
+.step-list-plain{padding-left:22px;line-height:1.7}
+.step-list-plain li{margin-bottom:4px}
+.q{font-weight:600;color:var(--primary)}
 @media(max-width:640px){
   .cl-tableau{font-size:0.78rem}
   .cl-tableau th,.cl-tableau td{padding:4px 5px}
