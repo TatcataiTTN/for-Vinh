@@ -1,22 +1,23 @@
 <div class="cl-page">
-  <h1>Chiến lược làm bài thi Vận trù học — 3 dạng trọng tâm</h1>
+  <h1>Chiến lược làm bài thi Vận trù học — 4 dạng trọng tâm</h1>
   <p class="cl-intro">
-    Đề thi cuối kỳ chỉ chấm đúng <b>phương án tối ưu</b> và cách bạn <b>trình bày lời giải</b> — không chấm bạn
-    làm dài hay ngắn. Vì vậy nguyên tắc sống còn là: <b>chọn đúng phương pháp giải NHANH NHẤT cho từng dạng
-    bài</b>, rồi trình bày đủ các bước trung gian (không nhảy thẳng đáp số) để có điểm từng phần. Trang này đi
-    thẳng vào 3 dạng hay gặp nhất: (B1) khai triển biến <code>Xij</code>, (B2) đơn hình, (B3) đối ngẫu — mỗi
-    dạng có bảng chọn phương pháp nhanh + ví dụ giải đầy đủ, số liệu đã kiểm chứng bằng scipy/thuật toán chuẩn,
-    không gõ tay đáp án.
+    Đề thi chỉ chấm đúng <b>phương án tối ưu</b> và cách bạn <b>trình bày lời giải</b> — không chấm bạn làm dài
+    hay ngắn. Vì vậy nguyên tắc sống còn là: <b>chọn đúng phương pháp giải NHANH NHẤT cho từng dạng bài</b>, rồi
+    trình bày đủ các bước trung gian (không nhảy thẳng đáp số) để có điểm từng phần. Trang này đi thẳng vào 4
+    dạng hay gặp nhất: (B1) khai triển biến <code>Xij</code>, (B2) đơn hình, (B3) đối ngẫu, (B4) ràng buộc logic
+    trong QHTT nhị phân — mỗi dạng có bảng chọn phương pháp nhanh + ví dụ giải đầy đủ, số liệu đã kiểm chứng
+    bằng scipy/brute-force, không gõ tay đáp án.
   </p>
 
   <a class="cl-slide-cta" href="chien-luoc-slides/" target="_blank" rel="noopener">
-    🖥️ &nbsp;<b>Mở bản SLIDE TRÌNH CHIẾU (21 trang)</b> — bấm Sau/Trước hoặc phím mũi tên để lật từng trang &nbsp;→
+    🖥️ &nbsp;<b>Mở bản SLIDE TRÌNH CHIẾU (27 trang)</b> — bấm Sau/Trước hoặc phím mũi tên để lật từng trang &nbsp;→
   </a>
 
   <nav class="cl-toc">
     <a href="#cl-b1">B1 — Xij là gì? Khai triển biểu thức</a>
     <a href="#cl-b2">B2 — Đơn hình: chọn cách giải nhanh nhất</a>
     <a href="#cl-b3">B3 — Đối ngẫu: kiểm tra 1 cặp PA có tối ưu không</a>
+    <a href="#cl-b4">B4 — Ràng buộc logic trong QHTT nhị phân</a>
   </nav>
 
   <!-- ============================== B1 ============================== -->
@@ -350,8 +351,137 @@
     </details>
   </section>
 
+  <!-- ============================== B4 ============================== -->
+  <section id="cl-b4" class="cl-section">
+    <h2>B4 — Ràng buộc logic trong QHTT nhị phân</h2>
+
+    <h3>Nhận diện dạng bài</h3>
+    <p>
+      Đề mô tả 1 danh sách phương án (dự án, tài khoản, địa điểm...) bằng biến nhị phân $x_i\in\{0,1\}$
+      ($x_i=1$ nếu chọn phương án $i$), kèm theo <b>các câu điều kiện bằng lời</b> ("nếu... thì...", "không được
+      chọn cả...", "phải chọn ít nhất..."). Việc khó nhất KHÔNG phải là giải toán — mà là <b>dịch đúng từng câu
+      lời văn thành 1 ràng buộc đại số</b>. Dịch sai 1 câu là sai cả mô hình dù bước tính sau đó có đúng.
+    </p>
+
+    <h3>⚡ Bảng "dịch nhanh" — thuộc bảng này là làm được mọi câu logic</h3>
+    <table class="cl-table">
+      <thead><tr><th>Câu tiếng Việt</th><th>Ràng buộc</th><th>Vì sao</th></tr></thead>
+      <tbody>
+        <tr><td>"Nếu chọn $A$ thì <b>phải</b> chọn $B$" (kéo theo)</td>
+          <td>$x_A\le x_B$</td>
+          <td>$x_A{=}1\Rightarrow x_B$ buộc phải $=1$; nếu $x_A{=}0$ thì $x_B$ tự do (0 hoặc 1)</td></tr>
+        <tr><td>"Nếu chọn $A$ thì <b>không được</b> chọn $B$"</td>
+          <td>$x_A+x_B\le1$</td>
+          <td>Không thể cả 2 cùng $=1$ — đây cũng chính là dạng "loại trừ lẫn nhau" khi phát biểu đối xứng
+            ("không được chọn cả $A$ và $B$")</td></tr>
+        <tr><td>"Phải chọn <b>ít nhất 1</b> trong $\{A,B,C\}$"</td>
+          <td>$x_A+x_B+x_C\ge1$</td>
+          <td>Tổng không được bằng 0</td></tr>
+        <tr><td>"Chỉ được chọn <b>tối đa $k$</b> trong $n$ phương án"</td>
+          <td>$\sum_{i=1}^n x_i\le k$</td>
+          <td>Giới hạn số lượng được chọn (ràng buộc cardinality)</td></tr>
+        <tr><td>"Phải chọn <b>đúng 1</b> trong $\{A,B\}$" (loại trừ + bắt buộc)</td>
+          <td>$x_A+x_B=1$</td>
+          <td>Kết hợp "không cả 2" và "ít nhất 1" thành 1 đẳng thức</td></tr>
+        <tr><td>"Nếu chọn <b>cả</b> $A$ và $B$ thì phải chọn $C$" (điều kiện AND)</td>
+          <td>$x_C\ge x_A+x_B-1$</td>
+          <td>Vế phải chỉ $=1$ khi $x_A=x_B=1$ đồng thời; nếu 1 trong 2 chưa chọn, vế phải $\le0$ nên không ràng
+            buộc gì thêm lên $x_C$</td></tr>
+        <tr><td>"$A$ và $B$ phải cùng chọn hoặc cùng không chọn" (đồng thời)</td>
+          <td>$x_A=x_B$</td>
+          <td>Ràng buộc bằng nhau trực tiếp — khác với kéo theo 1 chiều ở dòng đầu</td></tr>
+      </tbody>
+    </table>
+    <p class="cl-tip">💡 Mẹo nhận diện nhanh: từ khoá "nếu... thì phải..." → dùng $\le$ (kéo theo);
+      "không được cả..."/"nếu...thì không..." → dùng $+\ \le 1$; "ít nhất" → $\ge$; "tối đa" → $\le$. Luôn viết
+      lại ràng buộc rồi <b>thử bằng tay 2-3 trường hợp cụ thể</b> ($x_A=1,x_B=0$ và ngược lại) để tự kiểm tra
+      công thức có đúng ý câu văn hay không trước khi làm tiếp — đây chính là bước hay bị bỏ qua nhất.</p>
+
+    <h3>Ví dụ minh hoạ đầy đủ</h3>
+    <p>
+      Có 7 tài khoản đầu tư $a,b,c,d,e,f,g$ với lợi nhuận kỳ vọng (triệu đồng):
+      $p=(15,10,25,8,20,12,6)$. Điều kiện:
+    </p>
+    <ol class="cl-conditions">
+      <li>Nếu đầu tư $a$ thì cũng phải đầu tư $b$.</li>
+      <li>Nếu đầu tư $c$ thì không được đầu tư $e$.</li>
+      <li>Không được đầu tư cả $d$ và $f$.</li>
+      <li>Nếu đầu tư $b$ thì cũng phải đầu tư $g$.</li>
+      <li>Chỉ được chọn tối đa 4 trong 7 tài khoản (giới hạn quản lý rủi ro).</li>
+      <li>Nếu đầu tư cả $a$ và $c$ thì phải đầu tư $g$.</li>
+      <li>Phải chọn ít nhất 1 tài khoản để đầu tư.</li>
+    </ol>
+    <p class="q">Lập mô hình QHTT nhị phân và tìm phương án đầu tư tối ưu (tổng lợi nhuận lớn nhất).</p>
+
+    <div class="cl-solution">
+      <p><b>Bước 1 — Biến quyết định:</b> $x_i=1$ nếu đầu tư tài khoản $i$, $x_i=0$ nếu không ($i\in\{a,\dots,g\}$).</p>
+      <p><b>Bước 2 — Hàm mục tiêu:</b></p>
+      <p>$\max f=15x_a+10x_b+25x_c+8x_d+20x_e+12x_f+6x_g$</p>
+      <p><b>Bước 3 — Dịch từng điều kiện (tra bảng ở trên):</b></p>
+      <ol class="step-list-plain">
+        <li>$x_a\le x_b$ (kéo theo)</li>
+        <li>$x_c+x_e\le1$ (nếu... thì không)</li>
+        <li>$x_d+x_f\le1$ (loại trừ lẫn nhau)</li>
+        <li>$x_b\le x_g$ (kéo theo)</li>
+        <li>$x_a+x_b+x_c+x_d+x_e+x_f+x_g\le4$ (tối đa $k$)</li>
+        <li>$x_g\ge x_a+x_c-1$ (điều kiện AND)</li>
+        <li>$x_a+x_b+x_c+x_d+x_e+x_f+x_g\ge1$ (ít nhất 1)</li>
+        <li>$x_i\in\{0,1\}$ với mọi $i$</li>
+      </ol>
+      <p><b>Bước 4 — Giải nhanh bằng suy luận theo cụm (không cần liệt kê hết $2^7=128$ tổ hợp):</b></p>
+      <p>Nhận xét: điều kiện (1)+(4) tạo thành 1 <b>chuỗi kéo theo</b> $a\to b\to g$ — nếu chọn $a$ thì bắt buộc
+        cũng phải có $b,g$ (dùng hết 3/4 "suất" cho phép). Vậy chỉ còn đúng <b>1 suất tự do</b> để chọn thêm
+        trong $\{c,d,e,f\}$ (chú ý $c,e$ loại trừ nhau, $d,f$ loại trừ nhau) — chọn phương án lợi nhuận cao nhất
+        trong nhóm này: $c=25$ (cao hơn hẳn $d{=}8,e{=}20,f{=}12$). Kiểm tra điều kiện (6): đã chọn cả $a,c$
+        nên cần $x_g\ge1$ — đã có $g=1$ sẵn từ chuỗi kéo theo (1)+(4) ✓, không phát sinh thêm ràng buộc.</p>
+      <p>Phương án ứng viên: $\{a,b,c,g\}$, lợi nhuận $=15+10+25+6=56$.</p>
+      <p>So sánh với phương án KHÔNG chọn $a$ (bỏ qua chuỗi kéo theo, chọn tự do 4 tài khoản tốt nhất còn lại
+        theo đúng ràng buộc loại trừ): tốt nhất là $\{b,c,f,g\}=10+25+12+6=53$ hoặc $\{a,b,e,g\}=15+10+20+6=51$
+        — đều thấp hơn 56.</p>
+      <p class="cl-answer">✅ Phương án tối ưu: đầu tư $\{a,b,c,g\}$, tổng lợi nhuận $f^*=56$ triệu đồng — kiểm
+        chứng bằng brute-force toàn bộ $2^7=128$ tổ hợp (31 tổ hợp khả thi, 56 là giá trị lớn nhất).</p>
+    </div>
+
+    <h3>Bài tập tự luyện — B4</h3>
+
+    <details class="cl-practice">
+      <summary>Bài 2 — 5 tài khoản. Bấm để xem đề &amp; lời giải đầy đủ.</summary>
+      <p><b>Đề:</b> 5 tài khoản $a,b,c,d,e$, lợi nhuận $p=(12,18,9,15,7)$. Điều kiện: (1) nếu đầu tư $a$ thì
+        phải đầu tư $b$; (2) không được đầu tư cả $c$ và $d$; (3) chọn từ 1 đến 3 tài khoản. Tìm PA tối ưu.</p>
+      <div class="cl-solution">
+        <p><b>Dịch điều kiện:</b> $x_a\le x_b$;\ $x_c+x_d\le1$;\ $1\le x_a{+}x_b{+}x_c{+}x_d{+}x_e\le3$.</p>
+        <p><b>Suy luận nhanh:</b> $b$ có lợi nhuận cao nhất (18) và không bị ràng buộc gì ép buộc theo chiều
+          ngược lại (chọn $b$ không bắt buộc phải chọn $a$) → luôn nên có $b$. Còn 2 suất: xét thêm $a$ (15,
+          nhưng nếu thêm $a$ thì đã có sẵn $b$ nên hợp lệ) và $d$ (15, tốt hơn $c{=}9$ do $c,d$ loại trừ nhau)
+          → ứng viên $\{a,b,d\}=12+18+15=45$; so với $\{b,d,e\}=18+15+7=40$ và $\{a,b,c\}=12+18+9=39$ → 45 lớn
+          nhất.</p>
+        <p class="cl-answer">✅ Phương án tối ưu: $\{a,b,d\}$, $f^*=45$ — kiểm chứng bằng brute-force $2^5=32$
+          tổ hợp.</p>
+      </div>
+    </details>
+
+    <details class="cl-practice">
+      <summary>Bài 3 — 6 tài khoản, điều kiện AND. Bấm để xem đề &amp; lời giải đầy đủ.</summary>
+      <p><b>Đề:</b> 6 tài khoản $a,\dots,f$, lợi nhuận $p=(20,14,11,17,9,13)$. Điều kiện: (1) không được đầu tư
+        cả $a$ và $b$; (2) nếu đầu tư cả $d$ và $e$ thì phải đầu tư $c$; (3) nếu đầu tư $f$ thì phải đầu tư $a$;
+        (4) chọn ít nhất 2 tài khoản. Tìm PA tối ưu.</p>
+      <div class="cl-solution">
+        <p><b>Dịch điều kiện:</b> $x_a+x_b\le1$;\ $x_c\ge x_d+x_e-1$;\ $x_f\le x_a$;\
+          $x_a{+}\cdots{+}x_f\ge2$.</p>
+        <p><b>Suy luận nhanh:</b> $a=20$ là lợi nhuận cao nhất và không bị ràng buộc trên ép buộc gì thêm khi
+          chọn (chỉ loại $b$) → nên chọn $a$. Vì chọn $a$, có thể thêm $f=13$ (được phép vì $f\le a$ đã thoả).
+          Xét thêm $d,e$: nếu chọn cả 2 ($17{+}9{=}26$) thì buộc thêm $c=11$ → tổng thêm $37$; so với chỉ chọn
+          $d$ đơn lẻ ($17$, không cần $c$) → chọn cả cụm $d,e,c$ lợi hơn ($37>17$). Vậy phương án đầy đủ:
+          $\{a,c,d,e,f\}=20+11+17+9+13=70$ (bỏ $b$ vì loại trừ với $a$).</p>
+        <p class="cl-answer">✅ Phương án tối ưu: $\{a,c,d,e,f\}$, $f^*=70$ — kiểm chứng bằng brute-force
+          $2^6=64$ tổ hợp.</p>
+      </div>
+    </details>
+  </section>
+
   <p class="cl-footer">
-    Toàn bộ số liệu trên trang này đã được kiểm chứng độc lập bằng <code>scipy.optimize.linprog</code> và thuật
-    toán đơn hình bảng tự động (không gõ tay đáp án) — nếu phát hiện sai lệch, báo lại để cập nhật ngay.
+    Toàn bộ số liệu trên trang này đã được kiểm chứng độc lập bằng <code>scipy.optimize.linprog</code>, thuật
+    toán đơn hình bảng tự động, và brute-force toàn bộ tổ hợp nhị phân (không gõ tay đáp án) — nếu phát hiện
+    sai lệch, báo lại để cập nhật ngay.
   </p>
 </div>
