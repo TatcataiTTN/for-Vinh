@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chiến lược thi Vận trù học</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<style>
+:root{
+  --primary:#0b3d91; --primary-light:#e8eef7; --accent:#c0392b; --good:#1e7e34;
+  --bg:#f7f8fb; --card:#ffffff; --border:#dde3ee; --text:#1b2430; --muted:#6b7686;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%;background:#12151c;font-family:'Segoe UI',Roboto,Arial,sans-serif;color:var(--text)}
+.deck{position:relative;width:100vw;height:100vh;overflow:hidden}
+.slide{
+  position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;
+  padding:64px 96px;background:var(--bg);
+}
+.slide.active{display:flex}
+.kicker{font-size:0.8rem;font-weight:700;letter-spacing:0.08em;color:var(--accent);margin-bottom:8px}
+h1{font-size:2.4rem;color:var(--primary);margin:0 0 14px}
+h2{font-size:1.7rem;color:var(--primary);margin:0 0 18px}
+.sub{font-size:1.15rem;color:var(--muted);max-width:760px}
+.meta{margin-top:28px;font-size:0.95rem;color:var(--primary);background:var(--primary-light);
+  display:inline-block;padding:8px 16px;border-radius:20px}
+.s-title{max-width:900px}
+.s-section{display:flex;flex-direction:column;align-items:flex-start}
+.s-section .sec-num{font-size:5rem;font-weight:800;color:var(--primary-light);line-height:1}
+.s-section h2{font-size:2.2rem;margin-top:4px}
+.s-section p{font-size:1.2rem;color:var(--muted)}
+.slide-section{background:linear-gradient(135deg,var(--primary) 0%,#123a7a 100%)}
+.slide-section .sec-num{color:rgba(255,255,255,0.18)}
+.slide-section h2{color:#fff}
+.slide-section p{color:rgba(255,255,255,0.8)}
+.slide-title{background:linear-gradient(135deg,var(--primary) 0%,#123a7a 100%)}
+.slide-title h1,.slide-title .kicker{color:#fff}
+.slide-title .sub{color:rgba(255,255,255,0.85)}
+.slide-title .meta{background:rgba(255,255,255,0.15);color:#fff}
+.s-content{max-width:1080px}
+.s-content .body{font-size:1.05rem;line-height:1.6}
+.rule-box{background:#fffaf0;border:1px solid #f0dca0;border-radius:10px;padding:16px 22px;font-size:1.15rem;margin-bottom:18px}
+.big-list{font-size:1.05rem;line-height:1.7}
+.big-list li{margin-bottom:8px}
+.callout{background:var(--primary-light);border-radius:8px;padding:12px 16px;font-size:1rem;margin-top:16px}
+.step-list{padding-left:26px;line-height:1.7}
+.step-list.big{font-size:1.1rem}
+.step-list li{margin-bottom:10px}
+.warn{color:var(--accent);font-weight:600}
+.strategy-box{background:#fffaf0;border:1px solid #f0dca0;border-radius:10px;padding:16px 22px;margin-bottom:14px}
+.tip{font-size:0.95rem;color:#6b5013;background:#fffbea;border-radius:6px;padding:10px 14px}
+.q{font-weight:600;color:var(--primary)}
+.eqn-block{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--primary);
+  border-radius:8px;padding:14px 22px;margin:10px 0;font-size:1.05rem}
+.eqn-block.small{font-size:0.95rem}
+.answer{background:#e5f5e6;border-radius:6px;padding:10px 14px;font-weight:600;color:var(--good);margin-top:10px}
+.answer.bad{background:#fbe9e7;color:var(--accent)}
+table.strategy-table,table.tableau{width:100%;border-collapse:collapse;margin:10px 0;font-size:0.92rem}
+table.strategy-table th,table.strategy-table td,table.tableau th,table.tableau td{
+  border:1px solid var(--border);padding:8px 10px;text-align:left}
+table.tableau{text-align:center}
+table.tableau td:first-child{font-weight:700;background:#fafbfd;text-align:center}
+table.tableau.small{font-size:0.88rem}
+table.strategy-table th,table.tableau th{background:var(--primary-light)}
+.zrow{background:#fef4f2;font-weight:600}
+.check-list{font-size:1.05rem;line-height:1.8;padding-left:22px}
+.tag{font-size:0.78rem;background:var(--accent);color:#fff;padding:2px 8px;border-radius:10px;margin-left:6px}
+.navbar{
+  position:fixed;bottom:0;left:0;right:0;height:52px;display:flex;align-items:center;
+  justify-content:space-between;padding:0 24px;background:rgba(18,21,28,0.92);color:#fff;font-size:0.85rem;
+  z-index:20;
+}
+.navbar button{
+  background:rgba(255,255,255,0.12);border:none;color:#fff;padding:8px 16px;border-radius:6px;
+  cursor:pointer;font-size:0.85rem;
+}
+.navbar button:hover{background:rgba(255,255,255,0.22)}
+.navbar button:disabled{opacity:0.3;cursor:not-allowed}
+.progress-outer{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(0,0,0,0.15);z-index:21}
+.progress-inner{height:100%;background:var(--accent);transition:width 0.25s}
+@media(max-width:900px){
+  .slide{padding:36px 28px}
+  h1{font-size:1.7rem} h2{font-size:1.3rem}
+  .eqn-block{font-size:0.85rem;overflow-x:auto}
+  table.strategy-table,table.tableau{font-size:0.78rem}
+}
+</style>
+</head>
+<body>
+<div class="progress-outer"><div class="progress-inner" id="progress"></div></div>
+<div class="deck" id="deck">
+<section class="slide slide-title active" data-index="0">
+    <div class="s-title">
+      <div class="kicker">CHIẾN LƯỢC LÀM BÀI THI CUỐI KỲ</div>
+      <h1>Vận trù học — 3 dạng trọng tâm</h1>
+      <p class="sub">Chọn đúng phương pháp giải NHANH NHẤT · Trình bày đủ các bước để có điểm từng phần</p>
+      <div class="meta">B1 — X<sub>ij</sub> &amp; khai triển biểu thức &nbsp;·&nbsp; B2 — Đơn hình &nbsp;·&nbsp; B3 — Đối ngẫu</div>
+    </div>
+    </section>
+<section class="slide " data-index="1">
+    <div class="s-content">
+      <div class="kicker">NGUYÊN TẮC SỐNG CÒN</div>
+      <h2>Đề chỉ chấm PA tối ưu + cách trình bày</h2>
+      <div class="body">
+<div class="rule-box">
+  <p><b>"Đề thi chỉ yêu cầu giải nghiệm tối ưu và PA tối ưu — nhưng phải trình bày cách tìm lời giải."</b></p>
+</div>
+<ul class="big-list">
+  <li>Không chấm bạn làm <i>dài</i> hay <i>ngắn</i> — chấm bạn có <b>chọn đúng phương pháp</b> và có
+    <b>trình bày đủ bước trung gian</b> hay không.</li>
+  <li>Dùng phương pháp chậm hơn mức cần thiết (vd đơn hình bảng cho bài 2 biến) → mất thời gian, không được
+    điểm thêm.</li>
+  <li>Nhảy thẳng đáp số không trình bày bước → mất điểm trình bày dù đáp số đúng.</li>
+</ul>
+<p class="callout">→ 3 slide nhóm tiếp theo: mỗi dạng có <b>bảng chọn phương pháp nhanh nhất</b> + <b>ví dụ giải
+  đầy đủ</b>, số liệu đã kiểm chứng bằng scipy — không gõ tay đáp án.</p>
+</div>
+    </div>
+    </section>
+<section class="slide slide-section" data-index="2">
+    <div class="s-section">
+      <div class="sec-num">B1</div>
+      <h2>Xij là gì? Khai triển biểu thức</h2>
+      <p>Bài toán vận tải / phân công / mạng lưới</p>
+    </div>
+    </section>
+<section class="slide " data-index="3">
+    <div class="s-content">
+      <div class="kicker">B1 · NHẬN DIỆN</div>
+      <h2>Khi nào gặp dạng bài này</h2>
+      <div class="body">
+<p>Bài toán vận tải / phân công / mạng lưới có biến 2 chỉ số $X_{ij}$ ($i$&nbsp;=&nbsp;nguồn/kho,
+  $j$&nbsp;=&nbsp;đích/đại lý). Đề thường yêu cầu 3 việc <b>liên tiếp</b>:</p>
+<ol class="step-list">
+  <li>Định nghĩa $X_{ij}$</li>
+  <li>Viết ràng buộc dạng <b>tổng quát</b> bằng ký hiệu $\sum$</li>
+  <li><b>Khai triển</b> $\sum$ thành từng phương trình cụ thể — <span class="warn">phần hay bị mất điểm nhất</span>
+    vì học sinh viết tắt bằng $\sum$ mà đề yêu cầu khai triển tường minh</li>
+</ol>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="4">
+    <div class="s-content">
+      <div class="kicker">B1 · CÁCH LÀM NHANH NHẤT</div>
+      <h2>Không cần tính toán gì</h2>
+      <div class="body">
+<div class="strategy-box">
+  <ol class="step-list big">
+    <li>Định nghĩa: <i>"$X_{ij}$ = lượng hàng vận chuyển/phân công từ $i$ đến $j$"</i></li>
+    <li>Ràng buộc cung: $\sum_{j=1}^n X_{ij}=a_i,\ \forall i$ &nbsp;·&nbsp;
+      Ràng buộc cầu: $\sum_{i=1}^m X_{ij}=b_j,\ \forall j$</li>
+    <li><b>Khai triển theo đúng thứ tự chỉ số tăng dần</b> ($i=1,\dots,m$ trước, rồi $j=1,\dots,n$)</li>
+  </ol>
+</div>
+<p class="tip">💡 Đây thuần là bài "viết đúng cấu trúc", không phải "giải toán" — nếu đề chỉ hỏi khai triển thì
+  <b>đừng mất thời gian giải luôn bài toán vận tải đầy đủ</b> trừ khi đề có yêu cầu riêng phần tìm $f^*$.</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="5">
+    <div class="s-content">
+      <div class="kicker">B1 · VÍ DỤ</div>
+      <h2>Đề bài</h2>
+      <div class="body">
+<p>Bài toán vận tải: 3 kho, 4 đại lý.</p>
+<div class="eqn-block">
+  $$a=(100,400,230),\quad b=(320,180,110,120)$$
+  $$c=\begin{pmatrix}6&3&16&9\\5&3&7&8\\1&8&12&10\end{pmatrix}$$
+</div>
+<p class="q">Định nghĩa $X_{ij}$, viết hàm mục tiêu và khai triển toàn bộ ràng buộc.</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="6">
+    <div class="s-content">
+      <div class="kicker">B1 · LỜI GIẢI</div>
+      <h2>Bước 1-2: Định nghĩa &amp; hàm mục tiêu khai triển</h2>
+      <div class="body">
+<p><b>Bước 1:</b> $X_{ij}$ = lượng hàng (tấn) vận chuyển từ kho $i$ đến đại lý $j$ ($i=1,2,3;\ j=1,2,3,4$).</p>
+<p><b>Bước 2 — hàm mục tiêu (khai triển đầy đủ, không dùng $\sum$):</b></p>
+<div class="eqn-block small">
+$$\min f = 6X_{11}+3X_{12}+16X_{13}+9X_{14}$$
+$$+\,5X_{21}+3X_{22}+7X_{23}+8X_{24}$$
+$$+\,X_{31}+8X_{32}+12X_{33}+10X_{34}$$
+</div>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="7">
+    <div class="s-content">
+      <div class="kicker">B1 · LỜI GIẢI</div>
+      <h2>Bước 3-4: Khai triển ràng buộc cung &amp; cầu</h2>
+      <div class="body">
+<p><b>Bước 3 — ràng buộc cung (từng $i$):</b></p>
+<div class="eqn-block small">
+$$i=1:\ X_{11}+X_{12}+X_{13}+X_{14}=100$$
+$$i=2:\ X_{21}+X_{22}+X_{23}+X_{24}=400$$
+$$i=3:\ X_{31}+X_{32}+X_{33}+X_{34}=230$$
+</div>
+<p><b>Bước 4 — ràng buộc cầu (từng $j$):</b></p>
+<div class="eqn-block small">
+$$j{=}1{:}\ X_{11}{+}X_{21}{+}X_{31}{=}320\quad j{=}2{:}\ X_{12}{+}X_{22}{+}X_{32}{=}180$$
+$$j{=}3{:}\ X_{13}{+}X_{23}{+}X_{33}{=}110\quad j{=}4{:}\ X_{14}{+}X_{24}{+}X_{34}{=}120$$
+</div>
+<p class="answer">✅ $f^*=2950$ tại $X_{12}^*=100, X_{21}^*=90, X_{22}^*=80, X_{23}^*=110, X_{24}^*=120, X_{31}^*=230$
+  (còn lại $=0$) — kiểm chứng bằng scipy linprog.</p>
+</div>
+    </div>
+    </section>
+<section class="slide slide-section" data-index="8">
+    <div class="s-section">
+      <div class="sec-num">B2</div>
+      <h2>Đơn hình</h2>
+      <p>Chọn phương pháp giải nhanh nhất</p>
+    </div>
+    </section>
+<section class="slide " data-index="9">
+    <div class="s-content">
+      <div class="kicker">B2 · BẢNG QUYẾT ĐỊNH</div>
+      <h2>Chọn phương pháp theo tình huống đề bài</h2>
+      <div class="body">
+<table class="strategy-table">
+  <thead><tr><th>Tình huống</th><th>Phương pháp nhanh nhất</th><th>Vì sao</th></tr></thead>
+  <tbody>
+    <tr><td>Đúng 2 biến quyết định</td><td><b>Đồ thị</b></td>
+      <td>Bảng đơn hình chậm hơn nhiều, không được điểm thêm</td></tr>
+    <tr><td>≥3 biến, mọi ràng buộc $\le$, $b_i\ge0$</td><td><b>Đơn hình bảng trực tiếp</b></td>
+      <td>Biến bù = cơ sở ban đầu, không cần biến giả</td></tr>
+    <tr><td>Có ràng buộc $=$ hoặc $\ge$</td><td><b>2 pha</b> (ưu tiên hơn Big-M)</td>
+      <td>Ít sai số hơn khi tính tay, không mang số $M$</td></tr>
+    <tr><td>Bài nhỏ, chỉ hỏi PA tối ưu</td><td>Đoán + <b>chứng minh $\Delta_j\le0$</b></td>
+      <td>Nhanh hơn dựng đủ bảng, vẫn phải trình bày kiểm chứng</td></tr>
+  </tbody>
+</table>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="10">
+    <div class="s-content">
+      <div class="kicker">B2 · VÍ DỤ</div>
+      <h2>Đề bài — trường hợp nhanh nhất</h2>
+      <div class="body">
+<div class="eqn-block">
+$$\max z=5x_1+4x_2+3x_3$$
+$$2x_1+3x_2+x_3\le5$$
+$$4x_1+x_2+2x_3\le11$$
+$$3x_1+4x_2+2x_3\le8,\quad x_1,x_2,x_3\ge0$$
+</div>
+<p class="tip">💡 Mọi ràng buộc đều $\le$ với $b_i\ge0$ → biến bù $x_4,x_5,x_6$ chính là cơ sở ban đầu, dùng đơn
+  hình bảng trực tiếp, không cần biến giả.</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="11">
+    <div class="s-content">
+      <div class="kicker">B2 · LỜI GIẢI</div>
+      <h2>Bảng 1 — cơ sở {x₄,x₅,x₆}</h2>
+      <div class="body">
+<table class="tableau">
+  <thead><tr><th>Cơ sở</th><th>$x_1$</th><th>$x_2$</th><th>$x_3$</th><th>$x_4$</th><th>$x_5$</th><th>$x_6$</th><th>RHS</th></tr></thead>
+  <tbody>
+    <tr><td>$x_4$</td><td>2</td><td>3</td><td>1</td><td>1</td><td>0</td><td>0</td><td>5</td></tr>
+    <tr><td>$x_5$</td><td>4</td><td>1</td><td>2</td><td>0</td><td>1</td><td>0</td><td>11</td></tr>
+    <tr><td>$x_6$</td><td>3</td><td>4</td><td>2</td><td>0</td><td>0</td><td>1</td><td>8</td></tr>
+    <tr class="zrow"><td>$z$</td><td>−5</td><td>−4</td><td>−3</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+  </tbody>
+</table>
+<p>Cột $x_1$ có hệ số âm nhất ($-5$) → <b>$x_1$ vào cơ sở</b>. $\theta$: $5/2{=}2.5,\ 11/4{=}2.75,\ 8/3{\approx}2.67$
+  → nhỏ nhất tại dòng $x_4$ → <b>$x_4$ ra</b> (xoay tại $a_{11}=2$).</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="12">
+    <div class="s-content">
+      <div class="kicker">B2 · LỜI GIẢI</div>
+      <h2>Bảng 2 → Bảng 3 — đạt tối ưu sau 2 vòng</h2>
+      <div class="body">
+<table class="tableau small">
+  <thead><tr><th>Cơ sở</th><th>$x_1$</th><th>$x_2$</th><th>$x_3$</th><th>$x_4$</th><th>$x_5$</th><th>$x_6$</th><th>RHS</th></tr></thead>
+  <tbody>
+    <tr><td>$x_1$</td><td>1</td><td>2</td><td>0</td><td>2</td><td>0</td><td>−1</td><td>2</td></tr>
+    <tr><td>$x_5$</td><td>0</td><td>−5</td><td>0</td><td>−2</td><td>1</td><td>0</td><td>1</td></tr>
+    <tr><td>$x_3$</td><td>0</td><td>−1</td><td>1</td><td>−3</td><td>0</td><td>2</td><td>1</td></tr>
+    <tr class="zrow"><td>$z$</td><td>0</td><td>3</td><td>0</td><td>1</td><td>0</td><td>1</td><td>13</td></tr>
+  </tbody>
+</table>
+<p>Bảng 3 (sau khi $x_3$ vào, $x_6$ ra ở vòng 2): mọi hệ số hàng $z \ge 0$ → <b>đã tối ưu</b>, dừng — chỉ
+  2 vòng xoay vì có sẵn cơ sở đơn vị ban đầu.</p>
+<p class="answer">✅ $x_1^*=2,\ x_2^*=0,\ x_3^*=1,\ z^*=13$ — kiểm chứng bằng scipy.optimize.linprog.</p>
+</div>
+    </div>
+    </section>
+<section class="slide slide-section" data-index="13">
+    <div class="s-section">
+      <div class="sec-num">B3</div>
+      <h2>Đối ngẫu</h2>
+      <p>Kiểm tra 1 cặp phương án có phải tối ưu</p>
+    </div>
+    </section>
+<section class="slide " data-index="14">
+    <div class="s-content">
+      <div class="kicker">B3 · CÁCH LÀM NHANH NHẤT</div>
+      <h2>Đừng giải lại từ đầu bằng đơn hình</h2>
+      <div class="body">
+<ol class="step-list big">
+  <li><b>Kiểm tra khả thi</b> của $\bar x$ (với P) và $\bar y$ (với D). Sai 1 trong 2 → kết luận ngay
+    <b>KHÔNG tối ưu</b>.</li>
+  <li><b>So giá trị mục tiêu</b> $c^T\bar x$ với $b^T\bar y$: khác nhau → theo đối ngẫu mạnh, <b>chắc chắn
+    KHÔNG tối ưu</b> — không cần kiểm tra gì thêm. <span class="tag">cách phát hiện nhanh nhất</span></li>
+  <li>Nếu bằng nhau, kiểm tra <b>đầy đủ độ lệch bù</b>: ràng buộc lỏng ⟺ biến tương ứng $=0$. Mọi cặp thỏa
+    mãn → <b>kết luận tối ưu</b>.</li>
+</ol>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="15">
+    <div class="s-content">
+      <div class="kicker">B3 · VÍ DỤ 1</div>
+      <h2>Cặp đúng — xác nhận bằng độ lệch bù</h2>
+      <div class="body">
+<p>Vẫn (P) ở B2. Đối ngẫu (D): $\min w=5y_1+11y_2+8y_3$ với $2y_1{+}4y_2{+}3y_3\ge5,\ 3y_1{+}y_2{+}4y_3\ge4,\
+  y_1{+}2y_2{+}2y_3\ge3$.</p>
+<p>Đề cho $\bar x=(2,0,1)$, $\bar y=(1,0,1)$.</p>
+<ul class="check-list">
+  <li>✓ Cả 2 đều khả thi (thay số kiểm tra từng ràng buộc)</li>
+  <li>✓ $c^T\bar x=5(2)+4(0)+3(1)=13=b^T\bar y=5(1)+11(0)+8(1)$</li>
+  <li>✓ Ràng buộc (P) dòng 2 lỏng (dư 1) ⟹ $\bar y_2=0$ — đúng</li>
+  <li>✓ Ràng buộc (D) dòng 2 lỏng (dư 3) ⟹ $\bar x_2=0$ — đúng</li>
+</ul>
+<p class="answer">✅ Mọi điều kiện thỏa mãn ⟹ <b>$(\bar x,\bar y)$ là cặp tối ưu</b> của (P) và (D).</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="16">
+    <div class="s-content">
+      <div class="kicker">B3 · VÍ DỤ 2</div>
+      <h2>Cặp sai — phát hiện ngay bằng so giá trị mục tiêu</h2>
+      <div class="body">
+<p>Vẫn (P), (D) như trên. Đề cho cặp khác: $\bar x=(2,0,1)$, $\bar y'=(0,1,2)$.</p>
+<ul class="check-list">
+  <li>✓ $\bar y'$ khả thi đối với (D) — dễ bị "lừa" tưởng vậy là ổn</li>
+  <li>✗ $b^T\bar y'=5(0)+11(1)+8(2)=27 \ne c^T\bar x=13$</li>
+</ul>
+<p class="answer bad">❌ KHÔNG cần đi tiếp bước độ lệch bù — chỉ riêng bước so giá trị mục tiêu ($27\ne13$) đã
+  đủ kết luận <b>KHÔNG phải cặp tối ưu</b>.</p>
+<p class="tip">💡 Luôn so giá trị mục tiêu TRƯỚC khi lao vào kiểm tra từng điều kiện độ lệch bù — tiết kiệm rất
+  nhiều thời gian làm bài thi.</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="17">
+    <div class="s-content">
+      <div class="kicker">TỔNG KẾT</div>
+      <h2>Checklist trước khi nộp bài</h2>
+      <div class="body">
+<table class="strategy-table">
+  <thead><tr><th>Dạng</th><th>Việc phải làm</th><th>Bẫy hay mất điểm</th></tr></thead>
+  <tbody>
+    <tr><td><b>B1</b></td><td>Định nghĩa $X_{ij}$ → viết $\sum$ tổng quát → khai triển từng phương trình</td>
+      <td>Viết tắt bằng $\sum$ khi đề yêu cầu khai triển tường minh</td></tr>
+    <tr><td><b>B2</b></td><td>Chọn đồ thị (2 biến) hoặc đơn hình bảng (≥3 biến, ràng buộc $\le$)</td>
+      <td>Dùng đơn hình cho bài 2 biến; bỏ qua bước kiểm tra $\Delta_j\ge0$ để kết luận tối ưu</td></tr>
+    <tr><td><b>B3</b></td><td>Khả thi → so giá trị mục tiêu → độ lệch bù (nếu cần)</td>
+      <td>Giải lại từ đầu bằng đơn hình thay vì kiểm tra trực tiếp cặp đã cho</td></tr>
+  </tbody>
+</table>
+<p class="callout">Xem đầy đủ tại trang <b>"Chiến lược thi"</b> trên web luyện tập — có thêm phần luyện tập
+  tương tác cho từng dạng.</p>
+</div>
+    </div>
+    </section>
+</div>
+<div class="navbar">
+  <span id="counter">1 / 18</span>
+  <span>
+    <button id="prevBtn">← Trước</button>
+    <button id="nextBtn">Sau →</button>
+  </span>
+  <span>Vận trù học — Chiến lược thi</span>
+</div>
+
+<script src="vendor/katex/katex.min.js"></script>
+<script src="vendor/katex/auto-render.min.js"></script>
+<script>
+(function() {
+  var slides = Array.from(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var idx = 0;
+
+  function render() {
+    slides.forEach(function(s, i) { s.classList.toggle('active', i === idx); });
+    document.getElementById('counter').textContent = (idx + 1) + ' / ' + total;
+    document.getElementById('progress').style.width = ((idx + 1) / total * 100) + '%';
+    document.getElementById('prevBtn').disabled = idx === 0;
+    document.getElementById('nextBtn').disabled = idx === total - 1;
+    location.hash = '#' + (idx + 1);
+    if (window.renderMathInElement) {
+      renderMathInElement(slides[idx], {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    }
+  }
+
+  function go(delta) {
+    idx = Math.max(0, Math.min(total - 1, idx + delta));
+    render();
+  }
+
+  document.getElementById('prevBtn').onclick = function() { go(-1); };
+  document.getElementById('nextBtn').onclick = function() { go(1); };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { go(1); e.preventDefault(); }
+    if (e.key === 'ArrowLeft') { go(-1); e.preventDefault(); }
+  });
+
+  var hashIdx = parseInt((location.hash || '#1').replace('#', ''), 10) - 1;
+  if (!isNaN(hashIdx) && hashIdx >= 0 && hashIdx < total) idx = hashIdx;
+  render();
+
+  window.addEventListener('hashchange', function() {
+    var h = parseInt((location.hash || '#1').replace('#', ''), 10) - 1;
+    if (!isNaN(h) && h >= 0 && h < total && h !== idx) { idx = h; render(); }
+  });
+})();
+</script>
+</body>
+</html>
