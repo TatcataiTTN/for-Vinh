@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài giảng cuối kỳ QHTT</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<style>
+:root{
+  --primary:#0b3d91; --primary-light:#e8eef7; --accent:#c0392b; --good:#1e7e34;
+  --bg:#f7f8fb; --card:#ffffff; --border:#dde3ee; --text:#1b2430; --muted:#6b7686;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%;background:#12151c;font-family:'Segoe UI',Roboto,Arial,sans-serif;color:var(--text)}
+.deck{position:relative;width:100vw;height:100vh;overflow:hidden}
+.slide{
+  position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;
+  padding:64px 96px;background:var(--bg);overflow-y:auto;
+}
+.slide.active{display:flex}
+.kicker{font-size:0.8rem;font-weight:700;letter-spacing:0.08em;color:var(--accent);margin-bottom:8px}
+h1{font-size:2.4rem;color:var(--primary);margin:0 0 14px}
+h2{font-size:1.7rem;color:var(--primary);margin:0 0 18px}
+.sub{font-size:1.15rem;color:var(--muted);max-width:760px}
+.meta{margin-top:28px;font-size:0.95rem;color:var(--primary);background:var(--primary-light);
+  display:inline-block;padding:8px 16px;border-radius:20px}
+.s-title{max-width:900px}
+.s-section{display:flex;flex-direction:column;align-items:flex-start}
+.s-section .sec-num{font-size:5rem;font-weight:800;color:var(--primary-light);line-height:1}
+.s-section h2{font-size:2.2rem;margin-top:4px}
+.s-section p{font-size:1.2rem;color:var(--muted)}
+.slide-section{background:linear-gradient(135deg,var(--primary) 0%,#123a7a 100%)}
+.slide-section .sec-num{color:rgba(255,255,255,0.18)}
+.slide-section h2{color:#fff}
+.slide-section p{color:rgba(255,255,255,0.8)}
+.slide-title{background:linear-gradient(135deg,var(--primary) 0%,#123a7a 100%)}
+.slide-title h1,.slide-title .kicker{color:#fff}
+.slide-title .sub{color:rgba(255,255,255,0.85)}
+.slide-title .meta{background:rgba(255,255,255,0.15);color:#fff}
+.s-content{max-width:1080px}
+.s-content .body{font-size:1.02rem;line-height:1.55}
+.rule-box{background:#fffaf0;border:1px solid #f0dca0;border-radius:10px;padding:16px 22px;font-size:1.15rem;margin-bottom:18px}
+.big-list{font-size:1.05rem;line-height:1.7}
+.big-list li{margin-bottom:8px}
+.callout{background:var(--primary-light);border-radius:8px;padding:12px 16px;font-size:1rem;margin-top:16px}
+.step-list{padding-left:26px;line-height:1.7}
+.step-list.big{font-size:1.05rem}
+.step-list li{margin-bottom:10px}
+.warn{color:var(--accent);font-weight:600}
+.strategy-box{background:#fffaf0;border:1px solid #f0dca0;border-radius:10px;padding:16px 22px;margin-bottom:14px}
+.tip{font-size:0.92rem;color:#6b5013;background:#fffbea;border-radius:6px;padding:10px 14px}
+.q{font-weight:600;color:var(--primary)}
+.eqn-block{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--primary);
+  border-radius:8px;padding:14px 22px;margin:10px 0;font-size:1.05rem}
+.eqn-block.small{font-size:0.95rem}
+.answer{background:#e5f5e6;border-radius:6px;padding:10px 14px;font-weight:600;color:var(--good);margin-top:10px}
+.answer.bad{background:#fbe9e7;color:var(--accent)}
+table.strategy-table,table.cl-tableau{width:100%;border-collapse:collapse;margin:10px 0;font-size:0.9rem}
+table.strategy-table th,table.strategy-table td,table.cl-tableau th,table.cl-tableau td{
+  border:1px solid var(--border);padding:7px 9px;text-align:left}
+table.cl-tableau{text-align:center}
+table.cl-tableau td:first-child{font-weight:700;background:#fafbfd;text-align:center}
+table.strategy-table th,table.cl-tableau th{background:var(--primary-light)}
+.cl-zrow{background:#fef4f2;font-weight:600}
+.check-list{font-size:1.02rem;line-height:1.8;padding-left:22px}
+.tag{font-size:0.78rem;background:var(--accent);color:#fff;padding:2px 8px;border-radius:10px;margin-left:6px}
+.navbar{
+  position:fixed;bottom:0;left:0;right:0;height:52px;display:flex;align-items:center;
+  justify-content:space-between;padding:0 24px;background:rgba(18,21,28,0.92);color:#fff;font-size:0.85rem;
+  z-index:20;
+}
+.navbar button{
+  background:rgba(255,255,255,0.12);border:none;color:#fff;padding:8px 16px;border-radius:6px;
+  cursor:pointer;font-size:0.85rem;
+}
+.navbar button:hover{background:rgba(255,255,255,0.22)}
+.navbar button:disabled{opacity:0.3;cursor:not-allowed}
+.progress-outer{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(0,0,0,0.15);z-index:21}
+.progress-inner{height:100%;background:var(--accent);transition:width 0.25s}
+@media(max-width:900px){
+  .slide{padding:36px 28px}
+  h1{font-size:1.7rem} h2{font-size:1.3rem}
+  .eqn-block{font-size:0.85rem;overflow-x:auto}
+  table.strategy-table,table.cl-tableau{font-size:0.76rem}
+}
+</style>
+</head>
+<body>
+<div class="progress-outer"><div class="progress-inner" id="progress"></div></div>
+<div class="deck" id="deck">
+<section class="slide slide-title active" data-index="0">
+    <div class="s-title">
+      <div class="kicker">BÀI GIẢNG TỔNG HỢP CUỐI KỲ</div>
+      <h1>Quy hoạch tuyến tính (QHTT)</h1>
+      <p class="sub">5 chương lý thuyết · Chứng minh — biến đổi mô hình — tính chính xác từng bước bảng đơn hình</p>
+      <div class="meta">Ch.I Mô hình hoá &amp; Đồ thị &nbsp;·&nbsp; Ch.II Tập lồi &amp; PACB &nbsp;·&nbsp; Ch.III Đơn hình &nbsp;·&nbsp; Ch.IV Đối ngẫu &nbsp;·&nbsp; Ch.V Vận tải</div>
+    </div>
+    </section>
+<section class="slide " data-index="1">
+    <div class="s-content">
+      <div class="kicker">CẤU TRÚC ĐỀ THI</div>
+      <h2>Đề bám sát đúng 5 chương giáo trình</h2>
+      <div class="body">
+<p>Khác với Vận trù học (thiên ứng dụng: nhị phân, đồ thị mạng, TSP...), đề thi QHTT kiểm tra khả
+  năng <b>chứng minh, biến đổi mô hình, và tính chính xác từng bước</b> trên bảng đơn hình/bảng vận tải.</p>
+<table class="strategy-table">
+  <thead><tr><th>Câu</th><th>Chương</th><th>Nội dung</th><th>Điểm</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Ch.I</td><td>Mô hình hoá thực tế → QHTT; dạng chính tắc/chuẩn tắc; đồ thị (2 biến)</td><td>2.0</td></tr>
+    <tr><td>2</td><td>Ch.II</td><td>Chứng minh/nhận dạng tập lồi, đa diện lồi, điểm cực biên</td><td>1.5</td></tr>
+    <tr><td>3</td><td>Ch.III</td><td>Đơn hình (gốc/2 pha/M) — trình bày đầy đủ bảng từng bước</td><td>3.0</td></tr>
+    <tr><td>4</td><td>Ch.IV</td><td>Viết đối ngẫu; định lý đối ngẫu mạnh; độ lệch bù</td><td>1.5</td></tr>
+    <tr><td>5</td><td>Ch.V</td><td>Bài toán vận tải — thuật toán thế vị</td><td>1.5</td></tr>
+    <tr><td>6</td><td>Tất cả</td><td>10 câu trắc nghiệm lý thuyết tổng hợp</td><td>0.5</td></tr>
+  </tbody>
+</table>
+<p class="callout">Câu 3 (Đơn hình) chiếm điểm cao nhất (3.0đ) — <b>ưu tiên luyện thành thạo trước</b>.</p>
+</div>
+    </div>
+    </section>
+<section class="slide slide-section" data-index="2">
+    <div class="s-section">
+      <div class="sec-num">I</div>
+      <h2>Mô hình hoá & Đồ thị</h2>
+      <p>Chuyển bài toán thực tế thành QHTT, giải bằng đồ thị (2 biến)</p>
+    </div>
+    </section>
+<section class="slide " data-index="3">
+    <div class="s-content">
+      <div class="kicker">CH.I · LÝ THUYẾT</div>
+      <h2>Phân biệt dạng CHÍNH TẮC và CHUẨN TẮC — hay nhầm nhất</h2>
+      <div class="body">
+<table class="strategy-table">
+  <thead><tr><th>Dạng</th><th>Ràng buộc chính</th><th>Ghi nhớ</th></tr></thead>
+  <tbody>
+    <tr><td><b>Chính tắc</b> (canonical)</td><td>$Ax=b$ (đẳng thức)</td><td>"chính tắc → <b>=</b>"</td></tr>
+    <tr><td><b>Chuẩn tắc</b> (standard)</td><td>$Ax\ge b$ (min) hoặc $Ax\le b$ (max)</td>
+      <td>"chuẩn tắc → <b>≥/≤</b> cùng chiều hàm mục tiêu"</td></tr>
+  </tbody>
+</table>
+<p class="tip">💡 Đây là cặp khái niệm đề hay hỏi trắc nghiệm để "bẫy" — luôn nhớ chính tắc dùng dấu
+  <b>=</b>, dùng biến bù để chuyển bất đẳng thức ↔ đẳng thức khi cần đổi qua lại giữa 2 dạng.</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="4">
+    <div class="s-content">
+      <div class="kicker">CH.I · CHIẾN LƯỢC ĐỒ THỊ</div>
+      <h2>5 bước giải nhanh bài toán 2 biến</h2>
+      <div class="body">
+<ol class="step-list big">
+  <li>Vẽ từng đường biên ràng buộc (đẳng thức tương ứng) trên mặt phẳng $x_1Ox_2$.</li>
+  <li>Xác định miền khả thi (giao các nửa mặt phẳng thoả ràng buộc + góc phần tư thứ nhất).</li>
+  <li>Liệt kê các đỉnh cực biên — <b>giao điểm 2 đường biên bất kỳ</b>.</li>
+  <li><b>Bắt buộc kiểm tra</b> mỗi đỉnh có thoả mãn TẤT CẢ ràng buộc còn lại hay không (bẫy hay gặp:
+    giao điểm 2 đường không thuộc miền khả thi vẫn bị nhầm là đỉnh).</li>
+  <li>Tính $f$ tại từng đỉnh hợp lệ, so sánh, kết luận.</li>
+</ol>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="5">
+    <div class="s-content">
+      <div class="kicker">CH.I · VÍ DỤ</div>
+      <h2>Đề bài & lời giải đầy đủ</h2>
+      <div class="body">
+<p>$\max g=x_1+2x_2$ với $x_1+x_2\le100,\ 2x_1+3x_2\le240,\ x_2\le60,\ x_1,x_2\ge0$.</p>
+<p><b>Đỉnh cực biên hợp lệ</b> (đã lọc bỏ giao điểm KHÔNG thoả ràng buộc còn lại):</p>
+<table class="cl-tableau">
+  <thead><tr><th>Đỉnh</th><th>$(x_1,x_2)$</th><th>$g=x_1+2x_2$</th></tr></thead>
+  <tbody>
+    <tr><td>$O$</td><td>$(0,0)$</td><td>$0$</td></tr>
+    <tr><td>$A$</td><td>$(100,0)$</td><td>$100$</td></tr>
+    <tr><td>$C$</td><td>$(30,60)$</td><td>$150$</td></tr>
+    <tr><td>$E$</td><td>$(0,60)$</td><td>$120$</td></tr>
+  </tbody>
+</table>
+<p class="tip">⚠️ Bẫy: giao điểm $x_1+x_2=100$ và $x_2=60$ cho $(40,60)$ nhưng
+  $2(40)+3(60)=260>240$ — <b>vi phạm ràng buộc 2</b>, không phải đỉnh hợp lệ, phải loại bỏ.</p>
+<p class="answer">✅ Phương án tối ưu $(x_1^*,x_2^*)=(30,60)$, $g^*=150$ — kiểm chứng bằng scipy linprog.</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="6">
+    <div class="s-content">
+      <div class="kicker">CH.I · TỰ LUYỆN</div>
+      <h2>1 bài thêm để tự làm</h2>
+      <div class="body">
+<p><b>Đề:</b> Xí nghiệp SX 2 SP $P_1,P_2$: $P_1$ cần 3 $M_1$+5 $M_2$, giá 30 nghìn/đv;
+  $P_2$ cần 2 $M_1$+3 $M_2$, giá 20 nghìn/đv. Có 2012 $M_1$, 2030 $M_2$. Max doanh thu.</p>
+<p class="tip">💡 Mẹo tốc độ: trước khi vẽ hình, so sánh tỷ lệ $\frac{b_i}{a_{i1}}$ và
+  $\frac{b_i}{a_{i2}}$ giữa 2 ràng buộc — nếu 1 ràng buộc "lỏng hơn" ràng buộc kia ở CẢ 2 trục, nó
+  không hoạt động (không chặt) tại tối ưu, miền khả thi thực chất chỉ bị chặn bởi ràng buộc còn lại.</p>
+<p class="answer">✅ $(x_1^*,x_2^*)=(0,\ 676.67)$, $f^*\approx13533.3$ nghìn đồng — ràng buộc $M_1$
+  không hoạt động (kiểm chứng bằng scipy linprog).</p>
+</div>
+    </div>
+    </section>
+<section class="slide slide-section" data-index="7">
+    <div class="s-section">
+      <div class="sec-num">II</div>
+      <h2>Tập lồi & Điểm cực biên</h2>
+      <p>Chứng minh và tính chất hình học của tập phương án</p>
+    </div>
+    </section>
+<section class="slide " data-index="8">
+    <div class="s-content">
+      <div class="kicker">CH.II · LÝ THUYẾT</div>
+      <h2>Định nghĩa cốt lõi cần thuộc</h2>
+      <div class="body">
+<table class="strategy-table">
+  <thead><tr><th>Khái niệm</th><th>Định nghĩa</th></tr></thead>
+  <tbody>
+    <tr><td><b>Tập lồi</b></td><td>$\forall x^1,x^2\in D,\ \theta\in[0,1]:\ \theta x^1+(1-\theta)x^2\in D$</td></tr>
+    <tr><td><b>Đa diện lồi (polyhedron)</b></td><td>Giao hữu hạn nửa không gian đóng — có thể KHÔNG bị chặn</td></tr>
+    <tr><td><b>Polytope</b></td><td>Đa diện lồi <b>bị chặn</b> — trường hợp riêng của polyhedron</td></tr>
+    <tr><td><b>Điểm cực biên (PACB)</b></td><td>Không thể viết thành tổ hợp lồi thực sự của 2 điểm
+      khác trong $D$</td></tr>
+  </tbody>
+</table>
+<p class="tip">💡 Quy trình chứng minh tập lồi chuẩn: lấy 2 điểm bất kỳ thuộc tập, lấy tổ hợp lồi
+  $\theta x^1+(1-\theta)x^2$, chứng minh tổ hợp đó vẫn thoả mãn MỌI ràng buộc định nghĩa tập ban
+  đầu. Muốn chứng minh KHÔNG lồi: chỉ cần 1 phản ví dụ cụ thể (2 điểm + trung điểm không thuộc tập).</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="9">
+    <div class="s-content">
+      <div class="kicker">CH.II · VÍ DỤ</div>
+      <h2>Chứng minh lồi &amp; phản ví dụ không lồi</h2>
+      <div class="body">
+<p>$A=\{(x,y)\in\mathbb{R}^2: x\ge0,y\ge0,x+y\ge1\}$, $G=\{(x,y): xy\le1\}$.</p>
+<p><b>$A$ lồi:</b> lấy $(x_1,y_1),(x_2,y_2)\in A$, $\theta\in[0,1]$; đặt
+  $(x,y)=\theta(x_1,y_1)+(1-\theta)(x_2,y_2)$. Vì $x_1,y_1,x_2,y_2\ge0$ nên $x,y\ge0$; và
+  $x+y=\theta(x_1+y_1)+(1-\theta)(x_2+y_2)\ge\theta(1)+(1-\theta)(1)=1$. Vậy $(x,y)\in A$ ⟹ $A$ lồi. $\blacksquare$</p>
+<p><b>$G$ KHÔNG lồi:</b> lấy $(4,0.1)\in G$ ($4\times0.1=0.4\le1$) và $(0.1,4)\in G$. Trung điểm
+  $(2.05,2.05)$: $xy=4.2025>1$ — không thuộc $G$. Vậy $G$ không lồi.</p>
+<p class="answer">✅ $A$ là polyhedron (giao 3 nửa không gian) nhưng KHÔNG phải polytope vì không bị
+  chặn (chứa các điểm $(x,0)$ khi $x\to\infty$).</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="10">
+    <div class="s-content">
+      <div class="kicker">CH.II · TỰ LUYỆN</div>
+      <h2>Tính chất PACB không suy biến</h2>
+      <div class="body">
+<p><b>Đề:</b> Bài toán chính tắc $\min\{c^Tx:Ax=b,x\ge0\}$, $A$ cỡ $3\times6$,
+  $\text{rank}(A)=3$. Một PACB không suy biến có bao nhiêu biến cơ sở dương?</p>
+<p><b>Suy luận:</b> tập vector cột cơ sở $\{A^j,j\in J_0\}$ phải độc lập tuyến tính để hệ
+  $\sum_{j\in J_0}x_jA^j=b$ có nghiệm DUY NHẤT (đúng định nghĩa PACB = 1 đỉnh). Số cột độc lập
+  tuyến tính tối đa $=\text{rank}(A)$.</p>
+<p class="answer">✅ Đúng $\text{rank}(A)=3$ biến cơ sở dương — không hơn, không kém.</p>
+</div>
+    </div>
+    </section>
+<section class="slide slide-section" data-index="11">
+    <div class="s-section">
+      <div class="sec-num">III</div>
+      <h2>Đơn hình</h2>
+      <p>Gốc — Hai pha — M. Câu điểm cao nhất trong đề (3.0đ)</p>
+    </div>
+    </section>
+<section class="slide " data-index="12">
+    <div class="s-content">
+      <div class="kicker">CH.III · BẢNG QUYẾT ĐỊNH</div>
+      <h2>Chọn đúng phương pháp — tiêu chí duy nhất là DẠNG BAN ĐẦU</h2>
+      <div class="body">
+<table class="strategy-table">
+  <thead><tr><th>Tình huống</th><th>Phương pháp</th><th>Vì sao</th></tr></thead>
+  <tbody>
+    <tr><td>Ràng buộc $Ax=b$ đã có sẵn cột đơn vị (một số biến hệ số $(1,0,\dots)$...)</td>
+      <td><b>Đơn hình gốc — bảng gộp</b></td><td>Cơ sở ban đầu có sẵn, không cần biến giả, ít bước nhất</td></tr>
+    <tr><td>Có ràng buộc $=$ hoặc $\ge$, CHƯA có sẵn cột đơn vị</td>
+      <td><b>Hai pha</b> (ưu tiên khi tính tay)</td>
+      <td>Tách 2 bài toán tuần tự, không phải mang số $M$ lớn — ít sai số hơn khi so sánh hệ số</td></tr>
+    <tr><td>Tương tự trên nhưng đề yêu cầu 1 bảng duy nhất</td>
+      <td><b>Phương pháp M</b></td>
+      <td>Gộp 1 bài toán, hệ số phạt $M$ lớn tuỳ ý gắn vào ẩn giả trong hàm mục tiêu</td></tr>
+  </tbody>
+</table>
+<p class="tip">💡 2 pha và M luôn cho CÙNG kết quả — chỉ khác cách trình bày. Nếu đề không chỉ định,
+  ưu tiên 2 pha (tính tay ít sai số hơn: so sánh số $M$ dễ nhầm dấu khi làm nhanh).</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="13">
+    <div class="s-content">
+      <div class="kicker">CH.III · VÍ DỤ</div>
+      <h2>Đơn hình gốc — bảng gộp (đã có sẵn cột đơn vị)</h2>
+      <div class="body">
+<p>$\min f=5x_1+4x_2+5x_3+2x_4+x_5+3x_6$ với $2x_1{+}4x_2{+}3x_3{+}x_4{=}46,\
+  4x_1{+}2x_2{+}3x_3{+}x_5{=}38,\ 3x_1{+}x_3{+}x_6{=}21$.</p>
+<p>Cột $x_4,x_5,x_6$ đã tạo sẵn ma trận đơn vị → cơ sở ban đầu $\{x_4,x_5,x_6\}$, không cần biến giả.</p>
+<table class="cl-tableau">
+  <thead><tr><th>Cơ sở</th><th>$x_1$</th><th>$x_2$</th><th>$x_3$</th><th>$x_4$</th><th>$x_5$</th><th>$x_6$</th><th>RHS</th></tr></thead>
+  <tbody>
+    <tr><td>$x_4$</td><td>2</td><td>4</td><td>3</td><td>1</td><td>0</td><td>0</td><td>46</td></tr>
+    <tr><td>$x_5$</td><td>4</td><td>2</td><td>3</td><td>0</td><td>1</td><td>0</td><td>38</td></tr>
+    <tr><td>$x_6$</td><td>3</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>21</td></tr>
+    <tr class="cl-zrow"><td>$z$</td><td>−12</td><td>−6</td><td>−7</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+  </tbody>
+</table>
+<p>Cột $x_1$ âm nhất ($-12$) → vào cơ sở. $\theta$: $46/2{=}23,\ 38/4{=}9.5,\ 21/3{=}7$ → nhỏ nhất
+  dòng $x_6$ → $x_6$ ra (xoay $a_{31}=3$).</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="14">
+    <div class="s-content">
+      <div class="kicker">CH.III · LỜI GIẢI</div>
+      <h2>Bảng 2 → tối ưu (chỉ 2 vòng)</h2>
+      <div class="body">
+<table class="cl-tableau">
+  <thead><tr><th>Cơ sở</th><th>$x_1$</th><th>$x_2$</th><th>$x_3$</th><th>$x_4$</th><th>$x_5$</th><th>$x_6$</th><th>RHS</th></tr></thead>
+  <tbody>
+    <tr><td>$x_4$</td><td>0</td><td>0</td><td>−1</td><td>1</td><td>−2</td><td>2</td><td>12</td></tr>
+    <tr><td>$x_2$</td><td>0</td><td>1</td><td>5/6</td><td>0</td><td>1/2</td><td>−2/3</td><td>5</td></tr>
+    <tr><td>$x_1$</td><td>1</td><td>0</td><td>1/3</td><td>0</td><td>0</td><td>1/3</td><td>7</td></tr>
+    <tr class="cl-zrow"><td>$z$</td><td>0</td><td>0</td><td>2</td><td>0</td><td>3</td><td>0</td><td>−79</td></tr>
+  </tbody>
+</table>
+<p>Mọi hệ số hàng $z\ge0$ → đã tối ưu (chỉ 2 vòng xoay vì đã có sẵn cơ sở đơn vị ban đầu).</p>
+<p class="answer">✅ $x_1^*=7,\ x_2^*=5,\ x_3^*=0,\ x_4^*=12,\ f^*=79$ — kiểm chứng scipy linprog.</p>
+<p class="tip">⚠️ Bài toán này CÓ NHIỀU PHƯƠNG ÁN TỐI ƯU: scipy độc lập tìm được nghiệm khác
+  $(5,9,0,0,0,6)$ cũng cho $f=79$ (hệ số $x_3$ trong hàng $z$ bằng $2>0$ nhưng biến $x_2,x_6$ có
+  hệ số $0$ ở 1 phương án lân cận — dấu hiệu đa nghiệm khi giải tiếp). Cả 2 đáp số đều ĐÚNG.</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="15">
+    <div class="s-content">
+      <div class="kicker">CH.III · CHIẾN LƯỢC PHỤ</div>
+      <h2>Khi cần biến giả: 2 pha (khuyến nghị) vs M</h2>
+      <div class="body">
+<table class="strategy-table">
+  <thead><tr><th></th><th>Hai pha</th><th>Phương pháp M</th></tr></thead>
+  <tbody>
+    <tr><td>Hàm mục tiêu Pha 1</td><td>$F=\sum$(ẩn giả) $\to\min$, tách riêng</td>
+      <td>$f+M\sum$(ẩn giả), gộp chung 1 hàm</td></tr>
+    <tr><td>Điều kiện vô nghiệm</td><td>$F^*>0$ ở cuối Pha 1</td>
+      <td>Bảng tối ưu cuối vẫn còn ẩn giả dương</td></tr>
+    <tr><td>Rủi ro khi tính tay</td><td>Thấp — chỉ số thực</td>
+      <td>Cao hơn — so sánh $\delta_jM+\gamma_j$ dễ nhầm dấu</td></tr>
+  </tbody>
+</table>
+<p class="tip">💡 Quy tắc so sánh 2 hệ số dạng $\delta M+\gamma$ trong pp M: so $\delta$ trước
+  (số lớn hơn quyết định trước vì $M$ rất lớn); chỉ khi $\delta_j=\delta_k$ mới so tiếp $\gamma$.</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="16">
+    <div class="s-content">
+      <div class="kicker">CH.III · TỰ LUYỆN</div>
+      <h2>1 bài thêm — Hai pha</h2>
+      <div class="body">
+<p><b>Đề:</b> $\min f(x)=7x_1+x_2-4x_3$ với $-6x_1{+}4x_2{+}5x_3\ge-20,\ x_1{+}2x_2{+}x_3{=}8,\
+  3x_1{-}2x_2{-}x_3\le-8$.</p>
+<p class="tip">💡 Bước đầu tiên bắt buộc: đưa mọi $b_i\ge0$ trước khi lập bảng (nhân $-1$ nếu cần) —
+  đây là bước hay bị bỏ quên, dẫn tới lập bảng sai ngay từ đầu.</p>
+<p class="answer">✅ $x_1^*=0,\ x_2^*=0,\ x_3^*=8,\ f^*=-32$ — cần đúng 2 ẩn giả cho 2 phương trình
+  chưa có sẵn cột đơn vị, giải bằng đơn hình 2 pha.</p>
+</div>
+    </div>
+    </section>
+<section class="slide slide-section" data-index="17">
+    <div class="s-section">
+      <div class="sec-num">IV</div>
+      <h2>Đối ngẫu</h2>
+      <p>Lập bài toán đối ngẫu & dùng độ lệch bù kiểm tra tối ưu</p>
+    </div>
+    </section>
+<section class="slide " data-index="18">
+    <div class="s-content">
+      <div class="kicker">CH.IV · BẢNG QUY TẮC</div>
+      <h2>Lập đối ngẫu — thuộc bảng này là làm được mọi bài</h2>
+      <div class="body">
+<table class="strategy-table">
+  <thead><tr><th>Bài toán gốc (P): $\min$</th><th>Đối ngẫu (D): $\max$</th></tr></thead>
+  <tbody>
+    <tr><td>Ràng buộc $i$ dạng $\ge$</td><td>$y_i\ge0$</td></tr>
+    <tr><td>Ràng buộc $i$ dạng $\le$</td><td>$y_i\le0$</td></tr>
+    <tr><td>Ràng buộc $i$ dạng $=$</td><td>$y_i$ tự do (không ràng buộc dấu)</td></tr>
+    <tr><td>Biến $x_j\ge0$</td><td>Ràng buộc đối ngẫu $j$ dạng $\le$</td></tr>
+    <tr><td>Biến $x_j\le0$</td><td>Ràng buộc đối ngẫu $j$ dạng $\ge$</td></tr>
+    <tr><td>Biến $x_j$ tự do</td><td>Ràng buộc đối ngẫu $j$ dạng $=$</td></tr>
+  </tbody>
+</table>
+<p class="tip">💡 Bảng này đối xứng hoàn toàn: "ràng buộc gốc ↔ biến đối ngẫu", "biến gốc ↔ ràng buộc
+  đối ngẫu". Nếu (P) là $\max$ thì đảo toàn bộ chiều bất đẳng thức trong bảng (chuyển sang tương
+  ứng với $\min$ ở (D)).</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="19">
+    <div class="s-content">
+      <div class="kicker">CH.IV · VÍ DỤ</div>
+      <h2>Lập đối ngẫu + kiểm tra tối ưu bằng độ lệch bù</h2>
+      <div class="body">
+<p>(P): $\max\alpha=10x_1+8x_2+9x_3$ với $2x_1{+}4x_2{+}3x_3\le30,\ 3x_1{+}x_2{+}3x_3\le20$.
+  (D) — bài toán định giá mua nguyên liệu: $\min\beta=30y_1+20y_2$ với $2y_1{+}3y_2\ge10,\
+  4y_1{+}y_2\ge8,\ 3y_1{+}3y_2\ge9$.</p>
+<p>Cho $\bar x=(5,5,0)$, $\bar y=(1.4,2.4)$. Kiểm tra:</p>
+<p><b>Khả thi:</b> $2(5){+}4(5){+}3(0){=}30\le30$✓(chặt); $3(5){+}5{+}0{=}20\le20$✓(chặt).
+  $2(1.4){+}3(2.4){=}10\ge10$✓(chặt); $4(1.4){+}2.4{=}8\ge8$✓(chặt); $3(1.4){+}3(2.4){=}11.4\ge9$✓(lỏng).</p>
+<p><b>So mục tiêu:</b> $\alpha=10(5){+}8(5){=}90$; $\beta=30(1.4){+}20(2.4){=}90$ — BẰNG NHAU.</p>
+<p><b>Độ lệch bù:</b> ràng buộc (D) dòng 3 lỏng ⟹ cần $\bar x_3=0$ — đúng ✓.</p>
+<p class="answer">✅ $(\bar x,\bar y)$ là cặp tối ưu, $\alpha^*=\beta^*=90$ — kiểm chứng scipy linprog
+  cả gốc lẫn đối ngẫu.</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="20">
+    <div class="s-content">
+      <div class="kicker">CH.IV · Ý NGHĨA KINH TẾ</div>
+      <h2>Vì sao học đối ngẫu không chỉ để thi</h2>
+      <div class="body">
+<p>$\alpha\le\beta$ với MỌI cặp phương án khả thi (đối ngẫu yếu) — tổng doanh thu sản xuất tối đa
+  không bao giờ vượt quá tổng chi phí "mua đứt" nguyên liệu theo giá $y_i$ hợp lý.</p>
+<p>Tại phương án tối ưu, $\alpha^*=\beta^*$ (đối ngẫu mạnh) — đây chính là mức giá "cân bằng" giữa
+  bên bán sản phẩm và bên định giá mua nguyên liệu: $y_i^*$ chính là <b>giá bóng</b> (shadow price)
+  — mỗi đơn vị nguyên liệu $i$ tăng thêm làm $\alpha^*$ tăng đúng $y_i^*$.</p>
+<p class="tip">💡 Kỹ năng thi nhanh nhất: khi đề cho sẵn 1 cặp $(\bar x,\bar y)$, LUÔN so giá trị mục
+  tiêu 2 phía trước — nếu khác nhau, kết luận ngay KHÔNG tối ưu, khỏi cần xét độ lệch bù.</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="21">
+    <div class="s-content">
+      <div class="kicker">CH.IV · TỰ LUYỆN</div>
+      <h2>1 bài thêm — chỉ cần viết đối ngẫu</h2>
+      <div class="body">
+<p><b>Đề:</b> $f(x)=x_1+3x_2-4x_3\to\min$ với $x_1-2x_2+5x_3=4,\ 3x_1+7x_2-11x_3\ge-1,\
+  -x_1+4x_2+8x_3\le11,\ x_1\ge0,\ x_3\le0$ ($x_2$ tự do).</p>
+<p><b>Tra bảng:</b> ràng buộc (1) $=$ → $y_1$ tự do; (2) $\ge$ (đúng chiều min) → $y_2\ge0$; (3) $\le$
+  → đổi dấu về $\ge$ trước rồi gán $y_3\ge0$. Biến $x_1\ge0$→ràng buộc đối ngẫu 1 dạng $\le$;
+  $x_2$ tự do→ràng buộc đối ngẫu 2 dạng $=$; $x_3\le0$→ràng buộc đối ngẫu 3 dạng $\ge$.</p>
+<p class="answer">✅ Không cần giải số — đây thuần là bài "viết đúng cấu trúc" theo bảng quy tắc,
+  làm rất nhanh nếu tra bảng chính xác từng dòng.</p>
+</div>
+    </div>
+    </section>
+<section class="slide slide-section" data-index="22">
+    <div class="s-section">
+      <div class="sec-num">V</div>
+      <h2>Bài toán vận tải</h2>
+      <p>Thuật toán thế vị — Câu 5, mọi đề đều ra dạng này</p>
+    </div>
+    </section>
+<section class="slide " data-index="23">
+    <div class="s-content">
+      <div class="kicker">CH.V · CÁC BƯỚC</div>
+      <h2>Thuật toán thế vị — quy trình chuẩn</h2>
+      <div class="body">
+<ol class="step-list big">
+  <li>Kiểm tra cân bằng thu phát $\sum a_i=\sum b_j$ (nếu không, thêm trạm giả cước phí $0$).</li>
+  <li>Lập phương án cực biên ban đầu (góc Tây Bắc, hoặc chi phí nhỏ nhất).</li>
+  <li>Tính hệ thống thế vị $(r_i,s_j)$: với mỗi ô chọn $(i,j)$, giải $r_i+s_j=c_{ij}$ (thường gán
+    $r_1=0$ rồi suy ra các giá trị còn lại theo dây chuyền qua các ô chọn).</li>
+  <li>Tính $\Delta_{ij}=c_{ij}-r_i-s_j$ cho các ô phi cơ sở — nếu mọi $\Delta_{ij}\ge0$ thì đã tối ưu.</li>
+  <li>Nếu chưa, chọn ô có $\Delta_{ij}<0$ nhỏ nhất, điều chỉnh theo chu trình ($+\theta/-\theta$
+    luân phiên), lặp lại bước 3.</li>
+</ol>
+<p class="tip">💡 Nếu PACB ban đầu suy biến (số ô chọn $\lt m{+}n{-}1$): bổ sung ô giá trị $0$, chọn sao
+  cho không tạo chu trình với các ô đã có, để đủ $m{+}n{-}1$ ô cần thiết cho hệ thế vị.</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="24">
+    <div class="s-content">
+      <div class="kicker">CH.V · VÍ DỤ</div>
+      <h2>Đề bài & đáp số đầy đủ (đã kiểm chứng)</h2>
+      <div class="body">
+<p>3 trạm phát $a=(100,400,230)$, 4 trạm thu $b=(320,180,110,120)$, cước phí
+  $c=\begin{pmatrix}6&3&16&9\\5&3&7&8\\1&8&12&10\end{pmatrix}$.</p>
+<p>Kiểm tra cân bằng: $\sum a_i=730=\sum b_j$ ✓. Xuất phát từ PACB góc Tây Bắc, sau 5 vòng lặp
+  thuật toán thế vị (điều chỉnh dần các ô $\Delta_{ij}<0$), đạt phương án tối ưu:</p>
+<table class="cl-tableau">
+  <thead><tr><th></th><th>$D_1$(320)</th><th>$D_2$(180)</th><th>$D_3$(110)</th><th>$D_4$(120)</th></tr></thead>
+  <tbody>
+    <tr><td>$S_1$(100)</td><td>0</td><td>100</td><td>0</td><td>0</td></tr>
+    <tr><td>$S_2$(400)</td><td>90</td><td>80</td><td>110</td><td>120</td></tr>
+    <tr><td>$S_3$(230)</td><td>230</td><td>0</td><td>0</td><td>0</td></tr>
+  </tbody>
+</table>
+<p class="answer">✅ $f^*=6(0){+}3(100){+}\dots{+}5(90){+}3(80){+}7(110){+}8(120){+}1(230)=2950$ —
+  kiểm chứng độc lập bằng scipy linprog (bài toán mạng, luôn cho nghiệm nguyên).</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="25">
+    <div class="s-content">
+      <div class="kicker">CH.V · TỰ LUYỆN</div>
+      <h2>1 bài thêm — xử lý suy biến trước khi giải</h2>
+      <div class="body">
+<p><b>Đề:</b> 4 trạm phát $a=(35,90,75,100)$, 5 trạm thu $b=(50,80,70,60,40)$. Cho sẵn 1 phương án
+  $x$ có 10 ô dương (thừa so với $m{+}n{-}1=8$ ô cần thiết).</p>
+<p class="tip">💡 Bẫy: số ô dương NHIỀU HƠN $m{+}n{-}1$ nghĩa là các ô chọn KHÔNG độc lập tuyến
+  tính (có chu trình ẩn) — phải loại bớt/gộp ô sao cho còn đúng 8 ô độc lập, KHÔNG làm xấu đi giá
+  trị hàm mục tiêu, rồi mới áp dụng thuật toán thế vị bình thường.</p>
+<p class="answer">✅ Đây là bài tập mở (không có 1 đáp số duy nhất) — kỹ năng cần luyện là NHẬN RA
+  suy biến ngược và biết cách xử lý đúng quy trình, không phải chỉ nhớ đáp số.</p>
+</div>
+    </div>
+    </section>
+<section class="slide " data-index="26">
+    <div class="s-content">
+      <div class="kicker">TỔNG KẾT</div>
+      <h2>Checklist 5 chương trước khi vào phòng thi</h2>
+      <div class="body">
+<table class="strategy-table">
+  <thead><tr><th>Chương</th><th>Việc phải làm</th><th>Bẫy hay mất điểm</th></tr></thead>
+  <tbody>
+    <tr><td><b>Ch.I</b></td><td>Mô hình hoá → xác định dạng chính tắc/chuẩn tắc → đồ thị</td>
+      <td>Nhầm chính tắc($=$)/chuẩn tắc($\ge/\le$); quên kiểm tra đỉnh giao 2 đường có hợp lệ</td></tr>
+    <tr><td><b>Ch.II</b></td><td>Lấy 2 điểm + tổ hợp lồi để chứng minh; phản ví dụ để bác bỏ</td>
+      <td>Chứng minh thiếu chiều "với mọi" $\theta\in[0,1]$</td></tr>
+    <tr><td><b>Ch.III</b></td><td>Xác định có sẵn cột đơn vị chưa → chọn gốc/2 pha/M</td>
+      <td>Quên đưa $b_i\ge0$ trước khi lập bảng; bỏ sót dấu hiệu đa nghiệm</td></tr>
+    <tr><td><b>Ch.IV</b></td><td>Tra bảng quy tắc lập đối ngẫu → so giá trị mục tiêu → độ lệch bù</td>
+      <td>Nhầm chiều ràng buộc gốc $\to$ dấu biến đối ngẫu</td></tr>
+    <tr><td><b>Ch.V</b></td><td>Kiểm tra cân bằng → PACB đầu → thế vị → lặp tới $\Delta_{ij}\ge0$</td>
+      <td>Không xử lý suy biến (thiếu/thừa ô chọn) trước khi tính thế vị</td></tr>
+  </tbody>
+</table>
+<p class="callout">Toàn bộ số liệu trong bộ slide này đã kiểm chứng độc lập bằng
+  <code>scipy.optimize.linprog</code> và thuật toán đơn hình bảng tự động — không gõ tay đáp án.</p>
+</div>
+    </div>
+    </section>
+</div>
+<div class="navbar">
+  <span id="counter">1 / 27</span>
+  <span>
+    <button id="prevBtn">← Trước</button>
+    <button id="nextBtn">Sau →</button>
+  </span>
+  <span>Quy hoạch tuyến tính — Bài giảng cuối kỳ</span>
+</div>
+
+<script src="vendor/katex/katex.min.js"></script>
+<script src="vendor/katex/auto-render.min.js"></script>
+<script>
+(function() {
+  var slides = Array.from(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var idx = 0;
+
+  function render() {
+    slides.forEach(function(s, i) { s.classList.toggle('active', i === idx); });
+    document.getElementById('counter').textContent = (idx + 1) + ' / ' + total;
+    document.getElementById('progress').style.width = ((idx + 1) / total * 100) + '%';
+    document.getElementById('prevBtn').disabled = idx === 0;
+    document.getElementById('nextBtn').disabled = idx === total - 1;
+    location.hash = '#' + (idx + 1);
+    if (window.renderMathInElement) {
+      renderMathInElement(slides[idx], {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    }
+  }
+
+  function go(delta) {
+    idx = Math.max(0, Math.min(total - 1, idx + delta));
+    render();
+  }
+
+  document.getElementById('prevBtn').onclick = function() { go(-1); };
+  document.getElementById('nextBtn').onclick = function() { go(1); };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { go(1); e.preventDefault(); }
+    if (e.key === 'ArrowLeft') { go(-1); e.preventDefault(); }
+  });
+
+  var hashIdx = parseInt((location.hash || '#1').replace('#', ''), 10) - 1;
+  if (!isNaN(hashIdx) && hashIdx >= 0 && hashIdx < total) idx = hashIdx;
+  render();
+
+  window.addEventListener('hashchange', function() {
+    var h = parseInt((location.hash || '#1').replace('#', ''), 10) - 1;
+    if (!isNaN(h) && h >= 0 && h < total && h !== idx) { idx = h; render(); }
+  });
+})();
+</script>
+</body>
+</html>
