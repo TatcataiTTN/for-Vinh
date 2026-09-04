@@ -169,6 +169,111 @@ def split_slide(tag, title, h2, insights, highlight_text, highlight_cite, minist
     </div>"""
 
 
+def _entity_box(cx, cy, w, h, name, attrs):
+    """Hộp thực thể ERD: tên in đậm trên, danh sách thuộc tính bên dưới, viền --primary."""
+    x, y = cx - w / 2, cy - h / 2
+    lines = "".join(
+        f'<text x="{cx}" y="{cy - h/2 + 34 + i*20}" text-anchor="middle" '
+        f'font-family="Inter, sans-serif" font-size="12.5" fill="#444">{esc(a)}</text>'
+        for i, a in enumerate(attrs)
+    )
+    return f'''
+      <rect x="{x}" y="{y}" width="{w}" height="{h}" rx="10" fill="#ffffff" stroke="#1e2bfa" stroke-width="2.2"/>
+      <text x="{cx}" y="{cy - h/2 + 20}" text-anchor="middle" font-family="'Space Grotesk',sans-serif"
+            font-size="15" font-weight="700" fill="#111111">{esc(name)}</text>
+      <line x1="{x+10}" y1="{cy - h/2 + 26}" x2="{x+w-10}" y2="{cy - h/2 + 26}" stroke="#e2e5f5" stroke-width="1.5"/>
+      {lines}'''
+
+
+def _diamond(cx, cy, w, h, name):
+    pts = f"{cx},{cy-h/2} {cx+w/2},{cy} {cx},{cy+h/2} {cx-w/2},{cy}"
+    return f'''
+      <polygon points="{pts}" fill="#eef2ff" stroke="#1e2bfa" stroke-width="2"/>
+      <text x="{cx}" y="{cy+4}" text-anchor="middle" font-family="'Space Grotesk',sans-serif"
+            font-size="12.5" font-weight="700" fill="#1e2bfa">{esc(name)}</text>'''
+
+
+def erd_diagram_svg(center, side_nn, side_1n, rel_nn, rel_1n):
+    """Sơ đồ ERD 3 thực thể: side_nn --(N-N, rel_nn)-- center --(1-N, rel_1n)-- side_1n.
+    Mỗi tham số entity là (tên, [thuộc_tính,...]); side_1n là phía '1'."""
+    W, H = 900, 460
+    cx_center, cy_center = 620, 130
+    cx_nn, cy_nn = 260, 130
+    cx_1n, cy_1n = 400, 380
+    box_w, box_h = 230, 26 + 20 * max(len(center[1]), len(side_nn[1]), len(side_1n[1])) + 10
+
+    svg = [f'<svg viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;max-height:44vh;">']
+
+    # Duong noi + nhan ban so (ve TRUOC de nam duoi hop/thoi)
+    dia1_x, dia1_y = (cx_nn + cx_center) / 2, cy_center
+    svg.append(f'<line x1="{cx_nn+box_w/2}" y1="{cy_nn}" x2="{dia1_x-55}" y2="{dia1_y}" stroke="#8892b0" stroke-width="1.6"/>')
+    svg.append(f'<line x1="{dia1_x+55}" y1="{dia1_y}" x2="{cx_center-box_w/2}" y2="{cy_center}" stroke="#8892b0" stroke-width="1.6"/>')
+    svg.append(f'<text x="{cx_nn+box_w/2+18}" y="{cy_nn-8}" font-family="\'Space Grotesk\',sans-serif" font-size="13" font-weight="700" fill="#1e2bfa">N</text>')
+    svg.append(f'<text x="{cx_center-box_w/2-22}" y="{cy_center-8}" font-family="\'Space Grotesk\',sans-serif" font-size="13" font-weight="700" fill="#1e2bfa">N</text>')
+
+    dia2_x, dia2_y = cx_center - 90, (cy_center + cy_1n) / 2 + 30
+    dia2_half_h = 30  # phải khớp đúng chiều cao hình thoi (60) truyền vào _diamond bên dưới, không tự bịa số
+    svg.append(f'<line x1="{cx_center-30}" y1="{cy_center+box_h/2}" x2="{dia2_x}" y2="{dia2_y-dia2_half_h}" stroke="#8892b0" stroke-width="1.6"/>')
+    svg.append(f'<line x1="{dia2_x}" y1="{dia2_y+dia2_half_h}" x2="{cx_1n+40}" y2="{cy_1n-box_h/2}" stroke="#8892b0" stroke-width="1.6"/>')
+    svg.append(f'<text x="{cx_center-70}" y="{cy_center+box_h/2+22}" font-family="\'Space Grotesk\',sans-serif" font-size="13" font-weight="700" fill="#1e2bfa">N</text>')
+    svg.append(f'<text x="{cx_1n+55}" y="{cy_1n-box_h/2-10}" font-family="\'Space Grotesk\',sans-serif" font-size="13" font-weight="700" fill="#1e2bfa">1</text>')
+
+    svg.append(_entity_box(cx_nn, cy_nn, box_w, box_h, *side_nn))
+    svg.append(_entity_box(cx_center, cy_center, box_w, box_h, *center))
+    svg.append(_entity_box(cx_1n, cy_1n, box_w, box_h, *side_1n))
+    svg.append(_diamond(dia1_x, dia1_y, 110, 60, rel_nn))
+    svg.append(_diamond(dia2_x, dia2_y, 110, 60, rel_1n))
+
+    svg.append("</svg>")
+    return "".join(svg)
+
+
+def erd_slide(tag, title, h2, center, side_nn, side_1n, rel_nn, rel_1n, note=None):
+    diagram = erd_diagram_svg(center, side_nn, side_1n, rel_nn, rel_1n)
+    note_html = f'<p class="code-explain" style="margin-top:.6rem;">{note}</p>' if note else ""
+    return f"""
+    <div class="slide layout-code">
+      <div class="slide-header">
+        <h4>{esc(title)}</h4>
+        <span class="tag">{esc(tag)}</span>
+      </div>
+      <div class="slide-content">
+        <h2>{esc(h2)}</h2>
+        <div style="display:flex;justify-content:center;align-items:center;flex:1;">{diagram}</div>
+        {note_html}
+      </div>
+    </div>"""
+
+
+def mcq_sample_slide(tag, title, h2, samples):
+    """samples: list of (question, options[4], correctIndex) — minh hoạ vài câu mẫu, đáp án tô sẵn."""
+    blocks = []
+    for q, opts, ci in samples:
+        opts_html = "".join(
+            f'<div style="display:flex;gap:8px;align-items:baseline;{"font-weight:700;color:#1e2bfa;" if i==ci else "color:#444;"}">'
+            f'<span>{LETTERS_ERD[i]}.</span><span>{esc(o)}</span>{" <span style=\"font-size:.75rem;\">✔ Đáp án đúng</span>" if i==ci else ""}</div>'
+            for i, o in enumerate(opts)
+        )
+        blocks.append(f'''
+          <div class="code-panel" style="background:#fff;border-left:4px solid var(--primary);color:#111;">
+            <div style="text-transform:none;letter-spacing:normal;font-family:'Space Grotesk',sans-serif;font-size:.92rem;font-weight:600;color:#111;margin-bottom:8px;">{esc(q)}</div>
+            <div style="display:flex;flex-direction:column;gap:5px;font-size:.85rem;font-family:Inter,sans-serif;">{opts_html}</div>
+          </div>''')
+    return f"""
+    <div class="slide layout-code">
+      <div class="slide-header">
+        <h4>{esc(title)}</h4>
+        <span class="tag">{esc(tag)}</span>
+      </div>
+      <div class="slide-content">
+        <h2>{esc(h2)}</h2>
+        {''.join(blocks)}
+      </div>
+    </div>"""
+
+LETTERS_ERD = "ABCD"
+
+
 def quote_slide(text, source):
     return f"""
     <div class="slide layout-quote">
