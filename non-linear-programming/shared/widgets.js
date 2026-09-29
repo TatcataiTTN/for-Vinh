@@ -490,8 +490,66 @@
     draw();
   }
 
+
+  /* =========================================================
+     8. lp-lab: quy hoạch tuyến tính 2 biến bằng đồ thị
+     ========================================================= */
+  var LPS = {
+    'Kế hoạch sản xuất (BTDOC): 2x₁+x₂≤8, x₁+2x₂≤7, x₂≤3': {A:[[2,1],[1,2],[0,1]], b:[8,7,3], c:[4,5], xr:[-0.5,5], yr:[-0.5,4.5], sense:'max'},
+    'Miền không bị chặn: x₁−x₂≤1, x₁,x₂≥0': {A:[[1,-1]], b:[1], c:[1,1], xr:[-0.5,6], yr:[-0.5,6], sense:'max'},
+    'Miền rỗng: x₁+x₂≤1, x₁+x₂≥3': {A:[[1,1],[-1,-1]], b:[1,-3], c:[1,1], xr:[-0.5,4], yr:[-0.5,4], sense:'max'}
+  };
+  function lpLab(host){
+    host.innerHTML='<h3>Quy hoạch tuyến tính hai biến: miền khả thi, đường mức, đỉnh tối ưu</h3><p>Chọn bài, đổi hệ số hàm mục tiêu \\(c_1x_1+c_2x_2\\) và xem đỉnh tối ưu. Tối ưu của LP luôn nằm ở đỉnh (hoặc cả một cạnh khi đường mức song song cạnh).</p>' +
+      '<div class="wrow"><div class="wcol"><label>Bài: <select id="lp-p" style="max-width:100%">'+Object.keys(LPS).map(function(k){return '<option>'+k+'</option>';}).join('')+'</select></label>' +
+      '<p><label>c₁ <input type="number" id="lc1" step="0.5" value="4"></label> <label>c₂ <input type="number" id="lc2" step="0.5" value="5"></label> <label><select id="lsense"><option value="max">Cực đại</option><option value="min">Cực tiểu</option></select></label></p><div class="out" id="lp-out"></div></div><div class="wcol" id="lp-cv"></div></div>';
+    var cv=mkcanvas(host.querySelector('#lp-cv'),460,420), P;
+    function cur(){ return LPS[host.querySelector('#lp-p').value]; }
+    function clip(poly,a,b){ var out=[]; for (var i=0;i<poly.length;i++){ var p=poly[i], q=poly[(i+1)%poly.length]; var fp=a[0]*p[0]+a[1]*p[1]-b, fq=a[0]*q[0]+a[1]*q[1]-b;
+      if (fp<=1e-12) out.push(p); if ((fp<-1e-12&&fq>1e-12)||(fp>1e-12&&fq<-1e-12)){ var t=fp/(fp-fq); out.push([p[0]+t*(q[0]-p[0]), p[1]+t*(q[1]-p[1])]); } } return out; }
+    function setup(){ var pr=cur(); P=new Plot(cv,pr.xr,pr.yr); host.querySelector('#lc1').value=pr.c[0]; host.querySelector('#lc2').value=pr.c[1]; host.querySelector('#lsense').value=pr.sense; }
+    function run(){
+      var pr=cur(), c1=parseFloat(host.querySelector('#lc1').value)||0, c2=parseFloat(host.querySelector('#lc2').value)||0, sense=host.querySelector('#lsense').value, sgn=(sense==='max')?1:-1;
+      var X0=pr.xr[0]+0.5, X1=pr.xr[1]+50, Y0=pr.yr[0]+0.5, Y1=pr.yr[1]+50; // hộp nhân tạo lớn để phát hiện không bị chặn
+      var poly=[[0,0],[X1,0],[X1,Y1],[0,Y1]];
+      pr.A.forEach(function(a,i){ poly=clip(poly,a,pr.b[i]); });
+      P.clear(); P.axes(1);
+      var g=P.ctx;
+      if (poly.length<3){
+        host.querySelector('#lp-out').innerHTML='<span class="badge no">Miền khả thi rỗng ⇒ bài toán vô nghiệm</span>';
+        pr.A.forEach(function(a,i){ var seg=[]; if (Math.abs(a[1])>1e-12){ seg=[[pr.xr[0],(pr.b[i]-a[0]*pr.xr[0])/a[1]],[pr.xr[1],(pr.b[i]-a[0]*pr.xr[1])/a[1]]]; } else seg=[[pr.b[i]/a[0],pr.yr[0]],[pr.b[i]/a[0],pr.yr[1]]]; P.line(seg[0][0],seg[0][1],seg[1][0],seg[1][1],'#7a86a3',1.5,[5,4]); });
+        return;
+      }
+      g.beginPath(); poly.forEach(function(p,i){ if(i===0) g.moveTo(P.sx(p[0]),P.sy(p[1])); else g.lineTo(P.sx(p[0]),P.sy(p[1])); }); g.closePath(); g.fillStyle='rgba(29,78,216,0.16)'; g.fill(); g.strokeStyle='#1d4ed8'; g.lineWidth=2; g.stroke();
+      var best=-Infinity, bp=null, vals=poly.map(function(p){ return sgn*(c1*p[0]+c2*p[1]); });
+      vals.forEach(function(v,i){ if (v>best+1e-9){ best=v; bp=i; } });
+      var optSet=[]; vals.forEach(function(v,i){ if (Math.abs(v-best)<1e-7) optSet.push(poly[i]); });
+      var unb = optSet.some(function(p){ return p[0]>X1-1e-6||p[1]>Y1-1e-6; });
+      // đường mức qua đỉnh tối ưu
+      var v0=(unb?0:sgn*best)*sgn; var lv=(c1*poly[bp][0]+c2*poly[bp][1]);
+      if (!unb && (c1!==0||c2!==0)){
+        var pts=[]; if (Math.abs(c2)>1e-12){ pts=[[pr.xr[0],(lv-c1*pr.xr[0])/c2],[pr.xr[1],(lv-c1*pr.xr[1])/c2]]; } else pts=[[lv/c1,pr.yr[0]],[lv/c1,pr.yr[1]]];
+        P.line(pts[0][0],pts[0][1],pts[1][0],pts[1][1],'#c0392b',2.4);
+      }
+      P.arrow(0.5*(pr.xr[0]+pr.xr[1])/2,0.5*(pr.yr[0]+pr.yr[1])/2,sgn*c1/(Math.hypot(c1,c2)||1)*0.8,sgn*c2/(Math.hypot(c1,c2)||1)*0.8,'#c0392b',2);
+      poly.forEach(function(p){ if (p[0]<pr.xr[1]+1&&p[1]<pr.yr[1]+1) P.dot(p[0],p[1],4,'#1d4ed8'); });
+      var html='';
+      if (unb){ html='<span class="badge mid">Hàm mục tiêu không bị chặn theo hướng này ('+(sense==='max'?'cực đại':'cực tiểu')+' = ∞)</span>'; }
+      else {
+        P.dot(poly[bp][0],poly[bp][1],7,'#c0392b','#fff');
+        html='<p>Đỉnh tối ưu: <b>('+fmt(poly[bp][0],3)+', '+fmt(poly[bp][1],3)+')</b>, giá trị \\('+fmt(c1*poly[bp][0]+c2*poly[bp][1],4)+'\\)</p>';
+        if (optSet.length>1) html+='<p><span class="badge mid">Có nhiều đỉnh cùng tối ưu ⇒ cả một cạnh là tập nghiệm</span></p>';
+        html+='<p style="font-size:.85rem">Các đỉnh khả thi: '+poly.filter(function(p){return p[0]<pr.xr[1]+1&&p[1]<pr.yr[1]+1;}).map(function(p){ return '('+fmt(p[0],2)+','+fmt(p[1],2)+') ↦ '+fmt(c1*p[0]+c2*p[1],2); }).join('; ')+'</p>';
+      }
+      host.querySelector('#lp-out').innerHTML=html; tex(host.querySelector('#lp-out'));
+    }
+    ev(host.querySelector('#lp-p'),'change',function(){ setup(); run(); });
+    host.querySelectorAll('#lc1,#lc2,#lsense').forEach(function(i){ ev(i,'input',run); ev(i,'change',run); });
+    setup(); run();
+  }
+
   var REG = {'hessian-lab':hessianLab,'jensen-lab':jensenLab,'convex-set-lab':convexSetLab,'kkt-lab':kktLab,
-             'active-set-stepper':activeSetStepper,'qp-eq-solver':qpEqSolver,'grad-lab':gradLab};
+             'active-set-stepper':activeSetStepper,'qp-eq-solver':qpEqSolver,'grad-lab':gradLab,'lp-lab':lpLab};
   function boot(){
     document.querySelectorAll('.widget[data-widget]').forEach(function(h){
       var fn = REG[h.getAttribute('data-widget')];
