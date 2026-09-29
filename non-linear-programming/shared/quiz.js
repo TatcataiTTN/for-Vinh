@@ -10,7 +10,7 @@
   var state = {};
   try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e){ state = {}; }
   function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
-  var SRC = {G:'Gốc: slide', B:'Gốc: bài tập/ví dụ trong slide', T:'Tham khảo (Studocu/BTDOC)', S:'Biên soạn thêm'};
+  var SRC = {G:'Từ nội dung slide', B:'Bài tập/ví dụ của slide', T:'Tham khảo (Studocu/BTDOC)', S:'Biên soạn thêm'};
   var SRCCLASS = {G:'ok', B:'ok', T:'mid', S:'no'};
 
   function parseNum(s){
@@ -135,7 +135,7 @@
   var fbar = document.createElement('div'); fbar.className='qfilter';
   fbar.innerHTML = '<span><b>Lọc:</b> ' +
     '<select id="f-type"><option value="all">Mọi dạng</option><option value="mcq">Trắc nghiệm</option><option value="num">Điền số</option><option value="essay">Tự luận</option></select> ' +
-    '<select id="f-src"><option value="all">Mọi nguồn</option><option value="goc">Chỉ câu gốc (slide)</option><option value="other">Tham khảo + biên soạn</option></select> ' +
+    '<select id="f-src"><option value="all">Mọi nguồn</option><option value="goc">Chỉ câu từ slide</option><option value="other">Tham khảo + biên soạn</option></select> ' +
     '<label><input type="checkbox" id="f-wrong"> chỉ câu làm sai</label></span> <span id="quiz-shown" style="color:var(--muted);font-size:.88em"></span>';
   root.parentNode.insertBefore(fbar, root);
   ['f-type','f-src','f-wrong'].forEach(function(id){
