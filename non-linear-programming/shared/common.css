@@ -1,0 +1,167 @@
+/* Tối ưu hóa phi tuyến & lồi — giao diện dùng chung. Đơn vị em trong slide để deck.js tự co giãn cỡ chữ. */
+:root{
+  --bg:#f6f7fb; --card:#ffffff; --text:#1c2330; --muted:#5d6879; --border:#dbe1ec;
+  --accent:#1d4ed8; --accent-soft:#e6edff; --code:#f1f4fa;
+  --good:#136f3a; --good-bg:#e4f5ea; --warn:#8a5a00; --warn-bg:#fff3d6;
+  --bad:#a12a2a; --bad-bg:#fde8e8; --info:#0b5f7a; --info-bg:#e0f3f9;
+  --hist:#5b3d91; --hist-bg:#efe9fb; --shadow:0 1px 3px rgba(20,30,50,.08);
+}
+:root[data-theme="dark"]{
+  --bg:#0f141c; --card:#171e29; --text:#e6ebf3; --muted:#9aa6b8; --border:#2a3446;
+  --accent:#7aa2ff; --accent-soft:#1c2a4a; --code:#111826;
+  --good:#6fd79a; --good-bg:#12301f; --warn:#f0c46a; --warn-bg:#33270b;
+  --bad:#ff9a9a; --bad-bg:#3a1717; --info:#79d0ea; --info-bg:#0f2f3a;
+  --hist:#c2a8ff; --hist-bg:#251c3d; --shadow:none;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.65;font-size:16px}
+a{color:var(--accent)}
+.topbar{position:sticky;top:0;z-index:50;background:var(--card);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:12px;padding:8px 16px;flex-wrap:wrap}
+.topbar .brand{font-weight:800;text-decoration:none;color:var(--text)}
+.topbar nav{display:flex;gap:4px;flex-wrap:wrap;flex:1}
+.topbar nav a{padding:5px 10px;border-radius:8px;text-decoration:none;font-size:.9rem;color:var(--muted)}
+.topbar nav a:hover,.topbar nav a.on{background:var(--accent-soft);color:var(--accent)}
+.topbar button{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:8px;padding:5px 10px;cursor:pointer}
+main{max-width:1040px;margin:0 auto;padding:20px 16px 80px}
+h1{font-size:1.9rem;line-height:1.25;margin:.2em 0 .3em}
+h2{font-size:1.4rem;margin:2em 0 .6em;padding-bottom:.25em;border-bottom:2px solid var(--accent-soft)}
+h3{font-size:1.12rem;margin:1.4em 0 .4em}
+.lead{color:var(--muted);font-size:1.05rem}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 4px}
+.tag{display:inline-block;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:2px 10px;font-size:.78rem;font-weight:700}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow);margin:14px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+a.mod-card{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--border);
+  border-radius:14px;padding:16px;transition:transform .12s,border-color .12s}
+a.mod-card:hover{transform:translateY(-2px);border-color:var(--accent)}
+a.mod-card h3{margin:.3em 0}
+a.mod-card p{margin:.3em 0;color:var(--muted);font-size:.92rem}
+.callout{border-left:5px solid;border-radius:8px;padding:10px 14px;margin:14px 0}
+.callout>b:first-child,.callout .ct{display:block;margin-bottom:4px}
+.callout.good{background:var(--good-bg);border-color:var(--good)}
+.callout.warn{background:var(--warn-bg);border-color:var(--warn)}
+.callout.bad{background:var(--bad-bg);border-color:var(--bad)}
+.callout.info{background:var(--info-bg);border-color:var(--info)}
+.callout.hist{background:var(--hist-bg);border-color:var(--hist)}
+.callout p{margin:.35em 0}
+.pd-formula{background:var(--code);border:2px solid var(--accent);border-radius:12px;padding:12px 16px;margin:12px 0;text-align:center;overflow-x:auto}
+.pd-formula-label{font-size:.72rem;font-weight:800;text-transform:uppercase;color:var(--accent);letter-spacing:.04em}
+.pd-legend{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding:0 4px;margin:6px 0 14px}
+.pd-legend li{display:contents}
+.pd-legend b{white-space:nowrap}
+table{border-collapse:collapse;margin:10px 0;max-width:100%}
+th,td{border:1px solid var(--border);padding:6px 10px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft)}
+.tbl-wrap{overflow-x:auto}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code);padding:1px 5px;border-radius:4px;font-size:.92em}
+details.solution{border:1px solid var(--border);border-radius:10px;margin:10px 0;background:var(--card)}
+details.solution>summary{cursor:pointer;padding:9px 14px;font-weight:700;color:var(--accent)}
+details.solution>div.body{padding:2px 16px 12px}
+ol.steps{counter-reset:s;list-style:none;padding-left:0}
+ol.steps>li{counter-increment:s;position:relative;padding:6px 0 6px 40px}
+ol.steps>li::before{content:counter(s);position:absolute;left:0;top:6px;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;font-weight:800;text-align:center;line-height:28px;font-size:.85rem}
+.toc{display:flex;gap:8px;flex-wrap:wrap}
+.toc a{text-decoration:none;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:4px 10px;font-size:.88rem}
+figure.diagram{margin:14px 0;text-align:center}
+figure.diagram img{max-width:100%;height:auto;background:#fff;border:1px solid var(--border);border-radius:10px;padding:6px}
+figure.diagram figcaption{color:var(--muted);font-size:.85rem;margin-top:4px}
+
+/* ---------- mini deck ---------- */
+.mdeck{scroll-margin-top:70px;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);outline:none}
+.mdeck:focus-visible{border-color:var(--accent)}
+.mdeck-viewport{position:relative}
+.mdeck-slide{display:none;padding:1.1em 1.6em;font-size:18px;overflow:auto;line-height:1.55}
+.mdeck-slide.active{display:block}
+.mdeck-slide h2{font-size:1.45em;margin:.1em 0 .5em;border:0;padding:0;color:var(--text)}
+.mdeck-slide h3{font-size:1.1em;margin:.9em 0 .3em}
+.mdeck-slide p,.mdeck-slide li{font-size:1em}
+.mdeck-slide ul,.mdeck-slide ol{margin:.3em 0;padding-left:1.4em}
+.mdeck-slide .kicker{font-size:.62em;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.mdeck-slide.part-divider{text-align:left;display:none;flex-direction:column;justify-content:center;
+  background:linear-gradient(135deg,var(--accent-soft),var(--card))}
+.mdeck-slide.part-divider.active{display:flex}
+.part-num{font-size:3.4em;font-weight:900;color:var(--accent);line-height:1;opacity:.85}
+.part-list{margin:.6em 0 0}
+.mdeck-slide .pd-formula{font-size:1em}
+.mdeck-slide table{font-size:.9em}
+.mdeck-slide .callout{font-size:.95em;margin:.7em 0}
+.slide-fig{margin:.7em 0;text-align:center}
+.slide-fig img{max-width:100%;max-height:14em;border:1px solid var(--border);border-radius:8px;background:#fff;padding:3px;cursor:zoom-in}
+.slide-fig figcaption{font-size:.62em;color:var(--muted);margin-top:3px}
+.mdeck:fullscreen .slide-fig img,.mdeck:-webkit-full-screen .slide-fig img{max-height:44vh}
+.slide-explain{margin-top:.8em;border:1px solid var(--border);border-radius:10px;background:var(--code)}
+.slide-explain summary{cursor:pointer;font-weight:800;font-size:.85em;color:var(--accent);padding:.5em .9em;list-style:none}
+.slide-explain summary::-webkit-details-marker{display:none}
+.slide-explain summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+.slide-explain[open] summary::before{transform:rotate(90deg)}
+.slide-explain-body{padding:.1em 1em .7em;font-size:.88em;line-height:1.6}
+.mdeck-bar{display:flex;align-items:center;gap:8px;padding:8px 12px;border-top:1px solid var(--border);background:var(--code);flex-wrap:wrap}
+.mdeck-bar button{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:8px;padding:5px 12px;cursor:pointer;font-weight:600}
+.mdeck-bar button:disabled{opacity:.4;cursor:default}
+.mdeck-count{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.9rem}
+.mdeck-dots{display:flex;gap:4px;flex-wrap:wrap;flex:1}
+.mdeck-dots button{width:10px;height:10px;padding:0;border-radius:50%;border:0;background:var(--border)}
+.mdeck-dots button.on{background:var(--accent)}
+.mdeck-dots button.dv{width:14px;border-radius:4px}
+.mdeck:fullscreen{background:var(--card);display:flex;flex-direction:column;border-radius:0}
+.mdeck:fullscreen .mdeck-viewport{flex:1;overflow:auto}
+.mdeck:fullscreen .mdeck-slide{height:100%;padding:2em 4em}
+
+/* ---------- widgets ---------- */
+.widget{border:1px solid var(--border);border-radius:12px;background:var(--card);padding:14px 16px;margin:14px 0}
+.widget h3{margin-top:0}
+.widget canvas{max-width:100%;border:1px solid var(--border);border-radius:8px;background:#fff;touch-action:none}
+.wrow{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-start}
+.wcol{flex:1;min-width:260px}
+.widget label{font-size:.9rem;margin-right:8px}
+.widget input[type=number],.widget input[type=text],.widget select,.widget textarea{
+  border:1px solid var(--border);border-radius:6px;padding:4px 6px;background:var(--card);color:var(--text);font:inherit;max-width:100%}
+.widget input[type=number]{width:5.5em}
+.widget input[type=range]{width:200px;max-width:100%}
+.widget button{border:1px solid var(--border);background:var(--accent-soft);color:var(--accent);border-radius:8px;padding:5px 12px;cursor:pointer;font-weight:700}
+.widget button:disabled{opacity:.4}
+.badge{display:inline-block;border-radius:999px;padding:2px 10px;font-size:.8rem;font-weight:800}
+.badge.ok{background:var(--good-bg);color:var(--good)}
+.badge.no{background:var(--bad-bg);color:var(--bad)}
+.badge.mid{background:var(--warn-bg);color:var(--warn)}
+.out{background:var(--code);border-radius:8px;padding:8px 12px;margin-top:8px;font-size:.95rem}
+
+/* ---------- quiz ---------- */
+.quiz .qitem{border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin:12px 0;background:var(--card)}
+.quiz .qtxt{font-weight:600;margin-bottom:8px}
+.quiz .opt{display:block;width:100%;text-align:left;margin:5px 0;padding:8px 12px;border:1px solid var(--border);
+  border-radius:8px;background:var(--card);color:var(--text);cursor:pointer;font:inherit}
+.quiz .opt:hover:not([data-done]){border-color:var(--accent);background:var(--accent-soft)}
+.quiz .opt.correct{border-color:var(--good);background:var(--good-bg)}
+.quiz .opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.quiz .explain{display:none;margin-top:8px;padding:8px 12px;border-radius:8px;background:var(--info-bg);font-size:.93rem}
+.quiz .explain.show{display:block}
+.quiz .numrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.quiz input.numin{border:1px solid var(--border);border-radius:6px;padding:6px 8px;width:11em;background:var(--card);color:var(--text);font:inherit}
+.quiz button.chk{border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:8px;padding:6px 14px;cursor:pointer;font-weight:700}
+.quiz .score{position:sticky;bottom:0;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:8px 14px;
+  display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px;box-shadow:var(--shadow)}
+.quiz .score button{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:8px;padding:5px 12px;cursor:pointer}
+.foot{margin-top:50px;padding-top:14px;border-top:1px solid var(--border);color:var(--muted);font-size:.85rem}
+@media (max-width:640px){
+  .mdeck-slide{padding:.9em 1em;font-size:16px}
+  h1{font-size:1.5rem}
+}
+
+/* ---------- quiz bổ sung ---------- */
+.qfilter{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;background:var(--code);border:1px solid var(--border);border-radius:10px;padding:8px 12px;margin:10px 0}
+.qfilter select{border:1px solid var(--border);border-radius:6px;padding:3px 6px;background:var(--card);color:var(--text);font:inherit}
+.quiz .qmeta{margin-bottom:4px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.quiz .qno{font-weight:800;color:var(--accent)}
+.quiz .retry{margin-top:8px;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:8px;padding:4px 10px;cursor:pointer;font-size:.88rem}
+.quiz .essay-ta{width:100%;border:1px solid var(--border);border-radius:8px;padding:8px;background:var(--card);color:var(--text);font:inherit;margin:6px 0}
+.quiz .sgood,.quiz .sbad{border-radius:8px;padding:6px 12px;cursor:pointer;font-weight:700;border:1px solid}
+.quiz .sgood{background:var(--good-bg);color:var(--good);border-color:var(--good)}
+.quiz .sbad{background:var(--bad-bg);color:var(--bad);border-color:var(--bad)}
+.quiz .essay-model{margin:4px 0 6px}
+.quiz .explain p{margin:.35em 0}
+.quiz .explain ol,.quiz .explain ul{margin:.3em 0 .3em 1.2em;padding:0}
