@@ -202,3 +202,4 @@ table.fillt th{white-space:nowrap}
 .exlist{counter-reset:ex}.exlist>.ex{border:1px solid var(--border);border-radius:10px;background:var(--card);padding:8px 14px;margin:10px 0}
 .exlist .src{font-size:.78rem;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:.03em}
 .quiz .matchleg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:4px 12px;background:var(--code);border-radius:8px;padding:8px 12px;margin:6px 0}.quiz .msel{max-width:6em}
+pre.code{background:var(--code);border:1px solid var(--border);border-radius:8px;padding:10px 12px;overflow-x:auto;font-size:.85rem;line-height:1.5;margin:6px 0}pre.code code{background:none;padding:0}pre.code.out{border-left:4px solid var(--good)}
