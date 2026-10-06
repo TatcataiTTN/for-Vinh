@@ -176,3 +176,29 @@ table.spec th{width:7em;white-space:nowrap}
 pre.code-pre,pre.src{background:var(--code);border:1px solid var(--border);border-radius:8px;padding:10px 12px;overflow:auto;font-size:.85rem;line-height:1.5;margin:8px 0;white-space:pre}
 pre.out-pre{background:#0f172a;color:#e2e8f0;border-radius:8px;padding:10px 12px;overflow:auto;font-size:.83rem;line-height:1.45;margin:8px 0}
 .tbl-wrap td code{word-break:break-all}
+
+/* ---- dạng câu nối / điền từ ---- */
+.quiz .matchtbl{display:grid;gap:6px;margin:8px 0}
+.quiz .matchrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) auto;gap:8px;align-items:center}
+.quiz .msel{width:100%;border:1px solid var(--border);border-radius:6px;padding:5px;background:var(--card);color:var(--text);font:inherit}
+.quiz .mk.okm{color:var(--good);font-weight:700}.quiz .mk.nom{color:var(--bad);font-size:.88em}
+.quiz .fillbox{line-height:2.2;margin:8px 0}
+.quiz .fillin{border:0;border-bottom:2px solid var(--accent);background:var(--code);color:var(--text);font:inherit;padding:2px 6px;min-width:5em;border-radius:4px}
+.quiz .fillin.okin{border-color:var(--good);background:var(--good-bg)}.quiz .fillin.noin{border-color:var(--bad);background:var(--bad-bg)}
+.quiz .hint{color:var(--good);font-weight:700;font-size:.9em}.quiz .fillbank{margin:4px 0 8px;font-size:.9em}
+@media(max-width:640px){.quiz .matchrow{grid-template-columns:1fr}}
+/* ---- tab của trang module ---- */
+.tabs{display:flex;gap:4px;flex-wrap:wrap;margin:16px 0 0;border-bottom:2px solid var(--border);position:sticky;top:46px;z-index:40;background:var(--bg);padding-top:6px}
+.tabs button{border:1px solid var(--border);border-bottom:0;background:var(--card);color:var(--muted);border-radius:8px 8px 0 0;padding:7px 14px;cursor:pointer;font:inherit;font-weight:600;font-size:.92rem}
+.tabs button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tabpane{display:none;padding-top:6px}.tabpane.on{display:block}
+.tabpane>h2:first-child{margin-top:.8em}
+/* bảng điền mẫu (cách làm bảng) */
+table.fillt td.blank{background:var(--warn-bg);color:var(--warn);text-align:center;font-style:italic}
+table.fillt th{white-space:nowrap}
+.howto{border:1px solid var(--border);border-radius:12px;background:var(--card);padding:10px 16px;margin:14px 0}
+.howto>h3{margin-top:.3em}
+.howto .when{color:var(--muted);font-size:.92rem}
+.exlist{counter-reset:ex}.exlist>.ex{border:1px solid var(--border);border-radius:10px;background:var(--card);padding:8px 14px;margin:10px 0}
+.exlist .src{font-size:.78rem;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:.03em}
+.quiz .matchleg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:4px 12px;background:var(--code);border-radius:8px;padding:8px 12px;margin:6px 0}.quiz .msel{max-width:6em}
