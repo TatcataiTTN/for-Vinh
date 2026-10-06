@@ -1,0 +1,1233 @@
+[
+ {
+  "id": "gradhess",
+  "fn": "gradient_hessian",
+  "module": "Module 0",
+  "level": "Dễ",
+  "title": "Gradient và Hessian bằng sympy",
+  "statement": "Viết hàm tính gradient và ma trận Hessian của f tại một điểm. Biểu thức f được cho dưới dạng chuỗi Python theo các biến <code>x</code>, <code>y</code> (và <code>z</code>).",
+  "inp": "<code>f_str</code> (str): biểu thức, ví dụ <code>\"x**2*y + 3*x*y**2 - 2*x\"</code>; <code>point</code> (list[float]): tọa độ điểm, độ dài 2 hoặc 3.",
+  "out": "Tuple <code>(grad, hess)</code>: <code>grad</code> là list[float] độ dài n; <code>hess</code> là list[list[float]] cỡ n×n (số, không phải biểu thức).",
+  "hint": "Dùng <code>sympy.symbols</code>, <code>sympy.sympify</code>, <code>diff</code>, <code>subs</code>; ép kiểu <code>float()</code>.",
+  "starter": "import sympy as sp\n\ndef gradient_hessian(f_str, point):\n    \"\"\"Trả về (grad, hess) tại point.\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     "x**2*y + 3*x*y**2 - 2*x",
+     [
+      1,
+      2
+     ]
+    ],
+    "expected": [
+     [
+      14.0,
+      13.0
+     ],
+     [
+      [
+       4.0,
+       14.0
+      ],
+      [
+       14.0,
+       6.0
+      ]
+     ]
+    ],
+    "visible": true,
+    "note": "ví dụ Module 0: kỳ vọng grad (14,13), H = [[4,14],[14,6]]"
+   },
+   {
+    "args": [
+     "x**2 + x*y + y**2 - 3*x",
+     [
+      2,
+      -1
+     ]
+    ],
+    "expected": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      [
+       2.0,
+       1.0
+      ],
+      [
+       1.0,
+       2.0
+      ]
+     ]
+    ],
+    "visible": true,
+    "note": ""
+   },
+   {
+    "args": [
+     "x**3 - 3*x + y**2",
+     [
+      -1,
+      0
+     ]
+    ],
+    "expected": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      [
+       -6.0,
+       0.0
+      ],
+      [
+       0.0,
+       2.0
+      ]
+     ]
+    ],
+    "visible": false,
+    "note": ""
+   },
+   {
+    "args": [
+     "x*y*z + x**2",
+     [
+      1,
+      2,
+      3
+     ]
+    ],
+    "expected": [
+     [
+      8.0,
+      3.0,
+      2.0
+     ],
+     [
+      [
+       2.0,
+       3.0,
+       2.0
+      ],
+      [
+       3.0,
+       0.0,
+       1.0
+      ],
+      [
+       2.0,
+       1.0,
+       0.0
+      ]
+     ]
+    ],
+    "visible": false,
+    "note": ""
+   }
+  ],
+  "reference": "import numpy as np\nimport sympy as sp\n\n\ndef gradient_hessian(f_str, point):\n    \"\"\"Tính gradient và Hessian của f tại một điểm.\n\n    Đầu vào : f_str (str)   biểu thức theo các biến x, y (và z nếu có), cú pháp Python, ví dụ \"x**2*y + 3*x*y**2 - 2*x\"\n              point (list[float])  tọa độ điểm, độ dài = số biến dùng (2 hoặc 3)\n    Đầu ra  : (grad, hess) với grad: list[float] độ dài n; hess: list[list[float]] cỡ n x n\n    \"\"\"\n    names = [\"x\", \"y\", \"z\"][: len(point)]\n    vs = sp.symbols(names)\n    f = sp.sympify(f_str, locals=dict(zip(names, vs)))\n    sub = dict(zip(vs, point))\n    grad = [float(sp.diff(f, v).subs(sub)) for v in vs]\n    hess = [[float(sp.diff(f, a, b).subs(sub)) for b in vs] for a in vs]\n    return grad, hess\n",
+  "packages": [
+   "numpy",
+   "sympy"
+  ]
+ },
+ {
+  "id": "taylor2",
+  "fn": "taylor2",
+  "module": "Module 0",
+  "level": "Dễ",
+  "title": "Xấp xỉ Taylor bậc hai",
+  "statement": "Tính giá trị xấp xỉ Taylor bậc hai \\(f(p)+\\nabla f(p)^\\top d+\\tfrac12d^\\top\\nabla^2f(p)d\\) của một hàm tại điểm p với bước d.",
+  "inp": "<code>f_str</code> (str), <code>point</code> (list[float]), <code>d</code> (list[float]) cùng độ dài với point.",
+  "out": "Một số thực (float). Sai số cho phép 1e-6.",
+  "hint": "Có thể gọi lại hàm ở bài 1; hàm exp, log của sympy được nhận trong chuỗi.",
+  "starter": "import numpy as np\nimport sympy as sp\n\ndef taylor2(f_str, point, d):\n    \"\"\"Trả về giá trị xấp xỉ bậc hai (float).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     "exp(x) + y**2",
+     [
+      0,
+      0
+     ],
+     [
+      0.1,
+      0.2
+     ]
+    ],
+    "expected": 1.145,
+    "visible": true,
+    "note": "kỳ vọng 1.145"
+   },
+   {
+    "args": [
+     "x**2*y",
+     [
+      1,
+      1
+     ],
+     [
+      0.1,
+      -0.1
+     ]
+    ],
+    "expected": 1.09,
+    "visible": true,
+    "note": ""
+   },
+   {
+    "args": [
+     "log(x) + y**2",
+     [
+      1,
+      0
+     ],
+     [
+      0.1,
+      0.3
+     ]
+    ],
+    "expected": 0.185,
+    "visible": false,
+    "note": ""
+   }
+  ],
+  "reference": "import numpy as np\nimport sympy as sp\n\n\ndef gradient_hessian(f_str, point):\n    \"\"\"Tính gradient và Hessian của f tại một điểm.\n\n    Đầu vào : f_str (str)   biểu thức theo các biến x, y (và z nếu có), cú pháp Python, ví dụ \"x**2*y + 3*x*y**2 - 2*x\"\n              point (list[float])  tọa độ điểm, độ dài = số biến dùng (2 hoặc 3)\n    Đầu ra  : (grad, hess) với grad: list[float] độ dài n; hess: list[list[float]] cỡ n x n\n    \"\"\"\n    names = [\"x\", \"y\", \"z\"][: len(point)]\n    vs = sp.symbols(names)\n    f = sp.sympify(f_str, locals=dict(zip(names, vs)))\n    sub = dict(zip(vs, point))\n    grad = [float(sp.diff(f, v).subs(sub)) for v in vs]\n    hess = [[float(sp.diff(f, a, b).subs(sub)) for b in vs] for a in vs]\n    return grad, hess\n\n\ndef taylor2(f_str, point, d):\n    \"\"\"Giá trị xấp xỉ Taylor bậc hai f(p) + grad'd + 1/2 d'Hd.\n\n    Đầu vào : f_str (str), point (list[float]) điểm p, d (list[float]) bước dịch chuyển (cùng độ dài với point)\n    Đầu ra  : float\n    \"\"\"\n    g, H = gradient_hessian(f_str, point)\n    names = [\"x\", \"y\", \"z\"][: len(point)]\n    vs = sp.symbols(names)\n    f0 = float(sp.sympify(f_str, locals=dict(zip(names, vs))).subs(dict(zip(vs, point))))\n    d = np.array(d, float)\n    return float(f0 + np.dot(g, d) + 0.5 * d @ np.array(H) @ d)\n",
+  "packages": [
+   "numpy",
+   "sympy"
+  ]
+ },
+ {
+  "id": "classify",
+  "fn": "classify_matrix",
+  "module": "Module 1",
+  "level": "Dễ",
+  "title": "Phân loại dấu ma trận đối xứng",
+  "statement": "Cho ma trận đối xứng A, xác định A là xác định dương, nửa xác định dương, xác định âm, nửa xác định âm hay không xác định (dùng giá trị riêng, không dùng minor dẫn đầu).",
+  "inp": "<code>A</code> (list[list[float]]): ma trận đối xứng n×n; <code>tol</code> (float, mặc định 1e-9).",
+  "out": "Một trong các chuỗi: <code>\"PD\"</code>, <code>\"PSD\"</code> (nửa xác định dương nhưng không PD), <code>\"ND\"</code>, <code>\"NSD\"</code>, <code>\"INDEFINITE\"</code>.",
+  "hint": "<code>numpy.linalg.eigvalsh</code> trả giá trị riêng của ma trận đối xứng; so sánh với tol.",
+  "starter": "import numpy as np\n\ndef classify_matrix(A, tol=1e-9):\n    \"\"\"Trả về 'PD' | 'PSD' | 'ND' | 'NSD' | 'INDEFINITE'.\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     [
+      [
+       2,
+       1
+      ],
+      [
+       1,
+       2
+      ]
+     ]
+    ],
+    "expected": "PD",
+    "visible": true,
+    "note": ""
+   },
+   {
+    "args": [
+     [
+      [
+       1,
+       1
+      ],
+      [
+       1,
+       1
+      ]
+     ]
+    ],
+    "expected": "PSD",
+    "visible": true,
+    "note": "PSD, det = 0"
+   },
+   {
+    "args": [
+     [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       0
+      ]
+     ]
+    ],
+    "expected": "INDEFINITE",
+    "visible": true,
+    "note": ""
+   },
+   {
+    "args": [
+     [
+      [
+       -2,
+       0
+      ],
+      [
+       0,
+       -1
+      ]
+     ]
+    ],
+    "expected": "ND",
+    "visible": false,
+    "note": ""
+   },
+   {
+    "args": [
+     [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       -1
+      ]
+     ]
+    ],
+    "expected": "NSD",
+    "visible": false,
+    "note": "bẫy minor dẫn đầu"
+   },
+   {
+    "args": [
+     [
+      [
+       6,
+       -4
+      ],
+      [
+       -4,
+       6
+      ]
+     ]
+    ],
+    "expected": "PD",
+    "visible": false,
+    "note": ""
+   },
+   {
+    "args": [
+     [
+      [
+       2,
+       -1,
+       0
+      ],
+      [
+       -1,
+       2,
+       -1
+      ],
+      [
+       0,
+       -1,
+       2
+      ]
+     ]
+    ],
+    "expected": "PD",
+    "visible": false,
+    "note": ""
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef classify_matrix(A, tol=1e-9):\n    \"\"\"Phân loại dấu ma trận đối xứng bằng giá trị riêng.\n\n    Đầu vào : A (list[list[float]]) ma trận đối xứng n x n\n    Đầu ra  : một trong 5 chuỗi: \"PD\" (xác định dương), \"PSD\" (nửa xác định dương, không PD),\n              \"ND\" (xác định âm), \"NSD\" (nửa xác định âm, không ND), \"INDEFINITE\" (không xác định)\n    \"\"\"\n    ev = np.linalg.eigvalsh(np.array(A, float))\n    if np.all(ev > tol):\n        return \"PD\"\n    if np.all(ev >= -tol):\n        return \"PSD\"\n    if np.all(ev < -tol):\n        return \"ND\"\n    if np.all(ev <= tol):\n        return \"NSD\"\n    return \"INDEFINITE\"\n",
+  "packages": [
+   "numpy"
+  ]
+ },
+ {
+  "id": "kkt",
+  "fn": "check_kkt",
+  "module": "Module 2",
+  "level": "Vừa",
+  "title": "Kiểm tra điểm KKT",
+  "statement": "Cho dữ liệu tại một điểm x của bài \\(\\min f\\) s.t. \\(g_i\\le0,\\ h_j=0\\): gradient của f, giá trị và gradient của từng ràng buộc. Hãy xác định x có khả thi không, những ràng buộc nào chặt, giải nhân tử \\(\\lambda,\\mu\\) bằng bình phương tối thiểu và kết luận có phải điểm KKT không.",
+  "inp": "<code>grad_f</code> (list[float]); <code>ineq</code> (list[[g_i, grad_g_i]]); <code>eq</code> (list[[h_j, grad_h_j]]); <code>tol</code> (float, mặc định 1e-6).",
+  "out": "dict với các khóa: <code>feasible</code> (bool), <code>active</code> (list[int], chỉ số từ 0), <code>lambda</code> (list[float], theo thứ tự active), <code>mu</code> (list[float]), <code>residual</code> (float), <code>is_kkt</code> (bool).",
+  "hint": "Ghép các gradient ràng buộc chặt thành các cột của ma trận M, giải \\(M[\\lambda;\\mu]=-\\nabla f\\) bằng <code>numpy.linalg.lstsq</code>; KKT khi khả thi, residual ≈ 0 và mọi λ ≥ 0.",
+  "starter": "import numpy as np\n\ndef check_kkt(grad_f, ineq, eq, tol=1e-6):\n    \"\"\"Trả về dict {'feasible','active','lambda','mu','residual','is_kkt'}.\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     [
+      -1,
+      1
+     ],
+     [
+      [
+       0,
+       [
+        1,
+        1
+       ]
+      ]
+     ],
+     [
+      [
+       0,
+       [
+        1,
+        -1
+       ]
+      ]
+     ]
+    ],
+    "expected": {
+     "feasible": true,
+     "active": [
+      0
+     ],
+     "lambda": [
+      -2.346337633521146e-16
+     ],
+     "mu": [
+      1.0
+     ],
+     "residual": 3.1401849173675503e-16,
+     "is_kkt": true
+    },
+    "visible": true,
+    "note": "Ví dụ 1 slide 2: (λ, μ) = (0, 1)"
+   },
+   {
+    "args": [
+     [
+      -1,
+      1
+     ],
+     [
+      [
+       0,
+       [
+        2,
+        -2
+       ]
+      ]
+     ],
+     []
+    ],
+    "expected": {
+     "feasible": true,
+     "active": [
+      0
+     ],
+     "lambda": [
+      0.49999999999999983
+     ],
+     "mu": [],
+     "residual": 4.710277376051325e-16,
+     "is_kkt": true
+    },
+    "visible": true,
+    "note": "Ví dụ 3 tại (1,-1): λ = 1/2"
+   },
+   {
+    "args": [
+     [
+      1,
+      1
+     ],
+     [
+      [
+       0,
+       [
+        2,
+        2
+       ]
+      ]
+     ],
+     []
+    ],
+    "expected": {
+     "feasible": true,
+     "active": [
+      0
+     ],
+     "lambda": [
+      -0.49999999999999983
+     ],
+     "mu": [],
+     "residual": 4.710277376051325e-16,
+     "is_kkt": false
+    },
+    "visible": true,
+    "note": "Ví dụ 3 tại (1,1): λ = -1/2 ⇒ không KKT"
+   },
+   {
+    "args": [
+     [
+      0,
+      0
+     ],
+     [
+      [
+       -2,
+       [
+        0,
+        0
+       ]
+      ]
+     ],
+     []
+    ],
+    "expected": {
+     "feasible": true,
+     "active": [],
+     "lambda": [],
+     "mu": [],
+     "residual": 0.0,
+     "is_kkt": true
+    },
+    "visible": false,
+    "note": "(0,0): ràng buộc lỏng"
+   },
+   {
+    "args": [
+     [
+      4,
+      4
+     ],
+     [
+      [
+       6,
+       [
+        4,
+        4
+       ]
+      ]
+     ],
+     []
+    ],
+    "expected": {
+     "feasible": false,
+     "active": [],
+     "lambda": [],
+     "mu": [],
+     "residual": 5.656854249492381,
+     "is_kkt": false
+    },
+    "visible": false,
+    "note": "điểm không khả thi"
+   },
+   {
+    "args": [
+     [
+      2,
+      2
+     ],
+     [
+      [
+       0,
+       [
+        -1,
+        -1
+       ]
+      ],
+      [
+       -2,
+       [
+        2,
+        2
+       ]
+      ]
+     ],
+     []
+    ],
+    "expected": {
+     "feasible": true,
+     "active": [
+      0
+     ],
+     "lambda": [
+      1.9999999999999993
+     ],
+     "mu": [],
+     "residual": 9.42055475210265e-16,
+     "is_kkt": true
+    },
+    "visible": false,
+    "note": "bài C9 tại (1,1)"
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef check_kkt(grad_f, ineq, eq, tol=1e-6):\n    \"\"\"Kiểm tra một điểm có phải điểm KKT của bài min f s.t. g_i <= 0, h_j = 0 (dữ liệu đã tính tại điểm đó).\n\n    Đầu vào : grad_f (list[float])       gradient của f tại điểm\n              ineq   (list[[g_i, grad_g_i]])  mỗi phần tử: giá trị g_i tại điểm và gradient (list[float])\n              eq     (list[[h_j, grad_h_j]])  tương tự cho ràng buộc đẳng thức\n              tol    (float)             dung sai (chặt nếu |g_i| <= tol)\n    Đầu ra  : dict gồm\n              \"feasible\": bool, \"active\": list[int] chỉ số (từ 0) các bất đẳng thức chặt,\n              \"lambda\": list[float] cho các bất đẳng thức chặt (cùng thứ tự active),\n              \"mu\": list[float] cho các đẳng thức, \"residual\": float (|| grad_f + sum lam*grad_g + sum mu*grad_h ||),\n              \"is_kkt\": bool  (khả thi, residual <= 1e-6, mọi lambda >= -tol)\n    Gợi ý  : giải bình phương tối thiểu  [grad_g_active | grad_h] * [lam; mu] = -grad_f.\n    \"\"\"\n    gf = np.array(grad_f, float)\n    feasible = all(g <= tol for g, _ in ineq) and all(abs(h) <= tol for h, _ in eq)\n    active = [i for i, (g, _) in enumerate(ineq) if abs(g) <= tol]\n    cols = [np.array(ineq[i][1], float) for i in active] + [np.array(gr, float) for _, gr in eq]\n    if cols:\n        M = np.column_stack(cols)\n        sol, *_ = np.linalg.lstsq(M, -gf, rcond=None)\n        res = float(np.linalg.norm(M @ sol + gf))\n    else:\n        sol, res = np.array([]), float(np.linalg.norm(gf))\n    lam = [float(v) for v in sol[: len(active)]]\n    mu = [float(v) for v in sol[len(active):]]\n    is_kkt = bool(feasible and res <= 1e-6 and all(v >= -tol for v in lam))\n    return {\"feasible\": bool(feasible), \"active\": active, \"lambda\": lam, \"mu\": mu, \"residual\": res, \"is_kkt\": is_kkt}\n",
+  "packages": [
+   "numpy"
+  ]
+ },
+ {
+  "id": "eqqp",
+  "fn": "solve_eq_qp",
+  "module": "Module 3",
+  "level": "Vừa",
+  "title": "QP ràng buộc đẳng thức qua hệ KKT",
+  "statement": "Giải \\(\\min\\tfrac12x^\\top Qx+c^\\top x\\) s.t. \\(Ax=b\\) bằng cách lập và giải hệ KKT đối xứng \\(\\begin{pmatrix}Q&A^\\top\\\\A&0\\end{pmatrix}\\begin{pmatrix}x\\\\\\mu\\end{pmatrix}=\\begin{pmatrix}-c\\\\b\\end{pmatrix}\\).",
+  "inp": "<code>Q</code> (n×n, đối xứng), <code>c</code> (n), <code>A</code> (m×n, rank m), <code>b</code> (m) — list lồng nhau; giả sử hệ KKT không suy biến.",
+  "out": "Tuple <code>(x, mu, f)</code>: <code>x</code> list[float] độ dài n; <code>mu</code> list[float] độ dài m; <code>f</code> float = ½xᵀQx + cᵀx. Dung sai 1e-6.",
+  "hint": "<code>numpy.block</code> để ghép ma trận khối; <code>numpy.linalg.solve</code>.",
+  "starter": "import numpy as np\n\ndef solve_eq_qp(Q, c, A, b):\n    \"\"\"Trả về (x, mu, f).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     [
+      [
+       2,
+       -2,
+       -1
+      ],
+      [
+       -2,
+       2,
+       1
+      ],
+      [
+       -1,
+       1,
+       5
+      ]
+     ],
+     [
+      10,
+      -26,
+      -2
+     ],
+     [
+      [
+       1,
+       1,
+       0
+      ],
+      [
+       1,
+       0,
+       1
+      ]
+     ],
+     [
+      4,
+      10
+     ]
+    ],
+    "expected": [
+     [
+      3.058823529411764,
+      0.941176470588236,
+      6.941176470588234
+     ],
+     [
+      23.29411764705882,
+      -30.58823529411764
+     ],
+     102.47058823529406
+    ],
+    "visible": true,
+    "note": "ví dụ null space slide 3: x* = (3.0588, 0.9412, 6.9412)"
+   },
+   {
+    "args": [
+     [
+      [
+       6,
+       2,
+       1
+      ],
+      [
+       2,
+       5,
+       2
+      ],
+      [
+       1,
+       2,
+       4
+      ]
+     ],
+     [
+      -8,
+      -3,
+      -3
+     ],
+     [
+      [
+       1,
+       0,
+       1
+      ],
+      [
+       0,
+       1,
+       1
+      ]
+     ],
+     [
+      3,
+      0
+     ]
+    ],
+    "expected": [
+     [
+      2.0,
+      -1.0,
+      1.0
+     ],
+     [
+      -3.0000000000000004,
+      2.0
+     ],
+     -3.5
+    ],
+    "visible": true,
+    "note": "Bài tập 1 với b = (3, 0): x* = (2, -1, 1)"
+   },
+   {
+    "args": [
+     [
+      [
+       2,
+       0
+      ],
+      [
+       0,
+       2
+      ]
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      [
+       1,
+       1
+      ]
+     ],
+     [
+      2
+     ]
+    ],
+    "expected": [
+     [
+      1.0,
+      1.0
+     ],
+     [
+      -2.0
+     ],
+     2.0
+    ],
+    "visible": false,
+    "note": ""
+   },
+   {
+    "args": [
+     [
+      [
+       4,
+       1
+      ],
+      [
+       1,
+       3
+      ]
+     ],
+     [
+      -1,
+      -2
+     ],
+     [
+      [
+       1,
+       2
+      ]
+     ],
+     [
+      1
+     ]
+    ],
+    "expected": [
+     [
+      0.06666666666666665,
+      0.46666666666666673
+     ],
+     [
+      0.2666666666666666
+     ],
+     -0.6333333333333333
+    ],
+    "visible": false,
+    "note": ""
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef solve_eq_qp(Q, c, A, b):\n    \"\"\"Giải min 1/2 x'Qx + c'x  s.t.  Ax = b  qua hệ KKT [Q A'; A 0][x; mu] = [-c; b]  (Q đối xứng, nghiệm duy nhất).\n\n    Đầu vào : Q (n x n), c (n), A (m x n), b (m) — list lồng nhau\n    Đầu ra  : (x, mu, f) với x: list[float], mu: list[float], f: float = 1/2 x'Qx + c'x\n    \"\"\"\n    Q, c, A, b = (np.array(v, float) for v in (Q, c, A, b))\n    n, m = len(c), len(b)\n    K = np.block([[Q, A.T], [A, np.zeros((m, m))]])\n    sol = np.linalg.solve(K, np.concatenate([-c, b]))\n    x, mu = sol[:n], sol[n:]\n    return x.tolist(), mu.tolist(), float(0.5 * x @ Q @ x + c @ x)\n",
+  "packages": [
+   "numpy"
+  ]
+ },
+ {
+  "id": "steplen",
+  "fn": "step_length",
+  "module": "Module 3",
+  "level": "Vừa",
+  "title": "Độ dài bước α của tập hoạt động",
+  "statement": "Cho điểm khả thi x, hướng d và tập làm việc W, tính \\(\\alpha=\\min\\{1,\\ \\min_{i\\notin W,\\ a_i^\\top d>0}(b_i-a_i^\\top x)/(a_i^\\top d)\\}\\) và chỉ số ràng buộc cản.",
+  "inp": "<code>A</code> (m×n), <code>b</code> (m), <code>x</code> (n), <code>d</code> (n), <code>W</code> (list[int], chỉ số từ 0).",
+  "out": "Tuple <code>(alpha, blocking)</code>: <code>alpha</code> float trong [0,1]; <code>blocking</code> int (chỉ số từ 0 của ràng buộc cản) hoặc <code>None</code> nếu α = 1 không bị cản.",
+  "hint": "Bỏ qua i ∈ W và các i có \\(a_i^\\top d\\le0\\). Dùng ngưỡng 1e-12 khi so sánh.",
+  "starter": "import numpy as np\n\ndef step_length(A, b, x, d, W):\n    \"\"\"Trả về (alpha, blocking).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     [
+      [
+       1,
+       1
+      ],
+      [
+       3,
+       1
+      ],
+      [
+       -1,
+       0
+      ],
+      [
+       0,
+       -1
+      ]
+     ],
+     [
+      1,
+      1.5,
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      3
+     ]
+    ],
+    "expected": [
+     0.5,
+     1
+    ],
+    "visible": true,
+    "note": "vòng k=1 của ví dụ slide: α = 0.5, cản bởi ràng buộc chỉ số 1"
+   },
+   {
+    "args": [
+     [
+      [
+       1,
+       1
+      ],
+      [
+       3,
+       1
+      ],
+      [
+       -1,
+       0
+      ],
+      [
+       0,
+       -1
+      ]
+     ],
+     [
+      1,
+      1.5,
+      0,
+      0
+     ],
+     [
+      0.5,
+      0
+     ],
+     [
+      -0.1,
+      0.3
+     ],
+     [
+      1
+     ]
+    ],
+    "expected": [
+     1.0,
+     null
+    ],
+    "visible": true,
+    "note": "vòng k=3: α = 1, không bị cản"
+   },
+   {
+    "args": [
+     [
+      [
+       2,
+       -3
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       -3,
+       5
+      ],
+      [
+       -1,
+       0
+      ],
+      [
+       0,
+       -1
+      ]
+     ],
+     [
+      6,
+      5,
+      15,
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      4.5,
+      0
+     ],
+     [
+      4
+     ]
+    ],
+    "expected": [
+     0.6666666666666666,
+     0
+    ],
+    "visible": false,
+    "note": "bài tập tr.81 vòng 1: α = 2/3"
+   },
+   {
+    "args": [
+     [
+      [
+       2,
+       -3
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       -3,
+       5
+      ],
+      [
+       -1,
+       0
+      ],
+      [
+       0,
+       -1
+      ]
+     ],
+     [
+      6,
+      5,
+      15,
+      0,
+      0
+     ],
+     [
+      3,
+      0
+     ],
+     [
+      2.4230769,
+      1.6153846
+     ],
+     [
+      0
+     ]
+    ],
+    "expected": [
+     0.4952380999546485,
+     1
+    ],
+    "visible": false,
+    "note": ""
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef step_length(A, b, x, d, W):\n    \"\"\"Độ dài bước alpha của active set:  alpha = min{1, min_{i not in W, a_i'd > 0} (b_i - a_i'x)/(a_i'd)}.\n\n    Đầu vào : A (m x n), b (m), x (n) điểm khả thi, d (n) hướng, W (list[int]) tập làm việc, chỉ số TỪ 0\n    Đầu ra  : (alpha, blocking) với alpha: float, blocking: int chỉ số (từ 0) của ràng buộc cản, hoặc None nếu alpha = 1 không bị cản\n    \"\"\"\n    A, b, x, d = (np.array(v, float) for v in (A, b, x, d))\n    alpha, block = 1.0, None\n    for i in range(len(b)):\n        if i in W:\n            continue\n        ad = float(A[i] @ d)\n        if ad > 1e-12:\n            t = float((b[i] - A[i] @ x) / ad)\n            if t < alpha - 1e-12:\n                alpha, block = t, i\n    return alpha, block\n",
+  "packages": [
+   "numpy"
+  ]
+ },
+ {
+  "id": "activeset",
+  "fn": "active_set_qp",
+  "module": "Module 3",
+  "level": "Khó",
+  "title": "Thuật toán tập hoạt động hoàn chỉnh",
+  "statement": "Cài đặt thuật toán tập hoạt động cho \\(\\min\\tfrac12x^\\top Qx+c^\\top x\\) s.t. \\(Ax\\le b\\) (Q đối xứng xác định dương, x0 khả thi). Mỗi vòng: giải bài toán con \\(\\min\\tfrac12d^\\top Qd+g^\\top d\\) s.t. \\(a_i^\\top d=0\\ (i\\in W)\\); nếu \\(d\\ne0\\) đi bước \\(\\alpha\\) và thêm ràng buộc cản; nếu \\(d=0\\) tính nhân tử, dừng nếu mọi \\(\\hat\\mu\\ge0\\), ngược lại loại chỉ số có nhân tử âm nhất.",
+  "inp": "<code>Q</code> (n×n), <code>c</code> (n), <code>A</code> (m×n), <code>b</code> (m), <code>x0</code> (n), <code>W0</code> (list[int], chỉ số từ 0, tập chặt tại x0), <code>max_iter</code> (int, mặc định 50).",
+  "out": "Tuple <code>(x, iterations)</code>: <code>x</code> list[float] nghiệm; <code>iterations</code> int = số vòng k đã chạy, tính cả vòng dừng.",
+  "hint": "Bài toán con chính là hệ KKT bài 5 với \\(A_W\\), vế phải \\(-g\\) và 0; nhân tử \\(\\hat\\mu\\) là phần nghiệm sau khối \\(d\\). Tái sử dụng hàm bài 6.",
+  "starter": "import numpy as np\n\ndef active_set_qp(Q, c, A, b, x0, W0, max_iter=50):\n    \"\"\"Trả về (x, iterations).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     [
+      [
+       2,
+       0
+      ],
+      [
+       0,
+       2
+      ]
+     ],
+     [
+      -2,
+      -1
+     ],
+     [
+      [
+       1,
+       1
+      ],
+      [
+       3,
+       1
+      ],
+      [
+       -1,
+       0
+      ],
+      [
+       0,
+       -1
+      ]
+     ],
+     [
+      1,
+      1.5,
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      2,
+      3
+     ]
+    ],
+    "expected": [
+     [
+      0.4,
+      0.30000000000000004
+     ],
+     5
+    ],
+    "visible": true,
+    "note": "ví dụ slide tr.69: x* = (0.4, 0.3), 5 vòng"
+   },
+   {
+    "args": [
+     [
+      [
+       2,
+       0
+      ],
+      [
+       0,
+       2
+      ]
+     ],
+     [
+      -9,
+      -6
+     ],
+     [
+      [
+       2,
+       -3
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       -3,
+       5
+      ],
+      [
+       -1,
+       0
+      ],
+      [
+       0,
+       -1
+      ]
+     ],
+     [
+      6,
+      5,
+      15,
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      3,
+      4
+     ]
+    ],
+    "expected": [
+     [
+      3.25,
+      1.7500000000000002
+     ],
+     7
+    ],
+    "visible": true,
+    "note": "bài tập tr.81: x* = (3.25, 1.75), 7 vòng"
+   },
+   {
+    "args": [
+     [
+      [
+       2,
+       0
+      ],
+      [
+       0,
+       2
+      ]
+     ],
+     [
+      -4,
+      -4
+     ],
+     [
+      [
+       1,
+       1
+      ],
+      [
+       -1,
+       0
+      ],
+      [
+       0,
+       -1
+      ]
+     ],
+     [
+      2,
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      2
+     ]
+    ],
+    "expected": [
+     [
+      1.0,
+      1.0
+     ],
+     6
+    ],
+    "visible": false,
+    "note": ""
+   },
+   {
+    "args": [
+     [
+      [
+       2,
+       0
+      ],
+      [
+       0,
+       2
+      ]
+     ],
+     [
+      -1,
+      -1
+     ],
+     [
+      [
+       1,
+       1
+      ],
+      [
+       -1,
+       0
+      ],
+      [
+       0,
+       -1
+      ]
+     ],
+     [
+      4,
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      2
+     ]
+    ],
+    "expected": [
+     [
+      0.5,
+      0.5
+     ],
+     5
+    ],
+    "visible": false,
+    "note": "nghiệm nằm trong miền"
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef step_length(A, b, x, d, W):\n    \"\"\"Độ dài bước alpha của active set:  alpha = min{1, min_{i not in W, a_i'd > 0} (b_i - a_i'x)/(a_i'd)}.\n\n    Đầu vào : A (m x n), b (m), x (n) điểm khả thi, d (n) hướng, W (list[int]) tập làm việc, chỉ số TỪ 0\n    Đầu ra  : (alpha, blocking) với alpha: float, blocking: int chỉ số (từ 0) của ràng buộc cản, hoặc None nếu alpha = 1 không bị cản\n    \"\"\"\n    A, b, x, d = (np.array(v, float) for v in (A, b, x, d))\n    alpha, block = 1.0, None\n    for i in range(len(b)):\n        if i in W:\n            continue\n        ad = float(A[i] @ d)\n        if ad > 1e-12:\n            t = float((b[i] - A[i] @ x) / ad)\n            if t < alpha - 1e-12:\n                alpha, block = t, i\n    return alpha, block\n\n\ndef active_set_qp(Q, c, A, b, x0, W0, max_iter=50):\n    \"\"\"Thuật toán tập hoạt động cho min 1/2 x'Qx + c'x  s.t.  Ax <= b  (Q đối xứng xác định dương, x0 khả thi).\n\n    Đầu vào : Q (n x n), c (n), A (m x n), b (m), x0 (n) khả thi, W0 (list[int]) tập làm việc ban đầu, chỉ số TỪ 0\n    Đầu ra  : (x, iterations) với x: list[float] nghiệm, iterations: int = số vòng lặp k đã chạy (tính cả vòng dừng)\n    \"\"\"\n    Q, c, A, b = (np.array(v, float) for v in (Q, c, A, b))\n    x = np.array(x0, float)\n    W = list(W0)\n    n = len(x)\n    for k in range(max_iter):\n        g = Q @ x + c\n        if W:\n            Aw = A[W]\n            K = np.block([[Q, Aw.T], [Aw, np.zeros((len(W), len(W)))]])\n            sol = np.linalg.solve(K, np.concatenate([-g, np.zeros(len(W))]))\n            d, mu = sol[:n], sol[n:]\n        else:\n            d, mu = np.linalg.solve(Q, -g), np.array([])\n        if np.linalg.norm(d) < 1e-9:\n            if len(W) == 0 or mu.min() >= -1e-9:\n                return x.tolist(), k + 1\n            W.pop(int(np.argmin(mu)))\n        else:\n            alpha, block = step_length(A, b, x, d, W)\n            x = x + alpha * d\n            if block is not None:\n                W.append(block)\n    return x.tolist(), max_iter\n",
+  "packages": [
+   "numpy"
+  ]
+ }
+]

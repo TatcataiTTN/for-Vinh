@@ -165,3 +165,14 @@ figure.diagram figcaption{color:var(--muted);font-size:.85rem;margin-top:4px}
 .quiz .essay-model{margin:4px 0 6px}
 .quiz .explain p{margin:.35em 0}
 .quiz .explain ol,.quiz .explain ul{margin:.3em 0 .3em 1.2em;padding:0}
+
+/* ---------- trang thực hành code ---------- */
+.code-ta{width:100%;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88rem;line-height:1.5;border:1px solid var(--border);border-radius:8px;padding:10px;background:var(--code);color:var(--text);margin:8px 0;tab-size:4}
+.code-card .numrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:6px 0}
+.code-card button{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:8px;padding:6px 12px;cursor:pointer;font-weight:700}
+.code-card button.chk{background:var(--accent);border-color:var(--accent);color:#fff}
+.code-card button:disabled{opacity:.5;cursor:wait}
+table.spec th{width:7em;white-space:nowrap}
+pre.code-pre,pre.src{background:var(--code);border:1px solid var(--border);border-radius:8px;padding:10px 12px;overflow:auto;font-size:.85rem;line-height:1.5;margin:8px 0;white-space:pre}
+pre.out-pre{background:#0f172a;color:#e2e8f0;border-radius:8px;padding:10px 12px;overflow:auto;font-size:.83rem;line-height:1.45;margin:8px 0}
+.tbl-wrap td code{word-break:break-all}

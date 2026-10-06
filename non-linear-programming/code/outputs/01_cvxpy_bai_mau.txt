@@ -1,0 +1,6 @@
+is_dcp (bài toán lồi theo quy tắc DCP): True
+Giá trị nhỏ nhất của f(x, y): -2.0
+x = 3.0  y = 4.0
+nhân tử của x^2+y^2<=36 : 0.000000
+nhân tử của x>=0        : 0.000000
+nhân tử của y>=0        : 0.000000
