@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tài liệu phát triển — Tối ưu hóa phi tuyến & lồi</title>
+<meta name="description" content="Kiến trúc, quy trình sinh site, thêm nội dung, kiểm thử và deploy."><link rel="icon" href="data:,">
+<script>(function(){try{var t=localStorage.getItem('nlp-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<link rel="stylesheet" href="../shared/katex/katex.min.css">
+<link rel="stylesheet" href="../shared/common.css">
+</head><body>
+<header class="topbar"><a class="brand" href="../index.html">∇ Tối ưu hóa</a>
+<nav><a href="../index.html" class="">Trang chủ</a><a href="../modules/00-tien-quyet/index.html" class="">Module 0</a><a href="../modules/01-tap-loi-ham-loi/index.html" class="">Module 1</a><a href="../modules/02-rang-buoc-kkt/index.html" class="">Module 2</a><a href="../modules/03-quy-hoach-toan-phuong/index.html" class="">Module 3</a><a href="../code/index.html" class="">Code</a><a href="../kiem-chung/index.html" class="">Kiểm chứng</a><a href="../phat-trien/index.html" class="on">Phát triển</a></nav><button id="theme-btn" type="button" title="Đổi giao diện sáng/tối">◐</button></header>
+<main><p class="tag">PHÁT TRIỂN</p><h1 id="tài-liệu-phát-triển-site-tối-ưu-hóa-phi-tuyến-lồi">Tài liệu phát triển — site Tối ưu hóa phi tuyến &amp; lồi</h1>
+<p>Tài liệu này mô tả <strong>cách site được xây, cách chạy lại, cách thêm nội dung và cách kiểm thử</strong>, để người khác (hoặc chính bạn sau vài tuần) tiếp tục được mà không phải đoán.</p>
+<h2 id="tổng-quan-kiến-trúc">1. Tổng quan kiến trúc</h2>
+<p>Site là <strong>web tĩnh</strong> (HTML + JS thuần, không backend) host trên GitHub Pages. Mọi nội dung được <strong>sinh từ Python</strong> rồi commit vào repo.</p>
+<pre class="src"><code>Phenikaa - Nonlinear Programming - Convex Optimization/
+├── Slides/                     3 slide chính khóa (PDF) — nguồn nội dung
+├── for-Vinh/                   clone repo TatcataiTTN/for-Vinh  (thư mục deploy)
+│   └── non-linear-programming/
+│       ├── index.html, modules/00..03/, kiem-chung/, code/, phat-trien/   (trang đã sinh)
+│       ├── shared/             CSS + JS dùng chung (deck.js, quiz.js, widgets.js, pyrunner.js, pyworker.js, KaTeX)
+│       ├── assets/             sơ đồ drawio (SVG) và ảnh trang slide gốc
+│       └── dev/                bản sao mã nguồn sinh site (xem mục 9)
+└── NLP-work/                   mã nguồn và dữ liệu làm việc (KHÔNG nằm trong repo gốc, chỉ có bản sao trong dev/)
+    ├── verify/verify_all.py    tính lại mọi con số bằng numpy/scipy/sympy → results.json
+    ├── build/                  gen_site.py, helpers.py, qlib.py, c_*.py (nội dung), q_*.py (câu hỏi), gen_diagrams.py
+    ├── code/                   script ví dụ, notebook, bài tập lập trình (reference.py, build_exercises.py, test)
+    ├── tests/                  kiểm thử trình duyệt (puppeteer) và pytest
+    └── docs/DEVELOPMENT.md     (file này)</code></pre>
+<h3 id="luồng-dữ-liệu">Luồng dữ liệu</h3>
+<pre class="src"><code>Slides/*.pdf ──đọc──▶ c_m*.py (deck + ví dụ) ┐
+verify_all.py ──▶ results.json ──────────────┤
+q_m*.py (ngân hàng câu hỏi) ─▶ qlib.finalize ┼─▶ gen_site.py ─▶ HTML trong for-Vinh/non-linear-programming/
+gen_diagrams.py ─▶ drawio ─▶ SVG ────────────┤
+reference.py ─▶ build_exercises.py ─▶ exercises.json ─▶ trang code/</code></pre>
+<p>Nguyên tắc: <strong>không gõ tay đáp số</strong>. Mọi số trong bài giảng lấy từ <code>results.json</code> (do <code>verify_all.py</code> tính) hoặc tính ngay lúc build trong <code>c_*.py</code>.</p>
+<h2 id="yêu-cầu-môi-trường">2. Yêu cầu môi trường</h2>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Dùng để</th>
+<th>Cài đặt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python 3.10+</td>
+<td>sinh site, kiểm chứng</td>
+<td><code>pip install numpy scipy sympy cvxpy matplotlib nbformat nbconvert pytest</code></td>
+</tr>
+<tr>
+<td><code>pdftoppm</code> (poppler)</td>
+<td>cắt ảnh trang slide</td>
+<td><code>brew install poppler</code></td>
+</tr>
+<tr>
+<td>drawio CLI</td>
+<td>xuất sơ đồ SVG</td>
+<td><code>brew install drawio</code></td>
+</tr>
+<tr>
+<td>Node + puppeteer-core + Chrome</td>
+<td>kiểm thử trình duyệt</td>
+<td><code>npm i puppeteer-core</code> (dùng Chrome có sẵn)</td>
+</tr>
+<tr>
+<td><code>git</code>, <code>gh</code></td>
+<td>deploy</td>
+<td><code>gh auth login</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="lệnh-thường-dùng">3. Lệnh thường dùng</h2>
+<div class="sourceCode" id="cb3"><pre class="src sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Tính lại số liệu (khi đổi bài toán/số)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> NLP-work/verify/verify_all.py</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Sinh lại sơ đồ drawio → SVG (đã strip light-dark())</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> NLP-work/build/gen_diagrams.py</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Sinh site (chọn module): m0 m1 m2 m3 home kc code dev</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> NLP-work/build/gen_site.py m0 m1 m2 m3 home kc code dev</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Sinh bài tập lập trình + notebook</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> NLP-work/code/exercises/build_exercises.py</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> NLP-work/code/build_notebook.py</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 5) Kiểm thử</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> pytest <span class="at">-q</span> NLP-work/code/exercises/test_reference.py</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="bu">cd</span> for-Vinh <span class="kw">&amp;&amp;</span> <span class="ex">python3</span> <span class="at">-m</span> http.server 8765 <span class="kw">&amp;)</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> NLP-work/tests/site_test.js http://localhost:8765/non-linear-programming/ modules/01-tap-loi-ham-loi/index.html code/index.html</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 6) Deploy (đẩy từng phần nhỏ)</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> for-Vinh <span class="kw">&amp;&amp;</span> <span class="fu">git</span> add <span class="at">-A</span> non-linear-programming <span class="kw">&amp;&amp;</span> <span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;...&quot;</span> <span class="kw">&amp;&amp;</span> <span class="fu">git</span> push</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> api repos/TatcataiTTN/for-Vinh/pages/builds/latest <span class="at">-q</span> .status    <span class="co"># đợi &quot;built&quot;</span></span></code></pre></div>
+<h2 id="viết-nội-dung-một-module">4. Viết nội dung một module</h2>
+<p>Mỗi module gồm 2 file trong <code>NLP-work/build/</code>:</p>
+<ul>
+<li><code>c_mK.py</code> — nội dung: hằng <code>LEAD</code>, <code>META</code>, <code>OBJECTIVES</code>, danh sách <code>DECK</code> (các slide dựng bằng <code>sl()</code>, <code>part()</code>), danh sách <code>SECTIONS</code> (công thức, lịch sử, case study, ví dụ, sơ đồ, công cụ tương tác, bẫy), chuỗi <code>READING</code>.</li>
+<li><code>q_mK.py</code> — ngân hàng câu hỏi (mục 5).</li>
+</ul>
+<p>Hàm dựng HTML (trong <code>helpers.py</code>): <code>sl(title, body, kicker, img, explain)</code>, <code>part(...)</code>, <code>formula(label, tex, legend)</code>, <code>callout(kind, title, body)</code>, <code>steps([...])</code>, <code>solution(summary, body)</code>, <code>table(headers, rows)</code>, <code>fig(name, caption)</code>, <code>widget(kind)</code>.</p>
+<p><strong>Quy ước quan trọng</strong> - Toán dùng KaTeX với <code>\( ... \)</code> và <code>\[ ... \]</code> (không dùng <code>$</code>). Trong chuỗi Python dùng <strong>raw string</strong> <code>r'...'</code> hoặc nhân đôi dấu <code>\\</code>. - Trong f-string, ngoặc nhọn LaTeX phải nhân đôi: <code>\\{{4,5\\}}</code>. - Ký tự <code>&lt;</code>/<code>&gt;</code> nằm trong công thức được <code>fixmath()</code> tự đổi thành <code>\lt</code>/<code>\gt</code> (nếu không, trình duyệt hiểu <code>&lt;m</code> là thẻ HTML). - Số trang slide gốc: <code>img='m2:55'</code> (module:trang) → script cắt ảnh bằng <code>pdftoppm</code> 150 dpi vào <code>assets/slides/</code>. - Không dùng dấu <code>''</code> (hai nháy đơn) trong raw string <code>r'...'</code>: dùng <code>f^{\prime\prime}</code>.</p>
+<h2 id="ngân-hàng-câu-hỏi-qlib.py">5. Ngân hàng câu hỏi (<code>qlib.py</code>)</h2>
+<div class="sourceCode" id="cb4"><pre class="src sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bank <span class="op">=</span> Bank(<span class="st">&#39;m2&#39;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mc(src, ref, q, correct, wrong[<span class="dv">3</span>], explain, group)     <span class="co"># trắc nghiệm (đáp án đúng và 3 nhiễu tách riêng)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>tf(src, ref, q, truth, explain, group)                  <span class="co"># đúng/sai</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>num(src, ref, q, ans, explain, tol, ans_text, group)    <span class="co"># điền số, chấm có dung sai</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>essay(src, ref, q, model, check[], group)               <span class="co"># tự luận + đáp án mẫu + checklist tự chấm</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>bank.fix(prefix_của_câu, correct, wrong)                <span class="co"># chỉnh đáp án để cân bằng độ dài</span></span></code></pre></div>
+<p><code>src</code>: <code>G</code> từ nội dung slide · <code>B</code> bài tập/ví dụ của slide · <code>T</code> tham khảo (Studocu/BTDOC) · <code>S</code> biên soạn thêm.</p>
+<p><code>finalize()</code> xáo đáp án bằng seed cố định (thử 400 seed, chọn seed cho phân bố vị trí đúng nhất) và <strong>audit thiên lệch</strong>: - vị trí đáp án đúng (A/B/C/D) — mục tiêu mỗi vị trí ≈ 25%; - <code>correct_obviously_longest</code>: đáp án đúng dài ≥ 1,2× và hơn ≥ 8 ký tự so với mọi nhiễu — mục tiêu &lt; 10%; <code>finalize</code> tự rút gọn phần giải thích trong ngoặc/sau “vì”, phần còn lại sửa bằng <code>bank.fix</code>; - tỉ lệ đúng/sai — mục tiêu 45–55%. Báo cáo ghi ở <code>NLP-work/verify/quiz_report_mK.json</code>.</p>
+<h2 id="kiểm-chứng-số-liệu-verifyverify_all.py">6. Kiểm chứng số liệu (<code>verify/verify_all.py</code>)</h2>
+<p>Mỗi mục là một phép tính độc lập (sympy cho đạo hàm/giải hệ, scipy cho <code>linprog</code>/<code>minimize</code>, brute-force cho bài nhỏ). Khi thấy slide mâu thuẫn với kết quả, ghi vào khóa <code>errata_*</code> và hiển thị ở trang <code>kiem-chung/</code>. <strong>Không</strong> sửa số cho khớp slide.</p>
+<h2 id="bài-tập-lập-trình-trang-code">7. Bài tập lập trình (trang <code>code/</code>)</h2>
+<h3 id="cách-chạy-code-trên-github-pages">7.1 Cách chạy code trên GitHub Pages</h3>
+<p>GitHub Pages <strong>chỉ phục vụ file tĩnh</strong> — không có máy chủ để biên dịch/chạy code. Giải pháp đang dùng:</p>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Nhu cầu</th>
+<th>Giải pháp</th>
+<th>Giới hạn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chạy Python ngay trên trang, có chấm tự động</td>
+<td><strong>Pyodide</strong> (CPython biên dịch ra WebAssembly) trong Web Worker; thư viện <code>numpy</code>, <code>sympy</code> (có <code>scipy</code>)</td>
+<td>tải ~10–25 MB lần đầu từ CDN jsDelivr; <strong>không có <code>cvxpy</code></strong></td>
+</tr>
+<tr>
+<td>Chạy <code>cvxpy</code> đầy đủ</td>
+<td><strong>Google Colab</strong> mở thẳng notebook trong repo</td>
+<td>cần tài khoản Google</td>
+</tr>
+<tr>
+<td>Kiểm tra tự động mỗi lần push</td>
+<td><strong>GitHub Actions</strong> (<code>.github/workflows/nlp-verify.yml</code>) chạy pytest + sinh lại số liệu</td>
+<td>chỉ kiểm, không phục vụ trang</td>
+</tr>
+<tr>
+<td>Chạy trên máy</td>
+<td><code>python3 code/scripts/*.py</code></td>
+<td>cần cài Python</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="thêm-một-bài-mới">7.2 Thêm một bài mới</h3>
+<ol type="1">
+<li>Viết hàm mẫu có docstring <strong>đầu vào/đầu ra/kiểu dữ liệu</strong> trong <code>code/exercises/reference.py</code> (chỉ dùng numpy/sympy).</li>
+<li>Thêm mục vào danh sách <code>EX</code> trong <code>build_exercises.py</code>: <code>id, fn, module, level, title, statement, inp, out, hint, starter, tests</code>. Mỗi test: <code>{args:[...], visible:bool, note}</code>. <strong>Đáp án kỳ vọng không gõ tay</strong>: <code>build_exercises.py</code> gọi chính <code>reference.py</code>.</li>
+<li>Thêm test độc lập đối chiếu (scipy/brute-force) vào <code>test_reference.py</code>.</li>
+<li><code>python3 build_exercises.py &amp;&amp; python3 gen_site.py code</code>.</li>
+</ol>
+<h3 id="cách-chấm-pyworker.js">7.3 Cách chấm (<code>pyworker.js</code>)</h3>
+<ul>
+<li>Worker nạp Pyodide, <code>exec</code> mã người học, gọi <code>fn(*args)</code> với <strong>bản sao sâu</strong> của đầu vào.</li>
+<li>Kết quả được chuẩn hóa (numpy → list/float) rồi so sánh đệ quy: số với dung sai tương đối 1e-6, chuỗi/bool/None/int phải khớp tuyệt đối, dict chỉ so các khóa có trong đáp án kỳ vọng.</li>
+<li>Quá 45 giây: <code>worker.terminate()</code> và tạo lại (chống vòng lặp vô hạn).</li>
+<li>Test “ẩn” vẫn nằm trong JSON của trang (người rành có thể xem): phù hợp tự học, <strong>không</strong> dùng để thi.</li>
+</ul>
+<h2 id="kiểm-thử">8. Kiểm thử</h2>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Tầng</th>
+<th>Công cụ</th>
+<th>Nội dung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Số liệu</td>
+<td><code>verify_all.py</code>, <code>test_reference.py</code></td>
+<td>đối chiếu hai cách tính độc lập</td>
+</tr>
+<tr>
+<td>Trang</td>
+<td><code>tests/site_test.js</code></td>
+<td>số slide, lỗi KaTeX, widget có canvas, slide tràn, ảnh vỡ, quiz (bấm đáp án → có giải thích → nút làm lại)</td>
+</tr>
+<tr>
+<td>Widget</td>
+<td><code>tests/widgets_test.js</code></td>
+<td>active set duyệt từng bước, QP đẳng thức, KKT lab trên mọi điểm gợi ý</td>
+</tr>
+<tr>
+<td>Bài code</td>
+<td><code>tests/code_test.js</code></td>
+<td>nạp Pyodide trong Chrome thật, chạy lời giải mẫu qua trình chấm và xác nhận mọi test ĐẠT; chạy mã sai/để trống xác nhận SAI</td>
+</tr>
+<tr>
+<td>Production</td>
+<td>cùng các script, <code>base = https://tatcataittn.github.io/for-Vinh/non-linear-programming/</code></td>
+<td>lặp lại sau mỗi lần deploy</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="bản-sao-mã-nguồn-trong-repo-dev">9. Bản sao mã nguồn trong repo (<code>dev/</code>)</h2>
+<p>Để người khác có thể sinh lại site từ repo, <code>NLP-work/sync_dev.sh</code> sao chép <code>build/</code>, <code>verify/</code> (không kèm <code>results.json</code> cache lớn), <code>code/</code>, <code>tests/</code>, <code>docs/</code> vào <code>for-Vinh/non-linear-programming/dev/</code>. <strong>Nguồn sự thật là <code>NLP-work/</code></strong>; <code>dev/</code> chỉ là ảnh chụp (snapshot) — luôn chạy <code>sync_dev.sh</code> trước khi commit.</p>
+<h2 id="lỗi-đã-gặp-và-cách-tránh">10. Lỗi đã gặp và cách tránh</h2>
+<div class="tbl-wrap"><table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Lỗi</th>
+<th>Nguyên nhân</th>
+<th>Cách tránh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Công thức hiện nguyên <code>\(...\)</code></td>
+<td><code>&lt;m</code> trong công thức bị hiểu là thẻ HTML</td>
+<td><code>fixmath()</code> trong <code>helpers.py</code></td>
+</tr>
+<tr>
+<td>Slide “tràn” khi đo bằng test</td>
+<td>ảnh <code>loading=lazy</code> chưa tải khi đo</td>
+<td><code>deck.js</code> chạy lại <code>fit()</code> khi ảnh tải xong (sự kiện <code>load</code>)</td>
+</tr>
+<tr>
+<td>GitHub Pages không phục vụ thư mục <code>_*</code></td>
+<td>Jekyll bỏ qua</td>
+<td>không dùng tên thư mục bắt đầu bằng <code>_</code></td>
+</tr>
+<tr>
+<td>SVG drawio đổi màu theo hệ điều hành</td>
+<td><code>light-dark()</code> nhúng sẵn</td>
+<td><code>gen_diagrams.py</code> strip sau khi xuất</td>
+</tr>
+<tr>
+<td>Câu hỏi bị lệch đáp án</td>
+<td>người soạn hay đặt đáp án đúng dài/ở vị trí A</td>
+<td><code>qlib.finalize</code> + audit</td>
+</tr>
+<tr>
+<td>Slide ghi số không khớp tính toán</td>
+<td>lỗi chép trong slide</td>
+<td>ghi <code>errata_*</code>, hiển thị ở <code>kiem-chung/</code></td>
+</tr>
+<tr>
+<td>Cache GitHub Pages ~10 phút</td>
+<td><code>Cache-Control: max-age=600</code></td>
+<td>hard refresh hoặc <code>?v=2</code></td>
+</tr>
+</tbody>
+</table></div>
+</main>
+<script src="../shared/katex/katex.min.js"></script>
+<script src="../shared/katex/auto-render.min.js"></script>
+<script src="../shared/deck.js"></script>
+<script src="../shared/widgets.js"></script>
+
+</body></html>
