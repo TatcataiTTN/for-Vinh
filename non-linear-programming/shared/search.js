@@ -40,7 +40,7 @@
     if (!res.length){ box.innerHTML = '<div class="sr-none">Không thấy. Thử từ khác (tiếng Việt hoặc tiếng Anh, có dấu hay không đều được).</div>'; return; }
     box.innerHTML = res.map(function(x){
       var g = x.r.g, m = NLP_MODS[g.mod] || {};
-      return '<a class="sr" href="' + UP + 'modules/' + m.slug + '/index.html#kn-' + g.id + '"><b>' + esc(g.term) + '</b> <span class="sr-k">' + esc(g.kind) + ' · Module ' + m.num + '</span><span class="sr-n">🗣️ ' + esc(g.nomna.slice(0, 150)) + (g.nomna.length > 150 ? '…' : '') + '</span></a>';
+      return '<a class="sr" href="' + UP + 'modules/' + m.slug + '/index.html#kn-' + g.id + '"><b>' + esc(g.term) + '</b> <span class="sr-k">' + esc(g.kind) + ' · ' + (m.label || ('Module ' + m.num)) + '</span><span class="sr-n">🗣️ ' + esc(g.nomna.slice(0, 150)) + (g.nomna.length > 150 ? '…' : '') + '</span></a>';
     }).join('');
   }
   inp.addEventListener('input', render);
