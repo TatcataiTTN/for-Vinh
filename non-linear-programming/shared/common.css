@@ -230,3 +230,4 @@ details.zoom{margin:8px 0;border:1px dashed var(--accent);border-radius:8px;padd
 details.zoom>summary{cursor:pointer;font-weight:700;color:var(--accent)}
 .zoom-body{padding:6px 0}
 .concept.hl{outline:3px solid var(--accent)}
+.mdeck-slide figure.diagram{margin:.4em 0}.mdeck-slide figure.diagram img{max-height:30vh;width:auto;max-width:100%;display:block;margin:0 auto}.mdeck-slide figure.diagram figcaption{font-size:.8em}
