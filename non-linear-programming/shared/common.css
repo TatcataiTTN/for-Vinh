@@ -231,3 +231,18 @@ details.zoom>summary{cursor:pointer;font-weight:700;color:var(--accent)}
 .zoom-body{padding:6px 0}
 .concept.hl{outline:3px solid var(--accent)}
 .mdeck-slide figure.diagram{margin:.4em 0}.mdeck-slide figure.diagram img{max-height:30vh;width:auto;max-width:100%;display:block;margin:0 auto}.mdeck-slide figure.diagram figcaption{font-size:.8em}
+/* bài tập lớn */
+.longp{border:1px solid var(--border);border-radius:14px;background:var(--card);padding:6px 20px 20px;margin:26px 0}
+.longp>h2{border:0;margin-top:.2em}
+.longp .ck{font-size:.75rem;font-weight:800;color:var(--accent);text-transform:uppercase;margin-top:12px}
+.longp .intro{background:var(--accent-soft);border-radius:10px;padding:8px 14px}
+.ltoc{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.ltoc a{font-size:.82rem;padding:3px 10px;border-radius:999px;background:var(--code);border:1px solid var(--border);text-decoration:none}
+.longp h3{margin-top:1.6em;padding-bottom:.2em;border-bottom:2px solid var(--accent-soft)}
+.bstep{display:flex;gap:12px;margin:14px 0}
+.bstep .bn{flex:0 0 32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;margin-top:2px}
+.bstep .bb{flex:1;min-width:0}
+.bstep h4{margin:.2em 0 .3em;font-size:1.02rem}
+.why{background:var(--warn-bg);border-left:4px solid var(--warn);border-radius:6px;padding:6px 12px;margin:8px 0;font-size:.95rem}
+.longp table{font-size:.92rem}
+.longp .final{background:var(--good-bg);border:2px solid var(--good);border-radius:10px;padding:8px 14px;margin:14px 0}
