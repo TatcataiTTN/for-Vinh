@@ -203,3 +203,13 @@ table.fillt th{white-space:nowrap}
 .exlist .src{font-size:.78rem;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:.03em}
 .quiz .matchleg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:4px 12px;background:var(--code);border-radius:8px;padding:8px 12px;margin:6px 0}.quiz .msel{max-width:6em}
 pre.code{background:var(--code);border:1px solid var(--border);border-radius:8px;padding:10px 12px;overflow-x:auto;font-size:.85rem;line-height:1.5;margin:6px 0}pre.code code{background:none;padding:0}pre.code.out{border-left:4px solid var(--good)}
+/* thẻ khái niệm */
+.kn-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0}
+.kn-bar input{flex:1;min-width:200px;border:1px solid var(--border);border-radius:8px;padding:7px 10px;background:var(--card);color:var(--text);font:inherit}
+.kn-bar button{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:8px;padding:6px 12px;cursor:pointer}
+.concept{border:1px solid var(--border);border-radius:12px;background:var(--card);padding:12px 16px;margin:12px 0}
+.concept .ck{font-size:.72rem;font-weight:800;text-transform:uppercase;color:var(--accent);letter-spacing:.04em}
+.concept h3{margin:.15em 0 .3em}
+.concept .nomna{background:var(--warn-bg);border-left:4px solid var(--warn);border-radius:6px;padding:8px 12px;margin:.4em 0}
+.concept h4{margin:1em 0 .3em;font-size:.95rem;color:var(--accent)}
+.concept summary{cursor:pointer;font-weight:700;margin-top:6px}
