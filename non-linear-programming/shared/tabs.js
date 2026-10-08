@@ -15,6 +15,18 @@
     var a = e.target.closest && e.target.closest('a[data-goto]'); if (!a) return;
     e.preventDefault(); show(a.dataset.goto);
   });
-  var h = (location.hash || '').slice(1);
-  show(panes.some(function(p){ return p.id === h; }) ? h : panes[0].id, true);
+  function openCard(id){
+    var c = document.getElementById(id); if (!c) return false;
+    show('t-khainiem', true); var d = c.querySelector('details'); if (d) d.open = true;
+    if (window.nlpRenderMath) window.nlpRenderMath(c);
+    document.querySelectorAll('.concept.hl').forEach(function(x){ x.classList.remove('hl'); }); c.classList.add('hl');
+    setTimeout(function(){ c.scrollIntoView({block:'start'}); window.scrollBy(0, -110); }, 80); return true;
+  }
+  function route(){
+    var h = (location.hash || '').slice(1);
+    if (h.indexOf('kn-') === 0 && openCard(h)) return;
+    show(panes.some(function(p){ return p.id === h; }) ? h : panes[0].id, true);
+  }
+  window.addEventListener('hashchange', route);
+  route();
 })();

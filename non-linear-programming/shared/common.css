@@ -213,3 +213,20 @@ pre.code{background:var(--code);border:1px solid var(--border);border-radius:8px
 .concept .nomna{background:var(--warn-bg);border-left:4px solid var(--warn);border-radius:6px;padding:8px 12px;margin:.4em 0}
 .concept h4{margin:1em 0 .3em;font-size:.95rem;color:var(--accent)}
 .concept summary{cursor:pointer;font-weight:700;margin-top:6px}
+/* thanh tra cứu */
+.sitesearch{position:relative;flex:0 1 300px;min-width:160px}
+.sitesearch input{width:100%;border:1px solid var(--border);border-radius:8px;padding:5px 10px;background:var(--bg);color:var(--text);font:inherit;font-size:.9rem}
+#site-res{display:none;position:absolute;right:0;top:36px;width:min(480px,92vw);max-height:70vh;overflow:auto;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.18);z-index:80}
+#site-res a.sr{display:block;padding:8px 12px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text)}
+#site-res a.sr:hover{background:var(--accent-soft)}
+.sr-k{font-size:.72rem;color:var(--accent);font-weight:700;margin-left:6px}
+.sr-n{display:block;font-size:.84rem;color:var(--muted);margin-top:2px}
+.sr-none{padding:10px 12px;color:var(--muted)}
+/* thẻ: ví dụ đời thường, zoom giải thích */
+.concept .en{text-transform:none;font-weight:600;color:var(--muted)}
+.concept .dn{margin:.5em 0;padding:6px 12px;border-left:4px solid var(--good);background:var(--good-bg);border-radius:6px}
+.concept .dn ul{margin:.2em 0 0;padding-left:1.2em}
+details.zoom{margin:8px 0;border:1px dashed var(--accent);border-radius:8px;padding:4px 10px;background:var(--accent-soft)}
+details.zoom>summary{cursor:pointer;font-weight:700;color:var(--accent)}
+.zoom-body{padding:6px 0}
+.concept.hl{outline:3px solid var(--accent)}
