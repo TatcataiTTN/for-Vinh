@@ -22,7 +22,7 @@ a{color:var(--accent)}
   display:flex;align-items:center;gap:12px;padding:8px 16px;flex-wrap:wrap}
 .topbar .brand{font-weight:800;text-decoration:none;color:var(--text)}
 .topbar nav{display:flex;gap:4px;flex-wrap:wrap;flex:1}
-.topbar nav a{padding:5px 10px;border-radius:8px;text-decoration:none;font-size:.9rem;color:var(--muted)}
+.topbar nav a{padding:5px 8px;white-space:nowrap;border-radius:8px;text-decoration:none;font-size:.9rem;color:var(--muted)}
 .topbar nav a:hover,.topbar nav a.on{background:var(--accent-soft);color:var(--accent)}
 .topbar button{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:8px;padding:5px 10px;cursor:pointer}
 main{max-width:1040px;margin:0 auto;padding:20px 16px 80px}
@@ -90,7 +90,7 @@ figure.diagram figcaption{color:var(--muted);font-size:.85rem;margin-top:4px}
 .mdeck-slide table{font-size:.9em}
 .mdeck-slide .callout{font-size:.95em;margin:.7em 0}
 .slide-fig{margin:.7em 0;text-align:center}
-.slide-fig img{max-width:100%;max-height:14em;border:1px solid var(--border);border-radius:8px;background:#fff;padding:3px;cursor:zoom-in}
+.slide-fig img{max-width:100%;max-height:8em;border:1px solid var(--border);border-radius:8px;background:#fff;padding:3px;cursor:zoom-in}
 .slide-fig figcaption{font-size:.62em;color:var(--muted);margin-top:3px}
 .mdeck:fullscreen .slide-fig img,.mdeck:-webkit-full-screen .slide-fig img{max-height:44vh}
 .slide-explain{margin-top:.8em;border:1px solid var(--border);border-radius:10px;background:var(--code)}
@@ -230,7 +230,7 @@ details.zoom{margin:8px 0;border:1px dashed var(--accent);border-radius:8px;padd
 details.zoom>summary{cursor:pointer;font-weight:700;color:var(--accent)}
 .zoom-body{padding:6px 0}
 .concept.hl{outline:3px solid var(--accent)}
-.mdeck-slide figure.diagram{margin:.4em 0}.mdeck-slide figure.diagram img{max-height:30vh;width:auto;max-width:100%;display:block;margin:0 auto}.mdeck-slide figure.diagram figcaption{font-size:.8em}
+.mdeck-slide figure.diagram{margin:.4em 0}.mdeck-slide figure.diagram img{max-height:22vh;width:auto;max-width:100%;display:block;margin:0 auto}.mdeck-slide figure.diagram figcaption{font-size:.8em}
 /* bài tập lớn */
 .longp{border:1px solid var(--border);border-radius:14px;background:var(--card);padding:6px 20px 20px;margin:26px 0}
 .longp>h2{border:0;margin-top:.2em}
@@ -246,3 +246,4 @@ details.zoom>summary{cursor:pointer;font-weight:700;color:var(--accent)}
 .why{background:var(--warn-bg);border-left:4px solid var(--warn);border-radius:6px;padding:6px 12px;margin:8px 0;font-size:.95rem}
 .longp table{font-size:.92rem}
 .longp .final{background:var(--good-bg);border:2px solid var(--good);border-radius:10px;padding:8px 14px;margin:14px 0}
+table.grid2{width:100%}table.grid2 td{vertical-align:top;border:0;width:50%;padding:0 6px}

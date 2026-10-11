@@ -2,6 +2,8 @@
 (function(){
   var bar = document.querySelector('.tabs'); if (!bar) return;
   var btns = [].slice.call(bar.querySelectorAll('button')), panes = [].slice.call(document.querySelectorAll('.tabpane'));
+  function fitTop(){ var t=document.querySelector('.topbar'); if (t) bar.style.top = t.offsetHeight + 'px'; }
+  fitTop(); window.addEventListener('resize', fitTop);
   function show(id, noHash){
     var ok = panes.some(function(p){ return p.id === id; }); if (!ok) id = panes[0].id;
     panes.forEach(function(p){ p.classList.toggle('on', p.id === id); });
@@ -10,7 +12,7 @@
     if (window.nlpRenderMath) window.nlpRenderMath(document.getElementById(id));
     window.dispatchEvent(new Event('resize'));
   }
-  btns.forEach(function(b){ b.addEventListener('click', function(){ show(b.dataset.tab); window.scrollTo({top: bar.offsetTop - 50}); }); });
+  btns.forEach(function(b){ b.addEventListener('click', function(){ show(b.dataset.tab); window.scrollTo({top: bar.offsetTop - ((document.querySelector('.topbar')||{}).offsetHeight||46) - 4}); }); });
   document.addEventListener('click', function(e){
     var a = e.target.closest && e.target.closest('a[data-goto]'); if (!a) return;
     e.preventDefault(); show(a.dataset.goto);
