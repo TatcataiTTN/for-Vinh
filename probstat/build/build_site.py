@@ -42,7 +42,7 @@ def build_module(mid):
     ng, nb = au.get('goc', 0), au.get('bo_sung', 0)
     diagram = ''
     dp = os.path.join(ROOT, 'img', f'{mid}.png')
-    if os.path.exists(dp): diagram = '<h2>Sơ đồ tóm tắt</h2>' + diag(f'../../../img/{mid}.png', c['title'], 'Sơ đồ vẽ bằng drawio, tóm tắt các bước của module.')
+    if os.path.exists(dp): diagram = '<h2>Sơ đồ tóm tắt</h2>' + diag(f'../../img/{mid}.png', c['title'], 'Sơ đồ vẽ bằng drawio, tóm tắt các bước của module.')
     body = f'''<div class="crumbs"><a href="../index.html">Trang chủ</a> › Module {mid[1:]}</div>
 <h1>Module {mid[1:]}. {esc(c['title'])}</h1><p class="lead">{esc(c['subtitle'])}</p>
 <p><span class="tag">{esc(meta['buoi'])}</span><span class="tag">Mục {esc(meta['sec'])}</span><span class="tag">Kreyszig {esc(meta['krey'])}</span><span class="tag">{esc(c['time'])}</span><span class="tag exam">{ng + nb} câu hỏi ({ng} gốc)</span></p>

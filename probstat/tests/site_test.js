@@ -16,7 +16,8 @@ const only=process.argv.slice(3);
     simOut:[...document.querySelectorAll('.sim')].map(s=>(s.querySelector('.out')||{}).textContent&&(s.querySelector('.out').textContent.length>20)),simErr:[...document.querySelectorAll('.sim .no')].map(e=>e.textContent).filter(t=>/Lỗi|Chưa có/.test(t)),
     quiz:document.querySelectorAll('#q-'+location.pathname.split('/').slice(-2)[0].slice(0,3)+' .qitem').length||document.querySelectorAll('.quiz .qitem').length,
     katexErr:document.querySelectorAll('.katex-error').length,katex:document.querySelectorAll('.katex').length,
-    imgs:[...document.querySelectorAll('img')].filter(i=>!i.complete||i.naturalWidth===0).length}));
+    imgSrcs:[...document.querySelectorAll('img')].map(i=>i.src)}));
+  info.imgs=0;for(const u of info.imgSrcs){const ok=await p.evaluate(async u=>{try{const r=await fetch(u);return r.ok&&(await r.blob()).size>1000}catch(e){return false}},u);if(!ok)info.imgs++}
   log(info.slides>=15,m.id+' slides '+info.slides);log(info.quiz===10,m.id+' quiz '+info.quiz);log(info.simOut.every(x=>x),m.id+' sim rỗng '+JSON.stringify(info.simOut));log(info.simErr.length===0,m.id+' sim lỗi '+info.simErr);
   log(info.katexErr===0,m.id+' katex-error '+info.katexErr);log(info.katex>8,m.id+' ít công thức '+info.katex);log(info.imgs===0,m.id+' ảnh vỡ '+info.imgs);
   const q=await p.evaluate(()=>{const it=document.querySelector('.quiz .qitem');it.querySelector('.opt').click();const shown=it.querySelector('.explain').classList.contains('show');
