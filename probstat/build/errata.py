@@ -12,3 +12,6 @@ ERRATA += [
 ERRATA += [
  'Lecture Notes Ví dụ 1.33: β = (360 − 320 + 0.5)/8 = 5.0625 (giáo trình in “7.5625”); kết quả cuối P ≈ 0.9948 không đổi vì Φ(β) ≈ 1.',
 ]
+ERRATA += [
+ 'Lecture Notes Ví dụ 3.2(ii): ngưỡng in “x̄ > 25.56” nhưng phần chấp nhận in “x̄ ≤ 25.58”; đúng cả hai là 24 + 1.645·3/√10 = 25.56.',
+]

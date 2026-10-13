@@ -43,6 +43,8 @@ def run(mid):
         if c != t: it['opts'][c], it['opts'][t] = it['opts'][t], it['opts'][c]; it['correct'] = t
         assert len(set(it['opts'])) == 4, (mid, it['q'][:60], it['opts'])
     rng.shuffle(items)
+    for it in items:
+        if len(it['explain']) < 40: it['explain'] = it['explain'].rstrip() + ' Đáp án đúng: ' + it['opts'][it['correct']] + '.'
     for k, it in enumerate(items): it['id'] = f'{mid}-{k+1:03d}'
     for k, e in enumerate(ess): e['id'] = f'{mid}-E{k+1:02d}'
     meta = next(m for m in MODS if m['id'] == mid)

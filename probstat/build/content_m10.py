@@ -1,0 +1,39 @@
+from hx import *
+def m_(t): return f'\\({t}\\)'
+def module():
+    parts = []
+    s = []
+    s.append(sl('<p>Kiểm định giả thuyết dùng mẫu để <b>quyết định</b> một khẳng định về tổng thể (ví dụ “mức tiêu thụ nhiên liệu trung bình là 5.75 lít/100 km”). Đây là câu 3 của mọi đề cuối kỳ. Module này: quy trình 7 bước, hai loại sai lầm, kiểm định kỳ vọng khi σ biết (U) và chưa biết (Student), một phía và hai phía.</p>' + ul(['H₀, H₁, mức ý nghĩa α', 'Tiêu chuẩn T, miền bác bỏ W_α, giá trị quan sát T_qs', 'Sai lầm loại I, II và lực lượng kiểm định', 'Bốn dạng: đề thi (H₁: μ > μ₀), μ < μ₀, μ ≠ μ₀']), 'MODULE 10 · Bài học 4 · Chương 3, mục 3.1–3.2 · Kreyszig §25.4', 'Kiểm định giả thuyết về kỳ vọng', explain='Giống phiên tòa: giả sử “vô tội” (H₀) và chỉ bác bỏ khi chứng cứ đủ mạnh. Không đủ chứng cứ không có nghĩa là chứng minh vô tội.'))
+    s.append(sl(diag('../../img/m10.png', 'Quy trình kiểm định', 'Bảy bước và hai bảng miền bác bỏ.'), 'PHẦN 1 · Nền tảng', 'Quy trình 7 bước'))
+    s.append(sl(table(['', 'Thực tế H₀ đúng', 'Thực tế H₁ đúng'], [['Bác bỏ H₀', 'Sai lầm loại I (xác suất α)', 'Quyết định đúng (lực lượng η = 1 − β)'], ['Không bác bỏ H₀', 'Quyết định đúng', 'Sai lầm loại II (xác suất β)']]) + '<p>Giảm α thì β tăng; muốn giảm cả hai phải tăng cỡ mẫu. Thực tế chọn α = 5% (đôi khi 1%).</p>', 'PHẦN 1 · Nền tảng', 'Hai loại sai lầm'))
+    parts.append(dict(title='Nền tảng', bullets=['Quy trình 7 bước', 'Sai lầm loại I và II'], slides=s))
+    s = []
+    s.append(sl(formula('σ đã biết', 'T=\\dfrac{\\bar X-\\mu_0}{\\sigma/\\sqrt n}\\sim N(0,1),\\quad H_1:\\mu>\\mu_0\\Rightarrow W_\\alpha=\\{T>U_\\alpha\\},\\ \\mu<\\mu_0\\Rightarrow\\{T<-U_\\alpha\\},\\ \\mu\\ne\\mu_0\\Rightarrow\\{|T|>U_{\\alpha/2}\\}') + '<p>Ví dụ 3.2: σ² = 9, n = 10, μ₀ = 24, α = 5% hai phía: bác bỏ khi x̄ &lt; 22.14 hoặc x̄ &gt; 25.86.</p>', 'PHẦN 2 · Phương pháp', 'Kiểm định μ khi σ đã biết'))
+    s.append(sl(formula('σ chưa biết', 'T=\\dfrac{\\bar X-\\mu_0}{S/\\sqrt n}\\sim t(n-1),\\quad W_\\alpha=\\{T>t_\\alpha(n-1)\\}\\ \\text{(đề thi)}') + callout('good', 'Bài mẫu đề thi (H₁: μ > μ₀)', 'Bảng theo lớp ⇒ N, x̄, s ⇒ T_qs = (x̄ − μ₀)/(s/√N) ⇒ t_α(N − 1) ⇒ so sánh. Ví dụ HK2 đề 1: T_qs = 4.389 > 1.71 ⇒ bác bỏ.'), 'PHẦN 2 · Phương pháp', 'Kiểm định μ khi σ chưa biết'))
+    s.append(sl(sim('htest'), 'PHẦN 2 · Phương pháp', 'Thực hành: miền bác bỏ và kết luận'))
+    parts.append(dict(title='Phương pháp', bullets=['σ đã biết', 'σ chưa biết', 'Widget kiểm định'], slides=s))
+    s = []
+    s.append(sl(callout('info', 'Ví dụ 3.1 (Lecture Notes)', 'Dây kim loại: H₀: μ = 200, H₁: μ < 200, n = 25, x̄ = 197, s = 6, α = 5%.') + steps([m_('T_{qs}=\\dfrac{197-200}{6/\\sqrt{25}}=-2.5'), m_('W_\\alpha=\\{T<-1.711\\}'), 'T_qs ∈ W_α ⇒ bác bỏ H₀ (giới hạn đứt nhỏ hơn khẳng định).']), 'PHẦN 3 · Ví dụ', 'Ví dụ 1: dây kim loại'))
+    s.append(sl(callout('info', 'Đề HK2 đề 1 câu 3', 'H₀: μ = 5.75, H₁: μ > 5.75; mẫu theo lớp 5.0–7.4 (2; 4; 7; 8; 4; 2), α = 5%.') + steps(['N = 27; z̄ = 6.207; s = 0.541.', 'T_qs = (6.207 − 5.75)/(0.541/√27) = 4.389 (trùng đáp án chính thức).', 't₀.₀₅(26) ≈ 1.71 ⇒ T_qs ∈ W_α ⇒ bác bỏ H₀.']), 'PHẦN 3 · Ví dụ', 'Ví dụ 2: nhiên liệu (đề cuối kỳ)'))
+    s.append(sl(callout('info', 'Bài 3.2 và 3.3', 'σ² = 9, H₀: μ = 60, H₁: μ < 60, α = 5%.') + table(['n', 'x̄', 'T_qs', 'Tới hạn', 'Kết luận'], [['20', '58.50', '−2.236', '−1.645', 'Bác bỏ H₀'], ['5', '58.05', '−1.453', '−1.645', 'Chấp nhận H₀']]) + '<p>Cùng độ lệch nhưng mẫu nhỏ làm giảm lực lượng kiểm định.</p>', 'PHẦN 3 · Ví dụ', 'Ví dụ 3: ảnh hưởng của cỡ mẫu'))
+    parts.append(dict(title='Ví dụ có lời giải (câu hỏi thật)', bullets=['Dây kim loại', 'Nhiên liệu', 'Cỡ mẫu'], slides=s))
+    s = []
+    s.append(sl(ul(['<b>Chọn sai phía</b>: đọc cẩn thận “nghi ngờ cao hơn/thấp hơn/khác”.', '<b>Dùng U thay t</b> khi σ chưa biết.', '<b>Kết luận “chấp nhận H₀” = “chứng minh H₀”</b>: sai; chỉ là chưa đủ cơ sở bác bỏ.', '<b>Quên điểm giữa lớp</b>, N khi tính s.', '<b>Miền bác bỏ một phía dùng α/2</b>: sai.']), 'PHẦN 4 · Bẫy và mở rộng', 'Năm bẫy thường gặp'))
+    s.append(sl(callout('info', 'Kiểm định tỷ lệ (Kreyszig PS 25.4/4–5)', 'Buffon 2048 ngửa/4040: z = (0.50693 − 0.5)/√(0.25/4040) = 0.881 ⇒ không bác bỏ p = 0.5. Pearson 6019/12000: z = 0.52 ⇒ cũng không bác bỏ. Hai thí nghiệm đều phù hợp đồng xu công bằng.'), 'PHẦN 4 · Bẫy và mở rộng', 'Mở rộng: kiểm định tỷ lệ'))
+    parts.append(dict(title='Bẫy và mở rộng', bullets=['Năm bẫy', 'Kiểm định tỷ lệ'], slides=s))
+    s = []
+    s.append(sl('<p><b>Kiểm tra chất lượng nhiên liệu.</b> Hãng xe khẳng định 5.75 lít/100 km; một mẫu 27 xe cho x̄ = 6.207, s = 0.541. Kiểm định bác bỏ khẳng định ở mức 5% — dữ liệu cho thấy mức tiêu thụ thực tế cao hơn. Đây là cơ sở để khiếu nại, hiệu chỉnh nhãn năng lượng hoặc yêu cầu kiểm tra lại.</p>', 'PHẦN 5 · Ứng dụng và tổng kết', 'Case study: khẳng định của nhà sản xuất'))
+    s.append(sl(ul(['7 bước: H₀, H₁, α, T, W_α, T_qs, kết luận.', 'σ biết: U; σ chưa biết: t(n − 1).', 'Một phía dùng α; hai phía dùng α/2.']) + callout('good', 'Tiếp theo', 'Module 11: χ², kiểm định phương sai và so sánh hai kỳ vọng.'), 'PHẦN 5 · Ứng dụng và tổng kết', 'Tổng kết module'))
+    parts.append(dict(title='Ứng dụng và tổng kết', bullets=['Nhiên liệu', 'Tổng kết'], slides=s))
+    notes = '<h2>1. Nội dung chi tiết</h2><p>Lecture Notes §3.1 (khái niệm, quy tắc chung, thủ tục 7 bước, hai loại sai lầm, hai loại bài toán) và §3.2 (kiểm định kỳ vọng khi σ biết: Bài toán 1–3; khi σ chưa biết). Kreyszig §25.4 và PS 25.4. Câu hỏi gốc: Ví dụ 3.1–3.3, Bài 3.1–3.9, PS 25.4/3–9, 11 và mười hai câu 3 của các đề.</p><h2>2. Năm ví dụ chi tiết có lời giải</h2>'
+    notes += ex('1. Ví dụ 3.3: dây thừng', '<p>n = 16, x̄ = 4482, s = 115, H₀: μ = 4500, H₁: μ < 4500, α = 5%. T_qs = (4482 − 4500)/(115/√16) = −0.626; t₀.₀₅(15) = 1.753 ⇒ T_qs ∉ W_α ⇒ chấp nhận H₀.</p>')
+    notes += ex('2. Bài 3.5: can dầu', '<p>n = 51, x̄ = 4990, s = 20, hai phía: T_qs = −10/(20/√51) = −3.536; t₀.₀₂₅(50) = 2.009 ⇒ bác bỏ H₀.</p>')
+    notes += ex('3. Bài 3.6: lốp xe', '<p>H₁: μ > 35000; n = 25, x̄ = 37000, s = 5000: T_qs = 2.0 > t₀.₀₅(24) = 1.711 ⇒ bác bỏ H₀: ủng hộ khẳng định > 35 000 dặm.</p>')
+    notes += ex('4. Bài 3.7: hai vôn kế', '<p>Sai khác 0.4, −0.6, 0.2, 0, 1.0, 1.4, 0.4, 1.6: x̄ = 0.55, s = 0.7, T_qs = 2.22 vs t₀.₀₂₅(7) = 2.365 ⇒ chấp nhận H₀: sai khác không đáng kể.</p>')
+    notes += ex('5. Đề 2021–2022 câu 3 (a = 9, b = 2)', '<p>σ = 10, H₀: μ = 3150, H₁: μ < 3150; mẫu 3080, 3100, 3159, 3182, 3200 ⇒ x̄ = 3144.2; T_qs = −1.297; U₀.₀₁ = 2.326 ⇒ chấp nhận H₀.</p>')
+    notes += '<h2>3. Thực hành tương tác</h2>' + sim('htest')
+    notes += '<h2>4. Bối cảnh lý thuyết và lịch sử</h2>' + callout('info', '📜 Fisher, Neyman, Pearson', 'Fisher (1925) giới thiệu p-value và mức ý nghĩa; Neyman–Pearson (1933) đưa ra H₀/H₁, sai lầm loại I/II và lực lượng kiểm định.')
+    notes += '<h2>5. Case study</h2><p>Hãng xe, nhà máy hay phòng thí nghiệm đều dùng cùng quy trình: đưa khẳng định thành H₀, thu mẫu, tính T_qs, so với miền bác bỏ.</p><h2>6. Bẫy khi làm bài</h2>' + callout('warn', 'Chú ý', '• Viết đủ 7 bước: H₀, H₁, α, T, W_α, T_qs, kết luận.<br>• Nêu rõ “bác bỏ H₀” hay “chưa đủ cơ sở bác bỏ H₀”.<br>• Tra t với bậc tự do n − 1.')
+    return dict(id='m10', slug='m10-kiem-dinh-ky-vong', title='Khái niệm kiểm định giả thuyết và kiểm định kỳ vọng phân phối chuẩn', subtitle='H₀/H₁, α, sai lầm loại I/II, kiểm định μ (σ biết: U; σ chưa biết: Student), một/hai phía',
+                source='Lecture Notes §3.1–3.2, Bài 3.1–3.9 · Kreyszig §25.4 (PS 25.4) · Câu 3 mọi đề cuối kỳ', exam='Câu 3 MỌI đề cuối kỳ (2TC, HK2, 2024, 2021–2022)', time='≈ 5 giờ',
+                objectives=['Phát biểu H₀, H₁ đúng theo ngữ cảnh', 'Chọn U hay t; tìm miền bác bỏ đúng phía', 'Tính T_qs từ dữ liệu theo lớp và kết luận', 'Giải thích sai lầm loại I, II và lực lượng kiểm định'], parts=parts, notes=notes, sims=['htest'])
