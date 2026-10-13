@@ -15,3 +15,7 @@ ERRATA += [
 ERRATA += [
  'Lecture Notes Ví dụ 3.2(ii): ngưỡng in “x̄ > 25.56” nhưng phần chấp nhận in “x̄ ≤ 25.58”; đúng cả hai là 24 + 1.645·3/√10 = 25.56.',
 ]
+ERRATA += [
+ 'Lecture Notes Bài 4.1 và 4.2 (đối chiếu với Kreyszig PS 25.9, Prob. 1–2): Bài 4.1 in điểm đầu (0, 0.1) nhưng Kreyszig là (0, 1.0); Bài 4.2 in (3, 3.1) nhưng Kreyszig là (3, 1.3). Ngân hàng dùng số liệu của Kreyszig (đã xem ảnh trang).',
+ 'Lecture Notes Ví dụ 4.1: “y − 4.74 = 0.00077(x − 7000)” nên là y − 4.75 (ȳ = 4.75), kết quả y(7000) = 4.75 đúng.',
+]
