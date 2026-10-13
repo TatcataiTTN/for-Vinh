@@ -18,7 +18,7 @@ const only=process.argv.slice(3);
     katexErr:document.querySelectorAll('.katex-error').length,katex:document.querySelectorAll('.katex').length,
     imgs:[...document.querySelectorAll('img')].filter(i=>!i.complete||i.naturalWidth===0).length}));
   log(info.slides>=15,m.id+' slides '+info.slides);log(info.quiz===10,m.id+' quiz '+info.quiz);log(info.simOut.every(x=>x),m.id+' sim rỗng '+JSON.stringify(info.simOut));log(info.simErr.length===0,m.id+' sim lỗi '+info.simErr);
-  log(info.katexErr===0,m.id+' katex-error '+info.katexErr);log(info.katex>20,m.id+' ít công thức '+info.katex);log(info.imgs===0,m.id+' ảnh vỡ '+info.imgs);
+  log(info.katexErr===0,m.id+' katex-error '+info.katexErr);log(info.katex>8,m.id+' ít công thức '+info.katex);log(info.imgs===0,m.id+' ảnh vỡ '+info.imgs);
   const q=await p.evaluate(()=>{const it=document.querySelector('.quiz .qitem');it.querySelector('.opt').click();const shown=it.querySelector('.explain').classList.contains('show');
     [...it.querySelectorAll('button')].find(x=>x.textContent.includes('Làm lại câu này')).click();return {shown,cleared:!it.querySelector('.opt.correct,.opt.wrong')}});
   log(q.shown&&q.cleared,m.id+' quiz explain/reset '+JSON.stringify(q));

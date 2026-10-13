@@ -3,6 +3,7 @@ import os, sys, json, glob, importlib, html
 sys.path.insert(0, os.path.dirname(__file__))
 from sitelib import *
 from modules import MODS, BY
+from errata import ERRATA
 
 SIMJS = ['ps.js', 'simlib.js'] + sorted(os.path.basename(p) for p in glob.glob(os.path.join(ROOT, '_shared', 'w_*.js'))) + ['sim.js']
 def have(mid): return os.path.exists(os.path.join(os.path.dirname(__file__), f'content_{mid}.py')) and os.path.exists(os.path.join(ROOT, 'data', 'qbank', mid + '.json'))
@@ -88,11 +89,12 @@ def build_tables():
 
 def build_docs():
     rows = ''.join(f'<li>{html.escape(n)} — <i>{html.escape(d)}</i></li>' for n, d in SRC)
+    err = ''.join(f'<li>{html.escape(e)}</li>' for e in ERRATA)
     body = f'''<h1>Tài liệu nguồn và ghi chú kiểm chứng</h1><ul>{rows}</ul>
 <h2>Cách xử lý nguồn</h2><ul><li>Văn bản PDF có lớp chữ được trích bằng pdftotext/PyMuPDF; ký hiệu toán (dấu trừ, ∪, ∩…) bị mất khi trích nên mọi câu có ký hiệu đều được đối chiếu với ảnh trang.</li>
 <li>Đề giữa kỳ mẫu là ảnh (không có lớp chữ): đã OCR bằng Tesseract (vie+eng) và đối chiếu thủ công vì OCR bỏ sót câu 3, 4, 8.</li><li>Ảnh minh hoạ trong giáo trình (đồ thị phân phối, vùng bác bỏ, scatter r) đã được xem và đối chiếu với nội dung văn bản.</li>
 <li>Đáp án của mọi câu trắc nghiệm do chương trình tính (Python/SciPy, tự cài đặt đối chiếu numpy); các tài liệu gốc không có đáp án cho Problem Set của Kreyszig nên đáp án là do người biên soạn tính.</li></ul>
-<h2>Sai sót phát hiện trong tài liệu gốc</h2><ul id="errata"><li>Lecture Notes Ví dụ 1.1: dữ liệu đã sắp xếp có 14 giá trị; giáo trình in “qU = x₁₁ = 98” nhưng x₁₁ = 89 (các phép tính sau dùng 89).</li></ul>'''
+<h2>Sai sót phát hiện trong tài liệu gốc</h2><ul id="errata">{err}</ul>'''
     write('vi/tai-lieu/index.html', page('Tài liệu', body, 2, 'Nguồn và kiểm chứng', math=False))
 
 def build_exam_placeholder():
