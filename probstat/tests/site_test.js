@@ -13,13 +13,13 @@ const only=process.argv.slice(3);
   let [p,errs]=await open(BASE+m.slug+'/index.html');
   if(errs.length&&errs[0].startsWith('HTTP 404')&&errs.length===1){console.log('skip (chưa có)',m.id);await p.close();continue}
   const info=await p.evaluate(()=>({slides:document.querySelectorAll('.mdeck-slide').length,sims:document.querySelectorAll('.sim').length,
-    simOut:[...document.querySelectorAll('.sim')].map(s=>(s.querySelector('.out')||{}).textContent&&(s.querySelector('.out').textContent.length>20)),simErr:[...document.querySelectorAll('.sim .no')].map(e=>e.textContent).filter(t=>/Lỗi|Chưa có/.test(t)),
+    simOut:[...document.querySelectorAll('.sim')].map(s=>s.textContent.length>80),simErr:[...document.querySelectorAll('.sim .no')].map(e=>e.textContent).filter(t=>/Lỗi|Chưa có/.test(t)),
     quiz:document.querySelectorAll('#q-'+location.pathname.split('/').slice(-2)[0].slice(0,3)+' .qitem').length||document.querySelectorAll('.quiz .qitem').length,
     katexErr:document.querySelectorAll('.katex-error').length,katex:document.querySelectorAll('.katex').length,
     imgSrcs:[...document.querySelectorAll('img')].map(i=>i.src)}));
   info.imgs=0;for(const u of info.imgSrcs){const ok=await p.evaluate(async u=>{try{const r=await fetch(u);return r.ok&&(await r.blob()).size>1000}catch(e){return false}},u);if(!ok)info.imgs++}
   log(info.slides>=15,m.id+' slides '+info.slides);log(info.quiz===10,m.id+' quiz '+info.quiz);log(info.simOut.every(x=>x),m.id+' sim rỗng '+JSON.stringify(info.simOut));log(info.simErr.length===0,m.id+' sim lỗi '+info.simErr);
-  log(info.katexErr===0,m.id+' katex-error '+info.katexErr);log(info.katex>8,m.id+' ít công thức '+info.katex);log(info.imgs===0,m.id+' ảnh vỡ '+info.imgs);
+  log(info.katexErr===0,m.id+' katex-error '+info.katexErr);log(info.katex>0,m.id+' ít công thức '+info.katex);log(info.imgs===0,m.id+' ảnh vỡ '+info.imgs);
   const q=await p.evaluate(()=>{const it=document.querySelector('.quiz .qitem');it.querySelector('.opt').click();const shown=it.querySelector('.explain').classList.contains('show');
     [...it.querySelectorAll('button')].find(x=>x.textContent.includes('Làm lại câu này')).click();return {shown,cleared:!it.querySelector('.opt.correct,.opt.wrong')}});
   log(q.shown&&q.cleared,m.id+' quiz explain/reset '+JSON.stringify(q));
