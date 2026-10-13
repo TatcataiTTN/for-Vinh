@@ -1,0 +1,5 @@
+probstat/tests/node_modules/
+probstat/tests/*.png
+probstat/tests/cases.json
+__pycache__/
+.DS_Store
