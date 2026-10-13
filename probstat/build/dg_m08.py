@@ -1,0 +1,18 @@
+from drawio_util import D
+import os
+ROOT = os.path.join(os.path.dirname(__file__), '..')
+d = D(1000, 560)
+d.text(20, 8, 960, 34, 'Chọn công thức khoảng tin cậy', 22, True)
+d.text(20, 46, 960, 24, 'Đọc đề: tham số cần ước lượng là gì? biến có chuẩn không? σ đã biết không? mẫu có lớn không?', 14, color='#5d6678')
+q1 = d.box(380, 90, 240, 60, 'Ước lượng tham số nào?', 'dark', 17, True)
+a = d.box(40, 210, 260, 64, 'Kỳ vọng μ\n(biến chuẩn)', 'blue', 16, True)
+b = d.box(370, 210, 260, 64, 'Tỷ lệ p\n(n lớn)', 'green', 16, True)
+c = d.box(700, 210, 260, 64, 'Phương sai σ²\n(mở rộng, chuẩn)', 'purple', 16, True)
+d.edge(q1, a, '', exit=(0, 0.5), entry=(0.5, 0)); d.edge(q1, b, '', exit=(0.5, 1), entry=(0.5, 0)); d.edge(q1, c, '', exit=(1, 0.5), entry=(0.5, 0))
+z = d.box(10, 360, 180, 80, 'σ đã biết:\nx̄ ± U·σ/√n\nU = U(α/2) (A8)', 'yellow', 14, True)
+t = d.box(210, 360, 200, 80, 'σ chưa biết:\nx̄ ± t·s/√n\nt = t(α/2)(n−1) (A9)', 'yellow', 14, True)
+pp = d.box(430, 360, 240, 80, 'f ± U·√(f(1−f)/n)\nf = tần suất mẫu\nU = U(α/2)', 'yellow', 14, True)
+vv = d.box(700, 360, 280, 80, '[(n−1)s²/χ²(α/2); (n−1)s²/χ²(1−α/2)]\nbậc tự do n − 1', 'yellow', 14, True)
+d.edge(a, z, 'σ biết', exit=(0.3, 1), entry=(0.5, 0)); d.edge(a, t, 'σ chưa biết', exit=(0.7, 1), entry=(0.5, 0)); d.edge(b, pp, '', exit=(0.5, 1), entry=(0.5, 0)); d.edge(c, vv, '', exit=(0.5, 1), entry=(0.5, 0))
+d.box(10, 470, 980, 70, 'Cỡ mẫu: n ≥ (2·U·σ/L)²  (độ dài L)   |   Độ tin cậy ↑ ⇒ khoảng rộng hơn   |   n ↑ ⇒ khoảng hẹp hơn (theo 1/√n)   |   Đề Phenikaa: dữ liệu theo lớp ⇒ dùng điểm giữa lớp', 'orange', 15, True)
+d.save(os.path.join(ROOT, 'drawio', 'm08.drawio'), os.path.join(ROOT, 'img', 'm08.png'))
