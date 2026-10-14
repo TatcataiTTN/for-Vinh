@@ -53,13 +53,13 @@ def build_module(mid):
 <h2>Tự kiểm tra nhanh (10 câu)</h2><p class="lead">Chọn đáp án để chấm ngay; mỗi câu đều có giải thích; có nút làm lại từng câu và cả bài.</p>{quiz_block('q-' + mid, quiz)}
 <h2>Luyện tập sâu</h2>{callout('info', f'Ngân hàng {len(bank["items"])} câu trắc nghiệm + {len(bank["essays"])} bài tự luận', f'<p>Câu gốc lấy từ giáo trình Lecture Notes, Kreyszig Problem Set và đề thi; lọc theo nguồn/mức/chủ đề, phản hồi tức thì có giải thích, có nút <b>↺ làm lại</b>. <a class="btn" href="luyen-tap/index.html">Vào luyện tập Module {mid[1:]} →</a></p>')}
 {nav}'''
-    write(f'vi/{meta["slug"]}/index.html', page(f'Module {mid[1:]}: {c["title"]}', body, 3, c['subtitle'], scripts=['deck.js', 'quiz.js'] + (SIMJS if c.get('sims') else [])))
+    write(f'vi/{meta["slug"]}/index.html', page(f'Module {mid[1:]}: {c["title"]}', body, 2, c['subtitle'], scripts=['deck.js', 'quiz.js'] + (SIMJS if c.get('sims') else [])))
     data = json.dumps(dict(module=mid, items=bank['items'], essays=bank['essays']), ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
     bb = f'''<div class="crumbs"><a href="../../index.html">Trang chủ</a> › <a href="../index.html">Module {mid[1:]}</a> › Luyện tập</div>
 <h1>Luyện tập · Module {mid[1:]}: {esc(meta['short'])}</h1>
 <p class="lead">{len(bank['items'])} câu trắc nghiệm ({ng} câu gốc từ tài liệu, {nb} câu bổ sung) và {len(bank['essays'])} bài tự luận có lời giải. Tiến độ lưu trong trình duyệt của bạn (localStorage).</p>
 <div id="bank"></div><script type="application/json" id="bank-data">{data}</script>'''
-    write(f'vi/{meta["slug"]}/luyen-tap/index.html', page(f'Luyện tập Module {mid[1:]}', bb, 4, 'Ngân hàng câu hỏi', scripts=['bank.js'], math=False))
+    write(f'vi/{meta["slug"]}/luyen-tap/index.html', page(f'Luyện tập Module {mid[1:]}', bb, 3, 'Ngân hàng câu hỏi', scripts=['bank.js'], math=False))
 
 def build_home():
     au = audit_all(); cards = ''; cur = None
