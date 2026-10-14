@@ -89,13 +89,39 @@ def build_tables():
 
 def build_docs():
     rows = ''.join(f'<li>{html.escape(n)} — <i>{html.escape(d)}</i></li>' for n, d in SRC)
+    au = audit_all()
+    audit_tbl = '<table class="t left"><tr><th>Module</th><th>Trắc nghiệm</th><th>Gốc</th><th>Bổ sung</th><th>Tự luận</th></tr>' + ''.join(f'<tr><td>M{m["id"][1:]} {html.escape(m["short"])}</td><td>{au[m["id"]]["n"]}</td><td>{au[m["id"]]["goc"]}</td><td>{au[m["id"]]["bo_sung"]}</td><td>{au[m["id"]]["essays"]}</td></tr>' for m in MODS if m['id'] in au) + '</table><p>Module 4, 7, 11, 12 có ít câu gốc vì tài liệu về các chủ đề này mỏng (Kreyszig không có mục Bayes; Chương 3 mục tùy chọn trong giáo trình tiếng Việt để trống); phần còn lại là biến thể tham số, được gắn nhãn “➕ Bổ sung”.</p>'
     err = ''.join(f'<li>{html.escape(e)}</li>' for e in ERRATA)
     body = f'''<h1>Tài liệu nguồn và ghi chú kiểm chứng</h1><ul>{rows}</ul>
-<h2>Cách xử lý nguồn</h2><ul><li>Văn bản PDF có lớp chữ được trích bằng pdftotext/PyMuPDF; ký hiệu toán (dấu trừ, ∪, ∩…) bị mất khi trích nên mọi câu có ký hiệu đều được đối chiếu với ảnh trang.</li>
+<h2>Số câu gốc và câu bổ sung theo module</h2>{audit_tbl}<h2>Cách xử lý nguồn</h2><ul><li>Văn bản PDF có lớp chữ được trích bằng pdftotext/PyMuPDF; ký hiệu toán (dấu trừ, ∪, ∩…) bị mất khi trích nên mọi câu có ký hiệu đều được đối chiếu với ảnh trang.</li>
 <li>Đề giữa kỳ mẫu là ảnh (không có lớp chữ): đã OCR bằng Tesseract (vie+eng) và đối chiếu thủ công vì OCR bỏ sót câu 3, 4, 8.</li><li>Ảnh minh hoạ trong giáo trình (đồ thị phân phối, vùng bác bỏ, scatter r) đã được xem và đối chiếu với nội dung văn bản.</li>
 <li>Đáp án của mọi câu trắc nghiệm do chương trình tính (Python/SciPy, tự cài đặt đối chiếu numpy); các tài liệu gốc không có đáp án cho Problem Set của Kreyszig nên đáp án là do người biên soạn tính.</li></ul>
 <h2>Sai sót phát hiện trong tài liệu gốc</h2><ul id="errata">{err}</ul>'''
     write('vi/tai-lieu/index.html', page('Tài liệu', body, 2, 'Nguồn và kiểm chứng', math=False))
+
+def build_exams():
+    import random
+    from crosscheck import rows
+    groups = [('Đề 1 · Chương 1 (M1–M3)', ['m01','m02','m03']), ('Đề 2 · Chương 1 (M4–M6)', ['m04','m05','m06']), ('Đề 3 · Chương 2 (M7–M8)', ['m07','m08']),
+              ('Đề 4 · Chương 3 (M10–M12)', ['m10','m11','m12']), ('Đề 5 · Chương 4 + kiểm định (M10, M13)', ['m10','m13']),
+              ('Đề 6 · Tổng hợp', None), ('Đề 7 · Tổng hợp', None), ('Đề 8 · Tổng hợp', None)]
+    banks = {m['id']: load_bank(m['id'])['items'] for m in MODS if have(m['id'])}
+    sets = []
+    for gi, (nm, mods) in enumerate(groups):
+        rng = random.Random(500 + gi); mods = mods or [k for k in banks if k != 'm09']; pool = []
+        for mid in mods:
+            its = [i for i in banks.get(mid, []) if i['origin'] == 'goc' and len(i['q']) < 420]
+            rng.shuffle(its); pool += [(mid, i) for i in its[:max(3, 15 // len(mods) + 2)]]
+        rng.shuffle(pool); pick = pool[:15]
+        sets.append([dict(q=i['q'], opts=i['opts'], correct=i['correct'], explain=i['explain'], src=f'{mid.upper()} · ' + i['src']) for mid, i in pick])
+    data = json.dumps(dict(sets=sets), ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+    body = '<h1>Luyện đề</h1><p class="lead">Tám đề trắc nghiệm 15 câu, 30 phút, tạo từ câu gốc của các module (đề 1–5 theo chương, 6–8 tổng hợp). Sau khi nộp bài có điểm thang 10 và giải thích từng câu; có nút làm lại.</p><div id="exam"></div><script type="application/json" id="exam-data">' + data + '</script>'
+    write('vi/luyen-de/index.html', page('Luyện đề', body, 2, 'Luyện đề trắc nghiệm', scripts=['exam.js'], math=False))
+    rs = ''.join(f'<tr><td>{html.escape(a)}</td><td>{html.escape(b)}</td><td>{o}</td><td>{float(c):.5g}</td><td>{"✓" if ok else "≈"}</td></tr>' for a, b, o, c, ok in rows())
+    body = f'''<h1>Cấu trúc đề thi và đối chiếu đáp án chính thức</h1><p class="lead">Mọi đề cuối kỳ đã công bố (2021–2022; 2022–2023 HK1 2TC và HK2 3TC; đề mẫu 03/2024) có cùng khung 4–5 câu. Giữa kỳ: 8 câu trắc nghiệm + 1 câu tự luận (đề mẫu); đáp án giữa kỳ HK2 có 4 câu tham số hóa.</p>
+<table class="t left"><tr><th>Câu</th><th>Nội dung</th><th>Module</th></tr><tr><td>1</td><td>Phân phối chuẩn: P(X ≤ a) và tìm c (hoặc bảng phân phối rời rạc ở đề 2TC)</td><td><a href="../m06-nhi-thuc-poisson-chuan/index.html">M6</a> / <a href="../m05-bien-ngau-nhien/index.html">M5</a></td></tr><tr><td>2</td><td>Khoảng tin cậy cho trung bình, dữ liệu theo lớp (σ biết hoặc t)</td><td><a href="../m08-khoang-tin-cay/index.html">M8</a></td></tr><tr><td>3</td><td>Kiểm định kỳ vọng, đối thuyết μ &gt; μ₀ (hoặc μ &lt; μ₀)</td><td><a href="../m10-kiem-dinh-ky-vong/index.html">M10</a></td></tr><tr><td>4</td><td>Hồi quy tuyến tính mẫu và dự báo, hoặc hệ số tương quan mẫu</td><td><a href="../m13-tuong-quan-hoi-quy/index.html">M13</a></td></tr><tr><td>5</td><td>Hàm mật độ (E, trung vị) hoặc MLE</td><td><a href="../m05-bien-ngau-nhien/index.html">M5</a> / <a href="../m07-mau-uoc-luong-diem/index.html">M7</a></td></tr></table>
+<h2>Đối chiếu kết quả tự tính với đáp án chính thức</h2><p>Chương trình tính lại các đáp án có trong tài liệu và so sánh. “≈” nghĩa là đáp án chính thức đã làm tròn trung gian (ví dụ HK2 đề 1 câu 3: s² chính thức 0.293 vì làm tròn x̄ trước khi bình phương; chính xác 0.288), kết luận không đổi.</p><div style="overflow:auto"><table class="t left"><tr><th>Đề</th><th>Mục</th><th>Chính thức</th><th>Tự tính</th><th></th></tr>{rs}</table></div>'''
+    write('vi/cau-truc-de/index.html', page('Cấu trúc đề thi', body, 2, 'Cấu trúc đề và đối chiếu', math=False))
 
 def build_exam_placeholder():
     body = '<h1>Luyện đề</h1><p class="lead">Đang biên soạn: đề trắc nghiệm tổng hợp tính giờ từ ngân hàng câu gốc và phân tích cấu trúc đề thi cuối kỳ các năm.</p>'
@@ -111,5 +137,5 @@ if __name__ == '__main__':
     for m in MODS:
         if have(m['id']): build_module(m['id'])
     build_home(); build_tables(); build_docs()
-    build_exam_placeholder()
+    build_exams()
     print('built')

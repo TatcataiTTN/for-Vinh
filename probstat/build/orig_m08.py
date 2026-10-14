@@ -39,7 +39,7 @@ def build(B):
     ci('Bầu cử: phỏng vấn 1600 cử tri, 960 người bầu cho A. Khoảng tin cậy 95% cho tỷ lệ p (Ví dụ 2.8) là', fp, kp, f'f = 0.6; k = 1.960·√(0.6·0.4/1600) = {f(kp,4)} ⇒ [0.576; 0.624].', 2, TOP['p'], S + 'Ví dụ 2.8', wrongk=[U(0.05) * math.sqrt(0.24 / 1600), 1.96 * 0.24 / 40, 1.96 * math.sqrt(0.24) / 1600])
     # ============ Bài tập chương 2 ============
     mids = [1010 + 20 * i for i in range(10)]; n2 = [3, 4, 7, 20, 40, 39, 25, 18, 9, 2]; N2 = sum(n2); m2 = sum(a * b for a, b in zip(mids, n2)) / N2; k2 = U(0.025) * 40 / math.sqrt(N2)
-    ci('Tuổi thọ bóng đèn (10 lớp, N = 167, x̄ ≈ 1099.0 giờ), σ = 40 giờ. Khoảng tin cậy 95% của tuổi thọ trung bình (Bài 2.2b) là', m2, k2, f'k = 1.96·40/√167 = {f(k2,3)}; x̄ = {f(m2,3)} ⇒ [{f(m2-k2,3)}; {f(m2+k2,3)}].', 2, TOP['z'], S + 'Bài 2.2(b)', wrongk=[T(0.025, 166) * 40 / math.sqrt(N2), 1.96 * 40, 1.645 * 40 / math.sqrt(N2)])
+    ci('Tuổi thọ bóng đèn (10 lớp, N = 167, x̄ ≈ 1105.7 giờ), σ = 40 giờ. Khoảng tin cậy 95% của tuổi thọ trung bình (Bài 2.2b) là', m2, k2, f'k = 1.96·40/√167 = {f(k2,3)}; x̄ = {f(m2,3)} ⇒ [{f(m2-k2,3)}; {f(m2+k2,3)}].', 2, TOP['z'], S + 'Bài 2.2(b)', wrongk=[T(0.025, 166) * 40 / math.sqrt(N2), 1.96 * 40, 1.645 * 40 / math.sqrt(N2)])
     x25 = [30, 42, 40, 34, 48, 50]; xb25 = sum(x25) / 6; k25b = U(0.025) * 4 / math.sqrt(6)
     ci('Chuẩn, σ = 4.00, mẫu 30, 42, 40, 34, 48, 50. Khoảng tin cậy 95% cho μ (Bài 2.5) là', xb25, k25b, f'x̄ = {f(xb25,3)}; k = 1.96·4/√6 = {f(k25b,3)}.', 1, TOP['z'], S + 'Bài 2.5', wrongk=[T(0.025, 5) * 4 / math.sqrt(6), 1.645 * 4 / math.sqrt(6), 1.96 * 4])
     k26 = U(0.05) * 0.5 / 10
@@ -118,14 +118,14 @@ def build(B):
         cls = '; '.join(f'{51+2.5*i:g}–{51+2.5*(i+1):g}: {c}' for i, c in enumerate(ns_))
         ci(f'Cân nặng Y (kg) người 20 tuổi ~ chuẩn. Mẫu theo lớp — {cls}. Khoảng tin cậy {int(g*100)}% cho cân nặng trung bình (σ chưa biết) là', m, k, f'N = {N}; x̄ = {f(m,3)}; s = {f(math.sqrt(v),3)}; t_{{{(1-g)/2:g}}}({N-1}) = {f(t,3)} (bảng A9); k = t·s/√N = {f(k,3)} ⇒ [{f(m-k,3)}; {f(m+k,3)}].', 3, TOP['t'], src, wrongk=[U((1 - g) / 2) * math.sqrt(v) / math.sqrt(N), T((1 - g) / 2, N) * math.sqrt(v) / math.sqrt(N), t * math.sqrt(v)])
     for a, b, src, off in [(9, 2, 'Đáp án đề số 1 thi 22/12/2021, câu 2', (174.315, 175.685)), (4, 3, 'Đáp án đề số 2 thi 22/12/2021, câu 2', (174.271, 175.863))]:
-        ns_ = [3, 5, 8 + a, 5 + b, 2]; N, m, v = gstats(171.0, 2.0, ns_); t = T(0.025, N - 1); k = t * math.sqrt(v) / math.sqrt(N)
+        ns_ = [3, 5, 8 + a, 5 + b, 2]; N, m, v = gstats(170.0, 2.0, ns_); t = T(0.025, N - 1); k = t * math.sqrt(v) / math.sqrt(N)
         cls = '; '.join(f'{170+2*i}–{172+2*i}: {c}' for i, c in enumerate(ns_))
         ci(f'Chiều cao Y (cm) người 18 tuổi ~ chuẩn; a = {a}, b = {b}: {cls}. Khoảng tin cậy 95% cho chiều cao trung bình là', m, k, f'N = {N}; x̄ = {f(m,3)}; s = {f(math.sqrt(v),3)}; t₀.₀₂₅({N-1}) = {f(t,3)}; k = {f(k,3)} ⇒ [{f(m-k,3)}; {f(m+k,3)}] (đáp án chính thức dùng t làm tròn: [{off[0]}; {off[1]}]).', 3, TOP['t'], src, wrongk=[U(0.025) * math.sqrt(v) / math.sqrt(N), T(0.05, N - 1) * math.sqrt(v) / math.sqrt(N), t * math.sqrt(v)])
     # giữa kỳ HK2 câu 4 (tổng hợp)
     n4, ybar, s4 = 22, 173.455, 2.38502; t4 = 1.72; k4t = t4 * s4 / math.sqrt(n4)
     ci('Chiều cao của 22 người: ȳ = 173.455, s = 2.385; độ tin cậy 90.5% (α = 0.095), t_{α/2}(21) = 1.72 (bảng). Khoảng tin cậy là (giữa kỳ HK2, câu 4)', ybar, k4t, f'k = t·s/√n = 1.72·2.385/√22 = {f(k4t,4)} ⇒ [{f(ybar-k4t,3)}; {f(ybar+k4t,3)}] (đáp án chính thức [172.58; 174.329]).', 3, TOP['t'], 'Đáp án giữa kỳ HK2 2022–2023, câu 4 (a=3, b=2, c=2)', wrongk=[1.96 * s4 / math.sqrt(22), t4 * s4, T(0.025, 21) * s4 / math.sqrt(22) * 1.3])
     # giữa kỳ mẫu 9(b), (c)
-    N9, m9, v9 = gstats(7, 2, [4, 8, 9, 5]); k9b = U(0.05) * 0.5 / math.sqrt(N9); k9c = T(0.05, N9 - 1) * math.sqrt(v9) / math.sqrt(N9)
+    N9, m9, v9 = gstats(6, 2, [4, 8, 9, 5]); k9b = U(0.05) * 0.5 / math.sqrt(N9); k9c = T(0.05, N9 - 1) * math.sqrt(v9) / math.sqrt(N9)
     ci('Thời gian điều trị (ngày) theo lớp 6–8: 4; 8–10: 8; 10–12: 9; 12–14: 5, chuẩn, σ = 0.5. Khoảng tin cậy 90% cho trung bình là (giữa kỳ mẫu, 9b)', m9, k9b, f'N = 26; x̄ = {f(m9,4)}; U₀.₀₅ = 1.645; k = 1.645·0.5/√26 = {f(k9b,4)}.', 2, TOP['z'], 'Đề giữa kỳ mẫu LTXSTK, câu 9(b)', wrongk=[T(0.05, 25) * 0.5 / math.sqrt(26), 1.96 * 0.5 / math.sqrt(26), 1.645 * 0.5])
     ci('Cùng mẫu thời gian điều trị (26 bệnh nhân) nhưng σ chưa biết; khoảng tin cậy 90% cho trung bình là (giữa kỳ mẫu, 9c)', m9, k9c, f's = {f(math.sqrt(v9),4)}; t₀.₀₅(25) = {f(T(0.05,25),3)}; k = {f(k9c,4)} ⇒ rộng hơn câu (b) vì σ phải ước lượng.', 3, TOP['t'], 'Đề giữa kỳ mẫu LTXSTK, câu 9(c)', wrongk=[U(0.05) * math.sqrt(v9) / math.sqrt(26), T(0.025, 25) * math.sqrt(v9) / math.sqrt(26), 1.645 * 0.5 / math.sqrt(26)])
     # lý thuyết

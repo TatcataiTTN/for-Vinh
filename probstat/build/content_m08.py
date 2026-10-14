@@ -17,7 +17,7 @@ def module():
     parts.append(dict(title='Phương pháp', bullets=['σ biết', 'σ chưa biết', 'Tỷ lệ, bảng lớp', 'Máy tính'], slides=s))
     s = []
     s.append(sl(callout('info', 'Đề HK2 đề 1 câu 2', 'σ = 16, γ = 95%, lớp 70–85…145–160 với tần số 2, 4, 7, 8, 4, 2.') + steps(['Điểm giữa 77.5; …; 152.5; N = 27; x̄ = 3112.5/27 = 115.278.', 'k = 1.96·16/√27 = 6.035.', 'Khoảng: [109.243; 121.313] — trùng đáp án chính thức.']), 'PHẦN 3 · Ví dụ', 'Ví dụ 1: σ biết, bảng lớp'))
-    s.append(sl(callout('info', 'Đề 2TC đề 1 câu 2', 'Cân nặng 51–66 kg theo 6 lớp rộng 2.5 (2, 4, 7, 8, 4, 2), γ = 90%, σ chưa biết.') + steps(['N = 27; x̄ = 59.3; s ≈ 3.7.', 't₀.₀₅(26) = 1.706; k = 1.706·s/√27.', 'Khoảng: x̄ ± k (xem lời giải đầy đủ trong ngân hàng câu).']), 'PHẦN 3 · Ví dụ', 'Ví dụ 2: σ chưa biết, bảng lớp'))
+    s.append(sl(callout('info', 'Đề 2TC đề 1 câu 2', 'Cân nặng 51–66 kg theo 6 lớp rộng 2.5 (2, 4, 7, 8, 4, 2), γ = 90%, σ chưa biết.') + steps(['N = 27; x̄ = 58.546; s = 3.352.', 't₀.₀₅(26) = 1.706; k = 1.706·3.352/√27 = 1.100.', 'Khoảng: [57.446; 59.646].']), 'PHẦN 3 · Ví dụ', 'Ví dụ 2: σ chưa biết, bảng lớp'))
     s.append(sl(callout('info', 'Kreyszig PS 25.3/8', 'K. Pearson tung đồng xu 24 000 lần được 12 012 ngửa. Khoảng 99% cho p.') + steps(['f = 0.5005; k = 2.576√(0.25/24000) = 0.00831.', 'p ∈ [0.4922; 0.5088] chứa 0.5 ⇒ không có bằng chứng đồng xu không công bằng.']), 'PHẦN 3 · Ví dụ', 'Ví dụ 3: đồng xu của Pearson'))
     parts.append(dict(title='Ví dụ có lời giải (câu hỏi thật)', bullets=['σ biết', 'σ chưa biết', 'Tỷ lệ'], slides=s))
     s = []
@@ -30,7 +30,7 @@ def module():
     parts.append(dict(title='Ứng dụng và tổng kết', bullets=['Thăm dò dư luận', 'Tổng kết'], slides=s))
     notes = '<h2>1. Nội dung chi tiết</h2><p>Lecture Notes §2.3.1 (σ biết, Định lý 2.1), §2.3.2 (σ chưa biết, Student, Định lý 2.2), §2.3.3 (tỷ lệ, định lý giới hạn trung tâm). Kreyszig §25.3 và PS 25.3 (20 bài, kể cả khoảng cho phương sai). Câu hỏi gốc gồm Ví dụ 2.5–2.8, Bài 2.2b, 2.5–2.16, PS 25.3 và 12 câu 2 của các đề cuối kỳ cùng giữa kỳ.</p><h2>2. Năm ví dụ chi tiết có lời giải</h2>'
     notes += ex('1. Ví dụ 2.6: cỡ mẫu', '<p>σ = 3, γ = 95%, L = 0.4:</p>' + steps([m_('n\\ge\\left(\\dfrac{2\\cdot1.96\\cdot3}{0.4}\\right)^2=864.4'), m_('n=865\\ \\text{(làm tròn lên)}')]))
-    notes += ex('2. Bài 2.2(b): bóng đèn', '<p>10 lớp, N = 167, x̄ = 1099.0 giờ, σ = 40: k = 1.96·40/√167 = 6.07 ⇒ [1092.9; 1105.1].</p>')
+    notes += ex('2. Bài 2.2(b): bóng đèn', '<p>10 lớp, N = 167, x̄ = 1105.69 giờ, σ = 40: k = 1.96·40/√167 = 6.07 ⇒ [1099.62; 1111.76].</p>')
     notes += ex('3. Bài 2.14: tỷ lệ phế phẩm', '<p>16/400 = 0.04; k = 1.96√(0.04·0.96/400) = 0.0192 ⇒ [0.0208; 0.0592].</p>')
     notes += ex('4. Bài 2.9: ốc vít', '<p>n = 20, x̄ = 20.2, s² = 0.04, γ = 99%:</p>' + steps([m_('t_{0.005}(19)=2.861'), m_('k=\\dfrac{2.861\\cdot0.2}{\\sqrt{20}}=0.128'), m_('\\mu\\in[20.072;\\,20.328]')]))
     notes += ex('5. Kreyszig PS 25.3/7: phanh xe', '<p>126/800 = 0.1575; k = 1.96√(0.1575·0.8425/800) = 0.0252 ⇒ [0.132; 0.183].</p>')

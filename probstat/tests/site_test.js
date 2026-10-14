@@ -34,7 +34,7 @@ const only=process.argv.slice(3);
   log(bk.n>=10&&bk.ex&&bk.cleared,m.id+' bank '+JSON.stringify(bk));log(bk.items>=100&&bk.items<=300,m.id+' số câu '+bk.items);log(bk.srcs&&bk.exp,m.id+' thiếu nguồn/giải thích');log(e2.length===0,m.id+' bank console '+e2.slice(0,2));
   console.log(m.id.padEnd(5),'slides',info.slides,'| MCQ',bk.items,'(gốc '+bk.goc+') | tự luận',bk.ess,'| sims',info.sims,'| katex',info.katex);await p2.close();
  }
- for(const u of ['index.html','luyen-de/index.html','bang-tra/index.html','tai-lieu/index.html']){const [p,e]=await open(BASE+u);const t=await p.evaluate(()=>document.body.textContent.length);log(t>300,u+' rỗng');log(e.length===0,u+' lỗi '+e.slice(0,2));
+ for(const u of ['index.html','luyen-de/index.html','cau-truc-de/index.html','bang-tra/index.html','tai-lieu/index.html']){const [p,e]=await open(BASE+u);const t=await p.evaluate(()=>document.body.textContent.length);log(t>300,u+' rỗng');log(e.length===0,u+' lỗi '+e.slice(0,2));
   if(u.startsWith('bang-tra')){const r=await p.evaluate(()=>document.querySelector('#phi').textContent);log(r==='0.9332','bảng tra Φ(1.5)='+r)}await p.close()}
  console.log(fails?('TỔNG: '+fails+' lỗi'):'TỔNG: tất cả kiểm thử đạt');await b.close();process.exit(fails?1:0);
 })();
