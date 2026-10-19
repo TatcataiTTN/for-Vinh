@@ -1467,9 +1467,10 @@
     "note": ""
    }
   ],
-  "reference": "import numpy as np\n\n\ndef backtracking_step(f_str, x, tau=0.01, alpha=0.5):\n    \"\"\"Một bước gradient với quay lui (Armijo): t bắt đầu từ 1, nhân alpha cho tới khi f(x - t g) - f(x) <= -tau t |g|^2.\n\n    Đầu vào : f_str (str, biến x, y, z), x (list[float]), tau, alpha (float)\n    Đầu ra  : (t, x_new, halvings): t float độ dài bước, x_new list[float], halvings int = số lần nhân alpha\n    \"\"\"\n    names = [\"x\", \"y\", \"z\"][: len(x)]\n    vs = sp.symbols(names)\n    f = sp.sympify(f_str, locals=dict(zip(names, vs)))\n    fn = sp.lambdify(vs, f, \"numpy\"); gn = sp.lambdify(vs, [sp.diff(f, v) for v in vs], \"numpy\")\n    x = np.array(x, float); g = np.array(gn(*x), float); fx = float(fn(*x)); t = 1.0; m = 0\n    while float(fn(*(x - t * g))) - fx > -tau * t * float(g @ g) and m < 60:\n        t *= alpha; m += 1\n    xn = x - t * g\n    return float(t), [float(v) for v in xn], m\n",
+  "reference": "import numpy as np\nimport sympy as sp\n\n\ndef backtracking_step(f_str, x, tau=0.01, alpha=0.5):\n    \"\"\"Một bước gradient với quay lui (Armijo): t bắt đầu từ 1, nhân alpha cho tới khi f(x - t g) - f(x) <= -tau t |g|^2.\n\n    Đầu vào : f_str (str, biến x, y, z), x (list[float]), tau, alpha (float)\n    Đầu ra  : (t, x_new, halvings): t float độ dài bước, x_new list[float], halvings int = số lần nhân alpha\n    \"\"\"\n    names = [\"x\", \"y\", \"z\"][: len(x)]\n    vs = sp.symbols(names)\n    f = sp.sympify(f_str, locals=dict(zip(names, vs)))\n    fn = sp.lambdify(vs, f, \"numpy\"); gn = sp.lambdify(vs, [sp.diff(f, v) for v in vs], \"numpy\")\n    x = np.array(x, float); g = np.array(gn(*x), float); fx = float(fn(*x)); t = 1.0; m = 0\n    while float(fn(*(x - t * g))) - fx > -tau * t * float(g @ g) and m < 60:\n        t *= alpha; m += 1\n    xn = x - t * g\n    return float(t), [float(v) for v in xn], m\n",
   "packages": [
-   "numpy"
+   "numpy",
+   "sympy"
   ]
  },
  {
@@ -1559,9 +1560,10 @@
     "note": "hội tụ về (1,1)"
    }
   ],
-  "reference": "import numpy as np\n\n\ndef newton_min(f_str, x0, eps=1e-5, max_iter=50):\n    \"\"\"Phương pháp Newton thuần túy (bước t = 1): x <- x - H(x)^-1 g(x), dừng khi |g| < eps.\n\n    Đầu vào : f_str (str, biến x, y, z), x0 (list[float]), eps (float), max_iter (int)\n    Đầu ra  : (x, iterations): x list[float], iterations int = số bước Newton đã thực hiện\n    \"\"\"\n    names = [\"x\", \"y\", \"z\"][: len(x0)]\n    vs = sp.symbols(names)\n    f = sp.sympify(f_str, locals=dict(zip(names, vs)))\n    gn = sp.lambdify(vs, [sp.diff(f, v) for v in vs], \"numpy\")\n    Hn = sp.lambdify(vs, sp.hessian(f, vs), \"numpy\")\n    x = np.array(x0, float); k = 0\n    while k < max_iter:\n        g = np.array(gn(*x), float)\n        if np.linalg.norm(g) < eps: break\n        x = x - np.linalg.solve(np.array(Hn(*x), float), g); k += 1\n    return [float(v) for v in x], k\n",
+  "reference": "import numpy as np\nimport sympy as sp\n\n\ndef newton_min(f_str, x0, eps=1e-5, max_iter=50):\n    \"\"\"Phương pháp Newton thuần túy (bước t = 1): x <- x - H(x)^-1 g(x), dừng khi |g| < eps.\n\n    Đầu vào : f_str (str, biến x, y, z), x0 (list[float]), eps (float), max_iter (int)\n    Đầu ra  : (x, iterations): x list[float], iterations int = số bước Newton đã thực hiện\n    \"\"\"\n    names = [\"x\", \"y\", \"z\"][: len(x0)]\n    vs = sp.symbols(names)\n    f = sp.sympify(f_str, locals=dict(zip(names, vs)))\n    gn = sp.lambdify(vs, [sp.diff(f, v) for v in vs], \"numpy\")\n    Hn = sp.lambdify(vs, sp.hessian(f, vs), \"numpy\")\n    x = np.array(x0, float); k = 0\n    while k < max_iter:\n        g = np.array(gn(*x), float)\n        if np.linalg.norm(g) < eps: break\n        x = x - np.linalg.solve(np.array(Hn(*x), float), g); k += 1\n    return [float(v) for v in x], k\n",
   "packages": [
-   "numpy"
+   "numpy",
+   "sympy"
   ]
  },
  {

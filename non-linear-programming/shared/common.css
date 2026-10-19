@@ -258,3 +258,7 @@ table.grid2{width:100%}table.grid2 td{vertical-align:top;border:0;width:50%;padd
 .mdeck-slide .pd-formula{overflow-x:auto;overflow-y:hidden}
 .mdeck-slide .pd-formula .katex-display{margin:.3em 0}
 .mdeck-slide .katex-display{overflow-x:auto;overflow-y:hidden}
+.sgrid.stack .sside .slide-fig img{width:auto;max-width:100%;max-height:150px;margin:0 auto}
+.mdeck-slide .bstep{margin:.3em 0}
+.mdeck-slide .bstep h4{margin:0 0 .1em;font-size:1em}
+.mdeck-slide .bstep p{margin:.2em 0}
