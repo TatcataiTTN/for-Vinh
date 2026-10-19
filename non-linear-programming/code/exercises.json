@@ -1229,5 +1229,501 @@
   "packages": [
    "numpy"
   ]
+ },
+ {
+  "id": "gdexact",
+  "fn": "gradient_exact",
+  "module": "Module 7",
+  "level": "Vừa",
+  "title": "Gradient với tìm kiếm chính xác theo tia (hàm toàn phương)",
+  "statement": "Cài đặt phương pháp gradient \\(x^{k+1}=x^k-t_k\\nabla f(x^k)\\) cho \\(f=\\tfrac12x^\\top Ax+b^\\top x\\) với \\(t_k=\\dfrac{\\lVert g_k\\rVert^2}{g_k^\\top Ag_k}\\), dừng khi \\(\\lVert g_k\\rVert<\\varepsilon\\).",
+  "inp": "<code>A</code> (n×n đối xứng xác định dương), <code>b</code> (n), <code>x0</code> (n), <code>eps</code> (float), <code>max_iter</code> (int).",
+  "out": "Tuple <code>(x, iterations)</code>: x list[float] điểm cuối; iterations int = số bước đã làm (không đếm lần kiểm dừng). Dung sai 1e-6 cho x.",
+  "hint": "g = A@x + b; t = g@g/(g@A@g). Ví dụ 2 slide: A = diag(2,4), b = (-12,-12), x0 = (0,0), eps = 1e-2 cho 7 bước.",
+  "starter": "import numpy as np\n\ndef gradient_exact(A, b, x0, eps=1e-2, max_iter=500):\n    \"\"\"Trả về (x, iterations).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     [
+      [
+       2,
+       0
+      ],
+      [
+       0,
+       4
+      ]
+     ],
+     [
+      -12,
+      -12
+     ],
+     [
+      0,
+      0
+     ],
+     0.01
+    ],
+    "expected": [
+     [
+      5.997256515775034,
+      3.001371742112483
+     ],
+     7
+    ],
+    "visible": true,
+    "note": "Ví dụ 2 slide 7: x ≈ (5.997, 3.001), 7 bước"
+   },
+   {
+    "args": [
+     [
+      [
+       20,
+       -4
+      ],
+      [
+       -4,
+       4
+      ]
+     ],
+     [
+      -2,
+      -2
+     ],
+     [
+      0.5,
+      1
+     ],
+     0.01
+    ],
+    "expected": [
+     [
+      0.2504,
+      0.752
+     ],
+     7
+    ],
+    "visible": true,
+    "note": "Bài tập 2a: x* = (0.25, 0.75)"
+   },
+   {
+    "args": [
+     [
+      [
+       4,
+       -2
+      ],
+      [
+       -2,
+       2
+      ]
+     ],
+     [
+      2,
+      -2
+     ],
+     [
+      1.5,
+      1.5
+     ],
+     0.01
+    ],
+    "expected": [
+     [
+      0.001035284959348326,
+      1.0017747742160257
+     ],
+     7
+    ],
+    "visible": false,
+    "note": "Bài tập 2b: x* = (0, 1)"
+   },
+   {
+    "args": [
+     [
+      [
+       2,
+       0
+      ],
+      [
+       0,
+       4
+      ]
+     ],
+     [
+      -12,
+      -12
+     ],
+     [
+      0,
+      0
+     ],
+     0.001
+    ],
+    "expected": [
+     [
+      5.999695168419448,
+      3.000152415790276
+     ],
+     9
+    ],
+    "visible": false,
+    "note": ""
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef gradient_exact(A, b, x0, eps=1e-2, max_iter=500):\n    \"\"\"Phương pháp gradient với tìm kiếm chính xác theo tia cho f(x) = 1/2 x'Ax + b'x (A đối xứng xác định dương).\n\n    Đầu vào : A (n x n), b (n), x0 (n), eps (float), max_iter (int)\n    Đầu ra  : (x, iterations): x list[float] điểm cuối; iterations int = số bước đã thực hiện (không tính lần kiểm dừng)\n    \"\"\"\n    A = np.array(A, float); b = np.array(b, float); x = np.array(x0, float); k = 0\n    while k < max_iter:\n        g = A @ x + b\n        if np.linalg.norm(g) < eps: break\n        t = (g @ g) / (g @ A @ g)\n        x = x - t * g; k += 1\n    return [float(v) for v in x], k\n",
+  "packages": [
+   "numpy"
+  ]
+ },
+ {
+  "id": "backtrack",
+  "fn": "backtracking_step",
+  "module": "Module 7",
+  "level": "Vừa",
+  "title": "Một bước gradient với quay lui (Armijo)",
+  "statement": "Cho f (chuỗi) và điểm x: tính \\(g=\\nabla f(x)\\), đặt \\(t=1\\) rồi nhân \\(\\alpha\\) cho tới khi \\(f(x-tg)-f(x)\\le-\\tau t\\lVert g\\rVert^2\\). Trả về \\(t\\), điểm mới và số lần nhân.",
+  "inp": "<code>f_str</code> (str, biến x, y, z), <code>x</code> (list[float]), <code>tau</code>, <code>alpha</code> (float, mặc định 0.01 và 0.5).",
+  "out": "Tuple <code>(t, x_new, halvings)</code>. Dung sai 1e-8.",
+  "hint": "Dùng sympy để lấy gradient; vòng while kiểm tra bất đẳng thức Armijo.",
+  "starter": "import numpy as np\nimport sympy as sp\n\ndef backtracking_step(f_str, x, tau=0.01, alpha=0.5):\n    \"\"\"Trả về (t, x_new, halvings).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     "x**2 + 2*y**2 - 12*x - 12*y + 54",
+     [
+      0,
+      0
+     ]
+    ],
+    "expected": [
+     0.5,
+     [
+      6.0,
+      6.0
+     ],
+     1
+    ],
+    "visible": true,
+    "note": "Bài tập 4.2 bước 1: t = 0.5, 1 lần nhân"
+   },
+   {
+    "args": [
+     "x**2 + x*y + y**2 + 3*x + 3*y - 6",
+     [
+      0,
+      0
+     ]
+    ],
+    "expected": [
+     0.5,
+     [
+      -1.5,
+      -1.5
+     ],
+     1
+    ],
+    "visible": true,
+    "note": "Bài tập 4.1 bước 1: t = 0.5"
+   },
+   {
+    "args": [
+     "x**4 + y**2",
+     [
+      1,
+      1
+     ]
+    ],
+    "expected": [
+     0.5,
+     [
+      -1.0,
+      0.0
+     ],
+     1
+    ],
+    "visible": false,
+    "note": ""
+   },
+   {
+    "args": [
+     "(x-6)**2 + 2*(y-3)**2",
+     [
+      0,
+      0
+     ],
+     0.01,
+     0.5
+    ],
+    "expected": [
+     0.5,
+     [
+      6.0,
+      6.0
+     ],
+     1
+    ],
+    "visible": false,
+    "note": ""
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef backtracking_step(f_str, x, tau=0.01, alpha=0.5):\n    \"\"\"Một bước gradient với quay lui (Armijo): t bắt đầu từ 1, nhân alpha cho tới khi f(x - t g) - f(x) <= -tau t |g|^2.\n\n    Đầu vào : f_str (str, biến x, y, z), x (list[float]), tau, alpha (float)\n    Đầu ra  : (t, x_new, halvings): t float độ dài bước, x_new list[float], halvings int = số lần nhân alpha\n    \"\"\"\n    names = [\"x\", \"y\", \"z\"][: len(x)]\n    vs = sp.symbols(names)\n    f = sp.sympify(f_str, locals=dict(zip(names, vs)))\n    fn = sp.lambdify(vs, f, \"numpy\"); gn = sp.lambdify(vs, [sp.diff(f, v) for v in vs], \"numpy\")\n    x = np.array(x, float); g = np.array(gn(*x), float); fx = float(fn(*x)); t = 1.0; m = 0\n    while float(fn(*(x - t * g))) - fx > -tau * t * float(g @ g) and m < 60:\n        t *= alpha; m += 1\n    xn = x - t * g\n    return float(t), [float(v) for v in xn], m\n",
+  "packages": [
+   "numpy"
+  ]
+ },
+ {
+  "id": "newton",
+  "fn": "newton_min",
+  "module": "Module 7",
+  "level": "Vừa",
+  "title": "Phương pháp Newton tìm điểm dừng",
+  "statement": "Cài đặt \\(x^{k+1}=x^k-[\\nabla^2f(x^k)]^{-1}\\nabla f(x^k)\\) (bước 1), dừng khi \\(\\lVert\\nabla f\\rVert<\\varepsilon\\). Dùng sympy để lấy gradient và Hessian.",
+  "inp": "<code>f_str</code> (str, biến x, y, z), <code>x0</code> (list[float]), <code>eps</code> (float), <code>max_iter</code> (int).",
+  "out": "Tuple <code>(x, iterations)</code>. Dung sai 1e-6.",
+  "hint": "Giải hệ <code>np.linalg.solve(H, g)</code>, không nghịch đảo ma trận. Bài tập 6: x0 = (0.75, -1.25) cho (0.69588, -1.34794).",
+  "starter": "import numpy as np\nimport sympy as sp\n\ndef newton_min(f_str, x0, eps=1e-5, max_iter=50):\n    \"\"\"Trả về (x, iterations).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     "x**4 + x*y + (1 + y)**2",
+     [
+      0.75,
+      -1.25
+     ],
+     1e-05
+    ],
+    "expected": [
+     [
+      0.6958843872130828,
+      -1.3479421936065412
+     ],
+     3
+    ],
+    "visible": true,
+    "note": "Bài tập 6: 3 bước Newton (bảng slide tr.44 là x⁽⁴⁾≈(0.69588,−1.34794))"
+   },
+   {
+    "args": [
+     "x**2/2 - sin(x)",
+     [
+      0.5
+     ],
+     0.001
+    ],
+    "expected": [
+     [
+      0.7391416661498792
+     ],
+     2
+    ],
+    "visible": true,
+    "note": "Bài tập 5: x ≈ 0.7391 (nghiệm của x = cos x)"
+   },
+   {
+    "args": [
+     "x**2 + y**2 + 3*x",
+     [
+      5,
+      5
+     ],
+     1e-08
+    ],
+    "expected": [
+     [
+      -1.5,
+      0.0
+     ],
+     1
+    ],
+    "visible": false,
+    "note": "hàm toàn phương: đúng 1 bước"
+   },
+   {
+    "args": [
+     "x**4 + y**4 - 4*x*y + 1",
+     [
+      1.5,
+      1.2
+     ],
+     1e-08
+    ],
+    "expected": [
+     [
+      1.0000000000003013,
+      1.0000000000001743
+     ],
+     5
+    ],
+    "visible": false,
+    "note": "hội tụ về (1,1)"
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef newton_min(f_str, x0, eps=1e-5, max_iter=50):\n    \"\"\"Phương pháp Newton thuần túy (bước t = 1): x <- x - H(x)^-1 g(x), dừng khi |g| < eps.\n\n    Đầu vào : f_str (str, biến x, y, z), x0 (list[float]), eps (float), max_iter (int)\n    Đầu ra  : (x, iterations): x list[float], iterations int = số bước Newton đã thực hiện\n    \"\"\"\n    names = [\"x\", \"y\", \"z\"][: len(x0)]\n    vs = sp.symbols(names)\n    f = sp.sympify(f_str, locals=dict(zip(names, vs)))\n    gn = sp.lambdify(vs, [sp.diff(f, v) for v in vs], \"numpy\")\n    Hn = sp.lambdify(vs, sp.hessian(f, vs), \"numpy\")\n    x = np.array(x0, float); k = 0\n    while k < max_iter:\n        g = np.array(gn(*x), float)\n        if np.linalg.norm(g) < eps: break\n        x = x - np.linalg.solve(np.array(Hn(*x), float), g); k += 1\n    return [float(v) for v in x], k\n",
+  "packages": [
+   "numpy"
+  ]
+ },
+ {
+  "id": "cg",
+  "fn": "cg_quadratic",
+  "module": "Module 7",
+  "level": "Khó",
+  "title": "Gradient liên hợp Fletcher–Reeves cho hàm toàn phương",
+  "statement": "Cài đặt gradient liên hợp \\(d_0=-g_0\\), \\(t_k=-g_k^\\top d_k/(d_k^\\top Qd_k)\\), \\(\\beta_k=\\lVert g_{k+1}\\rVert^2/\\lVert g_k\\rVert^2\\), \\(d_{k+1}=-g_{k+1}+\\beta_kd_k\\) cho \\(f=\\tfrac12x^\\top Qx+c^\\top x\\). Với \\(Q\\) cỡ \\(n\\) thuật toán kết thúc sau nhiều nhất \\(n\\) bước.",
+  "inp": "<code>Q</code> (n×n đối xứng xác định dương), <code>c</code> (n), <code>x0</code> (n), <code>eps</code> (float).",
+  "out": "Tuple <code>(x, iterations)</code>; iterations ≤ n. Dung sai 1e-6.",
+  "hint": "Bài tập 8a: Q = [[4,-2],[-2,2]], c = (2,-2) cho x* = (0,1) sau 2 bước.",
+  "starter": "import numpy as np\n\ndef cg_quadratic(Q, c, x0, eps=1e-10):\n    \"\"\"Trả về (x, iterations).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     [
+      [
+       2,
+       -2
+      ],
+      [
+       -2,
+       4
+      ]
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      0
+     ]
+    ],
+    "expected": [
+     [
+      -1.0,
+      -1.0
+     ],
+     2
+    ],
+    "visible": true,
+    "note": "ví dụ slide: x* = (-1, -1), 2 bước"
+   },
+   {
+    "args": [
+     [
+      [
+       4,
+       -2
+      ],
+      [
+       -2,
+       2
+      ]
+     ],
+     [
+      2,
+      -2
+     ],
+     [
+      0,
+      0
+     ]
+    ],
+    "expected": [
+     [
+      2.7755575615628914e-16,
+      0.9999999999999999
+     ],
+     2
+    ],
+    "visible": true,
+    "note": "Bài tập 8a"
+   },
+   {
+    "args": [
+     [
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       5,
+       0
+      ],
+      [
+       0,
+       0,
+       25
+      ]
+     ],
+     [
+      1,
+      1,
+      1
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "expected": [
+     [
+      -1.0,
+      -0.19999999999999993,
+      -0.03999999999999978
+     ],
+     3
+    ],
+    "visible": false,
+    "note": "Bài tập 9a: 3 bước"
+   },
+   {
+    "args": [
+     [
+      [
+       2,
+       0,
+       2
+      ],
+      [
+       0,
+       8,
+       0
+      ],
+      [
+       2,
+       0,
+       4
+      ]
+     ],
+     [
+      1,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "expected": [
+     [
+      -1.0,
+      -0.12499999999999999,
+      0.5
+     ],
+     3
+    ],
+    "visible": false,
+    "note": "Bài tập 9b"
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef cg_quadratic(Q, c, x0, eps=1e-10):\n    \"\"\"Gradient liên hợp Fletcher–Reeves cho f(x) = 1/2 x'Qx + c'x (Q đối xứng xác định dương), tìm kiếm chính xác theo tia.\n\n    Đầu vào : Q (n x n), c (n), x0 (n), eps (float)\n    Đầu ra  : (x, iterations): x list[float], iterations int = số bước (tối đa n với hàm toàn phương)\n    \"\"\"\n    Q = np.array(Q, float); c = np.array(c, float); x = np.array(x0, float)\n    g = Q @ x + c; d = -g; k = 0\n    while np.linalg.norm(g) >= eps and k < 200:\n        t = -(g @ d) / (d @ Q @ d); x = x + t * d\n        g2 = Q @ x + c; beta = (g2 @ g2) / (g @ g); d = -g2 + beta * d; g = g2; k += 1\n    return [float(v) for v in x], k\n",
+  "packages": [
+   "numpy"
+  ]
  }
 ]

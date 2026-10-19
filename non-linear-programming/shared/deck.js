@@ -41,13 +41,13 @@
     });
     var dots = Array.prototype.slice.call(dotsWrap.children);
     function isFs(){ return document.fullscreenElement === deck || document.webkitFullscreenElement === deck; }
-    function frameHeight(){ return Math.max(420, Math.min(840, Math.round(window.innerHeight*0.76))); }
+    function frameHeight(){ return Math.max(480, Math.min(920, Math.round(window.innerHeight*0.80))); }
     function fit(){
       var fs = isFs();
       slides.forEach(function(s){ s.style.fontSize=''; s.style.height=''; });
       var s = slides[i];
       if (!fs) s.style.height = frameHeight()+'px';
-      var lo = fs ? 13 : 11, hi = fs ? 34 : 22;
+      var lo = fs ? 15 : 14, hi = fs ? 34 : 24;
       if (s.classList.contains('part-divider')) { lo = fs?18:16; hi = fs?36:24; }
       var guard = 0;
       while (hi - lo > 0.5 && guard++ < 12){

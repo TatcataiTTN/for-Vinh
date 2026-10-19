@@ -25,7 +25,7 @@ a{color:var(--accent)}
 .topbar nav a{padding:5px 8px;white-space:nowrap;border-radius:8px;text-decoration:none;font-size:.9rem;color:var(--muted)}
 .topbar nav a:hover,.topbar nav a.on{background:var(--accent-soft);color:var(--accent)}
 .topbar button{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:8px;padding:5px 10px;cursor:pointer}
-main{max-width:1040px;margin:0 auto;padding:20px 16px 80px}
+main{max-width:1200px;margin:0 auto;padding:20px 16px 80px}
 h1{font-size:1.9rem;line-height:1.25;margin:.2em 0 .3em}
 h2{font-size:1.4rem;margin:2em 0 .6em;padding-bottom:.25em;border-bottom:2px solid var(--accent-soft)}
 h3{font-size:1.12rem;margin:1.4em 0 .4em}
@@ -74,7 +74,7 @@ figure.diagram figcaption{color:var(--muted);font-size:.85rem;margin-top:4px}
 .mdeck{scroll-margin-top:70px;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);outline:none}
 .mdeck:focus-visible{border-color:var(--accent)}
 .mdeck-viewport{position:relative}
-.mdeck-slide{display:none;padding:1.1em 1.6em;font-size:18px;overflow:auto;line-height:1.55}
+.mdeck-slide{display:none;padding:1.1em 1.6em;font-size:19px;overflow:auto;line-height:1.55}
 .mdeck-slide.active{display:block}
 .mdeck-slide h2{font-size:1.45em;margin:.1em 0 .5em;border:0;padding:0;color:var(--text)}
 .mdeck-slide h3{font-size:1.1em;margin:.9em 0 .3em}
@@ -89,16 +89,23 @@ figure.diagram figcaption{color:var(--muted);font-size:.85rem;margin-top:4px}
 .mdeck-slide .pd-formula{font-size:1em}
 .mdeck-slide table{font-size:.9em}
 .mdeck-slide .callout{font-size:.95em;margin:.7em 0}
+.sgrid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:1.2em;align-items:start}
+.sgrid>.smain>*:first-child{margin-top:0}
+.sgrid.stack{grid-template-columns:1fr}
+.sgrid.stack .sside{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,2fr);gap:1.1em;align-items:start}
+.sside .slide-fig{margin:0 0 .8em}
+.sgrid.stack .sside .slide-fig{margin:0}
 .slide-fig{margin:.7em 0;text-align:center}
-.slide-fig img{max-width:100%;max-height:8em;border:1px solid var(--border);border-radius:8px;background:#fff;padding:3px;cursor:zoom-in}
-.slide-fig figcaption{font-size:.62em;color:var(--muted);margin-top:3px}
-.mdeck:fullscreen .slide-fig img,.mdeck:-webkit-full-screen .slide-fig img{max-height:44vh}
-.slide-explain{margin-top:.8em;border:1px solid var(--border);border-radius:10px;background:var(--code)}
-.slide-explain summary{cursor:pointer;font-weight:800;font-size:.85em;color:var(--accent);padding:.5em .9em;list-style:none}
+.slide-fig img{width:100%;height:auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:3px;cursor:zoom-in;display:block}
+.slide-fig figcaption{font-size:.68em;color:var(--muted);margin-top:4px}
+.mdeck-slide .slide-explain{margin:0;border:1px solid var(--accent);border-left-width:5px;border-radius:10px;background:var(--accent-soft)}
+.slide-explain summary{cursor:pointer;font-weight:800;font-size:.9em;color:var(--accent);padding:.5em .9em;list-style:none}
 .slide-explain summary::-webkit-details-marker{display:none}
 .slide-explain summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
 .slide-explain[open] summary::before{transform:rotate(90deg)}
-.slide-explain-body{padding:.1em 1em .7em;font-size:.88em;line-height:1.6}
+.slide-explain-body{padding:0 .95em .8em;font-size:.93em;line-height:1.55}
+.slide-explain-body p{margin:.35em 0}
+@media(max-width:900px){.sgrid,.sgrid.stack .sside{grid-template-columns:1fr}}
 .mdeck-bar{display:flex;align-items:center;gap:8px;padding:8px 12px;border-top:1px solid var(--border);background:var(--code);flex-wrap:wrap}
 .mdeck-bar button{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:8px;padding:5px 12px;cursor:pointer;font-weight:600}
 .mdeck-bar button:disabled{opacity:.4;cursor:default}
@@ -230,7 +237,7 @@ details.zoom{margin:8px 0;border:1px dashed var(--accent);border-radius:8px;padd
 details.zoom>summary{cursor:pointer;font-weight:700;color:var(--accent)}
 .zoom-body{padding:6px 0}
 .concept.hl{outline:3px solid var(--accent)}
-.mdeck-slide figure.diagram{margin:.4em 0}.mdeck-slide figure.diagram img{max-height:22vh;width:auto;max-width:100%;display:block;margin:0 auto}.mdeck-slide figure.diagram figcaption{font-size:.8em}
+.mdeck-slide figure.diagram{margin:.4em 0}.mdeck-slide figure.diagram img{max-height:30vh;width:auto;max-width:100%;display:block;margin:0 auto}.mdeck-slide figure.diagram figcaption{font-size:.8em}
 /* bài tập lớn */
 .longp{border:1px solid var(--border);border-radius:14px;background:var(--card);padding:6px 20px 20px;margin:26px 0}
 .longp>h2{border:0;margin-top:.2em}
@@ -247,3 +254,7 @@ details.zoom>summary{cursor:pointer;font-weight:700;color:var(--accent)}
 .longp table{font-size:.92rem}
 .longp .final{background:var(--good-bg);border:2px solid var(--good);border-radius:10px;padding:8px 14px;margin:14px 0}
 table.grid2{width:100%}table.grid2 td{vertical-align:top;border:0;width:50%;padding:0 6px}
+
+.mdeck-slide .pd-formula{overflow-x:auto;overflow-y:hidden}
+.mdeck-slide .pd-formula .katex-display{margin:.3em 0}
+.mdeck-slide .katex-display{overflow-x:auto;overflow-y:hidden}
