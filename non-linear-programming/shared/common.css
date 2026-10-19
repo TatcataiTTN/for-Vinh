@@ -262,3 +262,4 @@ table.grid2{width:100%}table.grid2 td{vertical-align:top;border:0;width:50%;padd
 .mdeck-slide .bstep{margin:.3em 0}
 .mdeck-slide .bstep h4{margin:0 0 .1em;font-size:1em}
 .mdeck-slide .bstep p{margin:.2em 0}
+.slide-explain-body p.xm{margin:.5em 0 0;padding-top:.4em;border-top:1px dashed var(--border)}

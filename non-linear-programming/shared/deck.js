@@ -44,9 +44,11 @@
     function frameHeight(){ return Math.max(480, Math.min(920, Math.round(window.innerHeight*0.80))); }
     function fit(){
       var fs = isFs();
-      slides.forEach(function(s){ s.style.fontSize=''; s.style.height=''; });
+      slides.forEach(function(s){ s.style.fontSize=''; s.style.height=''; s.style.minHeight=''; });
       var s = slides[i];
-      if (!fs) s.style.height = frameHeight()+'px';
+      if (!fs) {   // thường: chữ cố định, khung tự dài theo nội dung (không co chữ), cuộn trang để đọc
+        s.style.minHeight = frameHeight()+'px'; s.style.fontSize = (window.innerWidth < 700 ? 16 : 19) + 'px'; return;
+      }
       var lo = fs ? 15 : 14, hi = fs ? 34 : 24;
       if (s.classList.contains('part-divider')) { lo = fs?18:16; hi = fs?36:24; }
       var guard = 0;
@@ -65,7 +67,7 @@
       try{ localStorage.setItem(pageKey+di, String(i)); }catch(e){}
       fitSoon();
     }
-    function go(n){ i = Math.max(0, Math.min(slides.length-1, n)); render(); }
+    function go(n){ i = Math.max(0, Math.min(slides.length-1, n)); render(); if (!isFs()) { var r = deck.getBoundingClientRect(); if (r.top < 0) window.scrollBy(0, r.top - 110); } }
     prevBtn.addEventListener('click', function(){ go(i-1); });
     nextBtn.addEventListener('click', function(){ go(i+1); });
     deck.tabIndex = 0;
