@@ -60,3 +60,10 @@ def autotex(h):
         for rx,rep in _PAT: part=rx.sub(rep,part)
         out.append(part)
     return ''.join(out)
+
+def wk(kick, title, head, prob, stp, after='', explain=None):
+    """Slide ví dụ có lời giải: đề bài (callout) + các bước + ghi chú sau."""
+    return sl(callout('info', head, prob) + steps(stp) + after, kick, title, explain)
+def wb(head, prob, stp, after=''):
+    """Thân slide ví dụ: đề bài + lời giải từng bước (+ ghi chú)."""
+    return callout('info', head, prob) + steps(stp) + after
