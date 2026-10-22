@@ -1,5 +1,5 @@
 """Dựng toàn bộ site tĩnh: python3 build_site.py  (chạy assemble.py trước để có data/qbank/*.json)."""
-import os, sys, json, glob, importlib, html
+import re, os, sys, json, glob, importlib, html
 sys.path.insert(0, os.path.dirname(__file__))
 from sitelib import *
 from modules import MODS, BY
@@ -30,10 +30,15 @@ def build_module(mid):
     meta = BY[mid]; bank = load_bank(mid); au = audit_all().get(mid, {})
     idx = [m['id'] for m in MODS].index(mid)
     nsl = []
+    try:   # phần chuyên sâu viết thêm (more_<mid>.py) chèn trước phần 'Bẫy'
+        extra = importlib.import_module('more_' + mid).parts()
+        cut = next((k for k, p in enumerate(c['parts']) if p['title'].startswith('Bẫy')), len(c['parts']) - 1)
+        c['parts'] = c['parts'][:cut] + extra + c['parts'][cut:]
+    except ModuleNotFoundError: pass
     total = len(c['parts'])
     for pi, p in enumerate(c['parts']):
         nsl.append((divider(pi + 1, total, p['title'], p['bullets']), True))
-        for s in p['slides']: nsl.append((autotex(s), False))
+        for s in p['slides']: nsl.append((re.sub(r'PHẦN \d+', f'PHẦN {pi + 1}', autotex(s), count=1), False))
     quiz = pick_quiz(bank['items'])
     prev = next((m for m in reversed(MODS[:idx]) if have(m['id'])), None)
     nxt = next((m for m in MODS[idx + 1:] if have(m['id'])), None)
