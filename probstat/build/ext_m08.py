@@ -13,7 +13,7 @@ def build(B):
         for kk in list(wrongk) + [k * 1.15, k * 0.85, k * 2, k / 2]:
             p = ci_pair(c, kk)
             if p != ans and p not in ws: ws.append(p)
-        B.mcq(stem, ans, ws, expl, lvl, TOP[topic], SRC, 'bo_sung')
+        B.mcq(stem, ans, ws, expl, lvl, topic, SRC, 'bo_sung')
     C('Khoảng tin cậy 95% cho μ có nghĩa là', 'khoảng 95% số khoảng dựng từ các mẫu lặp lại chứa μ', ['μ nằm trong khoảng với xác suất 95%', '95% dữ liệu nằm trong khoảng', 'x̄ nằm trong khoảng với xác suất 95%'], 'Tính ngẫu nhiên nằm ở khoảng, không ở μ.', 2, 'theory')
     C('Tăng độ tin cậy (giữ n) thì khoảng', 'rộng ra', ['hẹp lại', 'không đổi', 'dịch sang phải'], 'Giá trị tới hạn tăng.', 1, 'z')
     C('Tăng cỡ mẫu (giữ độ tin cậy) thì khoảng', 'hẹp lại', ['rộng ra', 'không đổi', 'đổi tâm'], 'Sai số chuẩn giảm theo √n.', 1, 'z')
