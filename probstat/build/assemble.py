@@ -4,7 +4,7 @@ import sys, os, json, random, collections, importlib
 sys.path.insert(0, os.path.dirname(__file__))
 from qb import QB, fm
 from modules import MODS
-MIN_TOTAL = 100; CAP = 300; TOPIC_MIN = 8
+MIN_TOTAL = 240; CAP = 300; TOPIC_MIN = 8
 LET = 'ABCD'
 def audit(items):
     pos = collections.Counter(it['correct'] for it in items); n = len(items); exp = max(n, 1) / 4
@@ -19,8 +19,11 @@ def run(mid):
     except ModuleNotFoundError: om = None
     try: gm = importlib.import_module('gen_' + mid)
     except ModuleNotFoundError: gm = None
+    try: xm = importlib.import_module('ext_' + mid)
+    except ModuleNotFoundError: xm = None
     if om: om.build(Bo)
     if gm: gm.build(Bg)
+    if xm: xm.build(Bg)
     items = list(Bo.items); ess = list(Bo.essays)
     seen = {(i['q'], i['opts'][i['correct']]) for i in items}
     rng = random.Random(seed * 31)
@@ -33,7 +36,7 @@ def run(mid):
     while len(items) + len(add) < MIN_TOTAL and pool: add.append(pool.pop())
     items += add
     for e in Bg.essays:
-        if len(ess) < 10: ess.append(e)
+        if len(ess) < 24: ess.append(e)
     if len(items) > CAP:
         og = [i for i in items if i['origin'] == 'goc']; bs = [i for i in items if i['origin'] != 'goc']
         rng.shuffle(og); items = og[:CAP] if len(og) >= CAP else og + bs[:CAP - len(og)]
