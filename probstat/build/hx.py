@@ -46,8 +46,13 @@ def steps(items):
 import re as _re
 _SKIP=_re.compile(r'(\\\(.*?\\\)|\\\[.*?\\\]|<script.*?</script>|<pre.*?</pre>|<code.*?</code>|<svg.*?</svg>|<[^>]+>)',_re.S)
 _PAT=[(_re.compile(r'\bq_([LMU])\b'),r'\\(q_\1\\)'),(_re.compile(r'\bf_rel\b'),r'\\(f_{\\text{rel}}\\)'),(_re.compile(r'\bs_([xy])\b'),r'\\(s_\1\\)'),(_re.compile(r'\bx_(min|max)\b'),r'\\(x_{\\text{\1}}\\)')]
+_MATH=_re.compile(r'(\\\(.*?\\\)|\\\[.*?\\\])',_re.S)
+def safemath(h):
+    """'<' thô trong công thức (vd P(a<X\\le b)) bị trình duyệt hiểu là thẻ HTML và làm vỡ cấu trúc trang -> &lt;"""
+    return _MATH.sub(lambda mo: mo.group(0).replace('<','&lt;'), h)
 def autotex(h):
     """Bọc ký hiệu có chỉ số (q_L, f_rel, s_x, x_max…) thành KaTeX inline, bỏ qua thẻ HTML, công thức sẵn có, pre/code/svg/script."""
+    h=safemath(h)
     out=[]
     for part in _SKIP.split(h):
         if part is None: continue
