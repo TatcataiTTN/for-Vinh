@@ -45,6 +45,7 @@ def build_module(mid):
     nav = '<div class="modnav">' + (f'<a href="../{prev["slug"]}/index.html">← Module {prev["id"][1:]}: {esc(prev["short"])}</a>' if prev else '<span></span>') + \
           (f'<a href="../{nxt["slug"]}/index.html">Module {nxt["id"][1:]}: {esc(nxt["short"])} →</a>' if nxt else '<span></span>') + '</div>'
     ng, nb = au.get('goc', 0), au.get('bo_sung', 0)
+    src_note = (f'<p><b>Về nguồn câu hỏi:</b> tài liệu (Lecture Notes, Kreyszig, đề thi) chỉ có {ng} câu gốc dùng được cho module này và đều đã được đưa vào; {nb} câu còn lại là câu bổ sung, đáp án tự tính bằng công thức. Chọn “Câu gốc” ở bộ lọc nguồn nếu chỉ muốn làm câu gốc.</p>' if nb > ng else '')
     diagram = ''
     dp = os.path.join(ROOT, 'img', f'{mid}.png')
     if os.path.exists(dp): diagram = '<h2>Sơ đồ tóm tắt</h2>' + diag(f'../../img/{mid}.png', c['title'], 'Sơ đồ vẽ bằng drawio, tóm tắt các bước của module.')
@@ -56,13 +57,14 @@ def build_module(mid):
 <h2>Bài giảng (slide)</h2>{deck(nsl, 'd-' + mid)}{diagram}
 <h2>Nội dung chi tiết, ví dụ và thực hành</h2>{autotex(c['notes'])}
 <h2>Tự kiểm tra nhanh (10 câu)</h2><p class="lead">Chọn đáp án để chấm ngay; mỗi câu đều có giải thích; có nút làm lại từng câu và cả bài.</p>{quiz_block('q-' + mid, quiz)}
-<h2>Luyện tập sâu</h2>{callout('info', f'Ngân hàng {len(bank["items"])} câu trắc nghiệm + {len(bank["essays"])} bài tự luận', f'<p>Câu gốc lấy từ giáo trình Lecture Notes, Kreyszig Problem Set và đề thi; lọc theo nguồn/mức/chủ đề, phản hồi tức thì có giải thích, có nút <b>↺ làm lại</b>. <a class="btn" href="luyen-tap/index.html">Vào luyện tập Module {mid[1:]} →</a></p>')}
+<h2>Luyện tập sâu</h2>{callout('info', f'Ngân hàng {len(bank["items"])} câu trắc nghiệm + {len(bank["essays"])} bài tự luận', f'<p>Câu gốc lấy từ giáo trình Lecture Notes, Kreyszig Problem Set và đề thi; lọc theo nguồn/mức/chủ đề, phản hồi tức thì có giải thích, có nút <b>↺ làm lại</b>.</p>{src_note}<p><a class="btn" href="luyen-tap/index.html">Vào luyện tập Module {mid[1:]} →</a></p>')}
 {nav}'''
     write(f'vi/{meta["slug"]}/index.html', page(f'Module {mid[1:]}: {c["title"]}', body, 2, c['subtitle'], scripts=['deck.js', 'quiz.js'] + (SIMJS if c.get('sims') else [])))
     data = json.dumps(dict(module=mid, items=bank['items'], essays=bank['essays']), ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
     bb = f'''<div class="crumbs"><a href="../../index.html">Trang chủ</a> › <a href="../index.html">Module {mid[1:]}</a> › Luyện tập</div>
 <h1>Luyện tập · Module {mid[1:]}: {esc(meta['short'])}</h1>
 <p class="lead">{len(bank['items'])} câu trắc nghiệm ({ng} câu gốc từ tài liệu, {nb} câu bổ sung) và {len(bank['essays'])} bài tự luận có lời giải. Tiến độ lưu trong trình duyệt của bạn (localStorage).</p>
+{src_note}
 <div id="bank"></div><script type="application/json" id="bank-data">{data}</script>'''
     write(f'vi/{meta["slug"]}/luyen-tap/index.html', page(f'Luyện tập Module {mid[1:]}', bb, 3, 'Ngân hàng câu hỏi', scripts=['bank.js'], math=False))
 

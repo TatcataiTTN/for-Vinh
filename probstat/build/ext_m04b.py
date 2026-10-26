@@ -55,3 +55,43 @@ def build(B):
     B.essay('Giải thích bằng công thức vì sao trong nghịch lý Simpson phương pháp A tốt hơn ở từng nhóm nhưng B tốt hơn khi gộp (dùng số liệu 81/87, 192/263 và 234/270, 55/80).', 'A: 93.1% và 73.0%; B: 86.7% và 68.8%; A tốt hơn ở cả hai. Gộp: A 273/350 = 78%, B 289/350 = 82.6%. Tỉ lệ gộp là trung bình có trọng số: A dùng nhiều ở nhóm khó (263/350 sỏi lớn), B dùng nhiều ở nhóm dễ (270/350 sỏi nhỏ), nên trọng số khác nhau đảo kết luận.', 3, TOP['total'], SRC, 'bo_sung')
     B.essay('Một thư có từ “trúng thưởng”: 40% thư là rác; từ này xuất hiện ở 50% thư rác và 2% thư thường. (a) Tính P(rác | có từ). (b) Nếu thêm từ “miễn phí” (40% rác, 5% thường, độc lập có điều kiện) thì P(rác) mới là bao nhiêu?', '(a) 0.2/(0.2 + 0.012) = 0.9434. (b) Tử 0.4·0.5·0.4 = 0.08; mẫu 0.08 + 0.6·0.02·0.05 = 0.0806 ⇒ 0.9926.', 3, TOP['bayes'], SRC, 'bo_sung')
     B.essay('Ba tấm thẻ: đỏ–đỏ, đỏ–xanh, xanh–xanh. Rút một thẻ, thấy một mặt đỏ. Tính xác suất mặt kia đỏ bằng hai cách (liệt kê mặt và Bayes).', 'Liệt kê: 3 mặt đỏ đồng khả năng, 2 mặt thuộc thẻ đỏ–đỏ ⇒ 2/3. Bayes: (1/3·1)/(1/3·1 + 1/3·1/2) = 2/3.', 2, TOP['bayes'], SRC, 'bo_sung')
+    # ── thêm họ bài: hai bi cùng màu, loại xạ thủ, kênh lặp, hai xét nghiệm ──
+    for (w1, b1, w2, b2, p1) in [(3, 2, 2, 4, 0.5), (5, 5, 1, 9, 0.5), (4, 1, 3, 3, 0.6), (6, 4, 2, 8, 0.4), (7, 3, 4, 6, 0.5), (2, 3, 5, 5, 0.7), (8, 2, 3, 7, 0.3), (4, 4, 1, 5, 0.5)]:
+        q1 = w1 * (w1 - 1) / ((w1 + b1) * (w1 + b1 - 1)); q2 = w2 * (w2 - 1) / ((w2 + b2) * (w2 + b2 - 1)); T = p1 * q1 + (1 - p1) * q2; ph = p1 * q1 / T
+        P(f'Hộp I: {w1} trắng {b1} đen; hộp II: {w2} trắng {b2} đen. Chọn hộp I với xác suất {p1}, rút liên tiếp 2 bi không hoàn lại. P(cả hai trắng) bằng', T, f'Hộp I: {f(q1,4)}; hộp II: {f(q2,4)}; toàn phần = {f(T,4)}.', 3, TOP['total'], SRC, extra=[(q1 + q2) / 2, q1, q2], d=4)
+        P(f'Hộp I: {w1} trắng {b1} đen; hộp II: {w2} trắng {b2} đen. Chọn hộp I với xác suất {p1}, rút liên tiếp 2 bi không hoàn lại và được cả hai trắng. P(từ hộp I) bằng', ph, f'{f(p1*q1,4)}/{f(T,4)} = {f(ph,4)}.', 3, TOP['bayes'], SRC, extra=[p1, q1, 1 - ph], d=4)
+    for pr, hit in [((0.5, 0.3, 0.2), (0.4, 0.6, 0.9)), ((0.6, 0.3, 0.1), (0.3, 0.5, 0.8)), ((0.4, 0.4, 0.2), (0.5, 0.7, 0.95)), ((0.7, 0.2, 0.1), (0.2, 0.6, 0.9)), ((0.3, 0.5, 0.2), (0.6, 0.8, 0.9)), ((0.5, 0.25, 0.25), (0.35, 0.55, 0.75))]:
+        T = tot(list(pr), list(hit)); ph = post(list(pr), list(hit), 2)
+        P(f'Ba loại xạ thủ chiếm {", ".join(fg(x*100)+"%" for x in pr)} số người, xác suất bắn trúng một phát lần lượt {", ".join(fg(x) for x in hit)}. P(một xạ thủ chọn ngẫu nhiên bắn trúng) bằng', T, f'Σ P(Aᵢ)P(B|Aᵢ) = {f(T,4)}.', 2, TOP['total'], SRC, extra=[sum(hit) / 3, max(hit), hit[0]], d=4)
+        P(f'Ba loại xạ thủ chiếm {", ".join(fg(x*100)+"%" for x in pr)} số người, xác suất bắn trúng một phát lần lượt {", ".join(fg(x) for x in hit)}. Biết xạ thủ bắn trúng, P(đó là loại 3) bằng', ph, f'{fg(pr[2]*hit[2],4)}/{f(T,4)} = {f(ph,4)}.', 3, TOP['bayes'], SRC, extra=[pr[2], hit[2], pr[2] * hit[2]], d=4)
+    for p1, e in [(0.5, 0.1), (0.6, 0.2), (0.5, 0.25), (0.7, 0.1), (0.4, 0.15), (0.5, 0.3)]:
+        l1 = (1 - e) ** 2 * e; l0 = e ** 2 * (1 - e); ph = p1 * l1 / (p1 * l1 + (1 - p1) * l0)
+        P(f'Nguồn gửi bit 1 với xác suất {p1}, gửi mỗi bit 3 lần qua kênh lật bit độc lập với xác suất {e}. Nhận được (1, 1, 0). P(đã gửi 1) bằng', ph, f'Khả năng nhận (1,1,0): gửi 1 → {fg(1-e)}²·{fg(e)}; gửi 0 → {fg(e)}²·{fg(1-e)}; Bayes = {f(ph,4)}.', 3, TOP['bayes'], SRC, extra=[1 - e, p1, (1 - e) ** 2], d=4)
+    for pr, s1, c1, s2, c2 in [(0.01, 0.9, 0.9, 0.95, 0.95), (0.05, 0.8, 0.9, 0.9, 0.8), (0.02, 0.95, 0.9, 0.85, 0.95), (0.1, 0.85, 0.8, 0.9, 0.9), (0.03, 0.9, 0.95, 0.8, 0.9), (0.2, 0.9, 0.8, 0.85, 0.85)]:
+        o = pr / (1 - pr) * (s1 / (1 - c1)) * (s2 / (1 - c2)); ph = o / (1 + o)
+        P(f'Bệnh có tỉ lệ mắc {fg(pr*100)}%. Xét nghiệm A (nhạy {fg(s1*100)}%, đặc hiệu {fg(c1*100)}%) và xét nghiệm B (nhạy {fg(s2*100)}%, đặc hiệu {fg(c2*100)}%) độc lập có điều kiện, cả hai dương tính. P(bệnh) bằng', ph, f'Odds = {f(pr/(1-pr),4)}·{f(s1/(1-c1),3)}·{f(s2/(1-c2),3)} = {f(o,3)} ⇒ P = {f(ph,4)}.', 3, TOP['bayes'], SRC, extra=[pr, s1 * s2, 1 - ph], d=4)
+    # ── làm dài các phương án sai ở câu khái niệm để câu đúng không còn “dài nhất” ──
+    FIX = {
+        'Xác suất của một đường đi trong cây hai giai đoạn: nhánh thứ hai ghi': ['xác suất hậu nghiệm của nhánh thứ nhất', 'xác suất không điều kiện của biến cố ở nhánh đó', 'xác suất tiên nghiệm của kết quả cuối cùng'],
+        'Xác suất hậu nghiệm là': ['xác suất của kết quả trước khi tiến hành thí nghiệm', 'xác suất của biến cố đối của nguyên nhân đang xét', 'xác suất độc lập với mọi kết quả quan sát được'],
+        'Công thức Bayes P(Aᵢ | B) bằng': ['P(B | Aᵢ)/(P(Aᵢ)·P(B))', 'P(B | Aᵢ) + P(Aᵢ) − P(B)', 'P(Aᵢ)P(B)/P(B | Aᵢ)'],
+        'Xét nghiệm lặp độc lập, kết quả lần hai dùng làm tiên nghiệm': ['vẫn là tiên nghiệm gốc ban đầu của quần thể', 'bằng độ nhạy của xét nghiệm đang dùng', 'bằng 0.5 vì chưa biết gì thêm'],
+        'Nghịch lý Simpson là hiện tượng': ['tổng các xác suất hậu nghiệm khác 1 khi gộp nhóm', 'hai biến cố đồng thời độc lập và xung khắc nhau', 'xác suất của một biến cố lớn hơn 1 khi gộp nhóm'],
+        'Bệnh hiếm, xét nghiệm tốt nhưng người dương tính vẫn thường khỏe vì': ['xét nghiệm luôn cho kết quả sai ngẫu nhiên', 'công thức Bayes không áp dụng cho bệnh hiếm', 'độ nhạy của xét nghiệm gần như bằng 0'],
+        'Hệ đầy đủ các biến cố A₁, …, Aₙ phải thỏa': ['độc lập đôi một và có xác suất bằng nhau', 'có hợp bằng tập rỗng và mỗi cái xác suất 1/n', 'có xác suất bằng nhau và tổng xác suất bằng 0.5'],
+        'Nếu P(Aᵢ | B) > P(Aᵢ) thì': ['Aᵢ chắc chắn không thể xảy ra khi có B', 'P(B | Aᵢ) nhỏ hơn P(B) trong mọi trường hợp', 'B và Aᵢ độc lập với nhau hoàn toàn'],
+        '“Bỏ qua tỉ lệ nền” nghĩa là': ['dùng quá nhiều biến cố trong cùng một cây xác suất', 'chia cho P(B) hai lần ở bước tính mẫu số Bayes', 'chỉ dùng xác suất toàn phần mà không dùng Bayes'],
+        'Tỉ số hợp lý LR = 1 nghĩa là': ['chắc chắn không bệnh sau khi xét nghiệm', 'chắc chắn có bệnh sau khi xét nghiệm', 'xét nghiệm hoàn hảo, không bao giờ sai'],
+        'Ngụy biện của công tố viên là việc': ['dùng sai công thức xác suất toàn phần cho nhiều bằng chứng', 'bỏ qua hoàn toàn bằng chứng của vụ án khi suy luận', 'cộng thay vì nhân xác suất của các bằng chứng độc lập'],
+        'Nếu P(B | A₁) = P(B | A₂) = … = P(B | Aₙ) = c thì P(Aᵢ | B) bằng:': ['1/n với mọi hệ đầy đủ, dù tiên nghiệm khác nhau', 'c·P(Aᵢ), tức tỉ lệ thuận với hằng số c', '0, vì mọi nguyên nhân đều giải thích như nhau'],
+        'Tỉ số hợp lý của kết quả dương tính là': ['độ nhạy + độ đặc hiệu − 1 (chỉ số Youden)', '(1 − độ nhạy) / độ đặc hiệu của xét nghiệm', 'độ nhạy × độ đặc hiệu của xét nghiệm'],
+        'Để có P(B) từ cây xác suất ta': ['chọn đường đi có xác suất lớn nhất trong cây', 'nhân xác suất tất cả các đường đi với nhau', 'lấy trung bình xác suất của các đường đi'],
+        'Với P(A | B) = 0.9, kết luận nào đúng?': ['A, B chắc chắn độc lập vì xác suất điều kiện rất lớn', 'P(B | A) = 0.1 vì P(A | B) và P(B | A) cộng lại bằng 1', 'P(B | A) = 0.9 vì hai xác suất điều kiện luôn bằng nhau'],
+        'Bốn nguyên nhân A₁…A₄ tạo hệ đầy đủ. Muốn có hậu nghiệm của A₂ ta cần': ['chỉ P(A₂) và P(B|A₂), không cần các nguyên nhân khác', 'chỉ P(B) vì P(A₂) đã nằm sẵn trong P(B)', 'chỉ P(B|A₂) vì mẫu số sẽ tự triệt tiêu'],
+        'Độ đặc hiệu của xét nghiệm là': ['P(bệnh | kết quả âm tính)', '1 − độ nhạy của xét nghiệm', 'P(dương tính | có bệnh)'],
+    }
+    hit = 0
+    for it in B.items:
+        if it['q'] in FIX and it['origin'] == 'bo_sung':
+            ok = it['opts'][it['correct']]; it['opts'] = [ok] + FIX[it['q']]; it['correct'] = 0; hit += 1
+    assert hit == len(FIX), (hit, len(FIX))
