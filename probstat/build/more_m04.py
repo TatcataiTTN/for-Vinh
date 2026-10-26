@@ -44,4 +44,6 @@ def parts():
                 + table(['Đường đi', 'Xác suất'], [['A → đạt', '0.6·0.97 = 0.582'], ['A → lỗi', '0.6·0.03 = 0.018'], ['B → đạt', '0.4·0.92 = 0.368'], ['B → lỗi', '0.4·0.08 = 0.032']])
                 + '<p>Nhân dọc theo nhánh, cộng các nhánh cùng kết quả: P(đạt) = 0.950; P(A | lỗi) = 0.018/0.05 = 0.36.</p>', K + 'PHẦN 3 · Chuyên sâu', 'Cây xác suất'))
     P.append(dict(title='Chuyên sâu: quy trình và cây', bullets=['Năm bước', 'Cây hai giai đoạn'], slides=s))
+    from more_m04b import parts as _pb
+    P += _pb()
     return P

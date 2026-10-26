@@ -5,6 +5,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from qb import QB, fm
 from modules import MODS
 MIN_TOTAL = 240; CAP = 300; TOPIC_MIN = 8
+MIN_BY = {'m04': 300, 'm05': 300}   # hai module được làm sâu thêm
 LET = 'ABCD'
 def audit(items):
     pos = collections.Counter(it['correct'] for it in items); n = len(items); exp = max(n, 1) / 4
@@ -33,7 +34,7 @@ def run(mid):
     add = []
     for it in list(pool):
         if cnt[it['topic']] < TOPIC_MIN: add.append(it); cnt[it['topic']] += 1; pool.remove(it)
-    while len(items) + len(add) < MIN_TOTAL and pool: add.append(pool.pop())
+    while len(items) + len(add) < MIN_BY.get(mid, MIN_TOTAL) and pool: add.append(pool.pop())
     items += add
     for e in Bg.essays:
         if len(ess) < 24: ess.append(e)
