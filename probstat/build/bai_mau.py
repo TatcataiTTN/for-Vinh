@@ -168,7 +168,7 @@ def slides():
     S.append((sl(steps([m('0\\le x\\le1:\\ F(x)=\\int_0^x t\\,dt=\\tfrac{x^2}{2}'), m('F(1)=\\tfrac12'),
                         m('1<x\\le2:\\ F(x)=\\tfrac12+\\int_1^x(2-t)\\,dt=1-\\tfrac{(2-x)^2}{2}'),
                         'Kiểm tra: F(2) = 1 và hai công thức khớp nhau tại x = 1 (cùng bằng 1/2).',
-                        '<b>Đáp số (b):</b> F(x) = 0 (x<0); x²/2 (0≤x≤1); 1 − (2−x)²/2 (1<x≤2); 1 (x>2).'])
+                        '<b>Đáp số (b):</b> F(x) = 0 (x &lt; 0); x²/2 (0 ≤ x ≤ 1); 1 − (2−x)²/2 (1 &lt; x ≤ 2); 1 (x &gt; 2).'])
                  + callout('warn', 'Bẫy', '<p>Ở khoảng thứ hai không được tích phân từ 0 mà quên cộng phần diện tích đã có ở đoạn đầu (1/2).</p>'),
                  K3, 'Câu (b): hàm phân phối từng khúc'), False))
     S.append((sl(steps([m('P(0{,}5<X<1{,}5)=F(1{,}5)-F(0{,}5)'), m('F(1{,}5)=1-\\tfrac{0{,}5^2}{2}=0{,}875,\\quad F(0{,}5)=\\tfrac{0{,}25}{2}=0{,}125'), '<b>Đáp số (c):</b> 0,875 − 0,125 = 0,75.', '',
@@ -190,7 +190,7 @@ def slides():
     S.append((sl(mistakes(['Chỉ tích phân một khoảng, quên khoảng còn lại.', 'Viết Var(X) = E(X²) mà quên trừ [E(X)]².', 'F(x) ở khoảng sau thiếu phần cộng dồn.', 'Var(aX+b) = a·Var(X) hoặc cộng b vào phương sai.'])
                  + selfcheck(['Có kiểm tra F(2) = 1 và F liên tục tại điểm nối không?', 'E(X²) và [E(X)]² có viết riêng không?', 'Mỗi ý (a)–(e) có Đáp số không?'])
                  + '<details><summary><b>Bài tương tự để tự làm</b></summary><p>X có mật độ f(x) = c(4 − x²) với 0 ≤ x ≤ 2. Tìm c, P(X &lt; 1), E(X), Var(X).</p>'
-                 + f'<p><b>Đáp số:</b> c = 3/16; P(X<1) = {sp.nsimplify(p3)} = {fl(p3,4)}; E(X) = {e3} = {fl(e3,4)}; E(X²) = {e32}; Var(X) = {v3} ≈ {fl(v3,4)}.</p></details>', K3, 'Tập chữa và bài tương tự'), False))
+                 + f'<p><b>Đáp số:</b> c = 3/16; P(X &lt; 1) = {sp.nsimplify(p3)} = {fl(p3,4)}; E(X) = {e3} = {fl(e3,4)}; E(X²) = {e32}; Var(X) = {v3} ≈ {fl(v3,4)}.</p></details>', K3, 'Tập chữa và bài tương tự'), False))
     S.append((sl(callout('good', 'Chuẩn bị cho kỳ thi', ul([
         'Làm lại cả ba bài vào một tờ giấy sạch, bấm giờ 20 phút mỗi bài.',
         'Chụp bài thẳng, đủ sáng, rồi tự chấm theo danh sách “Tập chữa”.',
