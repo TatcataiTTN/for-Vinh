@@ -147,4 +147,5 @@ if __name__ == '__main__':
         if have(m['id']): build_module(m['id'])
     build_home(); build_tables(); build_docs()
     build_exams()
+    import bai_mau; bai_mau.build()
     print('built')
