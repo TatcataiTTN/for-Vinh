@@ -130,6 +130,7 @@ def build_exams():
 <h2>Đối chiếu kết quả tự tính với đáp án chính thức</h2><p>Chương trình tính lại các đáp án có trong tài liệu và so sánh. “≈” nghĩa là đáp án chính thức đã làm tròn trung gian (ví dụ HK2 đề 1 câu 3: s² chính thức 0.293 vì làm tròn x̄ trước khi bình phương; chính xác 0.288), kết luận không đổi.</p><div style="overflow:auto"><table class="t left"><tr><th>Đề</th><th>Mục</th><th>Chính thức</th><th>Tự tính</th><th></th></tr>{rs}</table></div>'''
     write('vi/cau-truc-de/index.html', page('Cấu trúc đề thi', body, 2, 'Cấu trúc đề và đối chiếu', math=False))
     write('vi/de-giua-ky/index.html', page('Đề giữa kỳ tự soạn', open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'de_giua_ky_body.html'), encoding='utf-8').read(), 2, 'Ba đề giữa kỳ mục 1.1–1.5', math=False))
+    write('vi/de-giua-ky-2/index.html', page('Đề giữa kỳ tự soạn lần 2', open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'de_giua_ky_2_body.html'), encoding='utf-8').read(), 2, 'Ba đề giữa kỳ lần 2, mục 1.1–1.9', math=False))
 
 def build_exam_placeholder():
     body = '<h1>Luyện đề</h1><p class="lead">Đang biên soạn: đề trắc nghiệm tổng hợp tính giờ từ ngân hàng câu gốc và phân tích cấu trúc đề thi cuối kỳ các năm.</p>'

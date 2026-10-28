@@ -36,6 +36,7 @@ table.t th,table.t td{border:1px solid var(--border);padding:4px 10px;text-align
 table.t th{background:var(--code)}table.t.left td{text-align:left}
 code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em}
 pre{background:var(--code);border:1px solid var(--border);border-radius:10px;padding:10px 12px;overflow:auto;font-size:.82em;line-height:1.5;margin:8px 0}
+pre:not(:has(code)){white-space:pre-wrap;overflow-wrap:anywhere;font-family:inherit;font-size:.95em}
 code{background:var(--code);padding:1px 5px;border-radius:5px}pre code{background:none;padding:0}
 .ex{border:1px solid var(--border);border-radius:10px;background:var(--card);padding:8px 14px;margin:10px 0}
 .ex>.exh{font-size:.72rem;font-weight:800;text-transform:uppercase;color:var(--accent);letter-spacing:.4px}
