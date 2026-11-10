@@ -287,3 +287,6 @@ ol.parts>li{margin:.6em 0}
 .mcq .katex-display,.essay .katex-display,.sol-body .katex-display{overflow-x:auto;overflow-y:hidden;padding:2px 0}
 table.ans-tbl th:nth-child(-n+3),table.ans-tbl td:nth-child(-n+3){white-space:nowrap}
 @media print{.topbar,.lockbar,.timer,.sitesearch,#theme-btn,.locked,details.solution{display:none!important}}
+
+pre.stem{white-space:pre-wrap;overflow-wrap:anywhere;font-family:inherit;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin:.4em 0;line-height:1.55}
+ul.chk{list-style:none;padding-left:.2em}ul.chk li{margin:.25em 0}
