@@ -84,6 +84,7 @@ def build_home():
     body = f'''<h1>Lý thuyết xác suất thống kê · Phenikaa</h1>
 <p class="lead">Hệ thống tự học mở, tương tác cho học phần FFS703010 — bám đề cương, giáo trình Lecture Notes (Vũ Hữu Nhự), Kreyszig <i>Advanced Engineering Mathematics</i> Part G và các đề thi thật. Mỗi module có slide, ví dụ có lời giải, mô phỏng tương tác, ngân hàng 100–300 câu hỏi (ưu tiên câu gốc từ tài liệu) và tự luận.</p>
 <p><span class="tag">{ndone}/{len(MODS)} module đã xong</span><span class="tag">{tot_q} câu trắc nghiệm</span><span class="tag">Công thức KaTeX · chạy 100% trong trình duyệt</span></p>
+{callout('good', 'Mới: đề giữa kỳ thật HK2.2 2025–2026', '<p>10 mã đề cùng một khung 9 câu, kèm 30 mã đề mới để luyện, chấm ngay và lời giải câu tự luận: <a href="de-thi-that-hk22/index.html">làm đề thật</a> · <a href="kho-de/index.html">xem toàn bộ kho đề</a>.</p>')}
 {callout('info', 'Cách học', '<ol><li>Xem slide của module (←/→, toàn màn hình).</li><li>Đọc ví dụ chi tiết và thử widget tương tác.</li><li>Làm quiz nhanh 10 câu, rồi vào ngân hàng luyện tập sâu.</li><li>Gần ngày thi: vào <a href="luyen-de/index.html">Luyện đề</a>; dùng <a href="bang-tra/index.html">Bảng tra</a> thay bảng A7/A8/A9.</li></ol>')}
 <h2 id="lo-trinh">Lộ trình theo đề cương (5 bài học → 13 module)</h2>{cards}'''
     write('vi/index.html', page('Trang chủ', body, 1, 'Tự học xác suất thống kê Phenikaa'))
@@ -111,18 +112,25 @@ def build_exams():
     from crosscheck import rows
     groups = [('Đề 1 · Chương 1 (M1–M3)', ['m01','m02','m03']), ('Đề 2 · Chương 1 (M4–M6)', ['m04','m05','m06']), ('Đề 3 · Chương 2 (M7–M8)', ['m07','m08']),
               ('Đề 4 · Chương 3 (M10–M12)', ['m10','m11','m12']), ('Đề 5 · Chương 4 + kiểm định (M10, M13)', ['m10','m13']),
-              ('Đề 6 · Tổng hợp', None), ('Đề 7 · Tổng hợp', None), ('Đề 8 · Tổng hợp', None)]
+              ('Đề 6 · Tổng hợp', None), ('Đề 7 · Tổng hợp', None), ('Đề 8 · Tổng hợp', None),
+              ('Đề 9 · Giữa kỳ (M1–M8)', 'gk'), ('Đề 10 · Giữa kỳ (M1–M8)', 'gk'), ('Đề 11 · Giữa kỳ (M1–M8)', 'gk'), ('Đề 12 · Giữa kỳ (M1–M8)', 'gk')]
     banks = {m['id']: load_bank(m['id'])['items'] for m in MODS if have(m['id'])}
     sets = []
     for gi, (nm, mods) in enumerate(groups):
-        rng = random.Random(500 + gi); mods = mods or [k for k in banks if k != 'm09']; pool = []
+        rng = random.Random(500 + gi)
+        if mods == 'gk':   # đề giữa kỳ: 6 câu từ đề thật HK2.2 + 9 câu gốc khác của M1–M8
+            lo = [(mid, i) for mid in ['m01','m02','m03','m04','m05','m06','m07','m08'] for i in banks.get(mid, []) if i['origin'] == 'goc' and len(i['q']) < 420]
+            real = [x for x in lo if 'HK2.2' in x[1]['src']]; other = [x for x in lo if 'HK2.2' not in x[1]['src']]
+            rng.shuffle(real); rng.shuffle(other); pick = real[:6] + other[:9]; rng.shuffle(pick)
+            sets.append([dict(q=i['q'], opts=i['opts'], correct=i['correct'], explain=i['explain'], src=f'{mid.upper()} · ' + i['src']) for mid, i in pick]); continue
+        mods = mods or [k for k in banks if k != 'm09']; pool = []
         for mid in mods:
             its = [i for i in banks.get(mid, []) if i['origin'] == 'goc' and len(i['q']) < 420]
             rng.shuffle(its); pool += [(mid, i) for i in its[:max(3, 15 // len(mods) + 2)]]
         rng.shuffle(pool); pick = pool[:15]
         sets.append([dict(q=i['q'], opts=i['opts'], correct=i['correct'], explain=i['explain'], src=f'{mid.upper()} · ' + i['src']) for mid, i in pick])
     data = json.dumps(dict(sets=sets), ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
-    body = '<h1>Luyện đề</h1><p class="lead">Tám đề trắc nghiệm 15 câu, 30 phút, tạo từ câu gốc của các module (đề 1–5 theo chương, 6–8 tổng hợp). Sau khi nộp bài có điểm thang 10 và giải thích từng câu; có nút làm lại.</p><div id="exam"></div><script type="application/json" id="exam-data">' + data + '</script>'
+    body = '<h1>Luyện đề</h1><p class="lead">Mười hai đề trắc nghiệm 15 câu, 30 phút, tạo từ câu gốc của các module (đề 1–5 theo chương, 6–8 tổng hợp, 9–12 theo khung giữa kỳ với 6 câu lấy từ đề thật HK2.2 2025–2026). Sau khi nộp bài có điểm thang 10 và giải thích từng câu; có nút làm lại.</p><div id="exam"></div><script type="application/json" id="exam-data">' + data + '</script>'
     write('vi/luyen-de/index.html', page('Luyện đề', body, 2, 'Luyện đề trắc nghiệm', scripts=['exam.js'], math=False))
     rs = ''.join(f'<tr><td>{html.escape(a)}</td><td>{html.escape(b)}</td><td>{o}</td><td>{float(c):.5g}</td><td>{"✓" if ok else "≈"}</td></tr>' for a, b, o, c, ok in rows())
     body = f'''<h1>Cấu trúc đề thi và đối chiếu đáp án chính thức</h1><p class="lead">Mọi đề cuối kỳ đã công bố (2021–2022; 2022–2023 HK1 2TC và HK2 3TC; đề mẫu 03/2024) có cùng khung 4–5 câu. Giữa kỳ: 8 câu trắc nghiệm + 1 câu tự luận (đề mẫu); đáp án giữa kỳ HK2 có 4 câu tham số hóa.</p>
@@ -148,4 +156,6 @@ if __name__ == '__main__':
     build_home(); build_tables(); build_docs()
     build_exams()
     import bai_mau; bai_mau.build()
+    import real_exam; real_exam.build_page()
+    import kho_de; kho_de.build()
     print('built')

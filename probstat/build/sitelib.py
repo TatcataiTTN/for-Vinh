@@ -3,10 +3,11 @@ from hx import *
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))   # .../probstat
 from modules import MODS, BY
 SITE = 'Xác suất thống kê · Phenikaa'
-NAV = [('Trang chủ', '{r}vi/index.html'), ('Lộ trình', '{r}vi/index.html#lo-trinh'), ('Luyện đề', '{r}vi/luyen-de/index.html'), ('Cấu trúc đề', '{r}vi/cau-truc-de/index.html'), ('Đề giữa kỳ', '{r}vi/de-giua-ky/index.html'), ('Đề giữa kỳ 2', '{r}vi/de-giua-ky-2/index.html'), ('Bài mẫu tự luận', '{r}vi/bai-mau-tu-luan/index.html'),
+NAV = [('Trang chủ', '{r}vi/index.html'), ('Lộ trình', '{r}vi/index.html#lo-trinh'), ('Kho đề', '{r}vi/kho-de/index.html'), ('Đề thật HK2.2', '{r}vi/de-thi-that-hk22/index.html'), ('Luyện đề', '{r}vi/luyen-de/index.html'), ('Bài mẫu tự luận', '{r}vi/bai-mau-tu-luan/index.html'),
        ('Bảng tra', '{r}vi/bang-tra/index.html'), ('Tài liệu', '{r}vi/tai-lieu/index.html')]
 SRC = [('Lecture Notes XSTK — Cao Hoàng Nam & Vũ Hữu Nhự (08/2021)', 'giáo trình tiếng Việt, 4 chương + bài tập'),
        ('Kreyszig — Advanced Engineering Mathematics, Part G (Ch. 24–25)', 'giáo trình chính [1] trong đề cương'),
+       ('Đề giữa kỳ thật HK2.2 2025–2026 (file LTXSTK_HK2.2_20252026_alltests.pdf)', '10 mã đề cùng một khung 9 câu, chỉ đổi số liệu'),
        ('Đề cương chi tiết học phần FFS703010', 'cấu trúc 5 bài học, đánh giá'),
        ('Đề giữa kỳ mẫu (LTXSTK) và đáp án giữa kỳ HK2 2022–2023', 'đề ảnh, đã OCR/đọc lại thủ công'),
        ('Đề thi và đáp án cuối kỳ 2021–2022 (3TC), 2022–2023 HK1 (2TC, K16), 2022–2023 HK2 (3TC), đề mẫu FFS703010 (03/2024)', 'đề gốc và đáp án chấm')]

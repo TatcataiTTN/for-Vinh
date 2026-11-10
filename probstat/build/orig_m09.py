@@ -30,7 +30,7 @@ def build(B):
     by = {}
     for mid, it in rest: by.setdefault(mid, []).append(it)
     chosen = [it for _, it in pri]
-    per = 14
+    per = 30
     for mid, lst in by.items(): chosen += lst[:per]
     seen = set()
     for it in chosen:

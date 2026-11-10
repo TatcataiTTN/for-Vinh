@@ -4,8 +4,8 @@ import sys, os, json, random, collections, importlib
 sys.path.insert(0, os.path.dirname(__file__))
 from qb import QB, fm
 from modules import MODS
-MIN_TOTAL = 240; CAP = 300; TOPIC_MIN = 8
-MIN_BY = {'m04': 300, 'm05': 300}   # hai module được làm sâu thêm
+MIN_TOTAL = 300; CAP = 300; TOPIC_MIN = 8
+MIN_BY = {}
 LET = 'ABCD'
 def audit(items):
     pos = collections.Counter(it['correct'] for it in items); n = len(items); exp = max(n, 1) / 4
@@ -23,8 +23,12 @@ def run(mid):
     try: xm = importlib.import_module('ext_' + mid)
     except ModuleNotFoundError: xm = None
     if om: om.build(Bo)
+    import orig_hk22; orig_hk22.build(mid, Bo)
     if gm: gm.build(Bg)
     if xm: xm.build(Bg)
+    for suf in 'abcd':
+        try: importlib.import_module('ext_more_' + suf).build(mid, Bg)
+        except ModuleNotFoundError: pass
     items = list(Bo.items); ess = list(Bo.essays)
     seen = {(i['q'], i['opts'][i['correct']]) for i in items}
     rng = random.Random(seed * 31)

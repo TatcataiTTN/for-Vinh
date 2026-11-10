@@ -100,3 +100,5 @@ footer.foot{border-top:1px solid var(--border);margin-top:40px;padding:18px 0;co
 .hl{background:var(--goodbg)}.pruned{background:var(--badbg)}
 @media(max-width:640px){.mdeck-slide{padding:14px 14px;font-size:16px}h1{font-size:1.6rem}}
 @media print{header.top,.mdeck-bar,.modnav{display:none}.mdeck-slide{display:block!important;page-break-inside:avoid}}
+
+.rx-in{width:9em;padding:6px 9px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font:inherit}.rx-grid{display:flex;flex-wrap:wrap;gap:10px 18px;margin:8px 0}.rx-grid label{white-space:nowrap}.rx select{padding:6px 9px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font:inherit}#resol table.t{margin:6px 0}
