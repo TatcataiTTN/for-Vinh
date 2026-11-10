@@ -1727,5 +1727,730 @@
   "packages": [
    "numpy"
   ]
+ },
+ {
+  "id": "barrier_center",
+  "fn": "barrier_center",
+  "module": "Module 8",
+  "level": "Vừa",
+  "title": "Nghiệm bài toán chắn (hàm chắn log) bằng Newton",
+  "statement": "Cài đặt Newton có quay lui cho \\(\\phi_\\mu(x)=f(x)-\\mu\\sum_i\\ln(-g_i(x))\\), điểm lặp luôn thoả \\(g_i(x)<0\\). Dùng sympy để lấy gradient và Hessian của \\(f\\) và \\(g_i\\).",
+  "inp": "<code>f_str</code> (str, biến x, y, z), <code>g_strs</code> (list[str], mỗi <code>g_i(x) &lt;= 0</code>), <code>x0</code> (điểm trong), <code>mu</code> (float &gt; 0).",
+  "out": "List[float]: nghiệm của bài toán chắn. Dung sai 1e-6.",
+  "hint": "Gradient: \\(\\nabla f+\\mu\\sum\\nabla g_i/(-g_i)\\). Hessian: \\(\\nabla^2f+\\mu\\sum[\\nabla^2g_i/(-g_i)+\\nabla g_i\\nabla g_i^\\top/g_i^2]\\). Quay lui: chia đôi \\(t\\) tới khi \\(g(x+td)<0\\) rồi tới khi Armijo đúng.",
+  "starter": "import numpy as np\nimport sympy as sp\n\ndef barrier_center(f_str, g_strs, x0, mu):\n    \"\"\"Trả về x (list[float]) nghiệm bài toán chắn.\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     "x**2 + y**2",
+     [
+      "1 - x - y"
+     ],
+     [
+      1,
+      1
+     ],
+     1.0
+    ],
+    "expected": [
+     0.8090169943749295,
+     0.8090169943749295
+    ],
+    "visible": true,
+    "note": "ví dụ slide tr.31: μ=1 cho (0.809, 0.809)"
+   },
+   {
+    "args": [
+     "x**2 + y**2",
+     [
+      "1 - x - y"
+     ],
+     [
+      1,
+      1
+     ],
+     0.1
+    ],
+    "expected": [
+     0.5458039891548534,
+     0.5458039891548534
+    ],
+    "visible": true,
+    "note": "μ=0.1: t=0.5458 (slide làm tròn 0.545)"
+   },
+   {
+    "args": [
+     "(x-2)**2",
+     [
+      "-x",
+      "x-1"
+     ],
+     [
+      0.5
+     ],
+     0.1
+    ],
+    "expected": [
+     0.9544595931319303
+    ],
+    "visible": true,
+    "note": "Bài tập tr.36: μ=0.1 cho 0.9545"
+   },
+   {
+    "args": [
+     "2*x + y",
+     [
+      "1-x",
+      "1-y"
+     ],
+     [
+      2,
+      2
+     ],
+     0.2
+    ],
+    "expected": [
+     1.1,
+     1.2
+    ],
+    "visible": false,
+    "note": "LP: x=(1+μ/2, 1+μ)"
+   },
+   {
+    "args": [
+     "x**2",
+     [
+      "x-2",
+      "1-x"
+     ],
+     [
+      1.5
+     ],
+     0.05
+    ],
+    "expected": [
+     1.0238223994014182
+    ],
+    "visible": false,
+    "note": ""
+   }
+  ],
+  "reference": "import numpy as np\nimport sympy as sp\n\n\ndef barrier_center(f_str, g_strs, x0, mu, tol=1e-11, max_iter=100):\n    \"\"\"Nghiệm bài toán chắn: min f(x) - mu * sum ln(-g_i(x)) với g_i(x) < 0, bằng Newton có quay lui (giữ g_i < 0).\n\n    Đầu vào : f_str (str, biến x, y, z), g_strs (list[str], mỗi g_i <= 0), x0 (điểm trong, g_i(x0) < 0), mu (float > 0)\n    Đầu ra  : x (list[float]) tại nghiệm bài toán chắn\n    \"\"\"\n    names = [\"x\", \"y\", \"z\"][: len(x0)]\n    vs = sp.symbols(names); loc = dict(zip(names, vs))\n    f = sp.sympify(f_str, locals=loc); gs = [sp.sympify(s, locals=loc) for s in g_strs]\n    F = sp.lambdify(vs, f, \"numpy\"); GF = sp.lambdify(vs, [sp.diff(f, v) for v in vs], \"numpy\"); HF = sp.lambdify(vs, sp.hessian(f, vs), \"numpy\")\n    G = [sp.lambdify(vs, g, \"numpy\") for g in gs]; DG = [sp.lambdify(vs, [sp.diff(g, v) for v in vs], \"numpy\") for g in gs]; HG = [sp.lambdify(vs, sp.hessian(g, vs), \"numpy\") for g in gs]\n    def feasible(x): return all(float(g(*x)) < 0 for g in G)\n    def phi(x): return float(F(*x)) - mu * sum(np.log(-float(g(*x))) for g in G)\n    x = np.array(x0, float)\n    for _ in range(max_iter):\n        gr = np.array(GF(*x), float).reshape(-1); H = np.array(HF(*x), float).reshape(len(x), len(x))\n        for g, dg, hg in zip(G, DG, HG):\n            gv = float(g(*x)); d = np.array(dg(*x), float).reshape(-1)\n            gr = gr + mu * d / (-gv); H = H + mu * (np.array(hg(*x), float).reshape(len(x), len(x)) / (-gv) + np.outer(d, d) / gv ** 2)\n        if np.linalg.norm(gr) < tol: break\n        d = np.linalg.solve(H, -gr); t = 1.0\n        while not feasible(x + t * d): t *= 0.5\n        while phi(x + t * d) > phi(x) + 1e-4 * t * float(gr @ d) and t > 1e-14: t *= 0.5\n        x = x + t * d\n    return [float(v) for v in x]\n",
+  "packages": [
+   "numpy",
+   "sympy"
+  ]
+ },
+ {
+  "id": "barrier_method",
+  "fn": "barrier_method",
+  "module": "Module 8",
+  "level": "Khó",
+  "title": "Thuật toán điểm trong (μ giảm dần, warm start)",
+  "statement": "Cài đặt thuật toán của slide: \\(\\mu_1=\\mu_0\\), \\(x^{k+1}=\\arg\\min f+\\mu_kB\\) (xuất phát từ \\(x^k\\)), dừng khi \\(m\\mu_k<\\varepsilon\\) (\\(m\\) = số ràng buộc), ngược lại \\(\\mu_{k+1}=\\beta\\mu_k\\). Có thể gọi lại <code>barrier_center</code>.",
+  "inp": "<code>f_str</code>, <code>g_strs</code>, <code>x0</code> (điểm trong), <code>mu0</code> (float), <code>beta</code> (0&lt;β&lt;1), <code>eps</code> (float).",
+  "out": "Tuple <code>(x, outer)</code>: nghiệm vòng cuối và số vòng ngoài (vòng đầu ứng với mu0). Dung sai 1e-5.",
+  "hint": "Ví dụ slide: x0=(1,1), μ0=1, β=0.1, ε=0.005 cho 4 vòng ngoài và x≈(0.5005, 0.5005).",
+  "starter": "import numpy as np\nimport sympy as sp\n\ndef barrier_center(f_str, g_strs, x0, mu):\n    # TODO: Newton cho bài toán chắn (có thể dán lại bài trước)\n    pass\n\ndef barrier_method(f_str, g_strs, x0, mu0, beta, eps):\n    \"\"\"Trả về (x, outer).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     "x**2 + y**2",
+     [
+      "1 - x - y"
+     ],
+     [
+      1,
+      1
+     ],
+     1.0,
+     0.1,
+     0.005
+    ],
+    "expected": [
+     [
+      0.500499500997507,
+      0.500499500997507
+     ],
+     4
+    ],
+    "visible": true,
+    "note": "ví dụ thực hành: 4 vòng ngoài"
+   },
+   {
+    "args": [
+     "x + y",
+     [
+      "1 - x",
+      "1 - y"
+     ],
+     [
+      2,
+      2
+     ],
+     1.0,
+     0.1,
+     0.01
+    ],
+    "expected": [
+     [
+      1.001,
+      1.001
+     ],
+     4
+    ],
+    "visible": true,
+    "note": "LP: x(μ)=(1+μ, 1+μ), 4 vòng"
+   },
+   {
+    "args": [
+     "x**2 + y**2",
+     [
+      "1 - x - y"
+     ],
+     [
+      1,
+      1
+     ],
+     1.0,
+     0.5,
+     0.01
+    ],
+    "expected": [
+     [
+      0.5038762001448736,
+      0.5038762001448736
+     ],
+     8
+    ],
+    "visible": false,
+    "note": "β lớn: nhiều vòng ngoài hơn"
+   }
+  ],
+  "reference": "import numpy as np\nimport sympy as sp\n\n\ndef barrier_center(f_str, g_strs, x0, mu, tol=1e-11, max_iter=100):\n    \"\"\"Nghiệm bài toán chắn: min f(x) - mu * sum ln(-g_i(x)) với g_i(x) < 0, bằng Newton có quay lui (giữ g_i < 0).\n\n    Đầu vào : f_str (str, biến x, y, z), g_strs (list[str], mỗi g_i <= 0), x0 (điểm trong, g_i(x0) < 0), mu (float > 0)\n    Đầu ra  : x (list[float]) tại nghiệm bài toán chắn\n    \"\"\"\n    names = [\"x\", \"y\", \"z\"][: len(x0)]\n    vs = sp.symbols(names); loc = dict(zip(names, vs))\n    f = sp.sympify(f_str, locals=loc); gs = [sp.sympify(s, locals=loc) for s in g_strs]\n    F = sp.lambdify(vs, f, \"numpy\"); GF = sp.lambdify(vs, [sp.diff(f, v) for v in vs], \"numpy\"); HF = sp.lambdify(vs, sp.hessian(f, vs), \"numpy\")\n    G = [sp.lambdify(vs, g, \"numpy\") for g in gs]; DG = [sp.lambdify(vs, [sp.diff(g, v) for v in vs], \"numpy\") for g in gs]; HG = [sp.lambdify(vs, sp.hessian(g, vs), \"numpy\") for g in gs]\n    def feasible(x): return all(float(g(*x)) < 0 for g in G)\n    def phi(x): return float(F(*x)) - mu * sum(np.log(-float(g(*x))) for g in G)\n    x = np.array(x0, float)\n    for _ in range(max_iter):\n        gr = np.array(GF(*x), float).reshape(-1); H = np.array(HF(*x), float).reshape(len(x), len(x))\n        for g, dg, hg in zip(G, DG, HG):\n            gv = float(g(*x)); d = np.array(dg(*x), float).reshape(-1)\n            gr = gr + mu * d / (-gv); H = H + mu * (np.array(hg(*x), float).reshape(len(x), len(x)) / (-gv) + np.outer(d, d) / gv ** 2)\n        if np.linalg.norm(gr) < tol: break\n        d = np.linalg.solve(H, -gr); t = 1.0\n        while not feasible(x + t * d): t *= 0.5\n        while phi(x + t * d) > phi(x) + 1e-4 * t * float(gr @ d) and t > 1e-14: t *= 0.5\n        x = x + t * d\n    return [float(v) for v in x]\n\n\ndef barrier_method(f_str, g_strs, x0, mu0, beta, eps):\n    \"\"\"Thuật toán điểm trong: mu_k = beta * mu_{k-1}, mỗi vòng giải bài toán chắn (barrier_center) từ nghiệm vòng trước; dừng khi m*mu_k < eps (m = số ràng buộc).\n\n    Đầu vào : f_str, g_strs, x0 (điểm trong), mu0 > 0, beta in (0,1), eps > 0\n    Đầu ra  : (x, outer): x list[float] nghiệm ở vòng cuối, outer int = số vòng ngoài (vòng đầu tiên là mu0)\n    \"\"\"\n    x = list(x0); mu = mu0; m = len(g_strs); outer = 0\n    while True:\n        x = barrier_center(f_str, g_strs, x, mu); outer += 1\n        if m * mu < eps or outer >= 60: break\n        mu *= beta\n    return x, outer\n",
+  "packages": [
+   "numpy",
+   "sympy"
+  ]
+ },
+ {
+  "id": "armijo_wolfe",
+  "fn": "armijo_wolfe",
+  "module": "Module 9",
+  "level": "Dễ",
+  "title": "Kiểm Armijo và Wolfe (độ cong)",
+  "statement": "Cho hàm f, điểm x, hướng d và bước α. Trả về \"TOO_LONG\" nếu Armijo \\(f(x+\\alpha d)\\le f(x)+c_1\\alpha\\nabla f(x)^\\top d\\) sai; \"TOO_SHORT\" nếu Armijo đúng nhưng điều kiện độ cong \\(\\nabla f(x+\\alpha d)^\\top d\\ge c_2\\nabla f(x)^\\top d\\) sai; \"ACCEPT\" nếu cả hai đúng.",
+  "inp": "<code>f_str</code> (str, biến x, y, z), <code>x</code>, <code>d</code> (list[float]), <code>alpha</code>, <code>c1</code>, <code>c2</code> (float).",
+  "out": "Một trong ba chuỗi: <code>\"TOO_LONG\"</code>, <code>\"TOO_SHORT\"</code>, <code>\"ACCEPT\"</code>.",
+  "hint": "Ví dụ: f = x²+4y², x=(2,1), d=(−4,−8), c₁=0.1, c₂=0.9: α=1 → TOO_LONG; α=0.25 → ACCEPT; α=0.01 → TOO_SHORT.",
+  "starter": "import numpy as np\nimport sympy as sp\n\ndef armijo_wolfe(f_str, x, d, alpha, c1=1e-4, c2=0.9):\n    \"\"\"Trả về 'TOO_LONG', 'TOO_SHORT' hoặc 'ACCEPT'.\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     "x**2 + 4*y**2",
+     [
+      2,
+      1
+     ],
+     [
+      -4,
+      -8
+     ],
+     1.0,
+     0.1,
+     0.9
+    ],
+    "expected": "TOO_LONG",
+    "visible": true,
+    "note": "quá dài"
+   },
+   {
+    "args": [
+     "x**2 + 4*y**2",
+     [
+      2,
+      1
+     ],
+     [
+      -4,
+      -8
+     ],
+     0.25,
+     0.1,
+     0.9
+    ],
+    "expected": "ACCEPT",
+    "visible": true,
+    "note": "chấp nhận"
+   },
+   {
+    "args": [
+     "x**2 + 4*y**2",
+     [
+      2,
+      1
+     ],
+     [
+      -4,
+      -8
+     ],
+     0.01,
+     0.1,
+     0.9
+    ],
+    "expected": "TOO_SHORT",
+    "visible": true,
+    "note": "quá ngắn"
+   },
+   {
+    "args": [
+     "x**2 + 4*y**2",
+     [
+      2,
+      1
+     ],
+     [
+      -4,
+      -8
+     ],
+     0.5,
+     0.1,
+     0.9
+    ],
+    "expected": "TOO_LONG",
+    "visible": false,
+    "note": ""
+   },
+   {
+    "args": [
+     "2*x**2 + x*y + y**2 - 4*x - 6*y",
+     [
+      0,
+      0
+     ],
+     [
+      4,
+      6
+     ],
+     0.2826,
+     0.0001,
+     0.9
+    ],
+    "expected": "ACCEPT",
+    "visible": false,
+    "note": ""
+   }
+  ],
+  "reference": "import numpy as np\nimport sympy as sp\n\n\ndef armijo_wolfe(f_str, x, d, alpha, c1=1e-4, c2=0.9):\n    \"\"\"Kiểm bước alpha theo Armijo và độ cong (Wolfe).\n\n    Đầu vào : f_str (str, biến x, y, z), x, d (list[float]), alpha, c1, c2 (float)\n    Đầu ra  : \"TOO_LONG\" nếu Armijo sai; \"TOO_SHORT\" nếu Armijo đúng nhưng độ cong sai; \"ACCEPT\" nếu thoả cả hai\n    \"\"\"\n    names = [\"x\", \"y\", \"z\"][: len(x)]\n    vs = sp.symbols(names); f = sp.sympify(f_str, locals=dict(zip(names, vs)))\n    fn = sp.lambdify(vs, f, \"numpy\"); gn = sp.lambdify(vs, [sp.diff(f, v) for v in vs], \"numpy\")\n    x = np.array(x, float); d = np.array(d, float); g0 = np.array(gn(*x), float); m = float(g0 @ d)\n    if not float(fn(*(x + alpha * d))) <= float(fn(*x)) + c1 * alpha * m: return \"TOO_LONG\"\n    if not float(np.array(gn(*(x + alpha * d)), float) @ d) >= c2 * m: return \"TOO_SHORT\"\n    return \"ACCEPT\"\n",
+  "packages": [
+   "numpy",
+   "sympy"
+  ]
+ },
+ {
+  "id": "bfgs_update",
+  "fn": "bfgs_update",
+  "module": "Module 9",
+  "level": "Vừa",
+  "title": "Cập nhật BFGS",
+  "statement": "Cài đặt \\(B_{k+1}=B_k-\\dfrac{B_ks_ks_k^\\top B_k}{s_k^\\top B_ks_k}+\\dfrac{y_ky_k^\\top}{y_k^\\top s_k}\\). Kết quả phải thoả điều kiện tựa Newton \\(B_{k+1}s_k=y_k\\).",
+  "inp": "<code>B</code> (n×n đối xứng xác định dương), <code>s</code>, <code>y</code> (list[float] độ dài n, với \\(y^\\top s&gt;0\\)).",
+  "out": "List[list[float]] cỡ n×n. Dung sai 1e-6.",
+  "hint": "Dùng <code>np.outer</code>; tính <code>B @ s</code> một lần. Kiểm bằng <code>B_new @ s</code> so với <code>y</code>.",
+  "starter": "import numpy as np\n\ndef bfgs_update(B, s, y):\n    \"\"\"Trả về B_new (list[list[float]]).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     [
+      [
+       1,
+       0
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     [
+      1.1304347826086956,
+      1.6956521739130435
+     ],
+     [
+      6.217391304347826,
+      4.521739130434782
+     ]
+    ],
+    "expected": [
+     [
+      3.322742474916388,
+      1.451505016722408
+     ],
+     [
+      1.451505016722408,
+      1.6989966555183944
+     ]
+    ],
+    "visible": true,
+    "note": "Bài tập 1 (Module 9), bước 1: B₁"
+   },
+   {
+    "args": [
+     [
+      [
+       2,
+       1
+      ],
+      [
+       1,
+       3
+      ]
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      3,
+      2
+     ]
+    ],
+    "expected": [
+     [
+      3.0,
+      2.0
+     ],
+     [
+      2.0,
+      3.833333333333333
+     ]
+    ],
+    "visible": true,
+    "note": "y·s = 3 > 0"
+   },
+   {
+    "args": [
+     [
+      [
+       4,
+       1,
+       0
+      ],
+      [
+       1,
+       3,
+       1
+      ],
+      [
+       0,
+       1,
+       2
+      ]
+     ],
+     [
+      1,
+      -1,
+      0.5
+     ],
+     [
+      2,
+      -1,
+      1
+     ]
+    ],
+    "expected": [
+     [
+      3.142857142857143,
+      1.4285714285714286,
+      0.5714285714285714
+     ],
+     [
+      1.4285714285714286,
+      2.7857142857142856,
+      0.7142857142857143
+     ],
+     [
+      0.5714285714285714,
+      0.7142857142857143,
+      2.2857142857142856
+     ]
+    ],
+    "visible": false,
+    "note": "3×3"
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef bfgs_update(B, s, y):\n    \"\"\"Cập nhật BFGS: B+ = B - (B s s' B)/(s' B s) + (y y')/(y' s).\n\n    Đầu vào : B (n x n đối xứng xác định dương), s, y (n), với y's > 0\n    Đầu ra  : B_new (list[list[float]] n x n)\n    \"\"\"\n    B = np.array(B, float); s = np.array(s, float); y = np.array(y, float)\n    Bs = B @ s\n    Bn = B - np.outer(Bs, Bs) / float(s @ Bs) + np.outer(y, y) / float(y @ s)\n    return [[float(v) for v in row] for row in Bn]\n",
+  "packages": [
+   "numpy"
+  ]
+ },
+ {
+  "id": "penalty_min",
+  "fn": "penalty_min",
+  "module": "Module 9",
+  "level": "Vừa",
+  "title": "Nghiệm bài toán phạt bình phương",
+  "statement": "Giải \\(\\min\\ f+\\tfrac r2\\Big(\\sum h_j^2+\\sum\\max\\{0,g_i\\}^2\\Big)\\) bằng Newton có quay lui. Với bất đẳng thức, chỉ cộng số hạng của ràng buộc đang bị vi phạm (\\(g_i>0\\)) vào gradient và Hessian.",
+  "inp": "<code>f_str</code> (str, biến x, y, z), <code>eq_strs</code> (list[str], mỗi <code>h_j = 0</code>), <code>ineq_strs</code> (list[str], mỗi <code>g_i &lt;= 0</code>), <code>r</code> (float), <code>x0</code> (list[float]).",
+  "out": "List[float]: nghiệm bài toán phạt. Dung sai 1e-6.",
+  "hint": "Slide tr.20: f=(x−2)², h=x−1, r=10 → x=14/12. Bài tập 2: x=y=r/(2(1+r)). Bài tr.23: ρ=10 → (0.1818, 2.0909).",
+  "starter": "import numpy as np\nimport sympy as sp\n\ndef penalty_min(f_str, eq_strs, ineq_strs, r, x0):\n    \"\"\"Trả về x (list[float]).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     "(x-2)**2",
+     [
+      "x-1"
+     ],
+     [],
+     10,
+     [
+      0
+     ]
+    ],
+    "expected": [
+     1.1666666666666665
+    ],
+    "visible": true,
+    "note": "tr.20: 14/12"
+   },
+   {
+    "args": [
+     "x**2 + y**2",
+     [
+      "x+y-1"
+     ],
+     [],
+     10,
+     [
+      0,
+      0
+     ]
+    ],
+    "expected": [
+     0.45454545454545436,
+     0.45454545454545475
+    ],
+    "visible": true,
+    "note": "Bài tập 2: 0.4545"
+   },
+   {
+    "args": [
+     "(x-2)**2 + (y-3)**2",
+     [],
+     [
+      "x+y-2",
+      "x-y+2"
+     ],
+     10,
+     [
+      1,
+      1
+     ]
+    ],
+    "expected": [
+     0.18181818181818188,
+     2.090909090909091
+    ],
+    "visible": true,
+    "note": "tr.23: ρ=10"
+   },
+   {
+    "args": [
+     "(x-2)**2 + (y-3)**2",
+     [],
+     [
+      "x+y-2",
+      "x-y+2"
+     ],
+     100,
+     [
+      1,
+      1
+     ]
+    ],
+    "expected": [
+     0.019801980198019598,
+     2.00990099009901
+    ],
+    "visible": false,
+    "note": "ρ=100: (0.0198, 2.0099)"
+   },
+   {
+    "args": [
+     "x**2 + y**2 + z**2",
+     [
+      "x + y + z - 3"
+     ],
+     [],
+     50,
+     [
+      0,
+      0,
+      0
+     ]
+    ],
+    "expected": [
+     0.986842105263156,
+     0.986842105263161,
+     0.9868421052631571
+    ],
+    "visible": false,
+    "note": ""
+   }
+  ],
+  "reference": "import numpy as np\nimport sympy as sp\n\n\ndef penalty_min(f_str, eq_strs, ineq_strs, r, x0, tol=1e-12, max_iter=100):\n    \"\"\"Nghiệm bài toán phạt bình phương: min f + r/2 ( sum h_j^2 + sum max(0, g_i)^2 ), h_j = 0, g_i <= 0, bằng Newton có quay lui.\n\n    Đầu vào : f_str (str, biến x, y, z), eq_strs (list[str], h_j), ineq_strs (list[str], g_i), r (float), x0 (list[float])\n    Đầu ra  : x (list[float])\n    \"\"\"\n    names = [\"x\", \"y\", \"z\"][: len(x0)]\n    vs = sp.symbols(names); loc = dict(zip(names, vs)); L_ = lambda e: sp.lambdify(vs, e, \"numpy\")\n    f = sp.sympify(f_str, locals=loc); hs = [sp.sympify(s, locals=loc) for s in eq_strs]; gs = [sp.sympify(s, locals=loc) for s in ineq_strs]\n    F = L_(f); GF = L_(sp.Matrix([sp.diff(f, v) for v in vs])); HF = L_(sp.hessian(f, vs))\n    H_ = [L_(h) for h in hs]; DH = [L_(sp.Matrix([sp.diff(h, v) for v in vs])) for h in hs]; G_ = [L_(g) for g in gs]; DG = [L_(sp.Matrix([sp.diff(g, v) for v in vs])) for g in gs]\n    n = len(x0)\n    def phi(x): return float(F(*x)) + 0.5 * r * (sum(float(h(*x)) ** 2 for h in H_) + sum(max(0.0, float(g(*x))) ** 2 for g in G_))\n    x = np.array(x0, float)\n    for _ in range(max_iter):\n        gr = np.array(GF(*x), float).reshape(-1); H = np.array(HF(*x), float).reshape(n, n)\n        for h, dh in zip(H_, DH):\n            d = np.array(dh(*x), float).reshape(-1); gr = gr + r * float(h(*x)) * d; H = H + r * np.outer(d, d)\n        for g, dg in zip(G_, DG):\n            gv = float(g(*x))\n            if gv > 0: d = np.array(dg(*x), float).reshape(-1); gr = gr + r * gv * d; H = H + r * np.outer(d, d)\n        if np.linalg.norm(gr) < tol: break\n        d = np.linalg.solve(H, -gr); t = 1.0\n        while phi(x + t * d) > phi(x) + 1e-4 * t * float(gr @ d) and t > 1e-14: t *= 0.5\n        x = x + t * d\n    return [float(v) for v in x]\n",
+  "packages": [
+   "numpy",
+   "sympy"
+  ]
+ },
+ {
+  "id": "sqp_kkt_step",
+  "fn": "sqp_kkt_step",
+  "module": "Module 9",
+  "level": "Vừa",
+  "title": "Bước SQP đẳng thức bằng ma trận KKT",
+  "statement": "Giải hệ \\(\\begin{pmatrix}B&J^\\top\\\\J&0\\end{pmatrix}\\begin{pmatrix}d\\\\\\mu\\end{pmatrix}=-\\begin{pmatrix}\\nabla f\\\\h\\end{pmatrix}\\) để lấy bước \\(d\\) và nhân tử mới \\(\\mu\\) (cho \\(L=f+\\mu^\\top h\\)).",
+  "inp": "<code>B</code> (n×n), <code>grad_f</code> (n), <code>h</code> (m), <code>J</code> (m×n).",
+  "out": "Tuple <code>(d, mu)</code>: <code>d</code> list độ dài n, <code>mu</code> list độ dài m. Dung sai 1e-6.",
+  "hint": "<code>np.block([[B, J.T], [J, np.zeros((m, m))]])</code>; vế phải là <code>-np.concatenate([grad_f, h])</code>. Ví dụ tr.31: d=(0.5,1.5), μ=1. Bài tập 3: d=(0,1), μ=0.",
+  "starter": "import numpy as np\n\ndef sqp_kkt_step(B, grad_f, h, J):\n    \"\"\"Trả về (d, mu).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     [
+      [
+       2,
+       0
+      ],
+      [
+       0,
+       2
+      ]
+     ],
+     [
+      -2,
+      -4
+     ],
+     [
+      -2
+     ],
+     [
+      [
+       1,
+       1
+      ]
+     ]
+    ],
+    "expected": [
+     [
+      0.5,
+      1.5
+     ],
+     [
+      1.0
+     ]
+    ],
+    "visible": true,
+    "note": "ví dụ tr.31"
+   },
+   {
+    "args": [
+     [
+      [
+       2,
+       0
+      ],
+      [
+       0,
+       2
+      ]
+     ],
+     [
+      0,
+      -2
+     ],
+     [
+      0
+     ],
+     [
+      [
+       2,
+       0
+      ]
+     ]
+    ],
+    "expected": [
+     [
+      -0.0,
+      1.0
+     ],
+     [
+      0.0
+     ]
+    ],
+    "visible": true,
+    "note": "Bài tập 3 (tr.45)"
+   },
+   {
+    "args": [
+     [
+      [
+       2,
+       0,
+       0
+      ],
+      [
+       0,
+       2,
+       0
+      ],
+      [
+       0,
+       0,
+       2
+      ]
+     ],
+     [
+      1,
+      2,
+      3
+     ],
+     [
+      1,
+      -1
+     ],
+     [
+      [
+       1,
+       0,
+       1
+      ],
+      [
+       0,
+       1,
+       1
+      ]
+     ]
+    ],
+    "expected": [
+     [
+      -1.0,
+      1.0,
+      0.0
+     ],
+     [
+      1.0,
+      -4.0
+     ]
+    ],
+    "visible": false,
+    "note": "3 biến, 2 ràng buộc"
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef sqp_kkt_step(B, grad_f, h, J):\n    \"\"\"Bước SQP cho ràng buộc đẳng thức: giải [B J'; J 0] [d; mu] = -[grad f; h].\n\n    Đầu vào : B (n x n), grad_f (n), h (m), J (m x n)\n    Đầu ra  : (d, mu): d list[float] độ dài n, mu list[float] độ dài m (nhân tử mới của L = f + mu'h)\n    \"\"\"\n    B = np.array(B, float); g = np.array(grad_f, float); h = np.array(h, float); J = np.array(J, float)\n    n, m = len(g), len(h)\n    K = np.block([[B, J.T], [J, np.zeros((m, m))]])\n    sol = np.linalg.solve(K, -np.concatenate([g, h]))\n    return [float(v) for v in sol[:n]], [float(v) for v in sol[n:]]\n",
+  "packages": [
+   "numpy"
+  ]
  }
 ]
