@@ -55,7 +55,7 @@ a.mod-card p{margin:.3em 0;color:var(--muted);font-size:.92rem}
 table{border-collapse:collapse;margin:10px 0;max-width:100%}
 th,td{border:1px solid var(--border);padding:6px 10px;text-align:left;vertical-align:top}
 th{background:var(--accent-soft)}
-.tbl-wrap{overflow-x:auto}
+.tbl-wrap{overflow-x:auto;position:relative}
 code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code);padding:1px 5px;border-radius:4px;font-size:.92em}
 details.solution{border:1px solid var(--border);border-radius:10px;margin:10px 0;background:var(--card)}
 details.solution>summary{cursor:pointer;padding:9px 14px;font-weight:700;color:var(--accent)}
@@ -263,3 +263,26 @@ table.grid2{width:100%}table.grid2 td{vertical-align:top;border:0;width:50%;padd
 .mdeck-slide .bstep h4{margin:0 0 .1em;font-size:1em}
 .mdeck-slide .bstep p{margin:.2em 0}
 .slide-explain-body p.xm{margin:.5em 0 0;padding-top:.4em;border-top:1px dashed var(--border)}
+
+/* đề thi */
+.mcq{list-style:none;padding-left:0;counter-reset:q}
+.mcq>li{counter-increment:q;margin:1em 0;padding:8px 14px;border:1px solid var(--border);border-radius:10px;background:var(--card)}
+.mcq .mq{margin:.2em 0 .4em;font-weight:600}
+.mcq .mq::before{content:"Câu " counter(q) ". ";color:var(--accent);font-weight:800}
+.opts{list-style:none;padding-left:.3em;margin:.2em 0}
+.opts li{margin:.3em 0;padding:2px 0}
+.mod{display:inline-block;font-size:.76rem;font-weight:600;color:var(--muted);background:var(--accent-soft);border-radius:999px;padding:1px 9px;margin-left:.4em;vertical-align:middle;white-space:nowrap}
+p.mod{margin:.1em 0 .6em;margin-left:0}
+.essay{border:1px solid var(--border);border-radius:12px;background:var(--card);padding:6px 16px 10px;margin:14px 0}
+.essay h3{margin:.5em 0 .1em}
+ol.parts>li{margin:.6em 0}
+.sol-body{margin:.4em 0 .9em;padding:.1em .9em;border-left:3px solid var(--accent)}
+.lockbar,.timer{padding:8px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card);margin:10px 0}
+.lockbar input{font:inherit;padding:4px 8px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text)}
+.lockbar button,.timer button{font:inherit;cursor:pointer;padding:4px 12px;border:1px solid var(--accent);border-radius:6px;background:var(--accent-soft);color:var(--accent);font-weight:700}
+.locked{border:1px dashed var(--border);border-radius:10px;padding:10px 14px;margin:10px 0;color:var(--muted)}
+#t-show{font-variant-numeric:tabular-nums;font-weight:700;margin-left:.6em}
+.mcq>li,.essay,.sol-body,details.solution>.body{overflow-x:auto;overflow-wrap:anywhere;position:relative}
+.mcq .katex-display,.essay .katex-display,.sol-body .katex-display{overflow-x:auto;overflow-y:hidden;padding:2px 0}
+table.ans-tbl th:nth-child(-n+3),table.ans-tbl td:nth-child(-n+3){white-space:nowrap}
+@media print{.topbar,.lockbar,.timer,.sitesearch,#theme-btn,.locked,details.solution{display:none!important}}
