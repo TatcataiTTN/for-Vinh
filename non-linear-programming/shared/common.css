@@ -95,6 +95,7 @@ figure.diagram figcaption{color:var(--muted);font-size:.85rem;margin-top:4px}
 .sgrid.stack .sside{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,2fr);gap:1.1em;align-items:start}
 .sside .slide-fig{margin:0 0 .8em}
 .sgrid.stack .sside .slide-fig{margin:0}
+.sgrid.stack .sside:not(:has(.slide-fig)){grid-template-columns:1fr}
 .slide-fig{margin:.7em 0;text-align:center}
 .slide-fig img{width:100%;height:auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:3px;cursor:zoom-in;display:block}
 .slide-fig figcaption{font-size:.68em;color:var(--muted);margin-top:4px}
