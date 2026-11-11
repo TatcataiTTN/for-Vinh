@@ -91,7 +91,7 @@ def build_home():
     write('index.html', '<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=vi/index.html"><title>Xác suất thống kê</title></head><body><a href="vi/index.html">Vào trang học xác suất thống kê</a></body></html>')
 
 def build_tables():
-    body = '''<h1>Bảng tra điện tử</h1><p class="lead">Thay cho các bảng A7 (hàm Φ), A8 (giá trị z), A9 (phân phối Student) kèm đề thi; thêm χ². Tính trực tiếp bằng thuật toán đã đối chiếu SciPy (3000 phép so, sai khác &lt; 10⁻⁷).</p><div class="sim" data-sim="tables"></div>
+    body = '''<h1>Bảng tra điện tử</h1><div class="callout good"><b class="t">Mới: site hướng dẫn đọc bảng từng bước</b><p>Chưa hiểu cách tra bảng A7, A8, A9 (chuẩn tắc, Student) trong đề? Xem <a href="../../../bang-tra-xstk/index.html">Học tra bảng XSTK</a>: bảng tương tác, ví dụ, nội suy, 240 câu luyện.</p></div><p class="lead">Thay cho các bảng A7 (hàm Φ), A8 (giá trị z), A9 (phân phối Student) kèm đề thi; thêm χ². Tính trực tiếp bằng thuật toán đã đối chiếu SciPy (3000 phép so, sai khác &lt; 10⁻⁷).</p><div class="sim" data-sim="tables"></div>
 <h2>Một số giá trị hay dùng</h2><table class="t"><tr><th>α</th><th>U_α</th><th>U_{α/2}</th></tr>''' + ''.join(f'<tr><td>{a}</td><td>{PSV.U(a):.4f}</td><td>{PSV.U(a/2):.4f}</td></tr>' for a in (0.1, 0.05, 0.025, 0.01, 0.005)) + '</table>'
     write('vi/bang-tra/index.html', page('Bảng tra', body, 2, 'Bảng tra Φ, z, t, χ²', scripts=SIMJS, math=False))
 

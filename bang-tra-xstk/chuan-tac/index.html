@@ -1,0 +1,38 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bảng chuẩn tắc A7 và A8 · Học tra bảng XSTK</title><meta name="description" content="Cách đọc bảng Φ(z) A7 và bảng z A8 từng bước">
+<script>try{var t=localStorage.getItem('bangtra-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%23b3122f%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-size=%2720%27 text-anchor=%27middle%27 fill=%27white%27%3EΦ%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="../assets/site.css"></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="../index.html">📐 Học tra bảng XSTK</a><nav><a href="../index.html" class="">Trang chủ</a><a href="../chuan-tac/index.html" class="on">Chuẩn tắc A7–A8</a><a href="../student/index.html" class="">Student A9</a><a href="../chi-binh-phuong/index.html" class="">χ² A10</a><a href="../luyen-tra/index.html" class="">Luyện tra bảng</a><a href="../de-that/index.html" class="">Đề thật HK2.2</a><a href="../in-bang/index.html" class="">In bảng</a><button id="themebtn" type="button">🌙 Tối</button></nav></div></header>
+<main class="wrap"><div class="crumbs"><a href="../index.html">Trang chủ</a> › Bảng chuẩn tắc</div>
+<h1>Bảng chuẩn tắc: A7 (Φ) và A8 (z)</h1>
+<p class="lead">Hai bảng cho cùng một đường cong chuẩn tắc N(0; 1). A7 đi từ <b>z đến xác suất</b>; A8 đi ngược từ <b>xác suất đến z</b>.</p>
+<h2 id="y-nghia">1. Φ(z) là gì</h2>
+<div class="fig"><div><div class="bellbox" data-bell="left:1.23" data-label="Φ(1.23) = P(Z ≤ 1.23)"></div></div><div>
+<p>Φ(z) là <b>diện tích bên trái</b> điểm z dưới đường chuẩn tắc, tức xác suất P(Z ≤ z). Đường chuẩn tắc đối xứng quanh 0 nên:</p>
+<ul><li>Φ(0) = 0.5</li><li>Φ(−z) = 1 − Φ(z)</li><li>P(Z &gt; z) = 1 − Φ(z)</li><li>P(a &lt; Z &lt; b) = Φ(b) − Φ(a)</li></ul></div></div>
+<h2 id="a7">2. Bảng A7: biết z, tìm Φ(z)</h2>
+<p>Bảng có 6 nhóm cột. Mỗi nhóm gồm cột <b>z</b> (bước 0.01) và cột <b>Φ(z)</b>. Tìm z ở cột z rồi đọc ô bên phải. Ô in 4 chữ số, hiểu là 0.xxxx.</p>
+<div class="eg"><div class="egh">Ví dụ đọc Φ(1.23)</div><ol class="steps"><li>Tìm ô <b>1.23</b> ở các cột z (nằm trong nhóm thứ ba: 1.01 đến 1.50).</li><li>Đọc ô Φ(z) ngay bên phải: <b>8907</b>.</li><li>Vậy Φ(1.23) = <b>0.8907</b>.</li></ol></div>
+<div class="lk"><div class="lkh">✍ Tra thử · Φ(z) bằng bảng A7</div><div data-lk="a7"></div></div>
+<details class="tbd" open><summary>Bảng A7 đầy đủ (kéo để xem)</summary><div data-table="a7"></div></details>
+<h3>Năm dạng bài với A7</h3>
+<div class="eg"><div class="egh">Dạng 1 · Φ(z) với z dương</div><p>Φ(1.23) = <b>0.8907</b> (đọc thẳng).</p></div>
+<div class="eg"><div class="egh">Dạng 2 · Φ(z) với z âm</div><p>Φ(−0.57) = 1 − Φ(0.57) = 1 − 0.7157 = <b>0.2843</b>.</p><div class="bellbox" data-bell="left:-0.57" data-label="Φ(−0.57)"></div></div>
+<div class="eg"><div class="egh">Dạng 3 · P(a &lt; Z &lt; b)</div><p>P(−1.20 &lt; Z &lt; 2.05) = Φ(2.05) − Φ(−1.20) = 0.9798 − (1 − 0.8849) = 0.9798 − 0.1151 = <b>0.8647</b>.</p><div class="bellbox" data-bell="between:-1.2,2.05" data-label="P(−1.20 &lt; Z &lt; 2.05)"></div></div>
+<div class="eg"><div class="egh">Dạng 4 · Đuôi phải</div><p>P(Z &gt; 1.64) = 1 − Φ(1.64) = 1 − 0.9495 = <b>0.0505</b>.</p></div>
+<div class="eg"><div class="egh">Dạng 5 · X ~ N(μ; σ²): chuẩn hoá rồi tra</div><ol class="steps"><li>X ~ N(100; 15²). Tính P(90 &lt; X &lt; 120).</li><li>Đổi z = (x − μ)/σ: z₁ = (90 − 100)/15 = −0.67; z₂ = (120 − 100)/15 = 1.33.</li><li>Φ(1.33) = 0.9082; Φ(−0.67) = 1 − Φ(0.67) = 1 − 0.7486 = 0.2514.</li><li>P = 0.9082 − 0.2514 = <b>0.6568</b>.</li></ol><p class="note">Chia cho σ (độ lệch chuẩn), không phải σ². Nếu z có nhiều hơn 2 chữ số thập phân thì làm tròn đến 2 chữ số rồi mới tra (ví dụ 1.2308 → 1.23).</p></div>
+<h2 id="a8">3. Bảng A8: biết xác suất, tìm z</h2>
+<p>Mỗi hàng ứng với một xác suất <b>P (%)</b>. Có hai cột kết quả:</p>
+<div class="scroll"><table class="t left"><tr><th>Cột</th><th>Nghĩa</th><th>Dùng khi</th></tr><tr><td>z(Φ)</td><td>z sao cho Φ(z) = P%</td><td>giá trị tới hạn U<sub>α</sub> (P = 100 − α), tìm c để P(X ≤ c) cho trước</td></tr><tr><td>z(D)</td><td>z sao cho P(|Z| &lt; z) = P% (D(z) = Φ(z) − Φ(−z))</td><td>xác suất hai phía, tìm khoảng đối xứng quanh 0</td></tr></table></div>
+<div class="callout warn"><b class="t">Chú ý dấu</b><p>Với P &lt; 50% thì z(Φ) <b>âm</b> (Φ(z) nhỏ hơn 0.5 nghĩa là z nằm bên trái 0). Với P = 50% thì z = 0. Cột z(D) luôn dương.</p></div>
+<div class="eg"><div class="egh">Ví dụ · U<sub>α</sub> với α = 7% (đề giữa kỳ thật, mã Ak1)</div><ol class="steps"><li>U<sub>α</sub> thoả Φ(U<sub>α</sub>) = 1 − α = 1 − 7% = <b>93%</b>.</li><li>Vào hàng <b>93</b> của bảng A8, đọc cột z(Φ): <b>1.476</b>.</li><li>Vậy U<sub>7%</sub> = 1.476. Hình dưới: diện tích bên phải điểm đó là 7%.</li></ol><div class="bellbox" data-bell="left:1.476" data-label="Φ(U) = 93%"></div></div>
+<div class="eg"><div class="egh">Ví dụ · tìm c với Φ(c) = 30%</div><ol class="steps"><li>Hàng <b>30</b>, cột z(Φ): <b>−0.524</b> (âm vì 30% &lt; 50%).</li></ol></div>
+<div class="eg"><div class="egh">Ví dụ · khoảng đối xứng chứa 90% xác suất</div><ol class="steps"><li>Cột z(D), hàng <b>90</b>: <b>1.645</b>. Vậy P(−1.645 &lt; Z &lt; 1.645) = 90%.</li></ol><div class="bellbox" data-bell="between:-1.645,1.645" data-label="D(z) = 90%"></div></div>
+<div class="lk"><div class="lkh">✍ Tra thử · z từ xác suất (A8)</div><div data-lk="a8"></div></div>
+<details class="tbd" open><summary>Bảng A8 đầy đủ (kéo để xem)</summary><div data-table="a8"></div></details>
+<h2>4. Giá trị hay dùng (nên thuộc)</h2>
+<div class="scroll"><table class="t "><tr><th>Độ tin cậy γ</th><th>α/2</th><th>U<sub>α/2</sub> (A8, hàng 1 − α/2)</th></tr><tr><td>90%</td><td>5%</td><td>1.645 (hàng 95)</td></tr><tr><td>95%</td><td>2.5%</td><td>1.960 (hàng 97.5)</td></tr><tr><td>99%</td><td>0.5%</td><td>2.576 (hàng 99.5)</td></tr></table></div>
+<h2>5. Lỗi hay gặp</h2>
+<div class="callout bad"><b class="t">Những chỗ sai nhiều nhất</b><ul><li>Tra thẳng hàng α% thay vì hàng (100 − α)%: α = 7% phải tra hàng 93, không phải hàng 7 (hàng 7 cho −1.476).</li><li>Nhầm U<sub>α</sub> với U<sub>α/2</sub>: câu “giá trị tới hạn U<sub>α</sub>” không chia đôi; chỉ khoảng tin cậy hai phía mới dùng α/2.</li><li>Quên đổi z âm: Φ(−1.00) = 0.1587, không phải 0.8413.</li><li>Dùng cột z(D) khi cần z(Φ) (hai cột khác nhau).</li><li>Chia cho σ² thay vì σ khi chuẩn hoá.</li></ul></div></main>
+<footer class="foot"><div class="wrap"><p>Các bảng A7, A8, A9, A10 dựng lại đúng như phụ lục bảng của giáo trình (Kreyszig, <i>Advanced Engineering Mathematics</i>, App. 5, trang A101–A104, đi kèm Lecture Notes XSTK). Mỗi ô được tính bằng SciPy và đối chiếu từng ô với bản in (1014 ô). Trang tự học, dùng cùng site <a href="../../probstat/vi/index.html">Lý thuyết xác suất thống kê</a>.</p></div></footer>
+<script src="../assets/data.js"></script><script src="../assets/app.js"></script></body></html>

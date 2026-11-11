@@ -1,0 +1,18 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bảng χ² A10 · Học tra bảng XSTK</title><meta name="description" content="Cách đọc bảng χ² A10">
+<script>try{var t=localStorage.getItem('bangtra-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%23b3122f%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-size=%2720%27 text-anchor=%27middle%27 fill=%27white%27%3EΦ%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="../assets/site.css"></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="../index.html">📐 Học tra bảng XSTK</a><nav><a href="../index.html" class="">Trang chủ</a><a href="../chuan-tac/index.html" class="">Chuẩn tắc A7–A8</a><a href="../student/index.html" class="">Student A9</a><a href="../chi-binh-phuong/index.html" class="on">χ² A10</a><a href="../luyen-tra/index.html" class="">Luyện tra bảng</a><a href="../de-that/index.html" class="">Đề thật HK2.2</a><a href="../in-bang/index.html" class="">In bảng</a><button id="themebtn" type="button">🌙 Tối</button></nav></div></header>
+<main class="wrap"><div class="crumbs"><a href="../index.html">Trang chủ</a> › Bảng χ²</div>
+<h1>Bảng χ² (A10)</h1>
+<p class="lead">Cho x sao cho F(x) = P(χ² ≤ x) với χ² có m bậc tự do. Hàng là F (0.005 đến 0.995), cột là m (1 đến 30, rồi 40, 50, …, 100).</p>
+<div class="eg"><div class="egh">Ví dụ trong bảng</div><ol class="steps"><li>3 bậc tự do, F = 0.99.</li><li>Cột <b>3</b>, hàng <b>0.99</b>: <b>11.34</b>.</li></ol></div>
+<div class="callout info"><b class="t">Hai đuôi của χ²</b><p>χ² không đối xứng nên khoảng hai phía cần <b>hai</b> giá trị: χ²<sub>α/2</sub> (đuôi phải, F = 1 − α/2) và χ²<sub>1−α/2</sub> (đuôi trái, F = α/2). Ví dụ α = 5%: F = 0.975 và F = 0.025.</p></div>
+<div class="lk"><div class="lkh">✍ Tra thử · χ² (A10)</div><div data-lk="a10"></div></div>
+<details class="tbd" open><summary>Bảng A10 đầy đủ (kéo để xem)</summary><div data-table="a10"></div></details>
+<h2>Khi m &gt; 100</h2>
+<p>Dùng xấp xỉ <b>x ≈ ½(h + z)²</b> với h = √(2m − 1) và z là giá trị chuẩn tắc ứng với F (tra A8, cột z(Φ)).</p>
+<div class="eg"><div class="egh">Ví dụ · m = 150, F = 0.95</div><ol class="steps"><li>h = √(2·150 − 1) = √299 = 17.292.</li><li>F = 0.95 ⇒ z = 1.645 (A8, hàng 95).</li><li>x ≈ ½(17.292 + 1.645)² = <b>179.3</b> (chính xác 179.6).</li></ol></div>
+<div class="callout bad"><b class="t">Lỗi hay gặp</b><ul><li>Dùng đuôi sai: cận trên của khoảng tin cậy σ² dùng χ² nhỏ (F = α/2), cận dưới dùng χ² lớn (F = 1 − α/2).</li><li>Bậc tự do m = n − 1 trong kiểm định phương sai (không phải n).</li><li>Từ cột 21 trở đi bảng in 1 chữ số thập phân: không đọc thành 2 chữ số.</li></ul></div></main>
+<footer class="foot"><div class="wrap"><p>Các bảng A7, A8, A9, A10 dựng lại đúng như phụ lục bảng của giáo trình (Kreyszig, <i>Advanced Engineering Mathematics</i>, App. 5, trang A101–A104, đi kèm Lecture Notes XSTK). Mỗi ô được tính bằng SciPy và đối chiếu từng ô với bản in (1014 ô). Trang tự học, dùng cùng site <a href="../../probstat/vi/index.html">Lý thuyết xác suất thống kê</a>.</p></div></footer>
+<script src="../assets/data.js"></script><script src="../assets/app.js"></script></body></html>
