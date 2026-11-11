@@ -39,7 +39,7 @@ def b_m08(B, rng, T):
         n = rng.choice([10, 15, 20, 25]); s2 = rng.choice([4, 9, 16, 2.5]); g = 0.95; lo = (n - 1) * s2 / st.chi2.ppf(1 - (1 - g) / 2, n - 1); hi = (n - 1) * s2 / st.chi2.ppf((1 - g) / 2, n - 1)
         B.mcq(f'Mẫu chuẩn cỡ n = {n} có s² = {fg(s2)}. Khoảng tin cậy 95% cho σ² là', f'({f(lo,3)}; {f(hi,3)})',
               [f'({f((n-1)*s2/st.chi2.ppf(1-0.05/2,n),3)}; {f((n-1)*s2/st.chi2.ppf(0.05/2,n),3)})', f'({f(s2-1.96*s2/math.sqrt(n),3)}; {f(s2+1.96*s2/math.sqrt(n),3)})', f'({f(n*s2/st.chi2.ppf(0.975,n-1),3)}; {f(n*s2/st.chi2.ppf(0.025,n-1),3)})'],
-              f'(n − 1)s²/χ²_{{0.025}}({n-1}) và (n − 1)s²/χ²_{{0.975}}({n-1}): cận dưới chia cho χ² lớn.', 3, T['var'], 'Bổ sung: họ bài tham số hóa theo dạng đề (đáp án tự tính bằng chương trình)', 'bo_sung')
+              f'χ²_{{0.025}}({n-1}) = {f(st.chi2.ppf(0.975,n-1),3)}, χ²_{{0.975}}({n-1}) = {f(st.chi2.ppf(0.025,n-1),3)}; cận dưới = {n-1}·{fg(s2)}/{f(st.chi2.ppf(0.975,n-1),3)} = {f(lo,3)}, cận trên = {n-1}·{fg(s2)}/{f(st.chi2.ppf(0.025,n-1),3)} = {f(hi,3)} (cận dưới chia cho χ² lớn).', 3, T['var'], 'Bổ sung: họ bài tham số hóa theo dạng đề (đáp án tự tính bằng chương trình)', 'bo_sung')
     for s, ok, bad in [('Độ tin cậy 99% so với 95% (cùng mẫu) cho khoảng', 'rộng hơn', ['hẹp hơn', 'bằng nhau', 'lệch sang trái']),
                        ('Giá trị tới hạn t_{α/2}(n − 1) khi n tăng dần', 'giảm dần về U_{α/2}', ['tăng dần', 'không đổi', 'bằng 0']),
                        ('Sai số của khoảng tin cậy cho μ (σ biết) tỉ lệ với', 'σ/√n', ['σ·n', 'n/σ', 'σ²']),

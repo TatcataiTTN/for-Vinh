@@ -154,7 +154,7 @@ def build_page():
 <h1>Đề giữa kỳ thật HK2.2 2025–2026: 10 mã đề và luyện tập</h1>
 <p class="lead">Tài liệu mới nhất: 10 mã đề giữa kỳ của học kỳ này (Ak1Bm1Zn5 … Ak10Bm10Zn6). Các mã đề <b>cùng một khung 9 câu</b>, chỉ đổi số liệu, nên học một mã đề tức là học cả mười. Trang này cho phép điền đáp số, chấm ngay có giải thích, làm câu 9 có lời giải từng bước, và thêm 30 mã đề mới cùng mẫu (đổi số liệu; 10 mã cuối đổi độ tin cậy 95% và σ).</p>
 {callout('good', 'Khung đề (đúng như PDF)', ul(['Thời gian 60 phút. Câu 1–8 điền đáp số, mỗi câu 0,5 điểm. Câu 9 tự luận 6 điểm.', 'Phạm vi: Chương 1 và ước lượng khoảng (mục 1.1 đến 2.3), tức Module 1–8.', 'Tất cả đáp số dưới đây do chương trình tính bằng SciPy và đối chiếu độc lập; quy ước giá trị tới hạn theo giáo trình: \\(\\Phi(U_\\alpha)=1-\\alpha\\), \\(F(t_\\alpha)=1-\\alpha\\).']))}
-<h2>Chín dạng câu, công thức và bẫy</h2>{struct}
+<h2>Chín dạng câu, công thức và bẫy</h2><div style="overflow:auto">{struct}</div>
 <h2>Luyện tập (điền đáp số, chấm ngay)</h2>
 <p>Chọn mã đề, làm, bấm <b>Chấm bài</b>. Đáp số nhập dấu chấm hoặc dấu phẩy đều được; sai số cho phép nhỏ để chấp nhận đáp số tra bảng làm tròn. Điểm cao nhất mỗi mã đề được nhớ trong trình duyệt của bạn. <b>Lưu ý:</b> đáp số nằm trong mã nguồn của trang, nên đây là trang tự học, không dùng để thi lấy điểm.</p>
 <div id="realexam" class="rx"></div><script type="application/json" id="realexam-data">{data}</script>

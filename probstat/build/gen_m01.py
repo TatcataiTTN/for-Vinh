@@ -23,7 +23,7 @@ def build(B):
               f'x̄ = {fg(sum(x),4)}/{n} = {f(m,D)}.', 1, TOPIC['mean'], SRC, 'bo_sung')
         B.mcq(stem + '\nTính độ lệch chuẩn mẫu s.', f(s, D), nd(s, rng, D, extra=[math.sqrt(var_p(x)), var_s(x), R]),
               f's² = Σ(xᵢ−x̄)²/(n−1) = {f(var_s(x),D+1)}; s = {f(s,D)} (chia cho n sẽ cho {f(math.sqrt(var_p(x)),D)}).', 2, TOPIC['spread'], SRC, 'bo_sung')
-        B.mcq(stem + '\nTính IQR (qL, qU là trung vị nửa dưới, nửa trên; bỏ qM khi n lẻ).', f(R, dd2), nd(R, rng, dd2, extra=[max(x) - min(x), qU - qM]),
+        B.mcq(stem + '\nTính IQR (qL, qU là trung vị nửa dưới, nửa trên; bỏ qM khi n lẻ).', f(R, dd + 1), nd(R, rng, dd + 1, extra=[max(x) - min(x), qU - qM]),
               f'qL = {fg(qL,4)}, qM = {fg(qM,4)}, qU = {fg(qU,4)} ⇒ IQR = {fg(R,4)}.', 2, TOPIC['quart'], SRC, 'bo_sung')
         B.mcq(stem + '\nCó bao nhiêu giá trị ngoại lai theo tiêu chuẩn 1.5·IQR?', str(len(ol)), [str(i) for i in range(4) if i != len(ol)] + ['4'],
               f'Ngưỡng [{fg(qL-1.5*R,4)}; {fg(qU+1.5*R,4)}]; ' + (f'ngoại lai: {nums_text(ol)}.' if ol else 'không có giá trị nào vượt ngưỡng.'), 3, TOPIC['quart'], SRC, 'bo_sung')

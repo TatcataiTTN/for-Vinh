@@ -60,7 +60,7 @@ def build(B):
               2, TOPIC['spread'], tag(' – chuyển thành trắc nghiệm' if prob is None else f' → Prob. {prob}'))
         # 5. tứ phân vị
         B.mcq(stem + '\nTìm khoảng biến thiên tứ phân vị IQR = qU − qL (qL, qU là trung vị của nửa dưới, nửa trên sau khi bỏ qM nếu n lẻ).',
-              f(R, max(dd, 1)), nd(R, rng, max(dd, 1), extra=[qU - qM, qM - qL, max(x) - min(x), (max(x) - min(x)) / 2]),
+              f(R, dd + 1), nd(R, rng, dd + 1, extra=[qU - qM, qM - qL, max(x) - min(x), (max(x) - min(x)) / 2]),
               f'Nửa dưới: {nums_text(sorted(x)[:n//2])} ⇒ qL = {fg(qL, 4)}. Nửa trên: {nums_text(sorted(x)[(n+1)//2:])} ⇒ qU = {fg(qU, 4)}. IQR = {fg(qU, 4)} − {fg(qL, 4)} = {fg(R, 4)}.',
               2, TOPIC['quart'], tag(' – chuyển thành trắc nghiệm' if prob is None else f' → Prob. {prob}'))
         # 6. khoảng biến thiên

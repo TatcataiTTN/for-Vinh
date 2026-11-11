@@ -38,7 +38,8 @@ def build(B):
     # 5. đều
     for a, b in [(0, 4), (2, 8), (-3, 3), (10, 20), (1, 7)]:
         P(f'X đều trên [{a}, {b}]. Phương sai Var(X) là', (b - a) ** 2 / 12, f'(b − a)²/12 = {(b-a)**2}/12 = {f((b-a)**2/12,4)}. Kỳ vọng {(a+b)/2:g}.', 2, TOP['var'], SRC, extra=[(b - a) / 12, (b - a) ** 2 / 4, (a + b) / 2], d=4)
-        P(f'X đều trên [{a}, {b}]. P({a + (b-a)//4 if (b-a)%4==0 else a} ≤ X ≤ {a + (b-a)//2 if (b-a)%2==0 else b}) bằng', ((a + (b - a) // 2 if (b - a) % 2 == 0 else b) - (a + (b - a) // 4 if (b - a) % 4 == 0 else a)) / (b - a), 'Xác suất bằng độ dài khoảng chia cho (b − a).', 1, TOP['pdf'], SRC, extra=[0.5, 0.25, 0.75], d=4)
+        lo_ = a + (b - a) // 4 if (b - a) % 4 == 0 else a; hi_ = a + (b - a) // 2 if (b - a) % 2 == 0 else b; pu = (hi_ - lo_) / (b - a)
+        P(f'X đều trên [{a}, {b}]. P({lo_} ≤ X ≤ {hi_}) bằng', pu, f'Xác suất bằng độ dài khoảng chia cho (b − a): ({hi_} − {lo_})/({b} − {a}) = {hi_-lo_}/{b-a} = {f(pu,4)}.', 1, TOP['pdf'], SRC, extra=[0.5, 0.25, 0.75], d=4)
     # 6. biến đổi tuyến tính
     for m0, v0, a, b in [(5, 4, 3, 2), (10, 9, -2, 5), (2, 1, 10, -3), (8, 16, 0.5, 1), (0, 1, 4, 4), (3, 6, -1, 0)]:
         P(f'E(X) = {m0}, Var(X) = {v0}. Với Y = {fg(a)}X {"+" if b >= 0 else "−"} {abs(b)}, E(Y) là', a * m0 + b, f'E(Y) = aE(X) + b = {fg(a)}·{m0} {"+" if b >= 0 else "−"} {abs(b)} = {fg(a*m0+b)}.', 1, TOP['mean'], SRC, extra=[a * m0, m0 + b, a * (m0 + b)], d=2, lo=None)
