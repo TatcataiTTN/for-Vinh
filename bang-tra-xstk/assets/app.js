@@ -172,7 +172,7 @@ function widget(host, build) {
 }
 function field(form, label, attrs) { var l = el('label', null, label + ' '); var i = el('input'); for (var k in attrs) i.setAttribute(k, attrs[k]); l.appendChild(i); form.appendChild(l); return i; }
 function btn(form, txt, fn) { var b = el('button', 'btn', txt); b.type = 'button'; b.onclick = fn; form.appendChild(b); return b; }
-function enter(inputs, fn) { inputs.forEach(function (i) { i.addEventListener('keydown', function (e) { if (e.key === 'Enter') fn(); }); }); }
+function enter(inputs, fn) { inputs.forEach(function (i) { i.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); fn(); } }); }); }
 function ol(items) { return '<ol class="steps">' + items.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ol>'; }
 
 function wA7(host) {
@@ -287,7 +287,7 @@ function practice(host) {
     if (!todo.length) { box.innerHTML = '<div class="callout good"><b class="t">Xong nhóm này</b>Bấm “↺ Làm lại nhóm này” để làm lại từ đầu.</div>'; return; }
     cur = todo[Math.floor(Math.random() * todo.length)];
     var q = el('div', 'qitem'); q.appendChild(el('div', 'qtxt', '<b>Câu ' + cur.id + '.</b> ' + sb(cur.q)));
-    var inp = el('input', 'rx-in'); inp.type = 'text'; inp.inputMode = 'decimal'; inp.placeholder = 'Đáp số'; inp.autocomplete = 'off';
+    var inp = el('input', 'rx-in'); inp.type = 'text'; inp.inputMode = 'decimal'; inp.placeholder = 'Đáp số'; inp.autocomplete = 'off'; inp.setAttribute('aria-label', 'Đáp số của bạn');
     var chk = el('button', 'btn', 'Kiểm tra'); chk.type = 'button'; var hint = el('button', 'btn alt', 'Gợi ý'); hint.type = 'button';
     var row = el('div', 'row'); row.appendChild(inp); row.appendChild(chk); row.appendChild(hint); q.appendChild(row);
     var fb = el('div', 'fb'); q.appendChild(fb); box.appendChild(q); inp.focus();
@@ -296,7 +296,7 @@ function practice(host) {
       var v = num(inp.value); if (isNaN(v)) { fb.innerHTML = '<div class="bad">Nhập một số.</div>'; return; }
       var ok = Math.abs(v - cur.a) <= cur.tol + 1e-9; st.done[cur.id] = ok ? 1 : 0; save(); stat(); inp.disabled = true; chk.disabled = true;
       fb.innerHTML = '<div class="' + (ok ? 'good' : 'bad') + '"><b>' + (ok ? '✅ Đúng' : '❌ Sai') + '</b> — đáp số ' + mn(cur.a) + '</div><p>' + sb(mn(cur.ex)) + '</p>';
-      var nx = el('button', 'btn', 'Câu tiếp ▶'); nx.type = 'button'; nx.onclick = next; var sv = el('button', 'btn alt', 'Xem ô trên bảng ↓'); sv.type = 'button'; sv.style.marginLeft = '8px'; sv.onclick = function () { var d0 = $('#tbl-' + cur.loc[0][0]); if (d0) d0.scrollIntoView({ behavior: 'smooth', block: 'center' }); }; fb.appendChild(nx); fb.appendChild(sv); nx.focus();
+      var nx = el('button', 'btn', 'Câu tiếp ▶'); nx.type = 'button'; nx.onclick = next; var sv = el('button', 'btn alt', 'Xem ô trên bảng ↓'); sv.type = 'button'; sv.style.marginLeft = '8px'; sv.onclick = function () { var d0 = $('#tbl-' + cur.loc[0][0]); if (d0) d0.scrollIntoView({ behavior: 'smooth', block: 'center' }); }; fb.appendChild(nx); fb.appendChild(sv); setTimeout(function () { nx.focus(); }, 0);
       cur.loc.forEach(function (L) { var id = L[0] === 'a7' ? hlA7(+L[1]) : L[0] === 'a8' ? hlA8(+L[1]) : (function () { var T = L[0] === 'a9' ? TB.A9 : TB.A10, id2 = L[0] === 'a9' ? 'tbl-a9' : 'tbl-a10', fb2 = bracket(T.F, L[1]), db = bracket(T.df.map(numDf), L[2] === null ? Infinity : L[2]); hlGrid(id2, [fb2[0], fb2[1]], [db[0] === Infinity ? 'inf' : db[0], db[1] === Infinity ? 'inf' : db[1]]); })(); });
       var d = $('#tbl-' + cur.loc[0][0]); if (d) { var det = d.closest('details'); if (det) det.open = true; }
     }
