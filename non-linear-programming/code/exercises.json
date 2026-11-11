@@ -2452,5 +2452,989 @@
   "packages": [
    "numpy"
   ]
+ },
+ {
+  "id": "dual_lp",
+  "fn": "dual_lp",
+  "module": "Module 4",
+  "level": "Dễ",
+  "title": "Lập đối ngẫu LP theo bảng quy tắc",
+  "statement": "Cho bài toán \\(\\min c^\\top x\\) với \\(Ax\\ (\\ge,=,\\le)\\ b\\) và dấu của biến \\(x\\). Lập bài toán đối ngẫu \\(\\max b^\\top y\\) s.t. \\(A^\\top y\\ (\\le,=,\\ge)\\ c\\) theo quy tắc: cột \\(x_j\\ge0\\) ⇒ ràng buộc \\(\\le\\), \\(x_j\\) tự do ⇒ \\(=\\), \\(x_j\\le0\\) ⇒ \\(\\ge\\); hàng \\(\\ge\\) ⇒ \\(y_i\\ge0\\), \\(=\\) ⇒ \\(y_i\\) tự do, \\(\\le\\) ⇒ \\(y_i\\le0\\).",
+  "inp": "<code>c</code> (n), <code>A</code> (m×n), <code>b</code> (m), <code>rows</code> (list[str] gồm <code>\">=\"</code>, <code>\"=\"</code>, <code>\"&lt;=\"</code>), <code>cols</code> (list[str] gồm <code>\">=0\"</code>, <code>\"free\"</code>, <code>\"&lt;=0\"</code>).",
+  "out": "Tuple <code>(obj, AT, rhs, con_signs, var_signs)</code>: <code>obj</code> = b, <code>AT</code> = A chuyển vị (n×m), <code>rhs</code> = c, <code>con_signs</code> (list n chuỗi <code>\"&lt;=\"</code>, <code>\"=\"</code>, <code>\">=\"</code>), <code>var_signs</code> (list m chuỗi <code>\">=0\"</code>, <code>\"free\"</code>, <code>\"&lt;=0\"</code>).",
+  "hint": "Slide tr.52: c=(1,−3,4,0), mọi hàng “=” và mọi cột “≥0” ⇒ y tự do, mọi ràng buộc đối ngẫu “≤”. Dùng hai từ điển ánh xạ dấu.",
+  "starter": "import numpy as np\n\ndef dual_lp(c, A, b, rows, cols):\n    \"\"\"Trả về (obj, AT, rhs, con_signs, var_signs).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     [
+      1,
+      -3,
+      4,
+      0
+     ],
+     [
+      [
+       2,
+       3,
+       -3,
+       1
+      ],
+      [
+       1,
+       1,
+       1,
+       0
+      ],
+      [
+       3,
+       5,
+       -5,
+       -1
+      ]
+     ],
+     [
+      12,
+      4,
+      6
+     ],
+     [
+      "=",
+      "=",
+      "="
+     ],
+     [
+      ">=0",
+      ">=0",
+      ">=0",
+      ">=0"
+     ]
+    ],
+    "expected": [
+     [
+      12.0,
+      4.0,
+      6.0
+     ],
+     [
+      [
+       2.0,
+       1.0,
+       3.0
+      ],
+      [
+       3.0,
+       1.0,
+       5.0
+      ],
+      [
+       -3.0,
+       1.0,
+       -5.0
+      ],
+      [
+       1.0,
+       0.0,
+       -1.0
+      ]
+     ],
+     [
+      1.0,
+      -3.0,
+      4.0,
+      0.0
+     ],
+     [
+      "<=",
+      "<=",
+      "<=",
+      "<="
+     ],
+     [
+      "free",
+      "free",
+      "free"
+     ]
+    ],
+    "visible": true,
+    "note": "ví dụ tr.52: y tự do, ràng buộc ≤"
+   },
+   {
+    "args": [
+     [
+      3,
+      2
+     ],
+     [
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       1
+      ]
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      ">=",
+      ">="
+     ],
+     [
+      ">=0",
+      ">=0"
+     ]
+    ],
+    "expected": [
+     [
+      4.0,
+      5.0
+     ],
+     [
+      [
+       1.0,
+       2.0
+      ],
+      [
+       1.0,
+       1.0
+      ]
+     ],
+     [
+      3.0,
+      2.0
+     ],
+     [
+      "<=",
+      "<="
+     ],
+     [
+      ">=0",
+      ">=0"
+     ]
+    ],
+    "visible": true,
+    "note": "LP chuẩn tắc: y ≥ 0, ràng buộc ≤"
+   },
+   {
+    "args": [
+     [
+      2,
+      3,
+      1
+     ],
+     [
+      [
+       1,
+       1,
+       1
+      ],
+      [
+       1,
+       -1,
+       0
+      ]
+     ],
+     [
+      5,
+      1
+     ],
+     [
+      "<=",
+      "="
+     ],
+     [
+      ">=0",
+      "free",
+      "<=0"
+     ]
+    ],
+    "expected": [
+     [
+      5.0,
+      1.0
+     ],
+     [
+      [
+       1.0,
+       1.0
+      ],
+      [
+       1.0,
+       -1.0
+      ],
+      [
+       1.0,
+       0.0
+      ]
+     ],
+     [
+      2.0,
+      3.0,
+      1.0
+     ],
+     [
+      "<=",
+      "=",
+      ">="
+     ],
+     [
+      "<=0",
+      "free"
+     ]
+    ],
+    "visible": false,
+    "note": "dấu hỗn hợp"
+   },
+   {
+    "args": [
+     [
+      1,
+      1
+     ],
+     [
+      [
+       1,
+       2
+      ]
+     ],
+     [
+      3
+     ],
+     [
+      ">="
+     ],
+     [
+      "free",
+      "<=0"
+     ]
+    ],
+    "expected": [
+     [
+      3.0
+     ],
+     [
+      [
+       1.0
+      ],
+      [
+       2.0
+      ]
+     ],
+     [
+      1.0,
+      1.0
+     ],
+     [
+      "=",
+      ">="
+     ],
+     [
+      ">=0"
+     ]
+    ],
+    "visible": false,
+    "note": ""
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef dual_lp(c, A, b, rows, cols):\n    \"\"\"Lập đối ngẫu của  min c'x  s.t.  A x (rows) b,  x (cols). Dấu hàng: '>=', '=', '<='; dấu cột: '>=0', 'free', '<=0'.\n\n    Đối ngẫu:  max b'y  s.t.  A' y (dấu) c,  y (dấu).  Quy tắc: cột '>=0' -> ràng buộc '<=', 'free' -> '=', '<=0' -> '>=';\n    hàng '>=' -> y '>=0', '=' -> y 'free', '<=' -> y '<=0'.\n    Đầu ra  : (obj, AT, rhs, con_signs, var_signs): obj = b, AT = A chuyển vị, rhs = c, con_signs (list '<=','=','>='), var_signs (list '>=0','free','<=0')\n    \"\"\"\n    A = np.array(A, float)\n    cs = {\">=0\": \"<=\", \"free\": \"=\", \"<=0\": \">=\"}; ys = {\">=\": \">=0\", \"=\": \"free\", \"<=\": \"<=0\"}\n    return ([float(v) for v in b], [[float(v) for v in row] for row in A.T], [float(v) for v in c], [cs[s] for s in cols], [ys[s] for s in rows])\n",
+  "packages": [
+   "numpy"
+  ]
+ },
+ {
+  "id": "compl_check",
+  "fn": "compl_check",
+  "module": "Module 4",
+  "level": "Vừa",
+  "title": "Kiểm tối ưu bằng độ lệch bù",
+  "statement": "Cho LP \\(\\min c^\\top x\\) s.t. \\(Ax\\ge b,\\ x\\ge0\\) và đối ngẫu \\(\\max b^\\top y\\) s.t. \\(A^\\top y\\le c,\\ y\\ge0\\). Kiểm cặp \\((x,y)\\): cả hai khả thi và hai nhóm tích bù \\(y_i(Ax-b)_i\\), \\(x_j(c-A^\\top y)_j\\) đều bằng 0 (sai số tol) thì cả hai tối ưu.",
+  "inp": "<code>c</code>, <code>A</code>, <code>b</code>, <code>x</code>, <code>y</code>, <code>tol</code> (float, mặc định 1e-9).",
+  "out": "Chuỗi <code>\"OPTIMAL\"</code> hoặc <code>\"NOT_OPTIMAL\"</code>.",
+  "hint": "Ví dụ: c=(3,2), A=[[1,1],[2,1]], b=(4,5), x=(1,3), y=(1,1): cả hai khả thi, mọi tích bù bằng 0, giá trị chung 9 ⇒ OPTIMAL.",
+  "starter": "import numpy as np\n\ndef compl_check(c, A, b, x, y, tol=1e-9):\n    \"\"\"Trả về 'OPTIMAL' hoặc 'NOT_OPTIMAL'.\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     [
+      3,
+      2
+     ],
+     [
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       1
+      ]
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    "expected": "OPTIMAL",
+    "visible": true,
+    "note": "tối ưu: giá trị gốc = đối ngẫu = 9"
+   },
+   {
+    "args": [
+     [
+      3,
+      2
+     ],
+     [
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       1
+      ]
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    "expected": "NOT_OPTIMAL",
+    "visible": true,
+    "note": "x khả thi nhưng tích bù ≠ 0"
+   },
+   {
+    "args": [
+     [
+      3,
+      2
+     ],
+     [
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       1
+      ]
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    "expected": "NOT_OPTIMAL",
+    "visible": false,
+    "note": "x không khả thi"
+   },
+   {
+    "args": [
+     [
+      3,
+      2
+     ],
+     [
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       1
+      ]
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      1
+     ]
+    ],
+    "expected": "NOT_OPTIMAL",
+    "visible": false,
+    "note": "y không khả thi đối ngẫu"
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef compl_check(c, A, b, x, y, tol=1e-9):\n    \"\"\"Kiểm tối ưu của cặp (x, y) cho LP chuẩn tắc  min c'x s.t. A x >= b, x >= 0  và đối ngẫu  max b'y s.t. A'y <= c, y >= 0.\n\n    Đầu vào : c, A, b, x, y, tol\n    Đầu ra  : \"OPTIMAL\" nếu x khả thi gốc, y khả thi đối ngẫu và hai nhóm tích bù y_i (Ax-b)_i, x_j (c-A'y)_j đều bằng 0; ngược lại \"NOT_OPTIMAL\"\n    \"\"\"\n    A = np.array(A, float); c = np.array(c, float); b = np.array(b, float); x = np.array(x, float); y = np.array(y, float)\n    r = y * (A @ x - b); s = x * (c - A.T @ y)\n    feas = (A @ x >= b - tol).all() and (x >= -tol).all() and (A.T @ y <= c + tol).all() and (y >= -tol).all()\n    return \"OPTIMAL\" if feas and np.abs(r).max() < tol and np.abs(s).max() < tol else \"NOT_OPTIMAL\"\n",
+  "packages": [
+   "numpy"
+  ]
+ },
+ {
+  "id": "dual_qp",
+  "fn": "dual_qp",
+  "module": "Module 4",
+  "level": "Vừa",
+  "title": "Hàm đối ngẫu Lagrange của QP một ràng buộc",
+  "statement": "Với \\(\\min\\tfrac12x^\\top Qx+c^\\top x\\) s.t. \\(a^\\top x\\ge b\\) (\\(Q\\succ0\\)), Lagrangian \\(L=\\tfrac12x^\\top Qx+c^\\top x+\\lambda(b-a^\\top x)\\). Tính hàm đối ngẫu \\(g(\\lambda)=\\inf_xL\\) tại một \\(\\lambda\\ge0\\).",
+  "inp": "<code>Q</code> (n×n xác định dương), <code>c</code> (n), <code>a</code> (n), <code>b</code> (float), <code>lam</code> (float).",
+  "out": "Số thực \\(g(\\lambda)\\). Dung sai 1e-6.",
+  "hint": "Cực tiểu hoá: \\(x=Q^{-1}(\\lambda a-c)\\) ⇒ \\(g=-\\tfrac12(\\lambda a-c)^\\top Q^{-1}(\\lambda a-c)+\\lambda b\\). Ví dụ f = x²+2y², x+y ≥ 3: \\(g(\\lambda)=3\\lambda-\\tfrac38\\lambda^2\\), \\(g(4)=6\\).",
+  "starter": "import numpy as np\n\ndef dual_qp(Q, c, a, b, lam):\n    \"\"\"Trả về g(lam).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     [
+      [
+       2,
+       0
+      ],
+      [
+       0,
+       4
+      ]
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     3,
+     4
+    ],
+    "expected": 6.0,
+    "visible": true,
+    "note": "g(4) = 6 = f*"
+   },
+   {
+    "args": [
+     [
+      [
+       2,
+       0
+      ],
+      [
+       0,
+       4
+      ]
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     3,
+     2
+    ],
+    "expected": 4.5,
+    "visible": true,
+    "note": "g(2) = 4.5 < f*"
+   },
+   {
+    "args": [
+     [
+      [
+       4,
+       1
+      ],
+      [
+       1,
+       2
+      ]
+     ],
+     [
+      -1,
+      2
+     ],
+     [
+      1,
+      2
+     ],
+     1,
+     0.7
+    ],
+    "expected": 0.03857142857142859,
+    "visible": false,
+    "note": ""
+   },
+   {
+    "args": [
+     [
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       2,
+       0
+      ],
+      [
+       0,
+       0,
+       3
+      ]
+     ],
+     [
+      1,
+      -1,
+      0
+     ],
+     [
+      1,
+      1,
+      1
+     ],
+     2,
+     1.5
+    ],
+    "expected": 0.9375,
+    "visible": false,
+    "note": ""
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef dual_qp(Q, c, a, b, lam):\n    \"\"\"Hàm đối ngẫu Lagrange g(lam) = inf_x { 1/2 x'Qx + c'x + lam (b - a'x) } của  min 1/2 x'Qx + c'x  s.t.  a'x >= b  (Q xác định dương, lam >= 0).\n\n    Đầu vào : Q (n x n), c (n), a (n), b (float), lam (float)\n    Đầu ra  : g(lam) (float). Dung sai 1e-6.\n    \"\"\"\n    Q = np.array(Q, float); c = np.array(c, float); a = np.array(a, float)\n    r = lam * a - c\n    return float(-0.5 * r @ np.linalg.solve(Q, r) + lam * b)\n",
+  "packages": [
+   "numpy"
+  ]
+ },
+ {
+  "id": "proj_quad",
+  "fn": "proj_quad",
+  "module": "Module 5",
+  "level": "Dễ",
+  "title": "Chiếu và nhân tử cho min a x² + b y², x + y ≥ c",
+  "statement": "Giải \\(\\min ax^2+by^2\\) s.t. \\(x+y\\ge c\\) (\\(a,b,c>0\\)) bằng công thức đóng từ KKT: \\(\\lambda^*=\\dfrac{2c}{1/a+1/b}\\), \\(x=\\dfrac\\lambda{2a}\\), \\(y=\\dfrac\\lambda{2b}\\), \\(p^*=\\dfrac{c^2}{1/a+1/b}\\).",
+  "inp": "<code>a</code>, <code>b</code>, <code>c</code> (float &gt; 0).",
+  "out": "Tuple <code>(lam, x, y, p)</code>. Dung sai 1e-6.",
+  "hint": "Bài tập 1 (Module 5): a=1, b=2, c=3 cho (4, 2, 1, 6); Ví dụ 1: a=b=1, c=2 cho (2, 1, 1, 2).",
+  "starter": "def proj_quad(a, b, c):\n    \"\"\"Trả về (lam, x, y, p).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     1,
+     2,
+     3
+    ],
+    "expected": [
+     4.0,
+     2.0,
+     1.0,
+     6.0
+    ],
+    "visible": true,
+    "note": "Bài tập 1: (4, 2, 1, 6)"
+   },
+   {
+    "args": [
+     1,
+     1,
+     2
+    ],
+    "expected": [
+     2.0,
+     1.0,
+     1.0,
+     2.0
+    ],
+    "visible": true,
+    "note": "Ví dụ 1: (2, 1, 1, 2)"
+   },
+   {
+    "args": [
+     2,
+     3,
+     1
+    ],
+    "expected": [
+     2.4000000000000004,
+     0.6000000000000001,
+     0.4000000000000001,
+     1.2000000000000002
+    ],
+    "visible": false,
+    "note": ""
+   },
+   {
+    "args": [
+     0.5,
+     4,
+     5
+    ],
+    "expected": [
+     4.444444444444445,
+     4.444444444444445,
+     0.5555555555555556,
+     11.11111111111111
+    ],
+    "visible": false,
+    "note": ""
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef proj_quad(a, b, c):\n    \"\"\"min a x^2 + b y^2  s.t.  x + y >= c  (a, b, c > 0): nghiệm đóng.\n\n    Đầu ra  : (lam, x, y, p): nhân tử lam của L = a x^2 + b y^2 + lam (c - x - y), nghiệm (x, y) và giá trị p\n    \"\"\"\n    s = 1.0 / a + 1.0 / b; lam = 2.0 * c / s\n    return float(lam), float(lam / (2 * a)), float(lam / (2 * b)), float(c * c / s)\n",
+  "packages": [
+   "numpy"
+  ]
+ },
+ {
+  "id": "dual_ascent",
+  "fn": "dual_ascent",
+  "module": "Module 5",
+  "level": "Vừa",
+  "title": "Dual ascent cho min a x² + b y², x + y ≥ c",
+  "statement": "Lặp \\(x_k=\\arg\\min_xL(x,\\lambda_k)=(\\lambda_k/2a,\\ \\lambda_k/2b)\\), \\(\\lambda_{k+1}=\\max\\{0,\\lambda_k+\\alpha(c-x_k-y_k)\\}\\), \\(\\lambda_0=0\\), đúng <code>iters</code> bước. \\(c-x_k-y_k\\) là gradient của hàm đối ngẫu.",
+  "inp": "<code>a</code>, <code>b</code>, <code>c</code> (float &gt; 0), <code>alpha</code> (bước), <code>iters</code> (int).",
+  "out": "Tuple <code>(lam, x, y)</code> sau <code>iters</code> bước, <code>x, y</code> tính từ <code>lam</code> cuối. Dung sai 1e-6.",
+  "hint": "Ví dụ 1 (a=b=1, c=2) hội tụ về λ=2, x=y=1. Nếu \\(\\alpha\\) quá lớn dãy λ dao động hoặc phân kỳ.",
+  "starter": "def dual_ascent(a, b, c, alpha, iters):\n    \"\"\"Trả về (lam, x, y).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     1,
+     1,
+     2,
+     0.5,
+     60
+    ],
+    "expected": [
+     1.9999999999999998,
+     0.9999999999999999,
+     0.9999999999999999
+    ],
+    "visible": true,
+    "note": "Ví dụ 1: λ → 2"
+   },
+   {
+    "args": [
+     1,
+     2,
+     3,
+     0.3,
+     80
+    ],
+    "expected": [
+     3.999999994425625,
+     1.9999999972128124,
+     0.9999999986064062
+    ],
+    "visible": true,
+    "note": "λ* = 4 (Bài tập 1)"
+   },
+   {
+    "args": [
+     2,
+     3,
+     1,
+     1.0,
+     200
+    ],
+    "expected": [
+     2.3999999999999995,
+     0.5999999999999999,
+     0.3999999999999999
+    ],
+    "visible": false,
+    "note": "λ* = 2,4"
+   },
+   {
+    "args": [
+     1,
+     1,
+     2,
+     0.5,
+     2
+    ],
+    "expected": [
+     1.5,
+     0.75,
+     0.75
+    ],
+    "visible": false,
+    "note": "mới hai bước: λ = 1,5"
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef dual_ascent(a, b, c, alpha, iters):\n    \"\"\"Dual ascent cho  min a x^2 + b y^2  s.t.  x + y >= c:  x_k = argmin L(., lam_k) = (lam/(2a), lam/(2b)),  lam_{k+1} = max(0, lam_k + alpha (c - x_k - y_k)), lam_0 = 0.\n\n    Đầu ra  : (lam, x, y) sau iters bước (x, y tính từ lam cuối)\n    \"\"\"\n    lam = 0.0\n    for _ in range(int(iters)):\n        x = lam / (2 * a); y = lam / (2 * b)\n        lam = max(0.0, lam + alpha * (c - x - y))\n    return float(lam), float(lam / (2 * a)), float(lam / (2 * b))\n",
+  "packages": [
+   "numpy"
+  ]
+ },
+ {
+  "id": "tri_proj",
+  "fn": "tri_proj",
+  "module": "Module 6",
+  "level": "Vừa",
+  "title": "QP hai biến: chiếu lên tam giác bằng bảng ca KKT",
+  "statement": "Giải \\(\\min\\lVert x-c\\rVert^2\\) s.t. \\(x_1+x_2\\le s,\\ x_1\\ge0,\\ x_2\\ge0\\) bằng cách duyệt mọi tập ràng buộc hoạt (8 tập con của 3 ràng buộc): chiếu \\(c\\) lên từng mặt affine, giữ điểm khả thi gần nhất. Trả thêm nhân tử \\(\\lambda\\) của ràng buộc \\(x_1+x_2\\le s\\) (với \\(L=\\lVert x-c\\rVert^2+\\sum\\mu_ig_i\\), \\(\\lambda=0\\) nếu lỏng).",
+  "inp": "<code>c</code> (list[float] độ dài 2), <code>s</code> (float &gt; 0).",
+  "out": "Tuple <code>(x, lam)</code>: <code>x</code> list[float] độ dài 2, <code>lam</code> float. Dung sai 1e-6.",
+  "hint": "Ví dụ 4 (Module 6): c=(2,2), s=2 cho x=(1,1), λ=2. Tâm trong miền: x=c, λ=0. Điểm tới (3,−1) với s=2 cho (2,0), λ=2.",
+  "starter": "import itertools\nimport numpy as np\n\ndef tri_proj(c, s):\n    \"\"\"Trả về (x, lam).\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     [
+      2,
+      2
+     ],
+     2
+    ],
+    "expected": [
+     [
+      1.0,
+      1.0
+     ],
+     1.9999999999999993
+    ],
+    "visible": true,
+    "note": "Ví dụ 4: (1,1), λ = 2"
+   },
+   {
+    "args": [
+     [
+      1,
+      0.5
+     ],
+     3
+    ],
+    "expected": [
+     [
+      1.0,
+      0.5
+     ],
+     0.0
+    ],
+    "visible": true,
+    "note": "tâm trong miền: λ = 0"
+   },
+   {
+    "args": [
+     [
+      3,
+      -1
+     ],
+     2
+    ],
+    "expected": [
+     [
+      2.0,
+      0.0
+     ],
+     1.9999999999999993
+    ],
+    "visible": false,
+    "note": "hai ràng buộc hoạt: (2,0)"
+   },
+   {
+    "args": [
+     [
+      -1,
+      -2
+     ],
+     4
+    ],
+    "expected": [
+     [
+      0.0,
+      0.0
+     ],
+     0.0
+    ],
+    "visible": false,
+    "note": "gốc"
+   },
+   {
+    "args": [
+     [
+      5,
+      5
+     ],
+     3
+    ],
+    "expected": [
+     [
+      1.5,
+      1.5
+     ],
+     6.9999999999999964
+    ],
+    "visible": false,
+    "note": "(1,5; 1,5), λ = 7"
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef tri_proj(c, s):\n    \"\"\"min |x - c|^2  s.t.  x1 + x2 <= s, x1 >= 0, x2 >= 0  (s > 0). Duyệt mọi tập ràng buộc hoạt.\n\n    Đầu ra  : (x, lam): x list[float] độ dài 2; lam = nhân tử của ràng buộc x1 + x2 <= s (L = |x-c|^2 + sum mu_i g_i), bằng 0 nếu ràng buộc lỏng\n    \"\"\"\n    import itertools\n    c = np.array(c, float)\n    cons = [(np.array([1.0, 1.0]), float(s)), (np.array([-1.0, 0.0]), 0.0), (np.array([0.0, -1.0]), 0.0)]\n    best = None\n    for k in range(4):\n        for S in itertools.combinations(range(3), k):\n            if k == 0: x = c.copy()\n            else:\n                A = np.array([cons[i][0] for i in S]); bb = np.array([cons[i][1] for i in S])\n                try: m = np.linalg.solve(A @ A.T, A @ c - bb)\n                except np.linalg.LinAlgError: continue\n                x = c - A.T @ m\n            if all(float(a @ x) <= bb_ + 1e-9 for a, bb_ in cons):\n                d = float((x - c) @ (x - c))\n                if best is None or d < best[0] - 1e-12: best = (d, x)\n    x = best[1]; lam = 0.0\n    if abs(float(x.sum()) - s) < 1e-9:\n        act = [i for i, (a, bb_) in enumerate(cons) if abs(float(a @ x) - bb_) < 1e-9]\n        A = np.array([cons[i][0] for i in act]); mult = np.linalg.lstsq(A.T, -2 * (x - c), rcond=None)[0]; lam = float(mult[act.index(0)])\n    return [float(v) for v in x], lam\n",
+  "packages": [
+   "numpy"
+  ]
+ },
+ {
+  "id": "problem_class",
+  "fn": "problem_class",
+  "module": "Module 6",
+  "level": "Dễ",
+  "title": "Phân loại lớp bài toán lồi (LP, QP, QCQP)",
+  "statement": "Mục tiêu tuyến tính (<code>obj_Q = None</code>) hoặc toàn phương \\(\\tfrac12x^\\top Qx+\\dots\\) (ma trận \\(Q\\)); mỗi ràng buộc affine (<code>None</code>) hoặc toàn phương (ma trận \\(Q_i\\)). Trả về lớp bài toán: <code>\"LP\"</code>, <code>\"QP\"</code>, <code>\"QCQP\"</code> hoặc <code>\"NONCONVEX\"</code> khi có ma trận không nửa xác định dương.",
+  "inp": "<code>obj_Q</code> (None hoặc n×n), <code>con_Qs</code> (list; mỗi phần tử None hoặc n×n).",
+  "out": "Một trong bốn chuỗi: <code>\"LP\"</code>, <code>\"QP\"</code>, <code>\"QCQP\"</code>, <code>\"NONCONVEX\"</code>.",
+  "hint": "Dùng <code>np.linalg.eigvalsh</code>; ma trận toàn 0 coi như tuyến tính. Ràng buộc toàn phương lồi ⇒ QCQP.",
+  "starter": "import numpy as np\n\ndef problem_class(obj_Q, con_Qs):\n    \"\"\"Trả về 'LP', 'QP', 'QCQP' hoặc 'NONCONVEX'.\"\"\"\n    # TODO\n    pass\n",
+  "tests": [
+   {
+    "args": [
+     null,
+     [
+      null,
+      null
+     ]
+    ],
+    "expected": "LP",
+    "visible": true,
+    "note": "LP"
+   },
+   {
+    "args": [
+     [
+      [
+       2,
+       0
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     [
+      null
+     ]
+    ],
+    "expected": "QP",
+    "visible": true,
+    "note": "QP"
+   },
+   {
+    "args": [
+     [
+      [
+       2,
+       0
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     [
+      [
+       [
+        1,
+        0
+       ],
+       [
+        0,
+        1
+       ]
+      ]
+     ]
+    ],
+    "expected": "QCQP",
+    "visible": true,
+    "note": "QCQP"
+   },
+   {
+    "args": [
+     [
+      [
+       1,
+       0
+      ],
+      [
+       0,
+       -1
+      ]
+     ],
+     [
+      null
+     ]
+    ],
+    "expected": "NONCONVEX",
+    "visible": false,
+    "note": "NONCONVEX"
+   },
+   {
+    "args": [
+     null,
+     [
+      [
+       [
+        1,
+        0
+       ],
+       [
+        0,
+        0
+       ]
+      ]
+     ]
+    ],
+    "expected": "QCQP",
+    "visible": false,
+    "note": "QCQP (mục tiêu tuyến tính)"
+   },
+   {
+    "args": [
+     [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     [
+      null
+     ]
+    ],
+    "expected": "LP",
+    "visible": false,
+    "note": "LP"
+   }
+  ],
+  "reference": "import numpy as np\n\n\ndef problem_class(obj_Q, con_Qs):\n    \"\"\"Phân loại bài toán tối ưu: mục tiêu tuyến tính (obj_Q = None) hoặc toàn phương (ma trận Q), mỗi ràng buộc affine (None) hoặc toàn phương (ma trận Q).\n\n    Đầu ra  : \"LP\" (mọi thứ tuyến tính), \"QP\" (mục tiêu toàn phương lồi, ràng buộc affine), \"QCQP\" (có ràng buộc toàn phương lồi),\n              \"NONCONVEX\" nếu có ma trận Q không nửa xác định dương.\n    \"\"\"\n    def psd(M): return bool(np.linalg.eigvalsh(np.array(M, float)).min() >= -1e-9)\n    mats = ([obj_Q] if obj_Q is not None else []) + [q for q in con_Qs if q is not None]\n    if any(not psd(M) for M in mats): return \"NONCONVEX\"\n    if any(q is not None and np.abs(np.array(q, float)).max() > 1e-12 for q in con_Qs): return \"QCQP\"\n    if obj_Q is not None and np.abs(np.array(obj_Q, float)).max() > 1e-12: return \"QP\"\n    return \"LP\"\n",
+  "packages": [
+   "numpy"
+  ]
  }
 ]
