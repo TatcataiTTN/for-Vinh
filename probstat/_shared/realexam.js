@@ -6,6 +6,7 @@ var KEY='probstat-realexam-best',best={};try{best=JSON.parse(localStorage.getIte
 function save(){try{localStorage.setItem(KEY,JSON.stringify(best))}catch(e){}}
 var cur=0,left=3600,timer=null,graded=false;
 function el(t,c,txt){var e=document.createElement(t);if(c)e.className=c;if(txt!==undefined)e.textContent=txt;return e}
+function subs(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/([UtΦ])_\{([^}]+)\}/g,'$1<sub>$2</sub>').replace(/([Ut])_α/g,'$1<sub>α</sub>')}
 function fmt(s){return Math.floor(s/60)+':'+('0'+(s%60)).slice(-2)}
 function num(s,th){if(s==null)return NaN;s=String(s).trim().replace(/\s+/g,'');if(!s)return NaN;
   if(th&&/^[1-9]\d{0,2}([.,]\d{3})+$/.test(s))s=s.replace(/[.,]/g,'');
@@ -31,12 +32,12 @@ function render(){
   var gb=el('button','btn','Chấm bài');gb.style.marginLeft='6px';gb.onclick=grade;
   var rb=el('button','btn alt','↺ Làm lại mã đề này');rb.style.marginLeft='6px';rb.onclick=function(){go(cur)};
   var ln=el('div');ln.style.marginTop='8px';[tm,st,gb,rb].forEach(function(b){ln.appendChild(b)});bar.appendChild(ln);root.appendChild(bar);
-  d.stems.forEach(function(q,i){var box=el('div','qitem');var t=el('div','qtxt');t.style.fontWeight='600';t.textContent='Câu '+(i+1)+' (0,5 điểm). '+q;box.appendChild(t);
+  d.stems.forEach(function(q,i){var box=el('div','qitem');var t=el('div','qtxt');t.style.fontWeight='600';t.innerHTML='Câu '+(i+1)+' (0,5 điểm). '+subs(q);box.appendChild(t);
     var inp=el('input');inp.type='text';inp.inputMode='decimal';inp.className='rx-in';inp.id='rx'+i;inp.placeholder='Đáp số';inp.autocomplete='off';
     inp.onkeydown=function(e){if(e.key==='Enter'){var n=document.getElementById('rx'+(i+1));if(n)n.focus()}};
     var w=el('div');w.style.margin='6px 0';w.appendChild(inp);box.appendChild(w);var fb=el('div','explain');fb.id='rf'+i;box.appendChild(fb);root.appendChild(box)});
-  var eb=el('div','qitem');var et=el('div','qtxt');et.style.fontWeight='600';et.textContent='Câu 9 (6 điểm), tự luận. '+d.essay;eb.appendChild(et);
-  d.parts.forEach(function(p){var pp=el('div',null,p);pp.style.margin='4px 0';eb.appendChild(pp)});
+  var eb=el('div','qitem');var et=el('div','qtxt');et.style.fontWeight='600';et.innerHTML='Câu 9 (6 điểm), tự luận. '+subs(d.essay);eb.appendChild(et);
+  d.parts.forEach(function(p){var pp=el('div');pp.innerHTML=subs(p);pp.style.margin='4px 0';eb.appendChild(pp)});
   var g=el('div','rx-grid');
   [['e_xb','x̄ ='],['e_s2','s² ='],['e_b0','(b) cận dưới'],['e_b1','(b) cận trên'],['e_c0','(c) cận dưới'],['e_c1','(c) cận trên']].forEach(function(p){
     var l=el('label',null,p[1]+' ');var i=el('input');i.type='text';i.inputMode='decimal';i.id=p[0];i.className='rx-in';i.autocomplete='off';l.appendChild(i);g.appendChild(l)});
@@ -48,7 +49,7 @@ function grade(){
   if(graded)return;graded=true;clearInterval(timer);timer=null;var d=D[cur],sc=0;
   d.ans.forEach(function(a,i){var inp=document.getElementById('rx'+i),fb=document.getElementById('rf'+i),v=num(inp.value,Number.isInteger(a)),right=ok(v,a,d.tol[i]);
     if(right)sc+=0.5;inp.disabled=true;fb.className='explain show';fb.innerHTML='';
-    var h=el('div',null,right?'✅ Đúng — đáp số '+show(a):(isNaN(v)?'⚪ Chưa trả lời — đáp số: ':'❌ Sai — đáp số đúng: ')+(right?'':show(a)));h.style.fontWeight='600';fb.appendChild(h);fb.appendChild(el('div',null,d.expl[i]))});
+    var h=el('div',null,right?'✅ Đúng — đáp số '+show(a):(isNaN(v)?'⚪ Chưa trả lời — đáp số: ':'❌ Sai — đáp số đúng: ')+(right?'':show(a)));h.style.fontWeight='600';fb.appendChild(h);var xe=el('div');xe.innerHTML=subs(d.expl[i]);fb.appendChild(xe)});
   var e=d.eans,t=d.etol,pts=0,out=[];
   var va=num(document.getElementById('e_xb').value),vb=num(document.getElementById('e_s2').value);
   var a1=ok(va,e.xb,t.xb),a2=ok(vb,e.s2,t.s2);pts+=(a1?1:0)+(a2?1:0);out.push('(a) x̄ '+(a1?'✅':'❌')+' '+show(e.xb)+'; s² '+(a2?'✅':'❌')+' '+show(e.s2)+' → '+((a1?1:0)+(a2?1:0))+'/2đ');

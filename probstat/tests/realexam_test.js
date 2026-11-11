@@ -5,6 +5,7 @@ const p=await b.newPage();await p.setViewport({width:1100,height:900});const err
 await p.goto(process.argv[2]||'http://localhost:18433/vi/de-thi-that-hk22/index.html',{waitUntil:'networkidle0'});
 const D=await p.evaluate(()=>JSON.parse(document.getElementById('realexam-data').textContent));
 console.log('mã đề',D.length,'katex-error',await p.$$eval('.katex-error',e=>e.length));
+const raw=await p.evaluate(()=>/[Ut]_\{?α|[Ut]_\{/.test(document.getElementById('realexam').innerText));console.log('chữ thô U_α trong đề hiển thị:',raw);if(raw)process.exitCode=1;
 let bad=0;
 for(let i=0;i<D.length;i++){
   await p.select('#realexam select',String(i));

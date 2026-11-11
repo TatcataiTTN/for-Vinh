@@ -274,7 +274,7 @@ function practice(host) {
   var KEY = 'bangtra-practice-v1', st = { done: {}, tab: 'all' };
   try { st = Object.assign(st, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (e) {}
   function save() { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} }
-  var types = [['all', 'Tất cả'], ['a7', 'A7 Φ(z)'], ['a8', 'A8 z, U_α'], ['a9', 'A9 Student'], ['a10', 'A10 χ²']];
+  var types = [['all', 'Tất cả'], ['a7', 'A7 Φ(z)'], ['a8', 'A8 z, U<sub>α</sub>'], ['a9', 'A9 Student'], ['a10', 'A10 χ²']];
   var bar = el('div', 'row'), box = el('div', 'qbox'), prog = el('div', 'quiz-score');
   host.appendChild(bar); host.appendChild(prog); host.appendChild(box);
   var cur = null;

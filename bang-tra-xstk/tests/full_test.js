@@ -124,7 +124,7 @@ for(const w of [360,390,768,1440]){let bad=[];for(const u of PAGES){const [p]=aw
 // ── (8) luyện tập: lọc, lưu, làm lại
 {const [p]=await open('luyen-tra/');const QS=await p.evaluate(()=>window.QUESTIONS);
  const counts={all:QS.length};['a7','a8','a9','a10'].forEach(k=>counts[k]=QS.filter(q=>q.t===k).length);
- const lab={a7:'A7 Φ(z)',a8:'A8 z, U_α',a9:'A9 Student',a10:'A10 χ²'};
+ const lab={a7:'A7 Φ(z)',a8:'A8 z, Uα',a9:'A9 Student',a10:'A10 χ²'};
  for(const k of ['a7','a8','a9','a10']){await p.evaluate(l=>[...document.querySelectorAll('.row button')].find(x=>x.textContent===l).click(),lab[k]);const s=await p.$eval('.quiz-score',x=>x.textContent);log(s.includes('Nhóm này: '+counts[k]+' câu'),'(8) tab '+k+': '+s.slice(0,30)+' khớp '+counts[k]);
   const q=await p.$eval('.qtxt',x=>x.textContent);const id=+/Câu (\d+)\./.exec(q)[1];log(QS.find(x=>x.id===id).t===k,'(8) tab '+k+' chỉ ra câu thuộc nhóm '+k)}
  await p.evaluate(l=>[...document.querySelectorAll('.row button')].find(x=>x.textContent===l).click(),'Tất cả');

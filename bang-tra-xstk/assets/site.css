@@ -54,3 +54,7 @@ footer.foot{border-top:1px solid var(--border);margin-top:40px;padding:18px 0;co
 @media print{header.top,footer.foot,.lk,.noprint,details.tbd>summary{display:none}.tbwrap{max-height:none;overflow:visible;border:0}body{background:#fff;color:#000;font-size:11px}table.tb{font-size:9px}h2{break-before:page}details.tbd{display:block}.printonly{display:block}}
 .printonly{display:none}
 table.tb.grid thead th{position:static}table.tb.grid thead th:first-child{position:sticky;left:0;z-index:3}
+
+/* điện thoại: thanh menu không dính (chiếm ~19% màn hình), neo không bị che */
+h2[id],h3[id],[id].anchor{scroll-margin-top:72px}
+@media(max-width:640px){header.top{position:static}h2[id],h3[id]{scroll-margin-top:12px}}

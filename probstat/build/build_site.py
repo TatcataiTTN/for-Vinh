@@ -88,7 +88,7 @@ def build_home():
 {callout('info', 'Cách học', '<ol><li>Xem slide của module (←/→, toàn màn hình).</li><li>Đọc ví dụ chi tiết và thử widget tương tác.</li><li>Làm quiz nhanh 10 câu, rồi vào ngân hàng luyện tập sâu.</li><li>Gần ngày thi: vào <a href="luyen-de/index.html">Luyện đề</a>; dùng <a href="bang-tra/index.html">Bảng tra</a> thay bảng A7/A8/A9.</li></ol>')}
 <h2 id="lo-trinh">Lộ trình theo đề cương (5 bài học → 13 module)</h2>{cards}'''
     write('vi/index.html', page('Trang chủ', body, 1, 'Tự học xác suất thống kê Phenikaa'))
-    write('index.html', '<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=vi/index.html"><title>Xác suất thống kê</title></head><body><a href="vi/index.html">Vào trang học xác suất thống kê</a></body></html>')
+    write('index.html', '<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=vi/index.html"><link rel="icon" href="data:,"><title>Xác suất thống kê</title></head><body><a href="vi/index.html">Vào trang học xác suất thống kê</a></body></html>')
 
 def build_tables():
     body = '''<h1>Bảng tra điện tử</h1><div class="callout good"><b class="t">Mới: site hướng dẫn đọc bảng từng bước</b><p>Chưa hiểu cách tra bảng A7, A8, A9 (chuẩn tắc, Student) trong đề? Xem <a href="../../../bang-tra-xstk/index.html">Học tra bảng XSTK</a>: bảng tương tác, ví dụ, nội suy, 240 câu luyện.</p></div><p class="lead">Thay cho các bảng A7 (hàm Φ), A8 (giá trị z), A9 (phân phối Student) kèm đề thi; thêm χ². Tính trực tiếp bằng thuật toán đã đối chiếu SciPy (3000 phép so, sai khác &lt; 10⁻⁷).</p><div class="sim" data-sim="tables"></div>
